@@ -424,3 +424,4 @@ TFM/REFERENCIA[[:space:]]BIBLIOGRAFICA/Tesis[[:space:]]Doctoral_MiguelAngel_Garc
 Visual[[:space:]]Codigo/Make[[:space:]]It[[:space:]]Stick/Make[[:space:]]It[[:space:]]Stick[[:space:]]([[:space:]]PDFDrive.com[[:space:]]).pdf filter=lfs diff=lfs merge=lfs -text
 Visual[[:space:]]Codigo/node_modules/playwright/lib/transform/babelBundle.js filter=lfs diff=lfs merge=lfs -text
 Visual[[:space:]]Codigo/node_modules/playwright-core/lib/coreBundle.js filter=lfs diff=lfs merge=lfs -text
+master_inteligencia_artificial_VIU-main.zip filter=lfs diff=lfs merge=lfs -text
