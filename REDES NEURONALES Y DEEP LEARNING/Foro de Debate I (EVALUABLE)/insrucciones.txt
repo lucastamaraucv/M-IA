@@ -1,0 +1,31 @@
+Tema de debate
+TF PLAYGROUND
+
+
+
+Foro de discusión en el que se publicarán ciertos temas a tratar por el alumnado. El intercambio de opiniones será susceptible a ser evaluado teniendo un peso del 10% sobre la calificación final de la asignatura. La presente cadena del foro tiene como objetivo evaluar la participación activa del alumn@ empleando la herramienta PlayGround de TensorFlow. 
+
+Las normas de participación en el foro son las siguientes:
+
+
+
+Se debe utilizar la herramienta PlayGround de Tensorflow con los datasets disponibles en ella (https://playground.tensorflow.org/)
+El ratio de split entre training/test se debe ajustar a 80% training / 20% test siempre.
+El numero de capas por defecto debe ser 3 hidden layers (salvo que se vaya a realizar el estudio con le numero de capas como hiperparametro).
+Cada alumno debe elegir al menos un hiperparametro sobre el que va a realizar el estudio. Este debe ser diferente a los planteados por el resto de compañeros.
+Los hiperparametros se pueden combinar y así generar otro experimento. Ej. si un compañero ha decidido hacer el estudio sobre el learning rate, el resto de compañeros deben elegir otros parámetros, o la combinación del learning rate con otro(s) parámetro(s).
+Para evitar colisionar con el resto de compañeros, se recomienda primero abrir una cadena en el foro, cuya titulo y descripción indique la elección de o los hiperparametros que vais a trabajar, de tal forma que el resto de compañero que creen la cadena posteriormente, no colisionen. 
+Aseguraos que después publicar la cadena (aunque sea solo con titulo, el contenido lo podéis editar después, o en una respuesta), no hay ya una creada con fecha anterior con el mismo estudio. Se considerara la fecha mas antigua como cadena+experimento que prevalecerá para la evaluación.
+El estudio deberá analizar al menos dos datasets de los disponibles en la herramienta y mantener el ratio obligatorio y si aplica el numero de capas por defecto.
+Las conclusiones del estudio deben ser claras y concisas, emitiendo una recomendación de en que casos se recomienda la variación del o los hiperparametros en estudio.
+
+
+IMPORTANTE: Cualquier entrega que no se ajuste a las normas, no será considerada para evaluación.
+
+FECHA LIMITE: 18 de octubre de 2026
+
+
+
+Un saludo,
+
+JM

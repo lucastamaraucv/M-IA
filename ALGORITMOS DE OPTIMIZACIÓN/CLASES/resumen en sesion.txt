@@ -1,0 +1,3054 @@
+Sí. Voy a ordenarte el curso completo siguiendo el orden real de las sesiones y, sobre todo, de la forma que te resulta más rápida para aprender: primero entender *qué problema tengo delante*, después *qué hace el algoritmo*, luego *por qué funciona* y finalmente *qué palabra o señal me permite reconocerlo en el examen*.
+
+Me baso en los PDF y resúmenes que me pasaste. El orden real del material es: Tutoría Inicial → VC1 sesión 02 → VC2 sesión 03 → AG1 sesión 04 → VC3 sesión 05 → VC4 sesión 06 → AG2 sesión 07 → VC5 sesión 08 → AG3 sesión 09 → VC6 sesión 10 → AG3 segunda parte sesión 12. 
+
+# 0. Antes de empezar: la idea que une TODO el curso
+
+El curso realmente intenta enseñarte una sola habilidad:
+
+> Me dan un problema nuevo → lo modelo → identifico qué tipo de problema es → veo qué tan grande/difícil es → elijo una técnica adecuada → analizo qué tan costosa es → evalúo si necesito el óptimo exacto o me basta una buena solución.
+
+Por eso no conviene estudiar el curso como veinte algoritmos desconectados.
+
+Piensa siempre en estas cuatro preguntas:
+
+1. ¿Qué quiero maximizar o minimizar?
+2. ¿Qué decisiones puedo tomar?
+3. ¿Qué restricciones tengo?
+4. ¿Necesito garantizar el óptimo o simplemente obtener una buena solución en tiempo razonable?
+
+Ese esquema aparece desde VC1 hasta los algoritmos genéticos. 
+
+---
+
+# SESIÓN 02 — VC1: Introducción a los algoritmos
+
+Esta sesión construye el lenguaje que usarás durante todo el curso. 
+
+## 1. ¿Qué es un algoritmo?
+
+Un algoritmo es una secuencia de pasos ordenados, precisos y finitos para resolver un problema.
+
+En simple:
+
+> entrada → proceso → salida.
+
+Ejemplo:
+
+```text
+Entrada:
+dos números
+
+Proceso:
+aplicar determinadas operaciones
+
+Salida:
+resultado
+```
+
+La palabra *finito* es importante: el procedimiento debe terminar.
+
+La palabra *preciso* también: no puede haber instrucciones ambiguas.
+
+### Frase mental
+
+> Algoritmo = procedimiento definido para transformar una entrada en una salida.
+
+---
+
+# 2. Determinista vs probabilista
+
+Esta clasificación responde:
+
+> ¿El algoritmo siempre hace exactamente el mismo recorrido?
+
+### Determinista
+
+Con la misma entrada produce el mismo comportamiento/resultado.
+
+Ejemplo conceptual:
+
+```text
+entrada A
+↓
+mismos pasos
+↓
+resultado B
+```
+
+### Probabilista
+
+Utiliza aleatoriedad.
+
+La misma entrada puede producir soluciones diferentes en ejecuciones diferentes.
+
+Esto será importantísimo cuando llegues a:
+
+* búsqueda aleatoria,
+* recocido simulado,
+* colonia de hormigas,
+* algoritmos genéticos.
+
+---
+
+# 3. Exacto vs aproximado vs heurístico
+
+Esta es una de las clasificaciones más importantes para tu examen.
+
+## Exacto
+
+Busca y garantiza el óptimo.
+
+Si termina correctamente puede decir:
+
+> esta es la mejor solución; no existe otra mejor.
+
+Ejemplos que aparecen en el curso:
+
+* fuerza bruta,
+* ramificación y poda,
+* determinados algoritmos de programación dinámica.
+
+## Aproximado
+
+Da una solución que puede no ser óptima, pero se conoce alguna garantía sobre qué tan lejos puede estar del óptimo.
+
+## Heurístico
+
+Busca una solución buena, pero no garantiza cuánto se aleja del óptimo.
+
+### Tu regla mental
+
+```text
+Exacto
+→ óptimo garantizado
+
+Aproximación
+→ no necesariamente óptimo
+→ pero existe garantía de cercanía
+
+Heurístico
+→ solución buena
+→ sin garantía de optimalidad
+```
+
+Esto te va a servir muchísimo más adelante. 
+
+---
+
+# 4. ¿Qué significa optimizar?
+
+Optimizar significa encontrar la mejor solución dentro de un conjunto de soluciones posibles.
+
+Puede ser:
+
+```text
+MAXIMIZAR
+ganancias
+rendimiento
+beneficio
+audiencia
+valor
+
+MINIMIZAR
+distancia
+coste
+tiempo
+error
+número de recursos
+```
+
+Todo problema de optimización tiene tres piezas fundamentales.
+
+## Variables
+
+Son las decisiones.
+
+Ejemplo:
+
+```text
+x = cantidad de autobuses
+```
+
+## Función objetivo
+
+Es lo que quiero mejorar.
+
+Ejemplo:
+
+```text
+Minimizar coste
+Maximizar beneficio
+```
+
+## Restricciones
+
+Son las reglas que no puedo romper.
+
+Ejemplo:
+
+```text
+capacidad ≤ 100
+x ≥ 0
+```
+
+### Frase para memorizar
+
+> Variables = qué decido.
+> Función objetivo = qué optimizo.
+> Restricciones = qué debo respetar.
+
+---
+
+# 5. Modelar → Diseñar → Analizar
+
+Esto es posiblemente el concepto más importante de toda la asignatura.
+
+## Modelar
+
+Traducir el problema real a algo que pueda procesar un algoritmo.
+
+Preguntas:
+
+```text
+¿Qué datos tengo?
+¿Qué representan?
+¿Qué variables necesito?
+¿Cuál es mi función objetivo?
+¿Cuáles son mis restricciones?
+¿Cómo represento una solución?
+```
+
+## Diseñar
+
+Elegir la técnica.
+
+Por ejemplo:
+
+```text
+Divide y vencerás
+Voraz
+Programación dinámica
+Backtracking
+Ramificación y poda
+Metaheurística
+...
+```
+
+## Analizar
+
+Preguntar cuánto cuesta ejecutar el algoritmo.
+
+Principalmente:
+
+* tiempo,
+* memoria.
+
+### Esquema mental
+
+```text
+PROBLEMA REAL
+     ↓
+MODELAR
+     ↓
+PROBLEMA MATEMÁTICO/COMPUTACIONAL
+     ↓
+DISEÑAR
+     ↓
+ALGORITMO
+     ↓
+ANALIZAR
+     ↓
+¿Es viable?
+```
+
+---
+
+# 6. Complejidad
+
+Aquí empieza otra columna vertebral del curso.
+
+No interesa tanto saber exactamente:
+
+> realiza 3 782 operaciones.
+
+Interesa saber:
+
+> ¿cómo aumenta el trabajo cuando aumenta n?
+
+El material ordena las complejidades aproximadamente así: 
+
+```text
+O(1)
+   ↓
+O(log n)
+   ↓
+O(n)
+   ↓
+O(n log n)
+   ↓
+O(n²)
+   ↓
+O(n³)
+   ↓
+O(n^k)
+   ↓
+O(2ⁿ)
+   ↓
+O(n!)
+```
+
+Las últimas dos explotan brutalmente.
+
+## Polinómica
+
+Ejemplo:
+
+```text
+n²
+n³
+n⁴
+```
+
+La n está en la base.
+
+## Exponencial
+
+```text
+2ⁿ
+```
+
+La n está en el exponente.
+
+## Factorial
+
+```text
+n!
+```
+
+Ejemplo:
+
+```text
+5! = 5×4×3×2×1
+```
+
+### Regla rápida
+
+```text
+n³   → polinómica
+2ⁿ   → exponencial
+n!   → factorial
+```
+
+Y para valores grandes:
+
+```text
+polinómica << exponencial << factorial
+```
+
+Esto explica por qué TSP se vuelve tan difícil.
+
+---
+
+# SESIÓN 03 — VC2: Diseño de algoritmos
+
+Aquí empiezas a conocer las principales estrategias exactas/deterministas del curso. 
+
+# 1. Algoritmos de ordenación
+
+El problema es sencillo:
+
+> tengo una lista y quiero ordenarla.
+
+Pero el objetivo de la sesión no es solamente aprender a ordenar.
+
+Lo importante es comparar estrategias y complejidades.
+
+---
+
+## Inserción
+
+Va construyendo poco a poco una parte ordenada de la lista.
+
+Imagina cartas en tu mano:
+
+```text
+7 2 5 3
+```
+
+Tomas una carta y la colocas donde corresponde.
+
+Conviene especialmente para listas pequeñas o parcialmente ordenadas.
+
+Según el material:
+
+```text
+mejor caso: O(n)
+peor caso: O(n²)
+```
+
+---
+
+## Burbuja
+
+Compara vecinos.
+
+```text
+5 2
+```
+
+Como están mal:
+
+```text
+2 5
+```
+
+Y repite.
+
+La idea:
+
+> los valores grandes van "subiendo" hacia el final.
+
+---
+
+## Selección
+
+Busca el mínimo o máximo y lo coloca en su lugar.
+
+Ejemplo:
+
+```text
+8 3 5 1
+
+encuentro 1
+↓
+1 3 5 8 ...
+```
+
+Tiene O(n²) independientemente de cómo venga ordenada inicialmente la lista. 
+
+---
+
+# 2. Merge Sort
+
+Aquí aparece *Divide y Vencerás*.
+
+```text
+[8,3,5,1]
+       ↓
+[8,3] [5,1]
+ ↓       ↓
+[8][3] [5][1]
+ ↓       ↓
+[3,8] [1,5]
+      ↓
+[1,3,5,8]
+```
+
+La idea:
+
+> divide el problema → resuelve cada parte → combina las respuestas.
+
+Complejidad:
+
+```text
+O(n log n)
+```
+
+en todos los casos según el material.
+
+---
+
+# 3. Quick Sort
+
+También divide.
+
+Pero utiliza un *pivote*.
+
+Ejemplo:
+
+```text
+[7,2,8,3,5]
+
+pivote = 5
+
+menores     mayores
+2,3         7,8
+```
+
+Después repite recursivamente.
+
+En el material:
+
+```text
+mejor/promedio → O(n log n)
+peor → O(n²)
+```
+
+La clave es la elección del pivote. 
+
+---
+
+# 4. Divide y Vencerás
+
+Ahora generalizamos lo anterior.
+
+## Idea central
+
+> Dividir un problema grande en problemas pequeños de la misma naturaleza, resolverlos y combinar sus soluciones.
+
+Hay una condición muy importante:
+
+> los subproblemas no deben solaparse.
+
+Esto será exactamente lo que lo diferencie de programación dinámica.
+
+### Esquema
+
+```text
+Problema
+   ↓
+─────────────
+↓           ↓
+P1          P2
+↓           ↓
+S1          S2
+─────────────
+      ↓
+ combinar
+      ↓
+ solución
+```
+
+---
+
+# 5. Técnica voraz — Greedy
+
+La técnica voraz piensa así:
+
+> en cada momento tomaré la mejor decisión disponible ahora.
+
+No piensa demasiado en el futuro.
+
+Ejemplo del cambio de monedas:
+
+```text
+cantidad = 41
+monedas = [25,10,5,1]
+
+25
+queda 16
+
+10
+queda 6
+
+5
+queda 1
+
+1
+```
+
+Resultado:
+
+```text
+25 + 10 + 5 + 1
+```
+
+## El problema
+
+Una decisión localmente óptima no siempre produce el óptimo global.
+
+Este es el gran peligro del algoritmo voraz.
+
+### Frase mental
+
+> Voraz = escoger ahora lo que parece mejor y no volver atrás.
+
+---
+
+# 6. Prim y Kruskal
+
+Aquí el curso utiliza algoritmos voraces en grafos.
+
+El problema es el *árbol de recubrimiento mínimo*.
+
+Tienes:
+
+```text
+nodos
++
+aristas con costes
+```
+
+Quieres conectar todos los nodos gastando lo mínimo posible y sin formar ciclos.
+
+## Prim
+
+Va creciendo desde los vértices ya seleccionados.
+
+Busca:
+
+> la arista más barata que conecte el árbol actual con un nodo que todavía está fuera.
+
+## Kruskal
+
+Piensa en las aristas globalmente.
+
+```text
+ordenar aristas por coste
+↓
+tomar la más barata
+↓
+si crea ciclo → descartarla
+↓
+si no crea ciclo → aceptarla
+```
+
+### Diferencia mental
+
+```text
+Prim
+→ crece desde los nodos ya conectados.
+
+Kruskal
+→ mira las aristas más baratas globalmente.
+```
+
+Los dos son voraces, pero en este problema sí pueden alcanzar el óptimo. 
+
+---
+
+# 7. Backtracking — Vuelta atrás
+
+Ahora cambia completamente la filosofía.
+
+La idea es:
+
+> construir una solución poco a poco explorando un árbol de posibilidades.
+
+Si descubro que una solución parcial ya es imposible:
+
+> regreso.
+
+Ejemplo clásico:
+
+# N-Reinas
+
+Quiero colocar N reinas sin que se ataquen.
+
+Voy poniendo:
+
+```text
+Reina 1
+   ↓
+Reina 2
+   ↓
+Reina 3
+```
+
+Si llego a:
+
+```text
+conflicto
+```
+
+no continúo.
+
+Retrocedo.
+
+```text
+BACKTRACK
+```
+
+y pruebo otra alternativa.
+
+### Frase mental
+
+> Backtracking = pruebo → si no sirve → regreso → pruebo otra opción.
+
+El problema es que en el peor caso puede explorar muchísimas combinaciones, llegando a comportamientos exponenciales. 
+
+---
+
+# 8. Programación dinámica
+
+Esta es muy importante.
+
+## Idea central
+
+> Si un subproblema se repite, no lo resuelvo otra vez: guardo su solución y la reutilizo.
+
+### Tu frase
+
+> Calcula una vez, guarda y reutiliza.
+
+Ejemplo mental:
+
+```text
+Necesito resolver A
+  ↓
+necesito B
+  ↓
+calculo B = 20
+
+más adelante...
+
+necesito B otra vez
+
+NO lo recalculo
+↓
+recupero 20
+```
+
+Tiene que existir el principio de optimalidad de Bellman.
+
+El material lo resume diciendo que, dentro de una secuencia óptima de decisiones, las subsecuencias correspondientes también deben ser óptimas. 
+
+---
+
+# Diferencia fundamental: Divide y Vencerás vs Programación Dinámica
+
+Esta pregunta es muy probable conceptualmente.
+
+```text
+DIVIDE Y VENCERÁS
+
+subproblemas
+↓
+separados
+↓
+no se repiten
+
+
+PROGRAMACIÓN DINÁMICA
+
+subproblemas
+↓
+se solapan
+↓
+se repiten
+↓
+guardo las respuestas
+```
+
+### Frase
+
+> Divide y vencerás divide.
+> Programación dinámica recuerda.
+
+---
+
+# SESIÓN 04 — AG1: aplicar las cuatro técnicas
+
+Aquí dejas de ver solamente la teoría y la conviertes en código. 
+
+# 1. Divide y vencerás → Torres de Hanoi
+
+Problema:
+
+Mover todos los discos de una torre a otra.
+
+Reglas:
+
+* mover uno por vez,
+* nunca poner un disco grande sobre uno pequeño,
+* utilizar una torre auxiliar.
+
+La solución para n discos se reduce a:
+
+```text
+mover n-1
+↓
+mover disco grande
+↓
+mover n-1
+```
+
+Es recursivo.
+
+La recurrencia del material lleva a:
+
+```text
+T(n) = 1 + 2T(n-1)
+```
+
+y aproximadamente:
+
+```text
+2ⁿ - 1
+```
+
+movimientos.
+
+Por eso su complejidad es exponencial:
+
+```text
+O(2ⁿ)
+```
+
+---
+
+# 2. Voraz → Cambio de monedas
+
+El algoritmo ordena las monedas de mayor a menor y va escogiendo tantas como puede.
+
+Pero el AG demuestra algo muy importante:
+
+> no funciona para todos los sistemas monetarios.
+
+Por ejemplo, en determinados sistemas elegir siempre la moneda más grande disponible produce más monedas que otra combinación.
+
+Eso te enseña:
+
+> una estrategia voraz debe justificarse; no porque parezca lógica significa que siempre dé el óptimo.
+
+---
+
+# 3. Backtracking → N-Reinas
+
+Aquí implementas la idea:
+
+```text
+coloco reina
+↓
+¿solución parcial válida?
+
+sí → sigo
+
+no → regreso
+```
+
+El truco importante no está solamente en explorar.
+
+Está en la función que detecta pronto:
+
+```text
+"por aquí ya no existe una solución posible"
+```
+
+Mientras antes descartes una rama, menos trabajo haces.
+
+---
+
+# 4. Programación dinámica → Viaje por el río
+
+Tienes varios embarcaderos.
+
+Ir directamente de:
+
+```text
+A → D
+```
+
+puede costar 50.
+
+Pero:
+
+```text
+A → B → D
+```
+
+podría costar:
+
+```text
+20 + 15 = 35
+```
+
+Por eso hay que comparar trayectos directos e intermedios.
+
+La tabla P(i,j) guarda el mejor coste conocido.
+
+El material utiliza:
+
+```text
+P(i,j) =
+min {
+    T(i,j),
+    P(i,k) + T(k,j)
+}
+```
+
+La implementación concreta del ejercicio trabaja aproximadamente en:
+
+```text
+O(n³)
+```
+
+Pero ojo:
+
+> programación dinámica NO significa O(n³).
+
+Eso solamente corresponde a ese problema concreto. 
+
+---
+
+# SESIÓN 05 — VC3: Problemas tipo y algoritmos de búsqueda
+
+Esta sesión es enorme, pero mentalmente se puede dividir en:
+
+```text
+1. Problemas de optimización clásicos
+2. Caminos en grafos
+3. Búsqueda en árboles
+```
+
+
+
+# 1. Programación lineal
+
+Problema:
+
+> maximizar o minimizar una función lineal respetando restricciones también lineales.
+
+Ejemplo:
+
+```text
+Max 3x + 5y
+
+sujeto a
+
+x ≤ 4
+2y ≤ 12
+3x + 2y ≤ 18
+```
+
+Todo es lineal porque las variables aparecen con grado 1.
+
+```text
+3x + 5y
+```
+
+sí.
+
+```text
+x² + 5y
+```
+
+no.
+
+---
+
+# 2. Región factible
+
+Las restricciones crean una zona donde están permitidas las soluciones.
+
+```text
+todas las soluciones posibles
+↓
+restricciones
+↓
+región factible
+```
+
+Entonces buscas dentro de esa región el punto que optimice la función objetivo.
+
+---
+
+# 3. Simplex
+
+Simplex resuelve problemas de programación lineal.
+
+Va recorriendo puntos de la frontera de la región factible hasta llegar al óptimo.
+
+No tiene que revisar cada punto posible. 
+
+### Frase mental
+
+> Simplex = optimización lineal continua.
+
+---
+
+# 4. Programación lineal entera
+
+Ahora aparece un problema.
+
+Supongamos:
+
+```text
+x = número de camiones
+```
+
+Simplex podría decir:
+
+```text
+x = 2.6
+```
+
+Pero no existen:
+
+```text
+2.6 camiones
+```
+
+Necesitamos:
+
+```text
+x ∈ enteros
+```
+
+o incluso:
+
+```text
+x ∈ {0,1}
+```
+
+No es correcto simplemente redondear porque puedes:
+
+* romper restricciones,
+* perder el verdadero óptimo entero.
+
+### Regla
+
+> Si el problema exige enteros, se resuelve como problema entero.
+
+
+
+---
+
+# 5. TSP — Problema del Agente Viajero
+
+Este es posiblemente el problema más importante como hilo conductor del curso.
+
+## Problema
+
+Tienes varias ciudades.
+
+Quieres:
+
+```text
+salir de una ciudad
+↓
+visitar todas
+↓
+una sola vez
+↓
+volver al origen
+↓
+minimizando distancia/coste
+```
+
+Ejemplo:
+
+```text
+Lima
+ ↓
+Ica
+ ↓
+Arequipa
+ ↓
+Cusco
+ ↓
+Lima
+```
+
+## Importante
+
+TSP es un *problema*.
+
+No es un algoritmo.
+
+Se puede intentar resolver utilizando:
+
+* fuerza bruta,
+* ramificación y poda,
+* heurísticas,
+* recocido simulado,
+* colonia de hormigas,
+* algoritmos genéticos.
+
+---
+
+# 6. ¿Por qué TSP se vuelve difícil?
+
+El número de rutas crece factorialmente.
+
+Para el TSP simétrico fijando el origen:
+
+```text
+(n-1)! / 2
+```
+
+Con muchas ciudades el número se vuelve gigantesco. 
+
+Por eso:
+
+```text
+pocas ciudades
+→ exactos todavía pueden servir
+
+muchísimas ciudades
+→ normalmente necesitas otra estrategia
+```
+
+Aquí empieza a prepararse el terreno para VC5.
+
+---
+
+# 7. Mochila 0/1
+
+Tienes:
+
+```text
+objetos
++
+peso
++
+valor
++
+capacidad limitada
+```
+
+Quieres escoger los objetos con mayor valor total sin superar la capacidad.
+
+Matemáticamente:
+
+```text
+Max Σ xi vi
+
+sujeto a
+
+Σ xi wi ≤ M
+
+xi ∈ {0,1}
+```
+
+0 significa:
+
+> no tomo el objeto.
+
+1:
+
+> sí lo tomo.
+
+No puedes tomar:
+
+```text
+0.34 laptop
+```
+
+porque es mochila 0/1.
+
+---
+
+# 8. Por qué Greedy puede fallar en Mochila
+
+El ejemplo del curso muestra que escoger primero el objeto aparentemente mejor puede bloquear una combinación global mejor.
+
+La enseñanza:
+
+> mejor decisión local ≠ necesariamente mejor solución global.
+
+Por eso el material remarca que la técnica voraz no funciona de forma general para la mochila 0/1. 
+
+---
+
+# 9. Camino más corto
+
+Esto NO es TSP.
+
+## TSP
+
+```text
+visitar todos los nodos
++
+volver al inicio
+```
+
+## Camino más corto
+
+```text
+ir desde A hasta B
+con el menor coste
+```
+
+No necesitas visitar todos los nodos.
+
+Esta distinción es fundamental.
+
+---
+
+# 10. Dijkstra
+
+Encuentra caminos mínimos desde un nodo origen hacia los demás.
+
+Condición importantísima:
+
+> no admite aristas con coste negativo.
+
+Tu forma de recordarlo:
+
+> Dijkstra = rápido y clásico, pero pesos no negativos.
+
+
+
+---
+
+# 11. Bellman-Ford
+
+También busca caminos mínimos.
+
+Pero admite pesos negativos.
+
+El precio:
+
+> es más lento que Dijkstra.
+
+### Comparación mental
+
+```text
+Dijkstra
+→ más rápido
+→ no negativos
+
+Bellman-Ford
+→ más lento
+→ admite negativos
+```
+
+---
+
+# 12. Floyd-Warshall
+
+Aquí cambia la pregunta.
+
+Dijkstra/Bellman-Ford pueden partir de un origen.
+
+Floyd-Warshall busca:
+
+> caminos mínimos entre todos los pares de nodos.
+
+```text
+A → B
+A → C
+A → D
+
+B → A
+B → C
+B → D
+
+...
+```
+
+### Regla mental
+
+> Floyd-Warshall = todos contra todos.
+
+
+
+---
+
+# 13. BFS — Búsqueda en amplitud
+
+Explora nivel por nivel.
+
+```text
+        A
+      /   \
+     B     C
+    / \   / \
+   D   E F   G
+```
+
+BFS:
+
+```text
+A
+B C
+D E F G
+```
+
+Utiliza conceptualmente una cola:
+
+> los hijos se colocan al final.
+
+
+
+### Frase
+
+> BFS = primero ancho, después profundo.
+
+---
+
+# 14. DFS — Búsqueda en profundidad
+
+DFS hace lo contrario.
+
+```text
+A
+↓
+B
+↓
+D
+```
+
+Llega tan profundo como puede.
+
+Después vuelve.
+
+En el esquema del curso la diferencia respecto a BFS está básicamente en colocar los nuevos hijos al principio en lugar de al final. 
+
+### Frase
+
+> DFS = primero me hundo en una rama.
+
+---
+
+# 15. A*
+
+A* añade inteligencia a la búsqueda.
+
+Usa:
+
+```text
+f(n) = g(n) + h(n)
+```
+
+## g(n)
+
+Lo que ya me costó llegar hasta el nodo.
+
+## h(n)
+
+Estimación de lo que me falta.
+
+Entonces:
+
+```text
+f(n)
+=
+coste recorrido
++
+estimación restante
+```
+
+### Ejemplo mental
+
+Tienes dos caminos.
+
+```text
+camino A
+ya gasté 20
+estimo 100 restantes
+
+f = 120
+```
+
+```text
+camino B
+ya gasté 30
+estimo 20 restantes
+
+f = 50
+```
+
+A* considera B mucho más prometedor.
+
+### Frase
+
+> Dijkstra mira principalmente lo recorrido.
+> A* añade una estimación de lo que falta.
+
+El material desarrolla A* dentro del bloque de búsqueda en amplitud y utiliza como ejemplos heurísticos el número de piezas mal colocadas y la distancia Manhattan del puzzle-8. 
+
+---
+
+# 16. Ramificación y Poda — Branch and Bound
+
+Esta técnica es muy importante porque conecta:
+
+```text
+exactos
+↔
+búsqueda en árboles
+```
+
+La idea:
+
+> exploro posibilidades, pero elimino ramas que ya sé que no pueden mejorar mi mejor solución.
+
+## Ramificar
+
+Crear alternativas.
+
+```text
+             raíz
+          /   |   \
+         A    B    C
+```
+
+## Podar
+
+Descartar ramas completas.
+
+Supón que ya tienes una solución de coste:
+
+```text
+100
+```
+
+Empiezas otra ruta y sabes que incluso en el mejor escenario terminará costando:
+
+```text
+≥ 130
+```
+
+Entonces:
+
+```text
+130 > 100
+```
+
+No tiene sentido continuar.
+
+```text
+PODA
+```
+
+### Frase
+
+> Ramificar = generar opciones.
+> Podar = eliminar las que ya no pueden ganar.
+
+Sigue siendo un método exacto, pero su peor caso puede continuar siendo exponencial. 
+
+---
+
+# 17. MinMax y poda alfa-beta
+
+El material también introduce MinMax para juegos adversariales.
+
+Idea:
+
+> escojo mi mejor movimiento suponiendo que mi rival escogerá el movimiento que más me perjudica.
+
+La poda alfa-beta intenta evitar explorar ramas que ya sabemos que no cambiarán la decisión final. 
+
+---
+
+# SESIÓN 06 — VC4: Complejidad P/NP + Descenso del Gradiente
+
+Aquí el curso cambia de nivel.
+
+Primero responde:
+
+> ¿por qué algunos problemas prácticamente no pueden atacarse con exactos cuando crecen?
+
+Luego introduce optimización continua. 
+
+# 1. P
+
+Para la simplificación utilizada en el curso:
+
+> problemas que podemos resolver en tiempo polinómico.
+
+Ejemplo conceptual:
+
+```text
+O(n)
+O(n²)
+O(n³)
+```
+
+No significa necesariamente que todo polinomio sea rápido en cualquier situación, pero es la categoría considerada computacionalmente manejable frente al crecimiento exponencial/factorial.
+
+---
+
+# 2. NP
+
+La idea que te conviene manejar para el examen:
+
+> una solución propuesta puede verificarse en tiempo polinómico, aunque no conozcamos necesariamente un algoritmo polinómico para encontrarla.
+
+### Frase
+
+> P = puedo resolver rápido.
+> NP = puedo verificar rápido.
+
+En el marco simplificado utilizado por las diapositivas. 
+
+---
+
+# 3. NP-Completo
+
+Son los problemas especialmente representativos/difíciles dentro de NP.
+
+La idea clave del curso:
+
+> si lográramos resolver uno de ellos en tiempo polinómico, se produciría P = NP.
+
+Ejemplo presentado:
+
+```text
+SAT
+```
+
+---
+
+# 4. NP-Duro
+
+Un NP-Duro es al menos tan difícil como los problemas de NP y ni siquiera tiene por qué pertenecer a NP.
+
+Ejemplo de la clase:
+
+```text
+TSP de optimización
+```
+
+### Mapa
+
+```text
+P
+⊂
+NP
+
+NP-Completo
+→ dentro del núcleo difícil de NP
+
+NP-Duro
+→ al menos tan difícil como NP
+→ puede estar fuera de NP
+```
+
+---
+
+# 5. ¿Por qué esto importa para optimización?
+
+Porque explica el cambio de filosofía del curso.
+
+Hasta aquí buscábamos muchas veces:
+
+```text
+SOLUCIÓN ÓPTIMA
+```
+
+Pero cuando los problemas son enormes:
+
+```text
+exacto
+→ demasiado tiempo/memoria
+```
+
+Entonces VC5 responde:
+
+```text
+¿y si renuncio a garantizar el óptimo
+a cambio de una solución muy buena?
+```
+
+Ahí nacen las metaheurísticas.
+
+---
+
+# 6. Descenso del Gradiente
+
+Ahora cambiamos a optimización continua.
+
+## Problema
+
+Tenemos una función:
+
+```text
+f(x,y,...)
+```
+
+y queremos encontrar su mínimo.
+
+Ejemplo visual:
+
+```text
+        montaña
+       /      \
+      /        \
+     /          \
+    ↓            ↓
+          valle
+```
+
+Quieres bajar hasta el valle.
+
+---
+
+# 7. Gradiente
+
+En una función de una variable tienes una derivada.
+
+En varias variables tienes varias derivadas parciales.
+
+El gradiente las reúne:
+
+```text
+∇f =
+(
+∂f/∂x₁,
+∂f/∂x₂,
+...
+)
+```
+
+El gradiente apunta hacia donde la función aumenta más rápidamente.
+
+Entonces para minimizar:
+
+> camino en sentido contrario al gradiente.
+
+
+
+---
+
+# 8. Fórmula del descenso del gradiente
+
+La fórmula central es:
+
+```text
+p(t+1) = p(t) - αt ∇f(p(t))
+```
+
+Piénsala así:
+
+```text
+nuevo punto
+=
+punto actual
+-
+paso × pendiente
+```
+
+α es la tasa de aprendizaje.
+
+---
+
+# 9. Learning rate α
+
+Esto determina cuánto avanzas en cada iteración.
+
+## α demasiado grande
+
+```text
+te pasas del mínimo
+↔
+oscilas
+↔
+puedes no converger
+```
+
+## α demasiado pequeño
+
+```text
+avanzas
+pero extremadamente lento
+```
+
+Por eso el material propone reducir α dinámicamente al acercarse a la solución. 
+
+---
+
+# 10. Convexidad
+
+Esto es esencial.
+
+Una función convexa se puede imaginar como un recipiente:
+
+```text
+\         /
+ \       /
+  \     /
+   \___/
+```
+
+Tiene un mínimo global.
+
+Entonces, bajo las condiciones trabajadas en el curso:
+
+> encontrar ese mínimo significa encontrar el óptimo global.
+
+En una función no convexa puedes tener:
+
+```text
+\_/¯\___/¯\_/
+```
+
+varios mínimos locales.
+
+El descenso puede caer en uno de ellos.
+
+---
+
+# 11. Batch, estocástico y mini-batch
+
+El material diferencia tres variantes.
+
+## Batch
+
+Utiliza todos los datos para calcular cada actualización.
+
+```text
+estable
+pero costoso
+```
+
+## Estocástico
+
+Utiliza un dato.
+
+```text
+rápido
+pero más ruidoso/disperso
+```
+
+## Mini-batch
+
+Utiliza grupos pequeños.
+
+```text
+compromiso entre ambos
+```
+
+Esta idea conecta directamente con aprendizaje automático y redes neuronales. 
+
+---
+
+# SESIÓN 07 — AG2: Ramificación y Poda + Descenso del Gradiente
+
+El PDF comienza con un repaso de programación dinámica, pero el núcleo práctico de esta sesión está en Ramificación y Poda y Descenso del Gradiente. 
+
+# 1. Asignación de tareas
+
+Tienes:
+
+```text
+N agentes
+N tareas
+```
+
+Cada asignación produce un coste o beneficio.
+
+Debes decidir:
+
+```text
+qué agente
+↓
+realiza qué tarea
+```
+
+para maximizar beneficio o minimizar coste.
+
+---
+
+# 2. Representación
+
+Una solución puede ser:
+
+```text
+(1,0,3,2)
+```
+
+Interpretación:
+
+```text
+agente 0 → tarea 1
+agente 1 → tarea 0
+agente 2 → tarea 3
+agente 3 → tarea 2
+```
+
+Eso convierte el problema en un árbol de decisiones. 
+
+---
+
+# 3. Cotas
+
+Aquí aparece la verdadera potencia de Branch and Bound.
+
+Para cada solución parcial calculamos una estimación de qué tan buena podría llegar a ser.
+
+Luego preguntamos:
+
+> incluso en el mejor escenario, ¿esta rama podría superar lo que ya tengo?
+
+Si no:
+
+```text
+PODA.
+```
+
+Así evitas recorrer todas las permutaciones.
+
+---
+
+# 4. Fuerza bruta vs Ramificación y Poda
+
+Fuerza bruta:
+
+```text
+prueba absolutamente todo.
+```
+
+Ramificación y poda:
+
+```text
+explora
++
+descarta ramas completas.
+```
+
+Ambos pueden buscar el óptimo.
+
+La diferencia es que Branch and Bound intenta evitar trabajo inútil.
+
+Pero ojo:
+
+> en el peor caso puede no poder podar casi nada.
+
+Por eso sigue pudiendo tener complejidad exponencial. 
+
+---
+
+# 5. Práctica de Descenso del Gradiente
+
+El ejercicio utiliza:
+
+```text
+f(x,y)=x²+y²
+```
+
+Gradiente:
+
+```text
+∇f = (2x,2y)
+```
+
+El mínimo es claramente:
+
+```text
+(0,0)
+```
+
+Con tasa de aprendizaje 0.1 y 500 iteraciones, la ejecución mostrada en el material termina prácticamente en el origen. 
+
+Eso demuestra visualmente:
+
+```text
+punto aleatorio
+↓
+gradiente
+↓
+gradiente
+↓
+gradiente
+↓
+(0,0)
+```
+
+---
+
+# SESIÓN 08 — VC5: Heurísticas y Metaheurísticas
+
+Esta es otra de las sesiones más importantes del curso.
+
+Aquí cambias de:
+
+```text
+quiero demostrar que encontré el óptimo
+```
+
+a:
+
+```text
+quiero encontrar una solución muy buena
+en tiempo razonable
+```
+
+
+
+# 1. Heurística vs Metaheurística
+
+Según el material:
+
+## Heurística
+
+Algoritmo concreto.
+
+## Metaheurística
+
+Estrategia general que puede adaptarse a distintos problemas.
+
+Ejemplos de metaheurísticas:
+
+* búsqueda tabú,
+* recocido simulado,
+* GRASP,
+* colonia de hormigas,
+* algoritmos genéticos.
+
+---
+
+# 2. ¿Cuándo usar metaheurísticas?
+
+Cuando:
+
+```text
+método exacto no existe
+```
+
+o:
+
+```text
+existe
+pero tarda demasiado
+```
+
+o:
+
+```text
+no necesito el óptimo absoluto
+```
+
+y prefiero:
+
+```text
+una solución muy buena
++
+tiempo controlable
+```
+
+---
+
+# 3. Eficacia, bondad y robustez
+
+El material evalúa heurísticas según:
+
+## Eficacia
+
+Cuánto esfuerzo computacional necesitan.
+
+## Bondad
+
+Qué tan cerca suelen quedar del óptimo.
+
+## Robustez
+
+Qué tan fiable es el comportamiento entre distintas ejecuciones.
+
+---
+
+# 4. Intensificación vs Diversificación
+
+Este concepto explica casi todas las metaheurísticas.
+
+## Intensificación
+
+Explorar muy bien una zona prometedora.
+
+```text
+encontré algo bueno
+↓
+busco alrededor
+↓
+busco todavía más alrededor
+```
+
+## Diversificación
+
+Ir a regiones diferentes.
+
+```text
+quizás estoy atrapado aquí
+↓
+voy a explorar otra zona
+```
+
+### Problema
+
+Demasiada intensificación:
+
+```text
+mínimo local.
+```
+
+Demasiada diversificación:
+
+```text
+mucho paseo aleatorio
+sin explotar buenas soluciones.
+```
+
+Objetivo:
+
+> equilibrio.
+
+
+
+---
+
+# 5. Búsqueda aleatoria
+
+Es la referencia más sencilla.
+
+```text
+generar solución aleatoria
+↓
+evaluar
+↓
+guardar si mejora
+↓
+repetir
+```
+
+No aprende demasiado del pasado.
+
+Pero sirve como línea base.
+
+Si una técnica sofisticada no supera claramente la búsqueda aleatoria:
+
+> posiblemente la técnica no está aportando demasiado.
+
+---
+
+# 6. Búsqueda local
+
+Empiezas con una solución.
+
+Luego generas soluciones cercanas:
+
+```text
+solución
+↓
+vecinos
+↓
+escojo uno mejor
+↓
+nuevo conjunto de vecinos
+↓
+...
+```
+
+
+
+---
+
+# 7. ¿Qué es una vecindad?
+
+Vecindad significa:
+
+> soluciones parecidas a la solución actual obtenidas mediante pequeños movimientos.
+
+Para TSP:
+
+```text
+1 2 3 4 5 6
+```
+
+podemos intercambiar 3 y 5:
+
+```text
+1 2 5 4 3 6
+```
+
+Ese sería un vecino.
+
+El operador que genera vecinos es crítico.
+
+En TSP el curso muestra, entre otros:
+
+* insertar una ciudad en otra posición,
+* intercambiar dos ciudades,
+* invertir una subsecuencia,
+* barajar una subsecuencia. 
+
+---
+
+# 8. Problema de la búsqueda local
+
+Puede llegar a:
+
+```text
+solución actual = 100
+vecinos = 103, 105, 108
+```
+
+Entonces dice:
+
+> ninguno mejora 100.
+
+Y se detiene.
+
+Pero podría existir en otra región:
+
+```text
+80
+```
+
+El algoritmo no llega porque para escapar tendría que aceptar temporalmente algo peor.
+
+Eso es:
+
+> mínimo local.
+
+---
+
+# 9. Búsqueda Tabú
+
+Soluciona parte del problema utilizando memoria.
+
+Idea:
+
+> puedo moverme incluso hacia soluciones peores, pero recuerdo ciertos movimientos/soluciones recientes para evitar volver inmediatamente atrás.
+
+La *lista tabú* puede almacenar:
+
+* soluciones,
+* movimientos,
+* atributos.
+
+
+
+### Ejemplo
+
+```text
+A → B → C
+```
+
+Sin memoria:
+
+```text
+C → B → C → B...
+```
+
+Con lista tabú:
+
+```text
+volver a B está temporalmente prohibido
+```
+
+Así obliga a explorar otra dirección.
+
+### Frase
+
+> Tabú = búsqueda local + memoria + prohibiciones temporales.
+
+---
+
+# 10. Recocido Simulado
+
+Este ya lo vienes manejando bien.
+
+La idea:
+
+> al principio permite soluciones peores para escapar de mínimos locales; con el tiempo se vuelve más estricto.
+
+
+
+## Temperatura alta
+
+```text
+acepta bastante
+↓
+explora
+↓
+diversificación
+```
+
+## Temperatura baja
+
+```text
+acepta cada vez menos soluciones peores
+↓
+se concentra
+↓
+intensificación
+```
+
+---
+
+# 11. Probabilidad de aceptar una solución peor
+
+El material utiliza el criterio:
+
+```text
+P = exp(-δ/T)
+```
+
+donde:
+
+```text
+δ = diferencia de coste
+T = temperatura
+```
+
+Entonces:
+
+### T alta
+
+Probabilidad grande de aceptar peor.
+
+### T baja
+
+Probabilidad pequeña.
+
+### Diferencia pequeña
+
+Más fácil aceptar.
+
+### Diferencia grande
+
+Más difícil aceptar.
+
+
+
+### Tu frase exacta
+
+> Recocido simulado explora mucho al inicio y se vuelve cada vez más exigente mientras se enfría.
+
+---
+
+# 12. Multiarranque
+
+Otra solución al mínimo local.
+
+En lugar de aceptar peores:
+
+```text
+inicio A
+↓
+búsqueda local
+↓
+mínimo local A
+
+reinicio B
+↓
+búsqueda local
+↓
+mínimo local B
+
+reinicio C...
+```
+
+Finalmente:
+
+```text
+me quedo con el mejor.
+```
+
+### Frase
+
+> Multiarranque = varias búsquedas locales desde puntos iniciales diferentes.
+
+---
+
+# 13. GRASP
+
+GRASP combina:
+
+```text
+Greedy
++
+Randomized
++
+Adaptive
++
+Search
+```
+
+La idea básica es crear soluciones usando una lista restringida de candidatos buenos.
+
+No selecciona siempre:
+
+```text
+EL mejor candidato.
+```
+
+Hace:
+
+```text
+mejores candidatos
+↓
+Lista Restringida
+↓
+elige uno aleatoriamente
+```
+
+Luego mejora esa solución mediante búsqueda local.
+
+
+
+### Diferencia con Greedy puro
+
+Greedy:
+
+```text
+siempre mejor opción local
+```
+
+GRASP:
+
+```text
+grupo de buenas opciones
+↓
+escojo aleatoriamente una
+```
+
+Esto añade diversidad.
+
+---
+
+# 14. Colonia de Hormigas — ACO
+
+Inspirada en cómo las hormigas utilizan feromonas.
+
+Cada hormiga construye una solución.
+
+Los buenos caminos reciben más feromona.
+
+Entonces otras hormigas tienen mayor probabilidad de seguirlos.
+
+```text
+buena ruta
+↓
+más feromona
+↓
+más hormigas la utilizan
+↓
+más refuerzo
+```
+
+Pero existe evaporación.
+
+```text
+feromona
+↓
+disminuye con el tiempo
+```
+
+¿Por qué?
+
+Para evitar quedarse eternamente atrapado en caminos que parecieron buenos inicialmente.
+
+
+
+### Frase
+
+> ACO = muchas soluciones colaboran indirectamente mediante feromonas.
+
+---
+
+# SESIÓN 09 — AG3: Metaheurísticas aplicadas al TSP
+
+Aquí coges el mismo problema TSP y pruebas diferentes estrategias.
+
+Eso es perfecto para aprender porque el problema no cambia:
+
+```text
+TSP
+```
+
+lo que cambia es:
+
+```text
+el algoritmo.
+```
+
+
+
+# 1. Instancia Swiss42
+
+Se usa:
+
+```text
+42 ciudades
+```
+
+de TSPLIB.
+
+La mejor distancia conocida indicada en el material es:
+
+```text
+1273
+```
+
+
+
+---
+
+# 2. Búsqueda aleatoria
+
+Se generan rutas completamente aleatorias y se conserva la mejor.
+
+En la ejecución mostrada:
+
+```text
+5000 iteraciones
+→ 3495
+```
+
+Muy lejos de:
+
+```text
+1273
+```
+
+---
+
+# 3. Búsqueda local
+
+Se utiliza un operador de vecindad tipo 2-opt/intercambio.
+
+La ejecución mostrada mejora aproximadamente:
+
+```text
+3712
+↓
+3255
+↓
+...
+↓
+1749
+```
+
+tras 42 iteraciones.
+
+Mucho mejor que la búsqueda aleatoria de ese ejemplo. 
+
+---
+
+# 4. Recocido Simulado
+
+Genera un vecino.
+
+Si mejora:
+
+```text
+aceptar.
+```
+
+Si empeora:
+
+```text
+quizá aceptar.
+```
+
+La probabilidad depende de la temperatura.
+
+En el ejemplo del material termina en:
+
+```text
+1906
+```
+
+Pero esto NO significa:
+
+> búsqueda local siempre es mejor que recocido.
+
+Son metaheurísticas probabilistas y el resultado depende de:
+
+* parámetros,
+* punto inicial,
+* operador de vecindad,
+* número de iteraciones,
+* temperatura,
+* enfriamiento.
+
+Ese resultado solamente pertenece a esa ejecución concreta. 
+
+---
+
+# ¿Qué intenta enseñarte AG3?
+
+Esto:
+
+```text
+MISMO PROBLEMA
+TSP
+
+       ↓
+
+búsqueda aleatoria
+búsqueda local
+recocido simulado
+ACO
+
+       ↓
+
+resultados diferentes
+```
+
+Por tanto:
+
+> elegir el algoritmo importa muchísimo.
+
+Y enlaza con la idea de VC5:
+
+> no existe una técnica universalmente mejor para todos los problemas.
+
+---
+
+# SESIÓN 10 — VC6: Algoritmos Genéticos
+
+Ahora pasamos de trabajar con:
+
+```text
+UNA solución
+```
+
+a trabajar con:
+
+```text
+UNA POBLACIÓN de soluciones.
+```
+
+Eso es el cambio conceptual principal. 
+
+# 1. Idea biológica
+
+La inspiración es:
+
+```text
+población
+↓
+selección
+↓
+reproducción
+↓
+mutación
+↓
+nueva generación
+↓
+selección
+↓
+...
+```
+
+Las soluciones mejores tienen más posibilidades de dejar descendencia.
+
+---
+
+# 2. Traducción a optimización
+
+Biología:
+
+```text
+individuo
+```
+
+Optimización:
+
+```text
+solución candidata
+```
+
+Biología:
+
+```text
+población
+```
+
+Optimización:
+
+```text
+conjunto de soluciones
+```
+
+Biología:
+
+```text
+adaptación
+```
+
+Optimización:
+
+```text
+fitness
+```
+
+Biología:
+
+```text
+generación
+```
+
+Optimización:
+
+```text
+iteración del algoritmo
+```
+
+---
+
+# 3. Cromosoma, gen y alelo
+
+Un individuo se codifica.
+
+Ejemplo binario:
+
+```text
+1 0 1 1 0
+```
+
+Todo:
+
+```text
+10110
+```
+
+es el cromosoma.
+
+Cada posición:
+
+```text
+1
+0
+1
+...
+```
+
+es un gen.
+
+El valor que toma el gen es el alelo.
+
+---
+
+# 4. Fitness
+
+Fitness es básicamente:
+
+> la función que mide qué tan buena es una solución.
+
+El propio material identifica la función de fitness con la función objetivo del problema. 
+
+Ejemplo TSP:
+
+```text
+individuo:
+[0,3,2,1,4]
+
+fitness:
+distancia total
+```
+
+Si estamos minimizando:
+
+```text
+menor distancia
+→ mejor individuo.
+```
+
+---
+
+# 5. Población inicial
+
+Normalmente se generan muchas soluciones aleatorias.
+
+Pero debe existir diversidad.
+
+Si los 500 individuos son casi iguales:
+
+```text
+no estoy explorando realmente 500 posibilidades.
+```
+
+La variedad inicial ayuda a explorar distintas regiones. 
+
+---
+
+# 6. Selección
+
+Elegimos qué individuos tendrán más posibilidad de reproducirse o sobrevivir.
+
+Los mejores tienen ventaja.
+
+Pero no siempre significa:
+
+```text
+matar absolutamente a todos los demás.
+```
+
+La aleatoriedad ayuda a conservar diversidad.
+
+---
+
+# 7. Cruce — Crossover
+
+Tomamos dos padres:
+
+```text
+Padre A
+111|000
+
+Padre B
+000|111
+```
+
+Intercambiamos partes:
+
+```text
+Hijo
+111|111
+```
+
+En términos de búsqueda:
+
+> intenta combinar buenas características que ya existen.
+
+El material relaciona el cruce principalmente con intensificación. 
+
+---
+
+# 8. Mutación
+
+Modificamos algo aleatoriamente.
+
+```text
+101010
+   ↓
+101110
+```
+
+Su función principal:
+
+> introducir diversidad.
+
+Puede permitir llegar a regiones que el cruce por sí solo nunca alcanzaría.
+
+El material la relaciona con diversificación. 
+
+---
+
+# 9. Cruce vs Mutación
+
+Tu resumen:
+
+```text
+CRUCE
+→ combina lo bueno que ya existe.
+
+MUTACIÓN
+→ introduce algo nuevo/diferente.
+```
+
+Necesitas equilibrio.
+
+Sin mutación:
+
+```text
+riesgo de perder diversidad.
+```
+
+Con demasiada mutación:
+
+```text
+el algoritmo se vuelve casi aleatorio.
+```
+
+---
+
+# 10. Elitismo
+
+Elitismo significa:
+
+> los mejores individuos pasan automáticamente a la siguiente generación.
+
+Esto evita:
+
+```text
+encontré una solución excelente
+↓
+cruce/mutación aleatoria
+↓
+la perdí
+```
+
+La clase destaca especialmente la importancia del elitismo para la convergencia. 
+
+---
+
+# 11. Métodos de selección
+
+El curso introduce varios.
+
+## Ruleta
+
+Probabilidad proporcional al fitness.
+
+El mejor tiene más oportunidades, pero otros también pueden ser seleccionados.
+
+## Ranking
+
+Primero ordenas los individuos.
+
+Luego asignas probabilidad según la posición.
+
+## Torneo
+
+Escoges algunos individuos al azar:
+
+```text
+A B C D
+```
+
+y seleccionas al mejor de ese grupo.
+
+
+
+---
+
+# 12. Ciclo completo del Algoritmo Genético
+
+Esto sí debes poder recitar conceptualmente:
+
+```text
+1. Crear población inicial
+
+2. Evaluar fitness
+
+3. Seleccionar padres/supervivientes
+
+4. Cruzar
+
+5. Mutar
+
+6. Crear nueva población
+
+7. Evaluar
+
+8. Repetir generaciones
+
+9. Devolver mejor solución
+```
+
+Más corto:
+
+```text
+POBLACIÓN
+   ↓
+EVALUACIÓN
+   ↓
+SELECCIÓN
+   ↓
+CRUCE
+   ↓
+MUTACIÓN
+   ↓
+NUEVA POBLACIÓN
+   ↺
+```
+
+
+
+---
+
+# SESIÓN 12 — AG3 segunda parte: Algoritmo Genético aplicado al TSP
+
+Esta sesión junta:
+
+```text
+TSP
++
+Algoritmos Genéticos
+```
+
+
+
+# 1. Representación
+
+Un individuo es una ruta:
+
+```text
+[0,3,5,2,1,4]
+```
+
+Es una permutación.
+
+Cada ciudad debe aparecer exactamente una vez.
+
+---
+
+# 2. Población
+
+Generas muchas rutas.
+
+```text
+Ruta 1
+Ruta 2
+Ruta 3
+...
+Ruta N
+```
+
+---
+
+# 3. Fitness
+
+Evaluas:
+
+```text
+distancia_total(ruta)
+```
+
+Menor distancia:
+
+```text
+mejor individuo.
+```
+
+---
+
+# 4. Cruce y problema de factibilidad
+
+Aquí aparece un detalle importantísimo.
+
+Supón:
+
+```text
+Padre A
+1 2 3 | 4 5 6
+
+Padre B
+4 5 6 | 1 2 3
+```
+
+Un cruce ingenuo podría generar:
+
+```text
+1 2 3 | 1 2 3
+```
+
+Problema:
+
+```text
+1,2,3 repetidos
+4,5,6 desaparecieron
+```
+
+Eso NO es una ruta TSP válida.
+
+Por eso el código necesita:
+
+```text
+Factibilizar(...)
+```
+
+para reparar al hijo. 
+
+Este concepto es excelente para examen:
+
+> el operador genético debe respetar la representación y restricciones del problema.
+
+---
+
+# 5. Mutación TSP
+
+Se seleccionan dos ciudades y se intercambian.
+
+```text
+1 2 3 4 5
+```
+
+mutación:
+
+```text
+1 4 3 2 5
+```
+
+Esto mantiene una permutación válida.
+
+---
+
+# 6. Parámetros del algoritmo
+
+En esta práctica aparecen claramente:
+
+```text
+N
+→ tamaño de población
+
+mutacion
+→ probabilidad de mutar
+
+elitismo
+→ porcentaje de mejores individuos que conservamos
+
+generaciones
+→ cuántas veces repetimos el ciclo
+```
+
+Estos parámetros controlan el equilibrio exploración/explotación.
+
+---
+
+# AHORA EL MAPA MENTAL DE TODO EL CURSO
+
+Este es el mapa que quiero que tengas en la cabeza para responder preguntas rápidamente. Está completamente alineado con el resumen global del propio material. 
+
+| Si veo este problema...                  | Pienso primero en...   |
+| ---------------------------------------- | ---------------------- |
+| Subproblemas independientes              | Divide y Vencerás      |
+| Subproblemas que se repiten              | Programación Dinámica  |
+| Tomar la mejor decisión en cada etapa    | Voraz                  |
+| Explorar árbol y retroceder              | Backtracking           |
+| Explorar árbol y descartar por cotas     | Ramificación y Poda    |
+| Maximizar/minimizar función lineal       | Programación Lineal    |
+| Variables continuas                      | Simplex                |
+| Variables necesariamente enteras         | Programación Entera    |
+| Elegir objetos con capacidad limitada    | Mochila                |
+| Visitar todas las ciudades y volver      | TSP                    |
+| Camino mínimo desde origen sin negativos | Dijkstra               |
+| Camino mínimo admitiendo negativos       | Bellman-Ford           |
+| Caminos mínimos todos contra todos       | Floyd-Warshall         |
+| Explorar por niveles                     | BFS                    |
+| Explorar una rama hasta el fondo         | DFS                    |
+| Coste recorrido + estimación restante    | A*                     |
+| Función continua derivable               | Descenso del Gradiente |
+| Buena solución rápida sin garantía       | Heurística             |
+| Mejorar vecinos                          | Búsqueda Local         |
+| Memoria + prohibiciones                  | Búsqueda Tabú          |
+| Aceptar peores al principio              | Recocido Simulado      |
+| Reiniciar búsqueda varias veces          | Multiarranque          |
+| Greedy + aleatoriedad + búsqueda local   | GRASP                  |
+| Feromonas + múltiples agentes            | ACO                    |
+| Población + selección + cruce + mutación | Algoritmo Genético     |
+
+# Las 12 frases que más te conviene memorizar
+
+1. *Optimización*: encontrar el mejor valor de una función objetivo respetando restricciones.
+
+2. *Complejidad*: estudiar cómo crece el coste del algoritmo cuando aumenta el tamaño del problema.
+
+3. *Divide y Vencerás*: dividir, resolver subproblemas independientes y combinar.
+
+4. *Programación Dinámica*: calcula una vez, guarda y reutiliza.
+
+5. *Voraz*: toma la mejor decisión local esperando llegar a una buena/global.
+
+6. *Backtracking*: prueba, detecta que no sirve, retrocede.
+
+7. *Ramificación y Poda*: explora opciones, pero elimina ramas que ya no pueden mejorar la mejor solución.
+
+8. *TSP*: visitar todas las ciudades y regresar minimizando el recorrido.
+
+9. *Descenso del Gradiente*: moverse en sentido contrario al gradiente para minimizar.
+
+10. *Búsqueda Local*: mejora una solución explorando sus vecinos, pero puede quedar atrapada en mínimos locales.
+
+11. *Recocido Simulado*: al comienzo acepta peores soluciones para escapar; luego se vuelve más estricto.
+
+12. *Algoritmo Genético*: evoluciona una población mediante fitness, selección, cruce y mutación.
+
+Y la conexión final que te conviene tener clarísima es:
+
+```text
+PROBLEMA
+   ↓
+¿qué estoy optimizando?
+   ↓
+¿cuáles son las restricciones?
+   ↓
+¿cómo crece el espacio de soluciones?
+   ↓
+¿necesito óptimo garantizado?
+   ↓
+SÍ                     NO
+↓                       ↓
+método exacto       heurística/
+                    metaheurística
+```
+
+Ese árbol de decisión es, en esencia, todo el curso de Algoritmos de Optimización condensado en una sola lógica. 

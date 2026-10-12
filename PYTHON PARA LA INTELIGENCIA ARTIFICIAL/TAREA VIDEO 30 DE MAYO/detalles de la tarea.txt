@@ -1,0 +1,11 @@
+Buenos días a todos,
+
+
+Este anuncio es un recordatorio de que este sábado 30.05 a las 00:00 (hora España) se habilitará la actividad de vídeo. Esta actividad consiste en resolver una serie de ejercicios en un Notebook relacionados con la API pública de calidad del aire en Valencia. Recuerden que la actividad deberá ser resuelta y entregada a través de la plataforma hasta el domingo 31.05 a las 08:00 (hora España).
+
+
+En el aula virtual tienen un vídeo grabado por el Prof. Iván Fuertes donde se explica que tipos de datos se obtienen desde esta API. Cómo la API ha sido actualizada reciéntemente, el código actualizado para comunicarse con ella lo encontrarán en el repositorio de la clase. Este material les servirá para familiarizarse con los datos proporcionados por esta API pública.
+
+
+Debido a que varios de ustedes me ha comentado que no pueden acceder a ella desde Latinoamérica, para la actividad proporcionaré un CSV con los datos ya descargados sobre los que deberán trabajar.
+

@@ -1,0 +1,38 @@
+Pregunta 1 (0,3 puntos)
+El razonamiento inductivo o inducción... Es frecuente en la ciencia y en la vida cotidiana.
+
+Alternativas:
+a) Verdadero
+b) Falso
+
+Explicación: La inducción va de casos particulares observados a una conclusión general que no es cierta con seguridad, solo probable. La ciencia la usa para formular hipótesis y leyes a partir de observaciones y experimentos repetidos. En la vida cotidiana la usamos sin darnos cuenta, por ejemplo cuando pensamos "el sol salió todos los días, así que saldrá mañana". El enunciado es correcto, así que la opción verdadera es (a). La opción falsa (b) niega un hecho ampliamente aceptado. La deducción, en cambio, va de lo general a lo particular y sí garantiza la conclusión si las premisas son verdaderas.
+
+1 | a
+
+--- captura adicional ---
+**Pregunta 2** (0,65 puntos)
+
+¿Cuáles de las siguientes afirmaciones son correctas en el marco de la Lógica Borrosa? (0,5 puntos)
+
+A. La cardinalidad borrosa de un conjunto borroso es un número que representa la suma de 'pesos' de todos sus elementos.
+B. 0,475 es un número borroso.
+C. El único posible valor para la negación de un grado de pertenencia de 0,7 es 0,3.
+D. Ninguna de las anteriores.
+
+**Respuesta: D**
+
+Se analiza cada afirmación:
+
+- **A es incorrecta.** Describe la cardinalidad escalar, |A| = Σ μA(x), que sí es un número. Por ejemplo, |Mayor| = 4,1. La cardinalidad borrosa es otra cosa: es un conjunto borroso, |A|' = Σ αi/ni, donde ni es el número de elementos con grado ≥ αi. Por ejemplo, |Mayor|' = 0,1/7 + 0,2/6 + 0,4/5 + 0,6/4 + 0,8/3 + 1/2. Como no es un número, la afirmación confunde los dos conceptos.
+
+- **B es incorrecta.** Un número borroso es un conjunto borroso convexo, normalizado y con función de pertenencia continua. Un simple valor real como 0,475 es un número nítido (crisp) y no cumple esa definición. Solo podría verse como un singleton, y no es lo que la afirmación dice.
+
+- **C es incorrecta.** El valor 0,3 sale del complemento clásico c(a) = 1 − a, pero no es el único posible. El complemento borroso se define axiomáticamente (c(0) = 1, c(1) = 0, monótona decreciente, continua e involutiva). Hay otros complementos válidos:
+  - Sugeno, c(a) = (1−a)/(1+λa). Con λ = 1, c(0,7) = 0,3/1,7 ≈ 0,176.
+  - Yager, c(a) = (1−a^w)^(1/w). Con w = 2, c(0,7) = √(1−0,49) ≈ 0,714.
+
+  Por eso "único" hace falsa la afirmación.
+
+Como A, B y C son falsas, la correcta es D.
+
+1 | D

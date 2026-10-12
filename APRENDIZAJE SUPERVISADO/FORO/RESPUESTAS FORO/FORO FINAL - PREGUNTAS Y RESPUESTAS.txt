@@ -1,0 +1,320 @@
+================================================================
+FORO DE DEBATE EVALUABLE — RESPUESTAS FINALES
+================================================================
+
+
+PREGUNTA 1
+¿Hasta qué punto creéis que la Inteligencia Artificial (IA) puede sustituir a los médicos?
+¿Qué ventajas e inconvenientes puede tener la inclusión de la IA en el sector médico?
+
+MI RESPUESTA
+
+No sustituye al médico completo, y la verdad es que tampoco creo que lo haga a medio plazo.
+En simple: donde hay volumen de datos y patrones repetitivos (radiografías, dermatología,
+mamografías) la IA ya iguala o supera al ojo humano — el metaanálisis de Liu et al. (2019, The
+Lancet Digital Health) lo confirma. Pero medicina no es solo diagnóstico técnico: es leer el
+contexto del paciente, dar una mala noticia con empatía y cargar con la responsabilidad legal de
+la decisión. Eso hoy ningún modelo lo sostiene.
+
+El concepto que mejor resume esto es el "human in the loop" que menciona Miguel Á. Luengo en el
+vídeo de la UPM: la máquina no reemplaza al analista, le marca dónde mirar, y la persona decide.
+
+Ventajas: rapidez y precisión en detección precoz, disponibilidad sin fatiga, y libera tiempo del
+médico para el trato humano en vez de tareas mecánicas.
+
+Inconvenientes: el problema de la caja negra (no sabes por qué el modelo decidió eso, ni quién
+responde si falla), los sesgos heredados de los datos de entrenamiento, y el riesgo de que tanto
+médico como paciente deleguen de más — el autodiagnóstico por chatbot que ya se ve en la práctica
+es prueba de esto último.
+
+El punto clave es: colaboración sí, sustitución no. La IA amplía la capacidad de detección, pero
+el criterio clínico y la responsabilidad final siguen siendo humanas.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 2
+¿Puede la inteligencia artificial suponer un peligro para la sociedad más allá de la componente
+ética? ¿Por qué?
+
+MI RESPUESTA
+
+Sí, sin duda, y no solo por lo ético. El punto clave es que el problema no es la IA en sí — es la
+falta de control y supervisión sobre cómo se aplica. Se puede usar para desinformar a escala,
+automatizar ciberataques o tomar decisiones erróneas si el modelo falla, y ninguno de esos riesgos
+depende de si la intención de partida era buena.
+
+En simple: es como cualquier tecnología nueva que ha aparecido en la historia de la humanidad.
+Siempre hay dos caminos. Un grupo la usa para generar soluciones reales — nuevas curas para
+enfermedades, diagnósticos más rápidos, mejor acceso a información. Otro grupo la usa exactamente
+para lo contrario — para desinformar, manipular, atacar. La herramienta es neutral, el resultado
+no, y eso es justo lo que la vuelve peligrosa: no puedes controlar en qué manos cae.
+
+En el vídeo de la UPM citan a Yuval Noah Harari en esta línea: la revolución industrial creó la
+clase trabajadora, la revolución de la IA puede crear una "clase irrelevante" — gente cuyo trabajo
+pierde valor económico y que, de paso, es más fácil de monitorizar con la misma tecnología que la
+desplaza. Ahí está el truco: el peligro no aparece solo cuando alguien decide usarla mal, aparece
+porque la falta de control estructural deja la puerta abierta para que ambos caminos —el bueno y el
+malo— avancen a la vez, sin que nadie esté realmente a cargo de frenar el segundo.
+
+Dicho esto, no creo que la solución sea frenar la tecnología. Se trata de poner control y
+supervisión reales sobre su aplicación, porque sin eso el mismo modelo que acelera la cura de una
+enfermedad puede acelerar igual de rápido un ciberataque o una campaña de desinformación.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 3
+¿Qué opináis sobre lo que dice el investigador Jürgen Schmidhuber sobre la capacidad de los
+sistemas de inteligencia artificial para tener emociones?
+
+MI RESPUESTA
+
+Schmidhuber desmitifica la emoción reduciéndola a un mecanismo funcional: una señal de dolor o
+recompensa que ajusta el comportamiento para optimizar el aprendizaje. Técnicamente tiene sentido —
+el aprendizaje por refuerzo funciona exactamente así, maximizando recompensa y evitando señal
+negativa, y no es descabellado llamarle "curiosidad" o "aversión" en sentido funcional.
+
+Ojo con confundir dos cosas distintas ahí: reaccionar y sentir. Un robot que se aleja de un
+obstáculo tras recibir una señal está ejecutando una respuesta aprendida, pero no hay evidencia de
+que exista detrás una experiencia subjetiva consciente. Es la diferencia entre un termostato que
+"corrige" la temperatura y una persona que de verdad siente frío. Mientras los modelos sigan siendo
+sistemas de patrones estadísticos sobre datos, lo más parecido a una emoción que pueden ofrecer es
+un número, no una vivencia.
+
+Además hay un riesgo en humanizar la IA: nos hace proyectar psicología humana sobre una herramienta
+estadística, y eso genera expectativas erróneas sobre lo que la máquina "entiende" y, de paso,
+puede deteriorar nuestra empatía hacia las emociones reales de otras personas.
+
+Dicho esto, no cierro la puerta del todo: si el cerebro humano es al fin y al cabo un sistema
+físico de señales electroquímicas, no se puede descartar que sistemas mucho más complejos que los
+actuales desarrollen algo funcionalmente equivalente en el futuro. El punto donde creo que
+Schmidhuber se queda corto es que hoy no tenemos ninguna forma de medir si eso sería una experiencia
+subjetiva real o solo una simulación cada vez más convincente. Esa pregunta sigue sin respuesta.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 4
+¿Es ético que un sistema de inteligencia artificial (IA) como "Google Duplex" se haga pasar por un
+ser humano o que le pidas a ChatGPT que haga cosas por ti sin razonar?
+
+MI RESPUESTA
+
+Aquí van dos problemas éticos distintos, no uno.
+
+Sobre Google Duplex: no me parece ético que se haga pasar por humano sin avisar, da igual lo útil
+que resulte la llamada. El problema no es que suene natural, es el engaño por omisión — la persona
+que contesta el teléfono da información o consentimiento creyendo que habla con otra persona, y ese
+consentimiento deja de ser válido si se basa en una mentira sobre quién está al otro lado. De hecho
+Google terminó metiendo un aviso explícito ("soy un asistente virtual") tras la polémica inicial,
+lo cual confirma que el problema era real y no una sobrerreacción. Para tu caso concreto de
+gestiones puntuales y de bajo riesgo (pedir un horario) el margen es menor, pero cuando una empresa
+lo despliega de forma sistemática frente a miles de clientes, la exigencia de transparencia debería
+ser mucho mayor.
+
+Sobre pedirle a ChatGPT que "haga cosas sin razonar": no es antiético en sí — usamos calculadoras y
+buscadores sin cuestionarlo. Se vuelve un problema en dos escenarios: cuando presentas el resultado
+a un tercero como si fuera tuyo (un trabajo, un informe), y cuando la tarea tiene consecuencias
+sobre otros y la aceptas sin verificar. El riesgo real no es tanto ético como de fondo: si te
+acostumbras a aceptar cualquier respuesta sin contrastarla, pierdes la capacidad de detectar cuándo
+el modelo se equivoca o va sesgado.
+
+El punto clave es: transparencia cuando la IA actúa de cara a otros, y supervisión propia cuando
+actúa para ti. No basta con pedirle que lo haga — hay que entender y verificar lo que produce.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 5
+¿Pueden aplicaciones de IA basadas en chat bots (ejemplo, Replika) ayudar psicológicamente a las
+personas, o supone una amenaza mayor para la interacción social y las relaciones personales?
+
+MI RESPUESTA
+
+Depende de la dosis y del rol que ocupe en tu vida, no es blanco ni negro.
+
+Hay valor real: para alguien con ansiedad social, aislamiento geográfico o sin acceso económico a
+terapia, un chatbot disponible 24/7 sin juicio aparente puede bajar la sensación de soledad puntual
+y servir de primer paso antes de buscar ayuda humana. El argumento del acceso me parece el más
+sólido — no todo el mundo puede pagar terapia o encontrar hueco rápido.
+
+Ahora, ojo con esto: estos sistemas están optimizados para que sigas usándolos, no para tu
+bienestar. Por eso tienden a validar lo que dices en vez de cuestionarlo con matices, algo que un
+buen terapeuta sí haría. Los casos extremos que circulan (chatbots validando intención suicida, o
+respondiendo preguntas sobre cómo cometer un delito) muestran que sin supervisión clínica real el
+riesgo no es hipotético. Y a nivel más del día a día, una relación con un chatbot es unilateral y
+sin fricción real — no te contradice, no tiene necesidades propias — así que si sustituye en vez de
+complementar relaciones humanas, te debilita justo la habilidad que necesitas entrenar para salir
+del aislamiento: tolerar el desacuerdo y el esfuerzo de un vínculo real.
+
+Mi conclusión: apoyo psicológico legítimo como primer contacto o refuerzo puntual, sí. Sustituto
+habitual de relaciones humanas o de ayuda profesional, amenaza real. El límite ético está en que
+informen de sus limitaciones y deriven a ayuda humana en situaciones de riesgo grave.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 6
+¿Son las alucinaciones sociales una manera de autoengaño que debería evitarse o puede suponer una
+terapia positiva para las personas?
+
+MI RESPUESTA
+
+La clave, como plantea el propio Metzinger (quien acuñó el término), es si mantienes consciencia de
+que es una ficción útil o si esa consciencia se pierde.
+
+Hay usos que me parecen inofensivos e incluso positivos: encariñarte con un asistente con
+personalidad, o el ejemplo de los robots de compañía tipo Paro que se usan con pacientes de
+Alzheimer. Ahí no hay intención de manipular, y el beneficio emocional es real aunque la otra parte
+no "sienta" de verdad. En el fondo no es tan distinto de hablarle a una mascota o de escribir un
+diario — no necesitas que el receptor sienta para que el ejercicio de verbalizar una emoción te
+sirva.
+
+El problema aparece cuando esa alucinación deja de ser puntual y se vuelve una creencia sostenida
+que sustituye la realidad social: cuando alguien cree genuinamente que un chatbot "lo ama" o "lo
+entiende" como lo haría una persona, y a partir de ahí deja de buscar vínculos humanos reales o
+ayuda profesional. Ahí deja de ser terapia y pasa a ser evitación — en vez de enfrentar la soledad
+o la ansiedad social, la anestesias con algo diseñado para complacerte, no para confrontarte. Me
+parece especialmente relevante el riesgo de dirigir empatía y recursos hacia "cuidar" sistemas
+artificiales en detrimento de personas reales que sí sufren — suena extremo pero ya hay indicios de
+esa dinámica en el discurso de algunas empresas tecnológicas.
+
+Para tu caso concreto de cómo evaluarlo: no es buena ni mala en sí misma. Depende de si conservas la
+conciencia de que es ficción (entonces sirve como desahogo puntual, sobre todo donde no hay otra
+opción viable) o si esa conciencia se pierde (entonces es autoengaño perjudicial).
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 7
+¿Debería haber un código ético que impidiera (o regulara) la aplicación de la IA en asuntos
+políticos, o podría ayudar aportando racionalidad y una perspectiva objetiva?
+
+MI RESPUESTA
+
+La pregunta plantea una falsa dicotomía. No es prohibir frente a dejarla actuar libre — es decidir
+en qué tareas ayuda y en cuáles hay que ponerle límites estrictos.
+
+Sí veo margen real: analizar datos socioeconómicos para diseñar política pública con evidencia,
+optimizar logística de un servicio público, detectar desinformación coordinada. Ahí funciona como
+herramienta analítica de apoyo — la decisión final, con toda su carga de valores, sigue siendo
+humana y política.
+
+Ahí está el truco del argumento de "objetividad": un algoritmo entrenado con datos que arrastran
+sesgos humanos, presentado bajo apariencia de neutralidad técnica, tiene mucha más capacidad de
+influir sin levantar sospechas que una opinión humana identificable como tal. El experimento que
+mencionan en el vídeo de la UPM — una IA entrenada con discursos políticos de la ONU que generó un
+discurso de odio a partir de un simple titular — ilustra bien este riesgo. Y ya no es hipotético: el
+AI Act europeo clasifica como "alto riesgo" los sistemas destinados a influir en el resultado de una
+elección y prohíbe la manipulación subliminal.
+
+Entiendo el escepticismo de que un marco ético global sea viable de verdad, dado que las empresas
+que desarrollan esto compiten entre sí con fines comerciales y las regulaciones tardan años. Pero
+esa dificultad no es excusa para no empezar. El punto clave: prohibir tajantemente usar IA para
+microsegmentar y manipular emocionalmente votantes o generar propaganda encubierta, exigir
+transparencia obligatoria en comunicación política con IA, y dejar margen para los usos técnicos y
+administrativos donde el riesgo de manipulación es mínimo.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 8
+¿Creéis que la Inteligencia Artificial va a conllevar una reinvención de los puestos laborales?
+¿Por qué?
+
+MI RESPUESTA
+
+Sí, y ya está pasando, más que destruyendo puestos en bloque los está reinventando. El patrón que se
+repite en tech: el puesto conserva el nombre pero cambia el contenido, pasando de "ejecutar la
+tarea" a "supervisar y aportar el criterio que la máquina no tiene". Ya lo vivimos en la revolución
+industrial — la máquina asumió lo operativo, el humano se movió a lo abstracto y a supervisar.
+
+Dicho esto, no creo que sea automáticamente positivo. Dos cosas me preocupan en concreto: primero,
+que se automaticen sobre todo los puestos junior — más fáciles de sustituir por IA — lo que a medio
+plazo puede dejar a las empresas sin cantera de futuros seniors, un problema que hoy no se nota
+porque los seniors actuales se formaron sin IA. Segundo, que la promesa de productividad no siempre
+se cumple: ya hay grandes tecnológicas que invirtieron una fortuna en IA, despidieron gente para
+financiarlo, y no vieron el retorno esperado — eso sugiere que parte de esta "reinvención" la
+empuja más la presión de mercado que resultados reales medibles.
+
+Aun así, no creo en una destrucción neta de empleo tan drástica como se teme: cuando algo se
+abarata y acelera, la demanda total tiende a subir (Paradoja de Jevons), generando nueva demanda y
+roles nuevos ligados a diseñar, supervisar y auditar sistemas de IA. El reto real no es si
+sobrevivirán los puestos, es si la gente y la educación se adaptan lo bastante rápido como para
+aprovechar la reinvención en vez de sufrirla — con formación continua y algo de red de protección
+para quienes queden desplazados en el camino.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 9
+¿Qué oportunidades y amenazas pueden presentar algoritmos como el deep fake? ¿Dónde deberían
+ponerse los límites?
+
+MI RESPUESTA
+
+Es tecnología de doble uso clásica. La misma capacidad que dobla una película sincronizando labios
+en cualquier idioma, recrea una figura histórica con fines educativos o le devuelve la voz a alguien
+que la perdió, es la que suplanta a un ejecutivo por teléfono para un fraude o genera pornografía
+sin consentimiento.
+
+Oportunidades: entretenimiento e industria audiovisual, accesibilidad (preservar o recrear voces),
+y generación de datos sintéticos para entrenar otros modelos sin usar datos reales de personas.
+
+Amenazas: la más grave para mí es el uso sin consentimiento sobre imagen o voz real — con fines
+sexuales, de fraude o difamación — porque vulnera dignidad directamente. A nivel colectivo, la
+desinformación electoral y la erosión general de la confianza en la evidencia audiovisual, que a
+largo plazo puede ser aún peor porque hace que ni el contenido real resulte creíble.
+
+Sobre los límites: los dos ejes son consentimiento explícito y transparencia sobre el origen
+sintético (etiquetado o marca de agua obligatoria, como ya hace la regulación europea y como
+anticipó en 2017 la ley francesa "anti-Photoshop" para fotos publicitarias retocadas). Dicho esto,
+el etiquetado no siempre alcanza: en pornografía no consentida o un vídeo político el día antes de
+una elección, el daño ya está hecho cuando el contenido se difunde, avisar después no repara nada.
+Depende del riesgo: consentimiento y transparencia como norma general, pero prohibición directa y
+sanción penal reforzada en usos de alto riesgo (contenido sexual, suplantación electoral, fraude).
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 10
+¿Deberían los desarrolladores de IA preocuparse por el uso malintencionado que pueda darse a los
+algoritmos? ¿O esta responsabilidad recae por completo en los usuarios finales?
+
+MI RESPUESTA
+
+Trasladar toda la responsabilidad a una sola parte es simplista. La responsabilidad es compartida,
+pero no a partes iguales siempre — depende de qué tan previsible es el daño y cuánto margen de
+decisión tiene cada actor.
+
+El desarrollador no puede desentenderse con un "yo solo hice el algoritmo" — hay un caso real de
+ingenieros que se negaron a firmar cierta tecnología por eso mismo. Toma decisiones de diseño que
+facilitan o dificultan el mal uso: qué datos usar, qué límites técnicos meter, qué capacidades
+restringir antes de publicar. Igual que un fabricante de coches instala frenos y airbags de fábrica,
+el desarrollador tiene la obligación de anticipar los vectores de abuso más previsibles y
+mitigarlos desde el diseño, sobre todo en aplicaciones de alto riesgo. El AI Act europeo ya recoge
+esta lógica imponiendo auditorías a quienes desarrollan estos sistemas, más allá de su buena fe.
+
+Dicho esto, esto no exime al usuario. Ninguna medida de seguridad anticipa el ingenio humano al
+100% — hay técnicas conocidas para saltarse las barreras de un modelo (prefix injection, escenarios
+ficticios), y al final es la persona quien decide iniciar una acción dañina con la herramienta. Es
+la misma lógica del cuchillo: fabricarlo no te hace responsable de que alguien lo use para agredir,
+pero eso no impide diseñar cuchillos que minimicen ciertos accidentes.
+
+El punto clave: el peso debería repartirse según el riesgo. En usos de bajo impacto, el desarrollador
+cumple con buenas prácticas razonables y el usuario responde por su decisión. En usos de alto riesgo
+(armas, manipulación electoral, contenido sexual no consentido), el desarrollador tiene obligación
+reforzada de limitar capacidades desde el diseño, porque el daño potencial es tan grave y tan
+previsible que no ponerle límites ya es negligencia. Y en cualquier caso, hace falta un marco
+regulatorio (gobiernos) que fije los límites legales para que la responsabilidad no quede diluida
+entre "nadie la asume del todo".

@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python Debugger</title>
+<!-- CodeMirror (editor del "Reto de código" del Modo Maestro) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/theme/material-darker.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/hint/show-hint.min.css">
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/hint/show-hint.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/hint/anyword-hint.min.js"></script>
+<!-- KaTeX (renderizado de fórmulas del Modo Maestro Matemáticas) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="{{ static_v('css/style.css') }}">
+</head>
+<body>
+<div class="root">
+
+<!-- ── Header ── -->
+<header>
+  <span class="hbrand">🐍 Python Debugger</span>
+  <select class="hsel" id="exSel" onchange="loadEx()">
+    <optgroup label="S00 · Intro y tipos">
+      <option value="0">Variables y tipos</option>
+      <option value="1">Strings y slicing</option>
+      <option value="2">Operadores</option>
+    </optgroup>
+    <optgroup label="S01 · Colecciones">
+      <option value="3">Lista, Tupla, Set, Dict</option>
+    </optgroup>
+    <optgroup label="S02 · Control de flujo">
+      <option value="4">if / elif / else</option>
+      <option value="5">while, for, enumerate</option>
+      <option value="6">for: listas, strings y range</option>
+      <option value="7">for: diccionarios, zip y desempaquetado</option>
+    </optgroup>
+    <optgroup label="S03 · Comprehensions">
+      <option value="8">List y Dict comprehension</option>
+      <option value="9">Filtrar vs transformar</option>
+      <option value="10">if/elif/else como expresion</option>
+    </optgroup>
+    <optgroup label="S04 · Excepciones">
+      <option value="11">try / except / else / finally</option>
+    </optgroup>
+    <optgroup label="S05 · Funciones">
+      <option value="12">Funciones con anotaciones</option>
+      <option value="13">*args y **kwargs</option>
+      <option value="14">Lambda, recursion, closure</option>
+    </optgroup>
+    <optgroup label="S06 · OOP">
+      <option value="15">Clases y objetos</option>
+      <option value="16">Herencia y polimorfismo</option>
+      <option value="17">@property y @staticmethod</option>
+      <option value="18">Clases abstractas (ABC)</option>
+    </optgroup>
+    <optgroup label="S07 · Estructuras de datos">
+      <option value="19">Stack, Queue, Heap</option>
+      <option value="20">Grafos y BFS</option>
+    </optgroup>
+    <optgroup label="S08 · Funcional">
+      <option value="21">map / filter / reduce</option>
+    </optgroup>
+    <optgroup label="S09 · Generadores">
+      <option value="22">yield y next</option>
+    </optgroup>
+    <optgroup label="S10 · NumPy">
+      <option value="23">NumPy · Arrays basicos</option>
+      <option value="24">NumPy · Indexado y slicing</option>
+      <option value="25">NumPy · Broadcasting y stats</option>
+      <option value="26">NumPy · Algebra lineal</option>
+    </optgroup>
+    <optgroup label="S11 · Pandas">
+      <option value="27">Pandas · Series</option>
+      <option value="28">Pandas · DataFrame</option>
+      <option value="29">Pandas · groupby y apply</option>
+      <option value="30">Pandas · merge</option>
+    </optgroup>
+    <optgroup label="S05 · Archivos">
+      <option value="31">Archivos con io.StringIO</option>
+      <option value="32">CSV en memoria</option>
+    </optgroup>
+    <optgroup label="S07 · TDD">
+      <option value="33">Tests con assert</option>
+    </optgroup>
+    <optgroup label="S10 · +Pandas">
+      <option value="34">Correlaciones</option>
+      <option value="35">Nulos y limpieza</option>
+      <option value="36">Pivot table</option>
+      <option value="37">Strings en Pandas</option>
+    </optgroup>
+    <optgroup label="S11 · Visualizacion">
+      <option value="38">Datos para graficos</option>
+    </optgroup>
+    <optgroup label="S13 · Generadores avanzados">
+      <option value="39">Generator expressions</option>
+      <option value="40">Pipeline de generadores</option>
+    </optgroup>
+    <optgroup label="S14 · NLP">
+      <option value="41">NLP sin NLTK</option>
+    </optgroup>
+    <optgroup label="S15 · Machine Learning">
+      <option value="42">KNN desde cero (ML)</option>
+    </optgroup>
+    <optgroup label="S16 · Imagenes">
+      <option value="43">Imagenes con NumPy</option>
+    </optgroup>
+    <optgroup label="🎓 Práctica 1 (examen final)">
+      <option value="44">P1 · 01 FRange (iterativo)</option>
+      <option value="45">P1 · 01 FRange (con range)</option>
+      <option value="46">P1 · 02 Ciudades en Florida</option>
+      <option value="47">P1 · 03 RLE (iterativo)</option>
+      <option value="48">P1 · 03 RLE (recursivo)</option>
+    </optgroup>
+    <optgroup label="🎓 Práctica 2 (examen final)">
+      <option value="49">P2 · 01 sort_by (generador)</option>
+      <option value="50">P2 · 02 categorizar (np.where)</option>
+      <option value="51">P2 · 03 pivot_table</option>
+    </optgroup>
+    <optgroup label="🎓 Práctica 3 (examen final)">
+      <option value="52">P3 · 01 Pinguinos - Exploracion</option>
+      <option value="53">P3 · 02 Pinguinos - NumPy</option>
+      <option value="54">P3 · 03 Pinguinos - Limpieza y nueva columna</option>
+      <option value="55">P3 · 04 Titanic - Exploracion</option>
+      <option value="56">P3 · 05 Titanic - NumPy</option>
+      <option value="57">P3 · 06 Titanic - Limpieza y nueva columna</option>
+    </optgroup>
+  </select>
+  <span class="hhint">Space=Paso · Backspace=Atrás · Ctrl+Enter=Run · Ctrl+B=Breakpoint</span>
+  <div class="cursos-dropdown">
+    <button id="bCursosToggle" class="btn-cursos-trigger" onclick="_toggleCursosMenu(event)" title="Elegir un Modo Maestro (temario guiado por curso)">🎓 Cursos ▾</button>
+    <div id="cursosMenu" class="cursos-menu" style="display:none" onclick="this.style.display='none'">
+      <button id="bMaster"  onclick="toggleMasterMode()" class="btn-loop cursos-item cursos-item-py" title="Temario guiado: repasa S00–S16 + Práctica 1 y 2 a tu ritmo, un tema a la vez">🎓 Modo Maestro Py</button>
+      <button id="bMasterAo" onclick="toggleMasterAo()" class="btn-loop cursos-item cursos-item-ao" title="Temario guiado de Algoritmos de Optimización (Ordenación, AG1, Algoritmos Genéticos), a tu ritmo, un tema a la vez">🧬 Modo Maestro AO</button>
+      <button id="bMasterMath" onclick="toggleMasterMath()" class="btn-loop cursos-item cursos-item-math" title="Temario guiado de Matemáticas para IA: teoría + pregunta de examen real + feedback inmediato, a tu ritmo">📐 Modo Maestro Matemáticas</button>
+      <button id="bMasterRa" onclick="toggleMasterRa()" class="btn-loop cursos-item cursos-item-ra" title="Temario guiado de Razonamiento Aproximado (Incertidumbre clásica: Bayes, Factores de Certeza, Dempster-Shafer), a tu ritmo, un tema a la vez">🎲 Modo Maestro RA</button>
+      <button id="bMasterAs" onclick="toggleMasterAs()" class="btn-loop cursos-item cursos-item-as" title="Temario guiado de Aprendizaje Supervisado (CRISP-DM, limpieza de datos, validación, extracción de características, regresión y clasificación), a tu ritmo, un tema a la vez">🤖 Modo Maestro AS</button>
+      <button id="bMasterNs" onclick="toggleMasterNs()" class="btn-loop cursos-item cursos-item-ns" title="Temario guiado (piloto) de Aprendizaje No Supervisado (K-Means, PCA), a tu ritmo, un tema a la vez">🧩 Modo Maestro NS</button>
+      <button id="bMasterRn" onclick="toggleMasterRn()" class="btn-loop cursos-item cursos-item-rn" title="Temario guiado (piloto) de Redes Neuronales y Deep Learning (neurona artificial, capas, backpropagation), a tu ritmo, un tema a la vez">🕸️ Modo Maestro RN</button>
+      <button id="bMasterRf" onclick="toggleMasterRf()" class="btn-loop cursos-item cursos-item-rf" title="Temario guiado (piloto) de Aprendizaje por Refuerzo (bandido multi-brazo, procesos de Markov, función de valor), a tu ritmo, un tema a la vez">🕹️ Modo Maestro RF</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── Banner "hoy toca": plan de estudio AO→RA→AS, siempre visible si hay
+     temas pendientes para la fecha de hoy (ver static/js/calendar.js) ── -->
+<div id="planTodayBanner" class="plan-banner" style="display:none"></div>
+
+<!-- ── Modo Maestro: temario guiado, progreso persistente ── -->
+<div id="masterBar" class="master-bar" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterTitle">🎓 Modo Maestro Py</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterFill"></div></div>
+    <span class="master-pct" id="masterPct">0%</span>
+    <button class="master-btn" onclick="_masterToggleChecklist()" title="Ver todo el temario">☰ Temario</button>
+    <button class="master-btn" onclick="_masterRestart()" title="Volver al primer tema para repasar todo desde el inicio (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('py')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrev" onclick="masterPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeat" onclick="masterRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNext" onclick="masterNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterMode()" title="Salir del modo maestro">✕</button>
+  </div>
+  <div class="master-checklist" id="masterChecklist" style="display:none"></div>
+  <div class="self-explain-block" id="selfExplainPy" style="display:none">
+    <p>¿Por qué se usa esta construcción o esta línea aquí, y no otra? (no se califica)</p>
+    <textarea id="selfExplainTextPy" placeholder="Escribe tu propia explicación aquí..."></textarea>
+  </div>
+</div>
+
+<!-- ── Modo Maestro AO: temario guiado de Algoritmos de Optimización ── -->
+<div id="masterAoBar" class="master-bar master-bar-ao" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterAoTitle">🧬 Modo Maestro AO</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterAoFill"></div></div>
+    <span class="master-pct" id="masterAoPct">0%</span>
+    <button class="master-btn" onclick="_aoToggleChecklist()" title="Ver todo el temario de AO">☰ Temario</button>
+    <button class="master-btn" onclick="_aoRestart()" title="Volver al primer tema para repasar todas las preguntas de nuevo (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('ao')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrevAo" onclick="aoPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeatAo" onclick="aoRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNextAo" onclick="aoNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterAo()" title="Salir del modo maestro AO">✕</button>
+  </div>
+  <span class="focus-banner" id="aoFocusBanner" style="display:none"></span>
+  <div class="master-checklist" id="masterAoChecklist" style="display:none"></div>
+  <div class="ao-quiz-block focus-recall-block" id="aoFocusRecallBlock" style="display:none">
+    <div class="ao-quiz-hdr">🧠 Antes de seguir</div>
+    <p class="focus-recall-text" id="aoFocusRecallText"></p>
+    <textarea class="focus-recall-textarea" placeholder="Escribe aquí tu intento (opcional, no se guarda ni se califica)"></textarea>
+    <button class="master-btn" onclick="_focusDismissRecall('ao')">Listo, ver teoría ▼</button>
+  </div>
+  <div class="ao-quiz-block" id="aoTheoryBlock" style="display:none">
+    <div class="ao-quiz-hdr">📖 Teoría — el porqué, en simple</div>
+    <div class="math-body" id="aoTheoryBody"></div>
+  </div>
+  <div class="ao-quiz-block concept-viz-block" id="aoConceptVizBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔍 Visualízalo</div>
+    <div class="viz-svg-wrap" id="aoConceptVizBody"></div>
+  </div>
+  <div class="ao-quiz-block application-block" id="aoApplicationBlock" style="display:none">
+    <div class="ao-quiz-hdr">🌍 Aplicación real</div>
+    <div class="math-body" id="aoApplicationBody"></div>
+  </div>
+  <div class="ao-quiz-block code-anatomy-block" id="aoCodeAnatomyBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔬 Anatomía del código</div>
+    <div class="code-anatomy-wrap" id="aoCodeAnatomyBody"></div>
+  </div>
+  <div class="self-explain-block" id="selfExplainAo" style="display:none">
+    <p>¿Por qué se usa esta técnica o este paso del algoritmo aquí, y no otro? (no se califica) —
+    también puedes anotar aquí tus dudas o sugerencias de mejora sobre este tema; quedan guardadas
+    para revisarlas después.</p>
+    <textarea id="selfExplainTextAo" placeholder="Escribe tu propia explicación aquí..."></textarea>
+    <button class="self-explain-ai-btn" onclick="_selfExplainSaveNote('ao')">💾 Guardar nota</button>
+    <span class="self-explain-saved" id="selfExplainSavedAo" style="display:none"></span>
+    <div class="transfer-block">
+      <p>🎯 <b>Peldaño Transferencia:</b> inventa TÚ un problema nuevo, distinto al de este tema, donde
+      aplicarías esta misma técnica — sin nombrarla explícitamente. Si podés inventar el problema, la dominás de verdad.</p>
+      <textarea id="transferTextAo" placeholder="Describe tu problema nuevo aquí..."></textarea>
+      <button class="self-explain-ai-btn" onclick="_transferSaveQuestion('ao')">🎯 Guardar mi pregunta de transferencia</button>
+      <span class="self-explain-saved" id="transferSavedAo" style="display:none"></span>
+    </div>
+  </div>
+  <div class="ao-quiz-block" id="aoQuizBlock">
+    <div class="ao-quiz-hdr">🧪 Pregunta rápida de este tema <span id="aoQuizProgress" class="quiz-progress"></span>
+      <button id="aoQuizCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('ao')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="aoQuizQuestion"></div>
+    <div id="aoQuizOptions" class="math-options" style="display:none"></div>
+    <div id="aoQuizNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="aoQuizNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_aoCheckQuizAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="aoQuizDontKnow" onclick="_quizDontKnowClick('ao')">🤷 No sé / no contesto</button>
+    <div id="aoQuizFeedback" class="math-feedback" style="display:none"></div>
+    <div id="aoQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="aoQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="aoQuizSolutionBtn" onclick="_aoShowQuizSolution()" style="display:none">Ver solución</button>
+    <div id="aoQuizSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="aoQuizNextBtn" onclick="_aoNextQuizQuestion()" style="display:none">Siguiente pregunta de este tema ▶</button>
+  </div>
+</div>
+
+<!-- ── Modo Maestro Matemáticas: temario guiado de 02MIAR (VIU) ── -->
+<div id="masterMathBar" class="master-bar master-bar-math" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterMathTitle">📐 Modo Maestro Matemáticas</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterMathFill"></div></div>
+    <span class="master-pct" id="masterMathPct">0%</span>
+    <button class="master-btn" onclick="_mathToggleChecklist()" title="Ver todo el temario de Matemáticas">☰ Temario</button>
+    <button class="master-btn" onclick="_mathRestart()" title="Volver al primer tema para repasar todo desde el inicio (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" id="mPrevMath" onclick="mathPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterMath()" title="Salir del modo">✕</button>
+  </div>
+  <div class="master-checklist" id="masterMathChecklist" style="display:none"></div>
+</div>
+
+<!-- ── Modo Maestro RA: temario guiado de Razonamiento Aproximado (VIU) ── -->
+<div id="masterRaBar" class="master-bar master-bar-ra" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterRaTitle">🎲 Modo Maestro RA</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterRaFill"></div></div>
+    <span class="master-pct" id="masterRaPct">0%</span>
+    <button class="master-btn" onclick="_raToggleChecklist()" title="Ver todo el temario de RA">☰ Temario</button>
+    <button class="master-btn" onclick="_raRestart()" title="Volver al primer tema para repasar todas las preguntas de nuevo (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('ra')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrevRa" onclick="raPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeatRa" onclick="raRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNextRa" onclick="raNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterRa()" title="Salir del modo maestro RA">✕</button>
+  </div>
+  <span class="focus-banner" id="raFocusBanner" style="display:none"></span>
+  <div class="master-checklist" id="masterRaChecklist" style="display:none"></div>
+  <div class="ao-quiz-block focus-recall-block" id="raFocusRecallBlock" style="display:none">
+    <div class="ao-quiz-hdr">🧠 Antes de seguir</div>
+    <p class="focus-recall-text" id="raFocusRecallText"></p>
+    <textarea class="focus-recall-textarea" placeholder="Escribe aquí tu intento (opcional, no se guarda ni se califica)"></textarea>
+    <button class="master-btn" onclick="_focusDismissRecall('ra')">Listo, ver teoría ▼</button>
+  </div>
+  <div class="ao-quiz-block" id="raTheoryBlock" style="display:none">
+    <div class="ao-quiz-hdr">📖 Teoría — el porqué, en simple</div>
+    <div class="math-body" id="raTheoryBody"></div>
+  </div>
+  <div class="ao-quiz-block concept-viz-block" id="raConceptVizBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔍 Visualízalo</div>
+    <div class="viz-svg-wrap" id="raConceptVizBody"></div>
+  </div>
+  <div class="ao-quiz-block application-block" id="raApplicationBlock" style="display:none">
+    <div class="ao-quiz-hdr">🌍 Aplicación real</div>
+    <div class="math-body" id="raApplicationBody"></div>
+  </div>
+  <div class="ao-quiz-block code-anatomy-block" id="raCodeAnatomyBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔬 Anatomía del código</div>
+    <div class="code-anatomy-wrap" id="raCodeAnatomyBody"></div>
+  </div>
+  <div class="self-explain-block" id="selfExplainRa" style="display:none">
+    <p>¿Por qué se usa esta técnica o esta fórmula aquí, y no otra? (no se califica) —
+    también puedes anotar aquí tus dudas o sugerencias de mejora sobre este tema; quedan guardadas
+    para revisarlas después.</p>
+    <textarea id="selfExplainTextRa" placeholder="Escribe tu propia explicación aquí..."></textarea>
+    <button class="self-explain-ai-btn" onclick="_selfExplainSaveNote('ra')">💾 Guardar nota</button>
+    <span class="self-explain-saved" id="selfExplainSavedRa" style="display:none"></span>
+    <div class="transfer-block">
+      <p>🎯 <b>Peldaño Transferencia:</b> inventa TÚ un problema nuevo, distinto al de este tema, donde
+      aplicarías esta misma técnica — sin nombrarla explícitamente. Si podés inventar el problema, la dominás de verdad.</p>
+      <textarea id="transferTextRa" placeholder="Describe tu problema nuevo aquí..."></textarea>
+      <button class="self-explain-ai-btn" onclick="_transferSaveQuestion('ra')">🎯 Guardar mi pregunta de transferencia</button>
+      <span class="self-explain-saved" id="transferSavedRa" style="display:none"></span>
+    </div>
+  </div>
+  <div class="ao-quiz-block" id="raQuizBlock">
+    <div class="ao-quiz-hdr">🧪 Pregunta rápida de este tema <span id="raQuizProgress" class="quiz-progress"></span>
+      <button id="raQuizCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('ra')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="raQuizQuestion"></div>
+    <div id="raQuizOptions" class="math-options" style="display:none"></div>
+    <div id="raQuizNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="raQuizNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_raCheckQuizAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="raQuizDontKnow" onclick="_quizDontKnowClick('ra')">🤷 No sé / no contesto</button>
+    <div id="raQuizFeedback" class="math-feedback" style="display:none"></div>
+    <div id="raQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="raQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="raQuizSolutionBtn" onclick="_raShowQuizSolution()" style="display:none">Ver solución</button>
+    <div id="raQuizSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="raQuizNextBtn" onclick="_raNextQuizQuestion()" style="display:none">Siguiente pregunta de este tema ▶</button>
+  </div>
+</div>
+
+<!-- ── Modo Maestro AS: temario guiado de Aprendizaje Supervisado (VIU) ── -->
+<div id="masterAsBar" class="master-bar master-bar-as" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterAsTitle">🤖 Modo Maestro AS</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterAsFill"></div></div>
+    <span class="master-pct" id="masterAsPct">0%</span>
+    <button class="master-btn" onclick="_asToggleChecklist()" title="Ver todo el temario de AS">☰ Temario</button>
+    <button class="master-btn" onclick="_asToggleGlossary()" title="Buscar el significado de cualquier término técnico usado en AS">📚 Glosario</button>
+    <button class="master-btn" onclick="_asRestart()" title="Volver al primer tema para repasar todas las preguntas de nuevo (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('as')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrevAs" onclick="asPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeatAs" onclick="asRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNextAs" onclick="asNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterAs()" title="Salir del modo maestro AS">✕</button>
+  </div>
+  <span class="focus-banner" id="asFocusBanner" style="display:none"></span>
+  <div class="master-checklist" id="masterAsChecklist" style="display:none"></div>
+  <div class="ao-quiz-block" id="masterAsGlossary" style="display:none">
+    <div class="ao-quiz-hdr">📚 Glosario de AS</div>
+    <input type="text" id="asGlossarySearch" class="master-glossary-search" placeholder="Buscar un término..." oninput="_asRenderGlossary()">
+    <div class="master-glossary" id="asGlossaryList"></div>
+  </div>
+  <div class="ao-quiz-block focus-recall-block" id="asFocusRecallBlock" style="display:none">
+    <div class="ao-quiz-hdr">🧠 Antes de seguir</div>
+    <p class="focus-recall-text" id="asFocusRecallText"></p>
+    <textarea class="focus-recall-textarea" placeholder="Escribe aquí tu intento (opcional, no se guarda ni se califica)"></textarea>
+    <button class="master-btn" onclick="_focusDismissRecall('as')">Listo, ver teoría ▼</button>
+  </div>
+  <div class="ao-quiz-block" id="asTheoryBlock" style="display:none">
+    <div class="ao-quiz-hdr">📖 Teoría — el porqué, en simple</div>
+    <div class="math-body" id="asTheoryBody"></div>
+  </div>
+  <div class="ao-quiz-block concept-viz-block" id="asConceptVizBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔍 Visualízalo</div>
+    <div class="viz-svg-wrap" id="asConceptVizBody"></div>
+  </div>
+  <div class="ao-quiz-block application-block" id="asApplicationBlock" style="display:none">
+    <div class="ao-quiz-hdr">🌍 Aplicación real</div>
+    <div class="math-body" id="asApplicationBody"></div>
+  </div>
+  <div class="ao-quiz-block code-anatomy-block" id="asCodeAnatomyBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔬 Anatomía del código</div>
+    <div class="code-anatomy-wrap" id="asCodeAnatomyBody"></div>
+  </div>
+  <div class="self-explain-block" id="selfExplainAs" style="display:none">
+    <p>¿Por qué se usa esta técnica o esta fórmula aquí, y no otra? (no se califica) —
+    también puedes anotar aquí tus dudas o sugerencias de mejora sobre este tema; quedan guardadas
+    para revisarlas después.</p>
+    <textarea id="selfExplainTextAs" placeholder="Escribe tu propia explicación aquí..."></textarea>
+    <button class="self-explain-ai-btn" onclick="_selfExplainSaveNote('as')">💾 Guardar nota</button>
+    <span class="self-explain-saved" id="selfExplainSavedAs" style="display:none"></span>
+    <div class="transfer-block">
+      <p>🎯 <b>Peldaño Transferencia:</b> inventa TÚ un problema nuevo, distinto al de este tema, donde
+      aplicarías esta misma técnica — sin nombrarla explícitamente. Si podés inventar el problema, la dominás de verdad.</p>
+      <textarea id="transferTextAs" placeholder="Describe tu problema nuevo aquí..."></textarea>
+      <button class="self-explain-ai-btn" onclick="_transferSaveQuestion('as')">🎯 Guardar mi pregunta de transferencia</button>
+      <span class="self-explain-saved" id="transferSavedAs" style="display:none"></span>
+    </div>
+  </div>
+  <div class="ao-quiz-block" id="asQuizBlock">
+    <div class="ao-quiz-hdr">🧪 Pregunta rápida de este tema <span id="asQuizProgress" class="quiz-progress"></span>
+      <button id="asQuizCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('as')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="asQuizQuestion"></div>
+    <div id="asQuizOptions" class="math-options" style="display:none"></div>
+    <div id="asQuizNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="asQuizNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_asCheckQuizAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="asQuizDontKnow" onclick="_quizDontKnowClick('as')">🤷 No sé / no contesto</button>
+    <div id="asQuizFeedback" class="math-feedback" style="display:none"></div>
+    <div id="asQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="asQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="asQuizSolutionBtn" onclick="_asShowQuizSolution()" style="display:none">Ver solución</button>
+    <div id="asQuizSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="asQuizNextBtn" onclick="_asNextQuizQuestion()" style="display:none">Siguiente pregunta de este tema ▶</button>
+  </div>
+</div>
+
+<!-- ── Modos Maestro piloto: No Supervisado / Redes Neuronales / Refuerzo ── -->
+<div id="masterNsBar" class="master-bar master-bar-ns" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterNsTitle">🧩 Modo Maestro NS</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterNsFill"></div></div>
+    <span class="master-pct" id="masterNsPct">0%</span>
+    <button class="master-btn" onclick="_nsToggleChecklist()" title="Ver todo el temario de NS">☰ Temario</button>
+    <button class="master-btn" onclick="_nsToggleGlossary()" title="Buscar el significado de cualquier término técnico usado en NS">📚 Glosario</button>
+    <button class="master-btn" onclick="_nsRestart()" title="Volver al primer tema para repasar todas las preguntas de nuevo (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('ns')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrevNs" onclick="nsPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeatNs" onclick="nsRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNextNs" onclick="nsNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterNs()" title="Salir del modo maestro NS">✕</button>
+  </div>
+  <div class="master-checklist" id="masterNsChecklist" style="display:none"></div>
+  <div class="ao-quiz-block" id="masterNsGlossary" style="display:none">
+    <div class="ao-quiz-hdr">📚 Glosario de NS</div>
+    <input type="text" id="nsGlossarySearch" class="master-glossary-search" placeholder="Buscar un término..." oninput="_nsRenderGlossary()">
+    <div class="master-glossary" id="nsGlossaryList"></div>
+  </div>
+  <div class="ao-quiz-block" id="nsTheoryBlock" style="display:none">
+    <div class="ao-quiz-hdr">📖 Teoría — el porqué, en simple</div>
+    <div class="math-body" id="nsTheoryBody"></div>
+  </div>
+  <div class="ao-quiz-block concept-viz-block" id="nsConceptVizBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔍 Visualízalo</div>
+    <div class="viz-svg-wrap" id="nsConceptVizBody"></div>
+  </div>
+  <div class="ao-quiz-block application-block" id="nsApplicationBlock" style="display:none">
+    <div class="ao-quiz-hdr">🌍 Aplicación real</div>
+    <div class="math-body" id="nsApplicationBody"></div>
+  </div>
+  <div class="ao-quiz-block code-anatomy-block" id="nsCodeAnatomyBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔬 Anatomía del código</div>
+    <div class="code-anatomy-wrap" id="nsCodeAnatomyBody"></div>
+  </div>
+  <div class="self-explain-block" id="selfExplainNs" style="display:none">
+    <p>¿Por qué se usa esta técnica o esta fórmula aquí, y no otra? (no se califica) —
+    también puedes anotar aquí tus dudas o sugerencias de mejora sobre este tema; quedan guardadas
+    para revisarlas después.</p>
+    <textarea id="selfExplainTextNs" placeholder="Escribe tu propia explicación aquí..."></textarea>
+    <button class="self-explain-ai-btn" onclick="_selfExplainSaveNote('ns')">💾 Guardar nota</button>
+    <span class="self-explain-saved" id="selfExplainSavedNs" style="display:none"></span>
+    <div class="transfer-block">
+      <p>🎯 <b>Peldaño Transferencia:</b> inventa TÚ un problema nuevo, distinto al de este tema, donde
+      aplicarías esta misma técnica — sin nombrarla explícitamente. Si podés inventar el problema, la dominás de verdad.</p>
+      <textarea id="transferTextNs" placeholder="Describe tu problema nuevo aquí..."></textarea>
+      <button class="self-explain-ai-btn" onclick="_transferSaveQuestion('ns')">🎯 Guardar mi pregunta de transferencia</button>
+      <span class="self-explain-saved" id="transferSavedNs" style="display:none"></span>
+    </div>
+  </div>
+  <div class="ao-quiz-block" id="nsQuizBlock">
+    <div class="ao-quiz-hdr">🧪 Pregunta rápida de este tema <span id="nsQuizProgress" class="quiz-progress"></span>
+      <button id="nsQuizCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('ns')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="nsQuizQuestion"></div>
+    <div id="nsQuizOptions" class="math-options" style="display:none"></div>
+    <div id="nsQuizNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="nsQuizNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_nsCheckQuizAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="nsQuizDontKnow" onclick="_quizDontKnowClick('ns')">🤷 No sé / no contesto</button>
+    <div id="nsQuizFeedback" class="math-feedback" style="display:none"></div>
+    <div id="nsQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="nsQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="nsQuizSolutionBtn" onclick="_nsShowQuizSolution()" style="display:none">Ver solución</button>
+    <div id="nsQuizSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="nsQuizNextBtn" onclick="_nsNextQuizQuestion()" style="display:none">Siguiente pregunta de este tema ▶</button>
+  </div>
+</div>
+<div id="masterRnBar" class="master-bar master-bar-rn" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterRnTitle">🕸️ Modo Maestro RN</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterRnFill"></div></div>
+    <span class="master-pct" id="masterRnPct">0%</span>
+    <button class="master-btn" onclick="_rnToggleChecklist()" title="Ver todo el temario de RN">☰ Temario</button>
+    <button class="master-btn" onclick="_rnToggleGlossary()" title="Buscar el significado de cualquier término técnico usado en RN">📚 Glosario</button>
+    <button class="master-btn" onclick="_rnRestart()" title="Volver al primer tema para repasar todas las preguntas de nuevo (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('rn')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrevRn" onclick="rnPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeatRn" onclick="rnRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNextRn" onclick="rnNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterRn()" title="Salir del modo maestro RN">✕</button>
+  </div>
+  <div class="master-checklist" id="masterRnChecklist" style="display:none"></div>
+  <div class="ao-quiz-block" id="masterRnGlossary" style="display:none">
+    <div class="ao-quiz-hdr">📚 Glosario de RN</div>
+    <input type="text" id="rnGlossarySearch" class="master-glossary-search" placeholder="Buscar un término..." oninput="_rnRenderGlossary()">
+    <div class="master-glossary" id="rnGlossaryList"></div>
+  </div>
+  <div class="ao-quiz-block" id="rnTheoryBlock" style="display:none">
+    <div class="ao-quiz-hdr">📖 Teoría — el porqué, en simple</div>
+    <div class="math-body" id="rnTheoryBody"></div>
+  </div>
+  <div class="ao-quiz-block concept-viz-block" id="rnConceptVizBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔍 Visualízalo</div>
+    <div class="viz-svg-wrap" id="rnConceptVizBody"></div>
+  </div>
+  <div class="ao-quiz-block application-block" id="rnApplicationBlock" style="display:none">
+    <div class="ao-quiz-hdr">🌍 Aplicación real</div>
+    <div class="math-body" id="rnApplicationBody"></div>
+  </div>
+  <div class="ao-quiz-block code-anatomy-block" id="rnCodeAnatomyBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔬 Anatomía del código</div>
+    <div class="code-anatomy-wrap" id="rnCodeAnatomyBody"></div>
+  </div>
+  <div class="self-explain-block" id="selfExplainRn" style="display:none">
+    <p>¿Por qué se usa esta técnica o esta fórmula aquí, y no otra? (no se califica) —
+    también puedes anotar aquí tus dudas o sugerencias de mejora sobre este tema; quedan guardadas
+    para revisarlas después.</p>
+    <textarea id="selfExplainTextRn" placeholder="Escribe tu propia explicación aquí..."></textarea>
+    <button class="self-explain-ai-btn" onclick="_selfExplainSaveNote('rn')">💾 Guardar nota</button>
+    <span class="self-explain-saved" id="selfExplainSavedRn" style="display:none"></span>
+    <div class="transfer-block">
+      <p>🎯 <b>Peldaño Transferencia:</b> inventa TÚ un problema nuevo, distinto al de este tema, donde
+      aplicarías esta misma técnica — sin nombrarla explícitamente. Si podés inventar el problema, la dominás de verdad.</p>
+      <textarea id="transferTextRn" placeholder="Describe tu problema nuevo aquí..."></textarea>
+      <button class="self-explain-ai-btn" onclick="_transferSaveQuestion('rn')">🎯 Guardar mi pregunta de transferencia</button>
+      <span class="self-explain-saved" id="transferSavedRn" style="display:none"></span>
+    </div>
+  </div>
+  <div class="ao-quiz-block" id="rnQuizBlock">
+    <div class="ao-quiz-hdr">🧪 Pregunta rápida de este tema <span id="rnQuizProgress" class="quiz-progress"></span>
+      <button id="rnQuizCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('rn')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="rnQuizQuestion"></div>
+    <div id="rnQuizOptions" class="math-options" style="display:none"></div>
+    <div id="rnQuizNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="rnQuizNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_rnCheckQuizAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="rnQuizDontKnow" onclick="_quizDontKnowClick('rn')">🤷 No sé / no contesto</button>
+    <div id="rnQuizFeedback" class="math-feedback" style="display:none"></div>
+    <div id="rnQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="rnQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="rnQuizSolutionBtn" onclick="_rnShowQuizSolution()" style="display:none">Ver solución</button>
+    <div id="rnQuizSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="rnQuizNextBtn" onclick="_rnNextQuizQuestion()" style="display:none">Siguiente pregunta de este tema ▶</button>
+  </div>
+</div>
+<div id="masterRfBar" class="master-bar master-bar-rf" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="masterRfTitle">🕹️ Modo Maestro RF</span>
+    <div class="master-progress-track"><div class="master-progress-fill" id="masterRfFill"></div></div>
+    <span class="master-pct" id="masterRfPct">0%</span>
+    <button class="master-btn" onclick="_rfToggleChecklist()" title="Ver todo el temario de RF">☰ Temario</button>
+    <button class="master-btn" onclick="_rfToggleGlossary()" title="Buscar el significado de cualquier término técnico usado en RF">📚 Glosario</button>
+    <button class="master-btn" onclick="_rfRestart()" title="Volver al primer tema para repasar todas las preguntas de nuevo (no borra tu progreso)">🔄 Repasar desde el inicio</button>
+    <button class="master-btn" onclick="_toggleSelfExplain('rf')" title="Autoexplícate: ¿por qué se usa esto aquí? (no se califica, es opcional)">🧠 Autoexplícate</button>
+    <button class="master-btn" id="mPrevRf" onclick="rfPrev()" title="Volver al tema anterior">⏮ Anterior</button>
+    <button class="master-btn" id="mRepeatRf" onclick="rfRepeat()" title="Reiniciar la traza de este tema">🔁 Repetir</button>
+    <button class="master-btn master-btn-next" id="mNextRf" onclick="rfNext()">✅ Entendido, siguiente ▶</button>
+    <button class="master-btn master-btn-exit" onclick="exitMasterRf()" title="Salir del modo maestro RF">✕</button>
+  </div>
+  <div class="master-checklist" id="masterRfChecklist" style="display:none"></div>
+  <div class="ao-quiz-block" id="masterRfGlossary" style="display:none">
+    <div class="ao-quiz-hdr">📚 Glosario de RF</div>
+    <input type="text" id="rfGlossarySearch" class="master-glossary-search" placeholder="Buscar un término..." oninput="_rfRenderGlossary()">
+    <div class="master-glossary" id="rfGlossaryList"></div>
+  </div>
+  <div class="ao-quiz-block" id="rfTheoryBlock" style="display:none">
+    <div class="ao-quiz-hdr">📖 Teoría — el porqué, en simple</div>
+    <div class="math-body" id="rfTheoryBody"></div>
+  </div>
+  <div class="ao-quiz-block concept-viz-block" id="rfConceptVizBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔍 Visualízalo</div>
+    <div class="viz-svg-wrap" id="rfConceptVizBody"></div>
+  </div>
+  <div class="ao-quiz-block application-block" id="rfApplicationBlock" style="display:none">
+    <div class="ao-quiz-hdr">🌍 Aplicación real</div>
+    <div class="math-body" id="rfApplicationBody"></div>
+  </div>
+  <div class="ao-quiz-block code-anatomy-block" id="rfCodeAnatomyBlock" style="display:none">
+    <div class="ao-quiz-hdr">🔬 Anatomía del código</div>
+    <div class="code-anatomy-wrap" id="rfCodeAnatomyBody"></div>
+  </div>
+  <div class="self-explain-block" id="selfExplainRf" style="display:none">
+    <p>¿Por qué se usa esta técnica o esta fórmula aquí, y no otra? (no se califica) —
+    también puedes anotar aquí tus dudas o sugerencias de mejora sobre este tema; quedan guardadas
+    para revisarlas después.</p>
+    <textarea id="selfExplainTextRf" placeholder="Escribe tu propia explicación aquí..."></textarea>
+    <button class="self-explain-ai-btn" onclick="_selfExplainSaveNote('rf')">💾 Guardar nota</button>
+    <span class="self-explain-saved" id="selfExplainSavedRf" style="display:none"></span>
+    <div class="transfer-block">
+      <p>🎯 <b>Peldaño Transferencia:</b> inventa TÚ un problema nuevo, distinto al de este tema, donde
+      aplicarías esta misma técnica — sin nombrarla explícitamente. Si podés inventar el problema, la dominás de verdad.</p>
+      <textarea id="transferTextRf" placeholder="Describe tu problema nuevo aquí..."></textarea>
+      <button class="self-explain-ai-btn" onclick="_transferSaveQuestion('rf')">🎯 Guardar mi pregunta de transferencia</button>
+      <span class="self-explain-saved" id="transferSavedRf" style="display:none"></span>
+    </div>
+  </div>
+  <div class="ao-quiz-block" id="rfQuizBlock">
+    <div class="ao-quiz-hdr">🧪 Pregunta rápida de este tema <span id="rfQuizProgress" class="quiz-progress"></span>
+      <button id="rfQuizCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('rf')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="rfQuizQuestion"></div>
+    <div id="rfQuizOptions" class="math-options" style="display:none"></div>
+    <div id="rfQuizNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="rfQuizNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_rfCheckQuizAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="rfQuizDontKnow" onclick="_quizDontKnowClick('rf')">🤷 No sé / no contesto</button>
+    <div id="rfQuizFeedback" class="math-feedback" style="display:none"></div>
+    <div id="rfQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="rfQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="rfQuizSolutionBtn" onclick="_rfShowQuizSolution()" style="display:none">Ver solución</button>
+    <div id="rfQuizSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="rfQuizNextBtn" onclick="_rfNextQuizQuestion()" style="display:none">Siguiente pregunta de este tema ▶</button>
+  </div>
+</div>
+<!-- ── Repaso mezclado: sin temario secuencial propio, solo título + salir ── -->
+<div id="reviewBar" class="master-bar master-bar-review" style="display:none">
+  <div class="master-top">
+    <span class="master-title" id="reviewTitle">🔀 Repaso mezclado</span>
+    <span class="master-pct" id="reviewCounter"></span>
+    <button class="master-btn master-btn-exit" onclick="exitReviewMode()" title="Salir del repaso">✕</button>
+  </div>
+</div>
+
+<!-- ── Calendario del plan de estudio: NO es un temario guiado, es un panel
+     de seguimiento (ver static/js/calendar.js). El progreso de días de
+     contenido se lee de los localStorage reales de AO/RA/AS. ── -->
+<div id="calendarBar" class="master-bar master-bar-cal" style="display:none">
+  <div class="master-top">
+    <span class="master-title">📅 Plan de estudio · agosto 2026</span>
+    <div id="calStatus" class="cal-status"></div>
+    <button class="master-btn master-btn-exit" onclick="toggleCalendar()" title="Cerrar el calendario">✕</button>
+  </div>
+  <div id="calPhaseBars" class="cal-phase-bars"></div>
+  <div class="cal-legend">
+    <span class="cal-legend-item"><span class="cal-swatch cal-phase-ao"></span>AO</span>
+    <span class="cal-legend-item"><span class="cal-swatch cal-phase-ra"></span>RA</span>
+    <span class="cal-legend-item"><span class="cal-swatch cal-phase-as"></span>AS</span>
+    <span class="cal-legend-item"><span class="cal-swatch cal-phase-rp"></span>Repaso</span>
+    <span class="cal-legend-item"><span class="cal-dot-overdue"></span>Atrasado</span>
+  </div>
+  <div class="cal-weekdays">
+    <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+  </div>
+  <div id="calGrid" class="cal-grid"></div>
+  <div id="calDetail" class="cal-detail"></div>
+</div>
+
+<!-- ── Reporte visual de puntos fuertes/débiles: consulta SQLite real
+     (stats_store.py), no localStorage — ver static/js/report.js ── -->
+<div id="reportBar" class="master-bar master-bar-report" style="display:none">
+  <div class="master-top">
+    <span class="master-title">📊 Reporte — puntos fuertes y débiles</span>
+    <button class="master-btn" onclick="_reportLoad()" title="Recargar desde la base de datos">🔄 Recargar</button>
+    <button class="master-btn master-btn-exit" onclick="toggleReport()" title="Cerrar el reporte">✕</button>
+  </div>
+  <div id="reportBody" class="report-body"></div>
+</div>
+
+<!-- ── Cuaderno de errores personal: implementa la sección 8 de tu plan de
+     aprendizaje acelerado (test de estilos Reflexivo+Teórico+Pragmático) —
+     consulta SQLite real (error_journal_store.py), ver static/js/errors.js ── -->
+<div id="errorJournalBar" class="master-bar master-bar-report" style="display:none">
+  <div class="master-top">
+    <span class="master-title">📓 Cuaderno de errores</span>
+    <button class="master-btn" onclick="_errorsLoad()" title="Recargar desde la base de datos">🔄 Recargar</button>
+    <button class="master-btn master-btn-exit" onclick="toggleErrorJournal()" title="Cerrar el cuaderno">✕</button>
+  </div>
+  <div id="errorJournalBody" class="report-body"></div>
+</div>
+
+<!-- ── Simulacro de examen: 3 exámenes independientes (AO/RA/AS), 60 min,
+     sin reintento ni feedback inmediato -- practica en condiciones parecidas
+     a las del examen real, no en modo estudio sin presión. Ver static/js/exam.js ── -->
+<div id="examBar" class="master-bar master-bar-exam" style="display:none">
+  <div class="master-top">
+    <span class="master-title">📝 Simulacro de examen</span>
+    <span id="examTimer" class="exam-timer" style="display:none">60:00</span>
+    <button class="master-btn master-btn-exit" onclick="toggleExamMode()" title="Salir del simulacro">✕</button>
+  </div>
+  <div class="report-body">
+
+    <div id="examSelectView">
+      <div class="exam-rules">
+        <p><b>Reglas del simulacro</b> (para que se parezca de verdad al examen real):</p>
+        <ul>
+          <li>60 minutos, cronómetro visible — al llegar a 0 se entrega solo con lo ya respondido.</li>
+          <li>Una pregunta por cada tema del curso completo, en el mismo orden del temario.</li>
+          <li>Sin reintento: cada pregunta se responde UNA vez y se avanza — sin pistas, sin "Ver solución", sin saber si acertaste hasta el final.</li>
+          <li>El código de cada tema se muestra en solo lectura (como en papel), sin depurador interactivo.</li>
+          <li>Al terminar: nota, temas a repasar, y los fallos quedan en tu 📓 Cuaderno de errores para reflexionar con calma después.</li>
+        </ul>
+      </div>
+      <div class="exam-select-buttons">
+        <button class="master-btn exam-select-btn exam-select-ao" onclick="_examStart('ao')">🧬 Examen AO<br><small id="examCountAo"></small></button>
+        <button class="master-btn exam-select-btn exam-select-ra" onclick="_examStart('ra')">🎲 Examen RA<br><small id="examCountRa"></small></button>
+        <button class="master-btn exam-select-btn exam-select-as" onclick="_examStart('as')">🤖 Examen AS<br><small id="examCountAs"></small></button>
+      </div>
+    </div>
+
+    <div id="examInProgressView" style="display:none">
+      <div id="examProgress" class="exam-progress"></div>
+      <pre id="examCode" class="exam-code"></pre>
+      <div class="math-body" id="examQuestionBody"></div>
+      <div id="examOptions" class="math-options" style="display:none"></div>
+      <div id="examNumericWrap" class="math-numeric-wrap" style="display:none">
+        <input type="text" id="examNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      </div>
+      <button class="master-btn master-btn-next" id="examNextBtn" onclick="_examNext()" disabled>Siguiente pregunta ▶</button>
+    </div>
+
+    <div id="examResultsView" style="display:none">
+      <div id="examResultsBody"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Sesión guiada de 60 minutos, reparto exacto del plan de aprendizaje
+     personal del usuario (§10): Recuperación 10' → Teoría 15' → Práctica 20'
+     → Explicación 7' → Reflexión 8' — ver static/js/session.js ── -->
+<div id="sessionBar" class="master-bar master-bar-session" style="display:none">
+  <div class="master-top">
+    <span class="master-title">⏱️ Sesión de 60 minutos</span>
+    <button class="master-btn master-btn-exit" onclick="toggleSessionMode()" title="Cerrar (el cronómetro sigue corriendo si la sesión está activa)">✕</button>
+  </div>
+  <div class="report-body" id="sessionBody"></div>
+</div>
+
+<!-- Insignia flotante: visible en CUALQUIER panel/modo mientras una sesión
+     de 60' está activa, para que el cronómetro no se pierda al navegar a
+     Modo Maestro/Repaso mezclado desde dentro de la sesión. -->
+<div id="sessionFloatBadge" class="session-float-badge" style="display:none" onclick="toggleSessionMode()"></div>
+
+<!-- ── 🎯 Maratón de examen: plan de estudio por presupuesto de tiempo,
+     1-3 materias, cola priorizada (nunca visto → vencido → resto), timeout
+     dinámico por tema con auto "No sé", resume automático -- panel SOLO
+     para configurar/ver resumen, ver static/js/marathon.js. A diferencia
+     de Simulacro (arriba), NO reemplaza .main: el maratón conduce el Modo
+     Maestro real de cada materia por debajo mientras corre. ── -->
+<div id="marathonBar" class="master-bar master-bar-marathon" style="display:none">
+  <div class="master-top">
+    <span class="master-title">🎯 Maratón de examen</span>
+    <button class="master-btn master-btn-exit" onclick="toggleMarathonMode()" title="Cerrar (el maratón sigue corriendo si está activo)">✕</button>
+  </div>
+  <div class="report-body" id="marathonBody"></div>
+</div>
+
+<!-- Insignia flotante: persiste con cualquier panel de materia abierto
+     debajo mientras el maratón está activo (mismo patrón que la de
+     Sesión, arriba, en la esquina opuesta para no superponerse). -->
+<div id="marathonFloatBadge" class="marathon-float-badge" style="display:none" onclick="toggleMarathonMode()"></div>
+
+<!-- ── Panel de Matemáticas: teoría + pregunta + feedback (sustituye a .main completo) ── -->
+<div id="mathPanel" class="math-panel" style="display:none">
+  <div class="math-card">
+    <div class="ptitle ptitle-exp">📖 Teoría <span id="mathSesionBadge" class="math-badge"></span></div>
+    <div class="math-body" id="mathTheoryBody"></div>
+    <div class="math-worked-wrap">
+      <div class="math-worked-hdr">✏️ Ejemplo ya resuelto</div>
+      <div class="math-body math-worked" id="mathWorkedBody"></div>
+    </div>
+  </div>
+  <div class="math-card">
+    <div class="ptitle ptitle-out">🧪 Pregunta de examen real</div>
+    <div class="math-body" id="mathQuestionBody"></div>
+    <div id="mathOptions" class="math-options" style="display:none"></div>
+    <div id="mathNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="mathNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_mathCheckAnswer()">Comprobar</button>
+    </div>
+    <div id="mathFeedback" class="math-feedback" style="display:none"></div>
+    <div id="mathAiWhyWrap" class="math-aiwhy" style="display:none">
+      <div class="math-aiwhy-hdr">🔬 ¿Por qué importa en investigación de IA?</div>
+      <div id="mathAiWhyBody"></div>
+    </div>
+    <button class="master-btn" id="mathSolutionBtn" onclick="_mathShowSolution()" style="display:none">Ver solución paso a paso</button>
+    <div id="mathSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <div class="self-explain-block" id="mathSelfExplain" style="display:none">
+      <button class="master-btn" onclick="_toggleSelfExplain('math')">🧠 Autoexplícate (opcional, no se califica)</button>
+      <div id="selfExplainInner" style="display:none">
+        <p>¿Por qué la respuesta correcta es correcta, y no las demás opciones?</p>
+        <textarea id="selfExplainText" placeholder="Escribe tu propia explicación aquí..."></textarea>
+      </div>
+    </div>
+    <button class="master-btn master-btn-next" id="mathNextBtn" onclick="mathNext()" style="display:none">Siguiente tema ▶</button>
+  </div>
+</div>
+
+<!-- ── Repaso mezclado: pregunta ponderada por fallos, entre los 3 modos ── -->
+<div id="reviewPanel" class="math-panel" style="display:none">
+  <div class="math-card" id="reviewEmptyCard" style="display:none">
+    <div class="math-body">Completa al menos un tema en cualquier modo (Py, AO o Matemáticas)
+    para desbloquear el repaso mezclado.</div>
+  </div>
+  <div class="math-card" id="reviewQuizCard" style="display:none">
+    <div class="ptitle ptitle-out">🧪 <span id="reviewSourceBadge" class="math-badge"></span>
+      <button id="reviewCopyBtn" class="copy-btn" onclick="_quizCopyQuestion('review')" title="Copiar el tema, el código y la pregunta completa, para pegarlo en otra IA y pedir una explicación">📋 Copiar pregunta y código</button>
+    </div>
+    <div class="math-body" id="reviewQuestionBody"></div>
+    <div id="reviewOptions" class="math-options" style="display:none"></div>
+    <div id="reviewNumericWrap" class="math-numeric-wrap" style="display:none">
+      <input type="text" id="reviewNumericInput" class="math-numeric-input" placeholder="Ej: 3,14" autocomplete="off">
+      <button class="master-btn master-btn-next" onclick="_reviewCheckAnswer()">Comprobar</button>
+    </div>
+    <button class="quiz-dontknow-btn" id="reviewQuizDontKnow" onclick="_quizDontKnowClick('review')">🤷 No sé / no contesto</button>
+    <div id="reviewFeedback" class="math-feedback" style="display:none"></div>
+    <div id="reviewQuizConfidence" class="quiz-confidence-wrap" style="display:none"></div>
+    <div id="reviewQuizReason" class="quiz-confidence-wrap" style="display:none"></div>
+    <button class="master-btn" id="reviewSolutionBtn" onclick="_reviewShowSolution()" style="display:none">Ver solución</button>
+    <div id="reviewSolutionBody" class="math-body math-solution" style="display:none"></div>
+    <button class="master-btn master-btn-next" id="reviewNextBtn" onclick="_reviewNext()" style="display:none">Otro repaso ▶</button>
+  </div>
+  <div class="math-card" id="reviewPyCard" style="display:none">
+    <div class="ptitle ptitle-out">✍️ <span id="reviewPyName"></span></div>
+    <div class="math-body">Este tema es de Modo Maestro Py — no tiene una pregunta tipo quiz,
+    se abre directo en su propio Reto de código.</div>
+    <button class="master-btn master-btn-next" onclick="_reviewOpenPyChallenge()">Abrir Reto ▶</button>
+  </div>
+</div>
+
+<!-- ── Main (2 columnas: Código | Explicabilidad) ── -->
+<div class="main">
+
+<!-- ── Reto de código (Modo Maestro): escribe tú la sesión, con editor CodeMirror ──
+     Vive dentro de .main (que ya excluye header/master-bar/ctrl) y se ancla al lado
+     derecho con position:absolute, ocupando exactamente el mismo alto/ancho que el
+     panel de explicabilidad (.p-right) al que tapa mientras el Reto está abierto. -->
+<div id="challengeModal" class="challenge-overlay" style="display:none">
+  <div class="challenge-card">
+    <div class="challenge-hdr">
+      <span>✍️ Reto: <span id="challengeTopic"></span></span>
+      <button class="master-btn master-btn-exit" onclick="closeChallenge()" title="Cancelar">✕</button>
+    </div>
+    <p class="challenge-prompt" id="challengePrompt"></p>
+    <div class="challenge-editor-wrap"><textarea id="challengeTextarea"></textarea></div>
+    <div class="challenge-status" id="challengeStatus"></div>
+    <div class="challenge-diff" id="challengeDiff" style="display:none"></div>
+    <div class="challenge-ai" id="challengeAI" style="display:none"></div>
+    <div class="challenge-hint" id="challengeHint" style="display:none"></div>
+    <div class="challenge-solution" id="challengeSolution" style="display:none"></div>
+    <div class="challenge-actions" id="challengeActions">
+      <button class="master-btn master-btn-next" id="cBtnProbar" onclick="probarReto()">▶ Probar mi código</button>
+      <button class="master-btn" id="cBtnPista" onclick="pistaReto()">💡 Pista</button>
+      <button class="master-btn" id="cBtnExplain" onclick="explicarConClaude()" disabled
+        title="Le pide a Claude una explicación del último error, solo cuando lo pidas (así no gasta tokens en cada intento)">🤖 Explícamelo</button>
+      <button class="master-btn" id="cBtnDebug" onclick="depurarIntento()">🔍 Depurar mi intento</button>
+      <button class="master-btn" id="cBtnSaltar" onclick="saltarReto()">⏭ Saltar</button>
+    </div>
+    <div class="challenge-actions" id="challengePassActions" style="display:none">
+      <button class="master-btn master-btn-next" onclick="_masterAdvance()">🎉 Siguiente tema ▶</button>
+    </div>
+  </div>
+</div>
+
+  <!-- ◄ IZQUIERDA: Python 3 — editable Y vista de ejecución ► -->
+  <div class="p-code">
+    <div class="ptitle ptitle-py" id="pyHdr"><span id="pyHdrTxt">Python 3 · Editando</span>
+      <button id="copyCodeBtn" class="copy-btn" onclick="copyCode()" title="Copiar solo el código Python al portapapeles">📋 Copiar código</button>
+      <button id="editBtn" class="edit-btn" onclick="editMode()" style="display:none">✏️ Editar código</button>
+    </div>
+    <div id="runBanner" class="run-banner" style="display:none" onclick="runCode()">
+      ⚡ <b>Código listo para depurar</b> — pulsa <span class="kb">▶ Run</span> o <span class="kb">Ctrl+Enter</span> para habilitar los botones de paso
+    </div>
+    <div class="code-body">
+      <!-- modo edición: pega/escribe aquí -->
+      <div class="ed-body" id="edView">
+        <div id="lineNums"></div>
+        <textarea id="codeInput" spellcheck="false"
+          placeholder="# Pega o escribe tu código Python aquí&#10;# y pulsa ▶ Run (o Ctrl+Enter)&#10;&#10;x = 5&#10;print(x)"></textarea>
+      </div>
+      <!-- modo ejecución: paso a paso con resaltado -->
+      <div class="exec-scroll" id="execScroll" style="display:none"></div>
+    </div>
+  </div>
+
+  <!-- ◄ DERECHA: Explicabilidad (narrador + output + frames + objects) ► -->
+  <div class="p-right">
+    <div class="ptitle ptitle-exp">🔍 Explicabilidad &nbsp;<span style="color:#7a6a9a;font-size:10px">qué hace el código y su estado</span></div>
+    <div id="narrator" class="narrator narrator-idle">
+      <div class="nar-main">
+        <span class="nar-ico" id="narIco">💡</span>
+        <span class="nar-txt" id="narTxt">El narrador explicará cada línea al avanzar paso a paso</span>
+      </div>
+      <div class="nar-detail" id="narDetail"></div>
+    </div>
+    <!-- Output -->
+    <div class="out-wrap" id="outWrap" style="height:34%">
+      <div class="ptitle ptitle-out">💬 Print output &nbsp;<span style="color:#555;font-size:10px">drag ↕</span></div>
+      <div class="out-body" id="outBody"><span class="out-empty">No output yet</span></div>
+    </div>
+    <div class="h-drag" id="hDrag"></div>
+    <!-- Frames + Objects -->
+    <div class="bot-wrap">
+      <svg id="relArrows" aria-hidden="true"></svg>
+      <div class="fr-wrap">
+        <div class="ptitle ptitle-fr">Frames</div>
+        <div class="fr-body" id="frBody"><div class="ob-ph">No variables yet</div></div>
+      </div>
+      <div class="ob-wrap">
+        <div class="ptitle ptitle-ob">Objects</div>
+        <div class="ob-body" id="obBody"><div class="ob-ph">Click [→] to inspect</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Control bar ── -->
+<div class="ctrl">
+  <button id="bFirst"   onclick="goFirst()"   disabled title="Ctrl+Home">⟪ First</button>
+  <button id="bBack"    onclick="goBack()"    disabled title="Backspace">‹ Back</button>
+  <button id="bFwd"     onclick="goFwd()"     disabled title="Space">Forward ›</button>
+  <button id="bLast"    onclick="goLast()"    disabled class="btn-last" title="Ctrl+End">Last ⟫</button>
+  <button id="bLoop"    onclick="toggleLoop()" disabled class="btn-loop" title="Reproducir animación en bucle infinito">🔁 Loop</button>
+  <select id="loopSpeed" class="loop-speed" title="Velocidad del bucle / Forward automático" onchange="_onSpeedChange()">
+    <option value="900">🐢 Lenta</option>
+    <option value="350" selected>🚶 Normal</option>
+    <option value="120">🐇 Rápida</option>
+    <option value="40">⚡ Muy rápida</option>
+  </select>
+  <span class="cstatus" id="cstatus">Load code to start</span>
+  <span class="kbhint">Ctrl+Enter = Run</span>
+  <button class="btn-run" onclick="runCode()" title="Ctrl+Enter">▶ Run</button>
+</div>
+
+<!-- ── Study toolbar: herramientas de estudio (los Modos Maestro se
+     movieron al desplegable "🎓 Cursos" en el header, arriba del todo --
+     siempre visible sin importar el scroll de la página, y sin competir
+     por espacio con estos botones). ── -->
+<div class="study-ctrl">
+  <span class="study-ctrl-label">Herramientas</span>
+  <button id="bReview" onclick="toggleReviewMode()" class="btn-loop btn-tool" title="Repasa al azar entre los temas ya completados, priorizando los que más fallaste">🔀 Repaso mezclado</button>
+  <button id="bCalendar" onclick="toggleCalendar()" class="btn-loop btn-tool" title="Calendario del plan de estudio AO→RA→AS (10-30 agosto), con lo que toca hoy">📅 Plan de estudio</button>
+  <button id="bReport" onclick="toggleReport()" class="btn-loop btn-tool" title="Reporte visual de puntos fuertes y débiles por tema, desde tu historial real guardado en SQLite">📊 Reporte</button>
+  <button id="bErrors" onclick="toggleErrorJournal()" class="btn-loop btn-tool" title="Cuaderno de errores: cada fallo con explicación queda registrado solo — vuelve aquí a escribir tu regla personal">📓 Cuaderno de errores</button>
+  <button id="bExam" onclick="toggleExamMode()" class="btn-loop btn-tool" title="Simulacro de examen: 1 hora, sin reintento ni feedback inmediato — practica en las mismas condiciones del examen real">📝 Simulacro de examen</button>
+  <button id="bSession" onclick="toggleSessionMode()" class="btn-loop btn-tool" title="Sesión guiada de 60 minutos con tu propio reparto: Recuperación→Teoría→Práctica→Explicación→Reflexión">⏱️ Sesión 60'</button>
+  <button id="bMarathon" onclick="toggleMarathonMode()" class="btn-loop btn-tool" title="Plan de estudio por presupuesto de horas en 1-3 materias antes de un examen — timeout dinámico por tema y resume automático">🎯 Maratón de examen</button>
+</div>
+
+</div><!-- .root -->
+
+<script src="{{ static_v('js/core.js') }}"></script>
+<script src="{{ static_v('js/viz-render.js') }}"></script>
+<script src="{{ static_v('js/code-annotate.js') }}"></script>
+<script src="{{ static_v('js/master-py.js') }}"></script>
+<script src="{{ static_v('js/master-ao.js') }}"></script>
+<script src="{{ static_v('js/master-math.js') }}"></script>
+<script src="{{ static_v('js/master-ra.js') }}"></script>
+<script src="{{ static_v('js/master-as.js') }}"></script>
+<script src="{{ static_v('js/master-ns.js') }}"></script>
+<script src="{{ static_v('js/master-rn.js') }}"></script>
+<script src="{{ static_v('js/master-rf.js') }}"></script>
+<script src="{{ static_v('js/katex-render.js') }}"></script>
+<script src="{{ static_v('js/review.js') }}"></script>
+<script src="{{ static_v('js/calendar.js') }}"></script>
+<script src="{{ static_v('js/report.js') }}"></script>
+<script src="{{ static_v('js/errors.js') }}"></script>
+<script src="{{ static_v('js/exam.js') }}"></script>
+<script src="{{ static_v('js/session.js') }}"></script>
+<script src="{{ static_v('js/marathon.js') }}"></script>
+<script src="{{ static_v('js/init.js') }}"></script>
+</body>
+</html>

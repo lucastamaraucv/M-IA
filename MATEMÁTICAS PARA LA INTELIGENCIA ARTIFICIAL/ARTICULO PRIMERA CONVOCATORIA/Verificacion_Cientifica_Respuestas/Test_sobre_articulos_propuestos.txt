@@ -1,0 +1,106 @@
+TEST SOBRE ARTÍCULOS PROPUESTOS
+================================
+
+1. El paso de justificación en el proceso inductivo consiste:
+   a) Demostrar la hipótesis
+   b) Demostrar la conclusión
+   c) Dar argumentos que validen la conclusión.
+   d) Evaluar las hipótesis mas acertadas (plausibles).
+
+2. ¿Cuál de las siguientes afirmaciones describe correctamente la diferencia entre una hipótesis en ILP y una hipótesis en un teorema matemático?
+   a) En ambos casos, las hipótesis son demostradas deductivamente y garantizan la verdad universal de las conclusiones.
+   b) En matemáticas se demuestran implicaciones válidas universalmente, mientras que en ILP la hipótesis es una generalización inductiva que no garantiza verdad absoluta, sino que explica los datos disponibles.
+   c) En ILP las hipótesis son siempre verdaderas porque se derivan directamente del conocimiento previo.
+   d) En matemáticas las hipótesis solo sirven para generar ejemplos, mientras que en ILP sirven para demostrar teoremas.
+
+3. Seleccione en la siguiente lista un método usado por la ILP para evaluar hipótesis:
+   a) Reducción al absurdo.
+   b) Uso de probabilidades.
+   c) Método deductivo.
+   d) Demostración formal de teoremas.
+
+4. ¿Cuál es el papel del conocimiento previo (background knowledge) en ILP?
+   a) No interviene en el aprendizaje, ya que la ILP solo utiliza ejemplos.
+   b) Sirve únicamente para validar la hipótesis final mediante demostraciones deductivas.
+   c) Permite construir y guiar la generación de hipótesis, facilitando la explicación de los ejemplos.
+   d) Se utiliza únicamente para generar ejemplos negativos.
+
+5. Dada una hipótesis en ILP, ¿qué alternativa describe la diferencia entre los términos "Explicar" y "Justificar"?
+   a) Explicar una hipótesis significa demostrarla deductivamente, mientras que justificarla consiste en invalidarla si contradice los datos.
+   b) Explicar y justificar una hipótesis son procesos equivalentes que consisten en comprobar su validez lógica absoluta.
+   c) Explicar una hipótesis implica usar probabilidades, mientras que justificarla consiste en derivar ejemplos negativos.
+   d) Una hipótesis junto con el conocimiento previo, permite explicar (cubrir) los ejemplos observados. Justificar una hipótesis consiste en evaluar su plausibilidad frente a otras hipótesis posibles.
+
+En relación al artículo Bayesian Logic Programming (BILP):
+
+6. El artículo redefine la ILP usando:
+   a) probabilidades incondicionales.
+   b) el teorema de Bayes, que permite calcular la probabilidad posterior de una hipótesis.
+   c) como punto de partida, ejemplos positivos y negativos.
+   d) Una probabilidad previa a cada hipótesis.
+
+7. En BILP Muggleton afirma que PAC-learning es:
+   a) adecuado para explicar por qué la ILP funciona tan bien en aplicaciones reales.
+   b) demasiado restrictivo para explicar por qué la ILP funciona tan bien en aplicaciones reales.
+   c) contiene como caso particular el modelo U-learnability.
+   d) Es una alternativa equivalente al modelo U-learnability.
+
+8. Según el artículo BILP, U-learnability fue diseñado para poder tratar representaciones:
+   a) Turing-computables.
+   b) Turing-completas.
+   c) Turing-computables y Turing-completas.
+   d) Simplificadas de PAC-learning.
+
+9. En el artículo BILP se considera que una hipótesis H_m es válida si:
+   a) Explica todos los ejemplos positivos y solo algunos negativos.
+   b) Explica casi todos los ejemplos positivos y ninguno negativo.
+   c) Explica todos los ejemplos positivos y ninguno negativo.
+   d) Explica casi todos los ejemplos positivos y pocos negativos.
+
+En relación al artículo Bayesian Logic Programming (BLP):
+
+10. Una red bayesiana representa (escoja las opciones correctas):
+    a) relaciones causales mediante un grafo dirigido acíclico.
+    b) relaciones causales mediante un grafo no dirigido acíclico
+    c) probabilidades condicionales entre variables.
+    d) probabilidades incondicionales entre variables.
+
+11. El concepto de support network hace referencia a:
+    a) responder consultas probabilísticas requiere construir toda la red bayesiana completa.
+    b) la subred relevante para responder una consulta general.
+    c) la subred relevante para responder una consulta concreta.
+    d) responder consultas probabilísticas requiere construir casi toda la red bayesiana completa.
+
+12. La principal ventaja de BLP es que permite representar de forma compacta dominios complejos con:
+    a) incertidumbre, estructuras repetitivas y conocimiento lógico.
+    b) incertidumbre, estructuras repetitivas y conocimiento lógico.
+    c) relaciones entre objetos, incertidumbre, estructuras repetitivas y conocimiento lógico.
+    d) relaciones entre objetos, incertidumbre, sin estructuras repetitivas y conocimiento lógico.
+
+13. Intuitivamente, el modelo mínimo de Herbrand representa:
+    a) los supuestos de un programa lógico.
+    b) los hechos y consecuencias de un programa lógico.
+    c) el conjunto más grande de hechos verdaderos que pueden deducirse.
+    d) todo lo que un programa lógico implica y nada más.
+
+14. Desde el punto de vista formal de la teoría de optimización, ¿qué inconveniente presenta definir un punto de silla estricto como un punto crítico cuyo Hessiano posee al menos un autovalor negativo?
+    a) La definición excluye a los puntos de silla clásicos con Hessiano indefinido.
+    b) La definición puede clasificar algunos máximos locales estrictos como puntos de silla, ya que un Hessiano definido negativo también posee al menos un autovalor negativo.
+    c) La definición exige que el Hessiano tenga al menos un autovalor positivo y uno negativo simultáneamente.
+    d) La definición solo es válida para funciones convexas.
+
+15. En el artículo de Hayden Schaefer and Scott McCallaz se enuncia un teorema sobre el método de descenso por gradiente en funciones f ∈ C²(Ω), con gradiente lipschitz, Ω convexo e invariante, y el conjunto de puntos donde el Hessiano tiene un autovalor igual a 1/α tiene medida cero. Bajo estas hipótesis, ¿cuál de las siguientes afirmaciones es correcta?
+    a) El descenso por gradiente siempre converge a un mínimo global si el paso α cumple αL∈(0,2).
+    b) La probabilidad de converger a un punto de silla estricto es positiva, pero pequeña, cuando la inicialización es aleatoria.
+    c) La probabilidad de que el descenso por gradiente converja a un punto de silla estricto es cero si la inicialización se elige uniformemente al azar.
+    d) El resultado garantiza que todos los puntos críticos son mínimos locales.
+
+16. Sea ℓ(x) = max_{1≤j≤d} max(λ_j(x),0), donde λ_j(x) son los valores propios del Hessiano ∇²f(x), y sea
+    L₊ = sup_{x∈Ω} ℓ(x)
+    la constante de Lipschitz asociada a la parte positiva del Hessiano.
+
+    Según el resultado mostrado, ¿cuál de las siguientes afirmaciones es correcta?
+    a) Controlar L₊ es suficiente para garantizar la convergencia del descenso por gradiente a mínimos globales.
+    b) El control de L₊ es suficiente para evitar puntos de silla estrictos, pero no asegura la convergencia a mínimos.
+    c) Si L₊ es finito, el Hessiano es negativo definido en todo Ω.
+    d) El valor L₊ controla únicamente las direcciones de curvatura negativa del Hessiano.

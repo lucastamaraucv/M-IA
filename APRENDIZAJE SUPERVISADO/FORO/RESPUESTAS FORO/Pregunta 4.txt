@@ -1,0 +1,68 @@
+PREGUNTA 4
+===========
+
+¿Es ético que un sistema de inteligencia artificial (IA) como "Google Duplex" se haga pasar por un
+ser humano o que le pidas a ChatGPT que haga cosas por ti sin razonar?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+La pregunta tiene dos partes claramente diferenciadas en casi todas las respuestas.
+
+SOBRE GOOGLE DUPLEX (hacerse pasar por humano):
+Consenso muy amplio (Luisa, Arrate, Javier Ibarra, Alejandro, Juan Manuel, Fernando, Raul, Javier
+Calleja, Anthony, Isaac, Pau, Marcos, Luis Ignacio, Maria Jose, Wiliam, Nur Derly, Evelyn, Pedro):
+NO es ético que un sistema se haga pasar por humano sin avisar, porque vulnera el principio de
+transparencia y el consentimiento informado de quien responde al teléfono. Varios (Alejandro,
+Anthony, Evelyn) señalan que el propio Google terminó añadiendo un aviso ("soy un asistente
+virtual") tras la polémica, lo que reconoce implícitamente el problema.
+Matices minoritarios: Sandra y Diego opinan que para gestiones puntuales y mecánicas (pedir un
+horario, una reserva) no ven un problema real, casi "un robot hablando con un robot". Isaac y
+Wiliam matizan que el contexto importa: no es lo mismo un uso puntual y personal que una empresa
+que lo use de forma sistemática con clientes. Samuel cuestiona el propio concepto de que exista una
+autoridad objetiva para definir "lo ético" en este debate.
+
+SOBRE PEDIR A CHATGPT QUE HAGA COSAS SIN RAZONAR:
+Consenso: no es "antiético" en sí mismo delegar tareas en la IA, pero sí preocupa la pérdida
+progresiva de pensamiento crítico y dependencia excesiva (Javier Ibarra, Alejandro, Juan Manuel,
+Edgar, Anthony, Isaac, Maria Jose, Pedro). Juan Manuel usa la analogía de la calculadora de
+bolsillo: no es antiético usarla, pero perdemos la capacidad de hacer cuentas complejas por nuestra
+cuenta. Pedro matiza que la ética entra en juego sobre todo cuando el resultado se presenta como
+trabajo propio ante un tercero (un jefe, un profesor), no en el uso personal cotidiano. Lautaro es
+más crítico: ve un riesgo de crear una "clase social sin valor laboral" si delegamos sin aportar
+criterio.
+
+Referencia clave citada: el "human in the loop" (concepto que aparece también en otras preguntas
+del foro) y el caso mencionado por Javier Ibarra de una IA que, a partir de la frase "los
+refugiados son terroristas", generó sola un párrafo reforzando esa idea sin cuestionarla.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Separaría las dos situaciones porque implican problemas éticos distintos.
+
+Sobre Google Duplex: no me parece ético que un sistema se haga pasar por un humano sin avisarlo,
+independientemente de lo útil que resulte la llamada. El problema no es que una IA hable con
+naturalidad, sino el engaño por omisión: la persona que responde el teléfono da su consentimiento
+(o comparte información) creyendo que interactúa con otra persona, y ese consentimiento deja de ser
+válido si se basa en una mentira sobre la naturaleza de su interlocutor. De hecho, la propia Google
+terminó añadiendo un aviso explícito tras la polémica inicial, lo que confirma que el problema era
+real y no una simple sensibilidad excesiva. Ahora bien, coincido con quienes matizan que el contexto
+importa: no es lo mismo usarlo puntualmente para una gestión mecánica y de bajo riesgo (pedir un
+horario) que una empresa lo despliegue de forma sistemática y opaca frente a miles de clientes; en
+este segundo caso la exigencia de transparencia debería ser aún mayor.
+
+Sobre pedirle a ChatGPT que "haga cosas por ti sin razonar": aquí el problema ético no está tanto en
+la herramienta como en cómo se usa. Delegar una tarea sin entender ni cuestionar el resultado no es
+antiético en sí mismo —today usamos calculadoras y buscadores sin que nadie lo cuestione—, pero se
+vuelve problemático en dos escenarios concretos: cuando el resultado se presenta a un tercero (un
+trabajo académico, un informe profesional) como si fuera fruto de razonamiento propio, y cuando la
+tarea tiene consecuencias sobre otros (un diagnóstico, una decisión legal) y se acepta sin
+verificación. El riesgo real, más que ético en sentido estricto, es la erosión progresiva del
+criterio propio: si nos acostumbramos a aceptar cualquier respuesta sin contrastarla, perdemos la
+capacidad de detectar cuándo el modelo se equivoca o está sesgado.
+
+En resumen: la responsabilidad ética recae en la transparencia cuando la IA actúa de cara a otros
+(no debe ocultar que lo es), y en la honestidad y supervisión propia cuando la IA actúa para
+nosotros (no basta con "pedirle que lo haga"; hay que entender, verificar y asumir la autoría de lo
+que se produce con ella).

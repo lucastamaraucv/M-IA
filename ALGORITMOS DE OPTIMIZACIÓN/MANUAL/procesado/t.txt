@@ -1,0 +1,22 @@
+El archivo "Nuevo Documento de texto.txt" existe pero está vacío, así que no hay ninguna pregunta que resolver.
+
+--- archivo(s) adicional(es) ---
+Pregunta 1: Según la clasificación utilizada en el curso, ¿qué diferencia fundamental existe entre un algoritmo aproximado y uno heurístico?
+
+A) El aproximado siempre es determinista y el heurístico siempre es probabilista.
+B) El aproximado proporciona una solución con un grado de aproximación conocido al óptimo, mientras que en el heurístico no podemos determinar si la solución obtenida es óptima.
+C) El heurístico garantiza siempre el óptimo, pero tarda más.
+D) No existe diferencia; ambos términos significan exactamente lo mismo.
+
+Según la clasificación de tipos de algoritmos vista en VC1, dentro de los algoritmos que buscan un tipo de solución se distinguen tres categorías: Exactos (garantizan el óptimo), Aproximados (dan una buena solución con una aproximación conocida respecto al óptimo, es decir, se puede acotar o medir cuán lejos está la solución obtenida del valor óptimo) y Heurísticos (dan una buena solución, pero sin poder determinar si esa solución es realmente óptima, ya que no existe una garantía teórica ni una medida de la distancia al óptimo).
+
+La diferencia clave entre "aproximado" y "heurístico" no tiene que ver con el determinismo/probabilismo (esa es otra clasificación ortogonal, según cómo calculan las soluciones), sino con el conocimiento que se tiene sobre la calidad de la solución final: un algoritmo aproximado sí permite establecer una cota o garantía sobre qué tan cerca está su resultado del óptimo (por ejemplo, "esta solución está garantizado que es como máximo un 10% peor que el óptimo"), mientras que un algoritmo heurístico simplemente produce una solución razonablemente buena en la práctica, sin que exista forma de verificar ni acotar formalmente su cercanía al óptimo.
+
+Por eso la opción correcta es B.
+
+Las demás opciones son incorrectas porque:
+- A) confunde esta clasificación con la de determinista/probabilista, que es independiente (un algoritmo puede ser exacto y probabilista, o heurístico y determinista, etc.).
+- C) es falsa: ningún heurístico garantiza el óptimo (si lo garantizara, sería un algoritmo exacto); de hecho la propia definición de heurístico usada en el curso es "buena solución, sin poder determinar si es óptima".
+- D) es falsa porque el resumen del curso distingue explícitamente ambos términos como categorías diferentes dentro de "tipo de solución".
+
+1 | b

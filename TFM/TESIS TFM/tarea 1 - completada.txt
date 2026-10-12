@@ -1,0 +1,89 @@
+FORMULARIO «Propuesta de TFMs (estudiantes) - Edición Abril A 2026-27» — RESPUESTAS EN EL ORDEN DEL FORMULARIO
+==============================================================================================================
+TFM individual. Modelo que se sustentará: E20-A0C (no se nombra en el formulario; solo se describe).
+Fecha límite: 8/10/2026 23:59 hora de España peninsular = 16:59 hora de Lima. Solo se acepta un formulario.
+(*) = campo obligatorio.
+
+
+1. Correo (*)
+ltamaratrejo@student.universidadviu.com
+[Si el formulario muestra la cuenta lucastamaraucv@gmail.com arriba, pulsa «Cambiar de cuenta» y entra con la cuenta de la VIU.]
+
+2. Tu nombre (Apellidos, Nombres) (*)
+Tamara Trejo, Lucas Ivan
+
+3. Tu Número de Documento de Identificación (*)
+46967638
+
+4. Tu correo electrónico (*)
+ltamaratrejo@student.universidadviu.com
+
+5. Apellidos, Nombres de Integrante #1 del equipo (*)
+Tamara Trejo, Lucas Ivan
+
+6. Apellidos, Nombres de Integrante #2 del equipo
+[dejar vacío]
+
+7. Apellidos, Nombres de Integrante #3 del equipo
+[dejar vacío]
+
+8. Apellidos, Nombres de Integrante #4 del equipo
+[dejar vacío]
+
+9. Título del TFM (*)
+Predicción de la Dirección del Precio de Bitcoin utilizando una Red Neuronal Espigante de Segmentos Temporales y Aprendizaje Automático
+
+10. ¿Has acordado el tema con un tutor vinculado VIU? (*)
+Marcar la tercera opción: «No, no he contactado ningún posible tutor/a.»
+
+11. Nombre del tutor vinculado a VIU (si aplica y ya lo habéis contactado)
+[dejar vacío]
+
+12. Correo electrónico del tutor vinculado a VIU (si aplica)
+[dejar vacío]
+
+13. Nombre del tutor externo (si aplica)
+[dejar vacío]
+
+14. Correo electrónico de tutor externo (si aplica)
+[dejar vacío]
+
+15. Nombre del co-tutor vinculado a VIU (si aplica y ya lo habéis contactado)
+[dejar vacío]
+
+16. Correo electrónico del co-tutor vinculado a VIU (si aplica)
+[dejar vacío]
+
+17. Contexto y motivación del TFM que se propone (*)
+Predecir la dirección del precio de Bitcoin es un problema difícil: la serie es muy volátil, no estacionaria y tiene una baja relación entre señal y ruido. Por ello, muchos modelos que parecen precisos pierden su ventaja cuando se comparan con referentes simples o se evalúan con validación estrictamente cronológica. Las redes neuronales espigantes procesan la información como secuencias de impulsos con memoria interna, lo que las hace interesantes para series temporales y de bajo coste computacional, pero su evaluación rigurosa en criptomonedas es todavía escasa. Este trabajo, que formaliza una línea de investigación previa del autor, propone evaluar una red espigante de reservorio con neuronas de segmentos temporales de dos compartimentos y compararla con referentes simples y con modelos de aprendizaje automático y profundo que reciben la misma información. Cualquier resultado (que la red supere, iguale o no mejore a los comparadores) se considerará científicamente válido.
+
+18. Objetivo general del TFM (*)
+Diseñar, implementar y evaluar una red neuronal espigante de reservorio con neuronas de segmentos temporales para predecir la dirección del precio de Bitcoin en el siguiente intervalo, y determinar, mediante validación estrictamente cronológica, el área bajo la curva ROC y pruebas estadísticas pareadas, si su capacidad predictiva difiere de la de referentes simples y de modelos de aprendizaje automático y profundo entrenados con la misma información.
+
+19. Posibles metodologías de IA para abordar el TFM (*)
+Modelo principal: red neuronal espigante de reservorio con neuronas de segmentos temporales (LIF de dos compartimentos) que recibe ventanas de retornos y, como canales adicionales, indicadores técnicos; sus estados se leen con un clasificador lineal regularizado. Se harán ablaciones de recurrencia, memoria, entradas y lectura. Comparadores con las mismas variables: predictor ingenuo, regresión logística, Random Forest, Gradient Boosting, MLP, LSTM y TCN. Partición cronológica en entrenamiento, validación y prueba, con el bloque de prueba reservado hasta el final. Prevención de fuga de información: variables calculadas solo con datos pasados, normalización ajustada únicamente en entrenamiento, separación temporal entre particiones y placebos con etiquetas permutadas. Métricas: ROC-AUC (principal), accuracy, balanced accuracy, F1, MCC, Brier score y calibración, con intervalos de confianza por bootstrap de bloques.
+
+20. Descripción del dataset para abordar el TFM
+Datos históricos OHLCV de BTC/USDT descargados de la API pública de Binance (fuente gratuita y reproducible), en barras intradía y diarias; la frecuencia final se fijará tras un análisis exploratorio, previsiblemente entre una y dos horas. Variables derivadas, calculadas solo con información pasada: retornos logarítmicos, volatilidad realizada, volumen normalizado y un conjunto acotado de indicadores técnicos causales. Variable objetivo: dirección del precio en el siguiente intervalo (1 si el retorno futuro es positivo; 0 en caso contrario). Partición cronológica en entrenamiento, validación y prueba, sin mezclar periodos. Como control del método se emplearán series sintéticas con señal conocida. Datos públicos, sin información personal.
+
+21. En caso de proponer TFM INDIVIDUAL: Justificación. (*)
+Solicito realizar el TFM de forma individual porque el proyecto sigue una línea metodológica única, ya iniciada por el autor, que exige trazabilidad homogénea de todos los experimentos: preregistro de hipótesis, misma partición cronológica, mismas métricas y registro reproducible de cada ejecución. Mantener un único responsable de diseño, programación y análisis garantiza esa coherencia. Además, compatibilizar el máster con mis responsabilidades laborales requiere flexibilidad para planificar la investigación y la experimentación, algo que el trabajo individual permite sin afectar a la calidad ni a los plazos del proyecto.
+
+22. Comentarios adicionales (en caso de proponer tutor externo, indicar aquí: título(s), cargo actual y áreas de interés)
+No propongo tutor externo. Agradecería la asignación de un tutor vinculado a VIU con experiencia en series temporales, aprendizaje automático o redes neuronales. El proyecto parte de código y datos públicos ya disponibles, lo que reduce el riesgo técnico y permite centrar el TFM en la evaluación comparativa.
+
+
+NOTAS (no se copian en el formulario)
+-------------------------------------
+- Longitudes comprobadas: contexto 147 palabras, metodología 123, dataset 103, justificación 88. El formulario no
+  fija límites; son textos breves.
+- La cabecera del formulario dice «Máster en Gestión de las TIC». Parece una plantilla reutilizada, porque tu máster
+  es de Inteligencia Artificial y el propio formulario pregunta por «metodologías de IA». Si quieres, confírmalo con la
+  profesora; no cambia las respuestas.
+- No se citan resultados ni nombres internos (E20, A0C). La red descrita en «Metodologías» es exactamente E20-A0C:
+  reservorio de neuronas de segmentos temporales con recurrencia, indicadores técnicos como canales de entrada y
+  lectura logística regularizada.
+- ¿Se puede sustentar E20-A0C? Sí, como estudio comparativo riguroso. Tiene el mayor AUC de nuestras redes en Bitcoin
+  a 2 h (0,5460) e iguala a Gradient Boosting con las mismas entradas (0,5454), sin superarlo de forma demostrada. La
+  propuesta ya declara que igualar es un resultado válido. Pendiente: reordenar MEMORIA_TFM.md para que E20-A0C sea el
+  modelo principal (hoy lo es E20-ALB).

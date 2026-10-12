@@ -1,0 +1,353 @@
+Pregunta 1
+
+Sea f: R → R^2 de la forma f(t) = (f1(t), f2(t)) y g: R^2 → R, tales que satisfacen f(0) = (1,0), f1'(0) = -2, f2'(0) = 1, ∂g/∂x(1,0) = 1, ∂g/∂y(1,0) = 4.
+
+Calcule el valor de (g∘f)'(0).
+
+Se trata de aplicar la regla de la cadena para la composición de una función vectorial f con una función escalar g. Como g∘f: R → R es una función de una variable, su derivada es el producto escalar del gradiente de g evaluado en f(0) con el vector derivada f'(0):
+
+(g∘f)'(0) = ∇g(f(0)) · f'(0) = ∂g/∂x(1,0)·f1'(0) + ∂g/∂y(1,0)·f2'(0)
+
+Sustituyendo los datos: f(0) = (1,0), por lo que las derivadas parciales de g se evalúan justamente en ese punto:
+
+(g∘f)'(0) = (1)(-2) + (4)(1) = -2 + 4 = 2
+
+Respuesta: 2
+
+Pregunta 2
+
+Sean A, B conjuntos tales que |A| = 74, |B| = 47 y f: A → B una aplicación. Entonces:
+a) f no puede ser inyectiva.
+b) f no puede ser sobreyectiva.
+c) f puede ser biyectiva.
+d) f puede tener inversa.
+
+Como |A| = 74 > 47 = |B|, por el principio del palomar (pigeonhole) es imposible asignar a cada uno de los 74 elementos del dominio una imagen distinta dentro de un conjunto de solo 47 elementos: necesariamente al menos dos elementos de A comparten la misma imagen. Por tanto f nunca puede ser inyectiva, sea cual sea la regla concreta de f. Esto hace verdadera la opción a).
+
+Las demás opciones son falsas:
+- b) es falsa porque sí es posible que f sea sobreyectiva (basta con que cada uno de los 47 elementos de B tenga al menos una preimagen entre los 74 de A; de hecho, al no poder ser inyectiva, la única forma "razonable" de cubrir B es que f sea sobreyectiva pero no inyectiva).
+- c) es falsa porque la biyectividad exige que |A| = |B|, y aquí las cardinalidades son distintas (74 ≠ 47), luego es imposible.
+- d) es falsa porque la existencia de función inversa (en el sentido usual de inversa bilateral) requiere que f sea biyectiva, lo cual, como se explicó, es imposible.
+
+Respuesta: a)
+
+Pregunta 3
+
+Sea A ∈ R^{4×4} una matriz tal que det(A) = -9 y B ∈ R^{4×4} una matriz diagonalizable con polinomio característico P_B(λ) = (λ² - 4)(λ² - 1). Calcule det(3A^{-1}B).
+
+Primero se factoriza el polinomio característico de B: (λ²-4)(λ²-1) = (λ-2)(λ+2)(λ-1)(λ+1), de donde los autovalores de B son 2, -2, 1, -1. Como el determinante de una matriz es el producto de sus autovalores (cada uno contado con su multiplicidad algebraica, que aquí es 1 para cada uno pues aparecen 4 raíces distintas y B es 4×4):
+
+det(B) = 2·(-2)·1·(-1) = 4
+
+Después se usan las propiedades del determinante: para una matriz n×n, det(cA) = c^n·det(A), det(A^{-1}) = 1/det(A), y det(XY) = det(X)det(Y). Aquí n = 4:
+
+det(3A^{-1}B) = 3^4 · det(A^{-1}) · det(B) = 81 · (1/(-9)) · 4 = 81·(-4/9) = -36
+
+Respuesta: -36
+
+Pregunta 4
+
+Encuentra el valor de la siguiente integral
+
+∫₀³ x·cos(π(1-x²)) dx
+
+Se aplica el método de sustitución. Sea u = 1 - x², de modo que du = -2x dx, es decir, x dx = -du/2. Cambiando también los límites de integración: cuando x = 0, u = 1; cuando x = 3, u = 1 - 9 = -8.
+
+∫₀³ x cos(π(1-x²)) dx = ∫_{u=1}^{u=-8} cos(πu)·(-du/2) = (1/2)∫_{-8}^{1} cos(πu) du
+
+Una primitiva de cos(πu) es sen(πu)/π, por lo que:
+
+(1/2)[sen(πu)/π]_{-8}^{1} = 1/(2π)·[sen(π) - sen(-8π)]
+
+Como sen(π) = 0 y sen(-8π) = 0 (el seno se anula en todo múltiplo entero de π), el resultado es:
+
+1/(2π)·(0 - 0) = 0
+
+Respuesta: 0
+
+Pregunta 5
+
+Sea un algoritmo cuyo coste computacional asociado es c(n) = (3n^5 - 2n + 1)^2. Entonces su complejidad computacional es:
+a) O(n^5).
+b) O(9n^7)
+c) O(9n^10)
+d) O(n^10)
+
+Al elevar al cuadrado el polinomio 3n^5 - 2n + 1, el término que domina el crecimiento asintótico es el de mayor grado, que proviene de elevar al cuadrado el término de mayor grado del polinomio original: (3n^5)^2 = 9n^10. El resto de términos cruzados (que involucran n^5·n, n^5·1, n², etc.) crecen más lentamente que n^10 y por tanto son absorbidos asintóticamente por el término dominante.
+
+La notación O grande describe una cota superior asintótica salvo constantes multiplicativas: por definición, O(9n^10) y O(n^10) representan exactamente el mismo conjunto de funciones, ya que las constantes se descartan en la notación Big-O. La forma estándar y canónica de expresar esta complejidad es sin el coeficiente, es decir, O(n^10).
+
+Las opciones a) y b) son incorrectas porque el grado del polinomio (10, al estar elevado al cuadrado un polinomio de grado 5) no coincide con n^5 ni n^7.
+
+Respuesta: d)
+
+Pregunta 6
+
+Sea p(x) el predicado ∀y ∈ R, x·y ≤ y². Entonces:
+a) Se cumple p(-1)
+b) Se cumple p(0)
+c) Se cumple p(1)
+d) El enunciado no se cumple para ningún x ∈ R.
+
+Se evalúa cada caso comprobando si la desigualdad se cumple para todo y real:
+
+- p(0): la condición queda 0·y ≤ y², es decir, 0 ≤ y², lo cual es cierto para todo y ∈ R, ya que un cuadrado nunca es negativo. Por tanto p(0) se cumple.
+- p(1): la condición queda y ≤ y², equivalente a y² - y ≥ 0, es decir y(y-1) ≥ 0. Esto falla, por ejemplo, para y = 0,5: 0,5² - 0,5 = -0,25 < 0. Luego p(1) es falso.
+- p(-1): la condición queda -y ≤ y², equivalente a y² + y ≥ 0, es decir y(y+1) ≥ 0. Esto falla, por ejemplo, para y = -0,5: (-0,5)(0,5) = -0,25 < 0. Luego p(-1) es falso.
+- d) es falsa porque acabamos de mostrar que sí existe un x (x=0) para el que el enunciado se cumple.
+
+Respuesta: b)
+
+Pregunta 7
+
+Sea A ∈ R^{5×5×5×5} un array multidimensional definido por A_{i,j,k,l} = i + j + k + l, para i,j,k,l ∈ {1,2,3,4,5}. Entonces A representa...
+a) Un tensor de rango 5 y dimensión 4.
+b) Un tensor de rango 4 y dimensión 5.
+c) Un tensor de rango 5^4 y dimensión 4^5.
+d) Un tensor de rango 4^5 y dimensión 5^4.
+
+En el contexto de tensores, el "rango" (u orden) de un tensor es el número de índices necesarios para referenciar cada componente, mientras que la "dimensión" es el tamaño (número de valores posibles) de cada uno de esos índices. Aquí el tensor A se referencia con cuatro índices, i, j, k, l, por lo que su rango (orden) es 4. Cada uno de esos índices toma valores en el conjunto {1,2,3,4,5}, es decir, tiene 5 valores posibles, por lo que la dimensión de cada eje es 5.
+
+Esto coincide exactamente con el hecho de que A ∈ R^{5×5×5×5}: cuatro ejes (rango 4), cada uno de tamaño 5 (dimensión 5).
+
+Las opciones c) y d) confunden el rango y la dimensión con el número total de componentes del tensor (que sería 5^4, no el rango) y no corresponden a la definición estándar.
+
+Respuesta: b)
+
+Pregunta 8
+
+En un determinado grupo de personas, un 3% de las mismas padece una enfermedad específica. Existe un test de detección de la misma, el cual tiene un 1% de probabilidad de obtener un falso positivo, así como un 3% de obtener un falso negativo. ¿Cuál es la probabilidad de que un individuo que ha dado positivo en el test padezca la enfermedad?
+
+Se trata de un problema clásico de probabilidad condicionada que se resuelve con el teorema de Bayes. Definamos:
+- D: el individuo padece la enfermedad, P(D) = 0,03; P(¬D) = 0,97.
+- Pos: el test da positivo.
+
+La sensibilidad del test (probabilidad de dar positivo si realmente hay enfermedad) es 1 menos la tasa de falsos negativos: P(Pos|D) = 1 - 0,03 = 0,97.
+La tasa de falsos positivos es P(Pos|¬D) = 0,01.
+
+Por el teorema de Bayes:
+
+P(D|Pos) = [P(Pos|D)·P(D)] / [P(Pos|D)·P(D) + P(Pos|¬D)·P(¬D)]
+
+Sustituyendo:
+
+Numerador = 0,97 × 0,03 = 0,0291
+Denominador = 0,0291 + (0,01 × 0,97) = 0,0291 + 0,0097 = 0,0388
+
+P(D|Pos) = 0,0291 / 0,0388 = 0,75
+
+Este resultado (0,75) refleja que, aunque el test es bastante fiable, al ser la enfermedad poco frecuente (prevalencia baja del 3%), una fracción no despreciable de los positivos son en realidad falsos positivos, por lo que la probabilidad de enfermedad real dado un positivo no llega a ser cercana a 1.
+
+Respuesta: 0,75
+
+Pregunta 9
+
+Sean p, q proposiciones lógicas tales que p ∧ q es un enunciado contradictorio. Entonces:
+a) p es falsa o bien q es falsa.
+b) p ∨ q es contradictorio.
+c) p → q es contingente.
+d) ¬p ∧ ¬q es tautológico.
+
+Que "p ∧ q sea un enunciado contradictorio" significa que dicha conjunción es falsa en toda valoración posible, es decir, nunca pueden ser p y q verdaderas simultáneamente. Aplicando la negación de esta contradicción (que necesariamente es una tautología) junto con las leyes de De Morgan:
+
+¬(p ∧ q) ≡ ¬p ∨ ¬q, y esto es una tautología (siempre verdadero)
+
+Es decir, en cualquier valoración, o bien p es falsa, o bien q es falsa (o ambas). Esto es exactamente lo que afirma la opción a).
+
+Las otras opciones no se deducen necesariamente de la hipótesis:
+- b) p ∨ q no tiene por qué ser contradictorio: por ejemplo, basta que p sea verdadera y q falsa (lo cual es compatible con que p∧q sea siempre falso) para que p∨q sea verdadero, luego no es una contradicción en general.
+- c) p → q no tiene por qué ser contingente: si, por ejemplo, p es siempre falsa, entonces p→q sería una tautología, no una proposición contingente. La hipótesis no garantiza que p→q dependa de la valoración.
+- d) ¬p ∧ ¬q no tiene por qué ser tautológico: si p es verdadera y q es falsa en una valoración (situación compatible con que p∧q sea contradictorio), entonces ¬p ∧ ¬q = F ∧ T = F, luego no siempre es verdadero.
+
+Respuesta: a)
+
+Pregunta 10
+
+Considere las funciones g: R^2 → R^2, g(s,t) = (se^t, se^{-t}), y f: R^2 → R, f(x,y) = ln(√(x²+y²)).
+
+Calcule el valor de ∂/∂s (f∘g)(1,0)
+
+Escribimos x = se^t, y = se^{-t}. Como f(x,y) = ln(√(x²+y²)) = (1/2)ln(x²+y²), sus derivadas parciales son:
+
+∂f/∂x = x/(x²+y²), ∂f/∂y = y/(x²+y²)
+
+Por la regla de la cadena para funciones de varias variables:
+
+∂/∂s (f∘g) = (∂f/∂x)(∂x/∂s) + (∂f/∂y)(∂y/∂s)
+
+Con ∂x/∂s = e^t y ∂y/∂s = e^{-t}, resulta:
+
+∂/∂s (f∘g) = [x/(x²+y²)]·e^t + [y/(x²+y²)]·e^{-t}
+
+Evaluamos en (s,t) = (1,0): x = 1·e^0 = 1, y = 1·e^0 = 1, por lo que x²+y² = 2, e^t = e^{-t} = 1.
+
+∂/∂s (f∘g)(1,0) = (1/2)(1) + (1/2)(1) = 1/2 + 1/2 = 1
+
+Respuesta: 1
+
+Pregunta 11
+
+¿Cuánto debe restar una pregunta incorrecta en un examen tipo test con 5 respuestas posibles para que la puntuación esperada al elegir las respuestas al azar sea 0? Considérese que solo una respuesta (de 5 posibles) es verdadera por pregunta y que una pregunta correcta vale un punto.
+a) 1/2
+b) 1/3
+c) 1/4
+d) 1/5
+
+Sea x la penalización (en valor absoluto) que se resta por respuesta incorrecta. Al responder al azar entre 5 opciones, la probabilidad de acertar es 1/5 y la de fallar es 4/5. La esperanza matemática de la puntuación obtenida es:
+
+E = (1/5)(+1) + (4/5)(-x)
+
+Para que esta esperanza sea igual a 0 (de modo que responder al azar no aporte ni reste puntos en promedio):
+
+(1/5) - (4/5)x = 0 → (1/5) = (4/5)x → x = (1/5)/(4/5) = 1/4
+
+Este es el criterio estándar de corrección "sin penalización esperada" en exámenes tipo test.
+
+Respuesta: c)
+
+Pregunta 12
+
+En toda álgebra de Boole 𝓑 se cumple que A ∪ B es igual a:
+a) (Ā ∪ B̄)‾
+b) (A ∪ B)‾
+c) (Ā ∩ B̄)‾
+d) (A ∩ B)‾
+
+Se aplican las leyes de De Morgan del álgebra de Boole, que establecen:
+
+(A ∪ B)‾ = Ā ∩ B̄ y (A ∩ B)‾ = Ā ∪ B̄
+
+De la primera igualdad, tomando complemento en ambos lados: A ∪ B = (Ā ∩ B̄)‾ (usando que el complemento del complemento de un elemento es el propio elemento, es decir la involución del complemento en un álgebra de Boole). Esto es exactamente lo que dice la opción c).
+
+Las demás opciones son incorrectas:
+- a) (Ā ∪ B̄)‾ = A ∩ B (por De Morgan aplicado a Ā, B̄), no A ∪ B.
+- b) (A ∪ B)‾ es, por definición, el complemento de A∪B, no A∪B mismo.
+- d) (A ∩ B)‾ = Ā ∪ B̄ (por De Morgan), que no coincide en general con A∪B.
+
+Respuesta: c)
+
+Pregunta 13
+
+Sea k ∈ R y
+
+A = [[1, k²-1, -1], [0, 1, k], [0, 0, 2]]
+
+Entonces:
+a) Los autovalores de A son 1 y 2; y si k=1, A no es diagonalizable.
+b) Los autovalores de A son 1 y 2; y si k=1, A es diagonalizable.
+c) Los autovalores de A son 1 y 2; y m_a(1)=1, m_a(2)=2.
+d) A tiene tres autovalores distintos.
+
+Como A es una matriz triangular superior, sus autovalores son exactamente los elementos de la diagonal principal: 1, 1, 2. Es decir, los autovalores son 1 (con multiplicidad algebraica 2) y 2 (con multiplicidad algebraica 1). Esto descarta d) (solo hay dos autovalores distintos, no tres) y c) (las multiplicidades algebraicas están invertidas: es m_a(1)=2 y m_a(2)=1, no al revés).
+
+Para decidir entre a) y b) hay que estudiar si A es diagonalizable cuando k=1, lo cual depende de si la multiplicidad geométrica del autovalor 1 (que tiene multiplicidad algebraica 2) también vale 2. Calculamos el núcleo de A - I con k=1:
+
+A - I = [[0, k²-1, -1], [0, 0, k], [0, 0, 1]]
+
+Con k=1: k²-1 = 0, por lo que:
+
+A - I = [[0, 0, -1], [0, 0, 1], [0, 0, 1]]
+
+El sistema (A-I)v = 0 con v=(v1,v2,v3) da las ecuaciones -v3=0, v3=0, v3=0, es decir, la única condición es v3 = 0, quedando v1 y v2 completamente libres. Por tanto el núcleo tiene dimensión 2 (generado por (1,0,0) y (0,1,0)), es decir, la multiplicidad geométrica del autovalor 1 es 2, igual a su multiplicidad algebraica.
+
+Como el autovalor 2 es simple (multiplicidad algebraica 1), automáticamente su multiplicidad geométrica también es 1. Al coincidir multiplicidad algebraica y geométrica para todos los autovalores (2+1=3=orden de la matriz), A es diagonalizable cuando k=1.
+
+Respuesta: b)
+
+Pregunta 14
+
+Sea f: R^2 → R dada por f(x,y) = 1 - x² - y². Entonces:
+a) f no tiene puntos críticos.
+b) (0,0) es un punto crítico de f y se trata de un mínimo relativo.
+c) (0,0) es un punto crítico de f y se trata de un máximo relativo.
+d) (0,0) es un punto crítico de f y se trata de un punto de silla.
+
+Se calcula el gradiente: ∇f(x,y) = (-2x, -2y). Igualando a cero se obtiene el único punto crítico (0,0), lo que descarta la opción a).
+
+Para clasificar el punto crítico se usa el criterio de la matriz Hessiana. Las derivadas parciales segundas son:
+
+f_xx = -2, f_yy = -2, f_xy = 0
+
+El determinante Hessiano es H = f_xx·f_yy - (f_xy)² = (-2)(-2) - 0 = 4 > 0
+
+Como H > 0 y f_xx = -2 < 0, el criterio de la segunda derivada indica que (0,0) es un máximo relativo (de hecho, es el máximo global, ya que f(x,y) = 1 - (x²+y²) ≤ 1 = f(0,0) para todo (x,y)).
+
+Respuesta: c)
+
+Pregunta 15
+
+Una floristería ofrece 7 variedades de flores. ¿De cuántas maneras diferentes se puede formar un ramo de 5 flores, si se pueden escoger varias flores de la misma variedad y el orden de las flores no importa? (Escribid el resultado sin puntos ni comas)
+
+Este es un problema de combinaciones con repetición, ya que se eligen 5 flores de entre 7 variedades, pudiendo repetirse variedades, y sin importar el orden. La fórmula para combinaciones con repetición de r elementos escogidos entre n tipos es:
+
+CR(n,r) = C(n+r-1, r)
+
+Con n = 7 variedades y r = 5 flores:
+
+CR(7,5) = C(7+5-1, 5) = C(11,5) = 11! / (5! · 6!)
+
+Calculando: C(11,5) = (11·10·9·8·7) / (5·4·3·2·1) = 55440 / 120 = 462
+
+Respuesta: 462
+
+Pregunta 16
+
+Sea f: R → R dada por
+
+f(x) = √(x²+1) si x<0; 0 si x=0; ln(x+1)+e^x si x>0
+
+Entonces:
+a) lím_{x→0} f(x) = 0
+b) lím_{x→0} f(x) = 1
+c) f es continua en x=0.
+d) f es derivable en x=0.
+
+Se calculan los límites laterales:
+
+Límite por la izquierda: lím_{x→0⁻} √(x²+1) = √(0+1) = 1
+
+Límite por la derecha: lím_{x→0⁺} [ln(x+1) + e^x] = ln(1) + e^0 = 0 + 1 = 1
+
+Como ambos límites laterales coinciden y valen 1, el límite global existe y lím_{x→0} f(x) = 1, lo que confirma b) y descarta a).
+
+Sin embargo, f(0) = 0 (dado explícitamente en la definición a trozos), que es distinto del valor del límite (1). Por definición de continuidad se requiere que lím_{x→0} f(x) = f(0), condición que aquí falla (1 ≠ 0), por lo que f no es continua en x=0, descartando c). Como la derivabilidad exige continuidad previa, y f no es continua en x=0, tampoco puede ser derivable ahí, descartando d).
+
+Respuesta: b)
+
+Pregunta 17
+
+Sean A y B dos sucesos independientes tales que P(A) = 0.2 y P(A∪B) = 0.7. Calcule P(B). Debe indicarse el resultado con tres decimales, utilizando la coma "," en lugar del punto "." para indicar la parte decimal.
+
+Para sucesos independientes se cumple P(A∩B) = P(A)·P(B). Usando la fórmula general de la probabilidad de la unión:
+
+P(A∪B) = P(A) + P(B) - P(A∩B) = P(A) + P(B) - P(A)·P(B)
+
+Sustituyendo los datos conocidos:
+
+0,7 = 0,2 + P(B) - 0,2·P(B)
+
+0,7 - 0,2 = P(B)·(1 - 0,2)
+
+0,5 = 0,8·P(B)
+
+P(B) = 0,5 / 0,8 = 0,625
+
+Respuesta: 0,625
+
+1 | 2
+2 | a
+3 | -36
+4 | 0
+5 | d
+6 | b
+7 | b
+8 | 0,75
+9 | a
+10 | 1
+11 | c
+12 | c
+13 | b
+14 | c
+15 | 462
+16 | b
+17 | 0,625

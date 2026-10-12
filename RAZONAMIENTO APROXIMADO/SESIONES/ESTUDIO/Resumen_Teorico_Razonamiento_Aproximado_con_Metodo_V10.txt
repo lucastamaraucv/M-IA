@@ -1,0 +1,546 @@
+RESUMEN TEÓRICO COMPLETO — RAZONAMIENTO APROXIMADO (VIU, José A. Olivas)
+============================================================
+Documento construido leyendo página por página los PDFs originales de
+SESIONES (con agentes de extracción en paralelo, cada dato verificado y
+citado con su página de origen) para poder estudiar sin reabrir cada
+archivo, y para que sirva de única fuente de verdad al construir el Modo
+Maestro de esta app — igual que se hizo para Algoritmos de Optimización.
+
+Etiquetas usadas:
+  [CLASE]  -> contenido literal o casi-literal del PDF, con página entre
+              paréntesis.
+  [OJO]    -> incoherencia, errata o hueco del propio material original,
+              señalada para no inventar una solución que el PDF no da.
+  [ACLARACIÓN] -> la misma idea explicada más despacio, sin añadir datos
+              nuevos que no estén ya en el [CLASE] anterior.
+  [APLICACIÓN V10] -> nota pedagógica: cómo enseñar ese punto siguiendo el
+              Prompt maestro — Tutor de aprendizaje acelerado (v10): qué
+              analogía usar antes de nombrar el concepto formal (regla 6),
+              cuándo la notación tiene 3+ símbolos parecidos y por tanto
+              invierte el orden a tabla-panorama primero (excepción de la
+              regla 6 / Tablas de variables), dónde hay riesgo real de
+              mezclar dos ideas parecidas (regla 5), cuándo conviene un
+              widget animado (B.1), y qué tipo de pregunta de verificación
+              conviene por defecto (regla 3). No cambia ni un solo dato de
+              los [CLASE] — solo indica cómo presentarlos.
+
+PDFs "core" del curso (los desarrollados aquí) y sus páginas:
+  1. Mod_Incertidumbre_OLIVAS_VIU(1).pdf ................ 53 páginas
+  2. Ejer Incert_VIU(1).pdf (ejercicios de 1) ........... 27 páginas
+  3. Logica_Borrosa_OLIVAS_VIU(1).pdf ................... 141 páginas
+  4. Ejercicios_LB_enunciados(1).pdf (ejercicios de 3) .. 9 páginas
+  5. CLIPS_FUZZYCLIPS_OLIVAS_VIU(1).pdf ................. 45 páginas
+  + 5 pares de archivos .clp reales del curso (BC_=reglas, BH_=hechos):
+    coche, coche_cer, metro_cer, frutas, ejemplo_fuz, ej18_fuz.
+
+PDFs de referencia/complementarios, NO desarrollados en este resumen
+(papers académicos, informes de sector, tesis doctoral del profesor,
+manual de referencia de FuzzyCLIPS) — no son "temario" en el mismo
+sentido que los 5 de arriba, se listan solo para que quede constancia:
+  Zadeh-1965(1).pdf, Sobrino_neurocomputing(1).pdf,
+  DOI=10.1002_int_Romero-Cordoba_ijis_16.pdf, INS_2015_Serrano.pdf,
+  Olivas_Tesis_Doctoral.pdf (329 páginas), boletic(1).pdf,
+  Informe OBS - Inteligencia artificial...pdf, Informe OBS IA 2023.pdf,
+  FuzzyCLIPS610d(1).pdf (manual de referencia del software, 82 páginas).
+
+ORDEN PEDAGÓGICO DEL CURSO (los 3 pilares, y por qué en este orden):
+  1. MODELOS CLÁSICOS DE INCERTIDUMBRE (Bayes -> Factores de Certeza ->
+     Dempster-Shafer): es la motivación general de "por qué hace falta
+     representar incertidumbre" y las 3 técnicas históricas previas a la
+     lógica borrosa. El propio PDF 1 anuncia la lógica borrosa como 4º
+     enfoque en su índice (p.5) pero NO la desarrolla — confirma que el
+     temario del curso la deja para el bloque siguiente, más extenso.
+  2. LÓGICA BORROSA: el pilar central (141 páginas, con mucho el bloque
+     más grande) — fundamentos de conjuntos borrosos, operadores,
+     relaciones, representación del conocimiento, razonamiento
+     aproximado (Modus Ponens Generalizado) y control borroso (Mamdani,
+     Sugeno).
+  3. CLIPS Y FUZZYCLIPS: la herramienta PRÁCTICA que aplica ambos
+     pilares anteriores — CLIPS puro (reglas sin incertidumbre),
+     FuzzyCLIPS con Factores de Certeza (aplica el pilar 1) y FuzzyCLIPS
+     con conjuntos borrosos (aplica el pilar 2). Va al final porque
+     exige ya conocer los dos bloques teóricos previos.
+
+
+============================================================
+1. MODELOS CLÁSICOS DE TRATAMIENTO DE INCERTIDUMBRE
+   (Mod_Incertidumbre_OLIVAS_VIU, 53 págs. + Ejer Incert_VIU, 27 págs.)
+============================================================
+
+1.1 Necesidad de modelar incertidumbre (p.1-5)
+------------------------------------------------------
+[APLICACIÓN V10] Tema introductorio, sin concepto formal que mezclar todavía — puede ir directo con pregunta de verificación conceptual (regla 3): "¿por qué un sistema experto no puede basarse solo en reglas exactas?". Analogía: cualquier decisión cotidiana con información incompleta (adivinar si un amigo llegará tarde según señales indirectas). No requiere widget (B.1) — es puramente motivacional.
+[CLASE] "El conocimiento humano está lleno de incertidumbre e imprecisión;
+los esquemas de representación del conocimiento no la contemplan por sí
+solos, deben complementarse con un método de representación de la
+incertidumbre" (p.2). Causas de incertidumbre (p.4): insuficiente
+experiencia, inadecuada representación del conocimiento, información poco
+fiable, no completitud, inexactitud inherente al lenguaje.
+[CLASE] Los 4 enfoques que anuncia el propio índice del curso (p.5, en este
+orden): probabilidad Bayesiana, factores de certeza, teoría de la
+evidencia/Dempster-Shafer, lógica borrosa.
+[OJO] Este PDF (Mod_Incertidumbre) NO desarrolla lógica borrosa pese a
+anunciarla en el índice — termina en Dempster-Shafer (p.53). La lógica
+borrosa se desarrolla en su propio PDF de 141 páginas (bloque 2 de este
+resumen).
+
+1.2 Probabilidad Bayesiana (p.6-17)
+------------------------------------------------------
+[APLICACIÓN V10] Analogía cotidiana antes de la fórmula (regla 6): reconocer quién llama por teléfono según el tono de voz, y cómo esa creencia cambia con cada pista nueva — nunca partir de P(h/e). La verificación por defecto pasa a ser un caso corto a calcular (regla 3), porque el concepto es procedimental. Cuidado: no introducir todavía "factores de certeza" ni "Dempster-Shafer" — van en bloques separados (regla 5) y solo se comparan los tres al cierre del Batch 1.
+[CLASE] Se basa en el teorema de Bayes; aplicado a reconocimiento de
+patrones/clasificación; ejemplo citado: sistema experto PROSPECTOR (Duda et
+al. 1979) para exploración de yacimientos de cobre (p.6, 9).
+[CLASE] Fórmula básica (p.7): P(h/e) = P(h∧e)/P(e) = P(h)·P(e/h)/P(e).
+[CLASE] Ejemplo meningitis (p.8): P(S/M)=0.5, P(M)=1/50.000, P(S)=1/20 →
+P(M/S) = 0.5·(1/50.000)/(1/20) = 0.0002.
+[CLASE] Generalización a n evidencias con k hipótesis mutuamente exclusivas
+y exhaustivas (ΣP(hj)=1) e independientes (p.10-11):
+  P(hi/e1∧...∧en) = [P(hi)·P(e1/hi)·...·P(en/hi)] /
+                     Σj[P(hj)·P(e1/hj)·...·P(en/hj)]
+[CLASE] Ejemplo completo "inversores" (p.12-15): h1=inversor_alto_riesgo,
+h2=inversor_bajo_riesgo (exclusivas/exhaustivas); e1=soltero,
+e2=ingresos_altos, e3=joven. P(h1)=0.3, P(h2)=0.7; P(e1/h1)=0.6,
+P(e1/h2)=0.4; P(e2/h1)=0.2, P(e2/h2)=0.8; P(e3/h1)=0.5, P(e3/h2)=0.5.
+Resultados: P(h1/e1)=0.39, P(h2/e1)=0.61; P(h1/e1∧e3)=0.4,
+P(h2/e1∧e3)=0.6; P(h1/e1∧e2∧e3)=0.14, P(h2/e1∧e2∧e3)=0.86. Conclusión
+literal: "h2 es la situación más probable".
+[CLASE] Defectos del enfoque probabilista (p.16-17): (1) hacen falta
+muchas P(hi) y P(ej/hi), no siempre fáciles de estimar; (2) requieren
+muestras representativas; (3) nueva evidencia obliga a reconstruir todo;
+(4) la independencia de hipótesis rara vez ocurre; (5) asume que la
+evidencia que soporta una hipótesis también informa sobre su negación
+(P(c/a)=0.8 → P(¬c/a)=0.2), lo cual no siempre es cierto (ej. un síntoma
+médico no necesariamente "descarta" la ausencia de la enfermedad en esa
+proporción).
+[ACLARACIÓN] Estos 5 defectos son exactamente lo que motivan los dos
+enfoques siguientes: los Factores de Certeza evitan el requisito de
+P(h)+P(¬h)=1 (defecto 5), y Dempster-Shafer generaliza formalmente esa
+misma idea con intervalos de creencia en vez de un único número.
+
+1.3 Factores de Certeza — MYCIN (p.18-31)
+------------------------------------------------------
+[APLICACIÓN V10] Riesgo alto de mezcla con Bayes (regla 5): ambos "combinan evidencia para reforzar una creencia", pero aquí se corrige justo eso — MYCIN no exige P(h)+P(¬h)=1. Enséñalo en su propio bloque con su propio ejemplo (el de tráfico ya sirve) y verifícalo antes de compararlo con Bayes. Analogía: dos testigos que apoyan o debilitan una misma sospecha, sin que "sospechoso"+"no sospechoso" tenga que sumar 100%. En cuanto aparezca el encadenamiento (CF(h,e1), CF(h,e2) y el CF combinado, luego CF(g,h)) ya son 3+ símbolos parecidos — aplica la excepción de la regla 6: tabla-panorama primero (ver Tablas de variables) antes de calcular el encadenamiento completo. Verificación: caso corto (combinar dos CF).
+[CLASE] Introducidos por Buchanan y Shortliffe (1979) en el sistema experto
+médico MYCIN (p.19). No se basan en probabilidad ni en poblaciones
+muestrales, sino en el juicio de un experto (p.18-19). Viven en el
+intervalo [-1,1]: 1=confianza total, -1=no-creencia total (p.20).
+[CLASE] Combinación de dos reglas con la misma conclusión h, CF(h,e1) y
+CF(h,e2) (p.21):
+  (a) si ambos CF &gt; 0: CF(h,e1) + CF(h,e2)·(1-CF(h,e1))
+  (b) si ambos CF &lt; 0: CF(h,e1) + CF(h,e2)·(1+CF(h,e1))
+  (c) en cualquier otro caso: [CF(h,e1)+CF(h,e2)] / (1-min(|CF(h,e1)|,|CF(h,e2)|))
+[CLASE] Ejemplo tráfico, ambas positivas (p.22): R1 viernes→tráfico 0.8, R2
+llueve→tráfico 0.7 → 0.8+0.7·(1-0.8) = 0.94.
+[CLASE] Ejemplo tráfico, signos distintos (p.23): R1 viernes→tráfico 0.8,
+R2 fin_de_mes→tráfico -0.4 → resultado 0.66 (caso c).
+[CLASE] CF de una condición simple: CF(h,e1) = CF(e1)·CFR(h,e1) (p.26).
+Condición conjunta (Y): CF(h,e1∧...∧en) = CFR(h,...)·min[CF(e1),...,CF(en)]
+(p.27). Condición disyuntiva (O): CF(h,e1∨...∨en) =
+CFR(h,...)·max[CF(e1),...,CF(en)] (p.28).
+[CLASE] Ejemplo con Y/O combinados (p.29): R1 (A 0.7 Y B 0.2)→C,-0.8; R2
+(D 0.3 O F 0.6)→C,-0.4. CF(C,A∧B)=0.2·(-0.8)=-0.16; CF(C,D∨F)=0.6·(-0.4)=
+-0.24; CF(C,(A∧B)∧(D∨F)) = -0.16-0.24·(1-0.16) = -0.33.
+[CLASE] Ejemplo de encadenamiento de reglas, inversores (p.30-31): R1
+e1→h CFR=0.75, R2 e2→h CFR=0.6, R3 e3→h CFR=-0.8, R4 h→g CFR=-0.7
+(g=invertir_en_bonos). FC observados: e1=0.9, e2=0.5, e3=0.9. Cálculo:
+CF(h,e1)=0.67; CF(h,e2)=0.3; CF(h,e3)=-0.72; CF(h,e1∧e2)=0.77;
+CF(h,e1∧e2∧e3) = [0.77-0.72]/(1-0.72) = 0.17; CF(g,h) = 0.17·(-0.7) =
+-0.12 → "No debería invertir".
+
+1.4 Teoría de la Evidencia — Dempster-Shafer (p.32-52)
+------------------------------------------------------
+[APLICACIÓN V10] Ya existe un patrón de reformulación validado para este concepto (secuencia B.3): "algo se perdió y solo sé que está entre dos lugares, sin poder decidir cuál" funciona mejor que partir de fórmulas o del caso Watson — úsalo para la intuición general de "evidencia parcial, sin obligar a que creer más en uno sea creer menos en el otro". Pero masa (m), creencia (BEL) y plausibilidad (PL) son 3 símbolos parecidos que comparten el mismo problema: aplica la excepción de la regla 6 — antes de la analogía, la tabla-panorama (variable | qué significa | de dónde sale | ejemplo | qué ocurre al combinar) con los tres, y recién ahí la analogía de B.3 anclando cada pieza a su fila. Cuidado con mezclarlo con Bayes/CF (regla 5) — es el tercer bloque, se compara al final. Widget (B.1): útil para la tabla cruzada X×Y del caso Watson, una vez la intuición ya esté firme.
+[CLASE] Objetivo: eliminar el punto débil de Bayes de que creer más en h no
+tiene por qué implicar creer menos en ¬h (p.32).
+[CLASE] Marco de discernimiento H={h1,...,hm}, hipótesis mutuamente
+exclusivas y exhaustivas (p.33). Conjunto potencia P(H): 2^M subconjuntos
+(p.34). Masa de probabilidad básica m: 2^M→[0,1], con m(∅)=0 y
+Σ(Si⊆H) m(Si)=1 (p.35).
+[CLASE] Creencia: BEL(S) = Σ(X⊆S) m(X) (p.36). Plausibilidad:
+PL(S) = 1-BEL(¬S). Intervalo de creencia: [BEL(S), PL(S)]. Incertidumbre:
+PL(S)-BEL(S) (p.37).
+[CLASE] Regla de combinación de Dempster-Shafer (p.43):
+  m3(C) = [Σ(X∩Y=C) m1(X)·m2(Y)] / [1 - Σ(X∩Y=∅) m1(X)·m2(Y)]
+El denominador normaliza restando el "conflicto" entre evidencias
+(numerador de la suma que va sobre X∩Y=∅). Si el conflicto es 1, m3 queda
+indefinida ("asignación contradictoria", p.44).
+[CLASE] Caso de estudio completo "Watson" (crimen, p.45-52): marco
+H={Bob,Jim,Sally}; masas iniciales de Watson y masas de nueva evidencia
+(colillas/facturas); tabla cruzada X×Y para calcular el conflicto
+(=0.245, normalización 1-0.245=0.755) y las masas combinadas finales,
+p.ej. m3(Bob)=0.17/0.755=0.225.
+
+1.5 Ejercicios del bloque 1 (Ejer Incert_VIU, 27 págs., SIN solución)
+------------------------------------------------------------------------
+[APLICACIÓN V10] Banco de preguntas para revisión acumulativa y simulación (regla 12): al no traer solución, resuélvelos uno a uno con las fórmulas ya verificadas antes de usarlos en una pregunta — nunca inventar un resultado (regla 2 aplicada a la pregunta de verificación).
+[CLASE] Un ejercicio integrador que combina las 3 técnicas sobre la misma
+base de reglas (C1,C2,C3 vía A1..A9/B1,B2), 6 bloques "EJERCICIOS DE
+INFERENCIA BAYESIANA" (1B-6B), 8 "EJERCICIOS DE FACTORES DE CERTEZA"
+(FC1-FC8) y 9 "EJERCICIOS DE TEORÍA DE LA EVIDENCIA" (DS1-DS9) — 24
+ejercicios en total, todos con datos numéricos concretos, ninguno con
+solución en el PDF (solo la fórmula-recordatorio al pie de cada bloque).
+[ACLARACIÓN] Al no traer solución, estos ejercicios son perfectos como
+banco de preguntas de práctica del Modo Maestro (se puede calcular la
+respuesta correcta aplicando las fórmulas ya verificadas arriba) — pero
+hay que resolverlos con cuidado, uno a uno, antes de usarlos en una
+pregunta, para no inventar un resultado.
+
+
+============================================================
+2. LÓGICA BORROSA (Logica_Borrosa_OLIVAS_VIU, 141 págs.)
+============================================================
+
+2.1 Historia (p.1-7)
+------------------------------------------------------
+[APLICACIÓN V10] Contexto histórico, no requiere método pesado — se cuenta como narrativa breve, sin pregunta de verificación obligatoria.
+[CLASE] Propuesta por Lotfi Zadeh en 1965 (p.2). Cita literal: "Los
+elementos clave en el pensamiento humano no son números, sino etiquetas.
+Estas etiquetas permiten que los objetos pasen de pertenecer de una clase
+a otra de forma suave y flexible." Se ve como extensión de la lógica
+multivaluada de Lukasiewicz (1922, lógica trivaluada) (p.2-3). Tras 1965,
+profundización teórica (Zadeh, Trillas, Dubois, Prade); desde 1975,
+aplicaciones (éxito en Japón: cámaras, lavadoras, ABS; frialdad inicial en
+Europa/EE.UU., críticas de Kalman 1972) (p.5-6).
+
+2.2 Conjuntos borrosos: fundamentos (p.8-28)
+------------------------------------------------------
+[APLICACIÓN V10] Punto de mayor riesgo de confusión del curso — la experiencia ya mostró que "grado de pertenencia" se confunde fácil con "probabilidad" (el mismo error que corregimos con "posibilidad"). Aplica directo esa lección: no nombres "función de pertenencia" hasta que la intuición de "grado de compatibilidad, no frecuencia" esté firme, y usa verificación forzada (documento de comunicación): pide definir "pertenencia" sin usar la palabra "probabilidad". Analogía: qué tan lleno está un vaso, o qué tan "alto" es alguien — nunca blanco o negro. Widget (B.1): graficar la curva de pertenencia (la tabla de "edad") ayuda mucho, es visual/comparativo.
+[CLASE] Conjunto crisp: función característica μA(x)∈{0,1} (p.8-11).
+Conjunto borroso: función de pertenencia μA: X→[0,1] (p.14).
+[CLASE] Ejemplo canónico "edad" con 3 etiquetas (p.19-20), tabla exacta:
+  Edad:    5   10  20   30  40  50  60  70  80
+  joven:   1   1   0.8  0.5 0.2 0.1 0   0   0
+  adulto:  0   0   0.8  1   1   1   1   1   1
+  mayor:   0   0   0.1  0.2 0.4 0.6 0.8 1   1
+[CLASE] Soporte: Sop(A) = {x∈X | μA(x)&gt;0} (p.20). Notación A =
+μ1/x1+...+μn/xn (p.21). Altura = mayor grado de pertenencia; Núcleo =
+elementos con grado máximo; normalizado = algún elemento con grado 1
+(p.22).
+[CLASE] α-corte: Aα = {x∈X | μA(x)≥α} (p.23). Ejemplo: Joven0.2 =
+{5,10,20,30,40}. El núcleo es el α-corte de nivel 1.
+[CLASE] Cardinalidad escalar: |A| = Σx∈X μA(x) (p.24). Ejemplo:
+|Mayor| = 0+0+0.1+0.2+0.4+0.6+0.8+1+1 = 4.1.
+[CLASE] A⊆B (borroso) si μA(x)≤μB(x) ∀x (p.25). Convexidad borrosa: A es
+convexo sii μA(λr+(1-λ)s) ≥ min[μA(r),μA(s)] ∀r,s,λ∈[0,1] (equivale a que
+todos sus α-cortes sean convexos en sentido crisp) (p.26-27).
+[CLASE] Número borroso: conjunto borroso convexo, normalizado y con
+función de pertenencia continua (p.28).
+
+2.3 Operadores borrosos (p.29-46)
+------------------------------------------------------
+[APLICACIÓN V10] Analogía: elegir una fruta que sea "bien madura" Y "barata" — el Y toma el mínimo de ambos grados, el O el máximo. Verificación: caso corto (calcular unión/intersección de dos valores). Cuidado al llegar a T-normas/T-conormas: son varias fórmulas parecidas (mínimo, producto, Lukasiewicz, Yager) — trátalas una por una con su propio ejemplo antes de compararlas (regla 5).
+[CLASE] Complemento: Ã(x)=1-μA(x). Unión: μA∪B(x)=max[μA(x),μB(x)].
+Intersección: μA∩B(x)=min[μA(x),μB(x)] (p.29-30, 35).
+[CLASE] Principio de extensión: generaliza f:X→Y a conjuntos borrosos. Si
+varios x apuntan al mismo y, se toma el máximo de sus grados; en funciones
+de varias variables, primero el mínimo dentro de cada tupla y luego el
+máximo entre tuplas (p.31-34). Ejemplo: f:a→p,b→q,c→p con A=0.3/a+0.9/b+
+0.5/c → B=f(A) = 0.5/p+0.9/q (p.33).
+[CLASE] Complemento borroso axiomático c:[0,1]→[0,1] — C1 (c(0)=1,c(1)=0),
+C2 (monótona decreciente), C3 (continua), C4 (involutiva: c(c(a))=a)
+(p.39-41). Ejemplos involutivos (p.42): clásico c(a)=1-a; Sugeno
+c_λ(a)=(1-a)/(1+λa); Yager c_ω(a)=(1-a^ω)^(1/ω).
+[CLASE] T-normas (intersección) T:[0,1]²→[0,1] — axiomas: elemento
+unidad T(a,1)=a, conmutativa, monótona, asociativa (p.43). Ejemplos
+(p.44): mínimo min(a,b); producto a·b; Lukasiewicz max(0,a+b-1); familia
+de Yager Tw(a,b)=1-min[1,((1-a)^w+(1-b)^w)^(1/w)]. Cadena:
+max(0,a+b-1) ≤ a·b ≤ min(a,b).
+[CLASE] T-conormas (unión) ⊥:[0,1]²→[0,1] — axiomas análogos con
+elemento cero ⊥(a,0)=a (p.45). Ejemplos (p.46): máximo max(a,b); producto
+a+b-a·b; Lukasiewicz min(a+b,1); familia de Yager
+⊥w(a,b)=min[1,(a^w+b^w)^(1/w)]. Cadena: max(a,b) ≤ a+b-a·b ≤ min(1,a+b).
+
+2.4 Relaciones borrosas (p.47-62)
+------------------------------------------------------
+[APLICACIÓN V10] La composición max-min es un procedimiento paso a paso sobre una matriz — candidato ideal para widget animado (B.1): mostrar cómo se recorre cada par (x,y) tomando el mínimo y luego el máximo. Cuidado: max-min vs. max-producto son conceptos parecidos (regla 5) — sepáralos con su propio ejemplo antes de comparar resultados sobre las mismas matrices.
+[CLASE] Relación crisp R(X1,...,Xn)⊆X1×...×Xn (p.47). Relación binaria
+borrosa: μR(x,y)∈[0,1] (p.50, ejemplo "cercanía entre ciudades").
+[CLASE] Dominio (borroso): μdomR(x) = max(y∈Y) μR(x,y) (p.52). Rango:
+μranR(y) = max(x∈X) μR(x,y) (p.53). Altura: h(R) = max(x,y) μR(x,y) (p.54).
+[CLASE] Composición max-min: μP∘Q(x,z) = max(y∈Y) min[μP(x,y),μQ(y,z)]
+(p.58). Alternativa max-producto: μP⊙Q(x,z) = max(y∈Y) [μP(x,y)·μQ(y,z)].
+[CLASE] Ejemplo numérico completo con matrices P(4×3) y Q(3×2) dando
+R=P∘Q (4×2) por max-min (p.59-61); segundo ejemplo comparando max-min vs.
+max-producto sobre las mismas matrices P(3×3) y Q(3×4), con resultados
+numéricos distintos para cada método (p.62).
+
+2.5 Sistema borroso: definición y diseño (p.63-67)
+------------------------------------------------------
+[APLICACIÓN V10] Pipeline secuencial (adquisición → representación → operadores → desborrosificación → simulación) — buen candidato para un diagrama de flujo (B.1), animado solo si hay estados que cambien en el tiempo.
+[CLASE] "Un Sistema Borroso es aquel que utiliza alguna de las técnicas
+propias de la lógica borrosa bien sea en la representación de su
+conocimiento, en la combinación de dicho conocimiento mediante diversos
+operadores borrosos o en cualquier otra función propia de dicho sistema"
+(p.64). Pasos de diseño: adquisición → representación (borrosificación) →
+operadores/inferencia → desborrosificación (si aplica) → simulación (p.65).
+Herramientas citadas (p.67): Fuzzy Toolbox de MATLAB, FuzzyCLIPS (NASA),
+CubiCalc, TIL Shell.
+
+2.6 Representación borrosa del conocimiento (p.68-77)
+------------------------------------------------------
+[APLICACIÓN V10] Analogía cotidiana para las cercas semánticas: cómo cambia la intensidad de un adjetivo al decir "alto", "muy alto" o "más o menos alto" — antes de mostrar que "muy A" eleva al cuadrado el grado. Verificación: caso corto (calcular el grado de "muy A" dado A).
+[CLASE] La función de pertenencia se obtiene del experto del dominio, "no
+está basada en la repetibilidad de las observaciones sino en la opinión de
+un experto" (p.70) — distinción clave frente a una distribución de
+probabilidad.
+[CLASE] Regla general: "Si x1 es A1,1 y ... y xn es An,1 Entonces y es B1"
+(p.72). Cada dominio se divide en tantos conjuntos borrosos como el
+experto considere, cada partición con su etiqueta lingüística. Formas
+mostradas gráficamente (sin fórmula numérica dada en el PDF): triangular,
+trapezoidal, acampanada (p.73-74).
+[CLASE] Cercas semánticas / hedges (p.76-77): "Muy A" = A² (eleva al
+cuadrado el grado de pertenencia); "Más o menos A" = A^0.5; "No A" =
+complemento. Ejemplo: "números muy próximos a cero" = (1/(1+10x²))²
+(cuadrado de la fórmula base de "próximos a cero", p.16 y p.76).
+
+2.7 Razonamiento aproximado (p.78-102)
+------------------------------------------------------
+[APLICACIÓN V10] El núcleo matemático del curso y el de mayor riesgo de mezcla (regla 5): Modus Ponens clásico vs. generalizado, y las tres familias de implicaciones (S/R/QL) que se parecen mucho entre sí — enseña cada familia en su propio bloque con su propio ejemplo antes de compararlas. A, A', B, B' y R son justo el caso de la excepción de la regla 6 (3+ símbolos parecidos que comparten el mismo problema): antes de la analogía, la tabla-panorama (variable | qué significa | de dónde sale | ejemplo | qué ocurre al inferir) con los cinco, antes de construir B' a partir de A' y R paso a paso. El MPG cambia paso a paso (sup-min sobre una relación) — widget animado (B.1) muy recomendable, complementando la tabla, no reemplazándola. Nombre formal ("Modus Ponens Generalizado") recién cuando la intuición de "la regla se activa parcialmente según cuánto se parezca el hecho a la condición" esté firme — pero los símbolos A, A', B, B', R ya se declararon desde la tabla inicial.
+[CLASE] Regla de composición de inferencias: B' = A'∘R, con
+B'(y) = sup_x min[A'(x), R(x,y)] (p.79). La relación R de una regla "Si x
+es A entonces y es B" se define vía una función de implicación:
+R(x,y) = I(A(x),B(y)) (p.79-80).
+[CLASE] Modus Ponens Generalizado (MPG, p.81): Regla "Si x es A entonces y
+es B"; Hecho "x es A'"; Conclusión "y es B'" (el modus ponens clásico es
+el caso particular A'=A, B'=B).
+[CLASE] Implicación borrosa: I:[0,1]²→[0,1], extensión de la implicación
+clásica (p.82-83). Tres familias (p.86-88):
+  - S-implicaciones I(a,b)=⊥(c(a),b): Kleene-Dienes max(1-a,b); Reichenbach
+    1-a+ab; Lukasiewicz min(1-a+b,1). Se cumple I_b≤I_r≤I_a.
+  - R-implicaciones I(a,b)=sup{x:T(a,x)≤b}: Gödel (1 si a≤b, si no b);
+    Goguen (1 si a≤b, si no b/a); Lukasiewicz min(1,1-a+b) (es a la vez S
+    y R). Se cumple I_g≤I≤I_a.
+  - QL: I(a,b)=⊥(c(a),T(a,b)): Early-Zadeh max(1-a,min(a,b)); Klir y Yuan
+    1-a+a²b.
+[CLASE] Ejemplo completo MPG (p.92-93): X={x1,x2,x3}, Y={y1,y2}, A=0.5/x1+
+1/x2+0.6/x3, B=1/y1+0.4/y2, implicación de Lukasiewicz →
+R=1/x1y1+0.9/x1y2+1/x2y1+0.4/x2y2+1/x3y1+0.8/x3y2. Con hecho
+A'=0.6/x1+0.9/x2+0.7/x3 → B'=0.9/y1+0.7/y2 (por sup-min).
+[CLASE] Modus Tollens Generalizado (p.94-95): A'(x) = sup_y min[B'(y),
+R(x,y)] — ejemplo con el mismo R y B' anteriores da A'=0.9/x1+0.9/x2+
+0.9/x3.
+[CLASE] 4 tipos de proposiciones borrosas (p.96-102):
+  1. No condicionada, no cualificada: "v es F" — grado de verdad = μF(v).
+  2. No condicionada, cualificada: "v es F es S" — T(p)=S(F(v)); ejemplo
+     "María, 26 años, joven en grado 0.87" → T(p)=0.76 (fórmula de S no
+     detallada en el PDF).
+  3. Condicionada, no cualificada: "Si x es A entonces y es B" —
+     R(x,y)=I(A(x),B(y)); ejemplo con A=0.1/x1+0.8/x2+1/x3, B=0.5/y1+1/y2
+     e implicación de Lukasiewicz.
+  4. Condicionada, cualificada: "Si x es A entonces y es B es S" —
+     combina los tratamientos de los casos 3 y 2.
+
+2.8 Control borroso (p.103-137)
+------------------------------------------------------
+[APLICACIÓN V10] Mamdani vs. Takagi-Sugeno es el par clásico que se confunde en examen — aplica la regla 5 al pie de la letra: enseña Mamdani completo (con el ejemplo del péndulo) y verifícalo, luego Sugeno completo (con el ejemplo del coche) y verifícalo, y solo al final compáralos explícitamente (Mamdani da una etiqueta borrosa que hay que desborrosificar; Sugeno da directo una función/número). Analogía: el mando de la ducha ajustando la temperatura con reglas tipo "si el agua está algo fría, abre un poco más la caliente". Widget animado (B.1) muy recomendable: es un proceso con estados que cambian paso a paso (borrosificación → grado de aplicabilidad → combinación → desborrosificación).
+[CLASE] Arquitectura general (p.110): valores medidos → borrosificación →
+lógica de control (+ base de conocimiento) → desborrosificación → salida
+crisp.
+[CLASE] Aplicaciones comerciales citadas (p.107-109): depuradoras de agua,
+control de tráfico, pilotaje de barcos, hornos de cemento, lavadoras
+(Matsushita), aire acondicionado (Mitsubishi), cámaras (Sanyo), ABS/cruise
+control (Mazda, Nissan).
+
+**Enfoque de Mamdani (p.111-126)**
+[CLASE] Regla general con K reglas: "Si h1 es A(1) y...y hn es A(n)
+Entonces y es B" (p.114-115). Grado de aplicabilidad de una regla:
+αr = min{μ_i1,r(1)(x1),...,μ_in,r(n)(xn)} (p.118) — la conclusión de esa
+regla se "corta" (recorta su altura) al nivel αr, y las salidas de todas
+las reglas activas se combinan por MÁXIMO (unión) (p.122).
+[CLASE] Ejemplo numérico completo, péndulo/ángulo (p.119-122): R1 "Si θ es
+positivo_pequeño y θ̇ es aprox._cero, Entonces F es positivo_pequeño"; R2
+análoga con positivo_medio. Con θ=36°, θ̇=-2.25°/s: α1=min(0.4,0.8)=0.4,
+α2=min(0.6,0.8)=0.6. Salida combinada con soportes en {1,3.5,4,6,7.5} y
+niveles {0.4,0.6}.
+[CLASE] 3 métodos de desborrosificación (p.123-126):
+  - Criterio del máximo: cualquier y del rango de máxima pertenencia
+    (ejemplo: cualquier valor en [4,6]) — no determinista.
+  - Media del máximo: valor medio de ese rango (ejemplo: 5).
+  - Centro de gravedad: promedio ponderado por los grados (ejemplo:
+    (0.4·1+0.4·3.5+0.6·4+0.6·6)/(0.4+0.4+0.6+0.6) = 3.9) — el más suave/
+    continuo, pero más costoso computacionalmente.
+
+**Enfoque de Takagi-Sugeno (p.127-137)**
+[CLASE] Misma partición borrosa en las entradas, pero la conclusión es una
+función (normalmente lineal) de las entradas, no una etiqueta:
+fr(x1,...,xn) = a1^(r)x1+...+an^(r)xn+a^(r) (p.127). Salida crisp SIN
+desborrosificación:
+  h = [Σr αr·fr(x1,...,xn)] / [Σr αr]                      (p.128)
+[CLASE] Ejemplo completo "coche sorteando una curva" (p.129-137): 4
+entradas (distancia a esquina, a borde interior, ángulo, a borde
+exterior), tabla de 20 reglas con coeficientes P0-P4 (p.133). Con
+δ1=10,δ2=30,δ3=0,δ4=50: solo R4 (α4=1/4) y R7 (α7=1/6) tienen grado &gt;0.
+f4=1.873, f7=2.820 → h = (3/5)·1.873+(2/5)·2.820 = **2.2518** (resultado
+final del ejemplo, p.136-137).
+
+2.9 Ejercicios del bloque 2 (Ejercicios_LB_enunciados, 9 págs., SIN solución)
+--------------------------------------------------------------------------------
+[APLICACIÓN V10] Banco de examen (regla 12) — el ejercicio "los dos aviones" conecta directo con el archivo real BC_ej18_fuz.clp (batch 5), útil para mostrar teoría y práctica como el mismo caso.
+[CLASE] 6 "Ejercicios de Inferencia Borrosa" (composición de relaciones,
+MPG con distintas t-normas/implicaciones) + 5 "Ejercicios de Control
+Borroso" (Mamdani con desborrosificación por varios criterios,
+Takagi-Sugeno con tabla de reglas, incluido el ejercicio de "los dos
+aviones" cuyos datos de observación V1=4.5,V2=3 coinciden exactamente con
+el archivo real BH_ej18_fuz.CLP — ver bloque 3).
+
+
+============================================================
+3. CLIPS Y FUZZYCLIPS (CLIPS_FUZZYCLIPS_OLIVAS_VIU, 45 págs. + 5 .clp reales)
+============================================================
+
+3.1 CLIPS: motor de reglas clásico (p.2-18)
+------------------------------------------------------
+[APLICACIÓN V10] Aquí el reto es sintaxis nueva, no un concepto abstracto — no aplica tanto analogía/formalización, sino aprender el vocabulario (hechos, reglas, agenda) y verificar leyendo una regla real y describiendo qué hace (verificación aplicada, no puramente conceptual).
+[CLASE] "Shell para la elaboración de Sistemas Expertos creada por la NASA
+en 1986 (v6.1). C Language Integrated Production System. Sistema de
+producción con encadenamiento hacia delante" (p.2).
+[CLASE] Nomenclatura (p.5): hechos=facts, reglas=rules, conjunto
+conflicto=agenda, inferir=run. Sintaxis basada en LISP (todo entre
+paréntesis).
+[CLASE] Comandos de hechos (p.7): (facts), (assert &lt;hecho&gt;),
+(retract &lt;id&gt;), (clear), (reset), (deffacts &lt;nombre&gt; ...).
+[CLASE] Estructura de una regla (p.10):
+  (defrule &lt;nombre&gt;
+     [(declare (salience &lt;n&gt;))]
+     (patrón_1) ... (patrón_N)
+  =&gt;
+     (acción_1) ... (acción_N))
+[CLASE] Variables locales con "?" (un campo) y "$?" (varios campos)
+(p.14); variables globales con defglobal, ?*nombre*=valor (p.16), no
+usables como parámetros de función.
+
+3.2 FuzzyCLIPS: incertidumbre con Factores de Certeza (p.19-32)
+------------------------------------------------------------------------
+[APLICACIÓN V10] Aplica directamente lo aprendido en 1.3 a un caso ejecutable, pero aquí el riesgo es mayor: CF del hecho antecedente, CF de la regla y CF de la conclusión son 3 símbolos parecidos que se combinan en el mismo cálculo — exactamente el tipo de caso que la excepción de la regla 6 existe para prevenir (el precedente real fue justo una confusión con CFr/CFf/CFc en otra sesión). Antes de trazar el ejemplo del coche, tabla-panorama (variable | qué significa | de dónde sale | ejemplo | qué ocurre al inferir) con esos 3 símbolos, y solo después traza en vivo cómo f-3 pasa de CF 0.14 a CF 0.56 al dispararse la regla dos veces — ahí sí es ideal un widget animado (B.1) que muestre el cálculo paso a paso, complementando la tabla ya vista, no reemplazándola.
+[CLASE] "Shell para la elaboración de Sistemas Expertos con incertidumbre
+desarrollada a partir de CLIPS (6.10)... Contempla dos maneras de tratar
+la incertidumbre que a su vez se pueden combinar: incertidumbre a base de
+factores de certeza en reglas y hechos; incertidumbre a base de conjuntos
+borrosos" (p.20).
+[CLASE] Hecho con CF: (hecho) CF &lt;valor&gt; (por defecto CF=1) (p.23).
+Regla con CF: (declare (CF &lt;valor&gt;)) dentro del defrule (p.24).
+Combinación: producto del CF del antecedente por el CF de la regla; con
+varios antecedentes se toma el mínimo antes de multiplicar por el CF de
+la regla (p.25).
+[CLASE] Ejemplo completo trazado paso a paso (coche, p.29-32, = BC/BH
+coche_cer.clp): con motor=0.8 y luces=0.2 como hechos, y regla_1 CF=0.7,
+se traza en vivo cómo (run 1) va derivando: f-3 (problema eléctrico)
+CF 0.14 (0.2×0.7), luego se actualiza a CF 0.56 cuando regla_1 vuelve a
+dispararse sobre motor=0.8 (0.8×0.7), etc.
+
+3.3 FuzzyCLIPS: incertidumbre con conjuntos borrosos (p.33-44)
+------------------------------------------------------------------------
+[APLICACIÓN V10] Aplica 2.2/2.7 a la sintaxis real de FuzzyCLIPS — verificación aplicada: dado un deftemplate borroso, pedir que interprete la función de pertenencia que codifica.
+[CLASE] deftemplate borroso, sintaxis exacta (p.34):
+  (deftemplate X1
+     0 7                          ; universo [V_min, V_max]
+     ( (baja (0 1) (2 0))         ; etiqueta + pares (valor grado)
+       (media (1 0) (3 1) (5 0))
+       (alta (3 0) (7 1)) ) )
+[CLASE] Observación tipo singleton (valor "nítido" codificado como
+triangular degenerado en el mismo punto): (X1 (4 0) (4 1) (4 0)) (p.38).
+[CLASE] "Se utiliza la regla de composición de inferencias con max-min. Se
+utiliza por defecto. También se puede usar max-producto" (p.39).
+[CLASE] Funciones de desborrosificación con su sintaxis CLIPS exacta
+(p.44): (maximum-defuzzify &lt;n&gt;) — criterio del máximo;
+(moment-defuzzify &lt;n&gt;) — centro de gravedad. Función de graficado:
+(plot-fuzzy-value t * &lt;min&gt; &lt;max&gt; &lt;n&gt;) (p.43).
+[OJO] El PDF NO cubre: slots tipados de deftemplate no-borroso,
+deffunction, defclass/COOL, bind, ni funciones de pertenencia predefinidas
+de FuzzyCLIPS más allá del formato de pares (valor grado) — no inventar
+esta sintaxis si hace falta en un ejemplo.
+
+3.4 Los 5 pares de archivos .clp reales del curso
+------------------------------------------------------------------------
+[APLICACIÓN V10] Cada archivo .clp es un ejercicio de trazado completo — buen momento para el diagnóstico continuo (regla 11): usar cada archivo como problema nuevo para confirmar si los batches 1-3 quedaron realmente firmes, no solo memorizados.
+[CLASE] BC_coche.clp/BH_coche.clp: diagnóstico de avería de coche, CLIPS
+PURO (sin incertidumbre) — 5 reglas encadenadas (motor/luces → problema
+eléctrico/combustión/batería → "revisar en taller"); usa `or` en el
+antecedente de regla_1.
+[CLASE] BC_coche_cer.clp/BH_coche_cer.clp: la MISMA base de reglas del
+coche, pero con Factores de Certeza (CF 0.7/0.2/0.2/0.1/0.6 por regla) —
+es el ejemplo trazado en el PDF (sección 3.2 de este resumen).
+[CLASE] BC_metro_cer.clp/BH_metro_cer.clp: afluencia en una estación de
+Metro (hora punta / día laborable → frecuencia de trenes / aglomeración),
+con CF — 5 reglas, una de ellas (regla_1) hace `assert` de DOS
+conclusiones a la vez.
+[CLASE] BC_frutas.clp/BH_frutas.clp: clasificación taxonómica de frutas,
+CLIPS PURO — 18 reglas encadenadas (forma→diámetro→tipo_fruta→color/
+semillas→fruta concreta); con los hechos de ejemplo (de_arbol, morado,
+una semilla) concluye "ciruela"; ilustra operadores &lt;/&gt; en patrones y
+`printout` con variable capturada.
+[CLASE] BC_ejemplo_fuz.clp/BH_ejemplo_fuz.CLP: ejemplo genérico borroso
+X1,X2→Y (3 deftemplates borrosos, 5 reglas) — es EXACTAMENTE el ejemplo
+paso a paso del PDF (sección 3.3), con X1=4, X2=1.5 (singletons).
+[CLASE] BC_ej18_fuz.clp/BH_ej18_fuz.CLP: control borroso de potencia de
+motor según 2 velocidades V1,V2 (3 etiquetas cada una) → potencia (5
+etiquetas), 9 reglas cubriendo las 3×3 combinaciones. Con V1=4.5,V2=3 —
+estos datos COINCIDEN EXACTAMENTE con el "Ejercicio de Control Borroso 2"
+(los dos aviones) del PDF de ejercicios de Lógica Borrosa: es el modelo
+ejecutable real de ese ejercicio (al menos la parte Mamdani/AVION1).
+
+
+============================================================
+4. ORDEN PEDAGÓGICO PROPUESTO PARA EL MODO MAESTRO
+============================================================
+[ACLARACIÓN] Igual que en Algoritmos de Optimización, conviene construir
+el temario guiado en BATCHES independientes (cada uno un lote de temas
+autocontenido, verificable antes de pasar al siguiente):
+
+  BATCH 1 — Modelos clásicos de incertidumbre (bloque 1 de este resumen):
+    Bayes (fórmula + 2 ejemplos) -> Factores de Certeza/MYCIN (combinación
+    de reglas, Y/O, encadenamiento) -> Dempster-Shafer (masa, creencia,
+    plausibilidad, regla de combinación). ~9-11 temas.
+
+  BATCH 2 — Lógica Borrosa: fundamentos (bloque 2.1-2.4):
+    conjuntos borrosos y función de pertenencia -> soporte/núcleo/altura/
+    α-cortes -> operadores (complemento, T-normas, T-conormas) -> principio
+    de extensión -> relaciones borrosas y composición max-min. ~8-9 temas.
+
+  BATCH 3 — Lógica Borrosa: representación y razonamiento (bloque 2.6-2.7):
+    reglas y particiones lingüísticas -> cercas semánticas -> Modus Ponens
+    Generalizado -> familias de implicaciones borrosas (S/R/QL) -> los 4
+    tipos de proposiciones borrosas. ~7-8 temas.
+
+  BATCH 4 — Lógica Borrosa: control (bloque 2.8):
+    arquitectura de un controlador borroso -> Mamdani (grado de
+    aplicabilidad, combinación por máximo) -> los 3 métodos de
+    desborrosificación -> Takagi-Sugeno. ~5-6 temas.
+
+  BATCH 5 — CLIPS y FuzzyCLIPS práctico (bloque 3):
+    sintaxis CLIPS (hechos, reglas, variables) -> FuzzyCLIPS con Factores
+    de Certeza -> FuzzyCLIPS con conjuntos borrosos -> los 5 ejemplos .clp
+    reales, convertidos en ejercicios trazables. ~9-10 temas.
+
+Total estimado: ~40-45 temas — similar orden de magnitud al de Algoritmos
+de Optimización completo (todos sus batches).
+
+[APLICACIÓN V10] Cada BATCH es la unidad natural para la regla 10 (un solo
+tema en profundidad por sesión) y para la regla 14 (sesión con presupuesto
+de tiempo): si declaras "quiero estudiar hoy 3 horas, batch 3", el tiempo
+se reparte dentro de ese batch dando más a lo débil/pendiente. Los batches
+1, 2.7 y 2.8 concentran los pares de conceptos más fáciles de confundir del
+curso (Bayes/CF/Dempster-Shafer; las 3 familias de implicaciones; Mamdani/
+Sugeno) — son los puntos donde la regla 5 (separar antes de combinar) se
+aplica con más cuidado. Además, los batches 1 (CF encadenado, masa/
+creencia/plausibilidad), 3 (A/A'/B/B'/R del MPG) y 5 (CF regla/hecho/
+conclusión de FuzzyCLIPS) concentran notación con 3+ símbolos parecidos —
+ahí aplica siempre la excepción de la regla 6 (tabla-panorama primero), no
+el orden por defecto. Son también los mejores candidatos para la revisión
+acumulativa (regla 12) una vez firmes por separado: al explicarlos de
+vuelta con tus palabras, aprovecha el resumen corto aparte de la regla 4;
+si fallas una verificación aquí, prioriza el espacio de autoanálisis de la
+regla 13 antes de reenseñar — la densidad de símbolos hace más probable
+que el error esté en la correspondencia entre ellos, no en el concepto.
+
+[ACLARACIÓN] El código de esta app traza y anima PYTHON paso a paso — los
+ejemplos de CLIPS/FuzzyCLIPS (Batch 5) no son Python ejecutable por el
+motor de trazado actual. Para Batch 1-4 SÍ se pueden escribir funciones
+Python que calculen estos algoritmos (Bayes, CF, Dempster-Shafer, α-cortes,
+operadores borrosos, composición de relaciones, Mamdani/Sugeno) igual que
+se hizo con Algoritmos de Optimización. Para Batch 5 (CLIPS real) hay que
+decidir el tratamiento: (a) mostrar el código .clp como texto/lectura sin
+trazado paso a paso, (b) escribir un intérprete/simulador simplificado en
+Python del motor de reglas de CLIPS para poder trazarlo, o (c) dejarlo
+fuera del trazado y limitarlo a preguntas de práctica sobre sintaxis. Esta
+decisión se toma con el usuario antes de construir ese batch.

@@ -1,0 +1,7 @@
+La imagen que se me indicó (`pagina_01.png`) no contiene un examen de tipo opción múltiple ni preguntas de respuesta numérica. Es una captura de pantalla de una VM mostrando un PDF titulado "Ejercicios evaluables" del curso "02MIAR: Matemáticas para la IA" (Máster Universitario en Inteligencia Artificial, VIU), con ejercicios de desarrollo/implementación (por ejemplo, implementar `determinante_recursivo`, analizar complejidad computacional, comparar tiempos de ejecución, y un ejercicio 2 sobre descenso de gradiente que empieza a mostrarse al final de la página).
+
+No hay alternativas a/b/c/d ni espacios para una respuesta numérica corta: son apartados a), b), c)... que piden justificaciones, implementaciones de código y análisis, no una respuesta cerrada.
+
+No puedo aplicar el formato solicitado (tabla `numero | respuesta`) porque no corresponde a este contenido — inventar respuestas cortas sería incorrecto. ¿Puedes confirmar si:
+1. Esta es la imagen correcta, o falta cargar otra página que sí tenga el examen tipo test, o
+2. En realidad quieres que resuelva estos ejercicios de desarrollo (determinante recursivo, eliminación de Gauss, descenso de gradiente, etc.) en formato de respuesta larga en vez de tabla resumen?

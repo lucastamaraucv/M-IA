@@ -1,0 +1,13 @@
+Pregunta 3: Los factores de certeza... Se basan en apreciaciones personales de un experto sobre situaciones o relaciones que se desea incluir en una base de conocimientos.
+
+Alternativas:
+a) Verdadero
+b) Falso
+
+Respuesta: a) Verdadero.
+
+Los factores de certeza se introdujeron en MYCIN (Buchanan y Shortliffe, 1979). No se basan en probabilidad ni en poblaciones muestrales. Se apoyan en el juicio del experto, que evalúa personalmente la certeza de una ocurrencia o de una relación, por ejemplo "Si se da A entonces se dará C casi con toda seguridad". Esa evaluación se añade al conocimiento que se guarda en la base de conocimientos, normalmente asociada a reglas de producción. Esto es lo que dice el enunciado, así que es verdadero.
+
+Falso sería incorrecto porque contradice la definición del método. La probabilidad bayesiana sí exige muestras representativas y P(h)+P(¬h)=1. Los factores de certeza evitan esos requisitos precisamente porque provienen de la experiencia del experto.
+
+3 | a

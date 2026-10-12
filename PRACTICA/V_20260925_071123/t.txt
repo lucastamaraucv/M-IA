@@ -1,0 +1,41 @@
+
+
+--- pregunta_01.png ---
+Pregunta 1: En un conjunto clásico, un elemento pertenece o no pertenece: su pertenencia vale 1 o 0.
+Alternativas: Verdadero / Falso
+Justificacion: En un conjunto clásico (nítido), la función característica solo toma valores en {0, 1}. Los grados intermedios de pertenencia en [0, 1] aparecen recién en los conjuntos borrosos.
+
+DETECTADAS: 1
+1 | Verdadero
+
+--- pregunta_02.png ---
+Pregunta 2: Si un día pertenece a «caluroso» con grado 0,7, ¿hay un 70 % de probabilidad de que haga calor?
+Alternativas: Verdadero / Falso
+Justificacion: El grado de pertenencia borroso mide cuánto encaja el día en el concepto (vaguedad), no la probabilidad de un evento incierto. El día ya es "caluroso" en grado 0,7; no es un 70 % de chance de que haga calor.
+
+DETECTADAS: 2
+2 | Falso
+
+--- pregunta_03.png ---
+Pregunta 3: Una temperatura puede ser a la vez «templada» en cierto grado y «caliente» en otro grado.
+Alternativas: Verdadero / Falso
+Justificacion: Los conjuntos borrosos de una misma variable lingüística se solapan. Por eso un mismo valor puede tener, por ejemplo, μ_templada = 0,4 y μ_caliente = 0,6 al mismo tiempo.
+
+DETECTADAS: 3
+3 | Verdadero
+
+--- pregunta_04.png ---
+Pregunta 11: En un sistema basado en reglas, ¿qué contiene principalmente la base de conocimientos (BC)?
+Alternativas: A. Solo las mediciones del caso actual; B. Las definiciones y las reglas del sistema; C. El valor final de la salida desborrosificada; D. Únicamente el historial de comandos
+Justificacion: La BC guarda el conocimiento permanente del sistema: la definición de los conjuntos y las reglas. Las mediciones del caso actual van a la base de hechos (memoria de trabajo). La salida desborrosificada es un resultado de la inferencia, no parte de la BC.
+
+DETECTADAS: 11
+11 | b
+
+--- pregunta_05.png ---
+Pregunta 15: Dos reglas dan para un mismo valor de fuerza los grados 0,4 y 0,6. ¿Qué grado queda al agregarlas por máximo?
+Alternativas: A. 0,2; B. 0,4; C. 0,6; D. 1,0
+Justificacion: La agregación por máximo (unión, s-norma max) se queda con el mayor de los grados: max(0,4; 0,6) = 0,6.
+
+DETECTADAS: 15
+15 | c

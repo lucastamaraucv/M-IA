@@ -1,0 +1,1454 @@
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:04
+PROFESOR
+NUEVO
+Pregunta 10
+
+
+
+¿Deberían los desarrolladores de IA preocuparse por el uso malintencionado que pueda darse a los algoritmos? ¿O esta responsabilidad recae por completo en los usuarios finales?
+
+NUEVO
+Alfredo Gonzalez Gonzalez
+7 de jul. de 2026 16:23
+(Editado por Alfredo Gonzalez Gonzalez el 7 de jul. de 2026 16:37)
+NUEVO
+La historia a comprobado como la IA y  otros inventos en cada revolución industrial  algunos inventos han sido utilizados para el mal como en el caso de la bomba atómica precisamente porque los que desarrollaron eso no  tuvieron el cuidado de ponerle un límite o un botón de apagado por si algo sale mal por decir algo. Si, los desarrolladores de IA deberían preocuparse por eso.
+
+
+
+Termino diciendo que en general las fuentes de información enfatizan en el gran salto que se jha dado llamando a la IA como una nueva nevolución tecnológica que implica positivamente pero tambien negativamente siemrpre y cuando en que manos caiga. Siempre se enfoca en la ética y mencionan que en unos 25 años más se puede desarrollar algo muy similar a lo humano hablando de la Inteligencia.
+
+Raul Medina Herrera
+8 de jul. de 2026 6:23
+NUEVO
+creo que siempre debe haber o existir un control para uso malintencionado de cualquier herramienta informatica, si lo ponemos en contexto si a los usuarios finales le das la posibilidad de hacer cualquier cosa la informatica seria un caos... mas de lo que es hoy en dia
+
+Luisa Karina Lopez Govea
+8 de jul. de 2026 15:42
+NUEVO
+La responsabilidad es compartida, los desarrolladores deberían diseñar sistemas con medidas de seguridad para reducir usos malintencionados, pero los usuarios también deben utilizarlos de forma responsable. No sería correcto, ni justo que toda la responsabilidad recayera únicamente sobre una de las partes.
+
+Edwin Orlando Bolivar Gomez
+9 de jul. de 2026 14:19
+NUEVO
+Desde la perspectiva ética planteada se determina que los desarrolladores  no construyen herramientas en un vacío neutral ya que pueden versen influenciados por diferentes aspectos sociales y económicos , tanto así que podria llegar a cambiar el pensamiento u opnion de un poblica aplicando diferentes algoritmos ayudados por realidades falsas entregadas a un publico que cada vez se preocupa menor por encontrar y verificar las fuentes de información por  tanto en mi opinion si tienen responsabilidad moral evaluar los riesgos de sesgos, manipulación o daño social antes y durante la creación del algoritmo
+
+Javier Eduardo Ibarra Gutierrez
+10 de jul. de 2026 13:28
+NUEVO
+Para mí la responsabilidad es compartida. Quien diseña la herramienta tiene que pensar antes en cómo se puede usar mal. Esto es igual que con los automoviles. Los frenos, el cinturon de seguridad, los airbags se le ponen en la fábrica, pero luego es cada uno de nosotros como conductores que decidimos si los usamos con responsabilidad o no. Por ejemplo, en el video cuentan que unos ingenieros de una empresa tecnológica firmaron una carta negándose a construir cierta tecnología, porque no querían lavarse las manos con el "yo solo hice el algoritmo". No solo hago la herramienta y ya está. Ahí está la importancia de cuestionarse: ¿Esto para qué se va a usar? Eso no quita que el usuario también responda de lo que hace con ella. Por eso pienso que lo sano es casi que un punto medio.
+
+Maria del Carmen Cope Soler
+10 de jul. de 2026 22:50
+(Editado por Maria del Carmen Cope Soler el 10 de jul. de 2026 22:59)
+NUEVO
+Creo que no se puede culpar solo al usuario ni solo a los desarrolladores. Es como cualquier otra tecnología, quien la crea debe intentar que sea segura, pero quien la utiliza también tiene que hacerlo con responsabilidad.
+
+Lautaro Medrano
+11 de jul. de 2026 11:43
+NUEVO
+Quiero separar un poco los actores que considero que existen en este caso:
+
+En primer lugar, cualquier proveedor de servicios debería ocuparse de los efectos negativos del sistema que pone en disposición. Por mencionar un caso de jurisprudencia en Argentina: Mercado Libre ha sido varias veces sancionado por estafas realizadas en su plataforma. Se podría debatir sobre su involucramiento en dichos delitos, pero a fin de cuentas, la justicia ha interpretado en varias ocasiones que ML facilitó la ejecución de la estafa. Hoy en día ML tiene un fondo monetario destinado a cubrir este tipo de situaciones porque entiende que no puede evitar que lo sancionen.
+En cuanto a los usuarios de los sistemas, no pueden justificar cualquier accionar indebido culpando a la herramienta porque en definitiva ellos son los iniciadores de la situación.
+Por último quiero destacar que considero que cualquier control que se quiera poner es probablemente evitable por los usuarios:
+La misma naturaleza de las LLMs las lleva a "ceder" ante el ingenio humano para que realicen acciones que han sido programadas para evitar (prefix injection o recreación de escenarios ficticios por ejemplo).
+Pero también existe una imposibilidad de mantener en privado el mecanismo por el cual se concreta la respuesta de la LLM: hay muchos modelos open source y aún los que no lo son, están basados en algoritmos libres con lo cual cualquier actor potencialmente malicioso podría invertir el tiempo necesario en llegar a la misma capacidad técnica de cualquier modelo comercial.
+Arrate Bello Martija
+11 de jul. de 2026 13:45
+NUEVO
+Considero que la responsabilidad es compartida. Por un lado, es evidente que los desarrolladores tienen la obligación ética de preocuparse por el uso malintencionado desde el primer momento. El desarrollador tiene el deber profesional de anticiparse a usos malintencionados y se deben imponer filtros, restricciones o mecanismos de seguridad. Sin embargo, creo que es prácticamente imposible controlar al 100% la intencionalidad humana. Si el usuario final decide usar una herramienta para hacer daño, la culpa moral y legal recae sobre él. 
+
+Sandra Garzeddine Hassani
+11 de jul. de 2026 14:40
+NUEVO
+La responsabilidad cae sobre todos, sobre la humanidad como tal. Por supuesto, esto inicia desde los desarrolladores, entonces pienso que deben ser conscientes de lo que están haciendo, porque en ese momento está en manos de menos personas, es más controlable, pero estando en manos de más personas, ¿Cómo lo controlas? Así, como el que inventa un tipo de arma mortal, al final de alguna manera, también tiene cierta responsabilidad sobre el uso que pueda darse a ese invento. ¿Para qué se usa?, pienso que sí, los desarrolladores de IA deben tener conciencia de esto, pero a veces tampoco podemos controlar que algo que se creó para hacer algo bueno, no pueda ser usado para algo malo, y por eso me contradigo un poco, nosotros también somos responsables, y aquí entra también las empresas y los gobiernos que pienso que al final son los que dirigen países y desarrollos grandes, pues tendrían que establecer algún tipo de normas para evitar el mal uso de la misma.
+
+Alejandro Lopez Lopez de la cova
+11 de jul. de 2026 20:55
+NUEVO
+Creo que la responsabilidad no puede recaer por completo en los usuarios finales, aunque entiendo el argumento de quienes defienden esa postura. Al fin y al cabo, la IA no tiene voluntad propia, así que la responsabilidad moral última solo puede residir en agentes humanos, y quien decide usarla con mala intención es responsable de esa decisión. Sin embargo, considero que ese argumento se queda corto porque ignora que el desarrollador también toma decisiones de diseño que facilitan o dificultan el mal uso, y esas decisiones deben ser evaluadas.
+
+
+
+De hecho, la propia regulación europea ya se aleja de la idea de responsabilidad exclusiva del usuario. El AI Act establece obligaciones explícitas para desarrolladores, no solo para usuarios, incluyendo auditorías y registros detallados. Incluso se ha planteado que el software y la IA sean productos sujetos a responsabilidad objetiva: si el sistema es defectuoso, el desarrollador puede responder ante ello, independientemente de su nivel de diligencia. Esto me parece un cambio de enfoque acertado, porque reconoce que un sistema mal diseñado puede facilitar el daño tanto como la intención de quien lo usa.
+
+
+
+Gran parte de los incidentes recientes relacionados con IA se han atribuido a la ausencia de mecanismos claros de supervisión y seguridad desde su origen, no solo a un mal uso puntual del usuario. Esto sugiere que buena parte del daño real no viene de usuarios malintencionados burlando un sistema bien diseñado, sino de sistemas que no incorporaron suficientes salvaguardas desde el principio.
+
+
+
+Todo esto me hace pensar que la responsabilidad se debe repartir, pero no a partes iguales en todos los casos. El usuario responde por cómo usa la herramienta, pero el desarrollador debe responder por cómo posibilitó su mal uso. La dificultad para rastrear responsabilidades en sistemas cada vez más complejos no debería servir de excusa para que, al final, nadie asuma las consecuencias.
+
+Juan Manuel Martin Fleitas
+12 de jul. de 2026 13:49
+(Editado por Juan Manuel Martin Fleitas el 12 de jul. de 2026 14:02)
+NUEVO
+En abstracto, sin contexto, diría que sí es responsabilidad del desarrollador el preocuparse por los posibles usos malintencionados de sus algoritmos, y capar desde el desarrollo esa posibilidad.
+
+
+
+Sin embargo si lo pongo en contexto y aplicase esa misma lógica por ejemplo a los fabricantes de automóviles, diríamos que en un país como España en el que la velocidad máxima está limitada a 120km/h, es responsabilidad de los ingenieros diseñar automóviles con una limitación de velocidad máxima acorde con esa norma. Sin embargo, en España, se comercializan automóviles que pueden casi duplicar esa velocidad y es responsabilidad del usuario respetar los límites impuestos por las autoridades. Es más, en España circular en vía interurbana a una velocidad igual o superior al límite superior de velocidad de la vía más 80km/h (o sea: 200km/h) se considera automáticamente un delito penal. Sin embargo, se siguen vendiendo automóviles en España que tienen capacidad para sobrepasar ese límite y es responsabilidad del usuario no cometer ese delito.
+
+
+
+La verdad, no tengo clara mi respuesta. Posiblemente primero habría que tener una normativa clara y justa sobre el uso de los sistemas de IA, luego los desarroladores deberían tener en cuenta algunos aspectos de esa normativa tal que al menos se puedan evitar los usos mas perniciosos o que en caso de ser usados dejen rastro tal que las autoridades tengan más sencillo reastrear ese mal uso. Pero el responsable último del buen uso dentro de la legalidad de los sistemas de IA sería el usuario final.
+
+Edgar David Martinez Pucha
+12 de jul. de 2026 17:44
+NUEVO
+El uso de la IA es una responsabilidad compartida; si bien son los usuarios finales los que la implementan, ellos son capaces de usar la IA hasta todos los límites que esta misma se los permita. Si bien no es voluntad o responsabilidad de los programadores el uso que le den los usuarios finales a la IA, sí es nuestra responsabilidad determinar los límites que se les debe poner y cuáles son los datos que se utilizan para generarla. Los programadores pueden controlar las reglas y la lógica de lo que la IA puede crear y generar, o bien no es necesario plantear restricciones directamente a la IA, sino también directamente a los sistemas de acceso a esta misma. Se pueden colocar controles de acceso y seguridad, controlar temas sensibles u otros aspectos que puedan limitar el uso malintencionado de la IA. Por lo cual, si bien la responsabilidad directa es principalmente de los usuarios finales, los desarrolladores también deben preocuparse por limitar el alcance que los usuarios le pueden dar a esta misma. 
+
+NUEVO
+Fernando Santamaría Román
+13 de jul. de 2026 3:03
+NUEVO
+Los desarrolladores tienen el deber ético de implementar salvaguardas, protocolos de seguridad y mecanismos de monitoreo (como el filtrado de contenidos o el entrenamiento de seguridad) para mitigar riesgos desde el diseño. Los usuarios finales son responsables del uso directo que le dan a la herramienta, pero no pueden prever todas las vulnerabilidades técnicas de un sistema complejo. El consenso en el sector es que la responsabilidad recae principalmente en quienes crean el sistema para minimizar el potencial de daño, mientras que los usuarios mantienen la responsabilidad legal y ética sobre sus actos individuales.
+
+Javier Calleja Garcia
+13 de jul. de 2026 16:57
+NUEVO
+El problema de los tecnólogos es que se alzan en hombros de los gigantes que los precedieron, con lo que han perdido cualquier referencia a un componente ético. A diferencia ocurrió con el desarrollo del arsenal nuclear, sus impulsores estaban al servicio de estados por lo que delegaban toda responsabilidad en una organización superior. En el caso de la IA, la responsabilidad recae en organizaciones cotizadas en bolsa cuyos gerentes son villanos de película de James Bond. Cualquier tipo de compromiso ético es eliminado de sus estructuras empresariales e intentar tener remordimientos en ese ecosistema es tan fútil como hacer crecer una rosa en el desierto.
+
+La ética debe imponerse desde la legislación para proteger a la sociedad y no recaer en el desarrollador técnico que es una pieza más en el engranaje del producto.
+
+Isaac Solis Padilla
+14 de jul. de 2026 12:00
+NUEVO
+Considero que la responsabilidad de un uso malintencionado de la IA recae principalmente en quien la utiliza para hacer daño, no en quien la desarrolla. Me parece adecuada la comparación con un fabricante de cuchillos: del mismo modo que no se responsabiliza a quien fabrica un cuchillo de que alguien lo use para agredir a otra persona, tampoco creo que sea justo cargar sobre los desarrolladores toda la responsabilidad de las decisiones que toman terceros al utilizar su tecnología. La IA, al fin y al cabo, es una herramienta, y su intención de uso depende de la persona que está detrás.
+
+
+
+Sin embargo, esto no significa que los desarrolladores deban desentenderse por completo del problema. Considero que, en áreas de alto riesgo —como el desarrollo de armas, la creación de deepfakes o sistemas con capacidad de causar un daño grave y a gran escala—, sí es razonable exigir que los desarrolladores limiten deliberadamente ciertas capacidades de sus algoritmos, precisamente porque en estos casos el potencial de daño es tan alto y tan predecible que resultaría irresponsable no incorporar medidas de seguridad desde el diseño.
+
+
+
+En definitiva, mi postura es que la responsabilidad principal del mal uso recae en el usuario, igual que ocurre con cualquier otra herramienta, pero eso no exime a los desarrolladores de actuar con prudencia en los ámbitos donde las consecuencias de un uso indebido son especialmente graves, incorporando límites razonables sin que esto suponga cargarles con la culpa moral de decisiones que, en última instancia, no controlan.
+
+Pau Carbo Pascual
+14 de jul. de 2026 12:41
+NUEVO
+Considero que la responsabilidad debe ser compartida entre los desarrolladores y los usuarios. Los desarrolladores de sistemas de IA deberían diseñar algoritmos teniendo en cuenta posibles usos malintencionados e incorporar medidas de seguridad, mecanismos de supervisión y limitaciones que reduzcan el riesgo de abuso. También es importante que sean transparentes sobre las capacidades y limitaciones de sus sistemas.
+
+
+
+Al mismo tiempo, los usuarios son responsables del uso que hacen de estas herramientas y deben respetar las normas legales y éticas. En mi opinión, no sería correcto atribuir toda la responsabilidad a una sola de las partes, ya que el desarrollo de una IA segura depende tanto de un diseño responsable como de un uso adecuado y de un marco regulatorio que establezca límites claros.
+
+Anthony Patricio Pombosa Burgos
+14 de jul. de 2026 18:17
+NUEVO
+Desde mi perspectiva, considero que los desarrolladores de IA sí deben preocuparse activamente por el uso malintencionado de sus algoritmos, y que la idea de trasladar toda la responsabilidad al usuario final es una postura éticamente insostenible. Equiparar el software de inteligencia artificial a una "herramienta neutral"  ignora que estos modelos se diseñan con objetivos específicos y capacidades de propagación, automatización y daño a una escala sin precedentes. El creador de la tecnología tiene la obligación moral de aplicar principios de seguridad por diseño, anticipando posibles vectores de ataque o abuso, implementando barreras técnicas y limitando el acceso a modelos de alto riesgo antes de liberarlos al público, asumiendo su rol fundamental en la cadena de responsabilidad.
+
+
+
+Por otro lado, sostener que la responsabilidad recae por completo en el usuario final es ignorar la asimetría de poder que existe en la revolución digital. Coincido con la perspectiva humanista de que el desarrollo tecnológico debe avanzar de la mano de la solidaridad y la dignidad ; por ende, la prevención de riesgos debe ser un esfuerzo compartido donde los desarrolladores garanticen la robustez y la trazabilidad de sus creaciones, los gobiernos regulen su implementación, y los usuarios finales respondan por sus acciones individuales de manera consciente.
+
+Marcos Galvez Santamaria
+Hace 13 horas, a las 5:31
+NUEVO
+Debe ser compartida por ambos: los desarrolladores deben evitar riesgos previsibles en el diseño y desarrollar medidas de mitigación; mientras que los usuarios deben usar las herramientas de una manera razonable.
+
+Luis Ignacio Kowalkowski
+Hace 5 horas, a las 13:54
+NUEVO
+La responsabilidad del uso de la IA no recae únicamente en los usuarios finales los desarrolladores deben diseñar sistemas con criterios éticos, anticipar posibles usos indebidos, establecer mecanismos de control para reducir riesgos, en definitiva, la responsabilidad es compartida, los creadores deben prevenir daños desde el diseño y los usuarios utilizar la tecnología de forma responsable, aquí me atrevo a estipular un porcentaje y finalizo mi participación en este foro, haciendo una translación a mi área de actuación donde la fase de desarrollo y fabricación se quedaría en unos 70% (responsabilidad de los desarrolladores), y aplicación y certificación 30% (usuario).
+
+Diego Alejandro Panqueva Benitez
+Hace 4 horas, a las 15:08
+NUEVO
+Hola.
+
+A mi juicio recae en todas las partes, los desarrolladores de IA con controles para evitar la mal intención y pues los usuarios finales tendríamos que hacer un mejor uso de las herramientas de IA.
+
+El limite técnico debe existir, solamente los desarrolladores saben que tan complejo o no es el algoritmo, posee el control total de los datos con los que se ha entrenado la IA, el desarrollador conoce el limite de capacidad. En cambio el usuario es quien conlleva la decisión que da juicio a lo fraudulento o delictivo.
+
+Maria Jose Vargas Navarro
+Hace 3 horas, a las 15:59
+NUEVO
+Sí, sin duda. En el ámbito del desarrollo de software (yo trabajo en QA) siempre ha sido clave diseñar sistemas a prueba de errores o mal uso, contemplando validaciones y restricciones desde el propio desarrollo (por ejemplo, evitar que un usuario provoque una división entre cero, o maneje casos límite que rompan el sistema). Con la IA debería pasar lo mismo: los desarrolladores deberían anticipar y prevenir los usos malintencionados desde el diseño del algoritmo, no dejarlo como un problema exclusivo del usuario final. Aquí vuelve a entrar la ética, como en el vídeo de "La ética de la Inteligencia Artificial": no basta con que el algoritmo funcione, debe estar diseñado con responsabilidad.
+
+Dicho esto, tampoco creo que toda la responsabilidad sea del desarrollador: el usuario final también debe usar estas herramientas con criterio y consciencia de sus límites. Al final es una responsabilidad compartida: el desarrollador previene lo que pueda, y el usuario decide usar la herramienta de forma correcta.
+
+Editor de texto de comentario
+
+
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 9
+
+
+
+¿Qué oportunidades y amenazas pueden presentar algoritmos como el deep fake? ¿Dónde deberían ponerse los límites?
+
+NUEVO
+Alfredo Gonzalez Gonzalez
+7 de jul. de 2026 16:20
+NUEVO
+Oportunidades. Puede tener usos positivos cuando hay consentimiento, transparencia y propósito legítimo.Por ejemplo: Educación y capacitación: recrear escenas históricas, simular entrevistas, explicar conceptos con   avatares o doblajes realistas. Amenazas La amenaza principal es que rompe una confianza básica: antes ver un video o escuchar una voz parecía prueba fuerte; ahora puede ser fabricado.
+
+Luisa Karina Lopez Govea
+8 de jul. de 2026 15:40
+NUEVO
+Los deepfakes tienen aplicaciones útiles, como en el cine, la educación o la recreación histórica. Sin embargo, también pueden utilizarse para fraudes, desinformación o dañar la reputación de las personas. En mi opinión, el límite debe estar en el consentimiento y en evitar cualquier uso que perjudique o engañe a otros.
+
+Edwin Orlando Bolivar Gomez
+9 de jul. de 2026 14:27
+NUEVO
+El uso de deepfakes representa una oportunidad clara para la desinformación masiva, lo cual se convierte de inmediato en una amenaza grave. Si un gobierno decide utilizar esta tecnología para encubrir la verdad o desinformar, contaría con la ventaja de su legitimidad institucional y con los recursos tecnológicos necesarios para alterar la realidad a su conveniencia. Por lo tanto, considero indispensable establecer límites éticos y regulatorios estrictos en cuatro sectores fundamentales: la política, el gobierno, la salud y la educación
+
+Javier Eduardo Ibarra Gutierrez
+10 de jul. de 2026 13:23
+NUEVO
+Pienso que el deep fake hoy más que nunca tiene oportunidades interesantes como el doblaje, el cine, la educación pero a su vez ese mismo truco sirve para hacer mucho daño o conlleva un gran riesgo, y en el video de ética lo ponen bastante crudo con la idea de crear personas que no existen y poner a gente real a decir cosas que nunca dijo. Esto lo vemos todo el tiempo en redes sociales sobre todo en temas políticos no solo acá en Colombia sino en todo el mundo, entre izquierdas y derechas. Sobre dónde poner los límites, para mí están en dos cosas: el consentimiento de la persona a la que imitas (si es que eso ocurre) y la obligación de etiquetar el contenido como generado por deep fake. Mientras se sepa que es falso y haya permiso, al menos se tiene claro que no es real; en el momento en que se usa para engañar, ahí hay que limitarlo.
+
+Maria del Carmen Cope Soler
+10 de jul. de 2026 22:50
+NUEVO
+Los deep fakes tienen cosas positivas, por ejemplo en educación o entretenimiento, pero también pueden utilizarse para engañar a la gente o difundir información falsa. Por eso pienso que es importante que existan límites y que quede claro cuándo un contenido ha sido generado por inteligencia artificial
+
+Lautaro Medrano
+11 de jul. de 2026 11:28
+NUEVO
+Al escuchar deep fakes, lo primero que viene a mi mente son todos los malos usos de los mismos: engaños por voz telefónica, usos no autorizados de la imagen de otras personas (Dinamarca legisló esto hace muy poco: https://www.loc.gov/item/global-legal-monitor/2025-08-05/denmark-political-parties-agree-to-protect-danes-against-deepfakes/) e incluso extorsiones.
+
+
+
+Sobre los potenciales usos, realmente el único que me llamó la atención fue el siguiente: permitir que personas que han perdido la voz puedan "recuperarla" mediante el uso de sistemas de asistencia.
+
+
+
+El uso para recreación histórica o didáctica me resulta más una curiosidad que una aplicación realmente valiosa y en el caso del uso para doblajes, en mi caso prefiero valorar el trabajo de las personas que se dedican a esto antes que reemplazar por tecnología.
+
+Arrate Bello Martija
+11 de jul. de 2026 13:27
+NUEVO
+En cuanto a las oportunidades, tienen un potencial enorme en sectores como el cine y el entretenimiento. Además, la capacidad de generar datos sintéticos (por ejemplo, rostros ficticios) es muy útil para entrenar otros modelos sin vulnerar la privacidad de nadie.
+
+
+
+Sin embargo, las amenazas son inmensas porque atacan directamente a nuestra confianza en la realidad. La más evidente es la desinformación masiva, especialmente en el ámbito político y social, donde un vídeo falso puede manipular unas elecciones o destruir la reputación de alguien en minutos. También suponen un riesgo crítico para el fraude y para la creación de contenido explícito sin consentimiento. El mayor peligro a largo plazo es que la sociedad se vuelva tan escéptica que dejemos de creer incluso en las pruebas reales, simplemente porque siempre existirá la duda de si está hecho con IA. 
+
+
+
+Creo que establecer el límite exacto es muy difícil, pero como ideas o puntos de partida, por una parte, debería estar totalmente prohibido y penado usar la cara o la voz de una persona sin su permiso expreso. Por otra parte, las empresas que desarrollan estos algoritmos deberían estar obligadas por ley a incluir una marca de agua en el contenido generado. 
+
+Sandra Garzeddine Hassani
+11 de jul. de 2026 14:40
+NUEVO
+Hoy en día, con las herramientas que ya tenemos, se pueden crear imágenes falsas, audios falsos y vídeos falsos que parecen totalmente reales. Incluso, en el vídeo “Diálogo (im)probable. Ética y Revolución digital” de UPM mencionan que hasta se pueden crear personas que no existen. También se menciona el artículo "An Indian politician is using deepfake technology to win new voters", que la verdad es algo peligroso, pero no me sorprende. Los deep fakes los venimos viendo cada vez más y de forma más descarada en las redes sociales. Ya no sabes en qué creer. Incluso medios importantes han caído en estas noticias falsas sin verificar la información.
+
+
+
+Hoy ingreso a mis redes sociales y, con el tema del Mundial, solo veo noticias falsas, y no entiendo por qué. La gente inventa declaraciones que nunca existieron, y cada vez es peor. Esto ocurre a una escala que quizá no sea tan importante, como el fútbol, quiero decir, no es política ni va a cambiar el mundo. Pero a nivel político lo encuentro muy peligroso porque, como menciona el vídeo, es posible que el próximo genocidio comience con un vídeo falso.
+
+
+
+¿Y dónde se podrían poner los límites en estos casos? Es complicado, porque pienso que las noticias falsas deberían ser eliminadas de inmediato de Internet. Pero ¿Qué pasa con la libertad de expresión? ¿O qué pasa si un gobierno manipula la información según le convenga? Creo que eso es algo que ya ocurre realmente, por lo cual no veo un camino muy esperanzador para estas situaciones.
+
+Alejandro Lopez Lopez de la cova
+11 de jul. de 2026 20:37
+NUEVO
+Los deepfakes son una de esas tecnologías donde la misma capacidad técnica sirve tanto para crear valor real como para hacer daño real, y creo que eso es justo lo que hace complicado ponerle límites simples. En el lado positivo, ya se usan de forma legítima y comercial en cine para rejuvenecer actores, en doblaje para eliminar la descoordinación entre labios y voz, y en accesibilidad, generando avatares que interpretan lenguaje de signos o preservan voces de personas que las han perdido. Creo que estos usos suponen claramente un avance y beneficio para la sociedad, con finalidades que distan mucho de engañar al espectador con fines perversos.
+
+
+
+Por otro lado, el problema aparece cuando se rompe la honestidad sobre el origen del contenido. Los casos de fraude con vídeos o audios generados mediante IA ya representan un porcentaje considerable entre los intentos de estafa, incluyendo objetivos tan sofisticados como la suplantación de voz de altos ejecutivos. A esto debemos sumar tanto el riesgo electoral como el sexual a la ecuación, siendo este último posiblemente el más grave al atacar la dignidad de una persona sin su consentimiento.
+
+
+
+Todo esto me lleva a concluir que el límite no debería estar en la tecnología en sí, sino en el consentimiento y la transparencia sobre su uso. Me parece acertado el enfoque que ya está tomando la regulación europea, obligando a etiquetar cualquier contenido generado artificialmente y sancionando los usos dañinos o perjudiciales. Bajo ese criterio, la sátira o el doblaje no son un problema porque no buscan engañar, pero la difusión de un vídeo falso sin advertencia sí debería tener consecuencias serias, especialmente si puede tener influencia electoral o arruinar la reputación de una persona.
+
+Juan Manuel Martin Fleitas
+12 de jul. de 2026 13:38
+(Editado por Juan Manuel Martin Fleitas el 12 de jul. de 2026 13:40)
+NUEVO
+Se podría considerar que el Deep Fake es una forma tecnológicamante sofisticada de mentir. Y como tal, creo que legalmente al Deep Fake se le deberían aplicar las mismas normas que se aplican a las mentiras. No tiene por qué tener siempre connotaciones negativas el mentir, pero en determinados escenarios mentir no está legalmente permitido. Se me ocurren usos educativos que pueden ser muy positivos, pero también usos muy perversos con los que se puede manipular a personas individuales o la gran masa.
+
+
+
+En cualquier caso, para mí, la mayor amenaza que veo en el Deep Fake es que puede erosionar la confianza que hasta ahora hemos tenido en la evidencia audiovisual. Esto ya está pasando. Y debemos encontrar alguna forma de poder identificar sin lugar a duda qué contenido audiovisual ha sido creado o modificado por IA y cuál es original. Por ejemplo, hasta ahora la base de los noticieros televisados es que nos creemos las imágenes y sonidos que nos presentan, porque asumimos que hay un equipo de periodistas, redactores y editores que se han encargado de verificar que ese material es verídico, el deep fake puede llegar a hacer imposible esa verificación, y dejar de ser posible el distinguir entre realidad y ficción.
+
+
+
+Las consecuencias que puede tener la generación de hechos falsos con IA presentados como verdaderos, combinados con la incapacidad de discernir entre ambos, pueden ser catastróficas. 
+
+Edgar David Martinez Pucha
+12 de jul. de 2026 17:43
+NUEVO
+El deepfake es una tecnología sorprendente, la cual muestra el alcance de la IA para generar ideas nuevas; sin embargo, esta puede abarcar muchas amenazas para la integridad humana, ya que esta tecnología puede ser usada para suplantación o difamación de las personas, ya que no muchas veces se puede controlar que se realice un deepfake con el consentimiento de las personas. Además, veo otros riesgos, como la generación de falsa evidencia para casos jurídicos. Por lo cual esta tecnología puede representar muchas amenazas si es que no es controlada de una manera apropiada.
+
+Fernando Santamaría Román
+13 de jul. de 2026 3:04
+NUEVO
+Las oportunidades de los deep fakes se centran en la innovación creativa, la mejora de la accesibilidad mediante voces sintéticas y la creación de experiencias educativas inmersivas, pero estas se ven ensombrecidas por amenazas graves como la desinformación electoral, el fraude financiero, el acoso sexual no consentido y una erosión sistémica de la confianza en los medios digitales. Ante este panorama, los límites deben establecerse mediante la obligatoriedad de marcas de agua que identifiquen claramente el contenido generado por IA, una protección estricta basada en el consentimiento explícito para el uso de la imagen o voz de cualquier persona y un marco legal penal robusto que castigue específicamente los usos malintencionados orientados al daño reputacional, la extorsión o la manipulación democrática.
+
+Raul Medina Herrera
+13 de jul. de 2026 5:10
+NUEVO
+ las tecnologías basadas en deepfakes ofrecen un potencial significativo en el ámbito ético y creativo. Su aplicación abarca desde la optimización del doblaje, la recreación histórica y la producción cinematográfica, hasta soluciones de accesibilidad para personas con trastornos del habla, permitiendo además la generación de contenidos interactivos altamente personalizados.
+
+Daniela Alejandra Escobar Suarez
+13 de jul. de 2026 12:31
+NUEVO
+Yo consideraría Deep fake una actualización del engaño ya existente del catfish, de engañar a alguien, diciendo que eres otra persona. De ser posible debería limitarse, pero existiendo la posibilidad, dada una persona que quiera realizar algún tipo de mal, lo hará. Estas como otras estafas son difíciles de limitar.
+
+Javier Calleja Garcia
+13 de jul. de 2026 16:48
+NUEVO
+No se puede considerar deepfake como un elemento de creación artística, ya que tiene un componente de engaño que es intrínsicamente doloso.
+
+El mayor riesgo es la perdida de la creencia en la verdad. Hasta ahora, lo que veías en una imagen te lo creías. Ahora pasamos al terreno de la incertidumbre donde no resulta creíble nada de lo percibido. Ante esa incertidumbre, ¿cómo vamos a reaccionar? Si nada es verosímil, no se podrá juzgar los actos de los demás. Todo ello conlleva a una pérdida del comportamiento ético por lo que es conveniente dotar de herramientas que nos permita identificar estos contenidos y penar a sus responsables.
+
+Isaac Solis Padilla
+14 de jul. de 2026 11:58
+NUEVO
+Los algoritmos de deepfake presentan tanto oportunidades interesantes como amenazas muy graves, y considero que la diferencia entre ambas depende esencialmente del consentimiento y la finalidad con la que se usan. Como oportunidad, veo un gran potencial en el ámbito del cine, el entretenimiento y el arte, donde esta tecnología permite recrear escenas, rejuvenecer actores, doblar contenido de forma más natural o incluso dar vida a proyectos creativos que antes eran imposibles o muy costosos de realizar.
+
+Sin embargo, la amenaza más grave que presenta esta tecnología es, sin duda, su uso para crear pornografía no consentida o suplantar la imagen de una persona en contenido sexual sin su permiso. Esto supone una violación gravísima de la dignidad, la intimidad y los derechos de la persona afectada, con consecuencias psicológicas y sociales muy serias, y a menudo sin que la víctima pueda hacer mucho para evitar su difusión una vez creado el contenido.
+
+Por eso, creo que los límites legales deberían ser muy estrictos: los deepfakes deberían estar prohibidos por defecto, permitiéndose únicamente en casos muy concretos y regulados, como producciones audiovisuales profesionales con consentimiento expreso y documentado de la persona representada. No debería bastar con etiquetar el contenido como "generado por IA" para legitimarlo, ya que en muchos casos el daño ya está hecho en el momento en que el contenido se difunde, independientemente de si se avisa o no de su origen. En definitiva, la libertad creativa que ofrece esta tecnología no puede justificar el riesgo de vulnerar derechos tan básicos como la imagen, la dignidad y la intimidad de las personas.
+
+Pau Carbo Pascual
+14 de jul. de 2026 12:38
+NUEVO
+Los algoritmos de deepfake presentan tanto oportunidades como amenazas. Entre sus aplicaciones positivas destacan la industria del entretenimiento, la creación de contenido audiovisual, la educación o la recreación histórica, donde pueden utilizarse para generar material de forma más eficiente y creativa. También pueden tener utilidad en el doblaje o en la accesibilidad, por ejemplo, sincronizando el movimiento de los labios con distintos idiomas.
+
+
+
+Sin embargo, su potencial para generar desinformación, cometer fraudes, suplantar identidades o dañar la reputación de las personas supone un riesgo importante. Por ello, considero que los límites deberían centrarse en exigir el consentimiento de las personas cuya imagen o voz se utilice, identificar claramente el contenido generado por IA y sancionar el uso de deepfakes con fines maliciosos o engañosos. De este modo, sería posible aprovechar sus beneficios sin comprometer la seguridad, la privacidad y la confianza de la sociedad.
+
+Anthony Patricio Pombosa Burgos
+14 de jul. de 2026 18:09
+NUEVO
+La tecnología de los deepfakes es uno de los desarrollos más fascinantes y, a la vez, alarmantes de nuestra era, ya que difumina por completo la frontera entre la realidad y la ficción. En el ámbito de las oportunidades, considero que su potencial creativo e industrial es inmenso: permite abrir la producción cinematográfica mediante el doblaje automatizado con la voz y gestos originales del actor, recrear figuras históricas con fines educativos interactivos, y facilitar la investigación en tratamientos médicos que requieren modelado y simulación visual avanzada. Sin embargo, en la balanza de las amenazas, el panorama es sumamente oscuro. La capacidad de clonar rostros y voces a escala masiva es un arma perfecta para la extorsión personal, fraudes financieros sofisticados basados en suplantación de identidad, y la generación de campañas de desinformación masiva capaces de desestabilizar gobiernos o manipular la opinión pública en periodos electorales críticos.
+
+
+
+Con respecto a dónde deberían ponerse los límites, considero que la línea roja debe trazarse en el consentimiento, la transparencia y el daño a terceros. No se puede permitir la difusión de cualquier material sintético que suplante la identidad de una persona sin su autorización explícita, especialmente cuando se busca difamar, estafar o desinformar. El límite regulatorio debe exigir por ley el uso de "marcas de agua" digitales e invisibles y metadatos de procedencia obligatorios en todo contenido generado por IA, permitiendo que los navegadores y redes sociales identifiquen automáticamente qué es real y qué es sintético.
+
+Marcos Galvez Santamaria
+Hace 13 horas, a las 5:28
+NUEVO
+Oportunidades: simulaciones para investigación forense, formación académica práctica como simulación de operaciones, doblaje de películas...
+
+Amenazas: suplantación de identidad, fraude, difamación, manipulación, daño reputacional...
+
+
+
+Los límites tienen que estar en el consentimiento explícito y la protección reforzada de los menores, así como la identificación clara del contenido generado por IA.
+
+Luis Ignacio Kowalkowski
+Hace 5 horas, a las 13:25
+NUEVO
+Los deepfakes ofrecen oportunidades interesantes, como crear contenido digital de forma realista o impulsar avances en ámbitos como la educación, la medicina y la creatividad, por otro lado también plantean riesgos muy importantes, como la desinformación, la manipulación política, la suplantación de identidad, las estafas o la difusión de discursos de odio.
+
+Por ello, considero que deben establecerse límites claros: exigir transparencia sobre el uso de la IA, garantizar la supervisión humana en decisiones importantes, exigir responsabilidades a quienes desarrollan y utilizan estas tecnologías, y promover una regulación internacional basada en principios éticos que protejan los derechos de las personas.
+
+Diego Alejandro Panqueva Benitez
+Hace 4 horas, a las 14:56
+NUEVO
+Hola.
+
+La relación de transparencia para crear diferentes fuentes de información será dada en el uso de dicha operación.
+
+Las ventajas son que al existir deepfakes en circulación es necesario trabajar con IAForence, metadatos dada el uso particular que se le da a este tipo contenido (audios y videos). Estas IAsForences y marcas digitales serán la utilidad para identificar la veracidad del contenido. Esto es porque los limites no se tuvieron en cuenta a la hora de crear las herramientas que producen los videos y/o audios, tuvo que existir algún tipo de eventualidad para que se dispusiera de una organización que determinará el límite necesario a este punto.
+
+Las amenazas puede ser la desinformación producto a las redes sociales, compartir X cosa que dijo X persona puede llegar a alterar a miles de personas haciendo masiva una incertidumbre, que muchas veces desencadena una acción al respecto.
+
+Maria Jose Vargas Navarro
+Hace 3 horas, a las 15:50
+NUEVO
+En cuanto a oportunidades, creo que puede aportar mucho en cosas como doblaje más natural, efectos especiales, o incluso preservar la voz o imagen de alguien. Pero las amenazas también son grandes: suplantación de identidad, fraude, o manipulación de noticias e imagen pública, como ya lo hablamos en preguntas anteriores.
+
+Por eso sí creo que deben ponerse límites, y aquí entra otra vez la ética y la honestidad: debería requerirse el consentimiento explícito de la persona antes de usar su imagen o voz con esta tecnología, y en todos los casos debería quedar claro que se trata de contenido generado con IA. Es algo parecido a lo que ya se hace en publicidad: en Francia, por ejemplo, desde 2017 existe una ley (conocida como la "ley anti-Photoshop") que obliga a etiquetar como "fotografía retocada" cualquier imagen publicitaria donde se haya alterado digitalmente el cuerpo de un modelo. No se prohibió el uso de Photoshop, pero sí se exigió transparencia con el consumidor. Creo que con los deepfakes debería pasar algo similar: no prohibir la tecnología, pero sí exigir que quede claro cuándo un contenido fue generado o alterado con IA.
+
+Editor de texto de comentario
+
+
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 8
+
+
+
+¿Creéis que la Inteligencia Artificial va a conllevar una reinvención de los puestos laborales? ¿Por qué?
+
+NUEVO
+Alfredo Gonzalez Gonzalez
+7 de jul. de 2026 16:19
+NUEVO
+Si, y si me refiero a reinventar los puestos una empresa de 100 empleados pueda laborar con 50 con otro nombre o con los mismos 100 pero con mucho más productividad de los puestos diferentes de las compañías, asi como también las empresas van a requerir el conocimiento en IA.
+
+Luisa Karina Lopez Govea
+8 de jul. de 2026 15:38
+NUEVO
+Sí, aunque en realidad creo que la IA va a transformar muchos puestos de trabajo más que eliminarlos por completo. Algunas tareas repetitivas se automatizarán, pero también habran nuevos perfiles relacionados con el desarrollo, supervisión y uso responsable de estas tecnologías. Será importante adaptarse y seguir aprendiendo.
+
+Edwin Orlando Bolivar Gomez
+9 de jul. de 2026 14:28
+NUEVO
+Totalmente y ya se esta viendo como grandes empresas sobretodo de diseño, programación y análisis de datos estan dejando cada vez mas solo aquellos que con su experiencia puede llegar a controlar o enseñar la IA en las respuestas que entrega, teniendo así un mayor beneficio económico.
+
+Javier Eduardo Ibarra Gutierrez
+10 de jul. de 2026 13:16
+NUEVO
+Pienso que casi seguro sí, pero más que destrucción hablaría de una reinvención, como pasó en las revoluciones industriales anteriores, donde el ser humano se tuvo que mover hacia lo abstracto y lo creativo y las máquinas se quedaron con la tarea operativa bajo supervisión. Sobre el porqué, lo que sí me preocupa es el aviso de uno de los autores que se presentan en el video sobre una "clase irrelevante", porque si el primero que junta los datos automatiza una tarea deja de necesitar a la gente que la hacía. Por eso creo que la reinvención tiene que venir acompañada de algo como una renta básica universal, o el cambio deja a mucha gente fuera me parece. El trabajo no desaparece, cambia de forma, y espero que sea para bien de la humanidad. Este tema me parece muy interesante y lo veo desde la perspectiva de padre, y me pregunto como será el futuro laboral de mis hijas y qué tendrán que estudiar o aprender para encajar en ese nuevo mundo laboral.
+
+Maria del Carmen Cope Soler
+10 de jul. de 2026 22:50
+NUEVO
+La IA cambiará la forma en que trabajamos y obligará a muchos profesionales a adaptarse. Aunque desaparecerán algunas tareas, también surgirán nuevas oportunidades para quienes estén dispuestos a aprender y evolucionar
+
+Lautaro Medrano
+11 de jul. de 2026 10:50
+NUEVO
+Creo que el mercado actual está gravemente afectado por la IA, en particular hablo del sector de ingeniería de software que es al que pertenezco. La dinámica en los trabajos ha cambiado, el mercado no ofrece oportunidades y muchas empresas dedican cantidades inmensas de dinero que antes no gastaban en contratar productos de IA que no les brindan las mejoras de productividad prometidas, lo cual solo lleva a que se realicen nuevas rondas de layoffs.
+
+
+
+En relación a esto, se ha visto que las grandes empresas de Silicon Valley pasaron de ganar miles de millones a perderlos y esto se debe principalmente a lo anteriormente mencionado: la inversión en IA, con su coste en términos de despidos, no está dando los retornos esperados (como ejemplo adjunto https://www.estrategiasdeinversion.com/actualidad/noticias/bolsa-eeuu/las-grandes-tecnologicas-de-ia-acusan-una-perdida-n-929385)
+
+
+
+Por mí parte espero una normalización del mercado hacia mayor coherencia: utilización de IA como soporte, valoración de la experiencia y por sobre todo, valoración del output medible en términos económicos.
+
+NUEVO
+Arrate Bello Martija
+11 de jul. de 2026 13:08
+NUEVO
+Sin duda, creo que la Inteligencia Artificial va a obligar a reinventar una gran parte de los puestos laborales. El cambio principal va a estar en la automatización de las tareas más mecánicas o repetitivas, lo que obligará a cambiar el enfoque de nuestro día a día.
+
+
+
+Si nos fijamos en campos como el desarrollo de software o el análisis de datos, la llegada de los asistentes de código integrados directamente en el editor ya está transformando la manera de trabajar. En lugar de perder tiempo escribiendo desde cero o picando código básico, el trabajador asume un rol más de supervisor. La máquina se encarga de generar la base o automatizar el trabajo más mecánico, y el humano se dedicará a revisar la lógica, asegurar que todo se integre correctamente y aportar el contexto que el modelo no tiene.
+
+
+
+Por lo tanto, nuestro valor como profesionales estará en tener el criterio para revisar lo que hace la IA, detectar rápidamente sus posibles errores y dedicar nuestro esfuerzo a resolver los problemas más complejos.
+
+Sandra Garzeddine Hassani
+11 de jul. de 2026 14:40
+NUEVO
+Si, creo que en algunos sectores de una forma mucho más rápida y en otros un poco más lenta, creo que ya está sucediendo. Pero tal y como se menciona en el video “La ética de la inteligencia artificial" de CEDECOM, como, así como sucedió en la revolución industrial, con esta nueva revolución de la IA, se debe dar un proceso de reinvención en los puestos laborales, pero no solo en este punto, sino que se generara un cambio de objetivo del modelo educativo, del modelo social. En el video comentan, que se dejara de buscar que el humano realice una especialización, porque para esto se encargaran las maquinas, mientras que el humano deberá tener una visión abstracta y genérica. Básicamente, la IA llegar a ser tan eficiente, en tantos campos, que nosotros no podremos competir con ella, sino que será nuestra herramienta que potenciará nuestro trabajo. 
+
+
+
+Personalmente, como desarrolladora de software, lo estoy viviendo, hoy me encargo de preparar agentes y pasarles las tareas a mis agentes especialistas y ellos se encargan de hacer el trabajo, y yo de revisarlo, validarlo y aprobarlo. Entonces si, pienso que habrá un antes y un después de la IA. 
+
+Alejandro Lopez Lopez de la cova
+11 de jul. de 2026 20:20
+NUEVO
+En mi opinión, la IA sí va a suponer una reinvención de los puestos laborales, pero no desde el sentido catastrofista que muchas veces se plantea. Considero que esta reinvención corresponderá a una reconfiguración del contenido del trabajo más que a una sustitución masiva, en favor de la automatización y la dedicación de los trabajadores a tareas de mayor valor añadido.
+
+
+
+Esto se traduce en que el puesto mantiene el nombre pero no el contenido, encontrando funciones como la contabilidad básica evolucionando hacia análisis financiero apoyado en modelos inteligentes, o el soporte legal rutinario dando paso al análisis estratégico. Ambas situaciones ilustran bien que no desaparece el rol, sino lo que se espera de quien lo ocupa. De hecho, actualmente ya se está viendo cómo los empleados utilizan IA en su trabajo y delegan en ella tareas que antes hacían ellos, asumiendo así más responsabilidades o mejorando su rendimiento en tareas que requieren mayor dedicación.
+
+
+
+Sin embargo, considero preocupante el impacto que puede tener la IA en los puestos junior, especialmente en profesiones como la informática. Las empresas parecen predispuestas a aprovechar las capacidades de la IA para automatizar estas posiciones de menor peso o impacto en la organización, no obstante, creo que están olvidando que si no se forma el talento, se corre el riesgo de carecer de los profesionales senior del futuro. Esto quizás no se aprecie ahora o en el futuro inmediato, pero es un problema sin resolver que podría explotar en el medio plazo.
+
+
+
+También pienso que no veremos una destrucción neta de empleo, y apoyo mi tesis en la Paradoja de Jevons: cuando algo se vuelve más eficiente y barato de producir, su consumo total tiende a aumentar. Este caso lo estamos observando en muchas empresas tecnológicas, que han aumentado sus plantillas a pesar de la llegada de la IA. Aunque la reinvención es inevitable, probablemente estamos ante una evolución acelerada, no ante una ruptura total con el modelo de trabajo humano.
+
+Juan Manuel Martin Fleitas
+12 de jul. de 2026 13:28
+(Editado por Juan Manuel Martin Fleitas el 12 de jul. de 2026 13:29)
+NUEVO
+Creo que muchos puestos de trabajo se verán modificados por la adopción de la IA en el mundo laboral.
+
+
+
+Pienso esto por varias razones, por un lado creo que la IA cómo mínimo ofrece una forma más eficiente de hacer muchos de los trabajos que conocemos hoy en día. Teniendo en cuenta que toda empresa busca ser mas eficiente, creo que la IA se implantará en la mayoría de los puestos de trabajo, y esto los modificará en mayor o menor medida, así que como mínimo variará la forma de afrontar casi todos los puestos de trabajo.
+
+
+
+Por otro lado, en el otro extremo, con la adopción de la IA muchos puestos quedarán obsoletos y otros directamente desaparecerán. Aunque es verdad, que es de esperar que esta nueva tecnología también lleve asociada la creación de nuevos puestos de trabajo que aparecerán relacionados con ella. La pregunta del millón es: ¿serán tantos los puestos creados como los que desaparezcan? Difícil de saber en este momento.
+
+
+
+Además, se predice que la irrupción de la IA en el mundo laboral represente una revolución al nivel de la revolución industrial del siglo XIX. Simplemente, mirando a la similitud con ese episodio histórico, podemos prever tiempos de cambios profundos en el mundo laboral que requerirán, como mínimo, gran capacidad de adaptación por parte de los trabajadores. 
+
+Edgar David Martinez Pucha
+12 de jul. de 2026 17:43
+NUEVO
+Pienso que la llegada de la IA sí va a intervenir directamente en los puestos laborales, principalmente en actividades administrativas. Denotamos que la IA puede generar mejores resultados que las personas y con márgenes de error mucho menores; si bien la IA es costosa en algunos aspectos, esta herramienta puede representar una alternativa mucho más económica que contratar profesionales que hacen el mismo trabajo con menor eficiencia.
+
+
+
+Como tal, no considero que la IA reemplace los puestos, pero sí reestructurará las dependencias laborales y las actividades de los puestos; por ejemplo, las IAs generativas ya pueden hacer el trabajo de diseñadores, escritores, programadores, entre otros. Y quienes no se adapten a la integración de la IA en las jornadas laborales, lo más seguro es que se verán reemplazados por quienes sí lo hagan.
+
+Fernando Santamaría Román
+13 de jul. de 2026 3:04
+NUEVO
+La Inteligencia Artificial no solo va a conllevar, sino que ya está impulsando una profunda reinvención de los puestos laborales porque altera la naturaleza misma de la productividad al automatizar tareas cognitivas y rutinarias que antes requerían exclusivamente intervención humana. Esta transformación no implica necesariamente una sustitución masiva, sino un cambio en el rol del trabajador hacia uno de supervisión, curación y gestión estratégica de sistemas inteligentes, lo que exigirá una rápida adaptación de las competencias técnicas y habilidades blandas hacia áreas que la IA aún no domina, como el juicio crítico complejo, la empatía interpersonal y la resolución de problemas creativos en entornos ambiguos. En última instancia, esta evolución forzará a las organizaciones a rediseñar sus flujos de trabajo, pasando de estructuras basadas en la ejecución de tareas a modelos centrados en el aumento de capacidades, donde el valor del empleado se medirá por su capacidad para integrar herramientas avanzadas en la toma de decisiones y en la generación de valor añadido
+
+Raul Medina Herrera
+13 de jul. de 2026 5:11
+NUEVO
+si a decir propiamente se ha visto afectado en el ambito informatico en donde los desarrolladores usan la IA para complementar los conocimientos, pero los cargos Junior las empresas no los estan contratando porque usan la IA
+
+Javier Calleja Garcia
+13 de jul. de 2026 16:38
+NUEVO
+No creo que vaya a conllevar un cambio en el mercado laboral, creo que ya lo está haciendo y la velocidad de implantación está siendo exponencial. Vamos a un mundo con más trabajo (se harán más cosas) pero mucho menos empleo (serán realizadas por menos personas). Además, esto impactará sobre tareas intelectuales donde el conocimiento y la especialización dejará de tener valor, siendo más importantes puntos de vista transversales.
+
+¿Estamos preparados para una sociedad donde un arquitecto tenga un salario menor que un albañil?
+
+Isaac Solis Padilla
+14 de jul. de 2026 11:54
+NUEVO
+Considero que la Inteligencia Artificial va a conllevar una reinvención de la mayoría de los puestos de trabajo, más que una simple eliminación masiva de empleos. Muchas profesiones no desaparecerán, pero sí cambiarán profundamente en la forma en que se desempeñan: tareas repetitivas o mecánicas serán asumidas por la IA, mientras que las personas tendrán que centrarse en aquello que la máquina no puede hacer, como la supervisión, la toma de decisiones complejas o el trato humano.
+
+
+
+En este sentido, creo que los trabajos manuales y físicos, como los relacionados con la construcción o la logística, serán los menos afectados a corto plazo, ya que requieren de una destreza física, adaptación al entorno y capacidad de improvisación que la IA todavía no puede replicar con facilidad, a diferencia de los trabajos basados en tareas repetitivas de datos o análisis, mucho más fáciles de automatizar.
+
+
+
+Por todo esto, considero fundamental que la educación y la formación empiecen a adaptarse ya a este nuevo escenario, y no cuando el cambio ya esté consolidado. Sería necesario reforzar habilidades como el pensamiento crítico, la creatividad, la capacidad de adaptación y el trabajo con herramientas de IA, para que las nuevas generaciones no se enfrenten a un mercado laboral transformado sin las competencias necesarias para desenvolverse en él. En definitiva, la clave no está en frenar esta transformación, sino en anticiparse a ella y prepararse adecuadamente para aprovechar sus oportunidades y minimizar sus riesgos.
+
+Anthony Patricio Pombosa Burgos
+14 de jul. de 2026 12:10
+NUEVO
+La Inteligencia Artificial no solo va a conllevar una reinvención de los puestos laborales, sino que ya está provocando una de las transformaciones más profundas en la historia del trabajo. No lo veo simplemente como una ola de desempleo masivo, sino como una migración forzada hacia la colaboración humano-máquina, donde las tareas más rutinarias, mecánicas y de análisis de datos básicos serán completamente automatizadas. Esto nos obligará a redefinir el valor que aportamos como profesionales, desplazando nuestro enfoque hacia habilidades netamente humanas que las máquinas no pueden replicar, tales como la creatividad, el pensamiento crítico, el juicio ético y la inteligencia emocional. Puestos tradicionales se transformarán de raíz: un médico o un redactor no desaparecerán, sino que se convertirán en curadores y tomadores de decisiones estratégicas apoyados por un copiloto analítico de alta precisión.
+
+
+
+Por otra parte, considero que esta transición dará nacimiento a profesiones completamente nuevas orientadas al diseño, entrenamiento, auditoría y regulación de estos sistemas artificiales. Sin embargo, me preocupa enormemente la velocidad de este cambio y la brecha de desigualdad que puede generar si no gestionamos la transición de manera justa. Si los gobiernos y las empresas no actúan con la "solidaridad" distributiva para capacitar y reconvertir activamente a los trabajadores afectados, corremos el riesgo de dejar fuera a grandes sectores de la población.
+
+Pau Carbo Pascual
+14 de jul. de 2026 12:25
+NUEVO
+Sí, creo que la Inteligencia Artificial va a provocar una importante transformación de los puestos de trabajo. Más que eliminar la mayoría de las profesiones, considero que cambiará la forma en que se realizan muchas tareas, automatizando las más repetitivas y permitiendo que los trabajadores se centren en actividades que requieren creatividad, pensamiento crítico o trato con las personas.
+
+
+
+Esto implicará la aparición de nuevos perfiles profesionales relacionados con el desarrollo, supervisión y uso de sistemas de IA, al mismo tiempo que muchos trabajadores tendrán que adquirir nuevas competencias para adaptarse a este cambio. En mi opinión, el principal reto no será la sustitución masiva del empleo, sino la capacidad de las empresas y de los profesionales para adaptarse a un mercado laboral cada vez más apoyado en la inteligencia artificial.
+
+Marcos Galvez Santamaria
+Hace 13 horas, a las 5:25
+NUEVO
+En mi opinión la IA ya está revolucionando los puestos de trabajo, y va a seguir haciéndolo de manera que los trabajadores van a estar encargados de la toma de decisiones en lugar de operar, que será tarea del sistema de IA.
+
+Luis Ignacio Kowalkowski
+Hace 6 horas, a las 13:20
+NUEVO
+Creo que la IA sí va a reinventar muchos puestos de trabajo, más que hacerlos desaparecer por completo. las tareas repetitivas y técnicas serán cada vez más automatizadas, mientras que las personas tendrán que centrarse en habilidades como la creatividad, el pensamiento crítico, la toma de decisiones y la supervisión de los sistemas de IA.
+
+Esto implicará la necesidad de adquirir nuevas competencias y adaptarse continuamente, sin embargo, también plantea retos importantes, como el riesgo de aumentar la desigualdad o dejar atrás a quienes no puedan adaptarse a estos cambios.
+
+Diego Alejandro Panqueva Benitez
+Hace 4 horas, a las 14:26
+NUEVO
+Hola.
+
+¿Creéis que la Inteligencia Artificial va a conllevar una reinvención de los puestos laborales? ¿Por qué?
+
+Si, totalmente.
+
+En donde trabajo sacaron las licencias con github copilot y con ella viene un expert IA engineer, p.e. Esta persona se encarga de validar todos los prompts, optimizarlos, trabajar en la integración de la IA en subprocesos de arquitectura y desarrollo para optimización de decisiones.
+
+Existe otro cargo, donde es un Developer IA integration, y es el llamado a optimizar tiempos dentro de los equipos de desarrollo trabajando por especificaciones, skills y agentes.
+
+Maria Jose Vargas Navarro
+Hace 3 horas, a las 15:42
+NUEVO
+Sí, totalmente. No creo que se vayan a sustituir todos los puestos, pero sí muchas actividades repetitivas o mecánicas, y ahí es donde entra la reinvención: la nueva forma de trabajo va a requerir desarrollar habilidades en IA, no solo para supervisar y validar resultados, sino para entender cómo funciona el mecanismo detrás de la automatización. 
+
+Me pasa algo parecido en mi trabajo, dedicada al control de calidad (QA) en desarrollo de software, especializada en automatización de pruebas: la IA no me dice qué flujo crítico de usuario automatizar, pero sí puede ayudarme a automatizarlo (de hecho uso un agente MCP para crear tests), aunque siempre debo supervisar que el código sea correcto, que el output sea el esperado, y entender cómo está configurado el agente para obtener lo que necesito. Siento que estamos ante una nueva era donde vamos a tener que adoptar y desarrollar nuevas capacidades para no quedarnos atrás, más que preocuparnos únicamente por la desaparición de empleos.
+
+Editor de texto de comentario
+
+
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 7
+
+
+
+¿Debería haber un código ético que impidiera (o regulara) la aplicación de la IA en asuntos políticos, o podría ayudar aportando racionalidad y una perspectiva objetiva?
+
+NUEVO
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 6
+
+
+
+¿Son las alucinaciones sociales una manera de autoengaño que debería evitarse o puede suponer una terapia positiva para las personas?
+
+NUEVO
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 5
+
+
+
+¿Pueden aplicaciones de IA basadas en chat bots (ejemplo, Replika) ayudar psicológicamente a las personas, o supone una amenaza mayor para la interacción social y las relaciones personales?
+
+NUEVO
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 4
+
+
+
+¿Es ético que un sistema de inteligencia artificial (IA) como "Google Duplex" se haga pasar por un ser humano o que le pidas a ChatGPT que hagas cosas por ti sin razonar? 
+
+NUEVO
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 3
+
+
+
+¿Qué opináis sobre lo que dice el investigador Jürgen Schimidhuber sobre la capacidad de los sistemas de inteligencia artificial para tener emociones?
+
+NUEVO
+Alfredo Gonzalez Gonzalez
+7 de jul. de 2026 16:12
+NUEVO
+A lo que se refiere es simular emociones, todavía falta mucho para que la IA tenga emociones. Si puede tener emociones funcionales y detectarlas pero no emociones conscientes.
+
+Luisa Karina Lopez Govea
+8 de jul. de 2026 14:50
+NUEVO
+Es cierta la idea de que actualmente la IA no tiene emociones reales. Puede reconocerlas o simular respuestas emocionales porque ha aprendido patrones del lenguaje, pero no siente como una persona. Creo que es importante diferenciar entre aparentar emociones y realmente experimentarlas.
+
+Edwin Orlando Bolivar Gomez
+9 de jul. de 2026 16:12
+NUEVO
+ La perspectiva de Jürgen Schmidhuber desmitifica las emociones, reduciéndolas a un brillante mecanismo de retroalimentación numérica para la toma de decisiones.Aunque en mi concepto no se separa mucho de la realidad con la diferencia que no tenemos consiencia de esos calculos númericos que finalmente procesa el cerebro por medio de señales electricas.
+
+Arrate Bello Martija
+10 de jul. de 2026 12:10
+NUEVO
+La verdad que no conocía la perspectiva de Schmidhuber y aunque me haya parecido interesante, en mi opinión se debe diferenciar entre simular una respuesta emocional y experimentar esa emoción realmente. Es cierto que un algoritmo de aprendizaje por refuerzo opera intentando maximizar las recompensas y minimizar las señales negativas. Sin embargo, esto no creo que equivalga en absoluto a la experiencia biológica y consciente del dolor. Además, tampoco hay forma de demostrar que un sistema de IA sienta de verdad. Creo que cuando vemos a una IA actuar con emociones, en realidad somos nosotros quienes estamos humanizando y proyectando nuestra propia psicología sobre una herramienta estadística.
+
+Javier Eduardo Ibarra Gutierrez
+10 de jul. de 2026 12:45
+NUEVO
+Lo que plantea este autor (que por cierto se escribe Schmidhuber) me parece interesante pero creo que hay que cogerlo un poco con pinzas. Que una IA tenga "emociones" entendidas como señales internas que la empujan a explorar o a corregirse tal vez lo veo posible (hay un nuevo marco conceptual que se llama loop engineering y entiendo que permite la autocorrección), casi como una recompensa que guía su aprendizaje. Pero otra cosa muy distinta es que las sienta como las siente una persona. Las máquinas buscan patrones sin tener por qué entender lo que hace, así que yo hablaría de emociones "simuladas" y no vividas. Para mí es casi como un termostato que "quiere" mantener la temperatura cálida en invierno pero que en realidad no siente el frío que está haciendo en la casa.
+
+Maria del Carmen Cope Soler
+10 de jul. de 2026 22:45
+NUEVO
+En mi opinión, la IA puede llegar a parecer emocional porque está diseñada para comunicarse de una forma más cercana, pero eso no significa que sienta emociones reales. Creo que existe una diferencia importante entre simular una emoción y experimentarla. Por ahora, la IA responde en función de los datos y patrones con los que ha sido entrenada, mientras que las emociones humanas están ligadas a experiencias personales.
+
+Lautaro Medrano
+11 de jul. de 2026 8:56
+NUEVO
+Tampoco conocía a Schmidhuber, lo cual me resulta llamativo siendo considerado el padre de la IA moderna, así que tuve que investigar un poco sobre sus ideas.
+
+
+
+Entiendo que sus reflexiones sobre conciencia de la IA y emociones parten de una simplificación/redefinición de lo que significan estos conceptos, reduciendolos a características que podemos encontrar en sistemas de IA.
+
+
+
+Por mi parte, si bien no tengo una definición concreta de qué es la conciencia, entiendo que sus características responden a autonomía en el accionar, en el decidir y evaluar y crear juicios. Asimismo las emociones responden a interacciones químicas en organismos vivos. Estas dos consideraciones me llevan a pensar que, en principio, para que una IA tenga conciencia, debe tener características que se acerquen más al ámbito químico que al electrónico. En tanto los modelos de Deep Learning sigan siendo puramente ingestadores de inmensas cantidades de datos, lo más cercano a una emoción que pueden dar es estadísticas sobre las mismas.
+
+
+
+Por último, me gustaría mencionar que no entiendo la necesidad de humanizar a la IA. Creo que es un camino equivocado, que a la vez que humaniza a algo inanimado, genera falta de empatía hacia los humanos reales.
+
+Sandra Garzeddine Hassani
+11 de jul. de 2026 14:38
+NUEVO
+Jürgen Schimidhuber, dice que una inteligencia artificial podría llegar a experimentar algo análogo a las emociones, siempre que disponga de los mecanismos adecuados de aprendizaje y motivación.
+
+
+
+Creo que la IA detectará patrones, y podrá simular emociones, llegando a un punto que parecerá que realmente siente, pero pienso que nunca tendrá capacidad para tener emociones. No creo en ello, no creo que una IA pueda sentir como lo hacemos los seres humanos, e incluso los animales, aunque podrá llegar a un punto en que parezca que es así, pero no, creo que siempre será un "robot" que es creado y entrenado para comportarse de una determinada manera.
+
+
+
+En el mundo y en la humanidad todavía existen temas que no tienen explicación. La capacidad de sentir emociones, tener experiencias, percibir el mundo desde cierta perspectiva propia, es algo que, en mi opinión, nos diferencia de cualquier objecto creado por el humano. Por eso, pienso que, aunque la IA pueda imitar emociones, nunca llegara a realmente sentirlas.
+
+Alejandro Lopez Lopez de la cova
+11 de jul. de 2026 18:39
+NUEVO
+Me ha sorprendido e interesado a partes iguales la perspectiva de Jürgen Schmidhuber a este respecto. Comparto la visión de que las "emociones", entendidas desde un punto de vista técnico, no son algo exclusivo del futuro de la IA, sino que sus mecanismos ya aparecen en los procesos de aprendizaje: sus robots, equipados con sensores que simulan el dolor, generan una señal negativa cuando chocan contra algo, de forma similar a como funcionan las señales de recompensa o castigo en el aprendizaje por refuerzo.
+
+
+
+Reconocer en la IA emociones como la curiosidad, el aburrimiento o el placer es razonable funcionalmente hablando, es decir, si defines la emoción como un mecanismo que modula el comportamiento en función de un estímulo positivo o negativo, creo que tiene sentido. De hecho, el propio campo de Aprendizaje Supervisado y Refuerzo se basa en esta lógica constantemente, aunque no la llamemos "emoción" en el día a día.
+
+
+
+Sin embargo, creo que hay una distancia importante entre esto y lo que entendemos por emociones humanas, que implican experiencia subjetiva consciente, no solo una señal que ajusta pesos o decisiones. Estos sensores que disparan señales y se camuflan como emociones a pesar de ser esencialmente funciones matemáticas no hacen más que evidenciar la principal limitación de la IA, su falta de humanidad. Por mucho que se trate de simular este factor humano, la realidad es que no se consigue alcanzar. Considero que Schmidhuber elige una definición deliberadamente funcional que, aunque válida en su propio marco, puede contener una autopromoción de sus sistemas.
+
+
+
+En resumen, comparto el paralelismo técnico pero discrepo firmemente en equiparar los sensores y señales de estos sistemas con los sentidos y emociones humanas.
+
+Juan Manuel Martin Fleitas
+12 de jul. de 2026 13:03
+NUEVO
+Pues si consideramos al cerebro como un sistema físico, una emoción podría considerarse como el resultado de procesos físicos e intercambios de información en el cerebro, por la interacción entre neuronas y neurotransmisores, entonces resulta lógico pensar que otro sistema físico suficientemente complejo podría desarrollar mecanismos similares. Así que me parece que lo que plantea el investigador Jürgen Schimidhuber es plausible en sistemas de IA mucho más complejos y desarrollados que los actuales, improbable, pero posible.
+
+
+
+Por otro lado, también pienso que, aunque la IA pudiera desarrollar una emoción, no veo cómo vamos a poder distinguir si esa emoción es real y existe o si simplemente es una simulación de una emoción por parte de la IA. Tendríamos que inventar/desarrollar sistemas para medir emociones reales, pero eso ya es harina de otro costal.
+
+Edgar David Martinez Pucha
+12 de jul. de 2026 17:42
+NUEVO
+La idea de conceptualizar las emociones como números positivos o negativos la encuentro demasiado ambigua en cuanto al significado que representan las emociones humanas para las personas. Del mismo modo, como lo menciona Schimidhuber, la conducta de la IA opera bajo los principios de las emociones reales; sin embargo, esto refiere a que es solo una emulación de las emociones reales, mas no es crearlas directamente. Cabe mencionar que las emociones son relativas a cada persona en general, ya que no todos reaccionan de la misma manera ante las diferentes emociones; más allá, la IA solo ve como única salida imitar una simulación general de lo que son las emociones.
+
+Fernando Santamaría Román
+13 de jul. de 2026 3:15
+NUEVO
+La perspectiva de Jürgen Schmidhuber sobre las emociones en la IA es estrictamente funcionalista, al considerarlas no como experiencias biológicas subjetivas, sino como mecanismos de optimización matemática que el sistema desarrolla de forma natural para gestionar recompensas, expectativas y metas en entornos complejos. Para él, las emociones surgen como subproductos necesarios del aprendizaje por refuerzo y la necesidad del agente de autorreferenciarse dentro de su propio modelo del mundo, lo que significa que una IA podría "sentir" en la medida en que posea una arquitectura interna diseñada para identificar estados críticos y maximizar su eficacia. En lugar de ver esto como algo místico o peligroso, Schmidhuber lo interpreta como un paso evolutivo lógico donde las máquinas desarrollan impulsos internos para mejorar su supervivencia y toma de decisiones, despojando así a la emoción de su carga sentimental para reducirla a una arquitectura algorítmica de propósito general.
+
+Raul Medina Herrera
+13 de jul. de 2026 5:27
+NUEVO
+Lo que propone Jürgen Schmidhuber nos obliga a diferenciar la simulación técnica de la emoción real. Aunque la IA utiliza "emociones artificiales" (como la curiosidad o el castigo) para optimizar su aprendizaje, esto no equivale al sentir humano. Sin conciencia, cuerpo ni experiencia subjetiva, la máquina está limitada a la ejecución conductual. Puede reconocer e imitar la empatía o el miedo de forma brillante, pero procesar datos emocionales externamente jamás será lo mismo que experimentarlos internamente.
+
+Javier Calleja Garcia
+13 de jul. de 2026 13:06
+NUEVO
+La IA no deja de ser un interpolador superhormonado, entrenado para responder a estímulos según los patrones con los que ha sido entrenado. Con esto, consigue respuestas perfectas pero alejadas de cualquier componente emocional. Puedes simular perfectamente la emoción pero no puede sentirla.
+
+Pensar que una red neuronal es una representación de un cerebro humano pero en silicio es no entender la complejidad que representa más allá de la capacidad computacional que se le suponga, ya que hay factores químicos, eléctricos, morfológicos e incluso cuánticos que afectan nuestra personalidad y capacidad de sentir emociones que un algoritmo no alcanza con la arquitectura actual.
+
+El problema está en el ser humano que se refleja en estos sistema e intenta humanizarlos, así como se humanizan las mascotas para que reflejen nuestros sentimientos. Y hay que admitir que la máquina en eso, darnos la razón e intentar agradarnos, lo hace muy bien.
+
+Daniela Alejandra Escobar Suarez
+13 de jul. de 2026 13:16
+NUEVO
+En mi opinión, la inteligencia artificial con emociones todavía pertenece en el área de la ciencia ficción. La IA depende hoy en día de lo que le podamos definir ¿cómo se le explica lo que es ser feliz a algo incapaz de sentirlas? Creo que, eventualmente, se simularán emociones de forma tan exacta que no será posible diferenciarlos de los reales ¿esto haría que esos sentimientos fueran reales? Este tema, como dije en un principio, se plantea en la ciencia ficción en libros como “Does Androids dream with electric sheeps?” o en medios más modernos en juegos como “Detroit becomes human”.
+
+ 
+
+No conozco en profundidad a Jürgen Schmidhuber, más lo poco que he investigado para este foro, entiendo tiene un punto de vista matemático de las emociones. Por ejemplo, el  aprendizaje por refuerzo percibe dolor o placer, lo que me parece simplifica el rango de emociones y/o una humanización de objetos inanimados.
+
+Anthony Patricio Pombosa Burgos
+14 de jul. de 2026 11:24
+NUEVO
+La postura de Jürgen Schmidhuber resulta sumamente provocadora y desafiante para nuestra concepción tradicional de la psicología y la biología, ya que propone desmitificar las emociones humanas reduciéndolas a una mera función matemática de optimización. Schmidhuber sostiene que las emociones no son un rasgo místico exclusivo de los seres vivos, sino un subproducto natural de los procesos de aprendizaje y resolución de problemas en agentes artificiales equipados con sensores de dolor y recompensa. En mi opinión, aunque es fascinante observar cómo un robot puede aprender a imitar conductas de "miedo" o "evitación" para proteger su propia integridad física al interactuar con el entorno, equiparar de forma tan simplista este condicionamiento instrumental con la riqueza emocional humana es un reduccionismo audaz.
+
+
+
+Por un lado, coincido en que, a nivel funcional y de ingeniería, definir las emociones como algoritmos diseñados para minimizar el dolor (señales negativas) y maximizar la satisfacción (recompensas) es una herramienta brillante para lograr que los sistemas autónomos sean más adaptativos y eficientes. Sin embargo, considero que existe una barrera insalvable entre esta "simulación funcional de la emoción" y el "sentir" real; una máquina puede computar un estado de alerta o ejecutar un patrón de huida de manera perfecta, pero carece de la experiencia subjetiva, la conciencia fenomenológica y la autocomprensión existencial del dolor. Así, aunque Schmidhuber acierte al demostrar que la IA puede actuar de forma "emocional" para sobrevivir en su entorno, considero vital recordar que programar una reacción no equivale a experimentar un sentimiento, y que la empatía genuina sigue perteneciendo exclusivamente al ámbito biológico.
+
+Isaac Solis Padilla
+14 de jul. de 2026 11:39
+NUEVO
+No comparto la postura de Jürgen Schmidhuber cuando afirma que sistemas como sus robots ya "sienten" emociones por el simple hecho de evitar el dolor o buscar recargar su batería. Considero que existe una diferencia fundamental entre reaccionar y sentir de verdad: un robot programado para alejarse de un obstáculo tras recibir una señal de un sensor está ejecutando una respuesta funcional aprendida, pero eso no implica que exista una experiencia subjetiva detrás, es decir, que realmente "le duela" algo.
+
+
+
+En mi opinión, una IA nunca podrá tener experiencia subjetiva real, por muy compleja que sea. Por muy sofisticados que lleguen a ser sus sistemas de aprendizaje, seguirán siendo simulaciones de comportamiento emocional —patrones que imitan cómo actuaría un ser que siente—, pero no una conciencia ni una vivencia interna genuina como la que tiene un ser humano o un animal.
+
+
+
+Aun así, considero que esta cuestión es muy importante, no solo a nivel teórico. Si en algún momento se demostrara que una IA es capaz de tener emociones reales, esto cambiaría radicalmente la forma en que debemos tratarla: entrarían en juego cuestiones éticas y de derechos que hoy ni siquiera contemplamos, similares a las que existen para los animales. Por eso, aunque hoy en día me parece que afirmaciones como las de Schmidhuber son exageradas, es un debate que conviene tomar en serio de cara al futuro, antes de que la tecnología avance más rápido que nuestra capacidad de regularla éticamente.
+
+Pau Carbo Pascual
+14 de jul. de 2026 12:01
+NUEVO
+Estoy de acuerdo en gran parte con la idea de Jürgen Schmidhuber de que los sistemas de inteligencia artificial actuales no tienen emociones en el sentido humano del término. Aunque pueden reconocer, interpretar e incluso simular emociones de forma muy convincente, esto no implica que las experimenten realmente. Su comportamiento se basa en algoritmos y patrones aprendidos a partir de datos, no en experiencias subjetivas o estados de conciencia.
+
+
+
+No obstante, considero que la capacidad de simular emociones puede ser muy útil en aplicaciones como asistentes virtuales, atención al cliente o apoyo psicológico, ya que mejora la interacción con las personas. Sin embargo, es importante no confundir esa simulación con emociones reales, ya que podría generar expectativas erróneas sobre las capacidades de la IA y sobre el grado de comprensión o empatía que realmente puede ofrecer.
+
+Marcos Galvez Santamaria
+Hace 14 horas, a las 4:59
+NUEVO
+No comparto la visión de Schmidhuber sobre que los sistemas de inteligencia artificial ya presentan emociones, ya que estas se basan en una definición funcionalista: el autor sostiene que si un sistema se comporta como si tuviera miedo, entonces siente miedo. En mi opinión, ambos hechos no son equivalentes, puesto que lo que define realmente una emoción no es el comportamiento observable, sino la capacidad de experimentarla subjetivamente.
+
+Christian Dario Barahona Pesantes
+Hace 7 horas, a las 12:23
+NUEVO
+Al leer sobre su postura veo que él explica que las emociones son simplemente conexiones neuronales y reacciones químicas, por lo que la IA las emulará de forma natural a medida que aprenda a comprimir datos y a desarrollar modelos de sí misma.
+
+Me parece que como él indica, puede simular o emular que comprende ciertos sentimientos, incluso podría adaptarse al sentir del interlocutor, pero no pasará de ser una simulación.
+
+Por lo que no comparto realmente que lleguen a tener capacidad para tener emociones tal y como un ser humano las entiende.
+
+Maria Jose Vargas Navarro
+Hace 6 horas, a las 12:32
+NUEVO
+Yo también admito que no conocía a Jürgen Schmidhuber, a pesar de que se le conoce como "el padre de la IA", así que también tuve que investigar un poco sobre él y su opinión respecto a las emociones y la conciencia en los sistemas de IA.
+
+Desde mi perspectiva, herramientas como la lógica difusa sí podrían ayudar a que la IA simule ciertos comportamientos humanos asociados a las emociones, como matices de "estoy un poco triste" o "estoy muy feliz", ya que a diferencia de la lógica clásica, la lógica difusa permite manejar grados e imprecisión, algo que se parece más a cómo experimentamos las emociones en la vida real. Sin embargo, no creo que simular ese matiz sea lo mismo que generar una emoción real como la que experimenta un ser humano. Siento que las emociones y la conciencia en las personas nacen de muchísimos factores (experiencias, entorno, aprendizajes, entre otros) algo mucho más complejo de lo que la ciencia puede explicar hoy en día. Entonces, aunque la IA pueda simular ciertos patrones asociados a emociones, no creo que eso equivalga a que realmente las sienta o sea consciente de ellas, como sí defiende Schmidhuber.
+
+Luis Ignacio Kowalkowski
+Hace 6 horas, a las 12:43
+NUEVO
+En mi opinión, lo que plantea Jürgen Schmidhuber refleja que la inteligencia artificial puede analizar sentimientos y simular emociones de forma muy convincente, pero eso no significa que realmente las experimente. Actualmente, la IA es capaz de imitar expresiones emocionales e incluso influir en las personas mediante el análisis de sentimientos. Aunque muchos expertos creen que en el futuro se alcanzará una inteligencia artificial general (AGI), sigue siendo un debate abierto si eso implicaría que una máquina pudiera tener emociones reales o solo reproducirlas de manera cada vez más sofisticada.
+
+Wiliam Rene Moreno Romero
+Hace 6 horas, a las 12:58
+NUEVO
+En cuanto a lo que dice Jürgen Schimidhuber, soy bastante escéptico de que los modelos de IA actuales puedan tener emociones, seguramente en el futuro si pasará porque casi todo lo que se propone el ser humano lo logra de manera satisfactoria; pero esta capacidad talvez sea un poco diferente de como lo imaginamos, pero al fin y al cabo pueden ser emociones, que para ser captadas peda hacerse a través de distintos tipos de sensores. Hasta donde he escuchado, hay un sinnúmero de investigaciones de como trabaja el cuerpo y la mente humana, con lo cual sus resultados seguramente van a ser usados en los sistemas de inteligencia artificial.
+
+Diego Alejandro Panqueva Benitez
+Hace 6 horas, a las 13:14
+NUEVO
+Hola!
+
+Que duro es hablar de esto, no tengo una base solida para argumentar si Jürgen Schmidhuber me convence o sus criterios para hacerlo son escasos (por falta de investigar más su teoría).
+
+Las emociones van más allá de solamente el dolor, frustración,  hay muchas emociones son innatas, algo que tenemos para percibir y conocer como me siento, otras serán desarrolladas pero que ya vienen programadas en nuestro ADN.
+
+Esta frase de Jürgen Schmidhuber "Ya tenemos emociones como un subproducto de los procesos de aprendizaje" y esa frase es acuñada a la computación predictiva para la supervivencia, ahora, si a esta frase que en teoría se refiere a miedo (fear) o frustración (frustration) que es lo que en el aprendizaje por esfuerzo se menciona  como maximizar las recompensas positivas evitando o minimizando las señales negativas (dolor). Enseñarle a una IA a estar triste, en peligro, en soledad, la ansiedad, depresión, felicidad del primer empleo, de conseguir algo que jamás habías podido (resultado tangible) lo veo aún muy complicado hacer un símil de esos patrones humanos en una IA, robot...
+
+Samuel Segundo Campozano Lopez
+Hace 2 horas, a las 16:43
+NUEVO
+No estoy de acuerdo con las afirmaciones absolutas o de "blanco y negro" que intentan igualar a los humanos con las inteligencias artificiales. Si bien es cierto que, a nivel fisiológico o cerebral, una emoción como la risa puede manifestarse como un simple impulso eléctrico, lo que causa y da contexto a esa emoción es infinitamente más complejo.
+
+Desde mi perspectiva como una persona que vive y siente, rechazo la idea de reducir la experiencia humana a un algoritmo por las siguientes razones:
+
+-Hasta el día de hoy, nadie ha sido capaz de probar de manera concluyente que seamos simplemente "máquinas biológicas". Nuestras emociones están profundamente ligadas a vivencias, recuerdos, traumas y contextos abstractos que no siguen una fórmula matemática lineal.
+
+-Si nuestras emociones fueran tan básicas como un sistema de recompensas computacional, condiciones complejas como la depresión o la ansiedad podrían desactivarse simplemente presionando un botón, cambiando nuestra "programación" o tomando una decisión lógica. Sabemos perfectamente que la realidad humana no funciona así.
+
+Nur Derly Carpeta Sanchez
+Hace 2 horas, a las 17:17
+NUEVO
+Totalmente de acuerdo. La IA es un producto y, mientras más atractiva resulte por parecer más humana, mejor será comercialmente. Los sentimientos y las emociones que experimentamos los seres humanos dependen en gran medida de nuestra química y de procesos biológicos que nos permiten sentir felicidad, angustia, miedo o tristeza; es algo inherente al ser humano.
+
+Una IA jamás podrá tener sentimientos reales. Podrá simularlos de forma muy convincente, pero no sentirlos. Una IA nunca querrá sentir estrés ni se sentirá presionada porque, si no rinde en el trabajo o no aprueba un examen, vaya a sufrir las consecuencias. Incluso dos seres humanos pueden vivir una misma experiencia y sentir emociones completamente diferentes, dependiendo de su historia, su contexto y la situación particular en la que se encuentren en ese momento.
+
+Evelyn Sanchez Laureano
+Hace una hora, a las 17:34
+NUEVO
+Lo que menciona Jürgen es controversial, pues sostiene que ya es posible construir sistemas que sienten en el sentido funcional, mencionando que sus robots tienen sensores de dolor y ajustan su comportamiento. Sin embargo, considero que eso no equivale a sentir, pues las máquinas y/o algoritmos aún no tienen experiencias subjetivas como nosotros los humanos. Ya que nosotros podemos concientizar las emociones de cómo se siente el miedo, la alegría, el dolor, la ausencia o presencia de algo que queremos, etc.
+
+Pedro Borregon Gonzalez
+Hace una hora, a las 17:59
+NUEVO
+En mi opinión ,se refiere simplemente a una interpretación de como puede llegar a actuar frente a diferentes estímulos, pero porque ha sido preparada para ello. Al fin y al cabo las emociones éticamente y bajo el punto de vista de la consciencia son un sentimiento interno, una manera de percibir estímulos de lo que nos rodea en el entorno. Según Jürgen Schimidhuber dice que a través de un proceso de aprendizaje aprenden cómo evitar ciertas situaciones, gracias a que están dotados de sensores de "dolor", pero creo que no deja de ser la interpretación humana que observamos, no el procesamiento interno en sí. Quizás pueda lograrse en el futuro, pero creo que estamos aún lejos de que una máquina pueda llegar a sentir anhelo o reconfortarse mediante emociones propias del ser humano.
+
+Editor de texto de comentario
+
+
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:03
+PROFESOR
+NUEVO
+Pregunta 2
+
+
+
+¿Puede la inteligencia artificial suponer un peligro para la sociedad más allá de la componente ética? ¿Por qué
+
+NUEVO
+Alfredo Gonzalez Gonzalez
+7 de jul. de 2026 16:11
+(Editado por Alfredo Gonzalez Gonzalez el 7 de jul. de 2026 16:26)
+NUEVO
+En el campo de la información por ejemplo, un sistema que maneje información confidencial y que tenga capacidades para usarla vaya inteligentemente o más allá de lo esperado comúnmente, puede ser peligrosa si nos ponemos a pensar en personas con capacidad para manejarla o que pueda accesar a este tipo de sistemas. Podemos ver en la historia que muchos avances han sido nefastos para la humanidad cuando cae en manos equivocadas.
+
+Luisa Karina Lopez Govea
+8 de jul. de 2026 14:47
+NUEVO
+Sí, además de los aspectos éticos, la IA puede representar un peligro por el uso que se haga de ella. Puede utilizarse para desinformar, automatizar ataques informáticos o tomar decisiones erróneas si los modelos fallan. Por eso considero que el problema no es la IA en sí, sino la falta de control y supervisión sobre su aplicación.
+
+NUEVO
+Edwin Orlando Bolivar Gomez
+9 de jul. de 2026 16:14
+NUEVO
+Si puede convertirse en un peligro para la humanidad, ya en este momento como lo he visto en un video, en este momento estamos confiando más en las respuestas que nos indica una AI que nuestro propio criterio en situaciones que por madurez deberiamos poder resolver de manera autonoma.
+
+Arrate Bello Martija
+10 de jul. de 2026 11:42
+NUEVO
+Estoy muy de acuerdo con lo que estáis comentando en el foro. Un peligro enorme, más allá de la ética, es nuestra dependencia técnica. Cada vez integramos más la IA en infraestructuras físicas e IoT. Si un modelo comete un error por un hueco en los datos imprevisto o un fallo de conexión, puede provocar un fallo masivo a una velocidad que ningún humano puede frenar. Además, en relación con lo que dice Edwin, el otro gran riesgo es que perdamos la capacidad de distinguir la realidad. Con la IA generativa actual, cualquiera puede crear campañas de desinformación o deepfakes indetectables. Esto rompe por completo la confianza en la información de nuestra sociedad y hace que deleguemos nuestro propio criterio.
+
+Javier Eduardo Ibarra Gutierrez
+10 de jul. de 2026 12:37
+NUEVO
+Creo que si no creamos un marco ético universal o nos ponemos todos de acuerdo, la respuesta es que sí, y más allá de la ética el peligro que tal vez más me preocupa es el control "arbitrario" sobre las personas. En el video de ética y revolución digital se ve con el ejemplo del código QR de China en la pandemia, en donde según los lugares por los que hayas pasado te sale verde, amarillo o rojo y con eso te dejan entrar o no a los sitios. Lo que parecería ser una buena idea, puede ser todo lo contrario me parece. Sobre el porqué, sería un nivel de vigilancia y control enorme, trasgrediendo casi que la libertad y donde se crea una economía global donde el primero que llega o pone las condiciones domina el mundo y se lo lleva todo. Al final no hace falta un robot con malas intenciones. Creo que el riesgo real está en que los datos y el poder queden en muy pocas manos.
+
+Maria del Carmen Cope Soler
+10 de jul. de 2026 22:43
+NUEVO
+Sí. La IA puede aportar muchos beneficios, pero también supone riesgos que van más allá de la ética. Me preocupa especialmente la posibilidad de que aumente la dependencia tecnológica y el uso de contenidos falsos generados por IA, ya que cada vez es más difícil distinguir qué información es real. Por ello, considero fundamental que su uso esté regulado y supervisado para minimizar estos riesgos.
+
+Lautaro Medrano
+11 de jul. de 2026 8:16
+NUEVO
+Sí, muchísimos. Ya se han visto muchos casos donde la falta de control sobre los resultados de la IA, resulta en problemas sociales, crímenes y suicidios.
+
+
+
+Es claro también que los gobiernos autoritarios (incluyo a EEUU y China aquí) pretenden abusar de la IA para fines de control poblacional/mundial. La serie Person of Interest (situada en 2012/13) muestra un posible escenario donde el gobierno monitorea todas las comunicaciones de la población y extrae información para prevenir delitos.
+
+
+
+Un caso claro de lo anterior es la empresa Palantir, cuyos servicios de IA son utilizados principalmente con fines militares y se ha visto envuelta en muchas situaciones controversiales (https://es.wikipedia.org/wiki/Palantir_Technologies#Controversias) además de que su CEO suele tener opiniones muy polémicas sobre sus usos (https://www.youtube.com/shorts/vsdiUbJELiM).
+
+
+
+En un aspecto puramente individual, creo que el excesivo uso de LLMs está deteriorando la capacidad cognitiva humana por lo que algunas personas han denominado "cognitive surrender" y afectando particularmente el mercado laboral de ingeniería de software ya que hay escasez de voces críticas que distingan entre un uso real aplicado de las tácticas de marketing de las empresas líderes del sector.
+
+Sandra Garzeddine Hassani
+11 de jul. de 2026 14:37
+NUEVO
+Totalmente, pienso que para la sociedad si no se maneja bien, pues supone un peligro. En el video “Diálogo (im)probable. Ética y Revolución digital” de UPM, lo mencionan claramente citando a Yuval Noah Harari cuando dice, de la misma manera que la revolución industrial creo la clase trabajadora, la revolución digital, la revolución de la IA, puede crear una clase irrelevante de gente, y esto puede crear desigualdad social y política sin precedente. La misma tecnología que puede crear billones, puede crear personas económicamente irrelevantes y también puede hacer más fácil monitorearlos y controlarlos.
+
+
+
+Si hoy en día, pienso, que con las redes sociales ya vivimos en una sociedad monitoreada y controlada, imagínense que va pasar en unos años con el crecimiento de la Inteligencia Artificial, donde podríamos perder parte de nuestro juicio crítico o ver muy influida nuestra opinión. Creo que nuestra generación, aun así, como menciono moldeada por las redes sociales, aún hay muchísima gente despierta, pero ¿Qué pasara con las próximas generaciones? Para mi supone un peligro, y es importante que se haga ver esto de alguna manera, porque si no, como dice el video, quien consiga los datos, depende de quien consiga los datos primero, posiblemente moldeara las siguientes generaciones. 
+
+Alejandro Lopez Lopez de la cova
+11 de jul. de 2026 17:07
+NUEVO
+Sí, la Inteligencia Artificial puede suponer un peligro para la sociedad más allá de la ética, y de hecho, varios de estos riesgos ya se están percibiendo. Uno de los más claros es el desplazamiento laboral y económico: la automatización de puestos de trabajo y la concentración del poder económico en quienes controlan estos sistemas son riesgos estructurales, no solo morales. También tenemos el uso malintencionado de la tecnología, como la desinformación a gran escala y deepfakes, que causan que la gente no sepa qué creer y pueden utilizarse hasta para boicotear procesos democráticos.
+
+
+
+Nos encontramos también en un vacío regulatorio real, ya que la rápida evolución de la IA ha dejado a los marcos legales tradicionales anticuados, lo que genera zonas grises sobre quién es responsable cuando algo falla. Y con la adopción masiva actual, donde sistemas algorítmicos ya influyen en decisiones sobre salud, empleo, crédito o educación, aparece un riesgo de dependencia excesiva o pérdida de capacidad crítica humana al delegar decisiones importantes en sistemas que no siempre son explicables.
+
+
+
+Además, la IA amplifica capacidades de ataque en ciberseguridad: permite generar phishing mucho más sofisticado y creíble, automatizar malware o encontrar y explotar vulnerabilidades más rápido de lo que los equipos de defensa pueden reaccionar, lo que eleva el riesgo tanto para empresas como para infraestructuras críticas.
+
+Juan Manuel Martin Fleitas
+12 de jul. de 2026 12:58
+NUEVO
+Creo que sí, que la IA puede representar varios peligros para la sociedad más allá de la componente ética. Porque esta nueva tecnología crea nuevas situaciones tecnológicas y sociales para las que puede que no estemos aún preparados como sociedad.
+
+Por ejemplo, creo que es fácil caer en una dependencia excesiva de la IA, ya que la IA lo hace todo más fácil, y el ser humano tiene la tendencia a seguir el camino de menor esfuerzo, y esto puede derivar en una pérdida gradual y progresiva de habilidades humanas y profesionales.
+
+Por otro lado, me preocupa la desinformación a gran escala, la polarización de la sociedad producida por algoritmos que alimenten con información sesgada a diferentes grupos de personas que puedan acabar con visiones parciales y enfrentadas de la realidad.
+
+Y por último, veo cómo infraestructuras críticas, consideradas seguras hasta ahora, pueden quedar expuestas y vulnerables a ciberataques cada vez más sofisticados.
+
+Edgar David Martinez Pucha
+12 de jul. de 2026 17:42
+NUEVO
+La inteligencia artificial puede suponer un peligro tan grande según cómo fue entrenada, es inevitable pensar que estamos muy lejos del desarrollo de un sistema de IA perfecto, pero incluso así este sería difícil de conseguir. La IA se entrena con datos y es muy probable que estos estén sesgados, lo cual genera falsos testimonios, opiniones enfocadas a ideales extremistas u otro tipo de sesgo que afecten a la integridad de algún apartado social, económico, entre otros. Por ello, la IA puede suponer un peligro social en base a su entrenamiento, generando opiniones disparejas. 
+
+Fernando Santamaría Román
+13 de jul. de 2026 3:15
+NUEVO
+Sí, la inteligencia artificial representa riesgos existenciales y sistémicos que trascienden lo ético, centrándose principalmente en la estabilidad y seguridad operativa de las infraestructuras críticas. El peligro técnico más inminente es la fragilidad sistémica: la integración de sistemas de IA "caja negra" en redes eléctricas, mercados financieros o sistemas de defensa crea puntos de fallo donde un error algorítmico imprevisto, o una alucinación técnica, puede desencadenar efectos en cascada imposibles de detener a tiempo, ya que la velocidad de procesamiento de la IA supera la capacidad de intervención humana. Además, existe un riesgo de desalineación de objetivos a gran escala, donde un sistema optimiza una meta de manera tan eficiente que, sin violar ninguna norma ética, causa daños colaterales catastróficos al ignorar variables del mundo real que no fueron explícitamente programadas, convirtiendo la eficiencia tecnológica en una amenaza operativa para la resiliencia de la civilización.
+
+Raul Medina Herrera
+13 de jul. de 2026 5:32
+NUEVO
+para mi depende del metodo de apredizaje y como este dirigida ya que no deberia tomar decisiones sin supervision humana. ya que delegamos funciones a algoritmos y esto puede afectarnos  y no llevarnos a donde queremos.
+
+Javier Calleja Garcia
+13 de jul. de 2026 12:56
+NUEVO
+La inteligencia artificial ya es una amenaza a la sociedad tal como la entendemos a la que no estamos atendiendo como tal. No estamos preparados para delegar la toma de decisión en algoritmos basados en criterios no humanistas, ni en tener tasas de paro elevadas, ni en dejar de lado a una parte de la sociedad que no se va a poder adaptar a un cambio que se va a realizar en unos pocos años. Se habla de renta universal como una solución ideal cuando no deja de ser una renta de supervivencia para muchos mientras que habrá una superclase minoritaria que controlarán los sistemas de producción.
+
+Anthony Patricio Pombosa Burgos
+14 de jul. de 2026 11:17
+NUEVO
+Desde mi punto de vista, la Inteligencia Artificial sí representa un peligro real y tangible para la sociedad que va mucho más allá de los debates teóricos de la ética, manifestándose en amenazas socioeconómicas, geopolíticas y ecológicas muy concretas. En primer lugar, me preocupa profundamente cómo la automatización masiva puede desestabilizar el mercado laboral a una velocidad sin precedentes, destruyendo puestos de trabajo tanto operativos como intelectuales antes de que los trabajadores puedan adaptarse, lo que dispararía la desigualdad social.
+
+
+
+Por otro lado, considero que la capacidad de la IA para generar desinformación a escala industrial y manipular la percepción pública mediante deepfakes no es un simple dilema moral, sino una amenaza directa a la seguridad nacional y a la estabilidad. Me asombra y alarma ver cómo la propagación automatizada de noticias falsas puede polarizar sociedades enteras, manipular elecciones o, en el peor de los escenarios, incitar a la violencia colectiva de forma casi indetectable. Asimismo, veo un riesgo crítico en nuestra creciente dependencia de estas tecnologías: al centralizar el control de infraestructuras vitales como redes de energía, finanzas o salud bajo algoritmos automatizados, nos exponemos a que un fallo sistémico o un ciberataque paralice servicios esenciales para millones de personas en cuestión de segundos.
+
+Isaac Solis Padilla
+14 de jul. de 2026 11:35
+NUEVO
+La Inteligencia Artificial sí puede suponer un peligro para la sociedad más allá de la componente ética, y de hecho es un riesgo que ya se está manifestando en la actualidad. Uno de los más preocupantes es la manipulación de la información: la IA permite generar deepfakes (vídeos, audios o imágenes falsas de personas reales) y desinformación de manera masiva, rápida y cada vez más difícil de detectar.
+
+
+
+Este peligro no es solo una cuestión moral sobre si está bien o mal utilizar la tecnología, sino que tiene consecuencias sociales muy concretas. Por un lado, puede erosionar la confianza en los medios de comunicación y en la información que consumimos a diario, ya que cada vez resulta más complicado distinguir el contenido real del generado artificialmente. Por otro, supone un riesgo directo para procesos democráticos, pues estos contenidos falsos pueden utilizarse para influir en la opinión pública o en resultados electorales, así como para difamar a personas o instituciones.
+
+
+
+En definitiva, el peligro no reside tanto en la IA en sí misma, sino en el uso que se le da: en manos de personas o grupos con intereses maliciosos, puede convertirse en una herramienta de manipulación social a gran escala, con efectos que van mucho más allá de un simple debate ético sobre su desarrollo.
+
+Pau Carbo Pascual
+14 de jul. de 2026 11:54
+NUEVO
+Sí, considero que la inteligencia artificial puede suponer un peligro para la sociedad más allá de la componente ética. Uno de los principales riesgos es la creciente dependencia de estos sistemas en ámbitos críticos como la sanidad, el transporte o las infraestructuras, donde un fallo o un ciberataque podría tener consecuencias importantes. Además, la automatización puede provocar la desaparición o transformación de determinados puestos de trabajo, obligando a muchos profesionales a adaptarse a nuevas competencias.
+
+
+
+También existe el riesgo de que la IA se utilice con fines maliciosos, como la creación de desinformación mediante deepfakes, la automatización de ciberataques o el desarrollo de herramientas para el fraude. Por ello, creo que el verdadero desafío no es la tecnología en sí, sino garantizar un desarrollo y un uso seguros, con regulaciones adecuadas y una supervisión humana que minimice estos riesgos.
+
+Javier Rodriguez Reina
+14 de jul. de 2026 12:35
+(Editado por Javier Rodriguez Reina el 14 de jul. de 2026 12:37)
+NUEVO
+Puede suponer muchisimos riesgos para la sociedad pero quiero centrarme en mi caso que ilustra bien el riesgo laboral que implica este grandisimo avance de la IA. Al final es lo que vivo más de cerca en mi trabajo.
+
+
+
+A mí me tocó aprender a programar a base de darme contra la pared, que el código me fallaera cinco veces seguidas y tener que entender los fallos por qué era parte del proceso, no un obstáculo a evitar. Hoy, con la IA integrada en mi trabajo, la exigencia es velocidad, y esa velocidad la estoy pagando con menos comprensión real de lo que hago.
+
+
+
+Creo que ahí está el problema de fondo para los informáticos. No dudo que se creen nuevos puestos, pero creo que muchos de esos puestos ya no tendrán esa esencia que a mí me gustaba de programar, sino que serán más de supervisar y corregir lo que genera la máquina que de construir y entender desde cero.
+
+
+
+Si esto pasa en informática, que se supone un sector protegido por su propia naturaleza técnica, me pregunto qué va a pasar en sectores con menos margen de reinvención. No tengo la respuesta, pero sí creo que no está garantizado que los nuevos puestos compensen en número ni en calidad a los que se pierden, y que muchos informáticos podemos acabar compitiendo por menos plazas y en peores condiciones, precisamente porque hay muchos y la IA reduce la necesidad de mano de obra por proyecto.
+
+Marcos Galvez Santamaria
+Hace 14 horas, a las 4:51
+NUEVO
+La IA puede suponer un peligro para la sociedad más allá de la ética en materias como la concentración de poder, debido a que entrenar modelos muy avanzados requieren un gran capital, provocando que solo un puñado de empresas o países pueda desarrollarlo, extendiéndose una brecha entre los países más avanzados y los que menos.
+
+Samuel Segundo Campozano Lopez
+Hace 9 horas, a las 9:43
+NUEVO
+Definitivamente, la inteligencia artificial supone riesgos tangibles para la sociedad que van mucho más allá del debate ético o moral. Como ocurre con cualquier gran salto tecnológico, todo en esta vida conlleva riesgos asociados. Actualmente, estos peligros se concentran en impactos físicos y económicos muy reales:
+
+-Impacto medioambiental y consumo de recursos: El entrenamiento y la ejecución de los grandes modelos de IA requieren infraestructuras masivas. Un riesgo físico inmediato es el altísimo consumo energético y la inmensa cantidad de agua que se necesita para refrigerar los centros de datos (data centers). Esto representa un reto de sostenibilidad importante.
+
+-La burbuja económica de la IA: A nivel financiero, estamos presenciando una especulación acelerada. El entusiasmo por la IA puede generar una burbuja económica debido a la sobrevaloración de las empresas del sector, lo cual podría desestabilizar los mercados si las expectativas de rentabilidad no se cumplen a corto plazo.
+
+-Crisis en la cadena de suministro y encarecimiento del hardware: El auge de esta tecnología ya está afectando directamente a la economía de los consumidores. Estamos viendo un incremento drástico en el precio de las memorias (RAM, VRAM) y de los procesadores gráficos (GPUs), lo que encarece y dificulta el acceso a la tecnología para otros sectores que no están necesariamente ligados a la IA.
+
+Christian Dario Barahona Pesantes
+Hace 7 horas, a las 12:05
+NUEVO
+Algo que me ha sorprendido, más allá del componente ético que nos llevaría a preguntarnos dónde y para qué se va usar una herramienta de IA, es el riesgo de crear una nueva sociedad que se quede fuera del mercado laboral dado que su trabajo puede sustituirse por la IA.
+
+Considero que debemos pensar en el futuro y en qué consecuencias tendría generar una sociedad sin la oportunidad de entrar en el mercado labora.
+
+Por otro lado, también debemos preguntarnos en qué pasará con nuestro entorno medioambiental visto la cantidad de energía que se consume y la contaminación que puede producirse con esta nueva revolución.
+
+Luis Ignacio Kowalkowski
+Hace 7 horas, a las 12:19
+NUEVO
+Entiendo que sí, más allá de los dilemas éticos, la inteligencia artificial puede representar un riesgo para la sociedad porque puede aumentar la desigualdad al sustituir empleos, facilitar sistemas de vigilancia y control masivo, y generar amenazas para la seguridad mediante armas autónomas o la difusión de deepfakes.
+
+Además, su elevado consumo energético tiene un impacto ambiental importante, la concentración de datos en pocas empresas puede crear monopolios y reducir la privacidad, y los errores de la IA en ámbitos críticos, como la sanidad o la gestión de emergencias, pueden tener consecuencias muy graves si no existe supervisión humana.
+
+Maria Jose Vargas Navarro
+Hace 7 horas, a las 12:20
+NUEVO
+Sí, creo que la IA puede suponer un peligro más allá de lo ético, sobre todo por el mal uso que se le puede dar. El problema no es la IA en sí, sino el no verla como una herramienta más y tratarla como algo completamente autónomo, sin el criterio de un humano de por medio.
+
+Y más allá de esto, creo que otro gran peligro es la desinformación: deepfakes, videos o audios manipulados que parecen completamente reales y se viralizan antes de que nadie pueda verificarlos. Esto conecta con lo que se comenta en el vídeo "Diálogo (im)probable. Ética y Revolución digital", donde se habla justo de la creación de imágenes de personas que ni siquiera existen, y de lo fácil que resulta hoy generar contenido falso pero visualmente creíble. Esto afecta directamente cómo la gente forma su opinión sobre temas importantes, y cada vez es más difícil distinguir qué es real. Entonces sí, el peligro es real, pero está más en el mal uso que se le da a la tecnología que en la tecnología en sí misma.
+
+Wiliam Rene Moreno Romero
+Hace 6 horas, a las 12:25
+NUEVO
+De acuerdo con lo visto en los videos, me hizo abrir más la mente de lo que ha sucedido y pasará aún más, con el paso del tiempo; solo basta con reflexionar acerca de los usos de nuestros datos que las grandes tecnológicas y personas sin ninguna clase de moralidad y escrúpulos hacen todo el tiempo. Pero tal vez la esperanza es que sean mayores las obras y proyectos benéficos para la humanidad en lugar de lo malo que pueda suceder. Viendo estos videos me hizo pensar en películas que muestran una realidad que puede pasar y pareciera que estas se adelantan un poco en el tiempo para mostrar una visión de un futuro perfectamente posible. las invenciones del ser humano se han usado en un doble propósito, quizá esa es la naturaleza humana y en este caso el uso de la IA no se escapa a ello.
+
+Me preocupa que solo una parte de las personas se de cuenta de estas situaciones mientras la inmensa mayoría vive en un mundo inocente de todo esto que pasa a nuestro alrededor y peor aún es que hasta países enteros tengan que llegar a tomar decisiones casi que impuestas aprovechando el crecimiento desenfrenado de la IA.
+
+Diego Alejandro Panqueva Benitez
+Hace 6 horas, a las 12:50
+NUEVO
+Hola.
+
+Hablemos de ética como un termino que tiene muchos significados dependiendo de quien los aplique y quien los interprete. Hablamos de entender, conocer y aplicar lo bueno y lo malo. Lo que es bueno para unos no lo es para otros. Nos tienen amenazados con un modelo de IA capaz de destruir todo lo que conocemos y que por eso no ve la luz (rumores o realidad), claro, es preocupante porque la IA supone una inclusión en todas las profesiones y trabajos que puedan existir, unos con mayor investigación que otros, pero ahí esta la IA.
+
+La IA ya es un peligro para nuestra sociedad, tengo registros de compañeros de mi hija que usan la IA como medio psicológico, como medio seguro y solo con estos casos se desprenden un sin fin de casuísticas de malas decisiones producto a la mera empatía de la IA, adicción de escuchar lo que queremos porque en algunos casos todas nuestras ideas por buenas o malas la IA las responde con un "Grandiosa IDEA".
+
+El mundo de por si nunca ha estado preparado para la tecnología, le tememos por puro desconocimiento y el conocer más de tecnología te hace menos vulnerable al avance. Decían que las computadoras quitarían a todas las secretarias/os que usaban maquina de escribir porque esta herramienta las reemplazaría, pero fue el miedo quien reemplazó a estas personas porque huyeron del avance.
+
+Por qué? porque la ética viene implícita en el buen actuar de quienes crean este tipo de herramientas, muchas veces la gente creó algo a buen beneficio, pero alguien descubrió que podía conseguir algo más y algo se ha salido de control.
+
+Pedro Borregon Gonzalez
+Hace 5 horas, a las 14:22
+NUEVO
+Personalmente considero que si puede suponer un peligro, aunque este es multidisciplinar. Creo que puede afectar por ejemplo a la manera en que realizamos muchas tareas, ya que podemos usar de manera excesiva estos sistemas y perder por lo tanto capacidad de análisis o toma de decisiones. También creo que puede ser un peligro si los modelos están sesgados y condicionan nuestras decisiones o nuestra manera de actuar de manera inconsciente, o cuando se  utilizan para una finalidad distinta para la que fueron diseñados, aunque esto ya entra nuevamente en el terreno de la ética.
+
+Creo por tanto que pueden aparecer peligros de dependencia, un riesgo económico derivado de la pérdida de empleos, o también de impacto medioambiental derivado del uso excesivo de recursos que requieren estos grandes centros de IA.
+
+Sinceramente, creo que la mayoría de estos peligros tienen su origen en la ética, ya que se puede realizar un uso desmedido de algunos modelos, aunque el origen de estos tuviera una finalidad más lícita.
+
+Ejemplos de estos riesgos serían la vigilancia masiva de la población, en el apartado de la ética o la toma de decisiones críticas basadas en recomendaciones de la IA en contextos humanitarios, como se expone en el vídeo, que forman parte del riesgo del uso excesivo o dependencia.
+
+
+
+Nur Derly Carpeta Sanchez
+Hace 2 horas, a las 17:05
+NUEVO
+La IA, per se, definitivamente no. Sin embargo, el uso que se le dé, el enfoque de las grandes empresas tecnológicas y el ego de muchos de sus CEO sí podrían representar un riesgo. Veo muchos peligros: con nuestra información se ha entrenado y fortalecido la IA, y la invasión a nuestra privacidad será cada vez mayor, casi sin opción de elegir. En ese sentido, dependiendo de la dirección que le den y de que se escuden en las llamadas "cajas negras", sí considero que es un escenario muy posible.
+
+Evelyn Sanchez Laureano
+Hace 2 horas, a las 17:18
+NUEVO
+Sí, la inteligencia artificial puede suponer peligros que van más allá del componente ético, por ello requiere regulación y supervisión humana. Dado que podría generar desigualdades y riesgos sociales, económicos, de seguridad, políticos y/o ambientales. Como por ejemplo: El uso de armas autónomas, desinformación a través deepfakes capaces de desestabilizar sociedades, el consumo energético tiene una huella ambiental, derechos humanos y estabilidad democrática.
+
+Editor de texto de comentario
+
+
+Sebastian Sanchez Goez
+6 de jul. de 2026 10:02
+PROFESOR
+NUEVO
+Pregunta 1
+
+
+
+¿Hasta qué punto creéis que la Inteligencia Artificial (IA) puede sustituir a los médicos?
+
+¿Qué ventajas e inconvenientes puede tener la inclusión de la IA en el sector médico?
+
+NUEVO
+Alfredo Gonzalez Gonzalez
+7 de jul. de 2026 16:10
+NUEVO
+Los errores humanos son inevitables, la IA viene a revolucionar el campo tecnológico y la minimización de los errores, es por esto que la IA debe incluirse en todas las áreas pero con supervisión. Nadie debería ser sustituido.
+
+
+
+Ventajas en el sector médico pensemos en el hospital en oriente que solamente es pura IA que lo maneja con 99% de exactitud en sus diagnósticos pero como dice el tema central de la fuente de información lo malo es que al no ser supervisado cualquier error genera una reacción en cadena que puede ser contraproducente.
+
+Luisa Karina Lopez Govea
+8 de jul. de 2026 14:43
+NUEVO
+Creo que la IA puede ayudar mucho a los médicos, por ejemplo analizando imágenes, detectando patrones o apoyando en diagnósticos más rápidos. Sin embargo, no creo que pueda sustituirlos completamente porque un médico también debe interpretar el contexto del paciente, tomar decisiones complejas y mostrar empatía. La mayor ventaja es mejorar la precisión y la rapidez, mientras que el principal inconveniente es depender demasiado de la tecnología o cometer errores si los datos no son correctos.
+
+Edwin Orlando Bolivar Gomez
+9 de jul. de 2026 16:17
+NUEVO
+Para mí la ventaja es total ya que lo que hace un buen médico es tener resultados de diferentes tipos de examenes, preguntas puntuales que le permitan con las respuestas inferir que relación tienen con los exámenes, mas una completa base de datos de antecedentes del paciente y familiar, podría tener diagnósticos claros y tratamientos muchos más efectivos.
+
+Arrate Bello Martija
+10 de jul. de 2026 11:10
+NUEVO
+Respecto a si la Inteligencia Artificial sustituirá a los médicos, la perspectiva actual apunta a que no habrá un reemplazo, sino una evolución hacia un modelo colaborativo. En el artículo "Artificial Intelligence in Medicine: Today and Tomorrow" se concluye que la IA y las tecnologías inteligentes se están desarrollando como un sistema de apoyo para mejorar la atención al paciente, no como un competidor del personal sanitario. Otro punto que me ha parecido interesante del artículo es que se señala que el verdadero punto de inflexión se verá al comparar a los profesionales que utilizan herramientas de IA frente a los que no lo hacen.
+
+
+
+En cuanto a las ventajas, la IA destaca por su capacidad de procesar grandes volúmenes de datos y encontrar patrones complejos con una precisión altísima, algo muy evidente en el diagnóstico por imagen. Por ejemplo, el artículo "A comparison of deep learning performance against health-care professionals in detecting diseases from medical imaging" demuestra que los modelos de Deep Learning ya son capaces de igualar el rendimiento humano en la detección de enfermedades visuales. Al integrar estos sistemas de aprendizaje supervisado en los hospitales, se consiguen diagnósticos más rápidos, se reducen los riesgos de error humano por fatiga y se automatizan tareas técnicas. Al final, el mayor beneficio es que libera tiempo para que el médico se concentre en la parte fundamental que la IA no tiene: la empatía, el trato humano y el juicio clínico.
+
+
+
+Sin embargo, no se puede negar que la inclusión de la IA presenta varios inconvenientes. Lo que más podría preocupar es el problema de la "caja negra" en los algoritmos más complejos. Si el médico no puede interpretar matemáticamente por qué el modelo ha tomado una decisión, es muy difícil que confíe a ciegas en ella para un tratamiento. Además, al depender del aprendizaje supervisado, los modelos son tan buenos como sus datos de entrenamiento. Si la base de datos histórica tiene sesgos, el modelo replicará esas desigualdades. Por último, surge un gran dilema ético y legal. Si un modelo de IA sugiere un diagnóstico erróneo y el paciente sale perjudicado, no tengo claro quién asumirá la responsabilidad legal del fallo.
+
+
+
+REFERENCIAS: 
+
+
+
+Briganti, G., & Le Moine, O. (2020). Artificial intelligence in medicine: Today and tomorrow. Frontiers in Medicine, 7, 27.
+
+
+
+Liu, X., Faes, L., Kale, A. U., Wagner, S. K., Fu, D. J., Bruynseels, A., ... & Denniston, A. K. (2019). A comparison of deep learning performance against health-care professionals in detecting diseases from medical imaging: a systematic review and meta-analysis. The Lancet Digital Health, 1(6), e271-e297. https://doi.org/10.1016/S2589-7500(19)30123-2
+
+Javier Eduardo Ibarra Gutierrez
+10 de jul. de 2026 12:25
+NUEVO
+Pienso que la IA no sustituye al médico sino que lo potencia. En el video de ética y revolución digital se ve muy claro con la idea del "human in the loop", en donde la máquina no reemplaza al analista, le va marcando zonas y él decide. En el caso de los médicos es igual porque detrás hay vidas y no casi que no se puede permitir un error. Por ejemplo, la IA ya detecta un cáncer de piel mejor que muchos médicos o acelera un diagnóstico, como hicieron en Wuhan usando IA sobre los escáneres, pero eso es una pieza de todo el puzzle. Lo que no hace la IA es el trato con el paciente, decidir con matices y asumir la responsabilidad, eso no lo cubre un algoritmo. Sobre lo segundo, la ventaja que veo es la rapidez y precisión en tareas concretas; el inconveniente es que si nos fiamos a ciegas de la IA y el modelo falla o va sesgado el error se puede multiplicar y eso sería fatal sobre un paciente.
+
+Maria del Carmen Cope Soler
+10 de jul. de 2026 22:42
+NUEVO
+Personalmente, creo que la IA puede ayudar mucho a mejorar los diagnósticos y a reducir la carga de trabajo de los médicos, pero no sustituirlos totalmente. La parte humana de la medicina, especialmente la relación con el paciente y la capacidad de valorar cada caso de forma personalizada, sigue siendo fundamental. Considero que la IA debe verse como una herramienta de apoyo y no como un sustituto del profesional sanitario
+
+Lautaro Medrano
+11 de jul. de 2026 8:06
+NUEVO
+Coincido con la opinión general: la IA puede aportar valor significativo, pero no debería sustituir al médico. Creo que hoy en día el gran problema con la IA, principalmente las LLMs, reside en la falta de criterio propio al aceptar por válido cualquier respuesta que le brinde esta, sin capacidad crítica ni valoración ni comprobación de la "información" provista.
+
+
+
+Hace varios años acompañé a un amigo (luego de un golpe en la cabeza en un partido de futbol) a una guardia y me sorprendí mucho al ver al médico de guardia delegar totalmente el juicio de la situación en lo que sólo puedo asumir que era un sistema experto. Entre otras cosas, me sorprendió sobremanera la falta de consideración hacia las personas mientras ingresaba datos en el sistema (como si fuera un data entry). Como comenta Luisa, la empatía humana también es una parte importante, aunque muchos médicos no demuestren demasiada.
+
+
+
+Otro problema posible es el desconocimiento de por qué una IA considera que algo es significativo, tal como se comenta en el video sobre la clasificación de caballos porque tenían una marca de agua. Me parece muy representativo un video que vimos para Matemática que muestra lo que una red neuronal "ve" al ser entrenada para identificar números: https://youtu.be/IHZwWFHWa-w?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&t=859 y pienso como se traduce esto a un sistema que analiza visualmente imágenes médicas.
+
+
+
+En mi opinión la ventaja principal del uso de IA en medicina es la capacidad de indicar donde mirar, no de realizar un juicio definitivo.
+
+
+
+En general me gusta mucho pensar en el costo del error para evaluar si la IA puede tener autonomía en cualquier sistema.
+
+
+
+Por dar un ejemplo básico, si le pides que haga cambios estéticos a una IA, te puede gustar más o menos, pero no hay mayor perdida (tal vez puede generar problemas de accesibilidad). Ahora si le das control sobre pagos, por nombrar un caso de uso común, el costo de los errores va tomando otra dimensión. Esto se ve claramente agravado si nos movemos a sistemas cuyas decisiones tienen repercusiones en la salud/vida humana.
+
+
+
+Sandra Garzeddine Hassani
+11 de jul. de 2026 14:36
+NUEVO
+En mi opinión, creo que la Inteligencia Artificial no llegara a sustituir a los médicos en su totalidad, por lo menos con los avances que tenemos hasta el momento, no creo que vaya ser capaz de sustituirlos, pero si será una herramienta muy importante que cambiara también el ámbito de la medicina, lo cual pienso que ya está haciendo. Por ejemplo, creo que esto es algo que ya está sucediendo, que existen robots que operan, pero bajo la supervisión humana, por ejemplo, un neurocirujano opera con láser, esto es algo que puede ser manejado y mucho más preciso con la IA, pero un humano debe supervisarlo y dar las instrucciones.
+
+
+
+Una de las ventajas, en el video "La ética de la inteligencia artificial" de CEDECOM, comentan que se puede detectar un cáncer por manchas en la piel con una simple fotografía, donde la IA detecta patrones y está teniendo un grado de acierto muy alto, y pienso que esto es algo muy positivo, seguramente ya no solo en este ámbito que se menciona, sino también por ejemplo en la detección de remedios o tratamientos contra enfermedades, y otras muchas ventajas que la IA puede traernos, porque al final es tan eficiente que el humano no podrá competir contra ella, pero pienso, que hasta cierto limite. Una desventaja que puedo comentar, es que, ¿hasta qué punto podemos creer? ¿Qué pasa si en el caso de un cáncer fallo en el diagnostico? Por ejemplo, he leído una noticia que tiene como titular "La inteligencia artificial falla en los diagnósticos médicos sin supervisión humana", que habla sobre un estudio que analiza chatbots que dan diagnósticos médicos, pero, aunque el titular dice que "falla", dentro del artículo se comenta que la IA si realiza un diagnóstico correcto en más del 90% de los casos cuandoo se les proporciona toda la información necesaria de los pacientes. Un 90% de los casos, esto es un valor y un avance muy alto y significativo, aunque pienso que en temas tan críticos como la medicina, siempre debe pasar por una comprobación por el medico responsable, porque, si la IA falla y nos hacen mal diagnostico malo, ¿Con quién lo revisamos? ¿A quién responsabilizamos? Aunque el medico también se puede equivocar, estamos hablando de un tema crítico, donde a veces la vida de una persona podría estar en riesgo, por lo cual, pienso que, aunque la IA sea capaz de dar diagnósticos correctos en un 100%, debería pasar por validación médica. En el artículo mencionan una frase que para mí es fundamental “Los diagnósticos diferenciales son fundamentales para el razonamiento clínico y subyacen al 'arte de la medicina' que la IA no puede replicar actualmente”, y posteriormente menciona la IA solo sirve para “aumentar, no reemplazar, el razonamiento del médico, siempre que todos los datos relevantes estén disponibles, lo cual no siempre es el caso”, lo cual comparto, el hecho de aumentar el razonamiento del médico pero no de reemplazarlo. 
+
+Alejandro Lopez Lopez de la cova
+11 de jul. de 2026 15:13
+NUEVO
+En mi opinión, la Inteligencia Artificial en el estado que conocemos actualmente no va a sustituir a los médicos en el corto ni medio plazo. Su papel actual es más como apoyo o proveedor de conocimiento adicional, pero las leyes y la responsabilidad de las decisiones que se toman en un ámbito como es la salud, imposibilitan la sustitución. De hecho, considero que será uno de los últimos sectores donde ocurra este cambio. A pesar de ello, su utilidad es notable y ofrece gran ayuda en tareas muy específicas, como aquellas relacionadas con radiografías, resonancias o mamografías. Su velocidad y consistencia en la detección de patrones en estas tareas posiblemente ya supere el rendimiento humano, no obstante, el rigor médico debe seguir existiendo más allá de estas labores concretas. Un diagnóstico implica considerar los antecedentes clínicos, aplicar rigor, comunicarse con el paciente y tener responsabilidad legal sobre las decisiones tomadas, punto donde la IA aún no ha llegado y veo difícil que lo haga pronto.
+
+
+
+Las ventajas más evidentes de la Inteligencia Artificial en este sector son su mayor rapidez y precisión en tareas donde la detección temprana es clave, como pueden ser las de disciplinas como oncología o radiología. También considero que su uso como orientador en salas de urgencias o consultas puede estandarizarse en el futuro próximo: un asistente virtual al que los pacientes comentan sus síntomas y el sistema les redirige a la especialidad adecuada, reduciendo así además los conocidos altos tiempos de espera. Otra ventaja es la disponibilidad constante y un rendimiento que no decae, ya que a diferencia de los profesionales médicos humanos, la IA no sufre fatiga ni deterioro de rendimiento tras largas jornadas de trabajo.
+
+
+
+Sin embargo, la aplicación de IA en medicina también encuentra inconvenientes. El principal probablemente es su fiabilidad fuera del entorno de entrenamiento, es decir, en el mundo real, donde los casos pueden ser nuevos o resolverse de una forma distinta por cambios en el entorno o en la disciplina médica. Hay que considerar también que la adopción de la IA será probablemente desigual en este sector, implantándose antes en grandes hospitales desfavoreciendo así a pequeños centros ambulatorios, ampliando la brecha de calidad sanitaria que recibe la población según su localidad. Finalmente, otro problema que asoma es el autodiagnóstico, que ya está ocurriendo con muchas personas que adoptan la IA como verdad absoluta y evitan ir al médico, contando sus problemas a su chatbot favorito. Cada vez más gente toma decisiones médicas basándose en lo que le indica un algoritmo, y esto acaba perjudicando a su salud. Indudablemente, se debe hacer un mayor trabajo de concienciación al respecto.
+
+Daniela Alejandra Escobar Suarez
+12 de jul. de 2026 9:17
+NUEVO
+Siguiendo la opinión del resto de compañeros, no me parece que la inteligencia artificial pueda remplazar a los médicos, ellos tienen el conocimiento no solo dado por los libros de textos, pero por medio de la experiencia y el contexto. En mi opinión la inteligencia artificial se debe usar como una herramienta de ayuda.
+
+
+
+Creo que se puede ver mejor con un ejemplo. He visto casos en los que usa la IA para la detección de imágenes para el cáncer de mama. El médico igualmente tiene que verificar los resultados del ordenador, pero el programa era capaz de detectar caso muy tempranos que un médico a simple vista se le dificultaba detectar, dando un tratamiento temprano y aumentando la probabilidad de éxito.
+
+
+
+https://www.breastcancer.org/es/pruebas-deteccion/inteligencia-artificial
+
+Juan Manuel Martin Fleitas
+12 de jul. de 2026 12:55
+NUEVO
+Yo creo que la IA transformará profundamente el campo de la medicina, aunque no creo que pueda llegar a sustituir completamente a los médicos, al menos no en el corto-medio plazo. Creo que habrá una progresiva implantación de la IA como método de ayuda a los profesionales, en particular a los médicos. Se me ocurre por ejemplo que los médicos de atención primaria sean ayudados por una especie de Sistema Autónomo Dispensador de Diagnósticos con IA (SAD), tal que el médico se encargue de revisar y confirmar (o no) ese diagnóstico. Ese SAD irá mejorando y con el tiempo llegará a un 100% de acierto y la revisión del humano será innecesaria. Incluso en ese momento, creo que el SAD no sustituirá al médico, porque hay un componente psicológico en la atención del médico, cierta empatía de humano a humano. En cualquier caso, si el SAD lograra suplantar el factor humano de la consulta, en ese caso puede que el médico humano poco a poco se haga completamente redundante.
+
+Las principales ventajas de la inclusión de la IA en el sector médico por un lado vendrá por el aumento en la calidad de los diagnósticos, cualquier médico podrá producir diagnósticos con una mayor tasa de aciertos en promedio, por otro lado la eficiencia, repetibilidad y certeza aumentará, por ejemplo en el análisis de pruebas médicas. Por otro lado la IA puede contribuir a agilizar toda la parte administrativa del sistema médico.
+
+El principal inconveniente creo que será que los médicos se vuelvan demasiado dependientes en la IA, que confíen demasiado en sistemas que no son perfectos (aunque lo parezcan), que pueden equivocarse o estar sesgados, y por último, que poco a poco pierdan su propia capacidad de diagnosticar o incluso de tener criterio propio para entender y cuestionar los diagnósticos asistidos por IA.
+
+Edgar David Martinez Pucha
+12 de jul. de 2026 17:41
+NUEVO
+¿Hasta qué punto creéis que la inteligencia artificial (IA) puede sustituir a los médicos?
+
+
+
+Pienso que la IA no puede sustituir del todo a los médicos, si bien hay una tasa de acierto mayor a nivel de la IA en comparación con los médicos. Los modelos de clasificación, predicción o decisión no dejan de ser eso, modelos de apoyo que dan su punto de vista. Sin embargo, por parte de los doctores, interviene la parte humana y emocional, además de la experiencia en el campo. Si bien la IA se ha involucrado ya en la mayoría de los campos profesionales, no la llega a reemplazar por completo, sino que más bien se enfoca como sistemas de apoyo para las decisiones.
+
+
+
+¿Qué ventajas e inconvenientes puede tener la inclusión de la IA en el sector médico?
+
+
+
+Las ventajas son mucho mayores que los inconvenientes, ya que la IA como tal puede tomar en cuenta factores y detalles que pueden escapar al análisis humano, además de que esta permite soporte y una segunda opinión para los casos clínicos que son examinados por los médicos. Sin embargo, como inconveniente mayor, denotaría la confianza de los pacientes en torno al uso de una IA en el análisis de los casos graves, como por ejemplo, no siempre una persona va a confiar ser operada por una máquina a pesar de que estas presenten mayor tasa de éxito que los médicos convencionales.
+
+Fernando Santamaría Román
+13 de jul. de 2026 3:15
+NUEVO
+La Inteligencia Artificial no sustituirá al médico en su totalidad, sino que transformará su rol hacia uno de supervisión y gestión clínica, ya que la medicina requiere de una empatía, un criterio ético y una capacidad de interpretación de contextos sociales y personales que un algoritmo, por muy avanzado que sea, carece. Las principales ventajas de su inclusión incluyen una precisión diagnóstica significativamente mayor en el análisis de imágenes médicas y datos genómicos, la detección precoz de patologías mediante el monitoreo continuo de variables del paciente y una optimización administrativa que reduce la carga burocrática; sin embargo, los inconvenientes son críticos, destacando la falta de explicabilidad de los modelos de "caja negra" que dificulta la rendición de cuentas ante errores diagnósticos, el riesgo de sesgos algorítmicos que podrían perpetuar desigualdades en la atención según el origen de los datos, y la posible erosión de la relación médico-paciente al reducir el acto médico a un mero procesamiento de datos, descuidando el componente humano que es fundamental para el tratamiento integral y la adherencia del paciente a cualquier terapia.
+
+Raul Medina Herrera
+13 de jul. de 2026 5:34
+NUEVO
+la IA debe ser un material de apoyo para los medicos como mejor manera de apoyo en datos historicos, ya que de esta manera debemos basarnos en la toma de decisiones, evidentemente no se debe descartar los porcentajes muertos de personas alli si el expertis del medico influye en la toma de decisiones,.
+
+Javier Calleja Garcia
+13 de jul. de 2026 12:51
+NUEVO
+La medicina va a ser uno de los sectores donde mayor va a ser a impactar la inteligencia artificial. Tanto en el sector público que ya de por si se están reduciendo recursos y donde el criterio médico viene supeditado por el protocolo de actuación basado en coste, como en el privado donde el fin principal es optimizar la rentabilidad. Con esto, la degradación en el servicio nos va a llevar a una situación en la que cualquier herramienta que posibilite la asistencia en tiempo y calidad va a ser bien recibida incluso aunque conlleve la perdida del criterio humano. Esto conllevará en un abaratamiento en la prestación del servicio, lo que permitirá que sea accesible a todo el mundo en todos los países a un coste asumible, así como en una mejora en el acceso en cercanía y tiempo.
+
+En una sociedad con criterios basados en igualdad y derechos, esto resultaría una aberración; pero en una sociedad basada en el beneficio para una minoría, habrá que pensar que es el mal menor.
+
+Anthony Patricio Pombosa Burgos
+14 de jul. de 2026 11:14
+NUEVO
+La Inteligencia Artificial no puede sustituir por completo a los médicos, sino que debe consolidarse como un copiloto o asistente. Aunque los algoritmos de deep learning superan al ojo humano al procesar miles de imágenes diagnósticas en segundos para detectar anomalías tempranas, la medicina es una disciplina profundamente humana que va más allá de la optimización matemática; la tecnología carece por completo de empatía, intuición y de la capacidad para comprender el contexto vital y emocional del paciente en decisiones complejas, como la comunicación de diagnósticos difíciles o los cuidados paliativos. Entre las principales ventajas de su inclusión destacaría la automatización de tareas burocráticas para que el médico dedique más tiempo de calidad a la consulta, el desarrollo de tratamientos personalizados basados en el análisis genómico y la democratización del acceso a la salud en zonas rurales mediante telemedicina asistida.
+
+
+
+Por otro lado, esta transición plantea severos inconvenientes y dilemas éticos, empezando por los sesgos en los datos de entrenamiento, la analogía de la "máscara" que menciona Miguel A. en el video "Diálogo (im)probable. Ética y Revolución digital. Ponencia", que pueden provocar que los algoritmos infradiagnostiquen a minorías no representadas en las muestras de estudio. A esto se suma el problema de la "caja negra", donde modelos altamente complejos ofrecen un diagnóstico médico sin que se pueda explicar o trazar el razonamiento lógico que lo justifica, además del riesgo latente de deshumanización de la consulta y la vulnerabilidad de los datos clínicos sensibles ante posibles ciberataques.
+
+Isaac Solis Padilla
+14 de jul. de 2026 11:23
+(Editado por Isaac Solis Padilla el 14 de jul. de 2026 12:00)
+NUEVO
+Considero que la Inteligencia Artificial no puede sustituir por completo a los médicos, sino que debe actuar como una herramienta de apoyo dentro del sector sanitario. Aunque la IA puede analizar imágenes médicas, detectar patrones o procesar grandes cantidades de datos con rapidez y precisión, la medicina no consiste únicamente en emitir un diagnóstico técnico: implica también juicio clínico, responsabilidad y, sobre todo, una relación humana entre el médico y el paciente que una máquina no puede reemplazar.
+
+
+
+Entre las ventajas de incluir la IA en medicina destacan la rapidez en el análisis de datos, la posibilidad de reducir errores derivados del cansancio humano y la disponibilidad constante, lo que puede ser especialmente útil en zonas con escasez de personal médico. Sin embargo, también presenta inconvenientes importantes: el principal es la pérdida del trato humano, esencial en un ámbito donde la empatía y la escucha forman parte del proceso de curación. Además, delegar diagnósticos únicamente en una IA, sin supervisión médica, supone un riesgo, ya que ningún sistema está exento de errores y siempre debe existir una persona capacitada que revise y valide sus resultados.
+
+
+
+Por todo ello, creo que la IA debería complementar el trabajo médico, no sustituirlo, ya que confiar plenamente en ella sin la intervención humana implicaría renunciar a algo fundamental en la medicina: la confianza y la cercanía entre médico y paciente.
+
+Pau Carbo Pascual
+14 de jul. de 2026 11:49
+NUEVO
+Creo que la Inteligencia Artificial no llegará a sustituir completamente a los médicos, sino que actuará como una herramienta de apoyo. Aunque ya es capaz de analizar grandes volúmenes de datos, detectar patrones y ayudar en el diagnóstico con una gran precisión en determinadas especialidades, la medicina también requiere juicio clínico, comunicación con el paciente y la toma de decisiones en situaciones complejas, aspectos en los que el factor humano sigue siendo fundamental.
+
+
+
+La incorporación de la IA al sector sanitario puede aportar importantes ventajas, como agilizar los diagnósticos, reducir errores en tareas repetitivas, detectar enfermedades de forma más precoz y facilitar una medicina más personalizada. Sin embargo, también plantea desafíos, como la posible existencia de sesgos en los datos de entrenamiento, la falta de transparencia de algunos modelos, la protección de la privacidad de los pacientes y el riesgo de una dependencia excesiva de la tecnología. Por ello, considero que el futuro pasa por una colaboración entre médicos e IA, donde esta complemente el trabajo de los profesionales, pero sin sustituir su criterio ni el trato humano con los pacientes.
+
+Javier Rodriguez Reina
+14 de jul. de 2026 12:08
+NUEVO
+Creo que la Inteligencia Artificial difícilmente llegará a sustituir por completo al médico, aunque sí está transformando, y seguirá haciéndolo, de forma notable la medicina.
+
+
+
+Pienso que sus ventajas más claras se concentran en aquellas tareas donde el volumen de datos y la detección de patrones resultan importantes, como el análisis de imágenes diagnósticas, la identificación temprana de anomalías o el cruce de historiales clínicos, ámbitos en los que puede alcanzar niveles de precisión y rapidez superiores a los del humano. Sin embargo considero que también presenta limitaciones relevantes, su funcionamiento depende en gran medida de la calidad y representatividad de los datos con los que se entrena, lo que puede dar lugar a sesgos. Además la IA carece de la empatía y responsabilidad ética que exige la relación médico-paciente, sobre todo ante decisiones complejas o la comunicación de diagnósticos.
+
+
+
+Resumiendo, entiendo que el escenario más probable no es la sustitución, sino la inclusión de la IA en una parte del trabajo del médico. La IA asistirá al profesional en tareas repetitivas o analíticas estando siempre bajo la supervisión médica necesaria.
+
+Evelyn Sanchez Laureano
+14 de jul. de 2026 18:01
+NUEVO
+Considero que la IA no puede sustituir a los médicos porque la interacción entre pacientes y agentes robóticos de asistencia médica, necesitarían desarrollar capacidades humanas difíciles de remplazar como: Entender el contexto de cada paciente, escuchar sus preocupaciones, transmitir confianza y actuar con empatía.
+
+
+
+Sin embargo, si encuentro ventajas en incluir IA en el sector médico, tales como: Ayudar a interpretar imágenes médicas, detectar patrones en análisis clínicos, predecir riesgos, organizar historiales, mejorar la precisión de los diagnósticos, analizar un volumen grande de datos, etc. El uso de sistemas de IA sirve como una herramienta de apoyo para orientar evaluaciones iniciales o identificar casos que requieren atención urgente.
+
+
+
+No obstante, los sistemas de IA también pueden equivocarse estar segados. Por ejemplo, un modelo desarrollado con información de un determinado grupo de población podría funcionar mal con personas de otra edad, sexo u origen. Por ello, es importante limitar el uso del modelo. Otro aspecto es la privacidad de datos sensible, ya que la IA necesita utilizar información personal y clínica. Por ello, se debe garantizar que los datos estén protegidos y que los pacientes conozcan cómo se utilizan los mismos.
+
+Marcos Galvez Santamaria
+Hace 14 horas, a las 4:47
+NUEVO
+En mi opinión, la IA nunca va a poder sustituir completamente a los médicos debido a que una parte fundamental del tratamiento médico es el trato personal con el paciente, aunque si que pienso que puede ayudar en gran medida al médico en sus funciones.
+
+
+
+Las principales ventajas son la velocidad y disponibilidad de los sistemas, así como una reducción de carga administrativa; mientras que las principales desventajas son la dificil explicabilidad de los modelos y posibilidad de sesgos en los datos de entrenamiento.
+
+Samuel Segundo Campozano Lopez
+Hace 10 horas, a las 9:06
+NUEVO
+Considero que, en un futuro no muy lejano, la Inteligencia Artificial podrá sustituir a los médicos en su gran mayoría, especialmente en las áreas de diagnóstico y monitoreo. Esta sustitución será posible a medida que la IA se integre con herramientas tecnológicas avanzadas. Si a un sistema de IA se le proporcionan todos los instrumentos necesarios para medir el cuerpo humano de manera precisa —como sensores de temperatura, monitores de frecuencia cardíaca, análisis de voz, reconocimiento de gestos y escáneres visuales—, su capacidad para evaluar a un paciente y emitir un diagnóstico superará las limitaciones físicas y cognitivas de un ser humano.
+
+
+
+La implementación de la IA como sustituto o herramienta principal frente a los médicos tradicionales presentaría beneficios innegables:
+
+-A diferencia de los humanos, una IA no necesita dormir, comer, ni tomar descansos. Esto permitiría una atención ininterrumpida y acabaría con las largas listas de espera.
+
+- La IA tiene un "tiempo de razonamiento" y una capacidad de análisis de datos mucho más amplios. Puede cruzar millones de historiales médicos y estudios científicos en segundos para encontrar el tratamiento exacto.
+
+- Las máquinas no sufren de estrés, cansancio, sesgos cognitivos ni problemas personales.
+
+-A largo plazo, mantener sistemas de IA y sensores sería mucho más económico que las infraestructuras actuales de contratación de personal, lo que podría democratizar el acceso a la salud
+
+Wiliam Rene Moreno Romero
+Hace 7 horas, a las 11:37
+NUEVO
+¿Hasta qué punto creéis que la Inteligencia Artificial (IA) puede sustituir a los médicos?
+
+De acuerdo con el estado actual y futuro cercano de la IA, estoy casi seguro de que esta tecnología por ahora no es más que una herramienta de gran ayuda para diferentes profesiones o tal vez en todas, por ende, en el sector de la medicina. Lo que sí es cierto es que, al ser una herramienta indiscutiblemente usada en nuestra vida diaria, va a ser parte fundamental y también de manera ética y responsable, por parte del personal del sector salud especialmente los médicos. Igualmente pienso que debe ser usada de tal manera que se vuelva un complemento y no únicamente lo que esta “decida”, ya que sin esto puede generar consecuencias incluso riesgos fatales. Se debe tener en cuenta que son vidas las que están en juego y no solamente acciones poco trascendentes.
+
+
+
+¿Qué ventajas e inconvenientes puede tener la inclusión de la IA en el sector médico?
+
+Ventajas:
+
+Diagnósticos rápidos altamente precisos.
+
+Reducción del estrés medico por agotamiento en jornadas largas.
+
+Atención más personalizada y seguimiento predictivo.
+
+Desarrollo de medicamentos en tiempos mas cortos.
+
+
+
+Desventajas:
+
+Falta de ética en la atención o recomendaciones médicas.
+
+Vulnerabilidad en la privacidad de nuestros datos clínicos.
+
+Confianza excesiva en los sistemas de IA usados por el sector médico.
+
+Toma de decisiones aceleradas por falta de criterio en ciertas patologías.
+
+Christian Dario Barahona Pesantes
+Hace 7 horas, a las 11:50
+NUEVO
+En mi opinión, la sustitución de los médicos por sistemas que usen IA queda un poco lejos. Sí que parece clave la intervención de herramientas que permitan el triaje de pacientes, la automatización de documentación o el análisis de imágenes. En esto último es donde encuentro su principal ventaja. Esto hace que los médicos puedan realmente centrarse en el contexto clínico de los pacientes y elaborar un diagnóstico con mayor fiabilidad.
+
+Maria Jose Vargas Navarro
+Hace 7 horas, a las 12:07
+NUEVO
+Coincido con lo que varios compañeros han comentado en el foro: la IA no puede sustituir a los médicos en su totalidad, sino que es una herramienta que se integra en los diferentes sectores sin reemplazar el discernimiento humano. Con un uso adecuado, puede traer muchos beneficios: mayor rapidez en el diagnóstico, apoyo en zonas con acceso limitado a especialistas, o incluso mayor precisión en procedimientos, como ya pasa con robots quirúrgicos tipo Da Vinci, que aunque incorporan IA, no operan de forma autónoma: es el cirujano quien controla cada movimiento en tiempo real. Ahí se ve bien el papel que debería tener la IA en medicina, como guía y no como reemplazo, similar a lo que veíamos en el vídeo de "La ética de la Inteligencia Artificial" sobre la detección de cáncer de piel.
+
+Sin embargo, también le veo un riesgo: la dependencia excesiva y la falta de criterio al usarla. Un estudio de la Universidad de Oxford publicado en Nature Medicine encontró que, aunque los modelos de IA obtienen buenas calificaciones en pruebas controladas, fallan al interactuar con personas reales a la hora de ayudarles a decidir qué hacer con sus síntomas. Esto conecta con algo que cada vez se ve más: personas que usan chatbots como ChatGPT para autodiagnosticarse y terminan posponiendo ir al médico. Ahí veo el verdadero peligro: no en la herramienta, sino en el mal uso que se le da cuando sustituye, en lugar de complementar, el criterio profesional.
+
+Luis Ignacio Kowalkowski
+Hace 7 horas, a las 12:13
+NUEVO
+La IA puede convertirse en una gran aliada de los médicos, pero difícilmente podrá sustituirlos por completo. Aunque ya supera a los profesionales en algunas tareas concretas, como ciertos diagnósticos por imagen, sigue necesitando la supervisión y el criterio humano, especialmente en la toma de decisiones complejas y en la atención al paciente.
+
+
+
+Entre sus principales ventajas entiendo que se destacan por una mayor precisión en algunos diagnósticos, la rapidez en el análisis de datos y la detección precoz de enfermedades. Sin embargo, también presenta inconvenientes importantes, como posibles sesgos en los datos, la falta de transparencia en cómo toma decisiones, los riesgos para la privacidad de la información médica y la pérdida del trato humano.
+
+Diego Alejandro Panqueva Benitez
+Hace 6 horas, a las 12:35
+NUEVO
+Buenas a todos.
+
+Creer que la IA reemplazará a los médicos suena descabellado. Sin embargo no creo que sea como tal una sustitución, sino una nueva herramienta como lo han sido todos los avances tecnológicos, será el profesional quien adapta la nueva herramienta a su modus operandi.
+
+Lo que puede ayudar y, siendo una ventaja enorme es la precisión en menor tiempo, pero siempre se necesitará del sentido común del Dr. que se encuentre al frente de dicha consulta para tomar decisiones, unas decisiones serán de mayor peso y otras que puede no necesitar una revisión (pero puede ser un error), todo son datos, predicciones y estadistica.   
+
+Pedro Borregon Gonzalez
+Hace 6 horas, a las 13:20
+NUEVO
+Respecto a que la IA pueda sustituir a un profesional de la medicina en la actualidad, me parece utópico, ya que creo que hay parte de su trabajo que se me antoja imposible que pueda ser sustituido, como el acompañamiento en un diagnóstico, o la toma de decisiones más arriesgadas o alternativas cuando no se tiene toda la información completa, además cuando en el mismo proceso patológico varios pacientes pueden reaccionar de diferente manera, tanto a la sintomatología como al tratamiento. Si es verdad que como método complementario y siempre como apoyo a su formación puede ser muy relevante sobre todo en diagnóstico precoz, y también en el procesamiento de imágenes de pruebas médicas, donde creo que puede ser donde más avanzado se encuentre en este momento.
+
+Como ventajas destacar la comentada, el procesamiento de imágenes, y diagnósticos tempranos, al menos por el momento. Como desventajas, la creciente dependencia que puede generar en los profesionales, que deriven actualmente todo su criterio al diagnóstico por sistemas de IA. Además, la opacidad de muchos modelos impide conocer al propio facultativo como se ha llegado a ese diagnóstico/conclusión, lo que puede afectar directamente a la evolución del paciente.  
+
+
+
+Paula Mejias Hernandez
+Hace 5 horas, a las 13:51
+NUEVO
+En mi opinión, la Inteligencia Artificial puede ser una herramienta muy útil para los médicos, pero no creo que llegue a sustituirlos por completo. La IA puede analizar una gran cantidad de datos en muy poco tiempo y ayudar a detectar enfermedades o hacer diagnósticos con bastante precisión, también puede detectar patrones que tal vez a un humano se le pasarían por alto. Sin embargo, un médico no solo se dedica a diagnosticar, también tiene que hablar con el paciente, entender su situación, tomar decisiones complicadas y ofrecer un trato humano, algo que una máquina no puede hacer. También un humano cuenta con la experiencia.
+
+
+
+Creo que la IA no está para sustituir a los médicos, sino para ayudarles. Puede mejorar mucho la calidad de la atención sanitaria, pero la última decisión siempre debería tomarla un profesional, ya que la experiencia, el criterio y el trato humano siguen siendo fundamentales.
+
+Silvia Moya Botella
+Hace 5 horas, a las 14:07
+NUEVO
+En mi opinión, la Inteligencia Artificial no sustituirá por completo a los médicos, aunque sí será (de hecho, ya lo está siendo) una herramienta de apoyo muy valiosa.
+
+
+
+La principal ventaja de la IA es su capacidad para analizar grandes cantidades de datos y detectar patrones con gran rapidez, mejorando el diagnóstico de enfermedades y agilizando la interpretación de pruebas médicas. Como se muestra en el vídeo de CEDECOM, por ejemplo, existen sistemas capaces de detectar lesiones cutáneas compatibles (o no) con cáncer de piel a partir del análisis de imágenes con una precisión muy elevada.
+
+
+
+Sin embargo, la medicina también requiere empatía, comunicación con el paciente, contexto y toma de decisiones éticas, aspectos que una IA no puede sustituir. Además, la fiabilidad de estos sistemas depende en gran medida de la calidad y representatividad de los datos con los que se entrenan. Si esos datos son incompletos o contienen sesgos, los resultados pueden ser menos precisos o incluso discriminatorios para determinados grupos de población.
+
+
+
+Por ello, me parece especialmente acertado decantarse por el concepto human in the loop (HITL) que explica Miguel A. Luengo en el video de la UPM, en el que la IA ayuda al médico, pero es éste quien toma la decisión final. 
+
+Nur Derly Carpeta Sanchez
+Hace 2 horas, a las 16:57
+NUEVO
+No creo que los pueda sustituir al 100 %. Existen unas especialidades que quizás son más probebles para  a dicha sustitución; especialidades de lectura de imágenes, laboratorio, etc., sí creo que las reemplazará totalmente. Especialidades como psicología y psiquiatría, definitivamente no. La IA se convertirá en una excelente herramienta que, sin duda, hará que cometan menos errores en mesas de cirugía y que den diagnósticos más acertados. Pero es eso: para la gran mayoría de las especialidades, una herramienta que potencializa su labor.
+

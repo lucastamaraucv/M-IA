@@ -1,0 +1,961 @@
+========================================================================
+RESUMEN CONSOLIDADO — CAPÍTULO 1: APRENDIZAJE AUTOMÁTICO (TEMA 1)
+Asignatura: Aprendizaje Supervisado
+Fuentes: manual del curso (as_pdf_text.txt, páginas 6-31) +
+         notebooks Jupyter del tema 1 (terminología, limpieza_datos_1,
+         datos_imputacion_seleccion)
+========================================================================
+
+
+------------------------------------------------------------------------
+1. METODOLOGÍA CRISP-DM (CONCEPTO + 6 FASES)
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+El aprendizaje automático (machine learning) es una rama de conocimiento
+que aborda algoritmos capaces de crear modelos de conocimiento abstractos
+a partir de históricos de datos. A diferencia de los modelos teóricos
+usados en física, química, biología, etc. (que parten de condiciones
+ideales estudiadas experimentalmente), los modelos de aprendizaje
+automático son de naturaleza empírica: se basan únicamente en los hechos
+representados por los datos [PDF p.6-7].
+
+El aprendizaje automático pertenece al campo de la minería de datos (data
+mining), que es el conjunto de procesos, métodos y técnicas que conducen
+a la extracción de conocimiento a partir de bases de datos. Entre las
+metodologías propuestas para estructurar proyectos de minería de datos
+destacan el proceso KDD (Knowledge Discovery from Databases, 1996,
+Fayyad/Piatetsky-Shapiro/Smith) y las metodologías CRISP-DM, SEMMA y
+ASUM-DM. KDD tiene poca proyección industrial porque carece de fases
+críticas como la comprensión del negocio o el despliegue. CRISP-DM y
+ASUM-DM sí cubren la proyección industrial; ASUM-DM (IBM, 2015) es una
+evolución de CRISP-DM aún no adoptada masivamente por la industria. La
+metodología más usada y reconocida actualmente es CRISP-DM [PDF p.7].
+
+CRISP-DM (Cross-Industry Standard Process for Data Mining) se concibió a
+finales de 1996 y se puso en marcha en 1997 mediante un proyecto de
+financiación europea codirigido por cinco entidades: SPSS, Teradata, NCR,
+Daimler AG y Ohra. Su primera versión se presentó en 1999 y es la que
+sigue en uso hoy. Integra todas las tareas necesarias en un proyecto real
+de minería de datos, desde la comprensión del problema hasta la puesta en
+producción de sistemas analíticos/predictivos, pasando por adquisición y
+comprensión de datos, limpieza, transformación, análisis, visualización,
+modelado, extracción de patrones y evaluación [PDF p.7-8]. Ejemplos de
+aplicación citados en el manual: detección de perfiles de clientes
+fraudulentos, relación entre síntomas y enfermedades, diagnóstico de
+errores en fábricas/centros de datos, estimación de fuga de clientes
+(churn), patrones de compra/recomendación, y segmentación de clientes
+para marketing [PDF p.7-8].
+
+CRISP-DM se compone de SEIS FASES, con dependencias tanto secuenciales
+como cíclicas (pueden existir iteraciones que mejoren aproximaciones
+anteriores) [PDF p.8]:
+
+  1. Comprensión del negocio (business understanding)
+  2. Comprensión de los datos
+  3. Preparación de los datos
+  4. Modelado
+  5. Evaluación (de negocio)
+  6. Despliegue
+
+Detalle de cada fase [PDF p.10-15]:
+
+  • Comprensión del negocio: primera fase de todo proyecto; debe ser
+    recurrente durante todo el proyecto. Tareas: determinar los
+    objetivos de negocio (y criterios de éxito, cualitativos o
+    cuantitativos), evaluar la situación actual, determinar los
+    objetivos de minería de datos (traducir objetivos de negocio a
+    metas técnicas) y producir un plan de proyecto.
+
+  • Comprensión de los datos: recolección y exploración inicial de los
+    datos. Es crítica porque reduce el tiempo global del proyecto y
+    aumenta las garantías de éxito. Tareas: recolectar datos iniciales,
+    describir los datos (filas, columnas, significado, formato),
+    explorar los datos (estadística descriptiva, tablas de frecuencia,
+    histogramas) y verificar la calidad de los datos (nulos, valores
+    fuera de rango, consistencia).
+
+  • Preparación de los datos: seleccionar, limpiar y generar conjuntos
+    de datos preparados para el modelado. Es la fase MÁS CRÍTICA: los
+    errores no detectados aquí se trasladan al modelado y son difíciles
+    de rastrear; suele demandar el mayor esfuerzo y tiempo del
+    proyecto. Tareas: seleccionar los datos, limpiar los datos
+    (selección de columnas, reducción de filas, normalización,
+    discretización, detección/corrección de outliers, imputación de
+    valores ausentes), construir datos (crear nuevas columnas, p. ej.
+    superficie = largo × ancho de una vivienda), integrar los datos
+    (fusionar tablas/filas/columnas) y formatear los datos (adaptar
+    forma sin cambiar contenido: comas, caracteres especiales, etc.).
+    Esta fase del apartado 1.4 del manual se estudia en profundidad más
+    adelante (normalización, outliers, imputación, selección de
+    atributos).
+
+  • Modelado: creación de modelos de conocimiento (clasificación,
+    regresión, etc.) a partir de los datos preparados. Es la fase
+    central del proyecto y el foco de la asignatura. Subtareas:
+    selección de los algoritmos de modelado (criterios: tipo de
+    aprendizaje apropiado, compatibilidad de datos, conocimiento del
+    algoritmo, naturaleza de los datos, complejidad computacional,
+    interpretabilidad — modelos de "caja blanca" frente a "caja
+    negra"), generar el plan de prueba (diseño experimental:
+    parámetros, métricas de evaluación, forma de validación), construir
+    los modelos (ejecutar algoritmos con la parametrización elegida) y
+    evaluación de resultados (técnica, comparativa/ranking de
+    algoritmos).
+
+  • Evaluación de negocio: se evalúan los modelos frente a los
+    criterios de éxito de negocio definidos al inicio. Tareas: evaluar
+    los resultados, revisar el proceso (aseguramiento de calidad) y
+    determinar los siguientes pasos (finalizar, iterar o generar nuevos
+    (sub)proyectos).
+
+  • Despliegue: el conocimiento obtenido se transforma en acciones
+    dentro del proceso de negocio. Tareas: planear la implementación,
+    monitorizar y mantener (detectar comportamientos anómalos),
+    crear el informe final y revisar el proyecto (lecciones
+    aprendidas).
+
+ROLES EN CIENCIA DE DATOS (complemento, apartado 1.1.3, no forma parte de
+CRISP-DM en sí pero se introduce en el mismo bloque) [PDF p.9]: la
+asignatura distingue cuatro roles típicos en un equipo de ciencia de
+datos: director técnico de proyecto (data scientist chief — planifica,
+asigna recursos, valida resultados), científico de datos (data
+scientist — analiza problemas, diseña/implementa soluciones,
+experimenta, interpreta resultados; se valora el doctorado), analista de
+datos (data analyst — estudios de BI, informes y cuadros de mando) e
+ingeniero de datos (data engineer — extrae, limpia, transforma y carga
+datos; automatiza procesos). También existen otros roles: ingenieros de
+software, administradores de BD/sistemas, diseñadores gráficos.
+
+CÓDIGO / EJEMPLOS
+No hay código Python asociado directamente a esta sección; es contenido
+puramente conceptual/metodológico tanto en el PDF como en los notebooks
+(el notebook de terminología solo trata el "ciclo de vida de un modelo de
+ML" de forma más genérica, ver más abajo).
+
+DATOS CONCRETOS VERIFICABLES
+- CRISP-DM: concebido a finales de 1996, proyecto financiado en 1997,
+  primera versión publicada en 1999.
+- Codirigido por: SPSS, Teradata, NCR, Daimler AG, Ohra.
+- KDD introducido en 1996 por Fayyad, Piatetsky-Shapiro y Smith.
+- ASUM-DM: evolución de CRISP-DM creada por IBM en 2015.
+- 6 fases de CRISP-DM: comprensión del negocio, comprensión de los datos,
+  preparación de los datos, modelado, evaluación, despliegue.
+- 4 roles de ciencia de datos citados: data scientist chief, data
+  scientist, data analyst, data engineer.
+
+
+------------------------------------------------------------------------
+2. TIPOS DE APRENDIZAJE (SUPERVISADO / NO SUPERVISADO / OTROS)
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+Fundamentalmente existen dos categorías de problemas resolubles mediante
+aprendizaje automático: aquellos donde existe una variable especial de
+interés destacada en el conjunto de datos (variable de salida) y aquellos
+donde no existe tal variable. El APRENDIZAJE SUPERVISADO se ocupa del
+primer tipo (existe variable de salida); el APRENDIZAJE NO SUPERVISADO
+del segundo (no existe variable de salida) [PDF p.15].
+
+En aprendizaje supervisado se pretende estimar (inferir/predecir) el
+valor de la variable de salida en función del resto de variables; por
+eso los problemas de aprendizaje supervisado suelen ser problemas de
+inferencia o predicción. Es imprescindible que todas las filas de datos
+tengan un valor para la variable de salida: si faltan valores en esa
+variable, esas filas no aportan aprendizaje, pues no se puede determinar
+la relación entre la salida y el resto de variables [PDF p.15]. Existen
+dos grandes tipos de problemas de predicción según el tipo de dato de la
+variable de salida:
+  • Regresión — si la variable de salida es numérica (número real).
+  • Clasificación — si la variable de salida es categórica (número
+    discreto o etiqueta nominal).
+Aparte de regresión y clasificación, en aprendizaje automático (no
+necesariamente supervisado puro) se resuelven otros problemas: la
+discretización supervisada, la corrección de outliers mediante modelos
+de conocimiento, la selección de instancias o la selección de atributos
+[PDF p.15-16].
+
+El APRENDIZAJE NO SUPERVISADO se ocupa de problemas sin variable de
+salida, por lo que NO son problemas de inferencia/predicción. Los dos
+problemas habituales son [PDF p.16]:
+  • Clustering — creación de grupos de datos similares, útil para
+    dividir problemas y analizar/modelar cada grupo por separado.
+  • Reglas de asociación — reglas que asocian variables mediante
+    relaciones causa-efecto (antecedente/consecuente), útiles para
+    estudiar dependencias entre datos y para sistemas de
+    recomendación.
+También existe la reducción de la dimensionalidad (puede ser supervisada
+o no supervisada), que reduce el volumen de datos antes del modelado
+(por eliminación de filas/columnas o transformando el espacio de
+valores), buscando mantener o mejorar la eficacia y aumentar la
+eficiencia.
+
+OTROS TIPOS DE APRENDIZAJE [PDF p.16-17]:
+  • Aprendizaje semisupervisado: hay variable de salida, pero no todas
+    las filas tienen valor para ella (a diferencia del supervisado
+    puro, que exige que todas las filas la tengan). En vez de eliminar
+    las filas sin valor, se construyen modelos que aprovechan todas las
+    filas.
+  • Aprendizaje por refuerzo: el algoritmo (el "aprendiz") recibe una
+    valoración sobre la idoneidad de su respuesta. Cuando la respuesta
+    es correcta se parece al supervisado, pero difiere en las
+    respuestas erróneas: en supervisado se recibe el valor exacto de
+    la variable de salida (se puede calcular el error exacto); en
+    refuerzo solo se comunica que el comportamiento fue inadecuado, y
+    a veces una estimación de la cantidad de error.
+
+COMPLEMENTO DEL NOTEBOOK DE TERMINOLOGÍA (mismo concepto, formulación
+distinta y más orientada a "frontera de decisión"):
+El notebook plantea primero el caso ideal (se conocen las distribuciones
+de origen de los datos ⇒ se puede calcular analíticamente el modelo y la
+"frontera óptima" o frontera bayesiana) frente al caso real (solo se
+dispone de una muestra de los datos, no de las distribuciones). Muestra
+cómo la definición de la frontera de decisión mejora al aumentar el
+número de muestras (compara datasets simulados con 10, 100 y 10000
+puntos) y compara tres clasificadores de sklearn sobre los mismos datos
+2D: LogisticRegression (clasificador lineal), RandomForestClassifier y
+SVC (máquina de soporte vectorial), evidenciando que "los algoritmos de
+clasificación calculan fronteras entre los datos, partiendo de una
+muestra, no de las distribuciones" y que cualquier algoritmo debe asumir
+alguna suposición de base (normalidad, independencia estadística de
+columnas, forma lineal o cuadrática de la frontera).
+
+El notebook también resume el aprendizaje supervisado como "modelar la
+relación entre las características de los datos y una etiqueta asociada"
+para luego predecir etiquetas de datos nuevos, subdividiéndolo en:
+  • Clasificación: predicción de etiquetas discretas (ejemplo típico:
+    separar dos clases de puntos con una línea recta).
+  • Regresión: predicción de cantidades continuas.
+
+Y resume el aprendizaje no supervisado como modelos que describen datos
+"sin referencia a etiqueta conocida", citando como ejemplo el clustering,
+y enumerando algoritmos no supervisados: agrupamiento (jerárquico,
+basado en densidad, k-medias), detección de anomalías y visualización /
+reducción dimensional.
+
+El notebook añade observaciones prácticas sobre los datos que el PDF no
+cubre en esta sección: cantidad insuficiente de datos de entrenamiento,
+datos de entrenamiento no representativos (sesgo de muestreo),
+datos de baja calidad (errores, outliers, ruido) y características
+irrelevantes (ingeniería de características) — resumido en la frase "los
+datos son más importantes que los algoritmos".
+
+CÓDIGO REAL DE EJEMPLO (notebook terminología, comparación de fronteras
+de clasificación 2D)
+
+    from sklearn.linear_model import LogisticRegression
+    estimador=LogisticRegression()
+    estimador.fit(X,y)
+    mlutils.plot_2Ddata_with_boundary(estimador.predict,X,y)
+    # Clasificador lineal
+
+    from sklearn.ensemble import RandomForestClassifier
+    estimador=RandomForestClassifier()
+    estimador.fit(X,y)
+    mlutils.plot_2Ddata_with_boundary(estimador.predict,X,y)
+    # Clasificador bosque aleatorio
+
+    from sklearn.svm import SVC
+    estimador=SVC()
+    estimador.fit(X,y)
+    mlutils.plot_2Ddata_with_boundary(estimador.predict,X,y)
+    # Clasificador máquina de soporte vectorial
+
+DATOS CONCRETOS VERIFICABLES
+- 2 categorías fundamentales de problemas: con variable de salida
+  (supervisado) / sin ella (no supervisado).
+- Supervisado: regresión (salida numérica) vs. clasificación (salida
+  categórica).
+- No supervisado: clustering y reglas de asociación (más reducción de
+  dimensionalidad).
+- Otros tipos: semisupervisado y aprendizaje por refuerzo.
+- Clases de sklearn usadas en el notebook para comparar fronteras:
+  LogisticRegression, RandomForestClassifier, SVC.
+- DecisionTreeClassifier(max_depth=1) usado en el notebook para el
+  ejemplo 1D de frontera de decisión.
+
+
+------------------------------------------------------------------------
+3. ESTRUCTURA DE DATOS: INSTANCIAS, ATRIBUTOS Y CLASE
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+En ciencia de datos existe una estructura de datos fundamental sobre la
+que se apoyan la gran mayoría de algoritmos: la tabla de datos, también
+llamada conjunto de datos (dataset). Es una estructura de dos dimensiones
+(filas y columnas), similar a una matriz matemática, pero a diferencia de
+las matrices puede contener diferentes tipos de datos por columna (cada
+columna, sin embargo, debe contener solo datos del mismo tipo) [PDF
+p.17]. Existen también otras estructuras usadas en contextos más
+particulares: grafos, series temporales, datos espacializados
+(georreferenciados), secuencias (texto, secuencias biológicas) y datos
+jerarquizados (árboles).
+
+Cada dato (celda) de la tabla puede ser de dos tipos [PDF p.17-18]:
+  • Numérico: números reales / valores continuos (p. ej. 5,18); en
+    Python corresponde a float o double; tienen relación de orden
+    implícita.
+  • Categórico: valores discretos / nominales (p. ej. "Rojo" o "Alto");
+    pueden ser cadenas, booleanos o enteros; pueden o no tener relación
+    de orden entre sus valores.
+
+La nomenclatura estándar de minería de datos (apartado 1.3.2) es [PDF
+p.18]:
+  • Instancia (también ejemplo, muestra, observación, punto o
+    prototipo; instance/data point/sample) = cada FILA de la tabla.
+  • Clase (también etiqueta, variable objetivo, respuesta, efecto,
+    consecuencia; class/target/response) = la variable de salida usada
+    en aprendizaje supervisado.
+  • Atributo (también característica, causa, variable de entrada,
+    variable explicativa; attribute/feature/predictor/predictive
+    variable) = cada una de las demás variables (columnas), excepto la
+    clase.
+  • Modelo (también modelo de conocimiento, patrón; knowledge
+    model/pattern) = lo que extrae el algoritmo de predicción a partir
+    de las relaciones entre atributos y clase.
+
+Notación formal (Tabla 1 del manual) [PDF p.18-19]: la tabla tiene p
+atributos y n instancias. X representa la matriz de valores de los
+atributos, y el vector de valores de la clase; e1,...,en son las
+instancias (vectores fila); x1,...,xp son los atributos (vectores
+columna); xi,j es el valor del atributo j para la instancia i (con
+i=1,...,n y j=1,...,p). Si la clase es numérica (regresión), yi ∈ ℝ para
+i=1,...,n. Si la clase es categórica (clasificación), su dominio es
+{c1,...,cm}. En programación se suele usar una variable matriz/dataframe
+llamada X para los atributos y un vector llamado y para la clase.
+
+CARACTERÍSTICAS DE LOS CONJUNTOS DE DATOS (apartado 1.3.3) [PDF p.19]:
+al inicio de un proyecto de minería de datos es habitual observar y
+anotar: número de instancias, número de atributos, nombre/tipo/breve
+descripción de cada atributo, tipo de datos de la clase (si tiene) y su
+dominio, nombre/descripción de la clase, y cantidad de valores ausentes.
+Ejemplo dado en el manual — dataset "iris": 150 instancias, 4 atributos
+(sepal-length, sepal-width, petal-length, petal-width, todos numéricos),
+clase categórica {iris-setosa, iris-versicolor, iris-virginica}, 0
+valores ausentes.
+
+COMPLEMENTO DEL NOTEBOOK DE TERMINOLOGÍA:
+El notebook usa una terminología equivalente pero con matices en inglés:
+  • Instancia: una sola fila de datos; también "observación del
+    dominio".
+  • Característica (Feature): una sola columna de datos; componente de
+    una observación, también llamada atributo. Se aclara que
+    "atributo" y "característica" se suelen usar indistintamente.
+    Algunas características son entradas al modelo (predictores) y
+    otras son salidas a predecir (labels).
+  • Datos de entrenamiento (training data): conjunto usado para
+    entrenar el modelo.
+  • Datos de prueba (test data): conjunto usado para validar la
+    precisión del modelo, sin usarse en el entrenamiento (también
+    llamado conjunto de validación).
+  • Parámetros del modelo: pertenecen al modelo, se ajustan durante el
+    entrenamiento.
+  • Hiperparámetros: parámetros del algoritmo de aprendizaje (no del
+    modelo); se fijan antes del entrenamiento y permanecen constantes
+    durante este.
+  • Métrica: medida cuantitativa para evaluar el rendimiento del
+    algoritmo.
+
+El notebook también aporta una sección de "datos tabulares" (formatos
+CSV, TSV, Excel) frente a datos No-SQL (formato clave-valor tipo JSON,
+que "escala horizontalmente" y es el estándar en big data), y distingue
+entre variables continuas (presión, velocidad, altura, precio,
+aceleración, temperatura, volumen, área) y variables discretas (edad,
+sexo, escolaridad, número de hijos, estado marital, especie,
+lateralidad) — contenido complementario no presente en el PDF.
+
+CÓDIGO REAL DE EJEMPLO
+El notebook de terminología no incluye código para construir una tabla
+de instancias/atributos/clase (es contenido conceptual con figuras). El
+manejo real de X (atributos) e y (clase) como estructuras numpy/pandas
+se ve en las secciones de normalización, outliers, imputación y
+selección de atributos (ver más abajo), donde X es siempre un
+np.array o DataFrame de instancias × atributos.
+
+DATOS CONCRETOS VERIFICABLES
+- Dataset "iris" (ejemplo del manual): 150 instancias, 4 atributos
+  numéricos, clase categórica con 3 valores, 0 valores ausentes.
+- Notación formal: X (matriz p atributos × n instancias), y (vector de
+  clase), ei = instancia i, xj = atributo j, xi,j = valor.
+- Tipos de dato por celda: numérico (float/double en Python) y
+  categórico (cadena, booleano o entero).
+
+
+------------------------------------------------------------------------
+4. LIMPIEZA DE DATOS — INTRODUCCIÓN
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+La limpieza de datos es una tarea fundamental de los proyectos de
+minería de datos, enmarcada dentro de la fase de "preparación de los
+datos" de CRISP-DM (apartado 1.1.6) [PDF p.19]. Consiste en la
+eliminación de defectos en los datos y su adaptación de cara al
+modelado, con el objetivo de producir la forma de los datos que mejor
+exponga sus patrones de la forma más nítida posible. Igual que el
+aprendizaje automático, las técnicas de limpieza pueden ser supervisadas
+o no supervisadas, según requieran o no la presencia de una clase [PDF
+p.20].
+
+Según la parte de la tabla sobre la que actúan, se distinguen técnicas
+de filas, de columnas o de matriz completa (ejemplo: la normalización es
+una técnica de columna, pues actúa sobre todos los valores de una
+columna a la vez) [PDF p.20]. El manual estudia en el apartado 1.4:
+normalización y estandarización de atributos, detección de outliers,
+imputación de valores ausentes y selección de atributos. Menciona
+también otras tareas no desarrolladas en detalle: discretización,
+generación de atributos, selección de instancias.
+
+
+------------------------------------------------------------------------
+5. NORMALIZACIÓN Y ESTANDARIZACIÓN
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+NORMALIZACIÓN: transforma los valores de los atributos numéricos al
+rango continuo [0, 1] mediante una operación matemática llamada
+homotecia, aplicada de forma independiente a cada columna (atributo)
+[PDF p.20]. Fórmula para un valor xi,j del atributo i:
+
+    x_ij^N = (x_ij - min(x_i)) / (max(x_i) - min(x_i))
+
+A la resta del mínimo se le llama CENTRADO, y a la división por el rango
+se le llama ESCALADO. La normalización (y la estandarización) "centra y
+escala" los datos. Para desnormalizar: x = xN · (max(xi) - min(xi)) +
+min(xi) [PDF p.20]. Es muy recomendable cuando se usan cálculos de
+distancias o productos escalares entre ejemplos, porque evita que un
+atributo con escala mayor domine artificialmente sobre otro con la misma
+importancia real (ejemplo del manual: dos atributos de saldo bancario en
+monedas distintas) [PDF p.20].
+
+ESTANDARIZACIÓN: transforma la distribución de los valores de un
+atributo para que tenga una media y desviación típica determinadas
+(centrado en la media, no en el mínimo), aplicada de forma independiente
+a cada atributo [PDF p.22]. Fórmula:
+
+    x_ij^S = (x_ij - media(x_i)) / desviación(x_i)
+
+El escalado en normalización cubre el rango completo (máximo menos
+mínimo); en estandarización cubre solo la amplitud de la desviación
+típica, por lo que los valores estandarizados NO quedan acotados a un
+rango fijo (a diferencia de la normalización) [PDF p.22]. Para
+desestandarizar: x = xS · desv(xi) + media(xi). También es muy
+recomendable en modelos de aprendizaje automático por el mismo motivo de
+las diferencias de escala [PDF p.22].
+
+El notebook de limpieza de datos añade el criterio práctico de CUÁNDO
+usar cada técnica: la normalización se usa en algoritmos que NO
+presuponen una distribución de los datos; la estandarización se usa
+cuando el algoritmo SÍ presupone que los datos siguen una distribución
+normal. Advierte además una regla importante de buenas prácticas: al
+dividir un dataset en train/test, hay que ajustar (fit) el
+normalizador/estandarizador SOLO con el conjunto de train, y aplicar
+(transform) esa misma transformación sobre el conjunto de test —nunca
+reajustar sobre test—, para evitar fuga de información (data leakage).
+
+CÓDIGO REAL DE EJEMPLO — Normalización (PDF Programa 1, idéntico en
+notebook limpieza_datos_1 con otros valores de ejemplo)
+
+    from sklearn import preprocessing
+    import numpy as np
+
+    # Carga de datos.
+    X_train = np.array([[ 1., -1.,  2.],
+                        [ 2.,  0.,  0.],
+                        [ 0.,  1., -1.]])
+
+    # Limpieza de datos: normalización.
+    normalizer = preprocessing.MinMaxScaler()
+    X_train_norm = normalizer.fit_transform(X_train)
+
+    # Salida de resultados.
+    print(X_train_norm)
+    # -> [[0.5        0.         1.        ]
+    #     [1.         0.5        0.33333333]
+    #     [0.         1.         0.        ]]
+
+Uso de la clase Normalizer como alternativa a MinMaxScaler: para
+reproducir el mismo resultado se deben usar los parámetros axis=0 y
+norm='max' en preprocessing.normalize() [PDF p.22].
+
+Del notebook limpieza_datos_1 (ejercicio de aplicar fit/transform por
+separado sobre train, y luego SOLO transform sobre test):
+
+    # Crea un objeto "fitted_normalizer" llamando al método "fit"
+    f = normalizer.fit(X_train)
+    # Aplica el objeto sobre los datos "X_train_2" para obtener "X_train_norm_2"
+    X_train_norm_2 = f.transform(X_train)
+    # Comprueba si "X_train_norm" y "X_train_norm_2" son iguales
+    print(np.array_equiv(X_train_norm, X_train_norm_2))
+
+    # Normalizar un nuevo conjunto de datos de test
+    # (SOLO HAY QUE APLICAR EL MÉTODO "transform", NO EL "fit")
+    X_test = np.array([[ 1., -3.,  2.],
+                        [ 3.,  0.,  0.],
+                        [ 0.,  4., -1.]])
+
+CÓDIGO REAL DE EJEMPLO — Estandarización (PDF Programa 2)
+
+    from sklearn import preprocessing
+    import numpy as np
+
+    # Carga de datos.
+    X_train = np.array([[ 1., -1.,  2.],
+                        [ 2.,  0.,  0.],
+                        [ 0.,  1., -1.]])
+
+    # Limpieza de datos: estandarización.
+    standardizer = preprocessing.StandardScaler()
+    X_train_std = standardizer.fit_transform(X_train)
+
+    # Salida de resultados.
+    print(X_train_std)
+    # -> [[ 0.         -1.22474487  1.33630621]
+    #     [ 1.22474487  0.         -0.26726124]
+    #     [-1.22474487  1.22474487 -1.06904497]]
+
+DATOS CONCRETOS VERIFICABLES
+- Clases sklearn: preprocessing.MinMaxScaler (normalización),
+  preprocessing.Normalizer (alternativa), preprocessing.StandardScaler
+  (estandarización). Método común: fit_transform(), o fit() + transform()
+  por separado.
+- Primer atributo del ejemplo del PDF: min=0, max=2 → tras normalizar,
+  0→0, 1→0.5, 2→1.
+- Media del primer atributo del ejemplo = 1, desviación típica = 0,8165;
+  el valor 2 estandarizado da (2-1)/0,8165 = 1,22474 (verificable con la
+  salida real del código: 1.22474487).
+- Fórmulas: normalización x_N=(x-min)/(max-min); estandarización
+  x_S=(x-media)/desviación.
+
+
+------------------------------------------------------------------------
+6. DETECCIÓN DE OUTLIERS
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+Uno de los problemas más habituales en los conjuntos de datos es la
+presencia de valores anómalos (outliers) fuera de la distribución
+natural de los datos, que pueden reducir la eficacia de los modelos.
+Determinar el umbral entre outlier y no-outlier no es trivial porque la
+frontera suele ser difusa [PDF p.23-24].
+
+El manual desarrolla en detalle un único algoritmo por razones de
+extensión: la ENVOLVENTE ELÍPTICA (elliptic envelope). Presupone que los
+datos siguen una distribución normal (gaussiana); si no la siguen, los
+resultados pueden ser incorrectos (falsos positivos/negativos). El
+algoritmo crea superficies elípticas alrededor de la nube de puntos
+"normales": cuanto mayor la superficie elíptica que engloba un punto,
+mayor su distancia respecto a los puntos normales y, por tanto, mayor
+probabilidad de ser outlier. Para construir las elipses se centran y
+escalan los datos respecto a su MEDIANA y su RANGO INTERCUARTÍLICO (IQR)
+—se usa la mediana en vez de la media porque la media se distorsiona con
+los propios outliers—. Todo valor que supere la mediana ± un umbral
+(típicamente 1,5·IQR o 3·IQR) se considera outlier [PDF p.24].
+
+CÓDIGO REAL DE EJEMPLO — Envolvente elíptica, versión del PDF (Programa
+3, usa umbral por percentil vía scoreatpercentile)
+
+    import pandas as pd
+    from scipy import stats
+    from sklearn.covariance import EllipticEnvelope
+    from limpieza_funciones import grafico_outliers
+
+    # Carga de datos.
+    df = pd.read_csv("outliers.csv")
+
+    # Limpieza de datos: detección de outliers.
+    outlier_method = EllipticEnvelope().fit(df)
+    scores_pred = outlier_method.decision_function(df)
+    threshold = stats.scoreatpercentile(scores_pred, 25)
+
+    # Dibujar gráfica de outliers.
+    grafico_outliers(df, outlier_method, 150, threshold, -7, 7)
+
+El dataset "outliers.csv" del PDF: artificial, 2 atributos, 200
+instancias (150 normales + 50 outliers), valores en rango [-7, 7].
+decision_function() puntúa la normalidad de cada instancia respecto a la
+distribución centrada/escalada en mediana e IQR; scoreatpercentile()
+fija el umbral al percentil 25% [PDF p.25-26].
+
+CÓDIGO REAL DE EJEMPLO — Envolvente elíptica, versión del notebook
+limpieza_datos_1 (usa predict() con contamination fijo, en vez de
+decision_function + percentil — TÉCNICA DISTINTA a la del PDF aunque
+mismo algoritmo/clase de sklearn):
+
+    import pandas as pd
+    import numpy as np
+    from scipy import stats
+    from sklearn.covariance import EllipticEnvelope
+    import matplotlib.pyplot as plt
+
+    # Carga de datos.
+    df = pd.read_csv("https://raw.githubusercontent.com/ssanchezgoe/"
+                      "viu_aprendizaje_supervisado/main/datasets/outliers.csv")
+
+    algorithm = EllipticEnvelope(support_fraction=None, contamination=0.25,
+                                  random_state=42)
+    outlier_method = algorithm.fit(df)
+
+    # Aplicamos el método de detección de outliers entrenado sobre nuestro dataset
+    df_outliers = outlier_method.predict(df)   # devuelve 1 (normal) / -1 (outlier)
+    print(df_outliers)
+
+    # Determinar la posición de los outliers
+    pos_outliers = np.where(df_outliers==-1)[0]
+    print('\nOutliers en la posición: \n', pos_outliers)
+
+    # Determinar el número de outliers
+    print('\nNúmero de outliers: \n', len(pos_outliers))
+
+El mismo notebook plantea como ejercicio comparar con otros detectores
+de sklearn (mismo patrón fit/predict): IsolationForest,
+LocalOutlierFactor, OneClassSVM.
+
+    from sklearn.ensemble import IsolationForest
+    from sklearn.svm import OneClassSVM
+    from sklearn.neighbors import LocalOutlierFactor
+
+    IF = IsolationForest()
+    df_outliers, pos_outliers = find_outliers(df, IF)
+
+MÉTODO DE BOXPLOT / CAJAS Y BIGOTES — técnica adicional presente SOLO en
+el notebook (no está desarrollada en las páginas 6-31 del PDF, aunque el
+concepto de IQR sí coincide con el usado por la envolvente elíptica). Se
+basan en: mediana, cuartil superior P75, cuartil inferior P25, rango
+intercuartílico IQR = P75 - P25, y los límites:
+
+    Extremo superior UE = P75 + 1.5·IQR (o max(datos) si ese límite lo
+                          supera)
+    Extremo inferior LE = P25 - 1.5·IQR (o min(datos) si ese límite es
+                          menor)
+
+Código real del notebook para detección de outliers vía boxplot/IQR:
+
+    # Seleccionamos el atributo que vamos a medir
+    a = df['a']
+
+    # Seleccionamos los umbrales a partir de los cuales vamos a considerar outliers
+    Q1 = stats.scoreatpercentile(a, 25)
+    Q3 = stats.scoreatpercentile(a, 75)
+    RIC = Q3 - Q1
+    li = Q1 - 1.5*RIC #xmin
+    ls = Q3 + 1.5*RIC #xmax
+
+    # Observamos los límites inferior y superior
+    print('limite inferior: ', li)
+    print('limite superior: ', ls)
+
+    # Buscamos la posición de los outliers
+    pos_i = np.where(a<li)[0]
+    pos_s = np.where(a>ls)[0]
+    pos_outliers = np.concatenate((pos_i, pos_s))
+    print('Posición de outliers: ', pos_outliers)
+    print('Número de outliers: ', len(pos_outliers))
+
+    # Dibujamos el diagrama de caja y bigotes
+    prop = plt.boxplot(a)
+    plt.boxplot(a)
+    plt.show()
+
+DATOS CONCRETOS VERIFICABLES
+- Algoritmo desarrollado en el PDF: envolvente elíptica (elliptic
+  envelope), clase sklearn.covariance.EllipticEnvelope.
+- PDF: umbral basado en decision_function() + stats.scoreatpercentile(
+  scores_pred, 25) (percentil 25 de las puntuaciones de normalidad).
+- Notebook: mismo EllipticEnvelope pero con contamination=0.25,
+  support_fraction=None, random_state=42, y predict() en vez de
+  decision_function (salida 1=normal, -1=outlier).
+- Dataset "outliers.csv": 200 instancias, 2 atributos, 150 normales + 50
+  outliers, rango [-7, 7] (según el PDF).
+- Umbral IQR habitual para outliers: 1,5·IQR (moderado) o 3·IQR
+  (extremo).
+- Otros detectores mencionados en el notebook: IsolationForest,
+  LocalOutlierFactor, OneClassSVM (todos de sklearn).
+- Método boxplot (solo notebook): basado en Q1, Q3, IQR=Q3-Q1, límites
+  Q1-1.5·IQR y Q3+1.5·IQR.
+
+
+------------------------------------------------------------------------
+7. IMPUTACIÓN DE VALORES AUSENTES
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+Los conjuntos de datos suelen estar incompletos: varias instancias no
+tienen valores para todos sus atributos. Es un fenómeno natural (la
+información no siempre puede recabarse, no estaba disponible, o era
+errónea y se eliminó) [PDF p.26]. A estos huecos se les llama valores
+ausentes (missing values); en programación suelen representarse como
+NaN, NA, N/A o Null según el lenguaje; en Python, con np.nan (NumPy
+not-a-number) [PDF p.26].
+
+Muchos algoritmos de aprendizaje automático NO toleran valores ausentes
+(la gran mayoría en scikit-learn), por lo que hay que limpiarlos antes.
+La opción más sencilla —eliminar todas las instancias con algún valor
+ausente— puede suponer una pérdida importante de información. Por eso
+se prefiere REEMPLAZAR los valores ausentes por valores concretos,
+mediante técnicas de IMPUTACIÓN (o estimación) [PDF p.26-27]. La técnica
+más simple consiste en sustituir el valor ausente por la media
+aritmética, mediana o moda del atributo en el que se encuentra: si el
+atributo es numérico se usa la media o mediana; si es categórico se usa
+la moda. Existen técnicas más complejas que plantean la imputación como
+un problema de aprendizaje supervisado, construyendo un modelo de
+conocimiento para estimar los valores ausentes [PDF p.27].
+
+El notebook de imputación/selección define el concepto de forma casi
+idéntica: "la imputación es el proceso en el cual un valor faltante en
+una columna se reemplaza por un valor conocido, derivado de los datos
+existentes".
+
+CÓDIGO REAL DE EJEMPLO — PDF (Programa 4, usa strategy='mean' con la
+sintaxis antigua de comillas tipográficas, refleja fielmente el
+manual):
+
+    import numpy as np
+    from sklearn.impute import SimpleImputer
+
+    # Carga de datos.
+    a = [[1, 2], [np.nan, 3], [7, 6]]
+    # Limpieza de datos: imputación valores ausentes (modelo).
+    imp = SimpleImputer(missing_values=np.nan, strategy='mean')
+    # Limpieza de datos: imputación valores ausentes (aplicación).
+    b = [[np.nan, 10], [6, np.nan], [8, 1]]
+    print(imp.transform(b))
+    # -> [[ 4.         10.        ]
+    #     [ 6.          3.66666667]
+    #     [ 8.          1.        ]]
+
+Nota importante: el ejemplo del PDF llama a imp.transform(b) SIN llamar
+antes a imp.fit(a) de forma explícita en el fragmento mostrado (aunque
+el texto del manual explica que "ajustamos el modelo... al conjunto de
+datos a mediante el método fit()", ese paso no aparece literal en el
+código impreso — puede ser una omisión editorial del PDF). Los valores
+imputados en b (4 y 3,66666667) corresponden a las medias por columna
+del conjunto a: columna 1 → (1+7)/2=4, columna 2 → (2+3+6)/3=3,6667 [PDF
+p.27].
+
+CÓDIGO REAL DE EJEMPLO — notebook datos_imputacion_seleccion (Ejemplo 1,
+ejercicio guiado con fit/transform explícitos):
+
+    import numpy as np
+    from sklearn.impute import SimpleImputer
+
+    # Carga de datos
+    X_train = [[1,      4],
+               [np.nan, 3],
+               [7,      8]]
+
+    # Limpieza de datos: imputación valores ausentes (modelo)
+    imputer = SimpleImputer(strategy='mean')  # Utilizamos la estrategia de la media
+    # (ejercicio: aplicar fit y transform para imputar X_train)
+
+    # Imputación de valores ausentes sobre el conjunto de test
+    X_test = [[np.nan, 10],
+              [6,      np.nan],
+              [8,      2]]
+    # (ejercicio: imputar X_test reutilizando el imputer ya ajustado)
+
+CÓDIGO REAL DE EJEMPLO — notebook, caso con dataset real "penguins.csv"
+(carga, detección y conteo de valores ausentes, e imputación con la
+media sobre datos reales, no sintéticos):
+
+    import pandas as pd
+
+    # Cargar dataframe
+    csv = pd.read_csv("https://raw.githubusercontent.com/ssanchezgoe/"
+                       "viu_aprendizaje_supervisado/main/datasets/penguins.csv",
+                       sep=';')
+    csv.head()
+
+    csv.isna().sum()              # cuenta valores ausentes por columna
+    csv[csv.isna().any(axis=1)]   # filas que contienen algún valor ausente
+
+    # Conversión a numpy
+    data = np.array(csv)
+
+    pos_ausentes = np.where(np.isnan(data))[0]
+    print(pos_ausentes)
+
+    # Imputación de datos ausentes
+    imputer = SimpleImputer(strategy='mean')
+    data_clean = imputer.fit_transform(data)
+
+    pos_ausentes = np.where(np.isnan(data_clean))[0]
+    print(pos_ausentes)          # comprobación: ya no hay NaN
+
+DATOS CONCRETOS VERIFICABLES
+- Clase sklearn: sklearn.impute.SimpleImputer, parámetros
+  missing_values=np.nan, strategy='mean' (también existen 'median' y
+  'most_frequent'/moda, mencionadas en el texto del PDF aunque no
+  ilustradas con código).
+- Ejemplo PDF: medias calculadas sobre a=[[1,2],[NaN,3],[7,6]] → columna
+  1 = 4.0, columna 2 = 3.66666667; imputadas en b sobre las posiciones
+  con NaN.
+- Dataset real usado en el notebook: "penguins.csv" (con valores
+  ausentes reales, detectados con csv.isna().sum()).
+- Métodos usados: .fit(), .transform(), .fit_transform(), .isna().sum().
+
+
+------------------------------------------------------------------------
+8. SELECCIÓN DE ATRIBUTOS
+------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA
+
+La selección de atributos (feature selection) es una subtarea de la
+reducción de dimensionalidad, que a su vez se incluye dentro de la
+limpieza de datos. Puede ser supervisada o no supervisada según
+considere o no la existencia de una clase [PDF p.28]. Todas las técnicas
+necesitan un algoritmo de evaluación de atributos que determine su
+"bondad" para decidir cuáles son candidatos a eliminarse. Existen dos
+categorías de algoritmos de evaluación [PDF p.28]:
+  • Evaluación de atributos individuales (univariantes).
+  • Evaluación de conjuntos de atributos (multivariantes).
+
+Es importante notar que la relevancia de un atributo puede depender de
+la existencia de otros: un atributo puede tener baja bondad individual
+por su débil relación con la clase, y sin embargo ser muy importante
+cuando se combina con otros. Por eso los algoritmos multivariantes,
+aunque más costosos computacionalmente, suelen seleccionar conjuntos más
+relevantes en su totalidad [PDF p.28]. En selección supervisada, el
+algoritmo de evaluación puede estar definido solo para clasificación,
+solo para regresión, o para ambos — hay que comprobar la compatibilidad
+[PDF p.28]. Cuando se usa evaluación multivariante también hace falta un
+algoritmo de búsqueda, porque el espacio de subconjuntos posibles crece
+exponencialmente con el número de atributos (problema NP-completo,
+inviable de explorar exhaustivamente) [PDF p.28].
+
+BAJA VARIANZA (técnica NO supervisada) [PDF p.28-29]: consiste en
+eliminar atributos cuyos valores son prácticamente constantes (no varían
+significativamente), asumiendo que no aportan información predictiva.
+
+F-TEST E INFORMACIÓN MUTUA (técnicas supervisadas univariantes) [PDF
+p.29-31]:
+  • F-Test: mide el grado de dependencia LINEAL entre dos atributos;
+    útil para detectar atributos correlacionados linealmente.
+  • Información mutua: mide cualquier tipo de dependencia estadística
+    (lineal o no lineal), pero necesita más instancias para resultados
+    fiables.
+
+El notebook de imputación/selección da una definición general
+equivalente: "la selección de atributos selecciona las características
+que se espera guarden mayor relación con la variable objetivo",
+distinguiendo análisis no supervisados (se analiza el atributo
+independientemente de la variable objetivo) vs. supervisados (se analiza
+junto a la variable objetivo), y análisis univariantes (uno a uno) vs.
+multivariantes (conjuntamente) — terminología alineada 1:1 con el PDF.
+El notebook también añade la fórmula de la varianza muestral usada
+para justificar la técnica de baja varianza:
+
+    S² = Σ(xi - x̄)² / (n - 1)
+
+donde S² es la varianza muestral, xi cada observación, x̄ la media y n
+el número de muestras.
+
+CÓDIGO REAL DE EJEMPLO — Baja varianza, versión del PDF (Programa 5,
+datos sintéticos binarios)
+
+    from sklearn.feature_selection import VarianceThreshold
+    # Carga de datos.
+    X = [[0, 0, 1], [0, 1, 0], [1, 0, 0],
+         [0, 1, 1], [0, 1, 0], [0, 1, 1]]
+    # Limpieza de datos: selección de atributos.
+    sel = VarianceThreshold(threshold = (.8 * (1 - .8)))
+    print(sel.fit_transform(X))
+    # -> [[0 1]
+    #     [1 0]
+    #     [0 0]
+    #     [1 1]
+    #     [1 0]
+    #     [1 1]]
+
+El primer atributo es casi constante (vale 0 en 5 de 6 filas), por lo
+que se descarta; el umbral 0.8·(1-0.8)=0.16 corresponde a la varianza de
+Bernoulli p(1-p) para p=0.8, es decir, deja pasar un atributo binario si
+varía al menos un 20% de las veces [PDF p.29].
+
+CÓDIGO REAL DE EJEMPLO — Baja varianza, versión del notebook (dataset
+real "iris" en vez de datos sintéticos — TÉCNICA IGUAL, DATOS
+DISTINTOS al PDF):
+
+    import numpy as np
+    from sklearn.feature_selection import VarianceThreshold
+    from sklearn import datasets
+    import pandas as pd
+
+    iris = datasets.load_iris()
+    df_iris = pd.DataFrame(data=np.c_[iris['data'], iris['target']],
+                            columns=iris['feature_names'] + ['target'])
+
+    df_iris.var()          # varianza de cada columna
+
+    X = df_iris.to_numpy()[:,:-1]
+
+    thresholder = VarianceThreshold(threshold=.6)
+    X_high_variance = thresholder.fit_transform(X)
+    X_high_variance[0:7]
+
+CÓDIGO REAL DE EJEMPLO — F-test e información mutua (PDF Programa 6 y
+notebook, prácticamente idénticos salvo la semilla aleatoria:
+np.random.seed(0) en el PDF frente a np.random.seed(42) en el notebook)
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from sklearn.feature_selection import f_regression, mutual_info_regression
+
+    # Carga de datos.
+    np.random.seed(0)                          # PDF usa seed(0); notebook usa seed(42)
+    X = np.random.rand(1000, 3)
+    y = X[:, 0] + np.sin(6 * np.pi * X[:, 1]) + 0.1 * np.random.randn(1000)
+
+    # Evaluación de atributos: F-Test.
+    f_test, _ = f_regression(X, y)
+    f_test /= np.max(f_test)
+
+    # Evaluación de atributos: información mutua.
+    mi = mutual_info_regression(X, y)
+    mi /= np.max(mi)
+
+    # Graficar distribución de los datos y evaluación de atributos.
+    plt.figure(figsize=(15, 5))
+    for i in range(3):
+        plt.subplot(1, 3, i + 1)
+        plt.scatter(X[:, i], y, edgecolor='black', s=20)
+        plt.xlabel("$x_{}$".format(i + 1), fontsize=14)
+        if i == 0:
+            plt.ylabel("$y$", fontsize=14)
+        plt.title("F-test={:.2f}, MI={:.2f}".format(f_test[i], mi[i]),
+        fontsize=16)
+    plt.show()
+
+Interpretación (idéntica en PDF y notebook): el vector y depende de x1
+de forma lineal y de x2 de forma no lineal (seno); x3 es irrelevante
+(ruido). El F-test da valor máximo (1) en x1 (dependencia lineal fuerte)
+y valor bajo en x3; la información mutua da valor máximo en x2
+(dependencia no lineal/sinusoidal bien marcada); x3 recibe valores
+mínimos (≈0) en ambas métricas al no contribuir al valor de la clase
+[PDF p.30-31].
+
+DATOS CONCRETOS VERIFICABLES
+- Clase sklearn para baja varianza: sklearn.feature_selection.
+  VarianceThreshold. PDF: threshold=.8*(1-.8)=0.16 sobre datos binarios
+  sintéticos (6 filas × 3 columnas). Notebook: threshold=.6 sobre el
+  dataset iris (150 instancias, 4 atributos numéricos + target).
+- Funciones sklearn para univariante supervisado: f_regression() (F-test,
+  dependencia lineal) y mutual_info_regression() (información mutua,
+  dependencia lineal o no lineal). Módulo: sklearn.feature_selection.
+- Dataset sintético de F-test/información mutua: 1000 instancias, 3
+  atributos uniformes en [0,1]; y = x1 + sin(6π·x2) + ruido gaussiano
+  (0.1·randn). x1 → dependencia lineal fuerte; x2 → dependencia no
+  lineal fuerte; x3 → irrelevante.
+- Fórmula de varianza muestral (solo notebook): S² = Σ(xi-x̄)²/(n-1).
+
+
+========================================================================
+FIN DEL RESUMEN
+========================================================================

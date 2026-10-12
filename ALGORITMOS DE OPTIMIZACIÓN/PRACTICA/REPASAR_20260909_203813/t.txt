@@ -1,0 +1,60 @@
+Pregunta 1: Según la clasificación utilizada en el curso, ¿qué diferencia fundamental existe entre un algoritmo aproximado y uno heurístico?
+
+a) El aproximado siempre es determinista y el heurístico siempre es probabilista.
+b) El aproximado proporciona una solución con un grado de aproximación conocido al óptimo, mientras que en el heurístico no podemos determinar si la solución obtenida es óptima.
+c) El heurístico garantiza siempre el óptimo, pero tarda más.
+d) No existe diferencia; ambos términos significan exactamente lo mismo.
+
+Respuesta correcta: b
+
+Justificación: El material del curso clasifica los algoritmos según el tipo de solución que ofrecen en tres categorías: Exactos (garantizan el óptimo), Aproximados (garantizan una buena solución con una aproximación conocida respecto al óptimo, es decir, se puede acotar matemáticamente cuán lejos como máximo está del óptimo) y Heurísticos (ofrecen una buena solución pero sin poder determinar si esa solución es realmente óptima, ni cuán lejos está de serlo). Esta es exactamente la definición de la opción b.
+- La opción a es incorrecta porque el ser determinista o probabilista es una clasificación distinta e independiente (según cómo calculan los pasos del algoritmo), no está ligada a ser "aproximado" o "heurístico".
+- La opción c invierte los conceptos: es el algoritmo exacto el que garantiza el óptimo, no el heurístico.
+- La opción d es falsa porque, como se explicó, son categorías con una diferencia precisa y explícita en el temario (conocer o no el grado de aproximación al óptimo).
+
+Pregunta 2: En un problema de optimización se desea minimizar el coste de producción decidiendo cuántas unidades fabricar, sin superar cierta cantidad de materias primas. ¿Qué representan respectivamente el coste, las cantidades a fabricar y los límites de materias primas?
+
+a) Variable, restricción y función objetivo.
+b) Función objetivo, variables y restricciones.
+c) Restricción, función objetivo y variables.
+d) Función objetivo, restricciones y algoritmo.
+
+Respuesta correcta: b
+
+Justificación: Según la definición de optimización del curso, todo problema de este tipo tiene tres componentes: la función objetivo (la medida de bondad que se quiere minimizar o maximizar, en este caso el coste de producción), las variables (las decisiones a tomar, en este caso cuántas unidades fabricar) y las restricciones (las relaciones que deben cumplirse, en este caso no superar la cantidad disponible de materias primas). El enunciado pide el orden "coste, cantidades a fabricar, límites de materias primas", que se corresponde exactamente con "función objetivo, variables, restricciones" → opción b.
+- La opción a asigna mal los tres roles (invierte función objetivo y variable, y llama restricción al coste).
+- La opción c desordena completamente los tres conceptos.
+- La opción d es incorrecta porque "algoritmo" no es uno de los tres componentes de un problema de optimización (el algoritmo es el método para resolverlo, no una restricción del límite de materias primas).
+
+Pregunta 3: Un algoritmo tiene complejidad aproximada O(n^3). Si el tamaño de entrada se triplica, ¿por cuánto se multiplica aproximadamente su tiempo de ejecución para valores grandes de n?
+
+a) 3
+b) 6
+c) 9
+d) 27
+
+Respuesta correcta: d
+
+Justificación: Si el tiempo de ejecución es proporcional a n^3 (T(n) ≈ k·n^3), al triplicar el tamaño de entrada el nuevo tiempo es T(3n) = k·(3n)^3 = k·27·n^3 = 27·T(n). Es decir, el tiempo se multiplica por 3^3 = 27. Esto es consecuencia directa de la definición de notación O(f): lo relevante es cómo crece la función dominante n^3 al escalar n, y para una potencia cúbica ese factor de escala es siempre el cubo del factor aplicado a n.
+- a) 3 correspondería a una complejidad lineal O(n), no cúbica.
+- b) 6 no corresponde a ninguna potencia entera consistente con O(n^3) (sería el resultado de multiplicar 3×2, sin relación matemática con el exponente 3).
+- c) 9 correspondería a una complejidad cuadrática O(n^2), donde 3^2 = 9.
+- Por tanto, únicamente 27 = 3^3 es coherente con una complejidad O(n^3).
+
+Pregunta 4: ¿Cuál de los siguientes órdenes está correctamente organizado de menor a mayor crecimiento asintótico?
+
+a) O(n!) < O(2^n) < O(n^2) < O(n)
+b) O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!)
+c) (opción parcialmente visible en la imagen, cortada — no se puede transcribir de forma completa y fiable)
+d) (no visible en la imagen disponible)
+
+Respuesta correcta: b
+
+Justificación: El material del curso incluye explícitamente la tabla de órdenes de complejidad de menor a mayor crecimiento: O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(nᵃ) < O(2ⁿ) < O(n!). La secuencia de la opción b — O(log n) < O(n) < O(n log n) < O(n²) < O(2^n) < O(n!) — respeta exactamente ese orden creciente (obviando O(n³) y O(nᵃ), que no invalidan la secuencia ya que no están presentes ni fuera de orden). Esto se confirma también con los valores numéricos de la tabla del curso: por ejemplo, para n=100, log n=6, n=100, n²=10⁴, 2ⁿ≈1,2×10²⁷ y n!≈9,3×10¹⁷⁷, lo que muestra un crecimiento estrictamente ascendente en ese orden.
+- La opción a invierte completamente el orden: coloca O(n!) y O(2^n) (los de mayor crecimiento) al principio y O(n) (uno de los de menor crecimiento) al final, lo cual es exactamente lo contrario del orden real.
+- Las opciones c y d no se pudieron leer de forma completa en la imagen disponible (aparecen cortadas en el borde inferior de la captura), pero no es necesario reconstruirlas para determinar la respuesta correcta, ya que la opción b coincide de forma exacta y verificable con la tabla de complejidades del temario, que es la referencia autorizada del curso.
+
+1 | b
+2 | b
+3 | d
+4 | b

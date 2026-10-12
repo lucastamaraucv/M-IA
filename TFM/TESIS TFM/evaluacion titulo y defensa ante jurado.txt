@@ -1,0 +1,225 @@
+EVALUACIÓN DEL TÍTULO DEL TFM Y DE SU DEFENSA ANTE UN JURADO
+(Máster en Inteligencia Artificial — VIU; preparado el 2026-10-05 con revisión de Codex, ronda 30)
+================================================================================================
+
+1. ¿EL TÍTULO ES CORRECTO SEGÚN LOS EJEMPLOS DE LA UNIVERSIDAD?
+----------------------------------------------------------------
+Tu título:
+  «Predicción de la Dirección de Bitcoin utilizando una Red Neuronal Espigante de Segmentos Temporales y
+   Aprendizaje Automático»
+
+Veredicto: SÍ, ES CORRECTO. Sigue la misma estructura que la lista oficial (Asignaciones_11_10_23(1).pdf, 88 títulos).
+La gran mayoría de esos títulos usa el patrón:
+
+  [Tarea] de [objeto] utilizando / mediante / a través de [técnica] (en [dominio])
+
+Ejemplos de la lista con la misma estructura:
+  - Predicción de Rendimiento de Cartera Utilizando Deep Learning en Mercados Financieros
+  - Detección de Fraude en Transacciones Financieras utilizando Técnicas de Inteligencia Artificial
+  - Análisis de Sentimiento en Criptoactivos a través de Redes Neuronales Recurrentes
+  - Optimización/Predicción de Parámetros PID para Servomotores utilizando IA
+  - Sistema de Nutrición Inteligente para pacientes diabéticos basado en Aprendizaje Automático
+
+Comparación con tu título:
+
+  Elemento     | Lista de la universidad                     | Tu título
+  -------------|---------------------------------------------|-----------------------------------------------
+  Tarea        | «Predicción de», «Detección de»             | «Predicción de»
+  Objeto       | «Rendimiento de Cartera»                    | «la Dirección de Bitcoin»
+  Conector     | «Utilizando» / «utilizando»                 | «utilizando»
+  Técnica      | «Deep Learning», «Técnicas de IA»           | «una Red Neuronal Espigante de Segmentos
+               |                                             |  Temporales y Aprendizaje Automático»
+  Siglas       | La mayoría no usa siglas                    | Sin siglas (requisito cumplido)
+
+Además:
+  - «Red Neuronal Espigante de Segmentos Temporales» traduce fielmente «Temporal Segment Spiking Neuron
+    Network», el nombre del artículo original (Feng et al., ICLR 2025).
+  - «y Aprendizaje Automático» indica que la lectura de la red y los modelos de comparación son de aprendizaje
+    automático.
+
+Mejora opcional (recomendada; misma estructura, una sola palabra más):
+  «Predicción de la Dirección del Precio de Bitcoin utilizando una Red Neuronal Espigante de Segmentos Temporales
+   y Aprendizaje Automático»
+  Motivo: Bitcoin en sí no tiene «dirección»; lo que se predice es si el PRECIO sube o baja en el siguiente
+  intervalo. Codex hizo la misma observación. Esta es la versión que está en el formulario
+  («tarea 1 - completada.txt»). Las dos versiones son válidas; elige una y úsala igual en el formulario y en la
+  memoria.
+
+Alternativa que propuso Codex (NO recomendada para ti): «… mediante una red neuronal espigante de segmentos
+temporales: evaluación comparativa con modelos de referencia». Es precisa, pero el subtítulo con dos puntos se
+aleja de la estructura de la lista y de tu preferencia.
+
+
+2. ¿LA TESIS SE PUEDE DEFENDER ANTE UN JURADO PARA OBTENER EL GRADO DE MAGÍSTER EN IA?
+--------------------------------------------------------------------------------------
+Veredicto: SÍ, ES DEFENDIBLE, como estudio comparativo riguroso con un resultado honesto.
+
+Un trabajo de máster no se aprueba por «batir» a todos los modelos, sino por:
+  (a) aplicar técnicas de IA con criterio,
+  (b) usar una metodología correcta y reproducible,
+  (c) comparar contra referentes adecuados, y
+  (d) sacar conclusiones respaldadas por los datos.
+Tu trabajo cumple las cuatro.
+
+Puntos fuertes:
+  - Aplicación nueva: el artículo de TS-LIF trabaja con tráfico, energía solar y electricidad (regresión). Tú
+    llevas la neurona a Bitcoin y a una tarea distinta, la clasificación de la dirección del precio.
+  - Modelo concreto y documentado (E20-A0C): reservorio de 1 000 neuronas de dos compartimentos con recurrencia,
+    62 indicadores técnicos como canales de entrada y lectura por regresión logística. Solo se entrena la lectura,
+    por lo que el coste de entrenamiento es mínimo.
+  - Comparación justa: regresión logística, bosque aleatorio, gradient boosting, perceptrón multicapa, LSTM y TCN
+    con las MISMAS entradas y validación estrictamente cronológica.
+  - Rigor poco habitual en un máster: hipótesis preregistradas, placebos, controles con series sintéticas,
+    auditoría de fugas de información, pruebas de invariancia y una prueba con datos futuros ya congelada.
+  - Resultado claro: en Bitcoin a 2 horas, E20-A0C obtiene AUC 0,5460 frente a 0,5454 del mejor rival
+    (gradient boosting), es decir, un EMPATE con el mejor aprendizaje automático. En series sintéticas con
+    estructura temporal, la red sí supera a los modelos de aprendizaje automático.
+  - Tu propuesta ya declara desde el inicio que «superar, igualar o no mejorar» son resultados válidos.
+
+Lo que NO debes afirmar ante el jurado:
+  - Que la red «supera» a gradient boosting en Bitcoin. La diferencia (+0,0006) está dentro del margen de error.
+  - Que la mejora de E20-A0C se debe a la neurona: se debe sobre todo a los indicadores técnicos, porque
+    gradient boosting gana casi lo mismo al añadirlos.
+
+
+3. PREGUNTAS PROBABLES DEL JURADO Y RESPUESTA HONESTA
+-----------------------------------------------------
+P1. ¿Qué predice exactamente?
+    El signo del retorno de la SIGUIENTE barra de 2 horas (sube o baja). El AUC mide qué tan bien se ordenan las
+    probabilidades, no la rentabilidad.
+
+P2. ¿Qué se entrena en la red?
+    Solo la lectura (regresión logística); el reservorio de neuronas queda fijo. Es una adaptación del artículo
+    original, donde la red se entrenaba de extremo a extremo para regresión.
+
+P3. ¿La comparación es justa?
+    Sí. Todos los rivales reciben los mismos indicadores disponibles al cierre de cada barra, con la misma partición
+    cronológica y las mismas métricas oficiales.
+
+P4. ¿La red supera a gradient boosting?
+    No está demostrado. 0,5460 frente a 0,5454 es un empate práctico; el valor del parámetro C se eligió de forma
+    exploratoria y en el periodo 2021–2024 el aprendizaje automático quedó ligeramente por encima. La confirmación
+    está definida en la prueba con datos futuros.
+
+P5. Entonces, ¿cuál es la aportación?
+    Medir con rigor cuándo la representación espigante ayuda (series sintéticas con estructura temporal), cuándo la
+    ganancia la explican los indicadores, y mostrar que en Bitcoin el límite lo pone la poca información
+    predecible de los datos, no solo el modelo. Además, la red iguala al mejor modelo entrenando solo la lectura.
+
+P6. ¿Por qué usar una red espigante si empata?
+    Por su bajo coste de entrenamiento, su compatibilidad con hardware neuromórfico de bajo consumo y porque su
+    funcionamiento interno es interpretable (la dendrita actúa como filtro paso bajo y el soma como paso banda).
+
+
+4. RIESGOS Y CÓMO CUBRIRLOS EN LA MEMORIA
+-----------------------------------------
+  1. Presentar un empate como victoria → poner junto a cada AUC su diferencia con el rival y su intervalo de
+     confianza.
+  2. Confundir desarrollo con confirmación → declarar que C se eligió mirando el bloque de prueba (exploratorio)
+     y que la prueba con datos futuros está pendiente.
+  3. Atribuir a la red la ganancia de los indicadores → mostrar las ablaciones y el gradient boosting con las
+     mismas entradas.
+
+Pendiente en la memoria (MEMORIA_TFM.md): hoy presenta a E20-ALB como modelo principal y a E20-A0C como variante.
+Para defender E20-A0C hay que reordenarla (resumen, metodología y conclusiones) e incluir estas respuestas.
+
+
+5. CONCLUSIÓN
+-------------
+  - Título: correcto y con la estructura de la lista. Recomendación: añadir «del Precio».
+  - Defensa: viable para el grado de Magíster en Inteligencia Artificial, siempre que se presente como una
+    evaluación comparativa rigurosa cuyo resultado principal es un empate bien demostrado con el mejor modelo de
+    aprendizaje automático, no como una superioridad.
+  - Nota: nadie puede garantizar la decisión de un jurado; esta evaluación indica que el trabajo cumple los
+    criterios académicos habituales de un TFM.
+
+
+6. CÓMO SE DEFENDIÓ EL ARTÍCULO ORIGINAL (TS-LIF, Feng et al., ICLR 2025) Y QUÉ APRENDER DE ÉL
+-----------------------------------------------------------------------------------------------
+Fuente: 677_TS_LIF_A_Temporal_Segment_.pdf. LEÍDO COMPLETO el 2026-10-05: 21 páginas, desde el resumen hasta el
+apéndice A.13, incluidas las referencias y todas las tablas (1 a 11). Las figuras no se vieron como imagen, solo
+sus leyendas y los valores que el texto contiene.
+El artículo se aceptó en ICLR 2025, una conferencia con revisión por pares. Sus revisiones públicas (OpenReview)
+NO se han consultado aquí.
+
+6.1 Qué propone
+  - La neurona TS-LIF (ecuación 5): dendrita y soma con decaimientos α1 y α2 e interacción β1/β2.
+  - Dos novedades frente a TC-LIF: (a) corriente directa al soma, el término (1−α2)c[t], y (b) espigas también
+    en la dendrita, con reinicio adaptativo γ1/γ2.
+  - Salida mezclada smix = κ·sd + (1−κ)·ss (ecuación 6). Todos los coeficientes (α, β, γ, κ) son APRENDIBLES.
+  - La neurona se inserta en TCN, GRU y Transformer mediante el codificador de espigas de Lv et al. (2024):
+    convolución + normalización + neurona (A.12).
+
+6.2 Cómo sostuvieron sus afirmaciones
+  1. Teoría (4.2): Teorema 1 (estabilidad: autovalores de la matriz 2×2 dentro del círculo unidad) y funciones
+     de transferencia de dendrita y soma (4.3).
+     VERIFICADO A MANO el ejemplo de 4.4 (α1 = 0,95; α2 = 0,05; β1 = 0; β2 = −0,9): autovalores 0,95 y 0,05;
+     |Hd(ω=0)| = 1; |Hs(ω=0)| = 0,0526; |Hs(ω=π)| = 0,8828. Las cuentas del artículo son correctas.
+     Matiz: la frase «estable solo si α1+α2+β1β2 < 2» es una condición necesaria, no suficiente.
+  2. Mecanismo visible (5.1 y A.4): señal de 0,5 Hz + 4 Hz. TS-LIF separa las frecuencias (dendrita lenta, soma
+     rápido) y TC-LIF no. Ojo: es con parámetros elegidos a mano, no con los aprendidos. En A.10 muestran el
+     espectro de las neuronas ya entrenadas.
+  3. Resultados principales (Tabla 1): 4 conjuntos (Metr-la y Pems-bay de tráfico, Solar, Electricity),
+     horizontes de 6 a 96 pasos, R2 y RSE, frente a 11 modelos (ARIMA, GP, TCN, GRU, Autoformer, iTransformer y
+     sus versiones espigantes).
+  4. Robustez con datos faltantes del 10 % al 80 % (Tablas 2 y 9) y efecto de la longitud de historia (Fig. 5).
+  5. Comparación de neuronas TC-LIF, LM-H, CLIF y TS-LIF (Fig. 6 y Tabla 8, solo con GRU).
+  6. Comparación con métodos punteros SparseTSF y SAMformer (Tabla 7, A.6).
+  7. Energía teórica en inferencia (Tabla 6, A.5), con constantes de hardware de 45 nm.
+  8. Memoria larga con el XOR retardado (Tabla 11): TS-LIF 0,994 con 10 pasos de retardo, 0,977 con 20, 0,791
+     con 30 y 0,585 con 40–50; el LIF simple cae a 0,50 desde 20 pasos.
+  9. Variabilidad con 3 semillas (Tabla 10): desviación típica de R2 entre 0,001 y 0,005.
+  10. Limitación declarada (A.13): no modelan correlaciones entre variables. Trabajo futuro: anomalías,
+      generación y CLASIFICACIÓN de series.
+
+6.3 Qué tan grande fue su ventaja real
+  R2 medio (Tabla 1):
+    - TS-former .783 frente a iTransformer .776 → +0,007
+    - TS-TCN    .777 frente a TCN          .770 → +0,007
+    - TS-GRU    .778 frente a GRU          .733 → +0,045 (la única ventaja grande)
+  Casos en que NO ganan:
+    - En Metr-la a 6 pasos, TCN .820 > TS-TCN .810.
+    - En Pems-bay a 96 pasos, TCN .689 > TS-TCN .652.
+    - En la Tabla 6 (Electricity), TCN .973 > TS-TCN .971.
+    - Frente a SparseTSF en Electricity (Tabla 7), SparseTSF gana (por ejemplo, .991 frente a .985 a 24 pasos).
+    - Al sustituir ReLU por TS-LIF dentro de SparseTSF (SparseTSF*), el resultado queda prácticamente igual o
+      peor.
+  Con desviaciones típicas de hasta 0,005, una ventaja de +0,007 equivale a 1–2 desviaciones: es pequeña y no
+  la contrastan estadísticamente.
+
+6.4 Debilidades metodológicas del artículo
+  - Los resultados de los rivales se COPIAN de Lv et al. (2024); no se re-ejecutan en igualdad de condiciones.
+  - Solo 3 semillas y solo en algunas configuraciones. No hay intervalos de confianza ni pruebas estadísticas.
+  - «Hiperparámetros ajustados por validación cruzada», sin detallar cómo se hace en series temporales ni
+    preregistro.
+  - La conclusión dice que superan «consistentemente» a las redes artificiales, pero sus propias tablas muestran
+    excepciones (6.3).
+  - La energía es una estimación teórica de inferencia; el ENTRENAMIENTO es mucho más lento (TS-TCN 308 s frente
+    a 21 s de TCN; TS-GRU 246 s frente a 38 s; TS-former 50 s frente a 7 s).
+  - Erratas sin consecuencia («TD-LIF» en A.1, «Datesets», una frase cortada en A.12). Aun así fue aceptado: el
+    jurado valora la idea, la teoría y la evidencia global, no la perfección.
+
+6.5 Qué significa para tu tesis
+  - Un artículo de primer nivel se aceptó con ventajas frente a redes artificiales de +0,007 en R2, sin pruebas
+    estadísticas y con excepciones. Tu empate (+0,0006 de AUC, con intervalo de confianza por bootstrap) está
+    medido con MÁS rigor. Presentado honestamente, es igual de defendible.
+  - Tu tesis desarrolla una línea que ellos dejan como trabajo futuro: la CLASIFICACIÓN, en un dominio financiero,
+    mucho más ruidoso que el tráfico o la electricidad (en Bitcoin un AUC de 0,546 es una señal real pero
+    pequeña).
+  - Tú SÍ re-ejecutas todos los rivales con las mismas entradas, con validación cronológica, placebos, preregistro
+    y una prueba con datos futuros. Es una ventaja metodológica clara frente al artículo.
+  - Mecanismo: en tu red, con los parámetros reales, la dendrita es paso bajo (α1 = 0,82) y el soma paso BANDA
+    (pico entre 6 y 12 pasos), no paso alto como en el ejemplo del artículo (α2 = 0,05). Es coherente con su
+    teoría (sección 4.3) aplicada a tus parámetros. Explícalo así: «verificamos su análisis en frecuencia con los
+    parámetros de nuestra red».
+  - Diferencias que debes explicar al jurado:
+      (a) Ellos aprenden α, β, γ y κ de extremo a extremo; tú usas un reservorio fijo y solo entrenas la lectura.
+          En tu red κ no tiene efecto.
+      (b) Ellos predicen valores (regresión); tú predices la dirección (clasificación, AUC).
+      (c) Ellos no usan indicadores técnicos; en tu red los indicadores explican la mayor parte de la ganancia.
+  - Qué copiar de su forma de defenderse:
+      (a) Una tabla de energía y tiempo de entrenamiento como su Tabla 6. Tu red entrena solo la lectura, lo que
+          es una ventaja frente a su caso, donde la red espigante entrena más lento.
+      (b) Una prueba de memoria tipo XOR retardado. Tú ya tienes controles sintéticos equivalentes.
+      (c) Un apartado explícito de limitaciones y trabajo futuro.
+      (d) Citar que tu trabajo responde a su trabajo futuro (clasificación).

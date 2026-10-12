@@ -1,0 +1,371 @@
+PREGUNTAS Y RESPUESTAS FUNDAMENTADAS - TEST SOBRE ARTICULOS PROPUESTOS
+========================================================================
+Cada respuesta fue comprobada ejecutando un problema en Python (carpeta
+"Verificacion_Cientifica_Respuestas", scripts pregunta_01.py..pregunta_16.py)
+que construye un experimento/modelo real (motor logico, calculo de Bayes,
+redes bayesianas con networkx, simulacion de Monte Carlo, autovalores del
+Hessiano, etc.) y, ademas, busca las citas textuales en los 4 PDF originales.
+El resultado impreso por cada script -no una opinion- es la base de la
+fundamentacion. Las 16 quedaron CONFIRMADAS (coinciden con
+respuestas_examen_verificadas.txt).
+========================================================================
+
+
+PREGUNTA 1
+El paso de justificacion en el proceso inductivo consiste:
+  a) Demostrar la hipotesis
+  b) Demostrar la conclusion
+  c) Dar argumentos que validen la conclusion.
+  d) Evaluar las hipotesis mas acertadas (plausibles).
+
+RESPUESTA CORRECTA: d
+
+FUNDAMENTO (pregunta_01.py): se generaron 2 hipotesis para la relacion
+"abuelo" (H1 general y H2 sobreajustada a la constante "maria"). Ambas
+pasaron la prueba deductiva formal holds() = sufficiency + satisfiability
+sobre los mismos datos de entrenamiento (True y True): la deduccion sola NO
+alcanza para elegir entre ellas, por lo que "demostrar" (a, b) queda
+descartado. Al probarlas contra un caso NUEVO no usado antes
+("abuelo", "maria", "sofia"), solo H1 lo predijo correctamente (H2 fallo).
+Esto demuestra computacionalmente que justificar = evaluar cual hipotesis es
+mas plausible/corroborada frente a otras, no demostrarla ni "argumentar" (c).
+
+
+PREGUNTA 2
+¿Cual de las siguientes afirmaciones describe correctamente la diferencia
+entre una hipotesis en ILP y una hipotesis en un teorema matematico?
+  a) En ambos casos, las hipotesis son demostradas deductivamente y
+     garantizan la verdad universal de las conclusiones.
+  b) En matematicas se demuestran implicaciones validas universalmente,
+     mientras que en ILP la hipotesis es una generalizacion inductiva que no
+     garantiza verdad absoluta, sino que explica los datos disponibles.
+  c) En ILP las hipotesis son siempre verdaderas porque se derivan
+     directamente del conocimiento previo.
+  d) En matematicas las hipotesis solo sirven para generar ejemplos,
+     mientras que en ILP sirven para demostrar teoremas.
+
+RESPUESTA CORRECTA: b
+
+FUNDAMENTO (pregunta_02.py): con sympy se demostro ALGEBRAICAMENTE (no por
+muestreo) que el cuadrado de un numero par es par para TODO entero k (x=2k,
+x^2=2*(2k^2)): garantia de verdad universal, propia de una prueba
+matematica. En paralelo, se indujo la hipotesis "toda ave vuela" a partir de
+4 ejemplos (gorrion, aguila, paloma, colibri, todos True), y se probo contra
+un caso nuevo (pinguino): la hipotesis fallo (predijo True, la realidad es
+False). La hipotesis de ILP explica el 100% de los datos vistos pero se
+rompe con un caso nuevo; el teorema matematico no tiene excepcion posible.
+
+
+PREGUNTA 3
+Seleccione en la siguiente lista un metodo usado por la ILP para evaluar
+hipotesis:
+  a) Reduccion al absurdo.
+  b) Uso de probabilidades.
+  c) Metodo deductivo.
+  d) Demostracion formal de teoremas.
+
+RESPUESTA CORRECTA: b
+
+FUNDAMENTO (pregunta_03.py): se calculo el likelihood real (via holds()) de
+3 hipotesis (H1 general, H2 sobreajustada, H3 incorrecta): 1.0, 1.0 y 0.0
+respectivamente. Combinando esos likelihoods con un prior mediante el
+TEOREMA DE BAYES se obtuvo el posterior: P(H1|E)=0.625, P(H2|E)=0.375,
+P(H3|E)=0.0. La hipotesis se selecciona por un NUMERO DE PROBABILIDAD, no
+por una demostracion formal ni una reduccion al absurdo (H3 simplemente no
+cubre el ejemplo positivo, no se derivo ninguna contradiccion logica).
+
+
+PREGUNTA 4
+¿Cual es el papel del conocimiento previo (background knowledge) en ILP?
+  a) No interviene en el aprendizaje, ya que la ILP solo utiliza ejemplos.
+  b) Sirve unicamente para validar la hipotesis final mediante
+     demostraciones deductivas.
+  c) Permite construir y guiar la generacion de hipotesis, facilitando la
+     explicacion de los ejemplos.
+  d) Se utiliza unicamente para generar ejemplos negativos.
+
+RESPUESTA CORRECTA: c
+
+FUNDAMENTO (pregunta_04.py): experimento de ablacion. CON background
+knowledge B (hechos "padre"), el generador de hipotesis propuso la regla
+correcta "abuelo(X,Z):-padre(X,Y),padre(Y,Z)" y la encontro valida. SIN B (B
+vacio), el generador no tuvo NINGUN predicado del que partir y no pudo
+proponer ninguna hipotesis candidata (lista vacia), sin importar cuantos
+ejemplos se le dieran. El fallo ocurre en la GENERACION, no en una
+validacion final: B construye y guia la hipotesis, no solo la valida.
+
+
+PREGUNTA 5
+Dada una hipotesis en ILP, ¿que alternativa describe la diferencia entre los
+terminos "Explicar" y "Justificar"?
+  a) Explicar una hipotesis significa demostrarla deductivamente, mientras
+     que justificarla consiste en invalidarla si contradice los datos.
+  b) Explicar y justificar una hipotesis son procesos equivalentes que
+     consisten en comprobar su validez logica absoluta.
+  c) Explicar una hipotesis implica usar probabilidades, mientras que
+     justificarla consiste en derivar ejemplos negativos.
+  d) Una hipotesis junto con el conocimiento previo, permite explicar
+     (cubrir) los ejemplos observados. Justificar una hipotesis consiste en
+     evaluar su plausibilidad frente a otras hipotesis posibles.
+
+RESPUESTA CORRECTA: d
+
+FUNDAMENTO (pregunta_05.py): se implementaron dos funciones sobre la MISMA
+hipotesis H1: explica(H1,B,E+) devolvio un booleano fijo (True), que no
+cambia si se agregan o quitan hipotesis rivales (cobertura logica pura).
+justifica(H1,...) devolvio un NUMERO que SI cambio segun el prior/las
+competidoras (0.50 -> 0.90). Si "explicar" y "justificar" fueran
+equivalentes (b), justifica() deberia tambien ser un booleano fijo; el
+experimento lo refuta: son procesos distintos, tal como describe (d).
+
+
+PREGUNTA 6
+En relacion al articulo Bayesian Logic Programming (BILP): el articulo
+redefine la ILP usando:
+  a) probabilidades incondicionales.
+  b) el teorema de Bayes, que permite calcular la probabilidad posterior de
+     una hipotesis.
+  c) como punto de partida, ejemplos positivos y negativos.
+  d) Una probabilidad previa a cada hipotesis.
+
+RESPUESTA CORRECTA: b
+
+FUNDAMENTO (pregunta_06.py): con solo el prior (H_A=0.3, H_B=0.7) ganaria
+H_B. Al llegar evidencia que SOLO H_A explica (likelihood H_A=1, H_B=0), el
+TEOREMA DE BAYES recalculo el posterior: P(H_A|E)=1.0, P(H_B|E)=0.0 -el
+ganador CAMBIA a H_A-. Ni el prior solo (a, d) ni los ejemplos solos (c)
+explican ese cambio; solo el mecanismo de Bayes (prior x likelihood /
+evidencia) lo hace, confirmando que ese es el aporte real del articulo.
+
+
+PREGUNTA 7
+En BILP Muggleton afirma que PAC-learning es:
+  a) adecuado para explicar por que la ILP funciona tan bien en
+     aplicaciones reales.
+  b) demasiado restrictivo para explicar por que la ILP funciona tan bien en
+     aplicaciones reales.
+  c) contiene como caso particular el modelo U-learnability.
+  d) Es una alternativa equivalente al modelo U-learnability.
+
+RESPUESTA CORRECTA: b
+
+FUNDAMENTO (pregunta_07.py): se calculo la cota real de PAC-learning,
+m >= (1/eps)(ln|H(L)|+ln(1/delta)), para clausulas de longitud L. El tamano
+del espacio de hipotesis crece de 45 (L=1) a mas de 16 billones (L=8), y la
+cota exige cientos de ejemplos incluso para L=2 (m>=212), mientras que el
+motor de ILP de las preguntas 1-6 encontro la hipotesis correcta con solo 1
+ejemplo. Esa brecha numerica es justamente lo que significa "demasiado
+restrictivo/pesimista para explicar el exito real de la ILP". Ademas, la
+cita textual confirma "U-learnability has as special cases PAC" (es
+U-learnability quien CONTIENE a PAC, no al reves), descartando (c) y (d).
+
+
+PREGUNTA 8
+Segun el articulo BILP, U-learnability fue disenado para poder tratar
+representaciones:
+  a) Turing-computables.
+  b) Turing-completas.
+  c) Turing-computables y Turing-completas.
+  d) Simplificadas de PAC-learning.
+
+RESPUESTA CORRECTA: a
+
+FUNDAMENTO (pregunta_08.py): se comparo una regla de longitud FIJA (L=2,
+estilo PAC) contra una regla RECURSIVA ("antepasado", sin limite de
+profundidad) sobre cadenas familiares crecientes (2, 4, 8, 16, 32
+generaciones). La regla fija dejo de funcionar a partir de 4 generaciones;
+la recursiva funciono siempre, igual que una funcion Turing-computable
+general (recursion no acotada). La cita del articulo confirma literalmente:
+"U-learnability is more appropriate than PAC for Universal (Turing
+computable) languages".
+
+
+PREGUNTA 9
+En el articulo BILP se considera que una hipotesis H_m es valida si:
+  a) Explica todos los ejemplos positivos y solo algunos negativos.
+  b) Explica casi todos los ejemplos positivos y ninguno negativo.
+  c) Explica todos los ejemplos positivos y ninguno negativo.
+  d) Explica casi todos los ejemplos positivos y pocos negativos.
+
+RESPUESTA CORRECTA: c
+
+FUNDAMENTO (pregunta_09.py): se probaron 3 patrones de cobertura con el
+criterio formal holds()=sufficiency AND satisfiability: H_general (todos los
+positivos, ningun negativo) -> ACEPTADA. H_demasiado_general (todos los
+positivos, pero SI cubre un negativo, patron de la opcion a) -> RECHAZADA.
+H_parcial (solo 1 de 2 positivos, patron de b/d) -> RECHAZADA. El criterio
+formal es estrictamente binario en ambos lados ("todos", no "casi todos"; y
+"ninguno", no "solo algunos"), confirmando exactamente la opcion (c).
+
+
+PREGUNTA 10
+En relacion al articulo Bayesian Logic Programming (BLP): una red bayesiana
+representa (seleccion multiple):
+  a) relaciones causales mediante un grafo dirigido aciclico.
+  b) relaciones causales mediante un grafo no dirigido aciclico
+  c) probabilidades condicionales entre variables.
+  d) probabilidades incondicionales entre variables.
+
+RESPUESTA CORRECTA: a y c
+
+FUNDAMENTO (pregunta_10.py): se construyo con networkx una red real
+(Lluvia, Aspersor -> CespedMojado). Se confirmo que es un grafo DIRIGIDO
+ACICLICO (DAG=True) y que un grafo NO dirigido ni siquiera admite "orden
+topologico" en networkx (necesario para la regla de la cadena) -> descarta
+(b). El joint calculado con tablas de probabilidad CONDICIONAL sumo
+exactamente 1.0 -> confirma (c). Se demostro ademas que P(Mojado|Lluvia)
+cambia segun llueva o no (0.94 vs 0.35), algo que una probabilidad
+INCONDICIONAL fija (0.47) no puede capturar -> descarta (d).
+
+
+PREGUNTA 11
+El concepto de support network hace referencia a:
+  a) responder consultas probabilisticas requiere construir toda la red
+     bayesiana completa.
+  b) la subred relevante para responder una consulta general.
+  c) la subred relevante para responder una consulta concreta.
+  d) responder consultas probabilisticas requiere construir casi toda la red
+     bayesiana completa.
+
+RESPUESTA CORRECTA: c
+
+FUNDAMENTO (pregunta_11.py): se construyo una red de 5 variables (A,B->C
+relevante; D->E rama ajena) y se calculo P(C=True|A=True) de dos formas: con
+la red COMPLETA y usando SOLO el support network {A,B,C}. Ambos calculos
+dieron EXACTAMENTE 0.75 -> D y E no influyen en absoluto (descarta a, d). Al
+quitar tambien a B (que SI pertenece al support network), el resultado SI
+cambio (a 0.90) -> el support network es exactamente la subred NECESARIA
+para ESA consulta concreta (Q=C, evidencia A=True), no una nocion de
+"consulta general" (descarta b).
+
+
+PREGUNTA 12
+La principal ventaja de BLP es que permite representar de forma compacta
+dominios complejos con:
+  a) incertidumbre, estructuras repetitivas y conocimiento logico.
+  b) incertidumbre, estructuras repetitivas y conocimiento logico.
+  c) relaciones entre objetos, incertidumbre, estructuras repetitivas y
+     conocimiento logico.
+  d) relaciones entre objetos, incertidumbre, sin estructuras repetitivas y
+     conocimiento logico.
+(Nota: (a) y (b) son literalmente identicas en el PDF original del examen.)
+
+RESPUESTA CORRECTA: c
+
+FUNDAMENTO (pregunta_12.py): se construyo un programa logico bayesiano de
+juguete con objetos+relaciones (persona_i, padre/hijo), incertidumbre
+(P(portador) via cadena de Markov), conocimiento logico (regla "hereda") y
+ESTRUCTURA REPETITIVA (la misma plantilla de 2 reglas se reutilizo para N=1
+hasta N=32 generaciones). El tamano de la base de conocimiento se mantuvo
+CONSTANTE (2 elementos) mientras la red generada crecio linealmente con N:
+prueba computacional de "representacion compacta de estructuras
+repetitivas", refutando (d) que niega su existencia.
+
+
+PREGUNTA 13
+Intuitivamente, el modelo minimo de Herbrand representa:
+  a) los supuestos de un programa logico.
+  b) los hechos y consecuencias de un programa logico.
+  c) el conjunto mas grande de hechos verdaderos que pueden deducirse.
+  d) todo lo que un programa logico implica y nada mas.
+
+RESPUESTA CORRECTA: d
+
+FUNDAMENTO (pregunta_13.py): se calculo el punto fijo real M_P del programa
+"abuelo". Se probo que M_P + un atomo NO deducible ("abuelo","pedro","ana")
+sigue "satisfaciendo" las reglas (sigue siendo un modelo valido) aunque
+contenga algo que el programa nunca implica -> "el conjunto mas grande" (c)
+no es un concepto util, se le puede agregar basura arbitrariamente. En
+cambio, M_P menos un atomo NECESARIO deja de satisfacer las reglas: M_P no
+se puede encoger mas. M_P es el UNICO conjunto que es modelo valido y no
+contiene nada de mas -> "todo lo que el programa implica y nada mas" (d).
+
+
+PREGUNTA 14
+Desde el punto de vista formal de la teoria de optimizacion, ¿que
+inconveniente presenta definir un punto de silla estricto como un punto
+critico cuyo Hessiano posee al menos un autovalor negativo?
+  a) La definicion excluye a los puntos de silla clasicos con Hessiano
+     indefinido.
+  b) La definicion puede clasificar algunos maximos locales estrictos como
+     puntos de silla, ya que un Hessiano definido negativo tambien posee al
+     menos un autovalor negativo.
+  c) La definicion exige que el Hessiano tenga al menos un autovalor
+     positivo y uno negativo simultaneamente.
+  d) La definicion solo es valida para funciones convexas.
+
+RESPUESTA CORRECTA: b
+
+FUNDAMENTO (pregunta_14.py): se construyo f(x,y)=-(x^2+y^2), con un maximo
+local estricto clasico en (0,0). Su Hessiano numerico es [[-2,0],[0,-2]],
+con AMBOS autovalores negativos (-2,-2). Por la definicion del enunciado
+("al menos un autovalor negativo"), este maximo local se clasificaria
+tambien como "punto de silla estricto" -confusion real, reproducida por
+computo, no solo hipotetica-. La cita del articulo lo confirma
+textualmente: "some local maxima are technically strict saddle points".
+
+
+PREGUNTA 15
+En el articulo de Hayden Schaeffer y Scott McCalla se enuncia un teorema
+sobre el descenso por gradiente en funciones f∈C^2(Omega), con gradiente
+Lipschitz, Omega convexo e invariante, y el conjunto de puntos donde el
+Hessiano tiene un autovalor igual a 1/alpha de medida cero. Bajo estas
+hipotesis, ¿cual de las siguientes afirmaciones es correcta?
+  a) El descenso por gradiente siempre converge a un minimo global si el
+     paso alpha cumple alpha*L∈(0,2).
+  b) La probabilidad de converger a un punto de silla estricto es positiva,
+     pero pequena, cuando la inicializacion es aleatoria.
+  c) La probabilidad de que el descenso por gradiente converja a un punto de
+     silla estricto es cero si la inicializacion se elige uniformemente al
+     azar.
+  d) El resultado garantiza que todos los puntos criticos son minimos
+     locales.
+
+RESPUESTA CORRECTA: c
+
+FUNDAMENTO (pregunta_15.py): simulacion de Monte Carlo con 5000
+inicializaciones aleatorias sobre f(x,y)=0.5x^2+0.25y^4-0.5y^2 (2 minimos en
+(0,1) y (0,-1), 1 punto de silla en (0,0)): el 100% termino en un minimo y el
+0% en la silla. Esto confirma empiricamente "probabilidad cero" de caer en
+la silla con inicializacion aleatoria uniforme (c), refuta (b) (no fue
+"positiva, aunque pequena": fue exactamente 0 en 5000 intentos), (a) (hay 2
+minimos DISTINTOS, no un "minimo global" unico) y (d) ((0,0) es un punto
+critico que NO es minimo). La cita del articulo coincide palabra por
+palabra con (c).
+
+
+PREGUNTA 16
+Sea ell(x)=max(lambda_j(x),0) sobre los autovalores del Hessiano, y
+L_+ = sup_Omega ell(x) la constante de Lipschitz de la parte positiva del
+Hessiano. Segun el resultado mostrado, ¿cual afirmacion es correcta?
+  a) Controlar L_+ es suficiente para garantizar la convergencia del
+     descenso por gradiente a minimos globales.
+  b) El control de L_+ es suficiente para evitar puntos de silla estrictos,
+     pero no asegura la convergencia a minimos.
+  c) Si L_+ es finito, el Hessiano es negativo definido en todo Omega.
+  d) El valor L_+ controla unicamente las direcciones de curvatura negativa
+     del Hessiano.
+
+RESPUESTA CORRECTA: b
+
+FUNDAMENTO (pregunta_16.py): sobre la misma f(x,y) de la pregunta 15, se
+calculo L_+=8.72 (finito). Se verifico que lambda_1=1>0 en TODO Omega, por lo
+que el Hessiano NUNCA es negativo definido alli (refuta c). Se confirmo que
+ell(0,0)=1.00 toma la parte POSITIVA del Hessiano (lambda_1), no la
+negativa (lambda_2=-1 en la silla) -refuta (d)-. Y como la funcion tiene 2
+minimos locales distintos, controlar L_+ no garantiza converger a un unico
+"minimo global" (refuta a). La cita del articulo coincide EXACTAMENTE con
+(b): "control of L+ is sufficient for avoiding strict saddles, although it
+may not imply convergence to minima".
+
+
+========================================================================
+RESUMEN FINAL
+========================================================================
+1-d   2-b   3-b   4-c   5-d   6-b   7-b   8-a   9-c   10-(a,c)
+11-c  12-c  13-d  14-b  15-c  16-b
+
+Las 16 respuestas fueron CONFIRMADAS al ejecutar su problema correspondiente
+en Python (carpeta Verificacion_Cientifica_Respuestas). Detalle completo de
+cada ejecucion (salida integra, tablas, calculos) en
+Verificacion_Cientifica_Respuestas/informe_resultados.txt.

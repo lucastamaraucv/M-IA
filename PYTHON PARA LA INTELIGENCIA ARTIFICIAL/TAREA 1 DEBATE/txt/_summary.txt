@@ -1,0 +1,14 @@
+2305.18654v3.pdf | pages=40 | chars=119469
+HEAD: Faith and Fate: Limits of Transformers on Compositionality Nouha Dziri1∗, Ximing Lu1,2∗, Melanie Sclar2∗, Xiang Lorraine Li1†, Liwei Jiang1,2†, Bill Yuchen Lin1†, Peter West1,2, Chandra Bhagavatula1, Ronan Le Bras1, Jena D. Hwang1, Soumya Sanyal3, Sean Welleck1,2, Xiang Ren1,3, Allyson Ettinger1,4, 
+
+2410.05229v2.pdf | pages=24 | chars=88775
+HEAD: Published as a conference paper at ICLR 2025 GSM-SYMBOLIC: UNDERSTANDING THE LIMITA- TIONS OF MATHEMATICAL REASONING IN LARGE LANGUAGE MODELS Iman Mirzadeh1 Keivan Alizadeh1 Hooman Shahrokhi2∗ Oncel Tuzel1 Samy Bengio1 Mehrdad Farajtabar1† 1Apple 2Washington State University ABSTRACT Recent advancem
+
+2506.06941v3.pdf | pages=39 | chars=114343
+HEAD: The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity Parshin Shojaee∗† Iman Mirzadeh∗ Keivan Alizadeh Maxwell Horton Samy Bengio Mehrdad Farajtabar Apple Abstract Recent generations of frontier language models have introduced La
+
+2507.01231v1.pdf | pages=8 | chars=39147
+HEAD: arXiv:2507.01231v1  [cs.AI]  1 Jul 2025 Rethinking the Illusion of Thinking Iñaki Dellibarda Varela,1, ∗Pablo Romero-Sorozabal,1 Eduardo Rocon,1 and Manuel Cebrian1 1Center for Automation and Robotics, Spanish National Research Council (CSIC-UPM), Madrid, Spain (Dated: July 3, 2025) Earlier this yea
+
+mccoy2024embers.pdf | pages=12 | chars=83108
+HEAD: RESEARCH ARTICLE PSYCHOLOGICAL AND COGNITIVE SCIENCES COMPUTER SCIENCES OPEN ACCESS Embers of autoregression show how large language models are shaped by the problem they are trained to solve R. Thomas McCoya,1,2,3 ID , Shunyu Yaoa,4, Dan Friedmana, Mathew D. Hardyb ID , and Thomas L. Griﬀithsa,b Aﬀ

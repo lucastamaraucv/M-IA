@@ -1,0 +1,89 @@
+@@Q1.1@@
+df = sns.load_dataset('titanic')
+print(df.head())
+@@FIN@@
+
+@@Q1.2@@
+print(df.shape)
+print(df.dtypes)
+print(df.describe())
+@@FIN@@
+
+@@Q1.3@@
+nulos = df.isnull().sum().sort_values(ascending=False)
+print(nulos)
+@@FIN@@
+
+@@Q1.4@@
+print(df['pclass'].value_counts())
+print(df['embarked'].value_counts())
+@@FIN@@
+
+@@Q1.5@@
+tabla = pd.crosstab(df['class'], df['embark_town'])
+print(tabla)
+# No, no todas las clases embarcaron en todos los puertos (por ejemplo, en Queenstown casi no embarcó nadie de primera clase). Esto sugiere que el puerto de embarque está asociado al nivel socioeconómico de los pasajeros.
+@@FIN@@
+
+@@Q2.1@@
+fare_vals = df['fare'].dropna().to_numpy()
+media = np.mean(fare_vals)
+mediana = np.median(fare_vals)
+desviacion_standard = np.std(fare_vals)
+rango = np.max(fare_vals) - np.min(fare_vals)
+print(media, mediana, desviacion_standard, rango)
+@@FIN@@
+
+@@Q2.2@@
+age_vals = df['age'].dropna().to_numpy()
+z_score = (age_vals - np.mean(age_vals)) / np.std(age_vals)
+print(z_score[:5])
+@@FIN@@
+
+@@Q2.3@@
+fare_arr = df['fare'].to_numpy()
+media_global = np.nanmean(fare_arr)
+categorias = np.where(fare_arr > media_global, 'caro', 'economico')
+unique, counts = np.unique(categorias, return_counts=True)
+print(dict(zip(unique, counts)))
+@@FIN@@
+
+@@Q3.1@@
+df_clean = df.copy()
+df_clean = df_clean.dropna(subset=['embarked'])
+print(df_clean.shape)
+@@FIN@@
+
+@@Q3.2@@
+df_clean['age'] = df_clean.groupby('pclass')['age'].transform(lambda x: x.fillna(x.median()))
+print(df_clean['age'].isnull().sum())
+@@FIN@@
+
+@@Q3.3@@
+df_clean['family_size'] = df_clean['sibsp'] + df_clean['parch'] + 1
+print(df_clean[['sibsp', 'parch', 'family_size']].head())
+@@FIN@@
+
+@@Q3.4@@
+mask = (df_clean['pclass'] == 1) & (df_clean['fare'] > 100)
+cantidad = mask.sum()
+puertos = df_clean.loc[mask, 'embark_town'].value_counts()
+print(cantidad)
+print(puertos)
+@@FIN@@
+
+@@Q4.1@@
+fig, ax = plt.subplots()
+for pclass_val, grupo in df_clean.groupby('pclass'):
+    ax.hist(grupo['fare'], alpha=0.5, label=f'Clase {pclass_val}')
+ax.set_xlabel('fare')
+ax.set_ylabel('frecuencia')
+ax.legend()
+plt.show()
+@@FIN@@
+
+@@Q4.2@@
+g = sns.pairplot(df_clean[['age', 'fare', 'family_size', 'sibsp', 'survived']], hue='survived')
+plt.show()
+# Las variables fare y family_size parecen separar mejor visualmente a los supervivientes: los pasajeros con fare más alto muestran mayor proporción de supervivencia, y los grupos familiares muy grandes (family_size alto) muestran menor supervivencia. age y sibsp por sí solas separan peor, con distribuciones muy superpuestas entre ambos grupos.
+@@FIN@@

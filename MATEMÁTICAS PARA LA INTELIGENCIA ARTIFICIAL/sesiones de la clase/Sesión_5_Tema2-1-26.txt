@@ -1,0 +1,246 @@
+===== PAGINA 1 =====
+Definición
+Sean u ,v∈Rn. Definimos la
+proyección de u sobre v como
+Projv(u) =u·v
+v·vv.
+Definición
+Sean u ,v∈Rn. Definimos la ortogonal
+de u sobre v como
+Ort v(u) = u−Projv(u).
+
+===== PAGINA 2 =====
+Álgebra lineal
+Definición
+Diremos que dos vectores u ,v∈Rnson ortogonales si u·v=0.
+La definición de ortogonalidad entre dos vectores se corresponde con la noción
+geométrica de perpendicularidad.
+Más concretamente,
+u·v=∥u∥2∥v∥2cos(buv),
+dondebuv es el ángulo que forman los vectores uyv.
+===== PAGINA 3 =====
+Álgebra lineal
+Propiedades
+Para u ,v,w∈Rny a∈R:
+▶ u+v=v+u.
+▶ u·v=v·u.
+▶ u·(v+w) = u·v+u·w.
+▶(a·u)·v=a·(u·v).
+▶ v·v=∥v∥2
+2.
+▶ u·v=0si y sólo si u y v son ortogonales.
+▶ v·u=v·Projv(u).
+▶ Ort v(u)·v=0
+===== PAGINA 4 =====
+Definición
+Espacio Vectorial Sea K un cuerpo dado y V un conjunto no vacío, con reglas de suma
+y producto por un escalar que asignan a cada par u ,v∈V una suma u +v∈V y a
+cada par, u ∈V,k∈K un producto ku ∈V. V recibe el nombre de espacio vectorial
+sobre K (los elementos de V se llaman vectores y los elementos de K escalares) si
+satisfacen las siguientes condiciones:
+▶ Para todos par de vectores u,v∈V, u+v=v+u.
+▶ Para toda terna de vectores u,v,w∈V,(u+v) + w=u+ ( v+w).
+▶ Existe un vector cero (ó nulo) 0 ∈Vtal que u+0=u.
+▶ Para cada u∈V, existe un único vector −u∈Vtal que u+ ( u) = 0.
+===== PAGINA 5 =====
+...cont.
+▶ Para todo escalar c∈Ky todo par de vectores u,v∈V, c(u+v) = cu+cv.
+▶ Para todo par de escalares c,d∈Ky todo vector u∈V,(c+d)u=cu+du.
+▶ Para todo par de escalares c,d∈Ky todo vector u∈V,c(du) = ( cd)u.
+▶ El escalar unidad 1 ∈Kcumple 1 u=upara todo vector u∈V
+Ejemplos
+▶(Rn,+,R)
+▶(Am×n,+,R)
+▶(f:R→ R,+,R)
+▶ Considere el conjunto ={(x,y,z)∈R3:3x+4y+5z=0}, entonces (V,+, .), es
+un E.V sobre R
+===== PAGINA 6 =====
+Álgebra lineal
+Definición
+Dados v 1,v2, . . . , vk∈V, una combinación lineal de los k vectores anteriores es
+cualquier expresión de la forma
+a1v1+a2v2+. . .+akvk,
+con a 1,a2, . . . , ak∈K.
+===== PAGINA 7 =====
+Álgebra lineal
+Figura: Diagrama de vectores mostrando v= c1v1+c2v2
+===== PAGINA 8 =====
+Definición
+Sean v 1,v2, . . . , vk∈V. Diremos que los vectores anteriores son linealmente
+independientes si se cumple que la ecuación
+a1v1+a2v2+. . .+akvk=0
+tiene como única solución a 1=a2=· · ·=ak=0. En caso contrario, se dice que dichos
+vectores son linealmente dependientes .
+===== PAGINA 9 =====
+Ejemplo
+Considere U =⟨1,3,−2⟩, y V =⟨5,1,0⟩¿Cual (es) de los siguientes vectores es
+Combinación Lineal de U y V?
+▶ W 1=⟨14,0,2⟩
+▶ W 2=⟨1,1,1⟩
+▶ W 3=⟨13,11,−6⟩
+===== PAGINA 10 =====
+Ejemplo
+¿Son U =⟨1,3,−2⟩, y V =⟨5,1,0⟩y W 2=⟨1,1,1⟩, linealmente independientes?
+α+5β+γ= 0
+3α+β+γ= 0
+−2α+ +γ= 0(1)
+===== PAGINA 11 =====
+Definición
+Sean S ={v1,v2, . . . , vk},S⊆ V. Diremos que S genera a V si todo vector v ∈V es
+combinación lineal de los elementos de S
+Definición
+Un conjunto B ={v1,v2, . . . , vk}de generadores, linealmente independiente de un
+espacio vectorial V, es una base de V
+Ejemplo
+Los vectores U =⟨1,3,−2⟩, V=⟨5,1,0⟩y W 2=⟨1,1,1⟩, forman una base de R3
+===== PAGINA 12 =====
+Definición
+Una matriz de tamaño m ×n sobre el cuerpo de los números reales Res un conjunto
+formado por m ·n valores reales, a i,j,1≤ i≤ m, 1≤ j≤ n, distribuidos en m filas y n
+columnas de la siguiente forma:
+A=0
+BBB@a11 a12· · · a1n
+a21 a22· · · a2n............
+am1 am2· · · amn1
+CCCA.
+Escribimos A ∈Rm×n, siendo Rm×nel conjunto formado por todas las matrices m ×n.
+Asimismo, diremos que una matriz A ∈Rm×nes cuadrada si m =n, es decir, si tiene el
+mismo número de filas y de columnas.
+===== PAGINA 13 =====
+Álgebra lineal
+Sean A,B∈Rm×n. Podemos definir la suma y la resta A±Bcomo:
+A±B=0
+BBB@a11±b11 a12±b12· · · a1n±b1n
+a21±b21 a22±b22· · · a2n±b2n............
+am1±bm1 am2±bm2· · · amn±bmn1
+CCCA
+Asimismo, dado un escalar λ∈R, definimos el producto λ·Acomo
+λA=0
+BBB@λa11λa12· · · λa1n
+λa21λa22· · · λa2n............
+λam1λam2· · ·λamn1
+CCCA
+===== PAGINA 14 =====
+Álgebra lineal
+Por último, si A∈Rm×syB∈Rs×n, entonces definimos el producto matricial
+A·B∈Rm×ncomo
+A·B=0
+BBB@c11 c12· · · c1n
+c21 c22· · · c2n............
+cm1 cm2· · · cmn1
+CCCA
+donde cij=sX
+k=1ai,kbk,j=ai1b1j+ai2b2j+· · ·+aisbsj.
+===== PAGINA 15 =====
+Álgebra lineal
+Nota
+En general, el producto de matrices NO es conmutativo. Por ejemplo:
+1 0
+−1 2
+·0 1
+−3 4
+=0 1
+−6 7
+0 1
+−3 4
+·1 0
+−1 2
+=−1 2
+−7 8
+===== PAGINA 16 =====
+Matriz de adyacencia
+Definición
+Sea G un grafo simple (pero admitiendo la posible existencia de bucles) con n vértices,
+V={v1,v2, . . . , vn}. La matriz de adyacencia asociada a G es una matriz cuadrada y
+simétrica n ×n, denotada por A, tal que:
+▶ A(i,j) = 1, si los vértices v iy v jestán unidos por una arista.
+▶ A(i,j) = 0, en caso contrario.
+===== PAGINA 17 =====
+Ejemplo
+La matriz de adyacencia del grafo
+es A=0
+BB@0 1 1 0
+1 0 1 0
+1 1 0 1
+0 0 1 01
+CCA
+===== PAGINA 18 =====
+Ejemplo
+Sea G el grafo dado por 5 vértices con aristas:
+E=
+{1,2},{1,3},{2,4},{3,4},{3,5},{4,5}	
+. Entonces, G puede representarse
+gráficamente como sigue:
+la matriz de adyacencia es A=0
+BBBB@0 1 1 0 0
+1 0 0 1 0
+1 0 0 1 1
+0 1 1 0 1
+0 0 1 1 01
+CCCCA
+===== PAGINA 19 =====
+Ejemplo
+T omemos ahora la matriz de adyacencia dada por: A =0
+@1 1 1
+1 0 1
+1 1 01
+A. El grafo asociado
+tiene 3 vértices con aristas E =
+{1,1},{1,2},{1,3},{2,3}	
+. Gráficamente, el grafo
+tiene el aspecto que se muestra a continuación:
+
+===== PAGINA 20 =====
+Definición
+Sea A ∈Rn×n. Diremos que A es invertible oregular si∃B∈Rn×ntal que
+A·B=B·A=In. La matriz B recibe el nombre de matriz inversa y se denota por A−1.
+===== PAGINA 21 =====
+Álgebra lineal
+Definición
+Sea A ∈Rn×nuna matriz cuadrada de la forma0
+BBB@a11 a12· · · a1n
+a21 a22· · · a2n............
+an1 an2· · · ann1
+CCCA.
+Definimos el determinante de A de forma recurrente como sigue:
+===== PAGINA 22 =====
+▶ Si n=1,det( A) = a1,1.
+▶ Para n>1,
+det( A) =nX
+j=1(−1)1+ja1,jdet( A1,j),
+donde Ai,j∈R(n−1)×(n−1)es la matriz resultante de eliminar en Ala fila iy la
+columna j.
+===== PAGINA 23 =====
+T eorema
+El determinante de una matriz A puede calcularse de cualquiera de las siguientes formas:
+▶ Desarrollo por la fila i, 1≤ i≤ n:
+det( A) =Pn
+j=1(−1)i+jai,jdet( Ai,j).
+▶ Desarrollo por la columna j, 1≤ j≤ n:
+det( A) =Pn
+i=1(−1)i+jai,jdet( Ai,j).donde A i,j∈R(n−1)×(n−1)es la matriz resultante
+de eliminar en A la fila i y la columna j.
+===== PAGINA 24 =====
+Álgebra lineal
+T eorema
+∀A,B∈Rn×n, se cumple
+det( A·B) = det( A)·det( B).
+T eorema
+A∈Rn×nes regular si y sólo si det( A)̸=0.
+===== PAGINA 25 =====
+Definición
+El rango de una matriz A ∈Rm×nes el número máximo de columnas que, como
+vectores, son linealmente independientes entre sí. Se denota por rank (A).
+T eorema
+A∈Rn×nes regular si y sólo si rank (A) = n.
+===== PAGINA 26 =====
+Álgebra Lineal
+Definición
+Sea A ∈Rm×n. La traspuesta de la matriz A se define como la matriz A′∈Rn×mtal
+que A′(i,j) = A(j,i),1≤ i≤ n, 1≤ j≤ m.
+T eorema
+Sea A ∈Rn×nregular. Entonces la inversa de A, A−1, viene dada por
+A−1=1
+det( A)·adj(A),
+donde adj(A)es la matriz adjunta de A, dada por adj(A) = C′, con
+C(i,j) = (−1)i+j|Ai,j|,1≤ i,j≤ n, con |Ai,j|= det( Ai,j).

@@ -1,0 +1,123 @@
+Qué es la programación dinámica? Cuándo es ideal aplicar programación dinámica? Cuales son las principales tecnicas de programación dinámica?
+La programación dinámica (DP, Dynamic Programming) es una técnica de diseño de algoritmos que sirve para resolver problemas complejos dividiéndolos en subproblemas más pequeños que se repiten, guardando sus resultados para no recalcularlos.
+
+En lugar de “resolver lo mismo muchas veces”, DP resuelve cada subproblema una sola vez y reutiliza la solución.
+
+
+
+¿Qué es la programación dinámica?
+Es una forma de optimización basada en dos ideas clave:
+
+Subproblemas solapados: el mismo subproblema aparece varias veces.
+Estructura óptima: la solución global puede construirse a partir de soluciones óptimas de subproblemas.
+Un ejemplo típico es Fibonacci:
+
+F(5) = F(4) + F(3)
+F(4) = F(3) + F(2)
+F(3) se repite muchas veces
+ 
+ 
+Sin DP, recalculas lo mismo muchas veces.
+
+
+
+¿Cuándo es ideal aplicar programación dinámica?
+La programación dinámica es ideal cuando el problema cumple estas condiciones:
+
+1. Subproblemas solapados
+El problema se repite en cálculos intermedios.
+
+Ejemplo:
+
+Fibonacci
+mochila (knapsack)
+caminos en una grilla
+2. Estructura óptima
+La solución global se puede construir a partir de soluciones óptimas locales.
+
+Ejemplo:
+
+camino más corto
+optimización de costos
+planificación
+3. Problema de optimización o conteo
+Se busca:
+
+máximo / mínimo
+número de formas
+mejor decisión
+Principales técnicas de programación dinámica
+Existen dos enfoques principales:
+
+
+
+1. Top-Down (Memorización / Memoization)
+Se resuelve el problema de forma recursiva
+Se guardan resultados ya calculados
+Evita recomputación
+Ejemplo: Fibonacci con memoización
+ 
+def fibonacci(n, memo={}):
+    if n in memo:
+        return memo[n]
+ 
+    if n <= 1:
+        return n
+ 
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    return memo[n]
+ 
+ 
+print(fibonacci(10))
+ 
+ 
+Idea: “si ya lo calculé, lo reutilizo”
+
+
+
+2. Bottom-Up (Tabulación)
+Se resuelven los subproblemas desde los más pequeños
+Se construye una tabla iterativamente
+Evita recursión
+Ejemplo: Fibonacci iterativo
+ 
+def fibonacci(n):
+    if n <= 1:
+        return n
+ 
+    dp = [0] * (n + 1)
+    dp[1] = 1
+ 
+    for i in range(2, n + 1):
+        dp[i] = dp[i-1] + dp[i-2]
+ 
+    return dp[n]
+ 
+ 
+print(fibonacci(10))
+ 
+Idea: “construyo la solución paso a paso”
+
+
+
+Otras formas comunes de DP
+DP en 1D
+Fibonacci
+escalones (climbing stairs)
+DP en 2D
+mochila (knapsack)
+edición de strings (Levenshtein)
+caminos en matriz
+DP en grafos
+Floyd-Warshall (caminos mínimos)
+Bellman-Ford (en forma dinámica)
+
+
+Resumen rápido
+DP = optimizar evitando recalcular subproblemas
+Se usa cuando hay:
+repetición de subproblemas
+estructura óptima
+Dos técnicas principales:
+Top-down (memoización)
+Bottom-up (tabulación)

@@ -1,0 +1,16 @@
+La actividad trata de condensar todo lo aprendido en esta asignatura de razonamiento aproximado. Está actividad consiste en diseñar un micro-sistema de reglas de producción, con un mecanismo de inferencia basado en razonamiento aproximado.
+
+Este sistema debe contener en su base de conocimientos un número pequeño de reglas, alrededor de 5. El dominio del sistema lo dejo a vuestra elección. Puede ser por ejemplo un sistema de diagnóstico médico, de diagnóstico de averías, de ayuda a la decisión para compras o turismo, de reparaciones de ordenadores, etc… de lo que queráis, puede estar relacionado con vuestro ocio o vuestro trabajo y lo que apliquéis puede servir de semilla para usarlo en vuestro TFM.
+
+De forma más precisa, los pasos detallados que tenéis que seguir son los siguientes:
+
+Proponer un dominio y un uso inteligente que se le daría al sistema basado en reglas propuesto (brevemente el objetivo, alcance y límites, no más de media página).
+Ejemplificar en torno a 5 reglas imprecisas sobre ese dominio, del estilo a las que vemos en el curso y que permitan hacer “razonamiento hacia delante”.
+Poner un ejemplo (análogo a los estudiados en clase) de razonamiento aproximado (inferencia borrosa) con dichas reglas, basado en representación no continua de los conjuntos borrosos y usando relaciones borrosas y Modus Ponens Generalizado, eligiendo los parámetros más adecuados (función de implicación, t-normas…).
+Proponer un ejemplo (análogo a los estudiados en clase) de razonamiento aproximado (inferencia borrosa) con dichas reglas, pero ahora usando números borrosos para representar los universos de las variables de entrada y de salida, y usando un mecanismo de inferencia tipo Mamdani.
+Implementar las reglas en CLIPS/FUZZY CLIPS y poner un ejemplo de inferencia TIPO MAMDANI (anexando a la documentación los archivos de BH y BC).
+Las soluciones se deben entregar antes de la fecha límite indicada subiéndolas a la plataforma desde la actividad, en un archivo pdf que incluya el nombre del autor y las BC y BH de CLIPS (en archivos separados). Se valorará especialmente la creatividad de la propuesta.
+
+Recordad que esta actividad supone el 30% de la nota… ¡Suerte!
+
+J. A.

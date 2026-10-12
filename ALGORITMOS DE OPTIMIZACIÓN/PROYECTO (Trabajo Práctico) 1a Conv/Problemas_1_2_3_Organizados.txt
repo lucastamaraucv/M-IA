@@ -1,0 +1,140 @@
+VC4 – PROBLEMAS DEL TRABAJO PRÁCTICO 03MIAR – ALGORITMOS DE OPTIMIZACIÓN
+
+==================================================================
+PROBLEMA 1. ORGANIZAR SESIONES DE DOBLAJE (I)
+==================================================================
+
+Se precisa coordinar el doblaje de una película.
+
+Los actores del doblaje deben coincidir en las tomas en las que sus
+personajes aparecen juntos en las diferentes tomas.
+
+Los actores de doblaje cobran todos la misma cantidad por cada día que
+deben desplazarse hasta el estudio de grabación independientemente del
+número de tomas que se graben.
+
+No es posible grabar más de 6 tomas por día.
+
+El objetivo es planificar las sesiones por día de manera que el gasto
+por los servicios de los actores de doblaje sea el menor posible.
+
+Los datos son:
+
+Número de actores: 10 Número de tomas: 30
+
+Actores/Tomas
+
+Enlace del PDF: https://bit.ly/36D8IuK
+
+Enlace directo al Google Sheets:
+https://docs.google.com/spreadsheets/d/1Ipn6IrbQP4ax8zOnivdBIw2lN0JISkJG4fXndYd27U0/edit?gid=0#gid=0
+
+Interpretación: - 1 indica que el actor participa en la toma. - 0 en
+caso contrario.
+
+==================================================================
+PROBLEMA 2. ORGANIZAR LOS HORARIOS DE PARTIDOS DE LA LIGA (I)
+==================================================================
+
+Desde La Liga de fútbol profesional se pretende organizar los horarios
+de los partidos de liga de cada jornada.
+
+Se conocen algunos datos que nos deben llevar a diseñar un algoritmo que
+realice la asignación de los partidos a los horarios de forma que
+maximice la audiencia.
+
+Horarios disponibles
+
+Viernes: 20
+
+Sábado: 12, 16, 18, 20
+
+Domingo: 12, 16, 18, 20
+
+Lunes: 20
+
+==================================================================
+PROBLEMA 2. ORGANIZAR LOS HORARIOS DE PARTIDOS DE LA LIGA (II)
+==================================================================
+
+Clasificación de equipos según el número de seguidores:
+
+Categoría A: 3 equipos Categoría B: 11 equipos Categoría C: 6 equipos
+
+Audiencia base (Sábado 20h)
+
+A-A = 2 Millones A-B = 1,3 Millones A-C = 1 Millón B-B = 0,9 Millones
+B-C = 0,75 Millones
+
+==================================================================
+PROBLEMA 2. ORGANIZAR LOS HORARIOS DE PARTIDOS DE LA LIGA (III)
+==================================================================
+
+Coeficientes de reducción por horario
+
+                 Viernes   Sábado   Domingo   Lunes
+
+12h - 0,55 0,45 - 16h - 0,70 0,75 - 18h - 0,80 0,85 - 20h 0,40 1 1 0,40
+
+Debemos asignar obligatoriamente siempre un partido el viernes y un
+partido el lunes.
+
+==================================================================
+PROBLEMA 2. ORGANIZAR LOS HORARIOS DE PARTIDOS DE LA LIGA (IV)
+==================================================================
+
+Si existen coincidencias de horarios, la audiencia se reduce según:
+
+Coincidencias Reducción
+
+0 0% 1 25% 2 45% 3 60% 4 70% 5 75% 6 78% 7 80% 8 80%
+
+Los cálculos asociados a una jornada de ejemplo se realizan según se
+muestra en la siguiente tabla:
+
+Partido Cat. Hor. Base Pond. Base*Pond. Corrección
+
+Celta - Real Madrid B-A V20 1,3 0,40 0,52 0,52 Valencia - R. Sociedad
+B-A S12 1,3 0,55 0,72 0,72 Mallorca - Eibar C-C S16 0,47 0,70 0,33 0,33
+Athletic - Barcelona B-A S18 1,3 0,80 1,04 1,04 Leganés - Osasuna C-C
+S20 0,47 1,00 0,47 0,47 Villarreal - Granada B-C D16 0,75 0,75 0,56 0,42
+Alavés - Levante B-B D16 0,90 0,75 0,68 0,51 Espanyol - Sevilla B-B D18
+0,90 0,85 0,77 0,77 Betis - Valladolid B-C D20 0,75 1,00 0,75 0,75
+Atlético - Getafe B-B L20 0,90 0,40 0,36 0,36
+
+Ejemplos mostrados: 0,56 x 0,75 = 0,42 0,68 x 0,75 = 0,51
+
+Total: 5,88
+
+==================================================================
+PROBLEMA 3. COMBINAR CIFRAS Y OPERACIONES
+==================================================================
+
+El problema consiste en analizar el siguiente problema y diseñar un
+algoritmo que lo resuelva.
+
+Disponemos de las 9 cifras del 1 al 9 (excluimos el cero) y de los 4
+signos básicos de las operaciones fundamentales:
+
+-   
+-   
+-   /
+
+Debemos combinarlos alternativamente sin repetir ninguno de ellos para
+obtener una cantidad dada.
+
+Ejemplo:
+
+4+2-6/3*1 = 4
+
+Debe analizarse el problema para encontrar todos los valores enteros
+posibles planteando las siguientes cuestiones:
+
+-   ¿Qué valor máximo y mínimo se pueden obtener según las condiciones
+    del problema?
+
+-   ¿Es posible encontrar todos los valores enteros posibles entre dicho
+    mínimo y máximo?
+
+Nota: Es posible usar la función de Python “eval” para evaluar una
+expresión.

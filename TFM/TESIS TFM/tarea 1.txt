@@ -1,0 +1,207 @@
+Actúa como asesor académico especializado en Trabajos Fin de Máster en Inteligencia Artificial, metodología científica, series temporales financieras, machine learning y redes neuronales espigantes.
+
+Necesito que me ayudes a completar de forma objetiva, académica y rigurosa el formulario oficial de la OPCIÓN 2: “Proponer un TFM propio”.
+
+Mi título actual es:
+
+“Predicción de la Dirección del Precio de Bitcoin utilizando una Red Neuronal Espigante de Segmentos Temporales y Aprendizaje Automático”.
+
+Contexto real de mi propuesta:
+
+Quiero investigar si una red neuronal espigante puede aportar capacidad predictiva para anticipar la dirección del precio de Bitcoin, comparándola con modelos tradicionales de machine learning y deep learning.
+
+No quiero asumir que la red neuronal espigante será superior. El resultado puede demostrar que supera, iguala o no mejora a los modelos de comparación, y cualquiera de esos resultados debe considerarse científicamente válido.
+
+Mi planteamiento inicial incluye:
+
+- Series temporales de Bitcoin.
+- Datos históricos BTC/USD o BTC/USDT.
+- Datos OHLCV.
+- Red neuronal espigante como modelo principal.
+- Procesamiento mediante segmentos o ventanas temporales.
+- Posible uso de neuronas LIF o arquitectura SNN recurrente/reservoir, si metodológicamente corresponde.
+- Comparación con modelos baseline y modelos de ML/DL.
+- Posibles comparadores:
+  - regresión logística,
+  - Random Forest,
+  - Gradient Boosting,
+  - MLP,
+  - TCN,
+  - LSTM.
+- Validación estrictamente cronológica.
+- Separación entrenamiento / validación / prueba.
+- Prevención de data leakage y look-ahead bias.
+- Métricas posibles:
+  - Accuracy,
+  - Balanced Accuracy,
+  - ROC-AUC,
+  - F1,
+  - MCC,
+  - Brier Score,
+  - calibración.
+- Posibles estudios de ablación para analizar qué componentes de la arquitectura aportan capacidad predictiva.
+
+El proyecto será INDIVIDUAL.
+
+Actualmente NO tengo tutor asignado ni he contactado un tutor vinculado a VIU.
+
+Quiero que redactes respuestas listas para copiar y pegar en el formulario.
+
+IMPORTANTE:
+
+- No inventes resultados.
+- No inventes datasets.
+- No inventes tutores.
+- No inventes publicaciones.
+- No afirmes que la SNN será mejor.
+- No uses expresiones como “mejorará”, “superará”, “logrará mayor precisión” si todavía no hay evidencia.
+- Utiliza lenguaje científico como:
+  “evaluar”, “comparar”, “determinar”, “analizar”, “investigar”.
+- Mantén un alcance realista para un TFM.
+- Evita convertir el proyecto en una tesis doctoral.
+- Si alguna parte de mi propuesta es demasiado amplia, corrígela.
+
+Necesito que completes estos campos exactamente:
+
+1. TÍTULO DEL TFM
+
+Analiza si el título actual es correcto académicamente.
+
+Título actual:
+“Predicción de la Dirección del Precio de Bitcoin utilizando una Red Neuronal Espigante de Segmentos Temporales y Aprendizaje Automático”.
+
+Si puede mejorarse sin cambiar la esencia, propón una versión final.
+
+2. CONTEXTO Y MOTIVACIÓN DEL TFM QUE SE PROPONE
+
+Redacta entre 100 y 150 palabras.
+
+Debe explicar:
+- el problema;
+- la dificultad de predecir Bitcoin;
+- la no estacionariedad y volatilidad;
+- por qué tiene interés evaluar una SNN;
+- la necesidad de comparar contra modelos baseline;
+- sin afirmar que funcionará mejor.
+
+3. OBJETIVO GENERAL DEL TFM
+
+Redacta un único objetivo general claro, medible y científicamente defendible.
+
+Debe centrarse en diseñar, implementar y evaluar el modelo.
+
+4. POSIBLES METODOLOGÍAS DE IA PARA ABORDAR EL TFM
+
+Redacta máximo 150 palabras.
+
+Incluye:
+- SNN como modelo principal;
+- representación temporal;
+- modelos de comparación;
+- validación cronológica;
+- separación train/validation/test;
+- métricas;
+- prevención de fuga de información.
+
+No conviertas la respuesta en una metodología completa de tesis.
+
+5. DESCRIPCIÓN DEL DATASET PARA ABORDAR EL TFM
+
+Redacta máximo 120 palabras.
+
+Considera:
+- BTC/USD o BTC/USDT;
+- OHLCV;
+- Binance u otra fuente pública reproducible;
+- datos históricos;
+- variables derivadas;
+- retornos;
+- volatilidad;
+- volumen;
+- indicadores técnicos solo si son necesarios;
+- variable objetivo basada en dirección futura del precio;
+- partición cronológica.
+
+Si todavía no conviene fijar una frecuencia exacta, deja la redacción suficientemente abierta.
+
+6. ¿HAS ACORDADO EL TEMA CON UN TUTOR VINCULADO A VIU?
+
+Mi situación real es:
+No he contactado ningún tutor.
+
+Indícame exactamente qué opción debo seleccionar.
+
+7. NOMBRE DEL TUTOR VINCULADO A VIU
+
+Indica exactamente qué colocar si no tengo tutor.
+
+8. CORREO DEL TUTOR VINCULADO A VIU
+
+Indica exactamente qué colocar si no tengo tutor.
+
+9. NOMBRE DEL TUTOR EXTERNO
+
+No tengo tutor externo.
+Indica qué colocar.
+
+10. CORREO DEL TUTOR EXTERNO
+
+No tengo tutor externo.
+Indica qué colocar.
+
+11. NOMBRE DEL CO-TUTOR VINCULADO A VIU
+
+No tengo co-tutor.
+Indica qué colocar.
+
+12. CORREO DEL CO-TUTOR
+
+No tengo co-tutor.
+Indica qué colocar.
+
+13. JUSTIFICACIÓN PARA REALIZAR EL TFM DE MANERA INDIVIDUAL
+
+Mi situación real:
+
+- quiero desarrollar el TFM individualmente;
+- tengo responsabilidades laborales;
+- necesito flexibilidad para organizar investigación, programación y experimentación;
+- el proyecto requiere una línea metodológica única;
+- quiero mantener trazabilidad homogénea de los experimentos.
+
+Redacta una justificación académica, breve y profesional.
+
+No debe sonar como excusa.
+
+14. INTEGRANTES DEL EQUIPO
+
+El formulario contiene:
+
+- Integrante #1
+- Integrante #2
+- Integrante #3
+- Integrante #4
+
+Como el TFM será individual, indícame qué debo escribir exactamente.
+
+Si Integrante #1 es obligatorio y no permite dejarlo vacío, indica si conviene colocar:
+
+“No aplica – TFM individual”
+
+o alguna alternativa más adecuada.
+
+FORMATO DE RESPUESTA:
+
+Devuélveme una tabla con:
+
+CAMPO DEL FORMULARIO | RESPUESTA EXACTA PARA PEGAR | OBSERVACIÓN
+
+Después agrega una revisión final muy breve con:
+
+- coherencia científica;
+- viabilidad como TFM;
+- alcance;
+- posibles afirmaciones demasiado fuertes;
+- puntos que conviene dejar abiertos.
+
+No inventes información para completar campos faltantes.

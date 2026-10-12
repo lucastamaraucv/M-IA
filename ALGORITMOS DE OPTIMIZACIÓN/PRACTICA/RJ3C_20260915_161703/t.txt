@@ -1,0 +1,61 @@
+All temp files removed successfully.
+
+@@Q3.2@@
+df_clean['age'] = df_clean['age'].fillna(df_clean.groupby('pclass')['age'].transform('median'))
+print(df_clean['age'].isnull().sum())
+@@FIN@@
+@@Q3.3@@
+df_clean['family_size'] = df_clean['sibsp'] + df_clean['parch'] + 1
+print(df_clean[['sibsp', 'parch', 'family_size']].head())
+@@FIN@@
+@@Q3.4@@
+primera_clase_caros = df_clean[(df_clean['pclass'] == 1) & (df_clean['fare'] > 100)]
+cantidad = len(primera_clase_caros)
+puertos = primera_clase_caros['embark_town'].value_counts()
+print(cantidad, puertos)
+@@FIN@@
+@@Q4.1@@
+sns.histplot(data=df_clean, x='fare', hue='pclass')
+plt.show()
+@@FIN@@
+@@Q4.2@@
+sns.pairplot(df_clean, vars=['age', 'fare', 'family_size', 'sibsp'], hue='survived')
+# Age y fare son las variables que separan visualmente mejor a supervivientes de no supervivientes: los supervivientes se concentran en edades mas bajas y fares mas altos, mientras que family_size y sibsp muestran mas solapamiento entre ambos grupos.
+plt.show()
+@@FIN@@
+
+--- captura adicional ---
+Archivo temporal eliminado y todas las soluciones verificadas.
+
+@@Q1.2@@
+print(df.shape)
+print(df.dtypes)
+print(df.describe())
+@@FIN@@
+
+@@Q1.4@@
+print(df['pclass'].value_counts())
+print(df['embarked'].value_counts())
+@@FIN@@
+
+@@Q2.1@@
+fare = df['fare'].dropna().to_numpy()
+media = np.mean(fare)
+mediana = np.median(fare)
+desviacion_standard = np.std(fare)
+rango = np.max(fare) - np.min(fare)
+print(media, mediana, desviacion_standard, rango)
+@@FIN@@
+
+@@Q2.2@@
+age = df['age'].dropna().to_numpy()
+z_score = (age - np.mean(age)) / np.std(age)
+print(z_score[:5])
+@@FIN@@
+
+@@Q2.3@@
+media_global = np.mean(df['fare'].dropna().to_numpy())
+categoria = np.where(df['fare'].to_numpy() > media_global, 'caro', 'economico')
+unicos, conteos = np.unique(categoria, return_counts=True)
+print(dict(zip(unicos, conteos)))
+@@FIN@@

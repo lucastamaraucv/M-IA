@@ -1,0 +1,686 @@
+====================================================================
+RESUMEN CONSOLIDADO — CAPÍTULO 4 (CLASIFICACIÓN) + TEMA 5 (NOTEBOOKS)
+Curso: Aprendizaje Supervisado
+Fuentes:
+  - PDF del manual del curso, páginas 74-98 (Capítulo 4: Clasificación + Glosario)
+  - Notebook: aprendizaje_supervisado_tema5_LORG_DT.ipynb (Regresión Logística + Árboles de Decisión)
+  - Notebook: aprendizaje_supervisado_Clasificacion_SVM.ipynb (SVM)
+  - evaluacion_funciones.py (funciones auxiliares de evaluación y graficado)
+Todas las citas [PDF p.N] remiten a la numeración de página impresa en el propio texto extraído.
+====================================================================
+
+
+####################################################################
+SUBTEMA 1: REGRESIÓN LOGÍSTICA (LOGR)
+####################################################################
+
+--------------------------------------------------------------
+1.1. Qué es y para qué sirve
+--------------------------------------------------------------
+La regresión logística (LOGR, de logistic regression) también se conoce como regresión logit,
+clasificación por máxima entropía o clasificación log-linear. A pesar de su nombre, NO es un
+algoritmo de regresión, sino de clasificación [PDF p.74].
+
+La idea central es encontrar una frontera lineal entre dos clases a partir de la transformación
+exponencial de una combinación lineal de los atributos. Esa transformación exponencial define una
+frontera suave entre las dos clases y genera una distribución de probabilidad continua con forma de
+"S", llamada función logística [PDF p.74].
+
+El objetivo del clasificador LOGR no es predecir directamente si la clase de un ejemplo e_i es 0 o 1,
+sino predecir la probabilidad P_i de que la clase sea 1. Una vez obtenida esa probabilidad, se aplica
+una regla de decisión simple: si P_i > 0,5 la predicción es 1; si P_i ≤ 0,5 la predicción es 0. Aunque
+0,5 es el umbral habitual, se puede usar otro umbral (incluso buscado automáticamente para maximizar
+la bondad de las predicciones) [PDF p.75].
+
+Para medir la bondad de clasificadores que estiman probabilidades se usa la métrica AUC (area under
+curve), que es el área bajo la curva ROC (receiver operating characteristic). La curva ROC mide la
+relación entre tasa de aciertos y tasa de falsos positivos en función del umbral de clasificación.
+Cuanto mayor el área bajo la curva ROC, mejor el clasificador; un clasificador perfecto tiene AUC = 1
+[PDF p.75].
+
+--------------------------------------------------------------
+1.2. Función sigmoide / logística — fórmula
+--------------------------------------------------------------
+Fórmula del modelo LOGR según el PDF [PDF p.77] (la predicción "y sombrero" es un número real
+entre 0 y 1):
+
+    ŷ = 1 / (1 + e^(-(w0 + w1·x1 + ... + wp·xp)))
+
+Fórmula equivalente presentada en el notebook, con la variable genérica t = w0 + w1·x1 + ... :
+
+    σ(t) = e^t / (1 + e^(-t))
+
+(nótese que el notebook la escribe con e^t en el numerador y e^(-t) en el denominador; el PDF usa la
+forma clásica 1/(1+e^(-t)); ambas expresiones son formulaciones equivalentes de la función logística).
+
+Código real del notebook (celda 3, aprendizaje_supervisado_tema5_LORG_DT.ipynb) — define e implementa
+la función sigmoide en Python:
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Definición de la función sigmoide/logística:
+
+    def sigmoide(x):
+        output = np.exp(x)/(1+np.exp(x))
+        return output
+
+Código real que grafica la función (celda 4) — dibuja la curva en forma de "S" y su asíntota vertical en t=0:
+
+    x = np.linspace(-20,20,400)
+    y=sigmoide(x)
+
+    plt.figure(figsize=(8,6))
+
+    plt.plot(x,y)
+    plt.axvline(x=0,color='k',linestyle='--')
+    plt.xlabel("t")
+    plt.ylabel("$\sigma$(t)")
+    plt.title("Función logística o sigmoide")
+
+Observaciones textuales del notebook sobre la forma de la sigmoide (celda 5):
+  - La función sigmoide tiende rápidamente a cero para valores negativos.
+  - La función sigmoide tiende rápidamente a 1 para valores positivos.
+  - σ(t) < 0.5 si t < 0.
+  - σ(t) ≥ 0.5 si t ≥ 0.
+  - De ahí se deduce que el modelo predice clase 1 si x^T·w es positivo, y clase 0 si es negativo.
+
+El notebook también presenta la forma vectorial general (celda 6):
+
+    h_w(x) = σ(x^T·w) = e^(w0+w1·x1+w2·x2+...) / (1 + e^(w0+w1·x1+w2·x2+...))
+    Probabilidad_Clase_1 = P(Y=1|X) = σ(x^T·w) = e^(x^T·w) / (1 + e^(x^T·w))
+
+y compara explícitamente con la regresión lineal: mientras que la regresión lineal ajusta
+y = w0 + w1·x1 + w2·x2 + ..., la regresión logística toma ese mismo resultado lineal (x^T·w) y lo
+pasa por la función sigmoide para convertirlo en una probabilidad entre 0 y 1.
+
+--------------------------------------------------------------
+1.3. Frontera de decisión, "log-odds" y umbral
+--------------------------------------------------------------
+La frontera de decisión del modelo LOGR binario es el lugar geométrico de los puntos que cumplen:
+
+    w0 + w1·x1 + ... + wp·xp = 0
+
+Si el conjunto de datos tiene un único atributo, la frontera es un punto (en R); si tiene dos
+atributos, la frontera es una recta (en R²), y así sucesivamente. Cuando esa combinación lineal vale 0,
+el valor de ŷ resultante es exactamente 0,5 (el umbral de decisión) [PDF p.78].
+
+Tabla de valores extremos del modelo LOGR [PDF p.78, Tabla 7]:
+
+    Combinación lineal (w0+w1·x1+...+wp·xp)   ->   ŷ
+              -∞                                    0    (mínimo)
+               0                                   0,5    (mitad / umbral)
+              +∞                                    1    (máximo)
+
+Nota: los valores exactos 0 y 1 nunca se alcanzan realmente porque w y x son siempre valores finitos
+[PDF p.78].
+
+--------------------------------------------------------------
+1.4. Entrenamiento: función objetivo (verosimilitud)
+--------------------------------------------------------------
+El entrenamiento de LOGR consiste en encontrar los coeficientes w0,...,wp que maximizan la siguiente
+función objetivo (función de verosimilitud / likelihood function) [PDF p.77]:
+
+    f(w0,...,wp) = Σ_i [ y_i · ln(ŷ_i) + (1 - y_i) · ln(1 - ŷ_i) ]
+
+En esta función solo "cuentan" los aciertos, y cuentan más cuanto más próximo a 0 o a 1 esté el valor
+de probabilidad predicho. El primer sumando (y_i·ln(ŷ_i)) es distinto de 0 cuando la clase real y_i=1,
+y su valor es más alto cuanto mayor sea ŷ_i. El segundo sumando ((1-y_i)·ln(1-ŷ_i)) es distinto de 0
+cuando y_i=0, y su valor es más alto cuanto menor sea ŷ_i [PDF p.77].
+
+Para optimizar los coeficientes existen varias estrategias de búsqueda; la clase LogisticRegression de
+scikit-learn implementa LOGR usando, entre otros, el algoritmo coordinate descent (CD) [PDF p.78].
+También, al igual que en regresión lineal, se puede regularizar (L1/Lasso, L2/Ridge) para evitar el
+sobreajuste, añadiendo un término a la función objetivo que empuja los coeficientes hacia 0 [PDF p.78].
+
+--------------------------------------------------------------
+1.5. Clasificación multiclase con LOGR (One-vs-Rest)
+--------------------------------------------------------------
+LOGR está diseñado originalmente para clasificación binaria, pero puede resolver problemas
+multinomiales (m>2 clases) descomponiendo el problema en m subproblemas binarios de tipo
+One-vs-Rest (OvR, "uno contra el resto"). En cada subproblema se entrena un clasificador binario que
+distingue una clase concreta frente a todas las demás; luego, con las fronteras de todos los
+clasificadores binarios, se construyen las regiones de decisión multiclase calculando las bisectrices
+entre las fronteras [PDF p.76-77].
+
+--------------------------------------------------------------
+1.6. Código real de ejemplo — Programa 15 (LOGR sobre "iris")
+--------------------------------------------------------------
+Del PDF [PDF p.78-79], ejemplo con validación cruzada de 10 bolsas sobre el dataset "iris" (usando
+solo 2 atributos, los del pétalo):
+
+    import sklearn.metrics as metrics
+    from sklearn.datasets import load_iris
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import cross_val_predict
+    from sklearn.model_selection import KFold
+    from evaluacion_funciones import *
+
+    # Carga de datos.
+    datos = load_iris()
+    datos.data = datos.data[:,2:] # Tomamos solo 2 atributos.
+
+    # Construcción del algoritmo de aprendizaje.
+    seed = 1
+    algoritmos = {'LOGR': LogisticRegression(solver='sag',
+                          max_iter=1000, random_state=seed,
+                          multi_class='ovr')}
+
+    # Métricas de evaluación.
+    metricas = {
+      'ACC':    metrics.accuracy_score,
+      'PREC':   lambda y_true, y_pred:
+                metrics.precision_score(y_true, y_pred,
+                  average='micro'),
+      'RECALL': lambda y_true, y_pred:
+                metrics.recall_score(y_true, y_pred,
+                  average='micro'),
+      'F1':     lambda y_true, y_pred:
+                metrics.f1_score(y_true, y_pred, average='micro')}
+
+    # Validación y obtención de las predicciones del modelo.
+    seed = 1
+    y_pred = {}
+    for nombre, alg in algoritmos.items():
+        y_pred[nombre] = cross_val_predict(alg,datos.data,datos.target,
+                      cv = KFold(n_splits=10, random_state=seed))
+    # Evaluación y presentación de resultados.
+    for nombre, alg in algoritmos.items():
+        eval = evaluacion(datos.target, y_pred[nombre], metricas)
+        modelo_completo = alg.fit(datos.data, datos.target)
+        mapa_modelo_clasif_2d(datos.data, datos.target,
+                              modelo_completo, eval, nombre)
+        print("Matriz de confusión (%s):\n%s" % (nombre,
+          metrics.confusion_matrix(datos.target, y_pred[nombre])))
+        print("Tabla de métricas (%s):\n%s" % (nombre,
+          metrics.classification_report(datos.target,
+                                 y_pred[nombre], digits=3)))
+
+Qué hace: entrena un LogisticRegression con solver 'sag' (stochastic average gradient descent,
+eficiente en tiempo de ejecución), multi_class='ovr' (3 clasificadores binarios internos porque
+"iris" tiene 3 clases), max_iter=1000, valida con KFold de 10 bolsas, y evalúa con exactitud (ACC),
+precisión (PREC), sensibilidad (RECALL) y F1 [PDF p.79-80].
+
+Resultado real obtenido (Salida 15, [PDF p.79-80]): matriz de confusión
+[[50 0 0] [1 40 9] [0 4 46]], con F1 promedio = 0,906/0,907 (14 errores de clasificación en total).
+
+Código real del notebook para el mismo tipo de tarea, pero sobre datos sintéticos (make_blobs) con
+frontera lineal (celda 12, SVM/LOGR notebook y notebook de tema5):
+
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=4)
+    LR = LogisticRegression(C=0.01, solver='liblinear').fit(X_train,y_train)
+
+    xx, yy = np.mgrid[X.min(0)[0]:X.max(0)[0]:.01, X.min(0)[1]:X.max(0)[1]:.01]
+    grid = np.c_[xx.ravel(), yy.ravel()]
+    probs = LR.predict_proba(grid)[:, 1].reshape(xx.shape)
+    # ... contourf con las probabilidades P(y=1) sobre la malla
+
+Qué hace: entrena LOGR con regularización C=0.01 y solver 'liblinear', y pinta un mapa de contorno con
+la probabilidad P(y=1) predicha en cada punto del plano — visualiza directamente cómo la sigmoide
+mapea la combinación lineal de atributos a probabilidades continuas.
+
+Resultado observado en el notebook con validación cruzada (cross_val_score, 3 folds):
+  - Datos con frontera lineal (make_blobs): ~95% de aciertos — LOGR funciona muy bien.
+  - Datos en forma de "medias lunas" (make_moons, frontera no lineal): ~86% de aciertos — peor
+    desempeño, porque LOGR solo puede trazar fronteras lineales.
+  - Datos en anillos concéntricos (make_circles, no separables linealmente): ~49% de aciertos —
+    desempeño muy pobre, prácticamente aleatorio, porque no existe ninguna recta que separe las clases.
+
+Esto confirma empíricamente la limitación teórica señalada en el PDF: "el modelo LOGR solo es capaz
+de crear una única frontera de decisión lineal entre dos clases" [PDF p.82].
+
+--------------------------------------------------------------
+1.7. Ventajas e inconvenientes de LOGR [PDF p.81-82]
+--------------------------------------------------------------
+Ventajas:
+  - Simplicidad del modelo (ecuación matemática simple, similar a OLS).
+  - Fácil interpretabilidad: la magnitud del coeficiente indica importancia del atributo, y el signo
+    indica si la relación con la clase es directa (+) o inversa (-).
+  - Tiempo de entrenamiento razonable (similar a OLS, algo mayor por los exponentes/logaritmos).
+  - Predicción casi instantánea una vez entrenado el modelo.
+
+Inconvenientes:
+  - Asume independencia estadística entre atributos (poca tolerancia a correlación entre variables).
+  - Excesiva simplicidad: solo genera una única frontera de decisión lineal por clase, insuficiente
+    cuando las regiones de decisión reales son complejas o no lineales.
+
+
+####################################################################
+SUBTEMA 2: ÁRBOLES DE DECISIÓN
+####################################################################
+
+--------------------------------------------------------------
+2.1. Qué son y cómo funcionan conceptualmente
+--------------------------------------------------------------
+Un árbol de decisión (decision tree) es un tipo de modelo de conocimiento que se genera a partir de
+datos y sirve tanto para clasificación como para regresión (en este último caso se llama árbol de
+regresión, con una construcción análoga) [PDF p.82].
+
+La idea conceptual es dividir el conjunto de datos de forma jerárquica en trozos cada vez menores
+hasta llegar a trozos donde los ejemplos son todos (o casi todos) de la misma clase. Cada división se
+hace normalmente usando un único atributo por vez, de forma recursiva, filtrando las filas según los
+valores de ese atributo [PDF p.82].
+
+Un árbol es una estructura de nodos y aristas sin ciclos, con un nodo raíz. Cada nodo interno contiene
+el nombre de un atributo a evaluar; cada arista indica un valor (o rango de valores) de ese atributo;
+los nodos hoja (sin más aristas salientes) dan la predicción final [PDF p.83].
+
+--------------------------------------------------------------
+2.2. Ejemplo guía del PDF: dataset "jugar-tenis" [PDF p.82-84, Tabla 8]
+--------------------------------------------------------------
+Dataset de 14 instancias con 5 atributos (Day, Outlook, Temp, Humidity, Wind) y una clase (Play:
+Yes/No). El objetivo es predecir si se jugará al tenis según las condiciones meteorológicas.
+
+Ejemplo de lectura del árbol: para un día soleado (Outlook=Sunny) con Humidity=Normal, el árbol
+primero mira el nodo raíz "Outlook" -> sigue la arista "Sunny" -> llega a un nodo "Humidity" -> sigue
+la arista "Normal" -> llega a un nodo hoja con predicción "Yes" (se juega al tenis), sin necesidad de
+mirar Temp ni Wind. Esto ilustra que ciertos atributos pueden resultar irrelevantes para una
+predicción concreta si el árbol ya alcanzó una hoja pura antes de necesitarlos [PDF p.83-84].
+
+Regla extraída en formato "si..., entonces...": si Outlook=Sunny y Humidity=Normal, entonces Play=Yes
+[PDF p.85].
+
+Para construir el árbol, el algoritmo debe asignar a cada nodo el atributo "más apropiado", es decir,
+el que mejor discrimine las clases de los ejemplos según sus valores posibles [PDF p.84].
+
+--------------------------------------------------------------
+2.3. Algoritmos clásicos de construcción [PDF p.85]
+--------------------------------------------------------------
+- ID3 (Ross Quinlan, 1986): genera árboles n-arios (más de dos aristas por nodo). Selecciona el mejor
+  atributo en cada nodo mediante la métrica de ganancia de información (information gain). Incluye
+  poda del árbol (tree pruning) tras la construcción para eliminar nodos que causarían sobreajuste.
+  Limitación: solo admite atributos categóricos (no numéricos).
+
+- C4.5 (sucesor de ID3, mismo autor): sí admite atributos numéricos, creando automáticamente puntos
+  de corte en el rango de valores. Una vez construido el árbol, extrae todas las reglas de decisión
+  posibles "si..., entonces..." (un camino raíz->hoja = una regla), las ordena por eficacia y poda las
+  que empeoran la eficacia global.
+
+- CART (classification and regression trees): similar a C4.5, permite clasificación y regresión.
+  A diferencia de ID3 y C4.5, CART produce únicamente árboles binarios (máximo dos aristas por nodo).
+  La librería scikit-learn implementa una versión optimizada de CART, pero solo admite atributos
+  numéricos (no categóricos) — esta es la clase DecisionTreeClassifier.
+
+--------------------------------------------------------------
+2.4. Criterios de partición: Gini y entropía (ganancia de información)
+--------------------------------------------------------------
+Del PDF: el PDF menciona explícitamente que existen métricas como "Gini o la entropía" para
+seleccionar los atributos más prometedores en cada nodo, y remite a un artículo externo para el
+detalle numérico (no reproduce las fórmulas exactas de Gini/entropía en el propio texto) [PDF p.85].
+También menciona la "ganancia de información" (information gain) como la métrica usada por ID3
+[PDF p.85].
+
+Del notebook (celda 42, aprendizaje_supervisado_tema5_LORG_DT.ipynb) — explicación en lenguaje llano:
+"Existen dos métodos principales: usando el coeficiente de Gini o la entropía. Para seleccionar el
+método a usar en sklearn podemos invocar criterion='gini' o criterion='entropy'. Sin entrar en detalle
+matemáticos, podemos decir que ambas métricas evalúan la inhomogeneidad de los datos. El objetivo es
+entonces encontrar las características que permitan obtener nodos más puros, es decir, menos
+inhomogéneos en cada etapa de la decisión."
+
+Datos concretos verificables extraídos de las figuras reales del PDF (árbol CART entrenado sobre
+"iris", con el valor de gini mostrado en cada nodo) [PDF p.91, Figura 21]:
+  - Nodo raíz: "petal length (cm) <= 2.45", gini = 0.667, samples = 150, value=[50,50,50]
+  - Nodo hoja resultante (Sunny/True): gini = 0.0, samples = 50, value=[50,0,0], class=setosa
+    (gini = 0 indica un nodo "puro": todas las muestras son de la misma clase)
+  - Nodo intermedio: "petal width (cm) <= 1.75", gini = 0.5, samples = 100, value=[0,50,50]
+  - Nodo: "petal length (cm) <= 4.95", gini = 0.168, samples = 54, value=[0,49,5]
+
+Esto confirma numéricamente el concepto de "pureza": gini=0 en un nodo hoja significa que todas sus
+muestras pertenecen a una única clase (nodo puro); valores de gini más altos (hasta 0.667 en la raíz,
+con 3 clases balanceadas) indican mayor mezcla de clases.
+
+Fórmula de referencia del índice de Gini (concepto estándar de CART, coherente con lo descrito en el
+notebook y el PDF, para un nodo con clases k=1..K y proporciones p_k):
+
+    Gini = 1 - Σ_k (p_k)²
+
+Fórmula de referencia de la entropía (usada como alternativa con criterion='entropy'):
+
+    Entropía = - Σ_k p_k · log2(p_k)
+
+(Ambas métricas valen 0 cuando el nodo es puro —una sola clase— y aumentan cuanto más mezcladas están
+las clases; sklearn las usa para elegir, en cada nodo, el atributo y punto de corte que más reduce la
+impureza de los nodos hijos resultantes.)
+
+--------------------------------------------------------------
+2.5. Poda y control de sobreajuste
+--------------------------------------------------------------
+Del PDF [PDF p.94]: el riesgo de sobreajuste aumenta cuando el árbol crece demasiado (muchos nodos y
+aristas), especializándose en el conjunto de entrenamiento y generalizando mal. Existen mecanismos
+para evitarlo: podar el árbol (eliminar nodos), establecer un umbral mínimo de ejemplos por nodo hoja,
+o limitar la profundidad máxima del árbol.
+
+Del notebook (celda 41) — mismo concepto con nombres concretos de hiperparámetros de sklearn:
+"Existen dos estrategias comunes para prevenir el sobreajuste. La primera, llamada pre-podado
+(pre-pruning), consiste en detener la evolución del árbol, por ejemplo limitando el número de capas
+(profundidad), el número de hojas o exigiendo un número mínimo de puntos por nodo para proceder a
+dividirlo. La segunda estrategia se llama post-podado (post-pruning), la cual consiste en remover o
+fusionar nodos que contienen poca información." Los hiperparámetros concretos de sklearn citados son:
+max_depth (profundidad del árbol), max_leaf_nodes (número máximo de nodos hoja) y min_samples_split
+(número mínimo de muestras que debe tener el nodo antes de dividirse).
+
+--------------------------------------------------------------
+2.6. Código real de ejemplo — Programa 16 (CART/DecisionTreeClassifier sobre iris/wine/breast-cancer)
+--------------------------------------------------------------
+Del PDF [PDF p.87-88]:
+
+    from sklearn import tree
+    from sklearn import datasets
+    import sklearn.metrics as metrics
+    from sklearn.model_selection import KFold
+    from sklearn.model_selection import cross_val_predict
+    from evaluacion_funciones import *
+    seed = 1
+    #######################################
+    #  PASO 1. CARGA DE CONJUNTOS DE DATOS.
+    datos = {
+      'IRIS': datasets.load_iris(),
+      'WINE': datasets.load_wine(),
+      'BREAST-CANCER': datasets.load_breast_cancer()
+    }
+    ####################################################
+    # PASO 2. CONSTRUCCIÓN DE ALGORITMOS DE APRENDIZAJE.
+    algoritmos = {
+      'DT': tree.DecisionTreeClassifier()
+    }
+    #######################################
+    # PASO 3. CONSTRUCCIÓN DE EXPERIMENTOS.
+    experimentos = {
+      'DT -> IRIS': (algoritmos['DT'], datos['IRIS']),
+      'DT -> WINE': (algoritmos['DT'], datos['WINE']),
+      'DT -> BREAST-CANCER': (algoritmos['DT'],
+                              datos['BREAST-CANCER'])
+    }
+    ###############################################
+    # PASO 4. DEFINICIÓN DE MÉTRICAS DE EVALUACIÓN.
+    metricas = {
+      'ACC':    metrics.accuracy_score,
+      'PREC':   lambda y_true, y_pred:
+                metrics.precision_score(y_true, y_pred,
+                                        average='micro'),
+      'RECALL': lambda y_true, y_pred:
+                metrics.recall_score(y_true, y_pred,
+                                     average='micro'),
+      'F1':     lambda y_true, y_pred:
+                metrics.f1_score(y_true, y_pred, average='micro')
+    }
+    #####################################################
+    # PASO 5. VALIDACIÓN Y OBTENCIÓN DE LAS PREDICCIONES.
+    y_pred = {}
+    for nombre, exp in experimentos.items():
+        y_pred[nombre] = cross_val_predict(exp[0], exp[1].data,
+           exp[1].target, cv=KFold(n_splits=10,random_state=seed))
+    ##################################################
+    # PASO 6. EVALUACIÓN Y PRESENTACIÓN DE RESULTADOS.
+    for nombre, exp in experimentos.items():
+       eval = evaluacion(exp[1].target, y_pred[nombre], metricas)
+       print("Matriz de confusión (%s):\n%s" % (nombre,
+         metrics.confusion_matrix(exp[1].target, y_pred[nombre])))
+       print("Tabla de métricas (%s):\n%s" % (nombre,
+                                     metrics.classification_report(exp[1].target,
+                                     y_pred[nombre], digits=3)))
+       modelo_completo_2d = exp[0].fit(exp[1].data[:,:2],
+                                       exp[1].target)
+       mapa_modelo_clasif_2d(exp[1].data[:,:2], exp[1].target,
+                             modelo_completo_2d, eval, nombre)
+       if (nombre.startswith('DT')):
+          modelo_completo = exp[0].fit(exp[1].data,
+                                       exp[1].target)
+          mostrar_modelo_arbol(modelo_completo, exp[1],
+                        nombre_archivo = nombre.replace('>',''))
+
+Qué hace: entrena DecisionTreeClassifier() (algoritmo CART) con hiperparámetros por defecto sobre tres
+datasets (iris, wine, breast-cancer), valida con KFold de 10 bolsas, calcula matriz de confusión y
+métricas, y genera visualizaciones tanto del mapa de regiones 2D como del árbol completo
+(mostrar_modelo_arbol usa tree.export_graphviz internamente, ver evaluacion_funciones.py).
+
+Resultados reales obtenidos (Salida 16, [PDF p.93]):
+  - DT -> IRIS: F1 promedio = 0,933 (mejor que LOGR, que obtuvo F1=0,907/0,906 en el mismo dataset).
+  - DT -> WINE: F1 promedio = 0,859.
+  - DT -> BREAST-CANCER: F1 promedio = 0,932.
+
+El PDF señala que las fronteras de decisión de CART son ortogonales a los ejes de los atributos
+(porque los puntos de corte se aplican atributo por atributo), a diferencia de LOGR que solo genera
+una única frontera lineal por clase [PDF p.89].
+
+Código real del notebook — control de la profundidad del árbol y su efecto visual en el sobreajuste
+(celda 36):
+
+    from matplotlib.colors import ListedColormap
+    for i in range(1,9,2):
+      dt = DecisionTreeClassifier(max_depth=i)
+      dt.fit(X,y)
+
+      plt.figure()
+      mglearn.plots.plot_2d_classification(dt,X,fill=True, cm=ListedColormap(['blue','orange']))
+      mglearn.discrete_scatter(X[:, 0], X[:, 1], y)
+      plt.title('Profundidad:'+str(i))
+      plt.show()
+
+Qué hace: entrena varios árboles con profundidades crecientes (1,3,5,7) sobre un dataset sintético de
+"medias lunas" (make_moons) y muestra cómo las regiones de clasificación se vuelven progresivamente
+más complejas e irregulares (sobreajuste) a mayor profundidad.
+
+Código real — importancia de características (celdas 43, 46-50), usado tanto en el ejemplo de
+juguete como en el dataset de cáncer de mama:
+
+    dt.feature_importances_
+
+    cancer = load_breast_cancer()
+    X_can=cancer.data
+    y_can=cancer.target
+
+    from sklearn.model_selection import train_test_split
+    X_can_train, X_can_test, y_can_train, y_can_test = train_test_split(X_can, y_can, test_size=0.3, random_state=1)
+
+    cancerTree=DecisionTreeClassifier().fit(X_can_train,y_can_train)
+    cancerTree.feature_importances_
+
+    from sklearn import metrics
+    y_can_pred = cancerTree.predict(X_can_test)
+    print("Accuracy:",metrics.accuracy_score(y_can_test, y_can_pred))
+
+Qué hace: entrena un DecisionTreeClassifier sobre el dataset de cáncer de mama (breast_cancer, 30
+atributos) con partición train/test 70/30, y consulta feature_importances_ (atributo del modelo
+entrenado que indica qué tan importante fue cada característica para las decisiones del árbol —
+relacionado con cuánto redujo la impureza cada atributo en los nodos donde se usó).
+
+Código real de exportación gráfica del árbol (celda 39), coherente con mostrar_modelo_arbol() de
+evaluacion_funciones.py:
+
+    from sklearn.tree import export_graphviz
+    import graphviz
+
+    export_graphviz(dt, out_file="tree.dot", class_names=["orange", "blue"],
+      feature_names=["feat1", "feat2"], impurity=False, filled=True)
+
+    with open("tree.dot") as f:
+      dot_graph = f.read()
+    graphviz.Source(dot_graph)
+
+--------------------------------------------------------------
+2.7. Ventajas e inconvenientes de los árboles de decisión (CART) [PDF p.93-94]
+--------------------------------------------------------------
+Ventajas:
+  - Simplicidad del modelo: fácilmente legibles/interpretables de forma jerárquica; los atributos en
+    la parte alta del árbol son más relevantes que los de la parte baja.
+  - Fácil interpretabilidad de las predicciones: basta trazar el camino raíz->hoja para obtener la
+    regla "si..., entonces..." que explica la predicción.
+  - Tiempo de entrenamiento razonable incluso en datasets grandes.
+  - Predicción muy rápida (tiempo logarítmico respecto al número de instancias de entrenamiento).
+  - Gran flexibilidad: robustos frente a outliers, valores ausentes y atributos en distintas escalas
+    (requieren menos preparación de datos).
+
+Inconvenientes:
+  - Riesgo de sobreajuste (árboles muy grandes que no generalizan); se mitiga con poda, umbral mínimo
+    de ejemplos por hoja o profundidad máxima limitada.
+  - Sensibilidad al desbalanceo de clases (como la mayoría de clasificadores no especializados en
+    ello).
+
+Nota adicional del notebook (celda 52), coherente con lo anterior: "Podemos decir como conclusión que
+los árboles de desición tienen dos ventajas respecto a los demás algoritmos. El modelo resultante
+puede ser comprendido y visualizado fácilmente y los algoritmos son independientes de la escala de los
+datos. Por otro lado, la principal falencia es que los árboles de decisión suelen tender a sobreajustar
+los datos, incluso cuando se aplica el pre-podado."
+
+
+####################################################################
+SUBTEMA 3: SVM — SUPPORT VECTOR MACHINES (tema adicional, no está en el PDF)
+####################################################################
+
+Aviso importante: el notebook aprendizaje_supervisado_Clasificacion_SVM.ipynb NO contiene celdas de
+teoría (markdown) sobre SVM — es un notebook enteramente de código práctico (solo hay una celda de
+encabezado con el enlace a Colab, y el resto son 18 celdas de código). Por tanto, los conceptos de
+hiperplano, margen máximo, vectores de soporte y kernels NO aparecen explicados textualmente en
+ninguna de las dos fuentes proporcionadas (ni el PDF —que no cubre SVM— ni este notebook). Para no
+inventar contenido, aquí se documenta ÚNICAMENTE lo que el código real demuestra en la práctica.
+
+--------------------------------------------------------------
+3.1. Código real completo del flujo SVM (evaluacion_funciones.py + notebook SVM)
+--------------------------------------------------------------
+Imports y carga de datos (celdas 1-2):
+
+    import sklearn.metrics as metrics
+    from sklearn.datasets import load_iris
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import cross_val_predict, cross_val_score, train_test_split, KFold
+    from sklearn import preprocessing, svm
+    from evaluacion_funciones import *
+
+    # Carga de datos.
+    datos = load_iris()
+    X = datos.data
+    y = datos.target
+    print(np.shape(X))
+
+Partición externa train/test (celda 4):
+
+    X_training, X_testing, y_training, y_testing = train_test_split(X, y, test_size=0.2, random_state=42)
+
+Estandarización de los datos de entrenamiento (celda 7) — paso previo habitual antes de SVM, porque el
+algoritmo es sensible a la escala de los atributos:
+
+    standardizer = preprocessing.StandardScaler()
+    stdr_trained = standardizer.fit(X_training)
+    X_stdr = stdr_trained.transform(X_training)
+
+Construcción del modelo SVM (celda 9) — usa la clase SVC (Support Vector Classification) de
+sklearn.svm, con el hiperparámetro de regularización C=10 y probability=True (para poder pedir
+probabilidades con predict_proba más adelante):
+
+    algoritmos = {'SVM': svm.SVC(C=10, random_state=42, probability=True)}
+
+Validación cruzada interna (celda 10):
+
+    y_pred = {}
+    for nombre, alg in algoritmos.items():
+        y_pred[nombre] = cross_val_predict(alg, X_stdr, y_training, cv=KFold(n_splits=10, shuffle=True, random_state=42))
+        results = evaluacion(y_training, y_pred[nombre], metricas)
+        print(metrics.confusion_matrix(y_training, y_pred[nombre]))
+
+Entrenamiento del modelo definitivo (celda 11):
+
+    model = algoritmos['SVM'].fit(X_stdr, y_training)
+
+Predicción y evaluación sobre el conjunto de test (celdas 14, 16-17):
+
+    X_test_stdr = stdr_trained.transform(X_testing)
+    y_pred_test = model.predict(X_test_stdr)
+    results = evaluacion(y_testing, y_pred_test, metricas)
+    print(results)
+    print(metrics.confusion_matrix(y_testing, y_pred_test))
+
+Curva ROC / AUC para el modelo SVM multiclase (celda 18):
+
+    y_proba_test = model.predict_proba(X_test_stdr) # "predict_proba" para extraer probabilidades vez de predicciones
+    y_test_bin = preprocessing.label_binarize(y_testing, classes=[0,1,2]) # Usar "label_binarize" en el caso de problemas multiclase
+    auc = metrics.roc_auc_score(y_testing, y_proba_test, multi_class='ovr', average=None) # Area Under the ROC curve (AUC)
+    fpr, tpr, th = metrics.roc_curve(y_test_bin[:,0], y_proba_test[:,0])
+    plt.plot(fpr, tpr)
+    plt.xlabel('False positive rate')
+    plt.ylabel('True positive rate')
+    plt.title('AUC = ' + str(np.round(auc,4)))
+    plt.grid()
+    plt.show()
+
+Qué hace todo el flujo: replica la misma estructura metodológica que LOGR/CART en el resto del curso
+(partición train/test, estandarización, validación cruzada interna con KFold, entrenamiento del modelo
+final, evaluación con matriz de confusión y métricas, y finalmente curva ROC/AUC), pero usando
+svm.SVC en vez de LogisticRegression o DecisionTreeClassifier, sobre el dataset "iris".
+
+--------------------------------------------------------------
+3.2. Datos concretos verificables sobre la llamada a SVC en el código
+--------------------------------------------------------------
+- Clase usada: sklearn.svm.SVC (Support Vector Classification).
+- Hiperparámetro C=10 (parámetro de regularización/penalización por error de clasificación; no se
+  explica su efecto en el notebook, solo se fija su valor).
+- kernel: no se especifica explícitamente en la llamada svm.SVC(C=10, random_state=42,
+  probability=True), por lo que sklearn usa su valor por defecto, que es kernel='rbf' (kernel de
+  base radial / gaussiano) — esto es un hecho verificable de la propia firma de la clase SVC de
+  sklearn, no una explicación dada por el notebook.
+- probability=True: habilita el cálculo de predict_proba() (necesario para las curvas ROC/AUC), a
+  costa de un entrenamiento interno adicional (calibración de Platt).
+- El preprocesamiento con StandardScaler antes de entrenar el SVM es coherente con el hecho conocido
+  (y estándar en la práctica de sklearn) de que SVM es sensible a la escala de los atributos, aunque
+  el notebook no lo explica en una celda de texto — solo lo hace en el código.
+
+--------------------------------------------------------------
+3.3. Conceptos NO cubiertos por las fuentes (aviso explícito, no inventado)
+--------------------------------------------------------------
+Ni el PDF ni el notebook de SVM explican con texto teórico: qué es un hiperplano separador, la noción
+de margen máximo, qué son los vectores de soporte, ni el catálogo de kernels disponibles (lineal,
+polinómico, rbf, etc.) más allá del hecho verificable de que 'rbf' es el valor por defecto de SVC. Si
+se necesita esa teoría para el Modo Maestro, debería buscarse en una fuente adicional (por ejemplo,
+la bibliografía citada en el propio PDF: James et al. 2013/2024, capítulo de SVM, o la documentación
+oficial de scikit-learn) — no se ha incluido aquí para respetar la instrucción de no inventar
+contenido fuera de las fuentes proporcionadas.
+
+
+####################################################################
+ANEXO: DEFINICIONES DE GLOSARIO ÚTILES (PDF p.95-98)
+####################################################################
+
+- Matriz de confusión [PDF p.96]: métrica de tipo matriz que contiene el recuento de predicciones
+  realizadas por un algoritmo organizadas por su correspondencia con la clase real. Es cuadrada, de
+  orden igual al número de clases del conjunto de datos.
+
+- Sobreajuste (overfitting) [PDF p.97]: fenómeno indeseado que sucede cuando un algoritmo de
+  aprendizaje construye modelos de complejidad elevada que minimizan mucho los errores de
+  entrenamiento a costa de aumentar los errores de generalización.
+
+- Subajuste (underfitting) [PDF p.97]: fenómeno contrario al sobreajuste; el algoritmo construye
+  modelos de escasa complejidad, incapaces de reflejar las relaciones importantes del conjunto de
+  datos.
+
+- Errores de entrenamiento [PDF p.96]: errores cometidos por un modelo al predecir los mismos ejemplos
+  con los que fue entrenado.
+
+- Errores de generalización [PDF p.96]: errores cometidos por un modelo al predecir ejemplos de un
+  conjunto de test distinto al de entrenamiento.
+
+- Validación cruzada [PDF p.98]: se parte el conjunto de datos original en subconjuntos (bolsas/folds)
+  de igual tamaño; se realizan validaciones hold-out usando en cada iteración una bolsa distinta como
+  test y el resto como entrenamiento.
+
+- Validación hold-out [PDF p.98]: el conjunto de datos se divide una única vez en entrenamiento y
+  test, según un porcentaje fijado.
+
+- Validación estratificada [PDF p.98]: los conjuntos de test generados guardan aproximadamente la
+  misma distribución de clases que los de entrenamiento.
+
+- Validación leave-one-out [PDF p.98]: caso particular de validación cruzada en el que el número de
+  bolsas coincide con el número de instancias del conjunto de datos.
+
+- Instancia [PDF p.96]: una fila de una tabla de datos (también llamada ejemplo, muestra, observación,
+  punto o prototipo).
+
+- Atributo [PDF p.95]: variable (columna) de una tabla de datos que actúa como entrada del modelo.
+
+- Clase [PDF p.95]: variable (columna) que actúa como salida en aprendizaje supervisado.
+
+====================================================================
+FIN DEL RESUMEN
+====================================================================

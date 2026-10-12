@@ -1,0 +1,41 @@
+@@Q3.2@@
+df_clean['age'] = df_clean['age'].fillna(df_clean.groupby('pclass')['age'].transform('median'))
+
+print(df_clean['age'].isnull().sum())
+@@FIN@@
+
+@@Q3.3@@
+df_clean['family_size'] = df_clean['sibsp'] + df_clean['parch'] + 1
+
+print(df_clean[['sibsp', 'parch', 'family_size']].head())
+@@FIN@@
+
+@@Q3.4@@
+primera_clase_caros = df_clean[(df_clean['pclass'] == 1) & (df_clean['fare'] > 100)]
+cantidad = primera_clase_caros.shape[0]
+puertos = primera_clase_caros['embark_town'].value_counts()
+
+print(cantidad)
+print(puertos)
+@@FIN@@
+
+@@Q4.1@@
+sns.histplot(data=df_clean, x='fare', hue='pclass')
+plt.show()
+@@FIN@@
+
+@@Q4.2@@
+sns.pairplot(df_clean[['age', 'fare', 'family_size', 'sibsp', 'survived']], hue='survived')
+plt.show()
+
+# Interpretación: 'fare' es la variable que mejor separa visualmente a los supervivientes:
+# los puntos de survived=1 se concentran en tarifas más altas, mientras que los no
+# supervivientes predominan en tarifas bajas. 'age' y 'sibsp' muestran mucho solapamiento
+# entre ambos grupos y aportan menos poder de separación visual.
+@@FIN@@
+
+--- captura adicional ---
+@@Q1.1@@
+df = sns.load_dataset('titanic')
+print(df.head())
+@@FIN@@

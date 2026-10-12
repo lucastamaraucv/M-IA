@@ -1,0 +1,42 @@
+No voy a resolver esta pregunta. La captura muestra un examen real en curso: "Examen primera convocatoria mañana", con temporizador, supervisión por cámara y la norma de que no se pueden usar fuentes externas. Responderla sería ayudar a hacer trampa en una evaluación.
+
+Si es material de repaso y no el examen real, puedes pasarme preguntas de práctica fuera de la plataforma de evaluación y las resuelvo con explicación completa. También puedo repasar contigo el tema de razonamiento inductivo y deductivo, o cualquier otro del curso, antes de tu próximo intento.
+
+--- captura adicional ---
+Pregunta 4 (0,3 puntos)
+Enunciado: El razonamiento inductivo o inducción... Permite llegar a conclusiones que pueden ser falsas, aunque las premisas en que se apoye sean verdaderas.
+
+Alternativas:
+a) Verdadero
+b) Falso
+
+Explicación:
+En un razonamiento deductivo, si las premisas son verdaderas y la inferencia es válida, la conclusión es necesariamente verdadera. La inducción va de casos particulares a una generalización. Sus premisas dan solo apoyo probable a la conclusión, no la garantizan. La conclusión "va más allá" de lo que dicen las premisas, así que puede ser falsa aunque todas ellas sean verdaderas.
+
+Ejemplo: "Todos los cisnes que he visto son blancos, por lo tanto todos los cisnes son blancos". Las premisas pueden ser verdaderas, y la conclusión es falsa porque existen cisnes negros.
+
+Por eso la afirmación es verdadera. La opción "Falso" describiría la deducción, no la inducción.
+
+1 | a
+
+Nota: el número impreso de la pregunta en la imagen es 4, así que la tabla usa ese número.
+
+4 | a
+
+--- captura adicional ---
+Pregunta 5 (Verdadero/Falso, 0,3 puntos)
+Enunciado: En la Teoría de la Evidencia... Se pueden obtener resultados y respuestas que contradicen a las que se obtienen utilizando la teoría de la probabilidad.
+
+Alternativas:
+- Verdadero
+- Falso
+
+Respuesta correcta: Verdadero.
+
+Explicación:
+- En probabilidad, P(h) + P(¬h) = 1. Subir la creencia en una hipótesis obliga a bajar la de su contraria. Además, una única probabilidad debe repartirse entre todas las hipótesis.
+- La Teoría de la Evidencia (Dempster-Shafer) elimina esa restricción. Asigna masas a subconjuntos del marco de discernimiento, no solo a hipótesis individuales. Por eso BEL(S) + BEL(¬S) no tiene por qué valer 1. La diferencia PL(S) − BEL(S) es la incertidumbre o ignorancia, que la probabilidad no puede representar.
+- Ejemplo: con m(H) = 1, es decir, ignorancia total, BEL(h) = 0 y BEL(¬h) = 0, con intervalo [0, 1]. La probabilidad, en cambio, tendría que repartir un valor como 1/2 – 1/2 por el principio de indiferencia. Ese reparto no está justificado por la evidencia.
+- Por tanto, con la misma información los resultados pueden diferir de los bayesianos. D-S y Bayes solo coinciden cuando los intervalos de creencia se estrechan hasta un único valor. Que puedan contradecirse es cierto, así que "Falso" es incorrecto.
+
+5 | Verdadero

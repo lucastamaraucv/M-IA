@@ -1,0 +1,600 @@
+================================================================================
+FORO EVALUABLE — CADENAS DE MARKOV
+02MIAR: Matemáticas para la Inteligencia Artificial
+================================================================================
+
+
+================================================================================
+(2 pts) IDEAS & CONCEPTOS
+================================================================================
+
+PREGUNTA 1: Que es un proceso estocástico, que tipos hay y que aplicaciones tienen?
+--------------------------------------------------------------------------------
+Un proceso estocástico es una colección {X(t), t ∈ T} de variables aleatorias
+indexadas por un parámetro t (usualmente el tiempo). La diferencia con una sola
+variable aleatoria: no tenés un único valor random, tenés toda una trayectoria
+temporal aleatoria. Cada realización del proceso es una función del tiempo, lo
+que se conoce como una trayectoria o path.
+
+Tipos principales:
+
+  Por espacio de estados:
+    - Discreto: S finito o numerable — número de clientes en una cola, estado
+      del clima (soleado/nublado/lluvioso), posición de un ajedrecista en un tablero
+    - Continuo: S es un intervalo real — precio de BTC, temperatura, voltaje
+
+  Por parámetro de tiempo:
+    - Tiempo discreto: T = {0, 1, 2, ...} — el caso típico en ML
+    - Tiempo continuo: T = [0, ∞) — modelos de colas, procesos físicos
+
+  Los más relevantes en práctica:
+    - Cadenas de Markov (DTMC/CTMC): espacio discreto, propiedad sin memoria
+    - Proceso de Poisson: conteo de eventos en tiempo continuo
+    - Movimiento browniano: base de Black-Scholes y los diffusion models (DDPM)
+    - Martingalas: fair game, base de finanzas cuantitativas
+    - Cadenas de Markov de tiempo continuo (CTMC): para modelar colas M/M/1
+
+Aplicaciones reales:
+    - ML/IA: modelos de lenguaje (generación de texto como proceso secuencial),
+      Hidden Markov Models para speech recognition, MCMC para inferencia bayesiana
+    - RL: todos los algoritmos (Q-learning, PPO, SAC, A3C) se formulan como MDPs,
+      que son una extensión directa de las cadenas de Markov
+    - Finanzas: pricing de derivados, gestión de riesgo crediticio, volatilidad
+      estocástica (modelos GARCH, Heston)
+    - Biología: modelos SIR de epidemias, evolución genética de poblaciones
+    - Ingeniería: teoria de colas (redes de comunicación, call centers),
+      PageRank de Google (que es exactamente una cadena de Markov sobre el grafo
+      de la web — sección 8.3 del texto de Cambridge)
+
+
+PREGUNTA 2: De que tipo de proceso estocástico son las cadenas de Markov?
+--------------------------------------------------------------------------------
+Las cadenas de Markov son procesos estocásticos de tiempo discreto con espacio
+de estados discreto que satisfacen la propiedad de Markov (propiedad sin memoria).
+
+El punto clave es:
+  P(X_{n+1} = j | X_n = i, X_{n-1}, ..., X_0) = P(X_{n+1} = j | X_n = i) = p_{ij}
+
+El estado futuro depende SOLO del estado presente, no del historial completo.
+No importa cómo llegaste al estado i, solo importa que estás en i.
+
+Formalmente (definición 1.2 del texto de Weber, Cambridge): se dice que (X_n)_{n≥0}
+es una cadena de Markov con distribución inicial λ y matriz de transición P si para
+todo n ≥ 0 e i_0, ..., i_{n+1} ∈ I:
+
+  (i)  P(X_0 = i_0) = λ_{i_0}
+  (ii) P(X_{n+1} = i_{n+1} | X_0 = i_0, ..., X_n = i_n) = P(X_{n+1} = i_{n+1} | X_n = i_n)
+       = p_{i_n i_{n+1}}
+
+Se definen con tres elementos:
+  - Espacio de estados I (discreto, finito o numerable)
+  - Distribución inicial λ = (λ_i : i ∈ I)
+  - Matriz de transición P = (p_{ij} : i, j ∈ I)
+
+La distribución conjunta queda determinada por:
+  P(X_0 = i_0, ..., X_n = i_n) = λ_{i_0} · p_{i_0 i_1} · ... · p_{i_{n-1} i_n}
+
+Una propiedad central es la Markov property (Teorema 2.3): dado X_m = i, el
+proceso (X_{m+n})_{n≥0} es independiente de X_0, ..., X_{m-1}. Esto es lo que
+hace que el análisis sea manejable.
+
+
+PREGUNTA 3: Que aplicaciones tienen los Procesos de Decisión de Markov (MDP) en IA?
+--------------------------------------------------------------------------------
+Un MDP extiende la cadena de Markov con acciones y recompensas:
+  (S, A, P, R, γ) donde γ ∈ [0,1) es el discount factor
+
+El agente aprende una política π: S → A que maximiza la recompensa acumulada
+esperada (return):  E[Σ_{t=0}^∞ γ^t R_{t+1}]
+
+Este framework IS reinforcement learning. Todo agente que toma decisiones
+secuenciales bajo incertidumbre en un entorno con dinámica estocástica es un MDP.
+
+Aplicaciones concretas en IA:
+  1. RL general: Q-learning, DQN, PPO, SAC, TD3 — todos resuelven MDPs
+  2. Robótica: navegación autónoma, control de brazos robóticos, drones
+  3. Games: AlphaGo, AlphaZero (DeepMind) — MDP + MCTS + deep learning
+  4. NLP/LLMs: el fine-tuning por RLHF (Reinforcement Learning from Human
+     Feedback) usa MDPs donde el estado es la conversación, la acción es el
+     siguiente token, y la recompensa viene de preferencias humanas
+  5. Medicina: optimización de protocolos de tratamiento personalizado (dosificación
+     de insulina, secuenciación de quimioterapia)
+  6. Data centers: scheduling de recursos, gestión de energía (Google lo usa)
+  7. Trading algorítmico: gestión dinámica de carteras, ejecución de órdenes,
+     donde el estado es el orderbook + posición actual y la acción es comprar/
+     vender/hold
+
+La conexión con cadenas de Markov es directa: el proceso subyacente de estados
+en un MDP sigue la propiedad de Markov, y la distribución estacionaria del MDP
+bajo una política fija es exactamente la distribución invariante de la cadena de
+Markov inducida por esa política.
+
+
+PREGUNTA 4: Que es una matriz estocástica y que aplicación tienen en los procesos de Markov?
+--------------------------------------------------------------------------------
+Una matriz estocástica P (n×n) satisface dos condiciones (definición 1.2 del texto):
+
+  1. p_{ij} ≥ 0  para todo i, j  (no negatividad — son probabilidades)
+  2. Σ_j p_{ij} = 1  para todo i  (cada fila es una distribución de probabilidad)
+
+La entrada p_{ij} = P(X_{n+1} = j | X_n = i) es la probabilidad de transitar del
+estado i al estado j en un paso. La fila i describe la distribución completa de
+estados de mañana dado que hoy estás en el estado i.
+
+Aplicaciones en procesos de Markov:
+
+  - Evolución del estado a lo largo del tiempo:
+      P(X_n = j) = (λ P^n)_j   →   v_n = v_0 · P^n
+
+  - Matriz de transición en n pasos (sección 1.5):
+      P^{(n)} = P^n  (ecuaciones de Chapman-Kolmogorov)
+      p_{ij}^{(n+m)} = Σ_k p_{ik}^{(n)} p_{kj}^{(m)}
+
+  - Estado estacionario: resolver π · P = π  (distribución invariante)
+
+  - Análisis estructural (sección 2.4): clases comunicantes, estados absorbentes,
+    irreducibilidad, recurrencia y transitoriedád
+
+  - PageRank (sección 8.3): Google modela la web como una matriz estocástica
+    donde p_{ij} = probabilidad de que un surfer aleatorio vaya de la página i a j.
+    La distribución estacionaria π da el ranking de importancia de cada página.
+
+Ojo: la conexión con deep learning es directa. Las attention weights en los
+Transformers son matrices estocásticas — el softmax por filas garantiza
+que cada fila sume 1, lo que es exactamente la condición de matriz estocástica.
+
+
+PREGUNTA 5: Que es el vector de estado de un proceso de Markov y que representa?
+--------------------------------------------------------------------------------
+El vector de estado en el instante n es:
+
+  v_n = (P(X_n = 1), P(X_n = 2), ..., P(X_n = k))
+
+Condiciones: v_n(i) ≥ 0  y  Σ_i v_n(i) = 1
+
+NO dice en qué estado está el sistema en el instante n — dice cuán probable es
+que esté en cada uno de los posibles estados. Es una distribución de probabilidad
+sobre el espacio de estados completo en el instante n.
+
+La evolución del vector de estado (sección 1.5):
+  v_n = v_0 · P^n
+
+Cada aplicación de P actualiza la distribución de probabilidad según las
+probabilidades de transición. Si hoy tenés v_0, mañana tenés v_1 = v_0 · P,
+pasado mañana v_2 = v_0 · P^2, y así sucesivamente.
+
+Esto corresponde a la notación de la sección 1.5 del texto: P(X_n = j) = (λ P^n)_j,
+donde λ es la distribución inicial (que en nuestra notación es v_0).
+
+Analogia con ML: el vector de estado es como una distribución softmax sobre clases
+en un clasificador — no es una etiqueta fija, es una distribución de probabilidad
+sobre las posibilidades. A medida que n → ∞, v_n converge a la distribución
+estacionaria π (para cadenas ergódicas), independientemente de v_0.
+
+
+PREGUNTA 6: Que es el estado estacionario? Como se calcula? Que significado tiene?
+--------------------------------------------------------------------------------
+La distribución estacionaria (o invariante) π = (π_1, ..., π_k) es la distribución
+de probabilidad que NO cambia al aplicar la matriz de transición P:
+
+  π · P = π   con   π_i ≥ 0  y  Σ_i π_i = 1
+
+Tambien se llama distribución de equilibrio o distribución estacionaria (secciones
+7.5 y 7.6 del texto).
+
+Como se calcula (Left Hand Equations, sección 7.4):
+  El sistema π · P = π se puede escribir componente a componente:
+    Σ_i π_i · p_{ij} = π_j   para todo j
+
+  Como el sistema es homogéneo, una ecuación es linealmente dependiente de las
+  demás (la suma de todas da 0 = 0). Por eso se reemplaza una de las ecuaciones
+  por la restricción de normalización:   π_1 + π_2 + ... + π_k = 1.
+
+  Resultado: k ecuaciones, k incógnitas, sistema con solución única si la cadena
+  es irreducible y positivamente recurrente (Teorema 9.1 del texto).
+
+Significado (secciones 7.3, 9, 10):
+
+  1. Limite a largo plazo: para cadenas ergódicas (irreducibles, aperiódicas y
+     positivamente recurrentes), por el Teorema 9.8 (convergencia al equilibrio):
+       lim_{n→∞} p_{ij}^{(n)} = π_j   para todo i, j
+     independientemente del estado inicial i.
+
+  2. Tiempo medio de retorno (Teorema 9.1): m_i = E_i(T_i) = 1/π_i
+     Si π_i es grande, el sistema visita el estado i frecuentemente y tarda poco
+     en volver.
+
+  3. Proporción de tiempo (Teorema ergódico 10.2): la fracción del tiempo que el
+     proceso pasa en el estado i converge casi seguramente a π_i:
+       V_i(n)/n → π_i   casi seguramente cuando n → ∞
+
+  En la práctica: sin importar donde empezó la cadena, a largo plazo la distribución
+  de probabilidad converge siempre a π. Eso es la propiedad ergódica en acción.
+
+
+================================================================================
+(1 pt) MODELO DEL CLIMA — GENERALIDADES
+================================================================================
+Estados: (1) Soleado, (2) Nublado, (3) Lluvioso
+
+PREGUNTA 1: Puede la siguiente matriz ser una matriz de transición?
+--------------------------------------------------------------------------------
+         | 0.2   0.5   0.4 |
+Q  =     | 0.1   0.5   0.3 |
+         | 0.7   0.5  -0.2 |
+
+NO. Q no puede ser una matriz de transición de Markov. Falla dos condiciones:
+
+  Condición 1 — No negatividad:
+    q_{33} = -0.2 < 0
+    Una probabilidad nunca puede ser negativa. Esto viola directamente la definición
+    de matriz estocástica.
+
+  Condición 2 — Filas estocásticas (cada fila debe sumar exactamente 1):
+    Fila 1: 0.2 + 0.5 + 0.4 = 1.1 ≠ 1  (falla)
+    Fila 2: 0.1 + 0.5 + 0.3 = 0.9 ≠ 1  (falla)
+    Fila 3: 0.7 + 0.5 - 0.2 = 1.0       (esta sí pasa, pero las anteriores no)
+
+  Por lo tanto, Q falla tanto la no negatividad como la condición de normalización
+  por filas. No puede ser una matriz de transición de ningún proceso de Markov.
+
+
+PREGUNTA 2: Puede algún vector ser el vector de estado actual?
+--------------------------------------------------------------------------------
+Condiciones para que un vector sea un vector de estado válido:
+  (i)  Todas las componentes ≥ 0
+  (ii) La suma de todas las componentes = 1
+
+  u_0 = (0.3, 0.6, 0.7):
+    Componentes ≥ 0: OK (todas positivas)
+    Suma: 0.3 + 0.6 + 0.7 = 1.6 ≠ 1  → NO VÁLIDO
+
+  w_0 = (0.2, 0.1, 0.5):
+    Componentes ≥ 0: OK (todas positivas)
+    Suma: 0.2 + 0.1 + 0.5 = 0.8 ≠ 1  → NO VÁLIDO
+
+  Ninguno de los dos vectores puede ser un vector de estado actual. Ambos fallan
+  la condición de normalización: la probabilidad total de estar en algún estado
+  debe ser exactamente 1, y ninguno de los dos lo cumple.
+
+
+================================================================================
+(5 pts) MODELO DEL CLIMA — EJERCICIO
+================================================================================
+
+Matriz de transición:
+         | 0.2   0.5   0.3 |
+P  =     | 0.1   0.6   0.3 |
+         | 0.5   0.3   0.2 |
+
+Estado actual: v_0 = (0.75, 0.20, 0.05)
+  v_0 = (P(S_0), P(N_0), P(L_0)) = (0.75, 0.20, 0.05)
+
+Regla de evolución: v_{n+1} = v_n · P
+
+
+PREGUNTA 1: Vector de estado para mañana v_1 = v_0 · P
+--------------------------------------------------------------------------------
+  P(S) = 0.75(0.2) + 0.20(0.1) + 0.05(0.5)
+       = 0.150 + 0.020 + 0.025
+       = 0.195
+
+  P(N) = 0.75(0.5) + 0.20(0.6) + 0.05(0.3)
+       = 0.375 + 0.120 + 0.015
+       = 0.510
+
+  P(L) = 0.75(0.3) + 0.20(0.3) + 0.05(0.2)
+       = 0.225 + 0.060 + 0.010
+       = 0.295
+
+  v_1 = (0.195, 0.510, 0.295)   [suma = 1.000 ✓]
+
+  Observación: aunque hoy hay 75% de probabilidad de sol, mañana el estado
+  dominante es nublado (51%). Tiene sentido: la matriz P tiene alta probabilidad
+  de permanecer nublado (p_{22} = 0.6) y bajas probabilidades de transitar a
+  soleado desde los otros estados.
+
+
+PREGUNTA 2: Estado para pasado mañana (v_2) y en tres dias (v_3)
+--------------------------------------------------------------------------------
+  v_2 = v_1 · P:
+
+    P(S) = 0.195(0.2) + 0.510(0.1) + 0.295(0.5)
+         = 0.0390 + 0.0510 + 0.1475
+         = 0.2375
+
+    P(N) = 0.195(0.5) + 0.510(0.6) + 0.295(0.3)
+         = 0.0975 + 0.3060 + 0.0885
+         = 0.4920
+
+    P(L) = 0.195(0.3) + 0.510(0.3) + 0.295(0.2)
+         = 0.0585 + 0.1530 + 0.0590
+         = 0.2705
+
+  v_2 = (0.2375, 0.4920, 0.2705)   [suma = 1.000 ✓]
+
+
+  v_3 = v_2 · P:
+
+    P(S) = 0.2375(0.2) + 0.4920(0.1) + 0.2705(0.5)
+         = 0.0475 + 0.0492 + 0.1353
+         = 0.2320
+
+    P(N) = 0.2375(0.5) + 0.4920(0.6) + 0.2705(0.3)
+         = 0.1188 + 0.2952 + 0.0812
+         = 0.4952
+
+    P(L) = 0.2375(0.3) + 0.4920(0.3) + 0.2705(0.2)
+         = 0.0713 + 0.1476 + 0.0541
+         = 0.2730
+
+  v_3 = (0.2320, 0.4952, 0.2730)   [suma ≈ 1.000 ✓, diferencia por redondeo]
+
+  Se observa claramente la convergencia hacia el estado estacionario (calculado
+  en la Pregunta 3). En solo 3 pasos la memoria del estado inicial (75% sol) casi
+  desaparece por completo:
+
+    v_0 = (0.7500, 0.2000, 0.0500)  ← inicio (casi todo sol)
+    v_1 = (0.1950, 0.5100, 0.2950)
+    v_2 = (0.2375, 0.4920, 0.2705)
+    v_3 = (0.2320, 0.4952, 0.2730)
+    π  ≈ (0.2323, 0.4949, 0.2727)  ← límite (ver Pregunta 3)
+
+
+PREGUNTA 3: Estado estacionario de la matriz P
+--------------------------------------------------------------------------------
+Busco π = (π_1, π_2, π_3) tal que π · P = π y π_1 + π_2 + π_3 = 1.
+
+  El sistema π(P − I) = 0 expandido (Left Hand Equations, sección 7.4):
+
+    π_1 = 0.2π_1 + 0.1π_2 + 0.5π_3   →  -0.8π_1 + 0.1π_2 + 0.5π_3 = 0  ...(I)
+    π_2 = 0.5π_1 + 0.6π_2 + 0.3π_3   →   0.5π_1 - 0.4π_2 + 0.3π_3 = 0  ...(II)
+    π_3 = 0.3π_1 + 0.3π_2 + 0.2π_3   →   0.3π_1 + 0.3π_2 - 0.8π_3 = 0  ...(III)
+    π_1 + π_2 + π_3 = 1                                                    ...(IV)
+
+  (Una de las ecuaciones I-III es linealmente dependiente, por eso se usa IV)
+
+  De (I): π_2 = 8π_1 - 5π_3   ...(*)
+
+  Sustituyo (*) en (II):
+    0.5π_1 - 0.4(8π_1 - 5π_3) + 0.3π_3 = 0
+    0.5π_1 - 3.2π_1 + 2.0π_3 + 0.3π_3 = 0
+    -2.7π_1 + 2.3π_3 = 0
+    π_3 = (2.7/2.3)π_1 = (27/23)π_1
+
+  Sustituyo en (*):
+    π_2 = 8π_1 - 5(27/23)π_1
+        = (184/23 - 135/23)π_1
+        = (49/23)π_1
+
+  Aplicando (IV):
+    π_1 + (49/23)π_1 + (27/23)π_1 = 1
+    π_1 · (23 + 49 + 27)/23 = 1
+    π_1 · (99/23) = 1
+    π_1 = 23/99
+
+  Por lo tanto:
+    π_1 = 23/99,   π_2 = 49/99,   π_3 = 27/99
+
+  ESTADO ESTACIONARIO:
+    π = (23/99, 49/99, 27/99) ≈ (0.2323, 0.4949, 0.2727)
+
+  Verificación π · P = π:
+    (23×0.2 + 49×0.1 + 27×0.5)/99 = (4.6 + 4.9 + 13.5)/99 = 23/99 ✓
+    (23×0.5 + 49×0.6 + 27×0.3)/99 = (11.5 + 29.4 + 8.1)/99 = 49/99 ✓
+    (23×0.3 + 49×0.3 + 27×0.2)/99 = (6.9 + 14.7 + 5.4)/99 = 27/99 ✓
+
+  Interpretación: a largo plazo, sin importar el estado inicial, el clima
+  estará Soleado 23.2%, Nublado 49.5% y Lluvioso 27.3% del tiempo.
+  Nótese que v_3 ya está muy cerca de π, lo que ilustra la convergencia
+  rápida garantizada por el Teorema 9.8 (convergencia al equilibrio) para
+  cadenas ergódicas (irreducibles, aperiódicas y positivamente recurrentes).
+
+
+PREGUNTA 4: Que vector de estado produce v = (0.75, 0.20, 0.05) mañana?
+--------------------------------------------------------------------------------
+Busco x = (x_1, x_2, x_3) tal que x · P = (0.75, 0.20, 0.05).
+
+  Sistema de ecuaciones:
+    (A): 0.2x_1 + 0.1x_2 + 0.5x_3 = 0.75
+    (B): 0.5x_1 + 0.6x_2 + 0.3x_3 = 0.20
+    (C): 0.3x_1 + 0.3x_2 + 0.2x_3 = 0.05
+    (D): x_1 + x_2 + x_3 = 1
+
+  Usando (D): x_3 = 1 - x_1 - x_2. Sustituyo en (A):
+
+    0.2x_1 + 0.1x_2 + 0.5(1 - x_1 - x_2) = 0.75
+    0.2x_1 + 0.1x_2 + 0.5 - 0.5x_1 - 0.5x_2 = 0.75
+    -0.3x_1 - 0.4x_2 = 0.25   ...(A')
+
+  Sustituyo x_3 = 1 - x_1 - x_2 en (B):
+
+    0.5x_1 + 0.6x_2 + 0.3(1 - x_1 - x_2) = 0.20
+    0.5x_1 + 0.6x_2 + 0.3 - 0.3x_1 - 0.3x_2 = 0.20
+    0.2x_1 + 0.3x_2 = -0.10   ...(B')
+
+  De (B'): x_1 = (-0.10 - 0.3x_2) / 0.2 = -0.5 - 1.5x_2
+
+  Sustituyo en (A'):
+    -0.3(-0.5 - 1.5x_2) - 0.4x_2 = 0.25
+    0.15 + 0.45x_2 - 0.4x_2 = 0.25
+    0.05x_2 = 0.10
+    x_2 = 2.0
+
+  Entonces:
+    x_1 = -0.5 - 1.5(2.0) = -3.5
+    x_3 = 1 - (-3.5) - 2.0 = 2.5
+
+  Solución matemática: x = (-3.5, 2.0, 2.5)
+
+  Esta solución NO es un vector de estado válido porque x_1 = -3.5 < 0
+  (una probabilidad no puede ser negativa).
+
+  Conclusión: NO existe ningún vector de estado válido que produzca
+  v = (0.75, 0.20, 0.05) como estado de mañana con esta matriz P.
+
+  La razón es estructural: la máxima probabilidad de sol mañana que puede
+  generar esta matriz P es 0.5 (cuando x = (0, 0, 1), es decir, partiendo
+  100% desde lluvia, P(S mañana) = p_{31} = 0.5). Pedir P(S mañana) = 0.75
+  es imposible con esta P — ninguna combinación convexa de las filas de P
+  puede dar 0.75 en la primera columna.
+
+
+PREGUNTA 5: Interpretación de p_{ij}
+--------------------------------------------------------------------------------
+a) p_{ij} es la probabilidad condicional de que el sistema esté en el estado j
+   mañana (en el instante n+1), dado que hoy (en el instante n) está en el
+   estado i:
+
+     p_{ij} = P(X_{n+1} = j | X_n = i)
+
+   La fila i de la matriz P describe la distribución completa de probabilidades
+   sobre los estados de mañana, dado que hoy el sistema está en el estado i.
+   Por eso cada fila suma 1: es una distribución de probabilidad.
+
+   Esta es exactamente la definición 1.2 del texto de referencia de Cambridge
+   (Richard Weber): p_{i_n i_{n+1}} es la probabilidad de transición en un paso
+   del estado i_n al estado i_{n+1}.
+
+b) Matriz P con filas = estado HOY, columnas = estado MAÑANA:
+
+              S(j=1)  N(j=2)  L(j=3)
+   S (i=1) [  0.2     0.5     0.3  ]
+   N (i=2) [  0.1     0.6     0.3  ]
+   L (i=3) [  0.5     0.3     0.2  ]
+
+     i)  P(S|S_0) = p_{11} = 0.2
+         Si hoy está soleado, hay 20% de probabilidad de que mañana también
+         lo esté. El sol es el estado menos persistente de los tres.
+
+     ii) P(N|L_0) = p_{32} = 0.3
+         Si hoy llueve, hay 30% de probabilidad de que mañana esté nublado.
+
+     iii) P(L|N_0) = p_{23} = 0.3
+          Si hoy está nublado, hay 30% de probabilidad de que mañana llueva.
+
+
+================================================================================
+(2 pts) TENSORES — RESUMEN DEL ARTÍCULO
+================================================================================
+Referencia: "A Simple and Efficient Tensor Calculus for Machine Learning"
+Sören Laue, Matthias Mitterreiter, Joachim Giesen
+arXiv: 2010.03313v1 — Friedrich-Schiller-Universität Jena, Octubre 2020
+
+---
+
+PROBLEMA QUE RESUELVE EL ARTÍCULO
+-----------------------------------
+Calcular derivadas de expresiones tensoriales es fundamental en ML: es lo que
+permite entrenar modelos. El problema concreto: los frameworks estándar
+(TensorFlow, PyTorch, autograd, JAX) son muy eficientes para calcular gradientes
+(derivadas de funciones escalares respecto a sus parámetros), pero son varios
+órdenes de magnitud más lentos cuando se necesitan Jacobianos y Hessianos
+(derivadas de vectores o matrices, necesarias para optimizadores de segundo orden).
+
+Un paper previo de los mismos autores (NeurIPS 2018) resolvía esto de forma
+eficiente, pero usaba la notación de Ricci, que distingue índices covariantes
+(abajo) y contravariantes (arriba). Esta notación es matemáticamente rigurosa pero
+incompatible con TensorFlow y PyTorch, que usan notación de Einstein (donde todos
+los índices son equivalentes, como en numpy.einsum). Este artículo elimina esa
+incompatibilidad.
+
+CONTRIBUCIÓN CENTRAL: OPERADOR DE MULTIPLICACIÓN TENSORIAL UNIFICADO
+----------------------------------------------------------------------
+Los autores definen un único operador que cubre con una sola notación los casos
+principales de multiplicación tensorial:
+
+  C[s3] = Σ_{(s1 ∪ s2) \ s3}  A[s1] · B[s2]
+  notado: C = A *(s1, s2, s3) B
+
+donde s1, s2, s3 son conjuntos de índices. Este operador unifica:
+  - Producto interno (contracción de índices, generaliza la multiplicación matricial)
+  - Producto externo (outer product, genera tensores de mayor orden)
+  - Producto de Hadamard (elemento a elemento)
+
+Se demuestran propiedades algebraicas: asociatividad (Lema 1), conmutatividad
+(Lema 2) y distributividad respecto a la suma (Lema 3). Estas propiedades son
+las que permiten manipular expresiones tensoriales de forma sistemática.
+
+DIFERENCIACIÓN AUTOMÁTICA (autodiff)
+--------------------------------------
+El paper presenta reglas de derivación para este operador unificado en dos modos,
+trabajando sobre el DAG (Directed Acyclic Graph) de la expresión:
+
+  MODO FORWARD (pushforward):
+    Recorre el DAG de la entrada hacia la salida. En cada nodo se calcula la
+    derivada del valor del nodo respecto a la variable de entrada. Requiere una
+    pasada por cada variable de entrada. Se aplica a multiplicaciones tensoriales
+    (Teorema 5), funciones unitarias (Teorema 6) y funciones elemento a elemento
+    (Teorema 7).
+
+  MODO REVERSE (pullback / backpropagation):
+    Recorre el DAG de la salida hacia la entrada. Una sola pasada por cada función
+    de salida. Es el estándar en deep learning para calcular gradientes. Para
+    funciones escalares coincide exactamente con el backprop clásico. Se aplica a
+    multiplicaciones tensoriales (Teorema 8), funciones generales (Teorema 9) y
+    funciones elemento a elemento (Teorema 10).
+
+CROSS-COUNTRY MODE Y COMPRESIÓN DE HESSIANOS
+----------------------------------------------
+El cross-country mode combina forward y reverse, multiplicando tensores en orden
+creciente de rango (primero vectores, luego matrices, luego tensores de orden
+superior). Para derivadas de segundo orden reduce aproximadamente 30% el tiempo
+de cómputo en CPU.
+
+El truco más importante del paper es la compresión de derivadas de orden superior:
+en cualquier modo de diferenciación, el primer tensor parcial de la cadena siempre
+resulta ser un tensor unitario (identidad). Al moverlo al final (posible con el
+orden de multiplicación de cross-country) se pueden:
+  - Eliminar multiplicaciones triviales por la identidad
+  - Comprimir Hessianos de 4to orden a tensores de 2do o 3er orden
+
+El efecto en la práctica es dramático. Para factorización de matrices (n=1000, k=10):
+  Sin compresión:  ~ 1 segundo
+  Con compresión (Hessiano de k×k):  ~ 10 microsegundos
+  → Factor de mejora de 100,000x
+
+RESULTADOS EXPERIMENTALES
+---------------------------
+Experimentos en CPU (Intel Xeon E5-2643) y GPU (NVIDIA Tesla V100) sobre:
+  - Regresión logística
+  - Factorización de matrices (non-negative matrix factorization)
+  - Red neuronal pequeña (10 capas fully-connected, activación ReLU, softmax + CE)
+
+Para GRADIENTES: todos los frameworks son equivalentes. Nadie gana acá porque
+el modo reverse estándar (backprop) ya es óptimo para funciones escalares.
+
+Para HESSIANOS:
+  - El modo reverse del paper supera a TF, PyTorch, autograd y JAX desde el primer
+    experimento, en varios órdenes de magnitud
+  - Cross-country agrega ~30% adicional de mejora en CPU
+  - La compresión produce reducciones dramáticas para factorización de matrices y
+    redes neuronales
+  - Calcular Hessianos de redes neuronales ahora es computacionalmente factible
+
+Observaciones importantes:
+  - XLA (compilador de TF) en CPU EMPEORÓ el rendimiento por un factor de 2 —
+    resultado contraintuitivo que los autores reportan sin explicación completa
+  - JAX se quedó sin memoria calculando Hessianos de redes neuronales
+    (únicamente pudo con regresión logística)
+  - La brecha de rendimiento persiste en GPU, no es un artefacto de la CPU
+
+CONCLUSIÓN E IMPACTO
+----------------------
+El artículo demuestra que no es necesaria la notación de Ricci para lograr
+eficiencia en el cálculo tensorial. El método propuesto:
+  - Opera completamente en notación de Einstein, compatible con TF y PyTorch
+  - Es tan eficiente o más que el estado del arte previo basado en Ricci
+  - Abre la puerta al uso práctico de información de segundo orden en deep learning:
+    análisis de curvatura del loss landscape, escape de puntos de silla, robustez
+    de clasificadores, y especialmente optimizadores de segundo orden (Newton,
+    L-BFGS, K-FAC) que hasta ahora eran prohibitivos computacionalmente
+
+Implementaciones públicas disponibles:
+  - www.MatrixCalculus.org: herramienta web para derivadas de matrices/tensores
+  - Framework GENO (www.geno-project.org): genera solvers de optimización
+    automáticamente a partir de formulaciones matemáticas simbólicas
+
+================================================================================
+FIN DEL DOCUMENTO
+================================================================================

@@ -1,0 +1,85 @@
+@@Q1.1@@
+df = sns.load_dataset('titanic')
+print(df.head())
+@@FIN@@
+
+@@Q1.2@@
+print("Forma del DataFrame:", df.shape)
+print("\nTipos de datos:\n", df.dtypes)
+print("\nResumen estadístico:\n", df.describe())
+@@FIN@@
+
+@@Q1.3@@
+nulos = df.isnull().sum().sort_values(ascending=False)
+print(nulos)
+@@FIN@@
+
+@@Q1.4@@
+print("Pasajeros por clase:\n", df['pclass'].value_counts())
+print("\nPasajeros por puerto de embarque:\n", df['embarked'].value_counts())
+@@FIN@@
+
+@@Q1.5@@
+tabla = pd.crosstab(df['class'], df['embark_town'])
+print(tabla)
+# No, no todas las clases embarcaron en todos los puertos: por ejemplo en Southampton no hay combinacion nula,
+# pero se observa que la mayoria de pasajeros de Southampton son de tercera clase, mientras que en Cherbourg
+# predominan los de primera clase, lo que sugiere una relacion entre puerto de origen y nivel socioeconomico.
+@@FIN@@
+
+@@Q2.1@@
+fare_vals = df['fare'].dropna().to_numpy()
+media = np.mean(fare_vals)
+mediana = np.median(fare_vals)
+desviacion_standard = np.std(fare_vals)
+rango = np.max(fare_vals) - np.min(fare_vals)
+print("Media:", media, "Mediana:", mediana, "Desv. standard:", desviacion_standard, "Rango:", rango)
+@@FIN@@
+
+@@Q2.2@@
+age_vals = df['age'].dropna().to_numpy()
+z_score = (age_vals - np.mean(age_vals)) / np.std(age_vals)
+print(z_score[:5])
+@@FIN@@
+
+@@Q2.3@@
+fare_arr = df['fare'].to_numpy()
+media_global = np.mean(fare_arr)
+categoria = np.where(fare_arr > media_global, 'caro', 'economico')
+print(pd.Series(categoria).value_counts())
+@@FIN@@
+
+@@Q3.1@@
+df_clean = df.copy()
+df_clean = df_clean.dropna(subset=['embarked'])
+print(df_clean.shape)
+@@FIN@@
+
+@@Q3.2@@
+df_clean['age'] = df_clean['age'].fillna(df_clean.groupby('pclass')['age'].transform('median'))
+print(df_clean['age'].isnull().sum())
+@@FIN@@
+
+@@Q3.3@@
+df_clean['family_size'] = df_clean['sibsp'] + df_clean['parch'] + 1
+print(df_clean['family_size'].head())
+@@FIN@@
+
+@@Q3.4@@
+primera_caros = df_clean[(df_clean['pclass'] == 1) & (df_clean['fare'] > 100)]
+print("Cantidad:", len(primera_caros))
+print("Puertos de embarque:\n", primera_caros['embark_town'].value_counts())
+@@FIN@@
+
+@@Q4.1@@
+sns.histplot(data=df_clean, x='fare', hue='pclass')
+plt.show()
+@@FIN@@
+
+@@Q4.2@@
+sns.pairplot(df_clean[['age', 'fare', 'family_size', 'sibsp', 'survived']], hue='survived')
+plt.show()
+# Las variables fare y family_size son las que mejor separan visualmente a los supervivientes: tarifas altas
+# y tamanos de familia moderados (2-4 miembros) se asocian con mayor supervivencia, mientras que age y sibsp
+# muestran distribuciones mas solapadas entre ambos grupos.
+@@FIN@@

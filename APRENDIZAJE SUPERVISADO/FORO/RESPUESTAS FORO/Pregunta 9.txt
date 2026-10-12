@@ -1,0 +1,77 @@
+PREGUNTA 9
+===========
+
+¿Qué oportunidades y amenazas pueden presentar algoritmos como el deep fake? ¿Dónde deberían
+ponerse los límites?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Consenso muy amplio en la estructura de la respuesta (Alfredo, Luisa, Edwin, Javier I., Maria del
+Carmen, Lautaro, Arrate, Sandra, Alejandro, Juan Manuel, Edgar, Fernando, Raul, Daniela, Javier C.,
+Isaac, Pau, Anthony, Marcos, Luis Ignacio, Diego, Maria Jose): oportunidades y amenazas coexisten,
+y el límite debe estar en el CONSENTIMIENTO de la persona representada y la TRANSPARENCIA
+(etiquetar el contenido como generado por IA).
+
+Oportunidades citadas repetidamente:
+- Cine y entretenimiento: rejuvenecer actores, doblaje sincronizado labios-voz en varios idiomas.
+- Educación y recreación histórica: revivir figuras históricas, simulaciones didácticas.
+- Accesibilidad: recuperar/preservar la voz de personas que la han perdido (Lautaro destaca este
+  como el único uso que le parece realmente valioso); avatares con lenguaje de signos.
+- Generación de datos sintéticos (rostros ficticios) para entrenar otros modelos sin vulnerar
+  privacidad real (Arrate).
+
+Amenazas citadas repetidamente:
+- Desinformación y manipulación electoral/política (caso citado: "An Indian politician is using
+  deepfake technology to win new voters").
+- Fraude y estafas por voz/vídeo (suplantación de ejecutivos, extorsión).
+- Pornografía no consentida / contenido sexual sin consentimiento — señalada por varios (Isaac,
+  Alejandro) como la amenaza más grave por atacar directamente la dignidad de la víctima.
+- Erosión general de la confianza en la evidencia audiovisual: "ya no sabes qué creer" (Sandra,
+  Javier Calleja, Juan Manuel) — riesgo a largo plazo de que la sociedad deje de creer incluso en
+  pruebas reales.
+- Generación de evidencia falsa en procesos judiciales (Edgar).
+
+Sobre dónde poner los límites, dos posturas dentro del consenso:
+- Mayoría (Luisa, Javier I., Arrate, Alejandro, Fernando, Pau, Anthony, Maria Jose, Marcos): con
+  consentimiento explícito + etiquetado/marca de agua obligatoria (citan el paralelismo con la ley
+  francesa "anti-Photoshop" de 2017 que obliga a etiquetar fotos publicitarias retocadas, mencionada
+  por Maria Jose) es suficiente para permitir el uso.
+- Postura más estricta (Isaac): considera que etiquetar no basta, porque el daño ya se produce en
+  el momento de la difusión; propone prohibición por defecto salvo casos muy regulados (producciones
+  profesionales con consentimiento documentado).
+
+Referencias reutilizables: vídeo UPM "Diálogo (im)probable..." (menciona la posibilidad de crear
+personas que no existen); ley danesa de 2025 que protege a los daneses frente a deepfakes (citada
+por Lautaro); ley francesa "anti-Photoshop" (2017) citada por Maria Jose.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Los algoritmos de deepfake son un buen ejemplo de tecnología de "doble uso": la misma capacidad
+técnica que permite doblar una película sincronizando los labios en cualquier idioma, recrear una
+figura histórica con fines educativos o devolverle la voz a alguien que la ha perdido, es la que
+permite suplantar a un ejecutivo por teléfono para cometer un fraude o generar pornografía no
+consentida. Por eso creo que el debate no debería centrarse en si el deepfake "es bueno o malo" en
+abstracto, sino en las condiciones bajo las que se genera y se difunde.
+
+Entre las oportunidades destacaría el entretenimiento y la industria audiovisual (rejuvenecimiento
+de actores, doblaje natural), la accesibilidad (preservar o recrear voces de personas con
+discapacidad del habla) y la generación de datos sintéticos para entrenar otros modelos sin usar
+datos reales de personas. Entre las amenazas, la más grave para mí es el uso sin consentimiento
+sobre la imagen o voz de una persona real —ya sea con fines sexuales, de fraude financiero o de
+difamación—, porque vulnera directamente su dignidad; y a nivel colectivo, el riesgo de
+desinformación electoral y la erosión general de la confianza en la evidencia audiovisual, que a
+largo plazo puede ser aún más dañino porque hace que ni siquiera el contenido real resulte creíble.
+
+Sobre dónde poner los límites, coincido en que los dos ejes centrales deben ser el consentimiento
+explícito de la persona representada y la transparencia sobre el origen sintético del contenido
+(etiquetado o marca de agua obligatoria, como ya hace la regulación europea y como anticipó en 2017
+la ley francesa que obliga a señalar las fotografías publicitarias retocadas). Sin embargo, matizaría
+que el etiquetado no siempre es suficiente: en casos donde el daño se produce en el mismo instante
+en que el contenido se difunde —como la pornografía no consentida o un vídeo político el día antes
+de una votación—, ya es tarde para "avisar" después de que el daño reputacional o psicológico se ha
+consumado. Por eso creo que el límite legal debería ser más estricto cuanto mayor sea el daño
+potencial y menor la posibilidad de reparación: consentimiento y transparencia como norma general,
+pero prohibición directa y sanción penal reforzada en los usos de alto riesgo (contenido sexual,
+suplantación electoral, fraude financiero).

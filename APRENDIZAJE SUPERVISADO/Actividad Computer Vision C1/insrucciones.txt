@@ -1,0 +1,25 @@
+
+instrucciones de la actividad
+
+
+Pasos a seguir:
+
+     1) Leer detenidamente el enunciado de la actividad.
+
+     2) Resolver cada uno de los apartados del documento “Actividad_Computer_Vision_C1.ipynb.
+
+     3)  Una vez creado el código para una de las muestras histológicas, repetir el proceso para la otra imagen.
+
+     4) Rellenar la plantilla con los resultados cualitativos y cuantitativos obtenidos en los pasos anteriores y responder a la pregunta 3 justificando la respuesta.
+
+Documentos a entregar:
+
+       -  Archivo "Actividad_Computer_Vision_C1_Apellidos_Nombre.ipynb" con el código resuelto.   Ejemplo: Actividad_Computer_Vision_C1_SanchezGoez_Sebastian.ipynb
+
+      -  Archivo "Actividad_Computer_Vision_C1_Apellidos_Nombre.pdf" con el notebook convertido a PDF. Ejemplo: Actividad_Computer_Vision C1 _SanchezGoez_Sebastian.pdf
+
+       -   Archivo "Actividad_Computer_Vision_C1_Apellidos_Nombre.pdf" con las soluciones obtenidas.  Ejemplo: Actividad_Computer_Vision_C1_SanchezGoez_Sebastian.pdf
+
+Fecha límite: 3 de octubre de 2026, hasta las 23:59 (hora CET).
+
+Número de envíos: 1

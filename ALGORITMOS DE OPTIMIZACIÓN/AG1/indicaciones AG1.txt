@@ -1,0 +1,36 @@
+https://colab.research.google.com/drive/1wlhtfOhkfLHn1GslYG3fcDMJ1E7ATHIo?authuser=1
+
+ejercicio extra:
+Problema: Encontrar los dos puntos más cercanos
+Dado un conjunto de puntos, encontrar el par de puntos que están a la menor distancia euclídea entre sí.
+
+Guía para aprendizaje paso a paso
+
+1. Caso 1D (unidimensional)
+   - Ejemplo: Lista de números: [3403, 4537, 9089, 9746, 7259, ...]
+   - Primer intento: Fuerza bruta
+     - Comparar todas las parejas → complejidad O(n^2)
+     - ¿Se puede mejorar?
+   - Segundo intento: Aplicar Divide y Vencerás
+     - Ordenar los puntos y comparar solo vecinos cercanos → complejidad O(n log n)
+     - ¿Se puede mejorar aún más?
+
+2. Caso 2D (bidimensional)
+   - Ejemplo: Puntos en el plano: [(1122, 6175), (135, 4076), (7296, 2741), ...]
+   - Extender el algoritmo de Divide y Vencerás a 2D
+     - Clave: ordenar por coordenada x, dividir, resolver recursivamente, y combinar considerando una "franja" central
+     - Complejidad: O(n log n)
+   - Implementación sugerida (Python):
+     import random
+     LISTA_1D = [random.randrange(1, 10000) for _ in range(1000)]
+     LISTA_2D = [(random.randrange(1, 10000), random.randrange(1, 10000)) for _ in range(1000)]
+
+3. Caso 3D (tridimensional)
+   - Extender el algoritmo anterior a tres dimensiones
+   - Desafío adicional: manejo de la "franja" y optimización del paso de combinación
+   - Se recomienda analizar cómo cambia la complejidad y las estrategias de poda.
+
+Tareas adicionales
+- Buscar documentación sobre el problema Closest Pair of Points (ej.: CLRS, Wikipedia, artículos académicos).
+- Analizar y comparar las complejidades de cada enfoque (fuerza bruta vs. divide y vencerás).
+- Implementar y probar los algoritmos en Python (para 1D, 2D y, opcionalmente, 3D).

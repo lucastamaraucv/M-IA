@@ -1,0 +1,46 @@
+Estructura de datos fundamentales
+Listas:
+Arrays
+Listas
+Cadenas
+Pilas y Colas
+Grafos
+Árboles
+Diccionarios
+Vectores y Matrices
+Estadística básica
+Población
+Muestra
+Muestra aleatoria
+Tipos de variables
+Cualitativas
+Cuantitativas
+Discretas
+Continuas
+Frecuencias y gráficos
+Frecuencias
+Histogramas
+Estadísticos
+Medidas de posición
+Cuantiles
+Percentiles
+Medidas de centralización
+Moda
+Media
+Mediana
+Medidas de dispersión
+Desviación media
+Desviación típica
+Rango
+Varianza
+Combinatoria básica
+Variaciones
+Permutaciones
+Combinaciones
+El arte de contar
+Diferenciación básica
+Derivar funciones
+Concepto de:
+Primera derivada
+Segunda derivada
+Gradiente y matriz hessiana

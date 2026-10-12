@@ -1,0 +1,191 @@
+8. Si una regla de Mamdani se activa con grado 0,4 y se usa recorte por mínimo, la salida de esa regla no supera 0,4.
+Alternativas: Verdadero / Falso
+(En la imagen, la primera línea del enunciado aparece algo cortada por arriba, pero se lee entera.)
+
+Respuesta: Verdadero.
+En Mamdani, el grado de activación α de una regla es el mínimo de los grados de sus antecedentes. El consecuente de la regla se "recorta" a esa altura con el mínimo: μ_salida(y) = min(α, μ_B(y)). Como el mínimo nunca puede ser mayor que α, ningún punto de la salida de esa regla pasa de 0,4. Por eso, en el ejemplo del péndulo, la regla con α=0,4 da un triángulo cortado a 0,4 (una meseta de altura 0,4). Solo al agregar varias reglas por máximo puede aparecer un grado mayor, pero ese grado viene de otra regla, no de esta.
+
+9. Desborrosificar convierte una salida borrosa combinada en un número concreto.
+Alternativas: Verdadero / Falso
+
+Respuesta: Verdadero.
+La arquitectura del control borroso es: entradas nítidas → borrosificación → lógica de control (reglas y agregación) → desborrosificación → salida nítida. La inferencia de Mamdani produce un conjunto borroso, que es la unión de los consecuentes recortados. La desborrosificación lo convierte en un único valor que se puede aplicar al sistema. Los métodos son el criterio del máximo, la media de máximos y el centro de gravedad.
+
+10. En FuzzyCLIPS, el comando (facts) ejecuta todas las reglas activas.
+Alternativas: Verdadero / Falso
+
+Respuesta: Falso.
+(facts) solo muestra la lista de hechos que hay en la memoria de trabajo. El comando que dispara las reglas de la agenda es (run), o (run n) para disparar como máximo n reglas. Para ver las activaciones pendientes, sin ejecutarlas, se usa (agenda).
+
+11. En un sistema basado en reglas, ¿qué contiene principalmente la base de conocimientos (BC)?
+A. Solo las mediciones del caso actual.
+B. Las definiciones y las reglas del sistema.
+C. El valor final de la salida desborrosificada.
+D. Únicamente el historial de comandos.
+
+Respuesta: B.
+En el curso, los archivos BC_ son la base de conocimientos. Contienen el conocimiento general del dominio: los deftemplates (universos, etiquetas y conjuntos borrosos) y los defrule (reglas de producción). Por ejemplo, BC_ej18_fuz.clp define V1, V2 y potencia, y las 9 reglas.
+- A es incorrecta porque las mediciones del caso concreto van en la base de hechos (BH_, deffacts).
+- C es incorrecta porque la salida desborrosificada es un resultado de la ejecución, no conocimiento almacenado.
+- D es incorrecta porque el historial de comandos no forma parte del sistema experto.
+
+12. En un ejemplo de FuzzyCLIPS con RSI = 35 y volatilidad = 8, ¿qué describe la base de hechos (BH)?
+A. Los datos conocidos del caso que se va a analizar.
+B. La lista completa de reglas posibles.
+C. El método matemático para dibujar triángulos.
+D. Las respuestas correctas del ejercicio.
+
+Respuesta: A.
+La BH (deffacts) contiene las observaciones concretas del caso. Aquí serían RSI=35 y volatilidad=8, normalmente escritas como singletons, por ejemplo (RSI (35 0)(35 1)(35 0)). Es lo mismo que ocurre en BH_ej18_fuz.clp con V1=4,5 y V2=3.
+- B es incorrecta porque las reglas están en la BC.
+- C es incorrecta porque las formas de los conjuntos se definen en los deftemplates de la BC.
+- D es incorrecta porque las respuestas las calcula el motor de inferencia; no se guardan como hechos.
+
+13. En el ejemplo del péndulo, medir θ = 36° y velocidad = −2,25°/s corresponde a:
+A. La agregación por máximo.
+B. La desborrosificación.
+C. La entrada nítida.
+D. El recorte de los consecuentes.
+
+Respuesta: C.
+θ=36° y θ̇=−2,25°/s son los valores medidos por los sensores, es decir, números nítidos (crisp). Son la entrada del controlador. Después se borrosifican: positivo pequeño(36)=0,4, positivo medio(36)=0,6 y aprox. cero(−2,25)=0,8.
+- A y D son etapas posteriores de la inferencia: el recorte a α1=0,4 y α2=0,6, y la unión por máximo.
+- B es la etapa final, que da como salida una fuerza (por ejemplo, 3,9 por centro de gravedad).
+
+14. Una regla dice: «Si ángulo es positivo pequeño Y velocidad es aproximadamente cero, entonces fuerza es positiva pequeña». Si los grados son 0,4 y 0,8, ¿cuál es la activación con mínimo?
+A. 0,2
+B. 0,4
+C. 0,6
+D. 0,8
+
+Respuesta: B.
+La conjunción "Y" se modela con la t-norma mínimo: α = min(0,4; 0,8) = 0,4. Este es el α1 del ejemplo del péndulo.
+- A (0,2) no sale de ninguna operación estándar con estos datos: no es el mínimo, y el producto daría 0,32.
+- C (0,6) es el grado de otra regla (positivo medio).
+- D (0,8) sería el máximo, que corresponde a "O", no a "Y".
+
+15. Dos reglas dan para un mismo valor de fuerza los grados 0,4 y 0,6. ¿Qué grado queda al agregarlas por máximo?
+A. 0,2
+B. 0,4
+C. 0,6
+D. 1,0
+
+Respuesta: C.
+La agregación de las salidas en Mamdani es la unión borrosa, es decir, el máximo punto a punto: max(0,4; 0,6) = 0,6.
+- A (0,2) sería la diferencia entre los dos grados.
+- B (0,4) sería el mínimo, que corresponde a la intersección.
+- D (1,0) sería la suma acotada de Łukasiewicz, min(1; 0,4+0,6), que no es el máximo.
+
+16. ¿Qué ocurre inmediatamente después de combinar las salidas de las reglas de Mamdani?
+A. Ya se dispone necesariamente de un único número.
+B. Se obtiene la curva de salida borrosa.
+C. Se reemplazan todos los hechos de entrada.
+D. Se vuelve a medir el sensor.
+
+Respuesta: B.
+Al unir por máximo los consecuentes recortados se obtiene un conjunto borroso de salida, que es una curva de pertenencia. En el péndulo es la forma con mesetas en 0,4 y 0,6. Todavía no es un número: para eso hace falta la desborrosificación.
+- A es incorrecta porque un número único solo se obtiene tras desborrosificar. En Takagi-Sugeno sí sale un número directamente, pero la pregunta es sobre Mamdani.
+- C es incorrecta porque los hechos de entrada no se reemplazan.
+- D es incorrecta porque volver a medir el sensor corresponde al siguiente ciclo de control, no a este paso.
+
+17. ¿Qué método convierte la curva de salida en un valor usando su centro de gravedad?
+A. Borrosificación.
+B. Complemento.
+C. Agregación por máximo.
+D. Desborrosificación por centroide.
+
+Respuesta: D.
+El centro de gravedad es x' = ∫x·μ(x)dx / ∫μ(x)dx. Es uno de los métodos de desborrosificación: en FuzzyCLIPS corresponde a moment-defuzzify y en el ejemplo del péndulo da 3,9.
+- A es incorrecta porque la borrosificación va en sentido contrario: de un número a grados de pertenencia.
+- B es incorrecta porque el complemento, 1−μ, es un operador sobre conjuntos.
+- C es incorrecta porque la agregación por máximo combina curvas y su resultado sigue siendo una curva.
+
+18. Una salida tiene el grado máximo en todos los valores entre 4 y 6. ¿Qué devuelve la media de máximos?
+A. 4
+B. 5
+C. 6
+D. 10
+
+Respuesta: B.
+La media de máximos toma el conjunto de puntos donde se alcanza el grado máximo y devuelve su valor medio. Aquí ese conjunto es el intervalo [4,6], así que el resultado es (4+6)/2 = 5. Coincide con el ejemplo del péndulo: con el criterio del máximo sirve cualquier valor de [4,6], y con la media del máximo sale 5.
+- A y C son los extremos del intervalo: el criterio del máximo podría elegir cualquiera de ellos, pero la media no.
+- D (10) es la suma 4+6 sin dividir entre 2.
+
+19. En FuzzyCLIPS, ¿qué hace normalmente (reset) después de cargar las definiciones y deffacts?
+A. Vacía permanentemente la base de conocimientos.
+B. Calcula directamente el centroide.
+C. Inicializa los hechos definidos para comenzar una ejecución.
+D. Muestra solamente las reglas activas.
+
+Respuesta: C.
+(reset) borra la memoria de trabajo, afirma f-0 (initial-fact) e introduce los hechos de los deffacts. Con eso, las reglas cuyos patrones casan pasan a la agenda y queda todo preparado para (run).
+- A es incorrecta porque lo que borra hechos y reglas es (clear), no (reset).
+- B es incorrecta porque el centroide se calcula con (moment-defuzzify).
+- D es incorrecta porque las activaciones pendientes se consultan con (agenda).
+
+20. Después de ejecutar (run), aparece un hecho borroso de salida f-5. ¿Para qué serviría (moment-defuzzify 5)?
+A. Para borrar la regla 5.
+B. Para consultar el quinto antecedente.
+C. Para volver a borrosificar las entradas.
+D. Para obtener un valor concreto a partir de ese hecho borroso.
+
+Respuesta: D.
+El argumento 5 es el número del hecho f-5. moment-defuzzify aplica el centro de gravedad al conjunto borroso de ese hecho y devuelve un número en coma flotante. Es como en el ejemplo del curso, donde (moment-defuzzify 4) daba 65.
+- A es incorrecta porque para eliminar una regla se usa undefrule (y retract elimina hechos).
+- B es incorrecta porque el 5 es un índice de hecho, no un antecedente de regla.
+- C es incorrecta porque la función hace lo contrario de borrosificar.
+
+8 | Verdadero
+9 | Verdadero
+10 | Falso
+11 | b
+12 | a
+13 | c
+14 | b
+15 | c
+16 | b
+17 | d
+18 | b
+19 | c
+20 | d
+
+--- captura adicional ---
+Pregunta 1: En un conjunto clásico, un elemento pertenece o no pertenece: su pertenencia vale 1 o 0.
+Alternativas: Verdadero / Falso
+Justificacion: Un conjunto clásico (crisp) tiene una función característica μA: X→{0,1}. Solo hay pertenencia total o nula, así que es verdadero.
+
+Pregunta 2: Si un día pertenece a «caluroso» con grado 0,7, hay un 70 % de probabilidad de que haga calor.
+Alternativas: Verdadero / Falso
+Justificacion: Un grado de pertenencia mide cuánto encaja algo en una etiqueta vaga. No es una probabilidad: la función la fija el experto y no sale de repetir observaciones. Zadeh la llama "completamente no estadística", así que es falso.
+
+Pregunta 3: Una temperatura puede ser a la vez «templada» en cierto grado y «caliente» en otro grado.
+Alternativas: Verdadero / Falso
+Justificacion: Los conjuntos borrosos de una misma variable se solapan. Por eso un mismo valor puede tener grado mayor que 0 en varias etiquetas a la vez. Por ejemplo, 20 años es joven 0,8 y adulto 0,8. Es verdadero.
+
+Pregunta 4: Con el operador mínimo, «A y B» vale 0,4 si A vale 0,4 y B vale 0,8.
+Alternativas: Verdadero / Falso
+Justificacion: Con la t-norma mínimo, min(0,4; 0,8) = 0,4. Es verdadero.
+
+Pregunta 5: Con el operador máximo, «A o B» vale 0,9 si A vale 0,3 y B vale 0,6.
+Alternativas: Verdadero / Falso
+Justificacion: max(0,3; 0,6) = 0,6, no 0,9. El valor 0,9 sería la suma, que no es el operador máximo. Es falso.
+
+Pregunta 6: Borrosificar consiste en asociar una medida concreta con grados de pertenencia a etiquetas.
+Alternativas: Verdadero / Falso
+Justificacion: La borrosificación toma el valor nítido que mide un sensor y calcula su grado en cada etiqueta lingüística. Por ejemplo, X1=4 da media 0,5 y alta 0,25. Es verdadero.
+
+Pregunta 7: En Mamdani, la conclusión de cada regla es siempre un número exacto y no una etiqueta borrosa.
+Alternativas: Verdadero / Falso
+Justificacion: En Mamdani el consecuente es un conjunto borroso (una etiqueta) que se recorta a la altura αr. Las salidas de las reglas se unen y luego se desborrosifica. El consecuente numérico, una función de las entradas, es propio de Takagi-Sugeno. Es falso.
+
+DETECTADAS: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+1 | Verdadero
+2 | Falso
+3 | Verdadero
+4 | Verdadero
+5 | Falso
+6 | Verdadero
+7 | Falso
+
+--- captura adicional ---
+Las siete imágenes solo muestran las preguntas 1 a 20, y todas se respondieron en capturas anteriores de esta sesión, así que no hay ninguna pregunta nueva que resolver.

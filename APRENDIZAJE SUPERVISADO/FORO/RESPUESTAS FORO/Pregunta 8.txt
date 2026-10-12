@@ -1,0 +1,77 @@
+PREGUNTA 8
+===========
+
+¿Creéis que la Inteligencia Artificial va a conllevar una reinvención de los puestos laborales?
+¿Por qué?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Consenso amplísimo (Alfredo, Luisa, Edwin, Javier I., Maria del Carmen, Arrate, Sandra, Alejandro,
+Juan Manuel, Edgar, Fernando, Raul, Isaac, Anthony, Pau, Marcos, Luis Ignacio, Diego, Maria Jose):
+SÍ, la IA va a reinventar (más que destruir) los puestos de trabajo. La idea central repetida es
+que el puesto "mantiene el nombre pero no el contenido": el trabajador pasa de ejecutar tareas a
+supervisar, validar y aportar criterio sobre lo que genera la IA. Se compara reiteradamente con
+revoluciones industriales anteriores.
+
+Matices y ejemplos concretos aportados:
+- Sandra y Maria Jose (ambas en desarrollo/QA de software): ya viven el cambio en primera persona,
+  gestionando "agentes" de IA y validando su trabajo en vez de escribir todo desde cero.
+- Diego: menciona roles nuevos reales en su empresa ("AI Engineer", "Developer IA integration").
+- Javier Ibarra y varios más: preocupación por la "clase irrelevante" (cita de Yuval Noah Harari) y
+  la necesidad de una renta básica universal si el cambio deja gente fuera.
+- Alejandro: aporta un argumento a favor de que no habrá destrucción neta de empleo citando la
+  Paradoja de Jevons (cuando algo se abarata y vuelve más eficiente, su consumo total aumenta), y
+  señala con preocupación el riesgo de que se automaticen los puestos junior, dejando sin cantera a
+  los futuros seniors.
+- Lautaro y Raul: aportan una visión más crítica/escéptica — el sector de ingeniería de software ya
+  sufre despidos ("layoffs") pese a que la inversión en IA de las grandes tecnológicas no siempre
+  da el retorno de productividad prometido (cita artículo de pérdidas de grandes tecnológicas).
+- Javier Calleja: visión más pesimista, plantea que habrá "más trabajo pero menos empleo" (se harán
+  más cosas con menos personas), afectando también a profesiones intelectuales especializadas.
+- Isaac: matiza que los trabajos manuales/físicos (construcción, logística) se verán menos
+  afectados a corto plazo que los basados en datos o análisis repetitivo.
+- Javier Rodriguez: reflexión personal sobre cómo la IA reduce el "aprendizaje por error" que a él
+  le formó como programador, y duda de que los nuevos puestos compensen en calidad a los que se
+  pierden.
+- Pedro Borregon: compara directamente con la revolución industrial y cita una entrevista al CEO de
+  SAP que pronostica que en menos de tres años la mayoría de los programadores desaparecerán como
+  rol para pasar a auditar y testear software generado por IA — línea similar a la de Isaac sobre
+  reforzar habilidades de pensamiento crítico y adaptación cuanto antes.
+
+Referencia clave citada varias veces: vídeo "La ética de la inteligencia artificial" (CEDECOM) y
+"Diálogo (im)probable. Ética y Revolución digital" (UPM), con la cita de Yuval Noah Harari sobre la
+"clase irrelevante" y el cambio del modelo educativo hacia habilidades abstractas/genéricas en
+lugar de especialización técnica.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Sí, creo que la IA ya está reinventando los puestos de trabajo, más que destruyéndolos en bloque.
+El patrón que se repite en casi todos los sectores tecnológicos es el mismo: el puesto conserva el
+nombre pero cambia su contenido, desplazando al trabajador de "ejecutar la tarea" a "supervisar,
+validar y aportar el criterio que la máquina no tiene". Esto ya lo vivimos en revoluciones
+tecnológicas anteriores (como la industrial), donde las máquinas asumieron la parte operativa y el
+ser humano se movió hacia tareas más abstractas y de supervisión, tal como se plantea en el vídeo
+de la UPM citando a Yuval Noah Harari.
+
+Ahora bien, no creo que esta transición sea automáticamente positiva ni neutra. Me preocupan
+especialmente dos cosas que se comentan en el foro: primero, el riesgo de que se automaticen sobre
+todo los puestos junior (porque son los más fáciles de sustituir por IA), lo que a medio plazo
+puede dejar a las empresas sin cantera de futuros profesionales senior —un problema que hoy no se
+nota porque los senior actuales se formaron sin IA, pero que puede explotar en unos años—. Segundo,
+el hecho de que la promesa de productividad no siempre se cumple: ya hay evidencia de grandes
+tecnológicas que han invertido enormes sumas en IA, despedido personal para financiarlo, y no han
+visto el retorno esperado, lo cual sugiere que parte de esta "reinvención" está siendo impulsada
+más por presión de mercado y narrativa que por resultados reales medibles.
+
+Aun así, coincido con la idea de que no habrá una destrucción neta de empleo tan drástica como se
+teme: cuando una tecnología abarata y acelera un proceso, históricamente el consumo total de ese
+servicio tiende a aumentar (Paradoja de Jevons), generando nueva demanda y nuevos roles
+—precisamente relacionados con el diseño, supervisión y auditoría de sistemas de IA—. El verdadero
+reto no es si sobrevivirán los puestos de trabajo, sino si las personas y los sistemas educativos
+se adaptarán con la suficiente rapidez como para aprovechar esa reinvención en lugar de sufrirla. En
+este sentido, me parece clave que se implementen cuanto antes mecanismos de acompañamiento —
+formación continua, reciclaje de habilidades e incluso protección social para quienes queden
+desplazados— para que el cambio sea una transición justa y no una ruptura brusca que deje a
+colectivos enteros fuera del mercado laboral.

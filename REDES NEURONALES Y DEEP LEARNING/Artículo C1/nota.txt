@@ -1,0 +1,19 @@
+En esta actividad debéis buscar una implementación entrenada de la arquitectura descrita en el artículo (primera página). Por ejemplo, si optáis por el Transformer para texto, podéis utilizar Mistral2 7B, Qwen 3.7 12B o cualquiera de sus versiones quantizadas como ejemplo de la arquitectura, tu eliges.
+
+
+
+Después entregar las siguientes salidas justificando los datos obtenidos,
+
+1.- Model summary, con las capas y no. de hyperparámetros.
+
+2.- De un ejemplo concreto (texto o imagen) la forma y distribución de valores del corresp. tensor de entrada al modelo y logits de salida durante la generación.
+
+3.- Muestra las activaciones de las capas de self-attention layer (para este apartado puede ser interesante usar PyTorch) como mapa de calor para al menos dos ejemplos (texto o imagen). Explica que función cumplen y si esperabas estos resultados y por qué.
+
+
+
+La entrega será un report de máx. 4 hojas en PDF (el summary y código lo podéis mover a un apéndice al margen de las 4 páginas de límite). Deadline 29 de octubre de 2026 a las 23:59h CET. 
+
+
+
+Adicionalmente, a quien le haya parecido interesante, puede compartir sus resultados y reflexiones en el FORO (No Evaluable) del aula, el día siguiente al deadline.

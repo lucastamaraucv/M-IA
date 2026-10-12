@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+numpy
+scipy
+matplotlib
+seaborn
+sslearn
+flask
+flask-compress

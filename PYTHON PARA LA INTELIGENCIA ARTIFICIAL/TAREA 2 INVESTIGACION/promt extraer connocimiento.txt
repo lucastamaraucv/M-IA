@@ -1,0 +1,177 @@
+# Prompt para investigación — Funciones de activación (SOLO casos exitosos)
+
+**Para otra IA con capacidad de búsqueda en literatura científica.**
+
+## Contexto del proyecto (resumido)
+
+Estoy desarrollando una red neuronal spiking (SNN) con 1000 neuronas para predicción de series temporales financieras (BTC). La red usa TS-LIF (Temporal Segment LIF), DH-LIF (Dendritic Heterogeneity), STDP, ALIF y otras teorías. Tiene una cabeza de magnitud (regresión continua) y una cabeza de dirección (clasificación binaria UP/DOWN). El cuello de botella actual es la cabeza de magnitud — el techo del MAE está en ~0.1244. Necesito identificar funciones de activación con **resultados exitosos confirmados** en literatura para:
+
+1. **Predicción de series temporales** (regresión continua sobre datos financieros / forecasting)
+2. **Redes neuronales spiking** (SNN, compatibles con generación de spikes y surrogate gradients)
+
+---
+
+## REGLAS CRÍTICAS DE LA INVESTIGACIÓN
+
+1. **SOLO casos exitosos.** No reportar funciones de activación que fallaron, fueron descartadas o tuvieron desempeño peor que baselines. Filtrar el ruido.
+2. **Por cada función reportada, OBLIGATORIO incluir:**
+   - **Título exacto del paper**
+   - **Descripción breve** (2-3 líneas) del aporte clave
+   - **URL del paper** (arXiv, DOI, IEEE Xplore, etc.) — verificable
+   - **Métrica de éxito cuantitativa** (MAE/RMSE/accuracy específico, no genérico)
+3. **Comparativa final obligatoria**: tras listar los casos exitosos, hacer un **ranking** y declarar **CUÁL ES EL MÁS EXITOSO** con justificación basada en métricas duras.
+
+---
+
+## INVESTIGACIÓN 1 — Funciones de activación EXITOSAS para predicción de series temporales
+
+### Pregunta a investigar
+
+> ¿Qué funciones de activación han demostrado **éxito cuantitativo confirmado** (mejora medible vs baseline ReLU/Tanh) en arquitecturas modernas de **predicción de series temporales** (regresión continua, no clasificación), especialmente en datos financieros / volátiles?
+
+### Restricciones
+- **Solo artículos científicos peer-reviewed o pre-print de alto impacto** (arXiv con +10 citas, IEEE, NeurIPS, ICML, ICLR, AAAI, ECML, Nature, IJCAI).
+- **Últimos 5 años** (2020-2025) preferentemente — pero incluir trabajos fundacionales si dominan benchmarks recientes.
+- Foco en **regresión / forecasting** (descartar papers de clasificación de series).
+- Solo casos donde el paper **declare la activación como factor clave del éxito** (ablation study o comparativa interna).
+
+### Por cada función exitosa reportar:
+
+| Campo | Descripción |
+|---|---|
+| Función | Nombre matemático estándar (ej. GELU, Swish, Mish, SwiGLU, Softplus, Tanh, etc.) |
+| Fórmula forward | Ecuación matemática exacta |
+| Fórmula backward | Derivada usada en backprop |
+| **Título del paper** | Nombre exacto |
+| **Descripción** | 2-3 líneas: arquitectura, dataset, por qué la activación fue clave |
+| **URL** | Link verificable (arXiv ID, DOI, IEEE/ACM URL) |
+| Año + Venue | 2024 NeurIPS, 2023 ICLR, etc. |
+| Autores principales | Nombres |
+| **Métrica de éxito** | MAE/RMSE/MAPE exacto + comparación con baseline |
+| Dataset benchmark | M4, M5, ETT, electricity, exchange, BTC, etc. |
+| Aplicabilidad a magnitud BTC | ¿Sirve para output ≥ 0 con alta volatilidad? Sí/No + por qué |
+
+### Comparativa final (Investigación 1)
+
+Tras listar todos los casos exitosos:
+
+1. **Tabla ranking** ordenada por métrica de éxito normalizada (mejor primero).
+2. **Declarar GANADOR** con frase explícita: "La función de activación más exitosa para predicción de series temporales es **X**, según [paper Y] que reportó MAE = Z, mejorando vs baseline en N%."
+3. **Top 3 finalistas** con razón breve de por qué cada una está en el podio.
+4. **Recomendación específica para mi caso** (regresión magnitud BTC ≥ 0, alta volatilidad, post-WTA sparse).
+
+---
+
+## INVESTIGACIÓN 2 — Funciones de activación EXITOSAS para redes neuronales spiking (SNN)
+
+### Pregunta a investigar
+
+> ¿Qué funciones de activación (forward + surrogate gradient backward) han demostrado **éxito cuantitativo confirmado** en SNN para **regresión y/o forecasting** (no solo clasificación de imágenes), permitiendo entrenamiento end-to-end y mantenimiento de sparsity?
+
+### Restricciones
+- **Solo casos exitosos** — papers donde la combinación spike+surrogate dio mejor desempeño que alternativas.
+- **Foco en SNN para regresión** (no solo MNIST/CIFAR). Preferir papers con LIF/ALIF/RLIF/SLSTM.
+- Considerar arquitecturas con TS-LIF, DH-LIF, ALIF si aparecen.
+- Mínimo 1 paper por categoría (forward y backward).
+
+### Categorías a cubrir
+
+#### A) Activaciones de spike (forward) — solo las exitosas
+1. Heaviside con threshold fijo
+2. Heaviside con threshold adaptativo (ALIF, GLIF)
+3. "Decoding sin reset" (Henkes 2022)
+4. Soft/Stochastic spike
+
+Por cada una: paper, título, URL, métrica, en qué tarea fue exitosa.
+
+#### B) Surrogate gradients (backward) — solo los exitosos
+1. Sigmoid derivative (Neftci 2019)
+2. arctan-based (Fang 2021, Henkes 2022)
+3. Triangle/piecewise
+4. SuperSpike (Zenke & Ganguli 2018)
+5. SLAYER (Shrestha & Orchard 2018)
+6. Otros recientes que hayan superado a estos
+
+Por cada uno: paper, título, URL, métrica, comparativa vs alternativas.
+
+#### C) Activaciones para readout/decoding — solo las exitosas
+1. ReLU sobre membrana
+2. Softplus sobre membrana
+3. Population voting / mean pooling
+4. Filtro exponencial sobre spike trains (Florescu 2019, OFRST)
+
+Por cada una: paper, título, URL, dónde se usó con éxito, qué métrica logró.
+
+### Comparativa final (Investigación 2)
+
+1. **Tabla ranking** de combos completos (spike + surrogate + decoding) por métrica de éxito.
+2. **Declarar GANADOR**: "El combo más exitoso para SNN regresión es **[spike] + [surrogate] + [decoding]**, según [paper] que reportó [métrica]."
+3. **Top 3 combos** con descripción de en qué dataset/tarea ganaron.
+4. **Recomendación específica para mi caso** (1000 neuronas, sparsity 0.7%, post-WTA, regresión magnitud BTC).
+
+---
+
+## OUTPUT ESPERADO (formato exacto)
+
+Estructura del documento de respuesta:
+
+```
+# Investigación 1 — Series Temporales
+
+## Casos exitosos confirmados
+
+### 1. [Nombre función]
+- Título: "Exact Title of Paper"
+- URL: https://arxiv.org/abs/XXXX.XXXXX
+- Año/Venue: 2024 NeurIPS
+- Autores: A, B, C
+- Descripción: ...
+- Métrica de éxito: MAE = 0.043 (vs baseline ReLU 0.067, mejora 36%)
+- Dataset: ETTm1
+- Aplicable a BTC magnitud: Sí/No (por qué)
+
+### 2. [...]
+
+## Comparativa Investigación 1
+
+| Rank | Función | MAE | Paper | URL |
+|------|---------|-----|-------|-----|
+| 1 | ... | ... | ... | ... |
+
+**GANADOR**: La función X es la más exitosa porque...
+**Top 3**: ...
+**Recomendación para BTC magnitud**: ...
+
+---
+
+# Investigación 2 — SNN
+
+[mismo formato]
+
+## Comparativa Investigación 2
+
+**GANADOR combo**: spike X + surrogate Y + decoding Z
+
+---
+
+# Recomendación final cruzada
+
+Si tuviera que elegir UNA función de activación para mi proyecto (cabeza magnitud BTC en SNN sparse), la recomendación final es: **X** porque [razón con cita].
+```
+
+---
+
+## REGLAS DE EXCLUSIÓN
+
+NO incluir:
+- Funciones que el paper menciona pero no usa con éxito (control negativo)
+- Activaciones diseñadas exclusivamente para imágenes/clasificación
+- Trabajos sin métrica cuantitativa
+- Especulación sin cita
+- URLs no verificables (incluir SOLO links que tú puedas confirmar)
+- Activaciones obsoletas (>5 años) salvo que sigan dominando benchmarks
+
+Si NO encuentras un caso exitoso para alguna categoría, declarar explícitamente:
+> "Categoría X — No se encontraron casos exitosos confirmados en la literatura revisada."
+
+NO inventar datos. Si una métrica no está disponible en el paper, decir "no reportada".

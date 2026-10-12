@@ -1,0 +1,65 @@
+IDEAS & CONCEPTOS
+
+1. ¿Qué es un proceso estocástico, qué tipos hay y qué aplicaciones tienen?
+Es un proceso aleatorio donde el futuro depende de reglas probabilísticas[cite: 1505]. Tipos mencionados: cadenas de Markov en tiempo discreto/continuo, caminatas aleatorias, cadenas de nacimiento y muerte, etc[cite: 1479, 1480, 1482, 1484, 1842]. Aplicaciones: teoría de colas (overflow), redes de comunicación, barajar cartas, rankings de web (hyperlinks), genética, seguros y finanzas[cite: 1499, 1500, 1501, 1842, 1853, 1854].
+
+2. ¿De qué tipo de proceso estocástico son las cadenas de Markov? Describa brevemente estos procesos.
+Son procesos aleatorios que carecen de memoria[cite: 1477, 1478]. El estado futuro depende únicamente del estado presente y no del historial de cómo se llegó a dicho estado[cite: 1477, 1478]. 
+
+3. ¿Qué aplicaciones tienen en IA los Procesos de Decisión de Markov (MDP)?
+El documento M.pdf provisto no menciona la Inteligencia Artificial ni los Procesos de Decisión de Markov (solo menciona problemas de control y optimización de manera genérica)[cite: 1845, 1846].
+
+4. ¿Qué es una matriz estocástica (o matriz de transición) y qué aplicación tienen en los procesos de Markov?
+Es una matriz (P) donde todas sus entradas son no negativas (p_ij >= 0) y la suma de cada fila es exactamente 1[cite: 1510, 1511]. Se aplica para determinar las probabilidades de transición de un estado "i" a un estado "j" en el siguiente paso del proceso[cite: 1510, 1511].
+
+5. ¿Qué es el vector de estado de un proceso de Markov, y qué representa?
+Es un vector fila (λ) de distribución o medida inicial[cite: 1507, 1508]. Representa la probabilidad del sistema de encontrarse en cada uno de los estados en un momento dado, por lo que sus entradas suman 1[cite: 1507, 1508, 1509].
+
+6. ¿Qué es el estado estacionario de una cadena de Markov con un número finito de estados? ¿Cómo se calcula? y ¿qué significado tiene?
+Es una distribución invariante (π) que cumple la ecuación πP = π (ecuaciones del lado izquierdo) y cuyas probabilidades suman 1[cite: 1659, 1674]. Se calcula resolviendo este sistema de ecuaciones[cite: 1659, 1668, 1674, 1675]. Significa que si el proceso alcanza este estado, las probabilidades se mantienen constantes en el tiempo, representando la proporción de tiempo a largo plazo que el proceso pasa en cada estado[cite: 1659, 1673, 1674, 1675].
+
+
+MODELO DEL CLIMA - GENERALIDADES
+
+1. ¿Pueden la filas de la siguiente matriz, ser las filas de una matriz de transición de un tal proceso de Markov?
+No. Para ser una matriz estocástica, la suma de cada fila debe ser 1 y todas las entradas deben ser mayores o iguales a 0[cite: 1510, 1511]. La primera fila suma 1.1, la segunda 0.9, y la tercera contiene un valor negativo (-0.2).
+
+2. ¿Puede alguno de los vectores siguientes, ser el vector de estado actual de un tal proceso de Markov?
+No. Un vector de estado debe representar una distribución de probabilidades, por lo que la suma de sus componentes debe ser exactamente 1[cite: 1507, 1508, 1509]. La suma de u0 es 1.6 y la de w0 es 0.8.
+
+
+MODELO DEL CLIMA - EJERCICIO
+
+Datos: 
+P = [[0.2, 0.5, 0.3], [0.1, 0.6, 0.3], [0.5, 0.3, 0.2]]
+v0 = (0.75, 0.20, 0.05)
+
+1. El vector de estado para mañana v1:
+v1 = v0 * P = (0.75*0.2 + 0.20*0.1 + 0.05*0.5, 0.75*0.5 + 0.20*0.6 + 0.05*0.3, 0.75*0.3 + 0.20*0.3 + 0.05*0.2)
+v1 = (0.195, 0.510, 0.295)
+
+2. Los vectores de estado para pasado mañana (v2) y de hoy a tres días (v3):
+v2 = v1 * P = (0.195*0.2 + 0.51*0.1 + 0.295*0.5, 0.195*0.5 + 0.51*0.6 + 0.295*0.3, 0.195*0.3 + 0.51*0.3 + 0.295*0.2)
+v2 = (0.2375, 0.4920, 0.2705)
+
+v3 = v2 * P = (0.2375*0.2 + 0.492*0.1 + 0.2705*0.5, 0.2375*0.5 + 0.492*0.6 + 0.2705*0.3, 0.2375*0.3 + 0.492*0.3 + 0.2705*0.2)
+v3 = (0.23195, 0.4951, 0.27295)
+
+3. Estado estacionario de P:
+Resolviendo πP = π y π1 + π2 + π3 = 1:
+-0.8π1 + 0.1π2 + 0.5π3 = 0
+0.5π1 - 0.4π2 + 0.3π3 = 0
+Sustituyendo π3:
+π1 = 23/99 (aprox 0.232)
+π2 = 49/99 (aprox 0.495)
+π3 = 27/99 (aprox 0.273)
+Estado estacionario π = (23/99, 49/99, 27/99)
+
+4. Vector de estado actual para que mañana sea v = (0.75, 0.20, 0.05):
+Matemáticamente es imposible. La probabilidad de Lluvioso (tercer elemento) es como mínimo 0.2 sin importar el estado inicial, dado que las probabilidades de transición a Lluvioso son 0.3, 0.3 y 0.2. Requeriría que la suma (u1*0.3 + u2*0.3 + u3*0.2) de como resultado 0.05, lo cual exige entradas negativas, no existiendo un vector de estado de probabilidad válido.
+
+5. Análisis de la matriz P:
+a) pij representa la probabilidad condicional de que el clima de mañana sea el estado "j" dado que el clima actual es el estado "i".
+b) i) P(S|S0) = p11 = 0.2
+ii) P(N|L0) = p32 = 0.3
+iii) P(L|N0) = p23 = 0.3

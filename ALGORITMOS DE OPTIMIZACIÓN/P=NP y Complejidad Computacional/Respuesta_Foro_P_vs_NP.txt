@@ -1,0 +1,310 @@
+P VERSUS NP Y COMPLEJIDAD COMPUTACIONAL — APORTACIÓN AL FORO + BASE TEÓRICA
+============================================================
+Asignatura: 03MIAR Algoritmos de Optimización
+Fuente: VC4 (Descenso del gradiente y complejidad P/NP), VC1 (Análisis de
+complejidad temporal), VC3 (El problema del Agente Viajero - TSP)
+Artículo base: Roberts, S. "P 'vs' NP, el dilema matemático que creó la
+complejidad computacional". MIT Technology Review en español.
+https://www.technologyreview.es/s/13775/p-vs-np-el-dilema-matematico-que-creo-la-complejidad-computacional
+
+Este documento tiene dos partes:
+  PARTE A: un texto breve, en tono de foro, listo para publicar.
+  PARTE B: la base teórica completa y autocontenida, para poder entender
+           el debate sin haber visto las diapositivas ni leído el
+           artículo completo.
+
+Todo lo que aparece en la PARTE B está etiquetado como:
+  [CLASE]      -> viene literalmente del material de la asignatura (con
+                   referencia a la sesión y página).
+  [ARTÍCULO]   -> viene del artículo de MIT Technology Review dado como
+                   base del debate.
+  [ACLARACIÓN] -> contexto general para conectar ambas fuentes, NO es
+                   contenido literal de ninguna de las dos.
+
+
+============================================================
+PARTE A — TEXTO PARA EL FORO
+============================================================
+
+Leyendo el artículo de Technology Review me quedé enganchado con la
+anécdota de Michael Sipser: 7×13 lo calculamos de cabeza en un segundo,
+pero factorizar un número de 97 dígitos les costó 80 procesadores durante
+cinco meses (unos 33 años de un solo procesador). Esa asimetría —
+"calcular es fácil, deshacer el cálculo es carísimo"— es exactamente la
+que vimos en VC4 con la tabla de P, NP, NP-Completo y NP-Duro: en P la
+solución Y su verificación son ambas rápidas (tiempo polinómico); en NP
+solo la verificación está garantizada como rápida, no encontrar la
+solución.
+
+Lo que más me ha hecho pensar es la diferencia entre NP-Completo y
+NP-Duro que remarca la diapositiva: el TSP (nuestro problema ancla desde
+VC3) es NP-Duro, no NP-Completo, precisamente porque ni siquiera hace
+falta poder "verificar rápido" una solución para que un problema sea al
+menos tan difícil como toda la clase NP. En cambio, SAT (satisfacibilidad
+booleana, el teorema de Cook de 1971 que menciona el artículo) sí es
+NP-Completo: se puede verificar rápido si una asignación de variables
+satisface la fórmula, solo que no se conoce ningún algoritmo rápido para
+ENCONTRAR esa asignación. Y aquí está el resultado que a mí más me
+sorprendió del artículo: Karp demostró en 1972 que 21 problemas
+"cotidianos" (mochila, TSP, árbol de Steiner...) son todos equivalentes
+entre sí vía SAT — si alguien resuelve UNO en tiempo polinómico, los
+resuelve TODOS.
+
+Pregunta para el foro: el artículo cita a Aaronson dando solo un 2-3% de
+probabilidad de que P=NP, y a Williams con un 80% de confianza en que
+P≠NP (bastante más "flojo" de lo que yo esperaba de un experto). Dado que
+en esta asignatura ya asumimos como axioma de trabajo que "P≠NP, así que
+hay que usar heurísticas" (VC5 en adelante) — si mañana alguien demostrara
+P=NP con un algoritmo de, pongamos, O(n^100) (el ejemplo que da James Cook
+en el artículo), ¿cambiaría en algo nuestra forma de resolver TSP en la
+práctica, o seguiríamos usando recocido simulado / colonia de hormigas
+igualmente porque n^100 es inservible para cualquier n razonable?
+
+
+============================================================
+PARTE B — BASE TEÓRICA COMPLETA
+============================================================
+
+--------------------------------------------------------
+B.1 El punto de partida: por qué "más lento" no es lo mismo que
+    "computacionalmente inviable" (VC1)
+--------------------------------------------------------
+[CLASE - VC1, p.42] Tabla de órdenes de complejidad, de menor a mayor:
+    O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(nᵃ)
+    < O(2ⁿ) < O(n!)
+
+  Con n=100: n² = 10.000 operaciones (microsegundos); 2ⁿ ≈ 1,2×10²⁷
+  operaciones (más que átomos en muchos objetos cotidianos).
+
+[CLASE - VC1, p.38-39] Ejemplo del Problema del Viajante: con 4 ciudades
+hay 3!=6 rutas posibles; con 532 ciudades hay 531! rutas, "un número tan
+gigantesco que la propia diapositiva concluye: '¡Se necesita otra
+estrategia!'".
+
+[ACLARACIÓN] Esta tabla de VC1 es la base numérica de todo lo que sigue:
+la frontera entre "problema fácil" (P) y "problema difícil" (NP) que
+introduce VC4 no es una cuestión de tener un ordenador más rápido, sino de
+en qué COLUMNA de esta tabla cae el algoritmo. Un algoritmo polinómico
+(P) sigue siendo manejable aunque n crezca; uno exponencial o factorial
+deja de ser ejecutable en la práctica a partir de un n relativamente
+pequeño, sin importar cuánto mejore el hardware.
+
+--------------------------------------------------------
+B.2 Las clases de complejidad P, NP, NP-Completo, NP-Duro (VC4)
+--------------------------------------------------------
+[CLASE - VC4, p.5] Tabla dada en clase:
+
+  Clase          | ¿Verificable en tiempo polinómico? | ¿Solución en tiempo polinómico?
+  ---------------|-------------------------------------|----------------------------------
+  P              | Sí                                  | Sí
+  NP             | Sí                                  | Algunos
+  NP-Completos   | Sí                                  | Desconocido
+  NP-Duros       | Algunos                             | Desconocido
+
+[CLASE - VC4, p.5] Definiciones literales:
+  - NP: "no se conoce solución en tiempo polinomial" (pero sí se puede
+    VERIFICAR una solución propuesta en tiempo polinomial).
+  - NP-Completo: "si un problema NP-Completo se demuestra que es P
+    entonces P=NP! (El resto de NP se pueden transformar con complejidad
+    Polinomial)".
+  - NP-Duro: "Al menos tan complejo como cualquier NP pero puede que no
+    sea NP" (es decir, no necesariamente se puede ni siquiera VERIFICAR
+    una solución en tiempo polinomial).
+
+[CLASE - VC4, p.6] Ejemplos dados: NP-Completo -> Satisfacibilidad
+booleana (SAT, Stephen Cook, 1971) — "todos los NP-Completos se 'reducen'
+a SAT". NP-Duro -> el problema del Agente Viajero (TSP).
+
+[ACLARACIÓN] La distinción entre NP-Completo y NP-Duro que hace la
+diapositiva es sutil pero importante: TODO NP-Completo es NP-Duro, pero
+no todo NP-Duro es NP-Completo. Un problema NP-Duro puede ser incluso más
+difícil que "solo" pertenecer a NP: puede que ni siquiera se pueda
+comprobar rápidamente si una solución propuesta es correcta (por eso la
+tabla dice "Algunos" y no "Sí" en la columna de verificación para
+NP-Duros). El TSP en su versión de OPTIMIZACIÓN (encontrar la ruta más
+corta, no solo decidir si existe una de longitud ≤ k) es NP-Duro por esta
+razón: verificar que una ruta dada es la ÓPTIMA no es trivial en tiempo
+polinómico, aunque sí lo sea sumar su distancia total.
+
+--------------------------------------------------------
+B.3 El teorema de Cook-Levin y el "efecto dominó" NP-Completo
+--------------------------------------------------------
+[ARTÍCULO] Stephen Cook publicó en 1971 el artículo fundacional del campo,
+demostrando que el problema de la satisfacibilidad booleana (SAT) es el
+problema NP más difícil ("NP-completo"): "si hay un algoritmo de tiempo
+polinómico que resuelve SAT, entonces ese algoritmo servirá como llave
+maestra, creando soluciones a todos los problemas NP. Y si existe una
+solución de tiempo polinómico para todos los problemas NP, entonces
+P=NP". El matemático soviético Leonid Levin llegó a un resultado
+equivalente por separado y casi al mismo tiempo (de ahí el nombre
+"teorema de Cook-Levin").
+
+[ARTÍCULO] En 1972, Richard Karp demostró que 21 problemas computacionales
+"cotidianos" —entre ellos el problema de la mochila, el problema del
+viajante (TSP) y el problema del árbol de Steiner— tienen la misma
+"propiedad transformacional" que SAT: son todos NP-Completos, y por tanto
+equivalentes entre sí. Resolver cualquiera de ellos en tiempo polinómico
+resolvería a TODOS (incluido SAT, y por tanto probaría P=NP).
+
+[ACLARACIÓN] Esto conecta directamente con lo visto en AG1/AG2/AG3: el
+propio curso trabaja, sin decirlo explícitamente en cada sesión, con
+varios de estos 21 problemas de Karp. La asignación de tareas de AG2
+(resuelta con ramificación y poda) y el TSP de AG3 (resuelto con
+metaheurísticas) son ambos casos concretos de problemas NP-Completos o
+NP-Duros de la lista de Karp — es la razón última por la que el curso
+nunca ofrece un algoritmo EXACTO y rápido para ellos a partir de cierto
+tamaño, y en su lugar enseña ramificación y poda (exacto pero
+potencialmente exponencial, con poda para mitigarlo) o metaheurísticas
+(heurístico, renuncia a garantizar el óptimo).
+
+--------------------------------------------------------
+B.4 ¿Por qué el consenso es que P≠NP, y por qué "casi seguro" no es
+    "seguro"?
+--------------------------------------------------------
+[CLASE - VC4, p.7] "Resolverlo supondría encontrar 'atajos' para resolver
+problemas NP a partir de problemas P... Todo indica que P no es igual a
+NP por lo que 'casi' asumimos que no podemos abordar estos problemas
+computacionalmente con algoritmos exactos. Es muy probable que solo
+podamos resolver estos problemas por métodos aproximados o usando
+heurísticas."
+
+[ARTÍCULO] El consenso entre expertos es efectivamente P≠NP, aunque las
+estimaciones de probabilidad varían: Scott Aaronson le da a P=NP solo un
+2-3% de probabilidad; Ryan Williams (MIT) fija la probabilidad de P≠NP en
+un "moderado" 80%; investigadores como Toniann Pitassi (Univ. de Toronto)
+admiten que cada vez dudan más de la certeza de esa creencia. El propio
+Stephen Cook, que abrió el campo en 1971, reconoce que nunca logró
+demostrarlo pese a dedicarle décadas: "Es demasiado difícil".
+
+[ARTÍCULO] Donald Knuth (Stanford) ofrece una postura intermedia
+interesante: cree que P SÍ es igual a NP, pero que probablemente nunca
+podremos usar ese hecho en la práctica, porque el algoritmo polinómico que
+lo demuestre podría no llegar a "descubrirse" jamás por parte de "simples
+mortales" — hay muchísimos más algoritmos posibles de los que la
+humanidad podrá explorar.
+
+[ACLARACIÓN] Es clave no confundir "consenso mayoritario" con
+"demostración". El propio Instituto Clay de Matemáticas lo incluyó en el
+año 2000 entre los siete "Problemas del Milenio" (premio de un millón de
+dólares) precisamente porque, medio siglo después del artículo de Cook,
+sigue sin haber una demostración rigurosa en ninguna dirección — el
+artículo narra cómo en julio de 2021 una supuesta demostración de P=NP
+llegó a publicarse por error en una revista revisada por pares, y tuvo
+que retractarse al día siguiente.
+
+--------------------------------------------------------
+B.5 James Cook: un matiz importante sobre lo que significaría "P=NP"
+--------------------------------------------------------
+[ARTÍCULO] James Cook (hijo de Steve Cook, también informático) señala un
+matiz que suele pasarse por alto en el debate popular: que un problema
+sea de clase P NO garantiza que sea PRÁCTICO. Un algoritmo con complejidad
+O(n¹⁰⁰) "técnicamente cae bajo la clase P: es un polinomio. Pero n¹⁰⁰
+sigue siendo muy poco práctico" — cualquier problema de tamaño razonable
+seguiría siendo inabordable en la práctica aunque P=NP fuera cierto.
+
+[ACLARACIÓN] Este matiz conecta con algo que ya vimos en VC1: la
+clasificación O(f) ignora las constantes multiplicativas, pero sigue
+distinguiendo ENTRE órdenes polinómicos (n², n³, n¹⁰⁰...). "Polinómico"
+es una frontera teórica útil (separa "crece controladamente" de "crece
+sin control"), pero no es sinónimo automático de "rápido en la práctica".
+Es la misma idea que aparece en VC1 cuando se advierte que las constantes
+SÍ importan para tamaños de entrada pequeños o moderados.
+
+--------------------------------------------------------
+B.6 Por qué esto le importa a la vida real: criptografía, biología,
+    logística
+--------------------------------------------------------
+[ARTÍCULO] La factorización de números grandes en sus factores primos es
+la base de la criptografía RSA. El ejemplo dado por Sipser: factorizar un
+número de 97 dígitos requirió 80 procesadores trabajando 5 meses seguidos
+(≈33 años-procesador). Si alguien encontrara un algoritmo polinómico para
+factorizar (lo que implicaría, aunque no es estrictamente lo mismo que
+"P=NP", un colapso similar en la práctica), gran parte de la
+infraestructura de comunicaciones seguras actual quedaría comprometida de
+inmediato.
+
+[ARTÍCULO] Otras consecuencias citadas si P=NP se demostrara de forma
+"utilizable" (con un algoritmo realmente práctico, no un O(n^100)): el
+plegamiento de proteínas se volvería mucho más tratable (diseño de
+fármacos, enzimas para descomponer residuos industriales), y problemas de
+optimización cotidianos —como planificar una ruta que visite varios
+destinos en el mínimo tiempo (el TSP de nuevo) o distribuir invitados en
+mesas de boda sin que se mezclen desconocidos— tendrían soluciones
+óptimas garantizadas y rápidas.
+
+[ACLARACIÓN] Aquí se cierra el círculo con el resto de la asignatura: el
+propio ejemplo de "planificar una ruta visitando varios destinos" ES el
+TSP que resolvemos en AG3 con búsqueda aleatoria, búsqueda local, recocido
+simulado y colonia de hormigas — precisamente PORQUE asumimos P≠NP y por
+tanto renunciamos a un algoritmo exacto rápido, conformándonos con buenas
+soluciones heurísticas en tiempo razonable.
+
+--------------------------------------------------------
+B.7 Cronología resumida del debate (según el artículo)
+--------------------------------------------------------
+[ARTÍCULO]
+  1936 - Alan Turing formaliza "algoritmo" y "computación" (On Computable
+         Numbers), y demuestra que no toda afirmación matemática se puede
+         decidir mecánicamente.
+  Años 1950 - John von Neumann distingue ya un algoritmo "polinómico" de
+         uno "exponencial" como cualitativamente mejor.
+  1956 - Kurt Gödel escribe a von Neumann preguntando, en esencia, si un
+         problema NP-Completo se podría resolver en tiempo polinómico
+         (carta descubierta décadas después en los archivos de Princeton).
+  1971 - Stephen Cook publica el teorema de Cook (SAT es NP-Completo) e
+         inaugura formalmente la teoría de la complejidad computacional.
+         Leonid Levin llega a un resultado equivalente de forma
+         independiente (teorema de Cook-Levin).
+  1972 - Richard Karp identifica 21 problemas NP-Completos adicionales
+         (mochila, TSP, árbol de Steiner, entre otros).
+  1989 - David Barrington demuestra un resultado sorprendente sobre uso
+         mínimo de memoria (5 bits) para cierta clase de cálculos.
+  2000 - El Instituto Clay de Matemáticas declara P vs NP uno de los siete
+         "Problemas del Milenio" (premio: un millón de dólares).
+  2014 - Harry Buhrman y colaboradores publican la idea de "computar con
+         la memoria llena" ("memoria prestada"), retomada en 2019 por
+         James Cook e Ian Mertz.
+  Julio 2021 - Una demostración de P=NP se publica por error en una
+         revista revisada por pares y se retracta al día siguiente.
+
+--------------------------------------------------------
+B.8 Resumen para memorizar
+--------------------------------------------------------
+1. P = se resuelve Y se verifica en tiempo polinómico. NP = se VERIFICA en
+   tiempo polinómico (resolverlo puede tardar mucho más). P está
+   contenido en NP.
+2. NP-Completo = el "núcleo duro" de NP: todo problema NP se puede
+   transformar (reducir) a uno de estos en tiempo polinómico. Si UNO se
+   resuelve rápido, TODOS se resuelven rápido (y P=NP).
+3. NP-Duro = al menos tan difícil como cualquier problema de NP, pero no
+   necesariamente pertenece a NP (puede que ni verificar sea rápido). El
+   TSP de optimización es el ejemplo de clase.
+4. Consenso mayoritario (no demostrado): P≠NP. Estimaciones de expertos
+   van desde 2-3% (Aaronson) hasta 20% (Williams, invirtiendo su cifra de
+   80% de confianza en P≠NP) de probabilidad de que sí sean iguales.
+5. Aunque se demostrara P=NP, no está garantizado que fuera ÚTIL en la
+   práctica (ver ejemplo O(n¹⁰⁰) de James Cook) — "polinómico" no es
+   sinónimo de "rápido para humanos".
+6. Consecuencia directa para el curso: como se asume P≠NP, a partir de
+   VC5 la asignatura abandona los algoritmos EXACTOS para problemas
+   NP-Duros/NP-Completos (TSP, asignación de tareas grandes...) y pasa a
+   las metaheurísticas (búsqueda aleatoria, local, recocido simulado,
+   colonia de hormigas, algoritmos genéticos): renunciar a la garantía de
+   optimalidad a cambio de una solución muy buena en tiempo razonable.
+
+
+============================================================
+REFERENCIAS
+============================================================
+- Roberts, S. "P 'vs' NP, el dilema matemático que creó la complejidad
+  computacional". MIT Technology Review en español.
+  https://www.technologyreview.es/s/13775/p-vs-np-el-dilema-matematico-que-creo-la-complejidad-computacional
+- Cook, S. A. (1971). "The complexity of theorem-proving procedures".
+  Proceedings of the third annual ACM symposium on Theory of computing.
+- Karp, R. M. (1972). "Reducibility among combinatorial problems".
+  Complexity of Computer Computations.
+- Clay Mathematics Institute — Millennium Prize Problems: P vs NP.
+  https://www.claymath.org/millennium/p-vs-np/
+- Material de la asignatura 03MIAR Algoritmos de Optimización: VC1
+  (Introducción a los algoritmos), VC4 (Descenso del gradiente y
+  complejidad P/NP), VC3 (Problemas tipo y algoritmos de búsqueda).

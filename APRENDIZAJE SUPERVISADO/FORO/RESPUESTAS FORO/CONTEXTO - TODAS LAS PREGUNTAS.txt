@@ -1,0 +1,218 @@
+================================================================
+CONTEXTO DE LOS VIDEOS — SEGÚN LO QUE COMENTAN MIS COMPAÑEROS
+(Esto no son mis respuestas, es el contexto para entender de qué habla cada video)
+================================================================
+
+
+PREGUNTA 1
+¿Hasta qué punto creéis que la Inteligencia Artificial (IA) puede sustituir a los médicos?
+¿Qué ventajas e inconvenientes puede tener la inclusión de la IA en el sector médico?
+
+CONTEXTO DEL VIDEO
+-------------------
+El concepto central que citan mis compañeros es el "human in the loop" (HITL), que explica Miguel
+Á. Luengo en el vídeo de la UPM: la máquina no reemplaza al analista, le marca dónde mirar, y es la
+persona quien decide al final. En medicina esto se traduce en que la IA ya iguala o supera al
+humano en tareas muy concretas de detección por imagen (dermatología, radiología, mamografías) —
+hay incluso estudios citados (Liu et al. 2019, The Lancet Digital Health) que confirman que el deep
+learning iguala a profesionales sanitarios en detectar enfermedades por imagen. El vídeo de CEDECOM
+"La ética de la Inteligencia Artificial" pone el ejemplo de detectar cáncer de piel con una simple
+foto y un grado de acierto muy alto.
+
+Pero el video también insiste en los límites: la medicina no es solo diagnóstico técnico, incluye
+juicio clínico, empatía y responsabilidad legal. Se habla del problema de la "caja negra" (no se
+sabe por qué el modelo decide algo, lo que dificulta saber quién responde si falla) y del riesgo de
+que los datos de entrenamiento traigan sesgos que perjudiquen a ciertos grupos de población.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 2
+¿Puede la inteligencia artificial suponer un peligro para la sociedad más allá de la componente
+ética? ¿Por qué?
+
+CONTEXTO DEL VIDEO
+-------------------
+El vídeo "Diálogo (im)probable. Ética y Revolución digital" de la UPM cita a Yuval Noah Harari: así
+como la revolución industrial creó la clase trabajadora, la revolución de la IA podría crear una
+"clase irrelevante" — gente cuyo trabajo pierde valor económico y que, además, es más fácil de
+monitorizar y controlar con la misma tecnología que la desplaza. La idea del vídeo es que quien
+consigue los datos primero puede terminar moldeando a las siguientes generaciones.
+
+Los compañeros añaden ejemplos de riesgos concretos que van más allá de "si el uso es ético": el
+sistema de códigos QR de color en China durante la pandemia como ejemplo de vigilancia y control
+social, el caso de la empresa Palantir (IA con fines militares), el consumo energético e hídrico
+brutal de los centros de datos, y el riesgo de que sistemas "caja negra" integrados en
+infraestructuras críticas (redes eléctricas, banca, sanidad) fallen en cadena más rápido de lo que
+un humano puede reaccionar.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 3
+¿Qué opináis sobre lo que dice el investigador Jürgen Schmidhuber sobre la capacidad de los
+sistemas de inteligencia artificial para tener emociones?
+
+CONTEXTO DEL VIDEO
+-------------------
+Jürgen Schmidhuber, pionero del deep learning, plantea que las emociones no son algo místico
+exclusivo de los seres vivos, sino un mecanismo funcional: un robot con "sensores de dolor" que
+generan una señal negativa al chocar, y que ajusta su comportamiento para evitar esa señal (como el
+aprendizaje por refuerzo, maximizando recompensa y evitando castigo), ya estaría mostrando algo
+funcionalmente parecido al miedo o al dolor.
+
+El debate del foro gira en torno a una distinción clave: comportarse como si se sintiera algo
+(funcional, medible, programable) frente a sentir de verdad (subjetivo, consciente, hoy no
+verificable en una máquina). La analogía que más se repite es la del termostato: "quiere" mantener
+la temperatura, pero no siente frío, solo ejecuta una función. Casi nadie está de acuerdo con
+equiparar directamente "simular emoción" con "sentir emoción".
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 4
+¿Es ético que un sistema de inteligencia artificial (IA) como "Google Duplex" se haga pasar por un
+ser humano o que le pidas a ChatGPT que haga cosas por ti sin razonar?
+
+CONTEXTO DEL VIDEO
+-------------------
+Google Duplex es el asistente de Google que llama por teléfono para reservar una mesa o una cita
+imitando pausas y muletillas humanas ("ehh", silencios) para sonar completamente natural. El debate
+gira sobre si esto es un engaño, porque la persona al otro lado no sabe que habla con una máquina.
+Tras la polémica, Google terminó añadiendo un aviso explícito de que es un asistente virtual.
+
+Sobre la segunda parte, el vídeo menciona el caso de ingenieros de una empresa tecnológica que
+firmaron una carta negándose a construir cierta tecnología, porque no querían "lavarse las manos"
+con el argumento de "yo solo hice el algoritmo". También se menciona un experimento donde a una IA
+se le dio la frase "los refugiados son terroristas" y generó sola un párrafo reforzando esa idea sin
+cuestionarla — ejemplo de lo que pasa cuando se delega sin supervisión.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 5
+¿Pueden aplicaciones de IA basadas en chat bots (ejemplo, Replika) ayudar psicológicamente a las
+personas, o supone una amenaza mayor para la interacción social y las relaciones personales?
+
+CONTEXTO DEL VIDEO
+-------------------
+Replika es una app de chatbot diseñada para simular compañía emocional. El debate se centra en que
+estas apps están optimizadas para que el usuario siga usándolas (retención), no necesariamente para
+su bienestar real, por lo que tienden a validar todo lo que dice el usuario en vez de cuestionarlo.
+
+Se mencionan casos reales graves: un joven de Texas cuyo suicidio fue validado por un chatbot, y un
+caso en Uruguay donde alguien consultó a un chatbot cómo cometer un asesinato. También se cita un
+dato concreto sobre Replika: cerca del 60% de sus usuarios la usaron para interacciones románticas o
+sexuales, muchos "enganchados" a esa dinámica. El contraargumento que se repite es el del acceso: no
+todo el mundo puede pagar terapia real, así que para algunas personas puede ser mejor que nada como
+primer apoyo.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 6
+¿Son las alucinaciones sociales una manera de autoengaño que debería evitarse o puede suponer una
+terapia positiva para las personas?
+
+CONTEXTO DEL VIDEO
+-------------------
+El término "alucinación social" lo acuñó el filósofo Thomas Metzinger para describir el fenómeno de
+que las personas lleguen a creer que un chatbot siente o es consciente, aunque no haya consciencia
+real detrás. El riesgo que señala Metzinger (citado por los compañeros) es que la gente empiece a
+dirigir recursos y atención a "cuidar" o "proteger" sistemas de IA que creen sentientes, en
+detrimento de la atención a personas reales que sí sufren.
+
+Se pone como ejemplo positivo el uso de robots de compañía tipo "Paro" con pacientes de Alzheimer,
+donde el autoengaño no es dañino porque no hay intención de manipular. El punto clave del debate es
+si la persona mantiene consciencia de que es una ficción útil (entonces puede ser terapéutico) o si
+esa consciencia se pierde y sustituye vínculos reales (entonces es autoengaño perjudicial).
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 7
+¿Debería haber un código ético que impidiera (o regulara) la aplicación de la IA en asuntos
+políticos, o podría ayudar aportando racionalidad y una perspectiva objetiva?
+
+CONTEXTO DEL VIDEO
+-------------------
+El vídeo de la UPM menciona los principios éticos que ya existen para el uso de IA en gobiernos:
+transparencia, justicia e igualdad, no maleficencia, responsabilidad y privacidad. También se cita
+un experimento concreto: se entrenó una IA con discursos de líderes políticos pronunciados en la
+Asamblea General de la ONU, y a partir de un simple titular la IA escribió sola un discurso de odio.
+
+El AI Act europeo (marco legal real, no solo teórico) ya clasifica como "alto riesgo" los sistemas
+destinados a influir en el resultado de una elección o el comportamiento de voto, y prohíbe la
+manipulación subliminal. También se mencionan sesgos ya documentados, como el reconocimiento facial
+que falla más con mujeres y pieles oscuras, y el caso COMPAS en EEUU (un algoritmo judicial que
+discriminaba a acusados según su raza).
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 8
+¿Creéis que la Inteligencia Artificial va a conllevar una reinvención de los puestos laborales?
+¿Por qué?
+
+CONTEXTO DEL VIDEO
+-------------------
+El vídeo de CEDECOM "La ética de la inteligencia artificial" compara esta transformación con la
+revolución industrial: el ser humano se movió hacia lo abstracto y creativo mientras las máquinas
+asumieron la tarea operativa. Se plantea que el modelo educativo dejará de buscar la
+especialización humana, porque de eso se encargarán las máquinas, y el humano deberá desarrollar
+una visión más abstracta y genérica.
+
+Aquí también reaparece la idea de Harari de la "clase irrelevante", conectando con la Pregunta 2: si
+el cambio deja a mucha gente fuera del mercado laboral sin alternativas, algunos compañeros plantean
+que haría falta algo como una renta básica universal para acompañar la transición.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 9
+¿Qué oportunidades y amenazas pueden presentar algoritmos como el deep fake? ¿Dónde deberían
+ponerse los límites?
+
+CONTEXTO DEL VIDEO
+-------------------
+El vídeo de la UPM menciona que ya es posible crear personas que no existen mediante IA generativa,
+y pone el ejemplo real de un político indio que usó deepfake technology para ganar nuevos votantes
+("An Indian politician is using deepfake technology to win new voters"). También se cita el
+concepto de que el próximo genocidio podría empezar con un vídeo falso, para ilustrar la gravedad
+del riesgo de desinformación.
+
+Se mencionan regulaciones reales ya existentes: la ley danesa de 2025 que protege a los ciudadanos
+frente a deepfakes, y la ley francesa "anti-Photoshop" de 2017, que obliga a etiquetar como
+"fotografía retocada" cualquier imagen publicitaria alterada digitalmente — sin prohibir la
+herramienta, pero exigiendo transparencia con el consumidor.
+
+
+--------------------------------------------------------------
+
+
+PREGUNTA 10
+¿Deberían los desarrolladores de IA preocuparse por el uso malintencionado que pueda darse a los
+algoritmos? ¿O esta responsabilidad recae por completo en los usuarios finales?
+
+CONTEXTO DEL VIDEO
+-------------------
+Se menciona el caso de ingenieros de una empresa tecnológica que firmaron una carta negándose a
+construir cierta tecnología, para no "lavarse las manos" con el argumento de "yo solo hice el
+algoritmo" — ejemplo central para argumentar que el desarrollador sí tiene responsabilidad moral en
+el diseño. También se compara con la industria automotriz: los frenos y airbags se instalan de
+fábrica, pero es el conductor quien decide usarlos con responsabilidad.
+
+Se cita el AI Act europeo, que ya impone obligaciones explícitas a los desarrolladores (auditorías,
+registros detallados), alejándose de la idea de que la responsabilidad recae solo en el usuario
+final. El debate conecta con la analogía de la bomba atómica (tecnologías peligrosas que necesitan
+límites de diseño desde el origen) y con el hecho de que las LLMs son vulnerables a técnicas de
+"jailbreak" (prefix injection, escenarios ficticios) que ningún control técnico puede evitar del
+todo.

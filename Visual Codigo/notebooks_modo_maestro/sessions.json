@@ -1,0 +1,380 @@
+[
+  {
+    "id": 0,
+    "group": "S00 · Intro y tipos",
+    "name": "S00 · Variables y tipos",
+    "code": "nombre = \"Ana\"\nedad   = 25\naltura = 1.65\nactivo = True\n\nprint(nombre, edad, altura, activo)\nprint(type(nombre), type(edad), type(altura), type(activo))\n\nx, y, z = 10, 20, 30\nprint(\"Suma:\", x + y + z)\nprint(\"id de edad:\", id(edad))",
+    "practica": null
+  },
+  {
+    "id": 1,
+    "group": "S00 · Intro y tipos",
+    "name": "S00 · Strings y slicing",
+    "code": "s = \"Python para IA\"\nprint(s[0])\nprint(s[-2:])\nprint(s[7:12])\nprint(s[::-1])\nprint(s.upper())\nprint(s.split(\" \"))\nprint(s.replace(\"Python\", \"Aprender\"))\nprint(len(s))",
+    "practica": null
+  },
+  {
+    "id": 2,
+    "group": "S00 · Intro y tipos",
+    "name": "S00 · Operadores",
+    "code": "print(7 // 2)\nprint(7 % 2)\nprint(2 ** 10)\n\nprint(5 > 3 and 2 < 4)\nprint(not False)\n\nfrutas = [\"manzana\", \"pera\", \"naranja\"]\nprint(\"pera\" in frutas)\nprint(\"uva\" not in frutas)",
+    "practica": null
+  },
+  {
+    "id": 3,
+    "group": "S01 · Colecciones",
+    "name": "S01 · Lista, Tupla, Set, Dict",
+    "code": "nums = [3, 1, 4, 1, 5, 9]\nnums.append(2)\nnums.sort()\nprint(\"Lista:\", nums)\n\ncoordenada = (40.41, -3.70)\nprint(\"Tupla:\", coordenada)\n\ncolores = {\"rojo\", \"azul\", \"rojo\", \"verde\"}\nprint(\"Set:\", colores)\n\npersona = {\"nombre\": \"Ana\", \"edad\": 30}\npersona[\"ciudad\"] = \"Madrid\"\nprint(\"Dict:\", persona)\nprint(\"Keys:\", list(persona.keys()))",
+    "practica": null
+  },
+  {
+    "id": 4,
+    "group": "S02 · Control de flujo",
+    "name": "S02 · if / elif / else",
+    "code": "nota = 7.5\n\nif nota >= 9:\n    cal = \"Sobresaliente\"\nelif nota >= 7:\n    cal = \"Notable\"\nelif nota >= 5:\n    cal = \"Aprobado\"\nelse:\n    cal = \"Suspenso\"\n\nprint(f\"Nota {nota}: {cal}\")\n\nedad = 20\nstatus = \"mayor\" if edad >= 18 else \"menor\"\nprint(f\"Con {edad} anos eres {status} de edad\")",
+    "practica": null
+  },
+  {
+    "id": 5,
+    "group": "S02 · Control de flujo",
+    "name": "S02 · while, for, enumerate",
+    "code": "i = 0\nwhile True:\n    if i >= 5:\n        break\n    print(i, end=\" \")\n    i += 1\nprint()\n\nfor n in range(10):\n    if n % 2 == 0:\n        continue\n    print(n, end=\" \")\nprint()\n\nfrutas = [\"manzana\", \"pera\", \"naranja\"]\nfor i, f in enumerate(frutas):\n    print(f\"  [{i}] {f}\")",
+    "practica": null
+  },
+  {
+    "id": 6,
+    "group": "S03 · Comprehensions",
+    "name": "S03 · List y Dict comprehension",
+    "code": "cuadrados = [x**2 for x in range(1, 21) if x % 2 != 0]\nprint(cuadrados)\n\nnombres = [\"Ana\", \"Bob\", \"Carlos\"]\nlongitudes = {n: len(n) for n in nombres}\nprint(longitudes)\n\npares = {x: x**2 for x in range(1, 8) if x % 2 == 0}\nprint(pares)",
+    "practica": null
+  },
+  {
+    "id": 7,
+    "group": "S04 · Excepciones",
+    "name": "S04 · try / except / else / finally",
+    "code": "def dividir(a, b):\n    try:\n        resultado = a / b\n    except ZeroDivisionError:\n        print(\"Error: division por cero\")\n        return None\n    else:\n        print(f\"{a} / {b} = {resultado}\")\n        return resultado\n    finally:\n        print(\"--- fin operacion ---\")\n\ndividir(10, 2)\ndividir(5, 0)",
+    "practica": null
+  },
+  {
+    "id": 8,
+    "group": "S05 · Funciones",
+    "name": "S05 · Funciones con anotaciones",
+    "code": "def estadisticas(numeros: list) -> dict:\n    if not numeros:\n        return {}\n    return {\n        \"min\": min(numeros),\n        \"max\": max(numeros),\n        \"media\": sum(numeros) / len(numeros),\n        \"n\": len(numeros)\n    }\n\nresultado = estadisticas([3, 1, 4, 1, 5, 9, 2, 6])\nfor k, v in resultado.items():\n    print(f\"  {k}: {v}\")",
+    "practica": null
+  },
+  {
+    "id": 9,
+    "group": "S05 · Funciones",
+    "name": "S05 · *args y **kwargs",
+    "code": "def mostrar(*args, **kwargs):\n    print(\"Posicionales:\", args)\n    print(\"Nombrados:\", kwargs)\n\nmostrar(1, 2, 3, nombre=\"Ana\", edad=25)\n\nnumeros = [10, 20, 30]\nprint(max(*numeros))\n\nconfig = {\"sep\": \" | \", \"end\": \"\\n\"}\nprint(\"a\", \"b\", \"c\", **config)",
+    "practica": null
+  },
+  {
+    "id": 10,
+    "group": "S05 · Funciones",
+    "name": "S05 · Lambda, recursion, closure",
+    "code": "personas = [(\"Ana\", 30), (\"Bob\", 25), (\"Clara\", 35)]\norden_edad = sorted(personas, key=lambda p: p[1])\nprint(orden_edad)\n\ndef factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(6))\n\ndef make_contador(inicio=0):\n    cuenta = [inicio]\n    def incrementar():\n        cuenta[0] += 1\n        return cuenta[0]\n    return incrementar\n\nc = make_contador()\nprint(c(), c(), c())",
+    "practica": null
+  },
+  {
+    "id": 11,
+    "group": "S06 · OOP",
+    "name": "S06 · Clases y objetos",
+    "code": "class Rectangulo:\n    def __init__(self, ancho: float, alto: float):\n        self.ancho = ancho\n        self.alto = alto\n\n    def area(self) -> float:\n        return self.ancho * self.alto\n\n    def perimetro(self) -> float:\n        return 2 * (self.ancho + self.alto)\n\n    def __str__(self) -> str:\n        return f\"Rectangulo({self.ancho}x{self.alto})\"\n\nr = Rectangulo(5, 3)\nprint(r)\nprint(f\"Area: {r.area()}\")\nprint(f\"Perimetro: {r.perimetro()}\")",
+    "practica": null
+  },
+  {
+    "id": 12,
+    "group": "S06 · OOP",
+    "name": "S06 · Herencia y polimorfismo",
+    "code": "class Animal:\n    def __init__(self, nombre: str, sonido: str):\n        self.nombre = nombre\n        self._sonido = sonido\n\n    def hablar(self) -> str:\n        return f\"{self.nombre} dice: {self._sonido}\"\n\nclass Perro(Animal):\n    def __init__(self, nombre: str, raza: str):\n        super().__init__(nombre, \"Guau\")\n        self.raza = raza\n\n    def hablar(self) -> str:\n        return f\"{self.nombre} ({self.raza}) dice: {self._sonido}!\"\n\n    def buscar(self) -> str:\n        return f\"{self.nombre} esta buscando...\"\n\nperro = Perro(\"Rex\", \"Pastor Aleman\")\nprint(perro.hablar())\nprint(perro.buscar())\nprint(isinstance(perro, Animal))",
+    "practica": null
+  },
+  {
+    "id": 13,
+    "group": "S06 · OOP",
+    "name": "S06 · @property y @staticmethod",
+    "code": "class Temperatura:\n    def __init__(self, celsius: float):\n        self._celsius = celsius\n\n    @property\n    def celsius(self) -> float:\n        return self._celsius\n\n    @celsius.setter\n    def celsius(self, valor: float):\n        if valor < -273.15:\n            raise ValueError(\"Bajo cero absoluto\")\n        self._celsius = valor\n\n    @property\n    def fahrenheit(self) -> float:\n        return self._celsius * 9/5 + 32\n\n    @staticmethod\n    def punto_ebullicion() -> float:\n        return 100.0\n\nt = Temperatura(25)\nprint(f\"{t.celsius}C = {t.fahrenheit}F\")\nt.celsius = 100\nprint(f\"{t.celsius}C = {t.fahrenheit}F\")\nprint(\"Ebullicion:\", Temperatura.punto_ebullicion())",
+    "practica": null
+  },
+  {
+    "id": 14,
+    "group": "S06 · OOP",
+    "name": "S06 · Clases abstractas (ABC)",
+    "code": "from abc import ABC, abstractmethod\n\nclass Figura(ABC):\n    @abstractmethod\n    def area(self) -> float: pass\n\n    @abstractmethod\n    def perimetro(self) -> float: pass\n\n    def descripcion(self):\n        return f\"{type(self).__name__}: area={self.area():.2f}, per={self.perimetro():.2f}\"\n\nclass Circulo(Figura):\n    def __init__(self, radio: float):\n        self.radio = radio\n    def area(self): return 3.14159 * self.radio ** 2\n    def perimetro(self): return 2 * 3.14159 * self.radio\n\nclass Cuadrado(Figura):\n    def __init__(self, lado: float):\n        self.lado = lado\n    def area(self): return self.lado ** 2\n    def perimetro(self): return 4 * self.lado\n\nfiguras = [Circulo(5), Cuadrado(4), Circulo(3)]\nfor f in figuras:\n    print(f.descripcion())",
+    "practica": null
+  },
+  {
+    "id": 15,
+    "group": "S07 · Estructuras de datos",
+    "name": "S07 · Stack, Queue, Heap",
+    "code": "from collections import deque\nimport heapq\n\npila = deque()\npila.append(\"a\")\npila.append(\"b\")\npila.append(\"c\")\nprint(\"Stack:\", list(pila))\nprint(\"Pop:\", pila.pop())\n\ncola = deque()\ncola.append(\"primero\")\ncola.append(\"segundo\")\ncola.append(\"tercero\")\nprint(\"Queue:\", list(cola))\nprint(\"Dequeue:\", cola.popleft())\n\ntareas = []\nheapq.heappush(tareas, (3, \"Tarea C\"))\nheapq.heappush(tareas, (1, \"Tarea A\"))\nheapq.heappush(tareas, (2, \"Tarea B\"))\nprint(\"Siguiente:\", heapq.heappop(tareas))",
+    "practica": null
+  },
+  {
+    "id": 16,
+    "group": "S07 · Estructuras de datos",
+    "name": "S07 · Grafos y BFS",
+    "code": "from collections import deque\n\ngrafo = {\n    \"A\": [\"B\", \"C\"],\n    \"B\": [\"A\", \"D\"],\n    \"C\": [\"A\", \"D\"],\n    \"D\": [\"B\", \"C\"]\n}\n\ndef bfs(grafo, inicio):\n    visitados = []\n    cola = deque([inicio])\n    visto = {inicio}\n    while cola:\n        nodo = cola.popleft()\n        visitados.append(nodo)\n        for vecino in grafo[nodo]:\n            if vecino not in visto:\n                visto.add(vecino)\n                cola.append(vecino)\n    return visitados\n\nprint(\"BFS desde A:\", bfs(grafo, \"A\"))\nprint(\"BFS desde C:\", bfs(grafo, \"C\"))",
+    "practica": null
+  },
+  {
+    "id": 17,
+    "group": "S08 · Funcional",
+    "name": "S08 · map / filter / reduce",
+    "code": "from functools import reduce\n\nnumeros = [1, 2, 3, 4, 5]\ndobles = list(map(lambda x: x*2, numeros))\nprint(\"map dobles:\", dobles)\n\npares = list(filter(lambda x: x % 2 == 0, range(1, 11)))\nprint(\"filter pares:\", pares)\n\ntotal = reduce(lambda x, y: x + y, numeros)\nprint(\"reduce suma:\", total)\n\npalabras = [\"hola\", \"mundo\", \"python\"]\nmayus = list(map(str.upper, palabras))\nprint(\"map upper:\", mayus)",
+    "practica": null
+  },
+  {
+    "id": 18,
+    "group": "S09 · Generadores",
+    "name": "S09 · yield y next (generadores)",
+    "code": "def cuadrados_lista(n):\n    return [i**2 for i in range(n)]\n\ndef cuadrados_gen(n):\n    for i in range(n):\n        yield i**2\n\nlst = cuadrados_lista(5)\nprint(\"Lista:\", lst)\n\ngen = cuadrados_gen(5)\nprint(\"Primero:\", next(gen))\nprint(\"Segundo:\", next(gen))\nprint(\"Resto:\", list(gen))\n\ndef contador(inicio, fin):\n    while inicio <= fin:\n        yield inicio\n        inicio += 1\n\nfor n in contador(1, 5):\n    print(n, end=\" \")\nprint()",
+    "practica": null
+  },
+  {
+    "id": 19,
+    "group": "S10 · NumPy",
+    "name": "S10 · NumPy Arrays basicos",
+    "code": "import numpy as np\n\na1 = np.array([1, 2, 3, 4, 5])\na2 = np.array([[1, 2, 3], [4, 5, 6]])\na3 = np.zeros((3, 4))\na4 = np.arange(0, 20, 2)\na5 = np.linspace(0, 1, 5)\na6 = np.eye(3)\n\nprint(\"1D:\", a1)\nprint(\"2D shape:\", a2.shape, \"ndim:\", a2.ndim)\nprint(\"zeros 3x4 shape:\", a3.shape)\nprint(\"arange:\", a4)\nprint(\"linspace:\", a5)",
+    "practica": null
+  },
+  {
+    "id": 20,
+    "group": "S10 · NumPy",
+    "name": "S10 · NumPy Indexado y slicing",
+    "code": "import numpy as np\n\narr = np.array([[10, 20, 30],\n                [40, 50, 60],\n                [70, 80, 90]])\n\nprint(\"Elemento [1,2]:\", arr[1, 2])\nprint(\"Fila 0:\", arr[0])\nprint(\"Columna 1:\", arr[:, 1])\nprint(\"Submatriz:\", arr[:2, 1:])\nprint(\"Mayores de 50:\", arr[arr > 50])\n\nsub = arr[0:2, 0:2].copy()\nsub[0, 0] = 999\nprint(\"Original arr[0,0]:\", arr[0, 0])",
+    "practica": null
+  },
+  {
+    "id": 21,
+    "group": "S10 · NumPy",
+    "name": "S10 · NumPy Broadcasting y stats",
+    "code": "import numpy as np\n\na = np.array([[1, 2, 3], [4, 5, 6]])\nv = np.array([10, 20, 30])\nprint(\"Broadcasting a+v:\", a + v)\nprint(\"a * 2:\", a * 2)\n\ndata = np.array([[4, 2, 7, 1],\n                 [3, 8, 5, 9],\n                 [6, 0, 4, 2]])\nprint(\"Media total:\", data.mean())\nprint(\"Media columnas:\", data.mean(axis=0))\nprint(\"Media filas:\", data.mean(axis=1))\nprint(\"Std:\", data.std().round(2))",
+    "practica": null
+  },
+  {
+    "id": 22,
+    "group": "S10 · NumPy",
+    "name": "S10 · NumPy Algebra lineal",
+    "code": "import numpy as np\n\nA = np.array([[2, 1], [1, 3]])\nb = np.array([5, 10])\n\nx = np.linalg.solve(A, b)\nprint(\"Solucion x:\", x)\nprint(\"Verificacion A@x:\", A @ x)\n\narr = np.array([-3, -1, 0, 2, 4, -5, 7])\nsin_neg = np.where(arr >= 0, arr, 0)\nprint(\"Sin negativos:\", sin_neg)\n\nnp.random.seed(42)\nm = np.random.randint(1, 101, (3, 3))\nprint(\"Matriz aleatoria:\", m)\nprint(\"Media por fila:\", m.mean(axis=1).round(2))",
+    "practica": null
+  },
+  {
+    "id": 23,
+    "group": "S11 · Pandas",
+    "name": "S11 · Pandas Series",
+    "code": "import pandas as pd\n\ns = pd.Series([10, 20, 30, 40, 50], index=[\"a\", \"b\", \"c\", \"d\", \"e\"])\nprint(\"Serie:\", s.to_dict())\nprint(\"Elemento c:\", s[\"c\"])\nprint(\"Slicing a:c:\", s[\"a\":\"c\"].to_dict())\nprint(\"Mayores 25:\", s[s > 25].to_dict())\nprint(\"Media:\", s.mean(), \"Suma:\", s.sum())",
+    "practica": null
+  },
+  {
+    "id": 24,
+    "group": "S11 · Pandas",
+    "name": "S11 · Pandas DataFrame",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"Nombre\": [\"Ana\", \"Luis\", \"Maria\", \"Carlos\"],\n    \"Edad\": [30, 25, 35, 28],\n    \"Ciudad\": [\"Madrid\", \"Barcelona\", \"Sevilla\", \"Valencia\"]\n})\n\nprint(\"Shape:\", df.shape)\nprint(\"Nombres:\", df[\"Nombre\"].tolist())\nprint(\"Edades:\", df[\"Edad\"].tolist())\nprint(\"Mayor de 27:\", df[df[\"Edad\"] > 27][\"Nombre\"].tolist())\nprint(\"Iloc[0]:\", df.iloc[0].to_dict())",
+    "practica": null
+  },
+  {
+    "id": 25,
+    "group": "S11 · Pandas",
+    "name": "S11 · Pandas groupby y apply",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"genero\": [\"F\", \"M\", \"F\", \"M\", \"F\"],\n    \"edad\":   [30, 25, 35, 28, 22],\n    \"puntos\": [90, 75, 85, 92, 88]\n})\n\nrango = df[[\"edad\", \"puntos\"]].apply(lambda c: c.max() - c.min())\nprint(\"Rango por columna:\", rango.to_dict())\n\npor_genero = df.groupby(\"genero\")[[\"edad\",\"puntos\"]].mean()\nprint(\"Media F:\", por_genero.loc[\"F\"].to_dict())\nprint(\"Media M:\", por_genero.loc[\"M\"].to_dict())",
+    "practica": null
+  },
+  {
+    "id": 26,
+    "group": "S11 · Pandas",
+    "name": "S11 · Pandas merge",
+    "code": "import pandas as pd\n\nclientes = pd.DataFrame({\n    \"id\": [1, 2, 3, 4],\n    \"nombre\": [\"Ana\", \"Luis\", \"Maria\", \"Carlos\"]\n})\n\npedidos = pd.DataFrame({\n    \"cliente_id\": [1, 1, 2, 3],\n    \"producto\": [\"Laptop\", \"Raton\", \"Monitor\", \"Teclado\"],\n    \"precio\": [1200, 25, 300, 80]\n})\n\nresultado = clientes.merge(pedidos, left_on=\"id\", right_on=\"cliente_id\", how=\"left\")\nprint(\"Pedidos:\", resultado[[\"nombre\",\"producto\",\"precio\"]].to_dict(\"records\"))\n\ntotal = resultado.groupby(\"nombre\")[\"precio\"].sum()\nprint(\"Total por cliente:\", total.to_dict())",
+    "practica": null
+  },
+  {
+    "id": 27,
+    "group": "S05 · Archivos",
+    "name": "S05 · Archivos con io.StringIO",
+    "code": "import io\n\nbuf = io.StringIO()\nbuf.write(\"Primera linea\\n\")\nbuf.write(\"Segunda linea\\n\")\nbuf.write(\"Tercera linea\\n\")\ncontenido = buf.getvalue()\nprint(\"Escrito:\", repr(contenido))\n\nlector = io.StringIO(contenido)\nfor i, linea in enumerate(lector, 1):\n    print(f\"  Linea {i}: {linea.strip()}\")",
+    "practica": null
+  },
+  {
+    "id": 28,
+    "group": "S05 · Archivos",
+    "name": "S05 · CSV en memoria",
+    "code": "import io, csv\n\nregistros = [\n    [\"nombre\", \"edad\", \"ciudad\"],\n    [\"Ana\",    30,     \"Madrid\"],\n    [\"Luis\",   25,     \"Barcelona\"],\n    [\"Maria\",  35,     \"Sevilla\"]\n]\n\nbuf = io.StringIO()\ncsv.writer(buf).writerows(registros)\ncsv_texto = buf.getvalue()\nprint(\"CSV generado:\")\nprint(csv_texto)\n\nlector = csv.DictReader(io.StringIO(csv_texto))\nfor fila in lector:\n    print(f\"  {fila['nombre']} ({fila['edad']}) - {fila['ciudad']}\")",
+    "practica": null
+  },
+  {
+    "id": 29,
+    "group": "S07 · TDD",
+    "name": "S07 · Tests con assert",
+    "code": "def es_palindromo(texto):\n    limpio = texto.lower().replace(\" \", \"\")\n    return limpio == limpio[::-1]\n\ndef suma_lista(nums):\n    return sum(nums)\n\ndef maximo(lista):\n    if not lista:\n        raise ValueError(\"Lista vacia\")\n    return max(lista)\n\nassert es_palindromo(\"Ana\") == True\nassert es_palindromo(\"oso\") == True\nassert es_palindromo(\"Python\") == False\nassert es_palindromo(\"Anita lava la tina\") == True\n\nassert suma_lista([1, 2, 3]) == 6\nassert suma_lista([]) == 0\nassert suma_lista([-1, 1]) == 0\n\nassert maximo([3, 1, 4, 1, 5]) == 5\n\nprint(\"Todos los tests pasaron!\")\nprint(f\"palindromo 'Ana': {es_palindromo('Ana')}\")\nprint(f\"suma [1..5]: {suma_lista([1,2,3,4,5])}\")",
+    "practica": null
+  },
+  {
+    "id": 30,
+    "group": "S10 · +Pandas",
+    "name": "S10 · Correlaciones",
+    "code": "import pandas as pd\nimport numpy as np\n\nnp.random.seed(42)\nn = 50\ndf = pd.DataFrame({\n    \"altura\": np.random.normal(170, 10, n),\n    \"edad\":   np.random.randint(18, 60, n).astype(float),\n    \"puntos\": np.random.normal(75, 15, n)\n})\ndf[\"peso\"] = df[\"altura\"] * 0.4 + np.random.normal(0, 5, n)\n\nprint(\"Correlacion altura-peso:\", round(df[\"altura\"].corr(df[\"peso\"]), 3))\nprint(\"Correlacion altura-edad:\", round(df[\"altura\"].corr(df[\"edad\"]), 3))\nprint(\"Correlacion edad-puntos:\", round(df[\"edad\"].corr(df[\"puntos\"]), 3))\n\ncorr = df.corr(numeric_only=True).round(3)\nprint(\"\\nMatriz de correlacion:\")\nprint(corr)",
+    "practica": null
+  },
+  {
+    "id": 31,
+    "group": "S10 · +Pandas",
+    "name": "S10 · Nulos y limpieza",
+    "code": "import pandas as pd\nimport numpy as np\n\ndf = pd.DataFrame({\n    \"nombre\": [\"Ana\", \"Luis\", None, \"Carlos\"],\n    \"edad\":   [30, None, 35, 28],\n    \"puntos\": [90.0, 75.0, np.nan, 92.0]\n})\n\nprint(\"Nulos por columna:\", df.isnull().sum().to_dict())\nprint(\"Total nulos:\", df.isnull().sum().sum())\n\nmedia_edad = df[\"edad\"].mean()\ndf_limpio = df.fillna({\n    \"nombre\": \"Desconocido\",\n    \"edad\": round(media_edad, 1),\n    \"puntos\": df[\"puntos\"].median()\n})\nprint(\"\\nDespues fillna:\")\nprint(df_limpio.to_dict(\"records\"))\nprint(\"Filas sin nulos:\", len(df.dropna()), \"de\", len(df))",
+    "practica": null
+  },
+  {
+    "id": 32,
+    "group": "S10 · +Pandas",
+    "name": "S10 · Pivot table",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"producto\": [\"A\",\"B\",\"A\",\"B\",\"A\",\"B\",\"A\",\"B\"],\n    \"region\":   [\"Norte\",\"Norte\",\"Sur\",\"Sur\",\"Este\",\"Este\",\"Norte\",\"Sur\"],\n    \"ventas\":   [100, 200, 150, 80, 120, 300, 90, 110],\n    \"cantidad\": [5, 8, 6, 3, 4, 12, 3, 5]\n})\n\npivot = df.pivot_table(\n    values=\"ventas\",\n    index=\"region\",\n    columns=\"producto\",\n    aggfunc=\"sum\",\n    fill_value=0\n)\nprint(\"Pivot ventas (region x producto):\")\nprint(pivot)\nprint(\"\\nTotal por region:\", pivot.sum(axis=1).to_dict())\nprint(\"Total por producto:\", pivot.sum(axis=0).to_dict())",
+    "practica": null
+  },
+  {
+    "id": 33,
+    "group": "S10 · +Pandas",
+    "name": "S10 · Strings en Pandas",
+    "code": "import pandas as pd\n\ndf = pd.DataFrame({\n    \"nombre\":  [\"  Ana Garcia  \", \"LUIS RODRIGUEZ\", \"maria lopez\", \"Carlos M.\"],\n    \"email\":   [\"ana@gmail.com\", \"luis@hotmail.com\", \"maria@yahoo.es\", \"carlos@empresa.org\"],\n    \"version\": [\"Python 3.10\", \"NumPy 1.24\", \"Pandas 2.0\", \"Flask 3.1\"]\n})\n\ndf[\"nombre_limpio\"] = df[\"nombre\"].str.strip().str.title()\ndf[\"dominio\"] = df[\"email\"].str.split(\"@\").str[1]\ndf[\"es_gmail\"] = df[\"email\"].str.contains(\"gmail\")\ndf[\"libreria\"] = df[\"version\"].str.extract(r\"([A-Za-z]+)\")\ndf[\"version_num\"] = df[\"version\"].str.extract(r\"(\\d+\\.\\d+)\")\n\nprint(\"Nombres limpios:\", df[\"nombre_limpio\"].tolist())\nprint(\"Dominios:\", df[\"dominio\"].tolist())\nprint(\"Es gmail:\", df[\"es_gmail\"].tolist())\nprint(\"Librerias:\", df[[\"libreria\",\"version_num\"]].to_dict(\"records\"))",
+    "practica": null
+  },
+  {
+    "id": 34,
+    "group": "S11 · Visualizacion",
+    "name": "S11 · Datos para graficos (NumPy)",
+    "code": "import numpy as np\n\nx = np.linspace(0, 2 * np.pi, 10)\ny_sin = np.sin(x).round(3)\ny_cos = np.cos(x).round(3)\n\nprint(\"x (10 puntos 0..2*pi):\", x.round(2))\nprint(\"sin(x):\", y_sin)\nprint(\"cos(x):\", y_cos)\n\nprint(f\"\\nsin(0)={np.sin(0):.1f}  sin(pi/2)={np.sin(np.pi/2):.1f}  sin(pi)={np.sin(np.pi):.4f}\")\n\nnp.random.seed(42)\nalturas = np.random.normal(170, 10, 100)\nhist, edges = np.histogram(alturas, bins=5)\nprint(\"\\nHistograma alturas:\")\nfor i, cnt in enumerate(hist):\n    print(f\"  {edges[i]:.0f}-{edges[i+1]:.0f}: {cnt} personas\")",
+    "practica": null
+  },
+  {
+    "id": 35,
+    "group": "S13 · Generadores avanzados",
+    "name": "S13 · Generator expressions",
+    "code": "import sys\n\n# Mismos datos, diferente estructura en memoria\nlista  = [x**2 for x in range(8)]\ngenexp = (x**2 for x in range(8))\n\nprint(\"Lista    :\", lista)\nprint(\"Genexp tipo:\", type(genexp).__name__)\nprint(\"Bytes lista:\", sys.getsizeof(lista))\nprint(\"Bytes genexp:\", sys.getsizeof(genexp))\n\n# Encadenar genexps (evaluacion perezosa)\npares   = (x for x in range(20) if x % 2 == 0)\nmayores = (x for x in pares if x > 10)\nprint(\"Pares > 10:\", list(mayores))\n\nsuma = sum(x**2 for x in range(10))\nprint(\"Suma cuadrados 0-9:\", suma)",
+    "practica": null
+  },
+  {
+    "id": 36,
+    "group": "S13 · Generadores avanzados",
+    "name": "S13 · Pipeline de generadores",
+    "code": "def leer(datos):\n    for item in datos:\n        yield item\n\ndef filtrar(stream, umbral):\n    for item in stream:\n        if item > umbral:\n            yield item\n\ndef transformar(stream, factor):\n    for item in stream:\n        yield item * factor\n\ndef acumular(stream):\n    total = 0\n    for item in stream:\n        total += item\n        yield total\n\ndatos = [1, 5, 3, 8, 2, 9, 4, 7, 6]\npipeline = list(acumular(transformar(filtrar(leer(datos), 4), 2)))\nprint(\"Datos:\", datos)\nprint(\"Filtrar >4, x2, acumular:\", pipeline)\n\ntotal_pipeline = sum(transformar(filtrar(leer(datos), 4), 2))\nprint(\"Suma total del pipeline:\", total_pipeline)",
+    "practica": null
+  },
+  {
+    "id": 37,
+    "group": "S14 · NLP",
+    "name": "S14 · NLP sin NLTK",
+    "code": "import string\nfrom collections import Counter\n\ntexto = (\n    \"Python es un lenguaje de programacion versatil y potente. \"\n    \"Python se usa en inteligencia artificial y ciencia de datos. \"\n    \"El aprendizaje de Python abre muchas puertas en tecnologia moderna.\"\n)\n\npalabras = texto.lower().split()\npalabras_limpias = [w.strip(string.punctuation) for w in palabras if w.strip(string.punctuation)]\nprint(\"Total palabras:\", len(palabras_limpias))\n\nstopwords = {\"el\", \"la\", \"de\", \"en\", \"y\", \"se\", \"un\", \"es\", \"a\", \"que\"}\nutiles = [w for w in palabras_limpias if w not in stopwords]\n\nfrecuencia = Counter(utiles)\nprint(\"\\nMas frecuentes:\")\nfor palabra, cnt in frecuencia.most_common(5):\n    print(f\"  '{palabra}': {cnt}\")\n\nbigramas = [(palabras_limpias[i], palabras_limpias[i+1])\n            for i in range(len(palabras_limpias)-1)]\nprint(\"\\nBigramas mas comunes:\")\nfor bg, cnt in Counter(bigramas).most_common(3):\n    print(f\"  '{bg[0]} {bg[1]}': {cnt}\")",
+    "practica": null
+  },
+  {
+    "id": 38,
+    "group": "S15 · Machine Learning",
+    "name": "S15 · KNN desde cero (ML)",
+    "code": "import math\nfrom collections import Counter\n\ndef distancia(p1, p2):\n    return math.sqrt(sum((a-b)**2 for a,b in zip(p1,p2)))\n\ndef knn_predecir(X_train, y_train, punto, k=3):\n    dists = [(distancia(punto, x), y) for x, y in zip(X_train, y_train)]\n    dists.sort(key=lambda t: t[0])\n    k_vecinos = [y for _, y in dists[:k]]\n    return Counter(k_vecinos).most_common(1)[0][0]\n\n# 2 clases: grupo A (cerca de [1,1]) y B (cerca de [7,7])\nX_train = [[1,1],[1.5,2],[2,1.5],[2.5,2],\n           [7,7],[7.5,8],[8,7.5],[8.5,8]]\ny_train = [  0,    0,     0,      0,\n             1,    1,     1,      1]\n\nX_test  = [[1.8, 1.9], [7.8, 7.5], [2.1, 2.2], [6.9, 7.1]]\ny_real  = [0, 1, 0, 1]\n\nprint(\"Predicciones KNN (k=3):\")\ncorrectas = 0\nfor punto, real in zip(X_test, y_real):\n    pred = knn_predecir(X_train, y_train, punto)\n    ok = pred == real\n    if ok: correctas += 1\n    print(f\"  {punto} -> pred={pred} real={real} {'OK' if ok else 'X'}\")\n\nprint(f\"Precision: {correctas}/{len(y_real)} = {correctas/len(X_test):.1%}\")\nprint(\"(sklearn hace esto con: KNeighborsClassifier(n_neighbors=3).fit(X, y))\")",
+    "practica": null
+  },
+  {
+    "id": 39,
+    "group": "S16 · Imagenes",
+    "name": "S16 · Imagenes con NumPy",
+    "code": "import numpy as np\n\nimg = np.zeros((10, 10), dtype=np.uint8)\nimg[2:8, 2:8] = 150\nimg[4:6, 4:6] = 255\n\nprint(\"Imagen (escala de grises 0-255):\")\nprint(img)\nprint(\"Shape:\", img.shape, \"| Min:\", img.min(), \"Max:\", img.max())\nprint(\"Media:\", img.mean().round(2))\n\nbinaria = (img > 100).astype(np.uint8) * 255\nprint(\"\\nBinarizada (>100) fila 5:\", binaria[5])\n\ninvertida = 255 - img\nprint(\"Invertida centro:\", invertida[4:6, 4:6].tolist())\n\ndef blur3x3(imagen):\n    r = np.zeros_like(imagen, dtype=float)\n    for i in range(1, imagen.shape[0]-1):\n        for j in range(1, imagen.shape[1]-1):\n            r[i,j] = imagen[i-1:i+2, j-1:j+2].mean()\n    return r.astype(np.uint8)\n\nsuave = blur3x3(img)\nprint(\"\\nBlur 3x3 fila 5:\", suave[5])",
+    "practica": null
+  },
+  {
+    "id": 40,
+    "group": "🎓 Práctica 1 (examen final)",
+    "name": "P1 · 01 FRange (iterativo)",
+    "code": "# Practica 1 - Ejercicio 1: FRange\n# Crear una lista de numeros desde 'init' hasta 'finish' con paso 'step', sin usar NumPy.\nimport math\n\ndef frange(init, finish, step):\n    numeros = []\n    while init <= finish or math.isclose(init, finish):\n        numeros.append(round(init, 2))\n        init += step\n    return numeros\n\n# Test Use Case\nexpected_output = [30, 30.4, 30.8, 31.2, 31.6, 32.0, 32.4, 32.8, 33.2, 33.6, 34.0, 34.4, 34.8, 35.2, 35.6, 36.0]\noutput = frange(30, 36, 0.4)\n\nprint(\"Esperado:\", expected_output)\nprint(\"Obtenido:\", output)\nassert expected_output == output\nprint(\"OK: frange funciona correctamente\")",
+    "practica": 1
+  },
+  {
+    "id": 41,
+    "group": "🎓 Práctica 1 (examen final)",
+    "name": "P1 · 01 FRange (con range)",
+    "code": "# Practica 1 - Ejercicio 1 (variante): FRange calculando primero el numero de pasos\ndef frange(start, end, step):\n    numero_de_pasos = int((end - start) / step) + 1\n    salida = []\n    for i in range(numero_de_pasos):\n        salida.append(round(start + float(i) * step, 2))\n    return salida\n\noutput = frange(30, 36, 0.4)\nprint(\"Obtenido:\", output)\nprint(\"Cantidad de elementos:\", len(output))",
+    "practica": 1
+  },
+  {
+    "id": 42,
+    "group": "🎓 Práctica 1 (examen final)",
+    "name": "P1 · 02 Ciudades en Florida",
+    "code": "# Practica 1 - Ejercicio 2: contar ciudades distintas de Florida\n# Version offline (dataset embebido) en vez de descargar el CSV real,\n# para poder animar el algoritmo paso a paso sin depender de internet.\n# Formato original: City|State short|State full|County|City alias\ndatos_csv = \"\"\"Miami|FL|Florida|Miami-Dade|\nOrlando|FL|Florida|Orange|\nTampa|FL|Florida|Hillsborough|\nMiami|FL|Florida|Miami-Dade|Miami Beach\nJacksonville|FL|Florida|Duval|\nAtlanta|GA|Georgia|Fulton|\nSavannah|GA|Georgia|Chatham|\nNaples|FL|Florida|Collier|\nSarasota|FL|Florida|Sarasota|\nHouston|TX|Texas|Harris|\"\"\"\n\ndef cities_in_florida(data):\n    ciudades = set()\n    for linea in data.strip().splitlines():\n        columnas = linea.split(\"|\")\n        if columnas[1] == \"FL\":\n            ciudades.add(columnas[0])\n    return len(ciudades)\n\ntotal = cities_in_florida(datos_csv)\nprint(\"Ciudades distintas en Florida:\", total)",
+    "practica": 1
+  },
+  {
+    "id": 43,
+    "group": "🎓 Práctica 1 (examen final)",
+    "name": "P1 · 03 RLE (iterativo)",
+    "code": "# Practica 1 - Ejercicio 3: RLE (Run Length Encoding) iterativo\n# 'dddddwwoooodddaaa' -> 'd5w2o4d3a3'\ndef rle(string):\n    salida = string[0]\n    resto = string[1:]\n    contador = 1\n\n    while resto:\n        caracter = resto[0]\n        if caracter == salida[-1]:\n            contador += 1\n        else:\n            salida = salida + str(contador) + caracter\n            contador = 1\n        resto = resto[1:]\n\n    salida += str(contador)\n    return salida\n\n# Test Use Case\ncadena = 'dddddwwoooodddaaa'\nesperado = 'd5w2o4d3a3'\nresultado = rle(cadena)\n\nprint(\"Esperado:\", esperado)\nprint(\"Obtenido:\", resultado)\nassert esperado == resultado\nprint(\"OK: rle funciona correctamente\")",
+    "practica": 1
+  },
+  {
+    "id": 44,
+    "group": "🎓 Práctica 1 (examen final)",
+    "name": "P1 · 03 RLE (recursivo)",
+    "code": "# Practica 1 - Ejercicio 3 (variante recursiva de RLE)\n# Observa en Frames como se apila cada llamada recursiva\ndef rle(s):\n    if not s:\n        return ''\n    contador = 1\n    while contador < len(s) and s[contador] == s[0]:\n        contador += 1\n    comprimido = s[0] + str(contador)\n    return comprimido + rle(s[contador:])\n\ncadena = 'dddddwwoooodddaaa'\nresultado = rle(cadena)\nprint(\"Obtenido:\", resultado)\nassert resultado == 'd5w2o4d3a3'\nprint(\"OK: version recursiva tambien funciona\")",
+    "practica": 1
+  },
+  {
+    "id": 45,
+    "group": "🎓 Práctica 2 (examen final)",
+    "name": "P2 · 01 sort_by (generador)",
+    "code": "import pandas as pd\n\n# Practica 2 - Ejercicio 1: generador que devuelve las filas de un DataFrame\n# ordenadas de mayor a menor segun 'column'\ndef sort_by(df, column):\n    for _, fila in df.sort_values(by=column, ascending=False).iterrows():\n        yield fila                          # yield = lo entrega fila a fila\n\n# Dataset reducido (version corta de la practica real) para poder seguir la animacion\nplayers = pd.DataFrame({\n    \"Name\":   [\"LeBron James\", \"Anthony Davis\", \"D'Angelo Russell\", \"Austin Reaves\", \"Jarred Vanderbilt\", \"Jaxson Hayes\"],\n    \"Height\": [2.06, 2.08, 1.93, 1.96, 2.03, 2.11],\n    \"Weight\": [224, 198, 203, 235, 160, 212],\n    \"Points\": [25, 48, 12, 29, 23, 51],\n})\n\ngenerador = sort_by(players, \"Points\")\norden_pesos = [int(fila[\"Weight\"]) for fila in generador]\n\nprint(\"Points original:\", list(players[\"Points\"]))\nprint(\"Weights ordenados por Points (desc):\", orden_pesos)",
+    "practica": 2
+  },
+  {
+    "id": 46,
+    "group": "🎓 Práctica 2 (examen final)",
+    "name": "P2 · 02 categorizar (np.where)",
+    "code": "import pandas as pd\nimport numpy as np\n\n# Practica 2 - Ejercicio 2: convertir columnas numericas en categorias\ndef categorizar(df):\n    df = df.copy()                          # copia para no tocar el original\n    df[\"Height\"] = np.where(df[\"Height\"] >= df[\"Height\"].median(), \"alto\", \"bajo\")\n    df[\"Weight\"] = np.where(df[\"Weight\"] >= 200, \"pesado\", \"liviano\")\n    return df\n\nplayers = pd.DataFrame({\n    \"Name\":   [\"LeBron James\", \"Anthony Davis\", \"D'Angelo Russell\", \"Austin Reaves\", \"Jarred Vanderbilt\", \"Jaxson Hayes\"],\n    \"Height\": [2.06, 2.08, 1.93, 1.96, 2.03, 2.11],\n    \"Weight\": [224, 198, 203, 235, 160, 212],\n    \"Points\": [25, 48, 12, 29, 23, 51],\n})\n\ncategorizado = categorizar(players)\nprint(categorizado)",
+    "practica": 2
+  },
+  {
+    "id": 47,
+    "group": "🎓 Práctica 2 (examen final)",
+    "name": "P2 · 03 pivot_table",
+    "code": "import pandas as pd\n\n# Practica 2 - Ejercicio 3: tabla pivote con suma y media de Points\n# segun cada combinacion de las categorias Height x Weight\ndef pivotar(df):\n    return df.pivot_table(values=\"Points\", index=\"Height\", columns=\"Weight\", aggfunc=[\"sum\", \"mean\"])\n\nplayers = pd.DataFrame({\n    \"Name\":   [\"LeBron James\", \"Anthony Davis\", \"D'Angelo Russell\", \"Austin Reaves\", \"Jarred Vanderbilt\", \"Jaxson Hayes\"],\n    \"Height\": [\"alto\", \"alto\", \"bajo\", \"bajo\", \"alto\", \"alto\"],\n    \"Weight\": [\"pesado\", \"liviano\", \"pesado\", \"pesado\", \"liviano\", \"pesado\"],\n    \"Points\": [25, 48, 12, 29, 23, 51],\n})\n\ntabla = pivotar(players)\nprint(tabla)",
+    "practica": 2
+  },
+  {
+    "id": 48,
+    "group": "🎓 Práctica 3 (examen final)",
+    "name": "P3 · 01 Pinguinos - Exploracion",
+    "code": "import pandas as pd\n\n# Practica 3 - Ejercicio 1: exploracion del dataset 'penguins' de seaborn\n# Version offline: mini-muestra embebida (en vez de sns.load_dataset('penguins'),\n# que descarga un CSV de internet) para poder trazar el analisis paso a paso\n# sin depender de la red. Conserva nulos \"tipicos\" del dataset real: una fila\n# totalmente vacia y algun sexo sin registrar.\ndf = pd.DataFrame({\n    \"species\": [\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\n                \"Chinstrap\",\"Chinstrap\",\"Chinstrap\",\n                \"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\"],\n    \"island\": [\"Torgersen\",\"Torgersen\",\"Biscoe\",\"Biscoe\",\"Dream\",\"Dream\",\n               \"Dream\",\"Dream\",\"Dream\",\n               \"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\"],\n    \"bill_length_mm\": [39.1,39.5,37.8,40.6,39.5,None,46.5,50.0,51.3,46.1,50.0,48.7,50.0,45.2,47.3],\n    \"bill_depth_mm\":  [18.7,17.4,18.3,18.6,16.7,None,17.9,19.5,19.2,13.2,16.3,14.1,15.2,None,13.8],\n    \"flipper_length_mm\": [181,186,174,183,178,None,192,196,193,211,230,210,218,212,216],\n    \"body_mass_g\": [3750,3800,3400,3550,3250,None,3500,3900,3650,4500,5700,4450,5700,5200,4725],\n    \"sex\": [\"Male\",\"Female\",\"Female\",\"Male\",\"Female\",None,\"Female\",\"Male\",\"Male\",\"Female\",\"Male\",\"Female\",\"Male\",\"Female\",None],\n})\nprint(df.head())\n\n# 1.2 Forma, tipos y resumen estadistico\nprint(df.shape)\nprint(df.dtypes)\nprint(df.describe())\n\n# 1.3 Nulos por columna, de mayor a menor\nnulos_por_columna = df.isnull().sum().sort_values(ascending=False)\nprint(nulos_por_columna)\n\n# 1.4 Pinguinos por especie y por isla\nprint(df['species'].value_counts())\nprint(df['island'].value_counts())\n\n# 1.5 pd.crosstab: combinaciones especie/isla\ntabla_especie_isla = pd.crosstab(df['species'], df['island'])\nprint(tabla_especie_isla)\n# No todas las especies aparecen en todas las islas: Adelie esta en las tres,\n# Chinstrap solo en Dream y Gentoo solo en Biscoe -> la isla predice bastante\n# bien la especie.",
+    "practica": 3
+  },
+  {
+    "id": 49,
+    "group": "🎓 Práctica 3 (examen final)",
+    "name": "P3 · 02 Pinguinos - NumPy",
+    "code": "import pandas as pd\nimport numpy as np\n\n# Practica 3 - Ejercicio 2: estadisticos con NumPy sobre el dataset de pinguinos\n# (mismo mini-dataset embebido que en el ejercicio de exploracion)\ndf = pd.DataFrame({\n    \"species\": [\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\n                \"Chinstrap\",\"Chinstrap\",\"Chinstrap\",\n                \"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\"],\n    \"island\": [\"Torgersen\",\"Torgersen\",\"Biscoe\",\"Biscoe\",\"Dream\",\"Dream\",\n               \"Dream\",\"Dream\",\"Dream\",\n               \"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\"],\n    \"bill_length_mm\": [39.1,39.5,37.8,40.6,39.5,None,46.5,50.0,51.3,46.1,50.0,48.7,50.0,45.2,47.3],\n    \"bill_depth_mm\":  [18.7,17.4,18.3,18.6,16.7,None,17.9,19.5,19.2,13.2,16.3,14.1,15.2,None,13.8],\n    \"flipper_length_mm\": [181,186,174,183,178,None,192,196,193,211,230,210,218,212,216],\n    \"body_mass_g\": [3750,3800,3400,3550,3250,None,3500,3900,3650,4500,5700,4450,5700,5200,4725],\n    \"sex\": [\"Male\",\"Female\",\"Female\",\"Male\",\"Female\",None,\"Female\",\"Male\",\"Male\",\"Female\",\"Male\",\"Female\",\"Male\",\"Female\",None],\n})\n\n# 2.1 media, mediana, desviacion standard y rango de body_mass_g (sin nulos)\nbody_mass = df['body_mass_g'].dropna()\nmedia = np.mean(body_mass)\nmediana = np.median(body_mass)\ndesviacion_std = np.std(body_mass)\nrango = np.max(body_mass) - np.min(body_mass)\nprint(\"media:\", round(media, 2), \"mediana:\", mediana, \"std:\", round(desviacion_std, 2), \"rango:\", rango)\n\n# 2.2 z-score de bill_length_mm (sin nulos), primeros 5 valores\nbill_length = df['bill_length_mm'].dropna()\nz_score = (bill_length - np.mean(bill_length)) / np.std(bill_length)\nprint(\"z-score bill_length (5 primeros):\", z_score.round(3).tolist()[:5])\n\n# 2.3 np.where: clasificar por encima/debajo de la media global\nmedia_global = np.mean(body_mass)\nclasificacion = np.where(body_mass > media_global, 'pesado', 'ligero')\nvalores, conteos = np.unique(clasificacion, return_counts=True)\nprint(dict(zip(valores, conteos)))",
+    "practica": 3
+  },
+  {
+    "id": 50,
+    "group": "🎓 Práctica 3 (examen final)",
+    "name": "P3 · 03 Pinguinos - Limpieza y nueva columna",
+    "code": "import pandas as pd\n\n# Practica 3 - Ejercicio 3: limpieza y nueva columna sobre el dataset de pinguinos\ndf = pd.DataFrame({\n    \"species\": [\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\"Adelie\",\n                \"Chinstrap\",\"Chinstrap\",\"Chinstrap\",\n                \"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\",\"Gentoo\"],\n    \"island\": [\"Torgersen\",\"Torgersen\",\"Biscoe\",\"Biscoe\",\"Dream\",\"Dream\",\n               \"Dream\",\"Dream\",\"Dream\",\n               \"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\",\"Biscoe\"],\n    \"bill_length_mm\": [39.1,39.5,37.8,40.6,39.5,None,46.5,50.0,51.3,46.1,50.0,48.7,50.0,45.2,47.3],\n    \"bill_depth_mm\":  [18.7,17.4,18.3,18.6,16.7,None,17.9,19.5,19.2,13.2,16.3,14.1,15.2,None,13.8],\n    \"flipper_length_mm\": [181,186,174,183,178,None,192,196,193,211,230,210,218,212,216],\n    \"body_mass_g\": [3750,3800,3400,3550,3250,None,3500,3900,3650,4500,5700,4450,5700,5200,4725],\n    \"sex\": [\"Male\",\"Female\",\"Female\",\"Male\",\"Female\",None,\"Female\",\"Male\",\"Male\",\"Female\",\"Male\",\"Female\",\"Male\",\"Female\",None],\n})\n\n# 3.1 copia df_clean sin filas con sexo nulo\ndf_clean = df.copy()\ndf_clean = df_clean.dropna(subset=['sex'])\nprint(\"Filas tras quitar sex nulo:\", df_clean.shape)\n\n# 3.2 rellenar nulos numericos con la mediana de cada especie (no la mediana global)\ncolumnas_numericas = ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']\nfor columna in columnas_numericas:\n    df_clean[columna] = df_clean[columna].fillna(df_clean.groupby('species')[columna].transform('median'))\nprint(\"Nulos restantes:\", df_clean[columnas_numericas].isnull().sum().to_dict())\n\n# 3.3 nueva columna bill_ratio = bill_length_mm / bill_depth_mm\ndf_clean['bill_ratio'] = df_clean['bill_length_mm'] / df_clean['bill_depth_mm']\nprint(df_clean[['bill_length_mm', 'bill_depth_mm', 'bill_ratio']].head().to_dict('records'))\n\n# 3.4 Gentoo con body_mass_g > 5000g: cuantos y de que islas\ngentoo_pesados = df_clean[(df_clean['species'] == 'Gentoo') & (df_clean['body_mass_g'] > 5000)]\nprint(\"Gentoo >5000g:\", len(gentoo_pesados), \"islas:\", gentoo_pesados['island'].unique().tolist())",
+    "practica": 3
+  },
+  {
+    "id": 51,
+    "group": "🎓 Práctica 3 (examen final)",
+    "name": "P3 · 04 Titanic - Exploracion",
+    "code": "import pandas as pd\n\n# Practica 3 - Ejercicio 4: exploracion del dataset 'titanic' de seaborn\n# Version offline: mini-muestra embebida (en vez de sns.load_dataset('titanic'),\n# que descarga un CSV de internet) para poder trazar el analisis paso a paso\n# sin depender de la red.\ndf = pd.DataFrame({\n    \"pclass\":   [1,1,1,1, 2,2,2,2, 3,3,3,3,3,3,3],\n    \"sex\":      [\"female\",\"male\",\"female\",\"male\",\n                 \"female\",\"male\",\"female\",\"male\",\n                 \"female\",\"male\",\"female\",\"male\",\"female\",\"male\",\"female\"],\n    \"age\":      [38,54,40,None, 14,34,28,None, 4,22,27,2,None,32,19],\n    \"sibsp\":    [1,0,0,0, 1,0,0,0, 1,0,0,3,0,0,0],\n    \"parch\":    [0,0,0,0, 0,0,0,0, 1,0,2,1,0,0,0],\n    \"fare\":     [133.65,51.86,27.72,26.55, 30.07,13.00,13.00,10.50, 16.70,7.25,11.13,21.08,7.75,8.05,7.88],\n    \"embarked\": [\"C\",\"S\",\"C\",\"S\", \"C\",\"S\",\"S\",\"S\", \"S\",\"S\",\"S\",\"S\",\"Q\",None,\"S\"],\n    \"survived\": [1,0,1,0, 1,0,1,0, 1,0,1,0,1,0,1],\n})\ndf[\"class\"] = df[\"pclass\"].map({1: \"First\", 2: \"Second\", 3: \"Third\"})\ndf[\"embark_town\"] = df[\"embarked\"].map({\"C\": \"Cherbourg\", \"Q\": \"Queenstown\", \"S\": \"Southampton\"})\nprint(df.head())\n\n# 1.2 Forma, tipos y resumen estadistico\nprint(df.shape)\nprint(df.dtypes)\nprint(df.describe())\n\n# 1.3 Nulos por columna, de mayor a menor\nnulos_por_columna = df.isnull().sum().sort_values(ascending=False)\nprint(nulos_por_columna)\n\n# 1.4 Pasajeros por clase y por puerto de embarque\nprint(df['pclass'].value_counts())\nprint(df['embarked'].value_counts())\n\n# 1.5 pd.crosstab: combinaciones clase/puerto\ntabla_clase_puerto = pd.crosstab(df['class'], df['embark_town'])\nprint(tabla_clase_puerto)\n# No todas las clases se reparten igual entre puertos: Southampton concentra\n# la mayoria de la tercera clase, mientras que Cherbourg tiene mas peso\n# relativo en primera clase -> el puerto de embarque tambien esta asociado\n# a la clase del pasajero.",
+    "practica": 3
+  },
+  {
+    "id": 52,
+    "group": "🎓 Práctica 3 (examen final)",
+    "name": "P3 · 05 Titanic - NumPy",
+    "code": "import pandas as pd\nimport numpy as np\n\n# Practica 3 - Ejercicio 5: estadisticos con NumPy sobre el dataset de titanic\n# (mismo mini-dataset embebido que en el ejercicio de exploracion)\ndf = pd.DataFrame({\n    \"pclass\":   [1,1,1,1, 2,2,2,2, 3,3,3,3,3,3,3],\n    \"sex\":      [\"female\",\"male\",\"female\",\"male\",\n                 \"female\",\"male\",\"female\",\"male\",\n                 \"female\",\"male\",\"female\",\"male\",\"female\",\"male\",\"female\"],\n    \"age\":      [38,54,40,None, 14,34,28,None, 4,22,27,2,None,32,19],\n    \"sibsp\":    [1,0,0,0, 1,0,0,0, 1,0,0,3,0,0,0],\n    \"parch\":    [0,0,0,0, 0,0,0,0, 1,0,2,1,0,0,0],\n    \"fare\":     [133.65,51.86,27.72,26.55, 30.07,13.00,13.00,10.50, 16.70,7.25,11.13,21.08,7.75,8.05,7.88],\n    \"embarked\": [\"C\",\"S\",\"C\",\"S\", \"C\",\"S\",\"S\",\"S\", \"S\",\"S\",\"S\",\"S\",\"Q\",None,\"S\"],\n    \"survived\": [1,0,1,0, 1,0,1,0, 1,0,1,0,1,0,1],\n})\n\n# 2.1 media, mediana, desviacion standard y rango de fare (sin nulos)\nfare = df['fare'].dropna()\nmedia = np.mean(fare)\nmediana = np.median(fare)\ndesviacion_std = np.std(fare)\nrango = np.max(fare) - np.min(fare)\nprint(\"media:\", round(media, 2), \"mediana:\", mediana, \"std:\", round(desviacion_std, 2), \"rango:\", rango)\n\n# 2.2 z-score de age (sin nulos), primeros 5 valores\nage = df['age'].dropna()\nz_score = (age - np.mean(age)) / np.std(age)\nprint(\"z-score age (5 primeros):\", z_score.round(3).tolist()[:5])\n\n# 2.3 np.where: clasificar por encima/debajo de la media global de fare\nmedia_global = np.mean(fare)\nclasificacion = np.where(fare > media_global, 'caro', 'economico')\nvalores, conteos = np.unique(clasificacion, return_counts=True)\nprint(dict(zip(valores, conteos)))",
+    "practica": 3
+  },
+  {
+    "id": 53,
+    "group": "🎓 Práctica 3 (examen final)",
+    "name": "P3 · 06 Titanic - Limpieza y nueva columna",
+    "code": "import pandas as pd\n\n# Practica 3 - Ejercicio 6: limpieza y nueva columna sobre el dataset de titanic\ndf = pd.DataFrame({\n    \"pclass\":   [1,1,1,1, 2,2,2,2, 3,3,3,3,3,3,3],\n    \"sex\":      [\"female\",\"male\",\"female\",\"male\",\n                 \"female\",\"male\",\"female\",\"male\",\n                 \"female\",\"male\",\"female\",\"male\",\"female\",\"male\",\"female\"],\n    \"age\":      [38,54,40,None, 14,34,28,None, 4,22,27,2,None,32,19],\n    \"sibsp\":    [1,0,0,0, 1,0,0,0, 1,0,0,3,0,0,0],\n    \"parch\":    [0,0,0,0, 0,0,0,0, 1,0,2,1,0,0,0],\n    \"fare\":     [133.65,51.86,27.72,26.55, 30.07,13.00,13.00,10.50, 16.70,7.25,11.13,21.08,7.75,8.05,7.88],\n    \"embarked\": [\"C\",\"S\",\"C\",\"S\", \"C\",\"S\",\"S\",\"S\", \"S\",\"S\",\"S\",\"S\",\"Q\",None,\"S\"],\n    \"survived\": [1,0,1,0, 1,0,1,0, 1,0,1,0,1,0,1],\n})\ndf[\"class\"] = df[\"pclass\"].map({1: \"First\", 2: \"Second\", 3: \"Third\"})\ndf[\"embark_town\"] = df[\"embarked\"].map({\"C\": \"Cherbourg\", \"Q\": \"Queenstown\", \"S\": \"Southampton\"})\n\n# 3.1 copia df_clean sin filas con puerto de embarque nulo\ndf_clean = df.copy()\ndf_clean = df_clean.dropna(subset=['embarked'])\nprint(\"Filas tras quitar embarked nulo:\", df_clean.shape)\n\n# 3.2 rellenar age con la mediana de cada clase (pclass), no la mediana global\ndf_clean['age'] = df_clean['age'].fillna(df_clean.groupby('pclass')['age'].transform('median'))\nprint(\"Nulos en age:\", df_clean['age'].isnull().sum())\n\n# 3.3 nueva columna family_size = sibsp + parch + 1\ndf_clean['family_size'] = df_clean['sibsp'] + df_clean['parch'] + 1\nprint(df_clean[['sibsp', 'parch', 'family_size']].head().to_dict('records'))\n\n# 3.4 primera clase con fare > 100: cuantos y de que puerto\nprimera_caros = df_clean[(df_clean['pclass'] == 1) & (df_clean['fare'] > 100)]\nprint(\"Primera clase fare>100:\", len(primera_caros), \"puertos:\", primera_caros['embark_town'].unique().tolist())",
+    "practica": 3
+  }
+]

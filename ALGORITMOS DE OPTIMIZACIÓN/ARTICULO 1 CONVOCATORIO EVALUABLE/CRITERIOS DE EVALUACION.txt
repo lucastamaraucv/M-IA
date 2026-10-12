@@ -1,0 +1,26 @@
+Descripción de la Actividad (a trabajar antes de la prueba):
+
+Hacer una lectura crítica del paper “Parallelizing Maximal Clique Enumeration on GPUs” de Almasri et al. que podéis encontrar en el siguiente enlace.
+
+Encontrar estructuras en grafos como los maximal cliques es un problema de búsqueda crítico y muy utilizado en problemas como la creación y descubrimiento de proteinas o la detección de temáticas en conversaciones y textos de manera automática(*).
+
+Al final de la lectura el alumno debe ser capaz de reproducir y comprender los siguientes aspectos de la publicación,
+
+1.- Qué es un grafo, sus elementos y propiedades.
+
+2.- Conocer que existen conjuntos de nodos con propiedades específicas de un grafo como son los “maximal cliques” y los “k-cliques”.
+
+3.- Entender cómo se calculan los “maximal cliques” a partir del algoritmo de Bron-Kerbosch con y sin pivotes.
+
+4.- Saber enumerar un grafo según su “degeneracy ordering” con el orden alfabético como criterio de desempate.
+
+5.- Entender como impacta en la complejidad temporal y de uso de memoria para el problema de la enumeración de “maximal cliques” optar por estrategias BFS y DFS vistas en clase.
+
+6.- Saber calcular los parámetros ∆ y d para proporcionar la asíntota del uso de memoria de los conjuntos P y P∪X del algoritmo con y sin degeneracy ordering.
+
+7.- Saber explicar porqué es necesario un workers list vs. un worklist y cómo se aplicaría en el segundo nivel de paralelización de árboles en un ejemplo como el de la publicación.
+
+(*) Ver las referencias de la introducción del artículo si tenéis interés en saber más sobre aplicaciones prácticas.
+
+Acceso a la prueba habilitado en este mismo apartado el 14 de junio de 2026 a las 00:01h CET
+

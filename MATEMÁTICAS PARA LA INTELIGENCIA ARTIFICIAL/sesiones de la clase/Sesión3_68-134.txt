@@ -1,0 +1,637 @@
+===== PAGINA 1 =====
+SESIÓN 3
+Máster Universitario
+en Inteligencia Artificial
+02MIAR|Matemáticas para IA
+Profesora:
+Dra. Zoraida Sivoli Barrios
+===== PAGINA 2 =====
+Lógica de predicados
+▶ Algunas afirmaciones lógicas encierran una estructura más compleja.
+▶ La lógica proposicional es limitada en estos casos.
+▶ La lógica de primer orden se encarga de analizar enunciados con predicados .
+Ejemplos
+▶ x<4.
+▶ Para todo entero x, si x es múltiplo de 4entonces x es par.
+▶ T odos los planetas tienen una órbita elíptica.
+▶ Existe un entero z tal que z =z+1.
+▶ Si x∈Z, entonces x∈N.
+===== PAGINA 3 =====
+Lógica de predicados
+Definición
+Un predicado p(x1,x2, . . . , xn)es una afirmación que hace referencia a una propiedad o
+una relación entre objetos x 1,x2, . . . , xn, de forma que al sustituirlos por valores
+concretos, c 1,c2, . . . , cn, el resultado de reemplazar dichos objetos por los valores
+correspondientes es una afirmación lógica , p(c1,c2, . . . , cn), la cual dispone de un valor
+de verdad, que depende de los valores c i.
+===== PAGINA 4 =====
+Ejemplos
+1. Sea p (x)la afirmación “x es un reptil” . Entonces, por ejemplo, p (serpiente )es
+verdadera, mientras que p (gato )es falsa.
+2. T omemos p (x,y)la afirmación “x +y=3” . Entonces, por ejemplo, p (1,2)es
+verdadera, mientras que p (1,1)no lo es.
+===== PAGINA 5 =====
+Lógica de predicados
+Definición
+Si p(x)es un predicado, la afirmación “para todo x, p (x)” es una proposición que indica
+que cualquier valor de x ∈U verifica p (x). El símbolo que denota esta relación es “ ∀” y
+recibe el nombre de cuantificador universal . En este caso, la afirmación anterior puede
+expresarse como∀x,p(x)o∀x∈U,p(x).
+▶ En la cuantificación universal pueden utilizarse tantas variables como se necesite.
+Por ejemplo, para expresar “para todo xey,p(x,y)”, puede utilizarse
+indistintamente∀x,∀y,p(x,y)o bien∀x,y,p(x,y).
+▶ Una afirmación universalmente cuantificada es verdadera cuando pse cumple para
+todos los valores cuantificados.
+▶ En caso contrario (existencia de algún valor o valores que no la cumplan) es falsa.
+===== PAGINA 6 =====
+Lógica de predicados
+Ejemplos
+T ranscribamos formalmente las siguientes afirmaciones:
+1. “El cuadrado de todo número real es mayor o igual que 0”:
+∀x∈R,x2≥ 0.
+Esta afirmación puede expresarse en general de la forma ∀x,p(x), dondeU=Ry
+p(x) : “x2≥ 0” .
+2. “T odo par de números enteros verifica que su suma es positiva”:
+∀x,y∈Z,x+y>0.
+En este caso, puede expresarse como ∀x,y,p(x,y), conU=Zy p(x,y) : x+y>0.
+===== PAGINA 7 =====
+Lógica de predicados
+Definición
+Si p(x)es un predicado, la afirmación “existe un x tal que p (x)” es una proposición que
+indica la existencia de algún valor de x ∈U verificando p (x). El símbolo que denota esta
+relación es “∃” y recibe el nombre de cuantificador existencial . En este caso, la
+afirmación anterior puede expresarse como ∃x:p(x)o∃x∈U :p(x).
+▶ En la cuantificación existencial pueden utilizarse tantas variables como se necesite.
+Por ejemplo, para expresar “existen xeytal que p(x,y)”, puede utilizarse
+indistintamente∃x,∃y:p(x,y)o bien∃x,y:p(x,y).
+▶ Una afirmación existencialmente cuantificada es verdadera cuando pse cumple para
+algún valor cuantificado.
+▶ En caso contrario (inexistencia de valores que la cumplan) es falsa.
+===== PAGINA 8 =====
+Lógica de predicados
+Ejemplos
+T ranscribamos formalmente las siguientes afirmaciones:
+1. “Existe un valor real cuyo cuadrado es igual a −1”:
+∃x∈R:x2=−1.
+Esta afirmación puede expresarse en general de la forma ∃x:p(x), dondeU=Ry
+p(x) : “x2=−1” .
+2. “Existen un par de números enteros tales que su suma es igual a 10”:
+∃x,y∈Z:x+y=10.
+En este caso, puede expresarse como ∃x,y:p(x,y), conU=Zy p(x,y) :
+x+y=10.
+===== PAGINA 9 =====
+Lógica de predicados
+Nota
+Los dos tipos de cuantificadores pueden combinarse de cualquier forma; no obstante, el
+orden en el que aparecen es crucial , puesto que no conmutan.
+Ejemplo
+Consideremos las dos afirmaciones siguientes:
+1.∀x∈N,∃y∈N:y>x.
+“Para todo número natural, existe otro natural tal que este último es mayor que el
+primero ” .
+2.∃y∈N:∀x∈N,y>x.
+“Existe un número natural tal que es mayor que el resto de números naturales ” .
+===== PAGINA 10 =====
+Lógica de predicados
+Definición
+Sean A y B dos afirmaciones lógicas. Diremos que A implica lógicamente B, y lo
+denotaremos por A ⊨B ó A→ B si se cumple que B es verdadera siempre que A lo sea.
+Ejemplo
+Sea A la afirmación “x >4” y B la afirmación “x >3” .
+▶ A⊨B, ya que si un valor es mayor que 4también es mayor que 3.
+▶ B⊭A, puesto que, por ejemplo, tomando x =4, se tiene que B es verdadero
+(4>3), pero no A ( 4̸>4).
+===== PAGINA 11 =====
+Lógica de predicados
+Definición
+Sean A y B dos afirmaciones lógicas. Diremos que A equivale lógicamente a B, y lo
+denotaremos por A ≡ B, se tiene que A ⊨B (A→ B ) y viceversa, B → A.
+Ejemplos
+1. Sea A la afirmación “x =y” y B la afirmación “x −y=0” . Entonces A≡ B.
+2. Sea A la afirmación “ ∀x,p(x)” y B la afirmación “ ∃x:p(x)” . Entonces A̸≡ B, ya
+que B ⊭A (si bien A ⊨B).
+3. Consideremos A “ ∀x,y,x+y>0” y B “∀x,y,x·y<0” . Entonces A̸≡ B (A⊭B y
+B⊭A).
+===== PAGINA 12 =====
+Lógica de predicados
+Propiedades
+Se cumplen las siguientes relaciones:
+1.∀x,[p(x)∨q(x)]⊨[∀x,p(x)]∨[∀x,q(x)].
+2.∃x: [p(x)∨q(x)]≡[∃x:p(x)]∨[∃x:q(x)].
+3.∀x,[p(x)∧q(x)]≡[∀x,p(x)]∧[∀x,q(x)].
+4.∃x: [p(x)∧q(x)]⊨[∃x:p(x)]∧[∃x:q(x)].
+===== PAGINA 13 =====
+Lógica de predicados
+Ejemplos
+1. Consideremos la afirmación “todo número natural es par o bien impar” (verdadera),
+la cual puede transcribirse como ∀x∈N,[p(x)∨q(x)], siendo p (x) : “x es par” y
+q(x) : “x es impar” .
+No obstante, la afirmación [∀x∈N,p(x)]∨[∀x∈N,q(x)]se lee como
+“todo número natural es par, o bien todo número natural es impar”
+(falsa, por ser una disyunción de dos proposiciones falsas).
+===== PAGINA 14 =====
+Lógica de predicados
+Ejemplos
+2. Sea A ={1,2,3,4,5}y la afirmación “existe algún número en A que es múltiplo de
+2y3simultáneamente” (falsa). Ésta puede leerse como ∃x∈A: [p(x)∧q(x)],
+donde p (x) : “x es múltiplo de 2” y q (x) : “x es múltiplo de 3” .
+No obstante, la afirmación [∃x∈A:p(x)]∧[∃x∈A:q(x)]se lee como
+“existe un múltiplo de 2en A y existe un múltiplo de 3en A”
+(verdadera, por ser una conjunción de dos proposiciones verdaderas).
+===== PAGINA 15 =====
+Lógica de predicados
+T eorema
+Se cumplen las siguientes leyes de De Morgan generalizadas :
+1.¬[∀x,p(x)]≡∃x:¬p(x).
+2.¬[∃x:p(x)]≡∀x,¬p(x).
+3.∀x,p(x)≡¬[∃x:¬p(x)].
+4.∃x:p(x)≡¬[∀x,¬p(x)].
+===== PAGINA 16 =====
+Lógica de predicados
+Ejemplos
+1.∀x,¬[∃y: [p(x,y)→ q(x)]].
+∀x,¬[∃y: [¬p(x,y)∨q(x)]]
+∀x,∀y,¬[¬p(x,y)∨q(x)]
+∀x,∀y,[¬[¬p(x,y)]∧¬ q(x)]
+∀x,∀y,[p(x,y)∧¬ q(x)]
+∀x,y,[p(x,y)∧¬ q(x)]
+===== PAGINA 17 =====
+Lógica de predicados
+Ejemplos
+2. Consideremos el enunciado “no es cierto que todo entero sea simultáneamente par y
+positivo”:
+¬[∀x∈Z,[p(x)∧q(x)]],
+donde p (x) : “x es par”, q (x) : “x es positivo” .
+===== PAGINA 18 =====
+Ejemplos
+∃x∈Z:¬[p(x)∧q(x)]
+∃x∈Z:¬p(x)∨¬ q(x),
+siendo por tanto el enunciado equivalente “existe algún número entero tal que o
+bien es impar o bien no es positivo” .
+===== PAGINA 19 =====
+Lógica Inductiva
+Es una rama de la lógica en la que, partiendo de premisas concretas, llegaremos a unas
+conclusiones más generales y amplias que no tendrán la garantía de ser ciertas
+Ejemplo
+▶ En todos los videojuegos que hemos jugado hasta el momento donde el enemigo era
+un orco, nuestro personaje siempre llevaba una espada.
+▶ por lo tanto, en todos los videojuegos con orcos como enemigos, el personaje que
+maneja el jugador portará una espada.
+esta lógica “va de lo particular a lo general”, de una serie de casos o sucesos que siguen
+un patrón a una regla que pueda englobarlos, no ha de ser tratada como una ley que
+pueda aplicarse de forma general.
+===== PAGINA 20 =====
+Programación Lógica Inductiva
+Es la conjunción entre el aprendizaje inductivo con la programación lógica. Esto es, la
+zona de unión entre la hipótesis que vamos a crear a raíz de los casos que ya conocemos
+y el asentamiento de los nuevos casos que estén por llegar, junto con una representación
+formal de los datos.
+Ejemplo
+Queremos pasar de una representación natural como: El coche rojo ganará la carrera A
+otra más formal y extrapolable a un modelo como: C ≡ A→ B
+===== PAGINA 21 =====
+Ejemplo
+Hipótesis sobre la capacidad para aprobar un examen Conocimiento Base:
+▶ Si la dedicación al estudio de una asignatura es alta, existe una alta probabilidad de
+aprobar un examen.
+▶ Si la dedicación al estudio de una asignatura es media y dependiendo del hecho de
+que la dificultad del examen sea también acorde y de tipo test, entonces existe una
+alta probabilidad de aprobar dicho examen.
+▶ Si la dedicación al estudio de una asignatura es media y dependiendo del hecho de
+que la dificultad del examen sea de regular a exigente, entonces existe una alta
+probabilidad de no aprobar dicho examen
+===== PAGINA 22 =====
+Conjunción de pares Atributo-Valor
+▶ (Dedicación=Media ￿Dificultad=Media ￿ Tipo=T est)
+▶ V(Dedicación=Alta)
+▶ V(Dedicación=Media ￿ Dificultad=Baja)
+===== PAGINA 23 =====
+Definición de las reglas
+▶ Si Dedicación=Media Y Dificultad=Media Y Tipo=T est → Aprobar examen.
+▶ Si Dedicación=Alta → Aprobar examen.
+▶ Si Dedicación=Media Y Dificultad=alta →No aprobar examen.
+===== PAGINA 24 =====
+Árbol de decisiones
+Dedicación
+Alta
+AprobadoMedia
+Dificultad
+Baja
+AprobadoMedia
+Tipo
+T est
+AprobadoGeneral
+SuspensoAlta
+SuspensoBaja
+Suspenso
+===== PAGINA 25 =====
+Complejidad computacional
+La teoría de complejidad computacional estudia y clasifica los algoritmos y problemas
+computacionales en función de su coste y dificultad de resolver.Mide el número de
+operaciones elementales que ejecuta el algoritmo en función del tamaño de la entrada.
+Algorithm Compute p=u·vfor u,v∈Rn
+Require: length (u) = length (v)
+Ensure: p=u·v
+p← u1v1
+for k← 2 to ndo
+p← p+ukvk
+end for
+return p
+===== PAGINA 26 =====
+▶ Operaciones: n−1 sumas, nproductos.
+▶ T otal operaciones: 2n−1 operaciones .
+Coste Lineal
+Si C(n) = kn+c, donde nes el tamaño de la entrada y k,cson constantes, decimos que
+el coste computacional es de Orden n, denotado por O(n).
+===== PAGINA 27 =====
+Complejidad computacional
+Algorithm Compute C=A+Bfor A,B∈Rn×n
+Require: size(A) = size(B)
+Ensure: C=A+B
+C← 0n×n
+for i← 1 to ndo
+for j← 1 to ndo
+Ci,j← Ai,j+Bi,j
+end for
+end for
+return C
+===== PAGINA 28 =====
+▶ Operaciones: n2sumas.
+▶ T otal operaciones: n2operaciones (coste cuadrático ).
+C(n) = O(n2)
+===== PAGINA 29 =====
+Complejidad computacional
+Algorithm Compute C=A·Bfor A,B∈Rn×n
+Require: size(A) = size(B)
+Ensure: C=A·B
+C← 0n×n
+for i← 1 to ndo
+for j← 1 to ndo
+for k← 1 to ndo
+Ci,j← Ci,j+Ai,kBk,j
+end for
+end for
+end for
+return C
+===== PAGINA 30 =====
+▶ Operaciones: n3sumas, n3productos.
+▶ T otal operaciones: 2n3operaciones (coste cúbico ).
+===== PAGINA 31 =====
+Complejidad computacional
+Resolución de un sistema de ecuaciones lineal n×ncon matriz de coeficientes triangular
+inferior:
+a1,1x1 = b1
+a2,1x1+ a2,2x2 = b2
+...
+an−1,1x1+ an−1,2x2+···+ an−1,n−1xn−1 = bn−1
+an,1x1+ an,2x2+···+ an,n−1xn−1+ an,nxn= bn9
+>>>>>=
+>>>>>;
+===== PAGINA 32 =====
+Matricialmente: AX=B,donde A∈Rn×n,X∈Rn×1yB∈Rn×1:
+A=
+a1,1 0 · · · 0 0
+a2,1 a2,2... 0 0
+...............
+an−1,1 an−1,2· · · an−1,n−1 0
+an,1 an,2· · · an,n−1 an,n
+,X=
+x1
+x2
+...
+xn−1
+xn
+,B=
+b1
+b2
+...
+bn−1
+bn
+.
+===== PAGINA 33 =====
+Complejidad computacional
+Algorithm Solve AX=Bfor A∈Rn×n,X,B∈Rn×1, A triangular inferior
+Require: det( A)̸=0
+Ensure: AX=B
+for i← 1 to ndo
+Xi← Bi
+for j← 1 to i−1do
+Xi← Xi−Ai,jXj
+end for
+Xi←Xi
+Ai,i
+end for
+return X
+===== PAGINA 34 =====
+▶ Operaciones: (n−1)n/2 sumas, (n−1)n/2 productos, ndivisiones.
+▶ T otal operaciones: n2operaciones (coste cuadrático ).
+===== PAGINA 35 =====
+Complejidad computacional
+Definición
+Diremos que el coste computacional de un algoritmo es polinomial si el coste en función
+del tamaño de la entrada, n, es un polinomio.
+Definición
+Diremos que el coste computacional de un algoritmo con c (n)operaciones esO(nk),
+k∈N, si
+∃l ´ ım
+n→+∞c(n)
+nk=C, C∈]0,+∞[.
+===== PAGINA 36 =====
+Ejemplos
+1. El coste computacional del producto escalar, con 2n−1operaciones, esO(n):
+l ´ ım
+n→+∞2n−1
+n=2.
+===== PAGINA 37 =====
+Complejidad computacional
+Ejemplos
+2. El coste computacional de la suma de matrices cuadradas, con n2operaciones, es
+O(n2):
+l ´ ım
+n→+∞n2
+n2=1.
+3. El coste computacional del producto de matrices cuadradas, con 2n3operaciones, es
+O(n3):
+l ´ ım
+n→+∞2n3
+n3=2.
+4. El coste computacional de la resolución de un sistema triangular, con n2
+operaciones, esO(n2):
+l ´ ım
+n→+∞n2
+n2=2.
+===== PAGINA 38 =====
+Complejidad computacional
+Algorithm Compute det( A)for A∈Rn×n
+Require: Ais a square matrix
+Ensure: d= det( A)
+n← dim(A)
+ifn=1then
+d← A1,1
+else
+d← 0
+for j← 1 to ndo
+d← d+ (−1)1+jA1,jdet( A{1},{j})
+end for
+end if
+return d
+2·n!operaciones.
+===== PAGINA 39 =====
+Complejidad computacional
+▶ Se tiene que∀k∈N
+l ´ ım
+n→+∞2·n!
+nk=+∞.
+▶ Necesitamos ampliar la noción de O.
+Definición
+Sea f :N→Ry c(n)el número de operaciones requeridas por un algoritmo. Diremos
+que el coste computacional del algoritmo es O 
+f(n)
+si
+l ´ ım
+n→+∞c(n)
+f(n)=C, C∈]0,+∞[.
+===== PAGINA 40 =====
+Complejidad computacional
+Ejemplos
+1. El coste computacional del algoritmo que calcula el determinante es O(n!):
+l ´ ım
+n→+∞2·n!
+n!=2.
+2. El coste computacional de un algoritmo con 2n+n6−2n4+3n+7operaciones es
+O(2n):
+l ´ ım
+n→+∞2n+n6−2n4+3n+7
+2n=1.
+3. Algoritmos de ordenación eficientes: O 
+nlog( n)
+.
+===== PAGINA 41 =====
+T eoría de conjuntos (parte II)
+Definición
+Un conjunto A está incluido en otro conjunto B (A ⊆ B), o bien que B incluye A, si
+todo elemento de A pertenece también a B, es decir:
+A⊆ Bsi∀x∈A,x∈B.
+En caso contrario, diremos que A ̸⊆ B.
+
+===== PAGINA 42 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. Sea A ={a,b,c}y B ={a,b,c,d}. Entonces A⊆ B, ya que todo elemento de A
+está en B.
+Por otra parte, B̸⊆ A, ya que por ejemplo d ∈B pero d̸∈A.
+2. Sea A ={1,3,4}y B ={1,2,4}. Entonces no se cumple ninguna relación de
+inclusión.
+2.1 A̸⊆ B, ya que 3∈A, pero 3̸∈B.
+2.2 B̸⊆ A, puesto que 2∈B, pero 2̸∈A.
+3.∅⊆ A∀A conjunto.
+Pr
+===== PAGINA 43 =====
+T eoría de conjuntos (parte II)
+Definición
+Dos conjuntos A y B son iguales (A =B) si todo elemento de A está en B y viceversa.
+Dicho de otro modo, diremos que A =B si A⊆ B y B⊆ A.
+En caso contrario, escribimos A ̸=B.
+Ejemplos
+▶∀A conjunto, A =A.
+▶ Sean A ={a,b,c}y B ={b,c,a}. Entonces A =B, ya que se cumple que A ⊆ B y
+a la vez B⊆ A.
+▶ Sean A ={a,b,c}y B ={a,b,c,d}. Entonces A̸=B, ya que B̸⊆ A.
+===== PAGINA 44 =====
+T eoría de conjuntos (parte II)
+Definición
+La intersección entre dos conjuntos A y B, denotada por A ∩B, es un nuevo conjunto
+formado por los elementos en común de A y B.
+A∩B={x|x∈A∧x∈B}.
+Si A y B no tienen ningún elemento en común, entonces A ∩B=∅y se dice que en ese
+caso A y B son disjuntos .
+
+===== PAGINA 45 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. Sean A ={−1,3,5,2,6,9}y B ={−1,0,4,3,7,9,10}. Entonces
+A∩B={− 1,3,9}.
+2. Consideremos ahora A ={a,b,c}y B ={c,d,e}. En este caso, se tiene
+A∩B={c}.
+3. T omemos A ={a,b,c}y B ={d,e,f}.Entonces A y B no tienen elementos
+comunes, luego A∩B=∅.
+4. Sean A = [−1,1]y B =]0,2].Entonces A∩B=]0,1].
+5. Si A = [ 0,1]y B = [ 1,2]entonces A∩B={1}.
+===== PAGINA 46 =====
+T eoría de conjuntos (parte II)
+Definición
+La unión entre dos conjuntos A y B, denotada por A ∪B, es un nuevo conjunto formado
+por todos los elementos de A y B.
+A∪B={x|x∈A∨x∈B}.
+
+===== PAGINA 47 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. Sean A ={a,b,c,e}y B ={c,e,f}. Entonces
+A∪B={a,b,c,e,f}.
+2. T omemos ahora A ={1,3,5}y B ={2,4,6}. Entonces
+A∪B={1,3,5,2,4,6}.
+3. Sean A = [−1,√
+2]y B =]0,2].Entonces A∪B= [−1,2].
+===== PAGINA 48 =====
+T eoría de conjuntos (parte II)
+Definición
+La Diferencia entre conjuntos, B −A de un conjunto B menos otro conjunto A es el
+conjunto formado por todos los elementos de B que no pertenecen a A y se denota por
+B\A, es decir:
+B\A={x|x∈B∧x/∈A}.
+
+===== PAGINA 49 =====
+Denotemos por U, el conjunto ¨universal¨.
+Definición
+El Complemento del conjunto, A en U es el conjunto formado por todos los elementos
+de U que no pertenecen a A y se denota por Ac, es decir:
+Ac={x|x∈U∧x/∈A}.
+𝐵𝑐 
+ 
+ 
+
+===== PAGINA 50 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. Sean A ={a,b,c,f}y B ={b,c,e,f,g,j}. Entonces
+B\A={e,g,j}.
+2. T omamos A ={a,b,c}y B ={d,e,f}. Entonces
+B\A={d,e,f}=B.
+3. Sean A ={a,b,c,d}y B ={b,c}. Entonces se tiene:
+B\A=∅.
+4. Si A = [−1,1]y B =]0,2]entonces B\A=]1,2]y A\B=[−1,0].
+===== PAGINA 51 =====
+Relación entre Diferencia de Conjuntos y Complemento .
+Sea U, el conjunto universal,para A, y B. Entonces:
+B\A=B∩Ac
+===== PAGINA 52 =====
+T eoría de conjuntos (parte II)
+Definición
+Sean A y B conjuntos. Diremos que B es un subconjunto de A si se cumple B ⊆ A.
+Ejemplo
+B={a,d,e}es un subconjunto de A ={a,b,c,d,e,f}, mientras que C ={a,g}no es
+un subconjunto de A.
+===== PAGINA 53 =====
+Definición
+Sea A un conjunto. El conjunto de las partes de A es el conjunto formado por todos los
+subconjuntos de A y se denota por P(A). En otras palabras:
+P(A) ={B|B⊆ A}.
+===== PAGINA 54 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. Sea A ={a,b}, entonces
+P(A) ={∅,{a},{b},{a,b}}.
+2. Sea A ={1,2,3}, entonces
+P(A) ={∅,{1},{2},{3},{1,2},{1,3},{2,3},{1,2,3}}.
+T eorema
+Sea A un conjunto finito, con |A|=n. Entonces|P(A)|=2n.
+===== PAGINA 55 =====
+T eoría de conjuntos (parte II)
+Definición
+Sean A ,B dos conjuntos. El producto cartesiano de A y B, denotado por A ×B,
+consta del conjunto de todos los pares ordenados , donde los elementos de A ocupan la
+primera posición y los de B la última:
+A×B={(a,b)|a∈A∧b∈B}.
+Ejemplo
+Sea A ={1,2,3}y B ={α, β}. Entonces
+A×B={(1, α),(1, β),(2, α),(2, β),(3, α),(3, β)}.
+===== PAGINA 56 =====
+Definición
+Sean A ,B dos conjuntos. Diremos que una regla de la forma f :A→ B es una
+aplicación ofunción si relaciona cada uno de los elementos de A a un único elemento
+de B; dicho de otra forma:
+∀a∈A,∃!b∈B:f(a) = b.
+▶ El conjunto A recibe el nombre de dominio de f, y se denota por Dom (f).
+▶ El conjunto B se denomina codominio de f.
+▶ El conjunto f (A), dado por f (A) ={f(a)|a∈A}recibe el nombre de recorrido o
+imagen de f.
+▶ Dado C⊆ B, el conjunto f−1(C) ={x∈A|f(x)∈C}se denota por imagen
+inversa opreimagen de B sobre f.
+===== PAGINA 57 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. Sean A ={1,2,3}y B ={1,3,5,8}. T omamos f :A→ B tal que f (1) = 3,
+f(2) = 5y f(3) = 3.Entonces f es una aplicación, con Dom (f) ={1,2,3}e
+Im(f) ={3,5}⊆ B.
+
+===== PAGINA 58 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+2. Sean A ={1,2,3}y B ={1,3,5,8}. Sea f :A→ B tal que f (1) = 1, f(1) = 3,
+f(2) = 5y f(3) = 8.Entonces f NO es una aplicación, pues 1∈A tiene asignados
+dos valores de B: 1y3.
+
+===== PAGINA 59 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+3. Sean A ={1,2,3}y B ={1,3,5,8}. T omamos f :A→ B tal que f (1) = 5, y
+f(3) = 8.Entonces f NO es una aplicación, ya que 2∈A no tiene asignado ningún
+valor.
+
+===== PAGINA 60 =====
+T eoría de conjuntos (parte II)
+Definición
+Sea f :A→ B una aplicación. Diremos que f es inyectiva si∀a,b∈A,
+f(a) = f(b)→ a=b. Dicho de otra forma, f es inyectiva si f siempre lleva elementos
+distintos de A a elementos distintos de B.
+
+===== PAGINA 61 =====
+T eoría de conjuntos (parte II)
+Definición
+Sea f :A→ B una aplicación. Se dice que f es sobreyectiva osuprayectiva si f(A) = B
+o, lo que es lo mismo, ∀b∈B∃a∈A:f(a) = b. Es decir, f es sobreyectiva cuando cada
+elemento de B tiene asociado al menos un elemento de A mediante f.
+
+===== PAGINA 62 =====
+T eoría de conjuntos (parte II)
+Definición
+Sea f :A→ B una aplicación. Se dice que f es biyectiva si f es inyectiva y sobreyectiva
+simultáneamente. Esta condición se traduce matemáticamente como ∀b∈B
+∃!a∈A:f(a) = b.
+
+===== PAGINA 63 =====
+T eoría de conjuntos (parte II)
+Ejemplos
+1. f: [−1,1]→Rdada por f (x) = x3.Es inyectiva.
+2. f: [−1,1]→[0,1]dada por f (x) = x2.Es sobreyectiva.
+3. f:R→Rdada por f (x) = x3.Es biyectiva.
+T eorema
+Sean A, B conjuntos finitos y sea f :A→ B una aplicación. Entonces se cumplen las
+siguientes propiedades:
+1. Si f es inyectiva, entonces |A|≤| B|.
+2. Si f es sobreyectiva, entonces |A|≥| B|.
+3. Si f es biyectiva, entonces |A|=|B|.
+===== PAGINA 64 =====
+T eoría de conjuntos (parte II)
+Definición
+Sean A ,B,C conjuntos cualesquiera, f :A→ B y g :B→ C aplicaciones. Entonces
+puede considerarse la composición de g con f, g◦f:A→ C definida de la siguiente
+forma: dado a∈A(g◦f)(a) = g(f(a))∈C.
+
+===== PAGINA 65 =====
+T eoría de conjuntos (parte II)
+Ejemplo
+Sean
+▶ f: [0,+∞[→R, f(x) =√x,
+▶ g:R→[0,+∞[, g(x) = ex.
+1.(g◦f)(x) = g(f(x))=g(√x)=e√x.
+2.(f◦g) = f(g(x))=f(ex)=√ex=ex/2.
+T eorema
+Sean A ,B,C tres conjuntos cualesquiera y f :A→ B, g :B→ C aplicaciones.
+1. Si f,g son inyectivas, entonces g ◦f también lo es.
+2. Si f,g son sobreyectivas, entonces g ◦f también lo es.
+3. Si f,g son biyectivas, entonces g ◦f también lo es.
+===== PAGINA 66 =====
+T eoría de conjuntos (parte II)
+Definición
+Sea A un conjunto cualquiera. La aplicación identidad Id A:A→ A es aquella que viene
+dada por Id A(a) = a∀a∈A.
+T eorema
+Sean A ,B dos conjuntos cualesquiera. Entonces f :A→ B es biyectiva si y sólo si
+∃!g:B→ A tal que g◦f=Id Ay f◦g=Id B. La aplicación (única) g suele denotarse por
+g=f−1y recibe el nombre de aplicación inversa .
+===== PAGINA 67 =====
+Ejemplo
+Sean A ={α, β, γ}, B={ρ, σ, τ}y f:A→ B dada por f (α) =τ, f(β) =σy f(γ) =ρ.
+Entonces f−1:B→ A cumple f−1(ρ) =γ, f−1(σ) =βy f−1(τ) =α.

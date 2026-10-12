@@ -1,0 +1,13 @@
+Fundamentos de algoritmia: Una perspectiva de la ciencia de los computadores
+Autores: Paul Bratley, Gilles Brassard
+ISBN 13: 9788489660007
+Introducción al diseño y análisis de algoritmos
+Autor: R. C. T. Lee (y otros)
+ISBN 13: 9789701061244
+Una introducción a las matemáticas para el análisis y diseño de algoritmos (*)
+Autor: Pérez Aguila, R.
+ISBN 13: 9781413576474
+Técnicas de diseño de algoritmos
+Autores: Gurequeta, R., y Vallecillo, A.
+Año: 2000
+Enlace: http://www.lcc.uma.es/~av/Libro

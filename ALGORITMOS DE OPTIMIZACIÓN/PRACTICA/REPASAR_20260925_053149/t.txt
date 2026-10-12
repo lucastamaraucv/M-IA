@@ -1,0 +1,43 @@
+Pregunta 20 (0,65 puntos): Dado el experimento de lanzar un dado equilibrado y los eventos A=2 (si se obtiene el número 2) y B=2,4 o 6 (si se obtiene un número par), entonces la probabilidad condicional P(A|B) es igual a (0,5 puntos):
+
+A. 1/6
+B. 1/3
+C. 1/36
+D. Ninguna de las anteriores.
+
+Es una pregunta de opción múltiple. La respuesta correcta es B.
+
+Se aplica la definición de probabilidad condicional: P(A|B) = P(A∩B) / P(B).
+
+1. El espacio muestral del dado equilibrado es {1,2,3,4,5,6}, con probabilidad 1/6 para cada cara.
+2. B = {2,4,6}, así que P(B) = 3/6 = 1/2.
+3. A = {2}, y como 2 ∈ B, se tiene A∩B = {2}. Por tanto P(A∩B) = 1/6.
+4. P(A|B) = (1/6) / (1/2) = 1/3.
+
+Otra forma de verlo es que, sabiendo que salió un número par, el resultado es uno de tres casos equiprobables (2, 4 o 6), y solo uno de ellos es el 2, lo que da 1/3.
+
+Las demás opciones fallan por estos motivos:
+- A (1/6) es la probabilidad incondicional P(A). No usa la información de que el número es par.
+- C (1/36) es P(A)·P(A), un producto que no corresponde a ningún cálculo válido aquí.
+- D es incorrecta porque la opción B es correcta.
+
+1 | b
+
+--- captura adicional ---
+Pregunta 21 (0,3 puntos)
+Enunciado: En inferencia borrosa... El Modus Ponens Generalizado cumple también el Modus Ponens clásico es:
+
+Alternativas:
+a) Verdadero
+b) Falso
+
+Respuesta: a) Verdadero
+
+Explicación:
+- El Modus Ponens Generalizado (MPG) tiene esta forma. La regla es "Si x es A entonces y es B". El hecho es "x es A'". La conclusión es "y es B'", con B'(y) = sup_x min[A'(x), R(x,y)] y R(x,y) = I(A(x), B(y)).
+- El modus ponens clásico es el caso particular en que A' = A. En ese caso el MPG debe dar B' = B.
+- El curso lo formula como criterio para elegir la función de implicación: B(y) = sup_x min[A(x), I(A(x), B(y))] para todo A y B. Es decir, al observar exactamente el antecedente, se debe recuperar exactamente el consecuente.
+- Con la implicación de Lukasiewicz, I(a,b) = min(1, 1-a+b), y A normalizado (existe x con A(x)=1), se cumple. Para el x con A(x)=1: min[1, I(1,B(y))] = min[1, B(y)] = B(y). Para los demás x, min[A(x), I(A(x),B(y))] ≤ B(y), así que el supremo es B(y).
+- Por eso el MPG generaliza al modus ponens clásico y lo cumple también. La opción "Falso" es incorrecta porque contradice esta relación de caso particular.
+
+21 | a

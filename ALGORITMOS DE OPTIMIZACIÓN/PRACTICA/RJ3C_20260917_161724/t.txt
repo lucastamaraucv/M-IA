@@ -1,0 +1,1 @@
+La captura solo muestra el explorador de archivos de Windows (una carpeta con el notebook listado), no contiene ningún enunciado de ejercicio visible ni contenido del notebook en sí.

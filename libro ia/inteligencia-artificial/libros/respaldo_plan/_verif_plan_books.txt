@@ -1,0 +1,52 @@
+﻿2407.18384v4.pdf
+Advancing Edge Artificial Intelligence System Contexts.pdf
+AI and Machine Learning for Coders A Programmers Guide to Artificial Intelligence.pdf
+Applied artificial neural network methods for engineers and.pdf
+Applied Time Series Analysis and Forecasting with Python.pdf
+Artificial Intelligence in Forecasting Tools and Techniques.pdf
+Aurélien-Géron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-O’Reilly-Media-2019.pdf
+Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf
+Big Data, Big Design Why Designers Should Care about Artificial Intelligence.pdf
+Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf
+Ciencia de datos desde cero.pdf
+Ciencia-de-los-datos-con-python-1ra-edicion-contenido.pdf
+d2l-en.pdf
+Data Science _ Concepts and Practice.pdf
+Data Science for Mathematicians.pdf
+Deep Learning _ A Comprehensive Guide.pdf
+Deep Learning Architectures_ A Mathematical Approach.pdf
+Deep Learning by Ian Goodfellow, Yoshua Bengio, Aaron Courville (z-lib.org).pdf
+Deep Learning With Pytorch_ Code.pdf
+El arte de la estadistica.pdf
+Essential Math for Data Science (Thomas Nield) (Z-Library).pdf
+essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf
+ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf
+ESTADISTICA ELEMENTAL 11 Johnson.pdf
+From Neuron to Brain, Fifth Editio.pdf
+Genetic Algorithms and Machine Learning for Programmers.pdf
+Gradient Expectations.pdf
+Hands-On Mathematics for Deep Learning _ Build a Solid.pdf
+Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf
+Learning Deep Learning _ Theory and Practice of Neural.pdf
+Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf
+Machine learning with neural networks _ an introduction.pdf
+Mastering Machine Learning From Basics to Advanced.pdf
+Mastering MLOps Architecture From Code to Deployment Manage the production cycle of continual learning ML models with MLOps.pdf
+Mastering Transformers _ Build State-of-the-art Models From.pdf
+mml-book.pdf
+Modeling Life.pdf
+Neural Engineering_ Computation, Representation.pdf
+Neural Network Modeling and Identification of Dynamical.pdf
+Neural networks and learning machines .pdf
+Pattern recognition _ concepts, methods, and applications.pdf
+programming-with-tensorflow-2021.pdf
+python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf
+Quantum Artificial Intelligence with Qiskit.pdf
+Quantum Machine Learning A Modern Approach.pdf
+Statistical Inference for Engineers and Data Scientists.pdf
+The Science of Deep Learning.pdf
+The_MIT_Press_Probabilistic_Machine_Lear.pdf
+time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf
+time-series-forecasting-using-foundation-models_compress.pdf
+Web Scraping with Python, 2nd Edition.pdf
+WebScraping_Modulo1_WebScraping.pdf

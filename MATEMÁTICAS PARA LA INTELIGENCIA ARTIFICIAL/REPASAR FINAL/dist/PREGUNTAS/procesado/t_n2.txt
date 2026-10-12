@@ -1,0 +1,350 @@
+Sea f: R → R^2 de la forma f(t) = (f1(t), f2(t)) y g: R^2 → R, tales que satisfacen f(0) = (1,0), f1'(0) = -2, f2'(0) = 1, ∂g/∂x(1,0) = 1, ∂g/∂y(1,0) = 4. Calcule el valor de (g∘f)'(0).
+
+Es una pregunta de respuesta numérica directa. Se aplica la regla de la cadena para la composición de una función vectorial f (de R a R^2) con una función escalar g (de R^2 a R). La derivada de la composición es el producto escalar del gradiente de g evaluado en f(0) con el vector derivada f'(0):
+
+(g∘f)'(0) = ∇g(f(0)) · f'(0) = (∂g/∂x(1,0))·f1'(0) + (∂g/∂y(1,0))·f2'(0)
+
+Sustituyendo los valores dados: f(0) = (1,0), por lo que g y sus derivadas parciales se evalúan en el punto (1,0), que es justamente donde se dan los datos.
+
+(g∘f)'(0) = (1)(-2) + (4)(1) = -2 + 4 = 2
+
+Por tanto (g∘f)'(0) = 2.
+
+---
+
+Sean A, B conjuntos tales que |A| = 74, |B| = 47 y f : A → B una aplicación. Entonces:
+a) f no puede ser inyectiva.
+b) f no puede ser sobreyectiva.
+c) f puede ser biyectiva.
+d) f puede tener inversa.
+
+Como |A| = 74 > |B| = 47, se aplica el principio del palomar (pigeonhole): si el conjunto de salida tiene más elementos que el de llegada, es imposible asignar a cada elemento de A una imagen distinta en B, porque B no tiene suficientes elementos distintos para recibirlas todas sin repetición. Por tanto f necesariamente identifica (envía al mismo valor) a al menos dos elementos distintos de A, es decir, f no puede ser inyectiva. Esto hace verdadera la opción a).
+
+Las demás opciones son falsas:
+- b) es falsa porque sí es posible construir una f sobreyectiva (por ejemplo, repartiendo los 74 elementos de A entre los 47 de B de forma que cada uno de B reciba al menos una preimagen).
+- c) es falsa porque una biyección exige que ambos conjuntos finitos tengan igual cardinalidad, y 74 ≠ 47.
+- d) es falsa porque tener inversa (en el sentido de función inversa, no solo inversas laterales) requiere que f sea biyectiva, lo cual ya se ha descartado.
+
+Respuesta correcta: a)
+
+---
+
+Sea A ∈ R^(4×4) una matriz tal que det(A) = -9 y B ∈ R^(4×4) una matriz diagonalizable con polinomio característico P_B(λ) = (λ^2-4)(λ^2-1). Calcule det(3A^(-1)B).
+
+Es una pregunta numérica. Se usan tres propiedades del determinante:
+1) det(cM) = c^n·det(M) para una matriz M de tamaño n×n y escalar c (aquí n=4, c=3).
+2) det(A^(-1)) = 1/det(A).
+3) det(B) es el producto de todos los autovalores de B (con multiplicidad), ya que B es diagonalizable.
+
+Los autovalores de B son las raíces de P_B(λ) = (λ^2-4)(λ^2-1) = (λ-2)(λ+2)(λ-1)(λ+1), es decir λ = 2, -2, 1, -1. Como el polinomio característico de una matriz 4×4 tiene grado 4 y aquí aparecen 4 raíces simples, estos son todos los autovalores.
+
+det(B) = 2·(-2)·1·(-1) = 4
+
+Ahora:
+det(3A^(-1)B) = 3^4 · det(A^(-1)) · det(B) = 81 · (1/(-9)) · 4 = 81 · (-4/9) = -36
+
+Respuesta: -36
+
+---
+
+Encuentra el valor de la siguiente integral: ∫ desde 0 hasta 3 de x·cos(π(1-x^2)) dx
+
+Se resuelve por sustitución. Sea u = 1 - x^2, entonces du = -2x dx, es decir x dx = -du/2.
+
+Cambio de límites: cuando x=0, u=1; cuando x=3, u = 1-9 = -8.
+
+∫₀³ x cos(π(1-x²)) dx = ∫ (u=1 hasta u=-8) cos(πu)·(-1/2) du = (1/2)∫(u=-8 hasta u=1) cos(πu) du
+
+= (1/2)·[sen(πu)/π] evaluado entre u=-8 y u=1
+= (1/(2π))·[sen(π·1) - sen(π·(-8))]
+= (1/(2π))·[sen(π) - sen(-8π)]
+
+Como sen(nπ) = 0 para cualquier entero n, tanto sen(π) como sen(-8π) valen 0.
+
+= (1/(2π))·[0-0] = 0
+
+Respuesta: 0
+
+---
+
+Sea un algoritmo cuyo coste computacional asociado es c(n) = (3n^5 - 2n + 1)^2. Entonces su complejidad computacional es:
+a) O(n^5).
+b) O(9n^7)
+c) O(9n^10)
+d) O(n^10)
+
+Al desarrollar el cuadrado, el término dominante (de mayor grado) proviene de elevar al cuadrado el término de mayor grado dentro del paréntesis, 3n^5:
+
+(3n^5 - 2n + 1)^2 = 9n^10 - 12n^6 + 6n^5 + 4n^2 - 4n + 1
+
+El término que domina el crecimiento asintótico es 9n^10, por lo que el orden de crecimiento es de grado 10. Esto descarta a) (grado 5) y b) (grado 7, y con constante incorrecta).
+
+Entre c) y d", la definición de notación O-grande establece que los factores constantes se descartan: O(9n^10) es, por definición, el mismo conjunto de funciones que O(n^10) (ya que existe una constante que acota 9n^10 ≤ C·n^10). La forma correcta y estándar de expresar la cota asintótica es sin la constante multiplicativa, es decir O(n^10).
+
+Respuesta correcta: d)
+
+---
+
+Sea p(x) el predicado ∀y ∈ R, x·y ≤ y^2. Entonces:
+a) Se cumple p(-1)
+b) Se cumple p(0)
+c) Se cumple p(1)
+d) El enunciado no se cumple para ningún x ∈ R.
+
+Para que p(x) sea verdadero, la desigualdad y^2 - xy ≥ 0 debe cumplirse para TODO y ∈ R. Esto es una expresión cuadrática en y (con coeficiente principal positivo, 1), de la forma y^2 - xy + 0. Una parábola hacia arriba es siempre ≥ 0 si y solo si su discriminante es ≤ 0.
+
+Discriminante = (-x)^2 - 4(1)(0) = x^2
+
+Se necesita x^2 ≤ 0, lo cual solo ocurre cuando x = 0.
+
+Verificación directa: p(0): ∀y, 0·y ≤ y^2 → 0 ≤ y^2, que es cierto siempre (un cuadrado nunca es negativo). Por tanto p(0) se cumple.
+
+p(-1): ∀y, -y ≤ y^2 → y^2+y ≥ 0 → y(y+1) ≥ 0. Falla, por ejemplo, en y=-0,5: (-0,5)(0,5) = -0,25 < 0. Por tanto p(-1) es falso.
+
+p(1): ∀y, y ≤ y^2 → y^2-y ≥ 0 → y(y-1) ≥ 0. Falla en y=0,5: (0,5)(-0,5) = -0,25 < 0. Por tanto p(1) es falso.
+
+Como solo x=0 cumple el predicado para todo y, la respuesta correcta es b).
+
+---
+
+Sea A ∈ R^(5×5×5×5) un array multidimensional definido por A_{i,j,k,l} = i+j+k+l, para i,j,k,l ∈ {1,2,3,4,5}. Entonces A representa...
+a) Un tensor de rango 5 y dimensión 4.
+b) Un tensor de rango 4 y dimensión 5.
+c) Un tensor de rango 5^4 y dimensión 4^5.
+d) Un tensor de rango 4^5 y dimensión 5^4.
+
+En la terminología estándar de tensores usada en matemáticas para IA, el "rango" (u orden) de un tensor es el número de índices necesarios para referenciar sus componentes, y la "dimensión" es el tamaño (número de valores posibles) de cada uno de esos índices.
+
+Aquí el array se referencia con 4 índices (i, j, k, l), por lo que su rango es 4. Cada índice recorre el conjunto {1,2,3,4,5}, es decir, tiene 5 valores posibles, por lo que la dimensión (en cada modo) es 5. Esto coincide exactamente con la opción b).
+
+Las opciones c) y d) confunden el rango/dimensión con el número total de componentes del array (que sí sería 5^4 = número de entradas, pero eso no es "dimensión" ni "rango" en el sentido tensorial), y la opción a) simplemente invierte los valores correctos.
+
+Respuesta correcta: b)
+
+---
+
+En un determinado grupo de personas, un 3% de las mismas padece una enfermedad específica. Existe un test de detección de la misma, el cual tiene un 1% de probabilidad de obtener un falso positivo, así como un 3% de obtener un falso negativo. ¿Cuál es la probabilidad de que un individuo que ha dado positivo en el test padezca la enfermedad? (La respuesta debe tener dos decimales, usando coma para los decimales)
+
+Es un problema clásico de probabilidad condicionada, resuelto con el teorema de Bayes.
+
+Datos:
+- P(Enfermo) = 0,03; P(Sano) = 1 - 0,03 = 0,97
+- Falso positivo: P(test+ | Sano) = 0,01
+- Falso negativo: P(test- | Enfermo) = 0,03 → por tanto P(test+ | Enfermo) = 1 - 0,03 = 0,97 (sensibilidad del test)
+
+Se busca P(Enfermo | test+). Por el teorema de Bayes:
+
+P(Enfermo | test+) = [P(test+|Enfermo)·P(Enfermo)] / [P(test+|Enfermo)·P(Enfermo) + P(test+|Sano)·P(Sano)]
+
+Numerador: 0,97 × 0,03 = 0,0291
+Denominador: 0,97×0,03 + 0,01×0,97 = 0,97×(0,03+0,01) = 0,97×0,04 = 0,0388
+
+P(Enfermo | test+) = 0,0291 / 0,0388 = 0,75
+
+Respuesta: 0,75
+
+---
+
+Sean p, q proposiciones lógicas tales que p∧q es un enunciado contradictorio. Entonces:
+a) p es falsa o bien q es falsa.
+b) p∨q es contradictorio.
+c) p→q es contingente.
+d) ¬p∧¬q es tautológico.
+
+Que "p∧q sea contradictorio" significa que, para toda interpretación de verdad, p∧q es falso, es decir ¬(p∧q) es una tautología (siempre verdadero). Aplicando la ley de De Morgan a ¬(p∧q):
+
+¬(p∧q) ≡ ¬p ∨ ¬q
+
+Que esto sea tautológico equivale exactamente a decir que, en toda interpretación, "p es falsa o q es falsa", que es la opción a).
+
+Para descartar las demás, basta un contraejemplo concreto: sea p = (s∧¬s) (una contradicción, siempre falsa) y q = t (una variable atómica cualquiera). Entonces p∧q = (s∧¬s)∧t es siempre falso, cumpliendo la hipótesis.
+- b) p∨q = t, que es contingente (no siempre falso), luego b) es falsa en este ejemplo.
+- c) p→q es siempre verdadero (una implicación con antecedente falso es vacuamente verdadera), es decir es tautológica, no contingente; c) falla.
+- d) ¬p∧¬q = (verdadero)∧¬t = ¬t, que es contingente, no tautológico; d) falla.
+
+Solo a) se sostiene en general (es consecuencia directa de la hipótesis vía De Morgan).
+
+Respuesta correcta: a)
+
+---
+
+Considere las funciones g: R^2 → R^2, g(s,t) = (s·e^t, s·e^(-t)), y f: R^2 → R, f(x,y) = ln(sqrt(x^2+y^2)). Calcule el valor de ∂/∂s (f∘g)(1,0)
+
+Se aplica la regla de la cadena para funciones de varias variables:
+
+∂/∂s (f∘g) = (∂f/∂x)·(∂g1/∂s) + (∂f/∂y)·(∂g2/∂s)
+
+Como f(x,y) = ln(sqrt(x^2+y^2)) = (1/2)ln(x^2+y^2):
+∂f/∂x = x/(x^2+y^2), ∂f/∂y = y/(x^2+y^2)
+
+Con g1(s,t) = s·e^t, g2(s,t) = s·e^(-t):
+∂g1/∂s = e^t, ∂g2/∂s = e^(-t)
+
+Evaluando en (s,t)=(1,0): g1(1,0) = 1·e^0 = 1, g2(1,0) = 1·e^0 = 1, es decir (x,y) = (1,1).
+
+∂f/∂x(1,1) = 1/(1+1) = 1/2
+∂f/∂y(1,1) = 1/(1+1) = 1/2
+∂g1/∂s(1,0) = e^0 = 1
+∂g2/∂s(1,0) = e^0 = 1
+
+∂/∂s(f∘g)(1,0) = (1/2)(1) + (1/2)(1) = 1
+
+(Verificación alternativa: sustituyendo directamente, f(g(s,t)) = ln(s) + (1/2)ln(e^{2t}+e^{-2t}) para s>0, cuya derivada respecto de s es simplemente 1/s, que en s=1 da 1, confirmando el resultado.)
+
+Respuesta: 1
+
+---
+
+¿Cuánto debe restar una pregunta incorrecta en un examen tipo test con 5 respuestas posibles para que la puntuación esperada al elegir las respuestas al azar sea 0? Considérese que solo una respuesta (de 5 posibles) es verdadera por pregunta y que una pregunta correcta vale un punto.
+a) 1/2
+b) 1/3
+c) 1/4
+d) 1/5
+
+Si se responde al azar, la probabilidad de acertar es P(acierto) = 1/5 y la de fallar es P(fallo) = 4/5. Sea x la penalización (puntos que se restan) por respuesta incorrecta. La puntuación esperada es:
+
+E = P(acierto)·(+1) + P(fallo)·(-x) = (1/5)(1) - (4/5)x
+
+Se impone que esta esperanza sea 0:
+
+1/5 - (4/5)x = 0 → 1/5 = (4/5)x → x = (1/5)/(4/5) = 1/4
+
+Respuesta correcta: c) 1/4
+
+---
+
+En toda álgebra de Boole B se cumple que A∪B es igual a:
+a) complemento de (complemento(A) ∪ complemento(B))
+b) complemento de (A∪B)
+c) complemento de (complemento(A) ∩ complemento(B))
+d) complemento de (A∩B)
+
+Se aplican las leyes de De Morgan del álgebra de Boole, junto con la propiedad de involución (doble complemento): complemento(complemento(X)) = X.
+
+Evaluando la opción c): complemento(complemento(A) ∩ complemento(B)). Por De Morgan, el complemento de una intersección es la unión de los complementos:
+
+complemento(complemento(A) ∩ complemento(B)) = complemento(complemento(A)) ∪ complemento(complemento(B)) = A ∪ B
+
+Esto coincide exactamente con lo pedido. 
+
+Para descartar el resto: la opción a), por el mismo razonamiento pero con unión en vez de intersección dentro, da complemento(complemento(A)∪complemento(B)) = A∩B (no A∪B). Las opciones b) y d) son simplemente los complementos de A∪B y A∩B respectivamente, que en general no son iguales a A∪B (excepto en casos triviales).
+
+Respuesta correcta: c)
+
+---
+
+Sea k ∈ R y A = matriz 3x3 con fila1 = (1, k^2-1, -1), fila2 = (0, 1, k), fila3 = (0, 0, 2). Entonces:
+a) Los autovalores de A son 1 y 2; y si k=1, A no es diagonalizable.
+b) Los autovalores de A son 1 y 2; y si k=1, A es diagonalizable.
+c) Los autovalores de A son 1 y 2; y m_a(1)=1, m_a(2)=2.
+d) A tiene tres autovalores distintos.
+
+Como A es una matriz triangular superior, sus autovalores son directamente los elementos de la diagonal principal: 1, 1, 2. Es decir, los autovalores son 1 (con multiplicidad algebraica m_a(1)=2) y 2 (con multiplicidad algebraica m_a(2)=1). Esto descarta la opción c) (que intercambia las multiplicidades) y la opción d) (solo hay dos autovalores distintos, no tres).
+
+Para decidir entre a) y b), se analiza la diagonalizabilidad con k=1. Sustituyendo k=1:
+A = fila1=(1,0,-1), fila2=(0,1,1), fila3=(0,0,2)
+
+Para el autovalor λ=1 (multiplicidad algebraica 2), se calcula A - I:
+A - I = fila1=(0,0,-1), fila2=(0,0,1), fila3=(0,0,1)
+
+Esta matriz tiene rango 1 (todas las filas no nulas son múltiplos de (0,0,1)), por lo que la dimensión del núcleo (multiplicidad geométrica) es 3 - 1 = 2. Como la multiplicidad geométrica (2) coincide con la multiplicidad algebraica (2) para λ=1, y para λ=2 (multiplicidad algebraica 1) la multiplicidad geométrica siempre vale 1 en ese caso, la suma de multiplicidades geométricas es 2+1=3, igual al tamaño de la matriz. Por tanto A es diagonalizable cuando k=1.
+
+Esto confirma la opción b) y descarta a).
+
+Respuesta correcta: b)
+
+---
+
+Sea f: R^2 → R dada por f(x,y) = 1 - x^2 - y^2. Entonces:
+a) f no tiene puntos críticos.
+b) (0,0) es un punto crítico de f y se trata de un mínimo relativo.
+c) (0,0) es un punto crítico de f y se trata de un máximo relativo.
+d) (0,0) es un punto crítico de f y se trata de un punto de silla.
+
+El gradiente de f es ∇f(x,y) = (∂f/∂x, ∂f/∂y) = (-2x, -2y). Igualando a cero: -2x=0, -2y=0 → (x,y)=(0,0) es el único punto crítico, lo cual ya descarta la opción a).
+
+Para clasificar el punto crítico se usa la matriz Hessiana:
+H = [[-2, 0], [0, -2]]
+
+Los autovalores de H son -2 y -2, ambos negativos, por lo que H es definida negativa. Esto implica que (0,0) es un máximo relativo (de hecho, global, ya que f(x,y) = 1 - x^2 - y^2 ≤ 1 = f(0,0) para todo (x,y), pues x^2+y^2 ≥ 0 siempre).
+
+Esto descarta b) (mínimo) y d) (punto de silla, que requeriría autovalores de signos opuestos).
+
+Respuesta correcta: c)
+
+---
+
+Una floristería ofrece 7 variedades de flores. ¿De cuántas maneras diferentes se puede formar un ramo de 5 flores, si se pueden escoger varias flores de la misma variedad y el orden de las flores no importa? (Escribid el resultado sin puntos ni comas)
+
+Como se permiten repeticiones (varias flores de la misma variedad) y el orden no importa, se trata de combinaciones con repetición de 7 elementos tomados de 5 en 5. La fórmula es:
+
+CR(n,r) = C(n+r-1, r)
+
+con n=7 (variedades) y r=5 (flores a elegir):
+
+CR(7,5) = C(7+5-1, 5) = C(11,5) = 11! / (5!·6!) = (11·10·9·8·7) / (5·4·3·2·1) = 55440/120 = 462
+
+Respuesta: 462
+
+---
+
+Sea f: R → R dada por:
+f(x) = sqrt(x^2+1) si x<0
+f(x) = 0 si x=0
+f(x) = ln(x+1)+e^x si x>0
+
+Entonces:
+a) lím(x→0) f(x) = 0
+b) lím(x→0) f(x) = 1
+c) f es continua en x=0.
+d) f es derivable en x=0.
+
+Se calculan los límites laterales en x=0:
+
+Límite por la izquierda: lím(x→0⁻) sqrt(x^2+1) = sqrt(0+1) = 1
+
+Límite por la derecha: lím(x→0⁺) [ln(x+1)+e^x] = ln(1) + e^0 = 0 + 1 = 1
+
+Como ambos límites laterales coinciden y valen 1, el límite existe y lím(x→0) f(x) = 1, lo cual confirma la opción b) y descarta la opción a).
+
+Sin embargo, f(0) = 0 (dado por definición a trozos), mientras que el límite en 0 es 1. Como f(0) ≠ lím(x→0) f(x), la función NO es continua en x=0 (descarta c). Y como la derivabilidad implica continuidad, si f no es continua en x=0 tampoco puede ser derivable ahí (descarta d).
+
+Respuesta correcta: b)
+
+---
+
+Sean A y B dos sucesos independientes tales que P(A) = 0,2 y P(A∪B) = 0,7. Calcule P(B). Debe indicarse el resultado con tres decimales, utilizando la coma "," en lugar del punto "." para indicar la parte decimal.
+
+Para dos sucesos cualesquiera se cumple la fórmula general de la unión:
+
+P(A∪B) = P(A) + P(B) - P(A∩B)
+
+Como A y B son independientes, P(A∩B) = P(A)·P(B). Sustituyendo:
+
+0,7 = 0,2 + P(B) - 0,2·P(B)
+
+0,7 - 0,2 = P(B)·(1 - 0,2)
+
+0,5 = P(B)·0,8
+
+P(B) = 0,5 / 0,8 = 0,625
+
+Respuesta: 0,625
+
+1 | 2
+2 | a
+3 | -36
+4 | 0
+5 | d
+6 | b
+7 | b
+8 | 0,75
+9 | a
+10 | 1
+11 | c
+12 | c
+13 | b
+14 | c
+15 | 462
+16 | b
+17 | 0,625

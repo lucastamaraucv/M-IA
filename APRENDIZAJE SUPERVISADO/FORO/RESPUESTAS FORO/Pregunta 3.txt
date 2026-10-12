@@ -1,0 +1,69 @@
+PREGUNTA 3
+===========
+
+¿Qué opináis sobre lo que dice el investigador Jürgen Schmidhuber sobre la capacidad de los
+sistemas de inteligencia artificial para tener emociones?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Contexto: Schmidhuber defiende una postura funcionalista — sus robots tienen "sensores de dolor"
+que generan señales negativas al chocar, similares a la señal de recompensa/castigo del
+aprendizaje por refuerzo; para él eso ya sería una forma (funcional) de emoción, un subproducto
+natural del aprendizaje y la necesidad de optimizar decisiones.
+
+Consenso muy amplio (Alfredo, Luisa, Edwin, Arrate, Javier I., Maria del Carmen, Lautaro, Sandra,
+Alejandro, Juan Manuel, Edgar, Fernando, Raul, Javier C., Daniela, Anthony, Isaac, Pau, Marcos,
+Christian, Maria Jose, Luis Ignacio, Wiliam, Diego, Samuel, Nur Derly, Evelyn, Pedro): hay que
+diferenciar entre SIMULAR una emoción (una función matemática/señal que ajusta el comportamiento)
+y SENTIRLA de verdad (experiencia subjetiva consciente). La mayoría concluye que hoy la IA solo
+simula, no siente, porque carece de conciencia, cuerpo y experiencia subjetiva.
+
+Matices interesantes que puedes incorporar:
+- Analogía del termostato (Javier I.): "quiere" mantener la temperatura pero no siente frío.
+- Lautaro: si la IA sigue siendo solo un ingestador de datos (deep learning puro), lo más cercano
+  a una emoción que puede ofrecer es una estadística sobre datos, no una vivencia. Además, advierte
+  del riesgo de humanizar a la IA: "genera falta de empatía hacia los humanos reales".
+- Juan Manuel: plantea que si el cerebro es un sistema físico basado en procesos electroquímicos,
+  no es descabellado pensar que otro sistema físico complejo desarrolle mecanismos similares —pero
+  aun así sería imposible distinguir si esa emoción es "real" o solo una simulación perfecta.
+- Alejandro: señala que Schmidhuber elige una definición deliberadamente funcional que conviene a
+  su propio marco de trabajo (posible sesgo de autopromoción de sus sistemas).
+- Isaac y varios otros: plantean la pregunta ética a futuro — si algún día se demuestra que una IA
+  siente de verdad, cambiaría radicalmente cómo debemos tratarla (derechos, similar al debate sobre
+  animales).
+- Maria Jose: menciona la lógica difusa como herramienta que permite matices ("un poco triste",
+  "muy feliz"), más cercana a cómo vivimos las emociones, sin que eso implique sentirlas realmente.
+- Samuel y Nur Derly: rechazan con más firmeza la equiparación humano-máquina, apelando a que las
+  emociones humanas están ligadas a vivencias, traumas y contexto, no solo a una señal de
+  recompensa (si fuera así, condiciones como la depresión se "desactivarían" cambiando parámetros,
+  lo cual no ocurre).
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+La propuesta de Schmidhuber es interesante porque desmitifica la emoción, reduciéndola a un
+mecanismo funcional de retroalimentación: una señal (dolor/recompensa) que ajusta el comportamiento
+para optimizar el aprendizaje. Desde ese punto de vista técnico, tiene sentido: el aprendizaje por
+refuerzo ya funciona exactamente así, maximizando recompensas y evitando señales negativas, y no es
+descabellado llamar a eso "curiosidad" o "aversión al dolor" en un sentido funcional.
+
+Sin embargo, creo que esa definición confunde dos cosas distintas: reaccionar y sentir. Un robot
+que se aleja de un obstáculo tras recibir una señal de su sensor está ejecutando una respuesta
+aprendida, pero no hay evidencia de que exista detrás una experiencia subjetiva consciente —lo que
+en filosofía de la mente se llama qualia—. Es la misma diferencia que hay entre un termostato que
+"corrige" la temperatura y una persona que realmente siente frío. Mientras los modelos actuales
+sigan siendo sistemas que procesan patrones estadísticos sobre datos, lo más parecido a una emoción
+que pueden ofrecer es una cifra, no una vivencia.
+
+Además, creo que hay un riesgo en el propio ejercicio de humanizar la IA: nos hace proyectar
+psicología humana sobre una herramienta estadística, y eso puede tanto generarnos expectativas
+erróneas sobre lo que la máquina "entiende" como, paradójicamente, deteriorar nuestra empatía hacia
+las emociones reales de otras personas.
+
+Dicho esto, me parece un debate que no hay que cerrar en falso: si el cerebro humano es, al fin y
+al cabo, un sistema físico de señales electroquímicas, no se puede descartar por completo que
+sistemas artificiales mucho más complejos que los actuales desarrollen algo funcionalmente
+equivalente en el futuro. El problema de fondo —y ahí es donde creo que Schmidhuber se queda
+corto— es que no tenemos ninguna forma de medir si eso constituye una experiencia subjetiva real o
+solo una simulación cada vez más convincente. Y esa pregunta, hoy por hoy, sigue sin respuesta.

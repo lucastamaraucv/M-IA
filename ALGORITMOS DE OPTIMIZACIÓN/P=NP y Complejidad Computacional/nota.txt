@@ -1,0 +1,234 @@
+Este debate se articulará en torno al concepto de complejidad computacional. Tomando como base los conceptos que se describen en el manual de la asignatura, el siguiente artículo de MIT Technology Review (https://www.technologyreview.es/s/13775/p-vs-np-el-dilema-matematico-que-creo-la-complejidad-computacional) y otras referencias solventes.
+
+P 'vs' NP, el dilema matemático que creó la complejidad computacional
+Por
+Siobhan Roberts
+24 min
+01 de enero de 1970
+P 'vs' NP, el dilema matemático que creó la complejidad computacional
+1. El lunes 19 de julio de 2021, en medio de otro extraño verano de pandemia, un informático líder en el campo de la teoría de la complejidad computacional tuiteó un mensaje público sobre el caos administrativo en una revista. Se despidió con un muy cargado: "Feliz lunes".
+
+n
+En un universo paralelo, podría haber sido un lunes muy feliz. Pero en la prestigiosa revista online ACM Transactions on Computational Theory apareció "una excepcional investigación original que exploraba los límites de la computación factible". El resultado pretendía resolver el mayor problema de todos: el Santo Grial de la teoría de la computación, que valía un premio de un millón de dólares y la fama que rivalizaría ete amente con la de Aristóteles.
+
+n
+Este valioso problema, conocido como "P versus NP", se considera a la vez el más importante en las ciencias de la computación y matemáticas teóricas y está completamente inalcanzable. Aborda las cuestiones fundamentales sobre la promesa, los límites y las ambiciones de la computación, planteando las siguientes preguntas:
+
+n
+¿Por qué algunos problemas son más difíciles que otros?
+
+n
+¿Qué problemas pueden resolver los ordenadores de manera realista?
+
+n
+¿Cuánto tiempo se necesitaría?
+
+n
+Se trata de una búsqueda con grandes beneficios filosóficos y prácticos.
+
+n
+En su libro, Computación cuántica desde Demócrito (Quantum Computing Since Democritus), el científico informático de la Universidad de Texas en Austin (EE. UU.) Scott Aaronson, escribió: "A ver, ¿qué puedo decir sobre el problema P versus NP? A la gente le gusta describirlo como 'probablemente el mayor problema no resuelto de la informática teórica'. Eso es una enorme subestimación. P vs NP es una de las preguntas más profundas que jamás se hayan hecho los seres humanos".
+
+n
+Una forma de pensar en los protagonistas de esta historia es la siguiente:
+
+n
+La P representa los problemas que un ordenador puede resolver fácilmente. NP representa los problemas que, una vez resueltos, son fáciles de comprobar, como por ejemplo un rompecabezas o un Sudoku. Muchos problemas NP corresponden a algunos de los más persistentes y urgentes a los que se enfrenta la sociedad.
+
+n
+La pregunta del millón que se plantea con P vs. NP es la siguiente: ¿Son la misma clase de problema? Es decir, ¿los problemas que parecen tan difíciles se podrían resolver con un algoritmo en un período de tiempo razonable, si tan solo se encontrara ese algoritmo adecuado y tremendamente rápido? Si fuera así, muchos problemas complicados de repente tendrían solución. Y sus soluciones algorítmicas podrían provocar cambios sociales de proporciones utópicas: en medicina, ingeniería y economía, biología y ecología, neurociencia y ciencias sociales, industria, artes, incluso en la política y más allá.
+
+n
+A veces, las clasificaciones evolucionan: los problemas difíciles pueden acabar resultando fáciles cuando los investigadores encuentran soluciones más eficientes. Demostrar si un número es primo, por ejemplo, está en la clase NP desde mediados de la década de 1970. Pero en 2002, tres científicos informáticos del Instituto Indio de Tecnología de Kanpur (India) idearon una demostración incondicional y un algoritmo inteligente que finalmente confirmó que el problema también estaba en la clase P.
+
+n
+Si todos los problemas complicados se pudieran transformar con ese tipo de truco algorítmico, las consecuencias para la sociedad, para la humanidad y para nuestro planeta, serían enormes.
+
+n
+Para empezar, los sistemas de encriptación se descifrarían, la mayoría de los cuales se basan en los problemas de clase NP. Tendríamos que encontrar un enfoque completamente diferente para tener comunicaciones seguras. El plegamiento de proteínas, el gran desafío de la biología de hace 50 años, se volvería más manejable, descubriendo nuevas posibilidades para diseñar medicamentos para curar o tratar algunas enfermedades y descubrir enzimas que descomponen los desechos industriales. También se encontrarían soluciones óptimas a problemas difíciles del día a día, como planificar un viaje por carretera para llegar a todos los destinos conduciendo un mínimo de horas, o sentar a los invitados a una boda de tal forma que solo los amigos compartan la misma mesa.
+
+n
+Desde que surgió el problema P vs. NP hace 50 años, de la trascendental intersección de la lógica matemática y la tecnología de la computación electrónica, investigadores de todo el mundo han realizado intentos colosales para encontrar la solución. Algunos informáticos han sugerido que esos esfuerzos podrían compararse mejor con los de Sísifo, que siempre trabajó sin éxito. Pero mientras que aquellos que empezaron a explorar este problema desde el principio se están quedando sin tiempo para ver la solución, las nuevas generaciones están asumiendo su búsqueda con mucho ánimo.
+
+n
+Para el informático que acaba de terminar su doctorado en la Universidad de Califo ia en Berkeley (UC Berkeley, en EE. UU.) Manuel Sabin, el atractivo reside en sondear la imposibilidad de los problemas para los que "no se sabrá la respuesta hasta que el Sol trague la Tierra". La búsqueda podría resultar quijotesca, pero Sabin se lamentaría si no luchara contra esos molinos de viento.
+
+n
+El matemático de la Universidad de Cambridge (Reino Unido) Timothy Gowers lo define como uno de sus "trasto os matemáticos personales". Dedicó todo el verano de 2013 a resolverlo, después de pedir a sus estudiantes un ensayo sobre el tema en un examen. Según relata en su blog: "Después de corregir los exámenes en junio, pensé que solo pasaría una hora o dos contemplando el problema de nuevo, y esa hora o dos se convirtieron, de forma imprevista, en unos tres meses".
+
+n
+puntales
+
+n
+Foto: El problema del viajante: encontrar la ruta más corta posible para visitar cada ciudad una vez y finalmente regresar a la ciudad de origen. Créditos: Derek Brahney
+
+n
+Esa búsqueda incluso dejó perplejo al científico informático de la Universidad de Toronto (Canadá) Stephen Cook, quien formuló el problema e inició el campo de la complejidad computacional con un artículo fundamental publicado en 1971. Por este trabajo, Cook ganó el Premio Turing, el equivalente al Premio Nobel de ciencias de la computación. Pero no ha tenido suerte para encontrar la solución. Cook reconoce que nunca tuvo buenas ideas: "Es demasiado difícil".
+
+n
+2. El informático del MIT Michael Sipser calcula que, en total, ha dedicado toda una década a resolver el problema. Se interesó por él durante su posgrado en la década de 1970, y apostó una onza de oro contra su compañero de estudios Len Adleman a que se resolvería antes del final del siglo (Sipser perdió la apuesta y tuvo que pagarla).
+
+n
+En la década de 1980, logró un buen resultado cuando resolvió una versión del problema con un modelo computacional "restringido", lo que lo llevó a un período apasionante del campo con varios resultados maravillosos, creando la esperanza de que la solución no estuviera demasiado lejos.
+
+n
+Sipser todavía vuelve al problema de vez en cuando, y es uno de sus grandes embajadores firme, impartiendo innumerables charlas sobre él. Su manera de avanzar hacia una explicación comprensible de P vs. NP es con un problema básico de multiplicación: 7 × 13 = ?
+
+n
+La respuesta, 91, es fácil de calcular de cabeza. Aunque multiplicar números más grandes no es tan simple, un ordenador no necesitaría prácticamente nada de tiempo para realizar ese cálculo.
+
+n
+Pero otra cosa diferente es dar la vuelta a esos problemas. Por ejemplo, intente encontrar los dos números primos de 97 dígitos que se multiplican para dar como resultado este gran número:
+
+n
+310 7418240490 0437213507 5003588856 7930037346 0228427275 4572016194 8823206440 5180815045 5634682967 1723286782 4379162728 3803341547 1073108501 9195485290 0733772482 2783525742 3863660249147 91734
+
+n
+Este problema de factorización formaba parte de un desafío que evaluaba la dificultad de descifrar las claves RSA utilizadas en criptografía. Para resolverlo se necesitaron 80 procesadores y cinco meses de computación continua, explica Sipser, lo que equivale aproximadamente a 33 años con un solo procesador. La factorización es un problema difícil porque los métodos actuales buscan la respuesta mediante "fuerza bruta", probando las cuasi-infinitas posibilidades una a una. Incluso para un ordenador, se trata de un proceso muy lento.
+
+n
+Sipser detalla: "La pregunta interesante aquí es, ¿realmente hace falta buscar o hay alguna forma de resolver el problema de factorización rápidamente sin buscar? No sabemos la respuesta a esa pregunta".
+
+n
+Las cuestiones como ésta llegan al corazón de la complejidad computacional, un campo lleno de problemas terribles que los investigadores intentan comprender. Aaronson ha creado el catálogo online "Complexity Zoo", con 545 clases de problemas (y va en aumento). Cada uno se clasifica según su complejidad computacional o dificultad y los recursos (tiempo, memoria, energía) necesarios para encontrar las soluciones. P y NP son las atracciones principales.
+
+n
+La casualidad científica fue que el matemático soviético Leonid Levin convergió en un resultado equivalente al de Cook más o menos al mismo tiempo.
+
+n
+La P es "la clase que lo empezó todo". Es la clase de problema que un ordenador puede resolver en un período de tiempo razonable. Más específicamente, los problemas de clase P son aquellos para los que el tiempo necesario para encontrar una solución puede describirse mediante una fórmula polinómica, como n2. En los algoritmos de tiempo polinómico, n es el tamaño del problema o del input, y el desarrollo de ese problema ocurre a una tasa razonable (en este caso, elevado a dos).
+
+n
+Por el contrario, algunos problemas difíciles de la clase NP solo se pueden resolver mediante algoritmos con tiempos de ejecución definidos por una función exponencial, como 2n, que produce una tasa de crecimiento exponencial (como con la propagación de la COVID-19). Los problemas NP, según los describe Aaronson, representan "la clase de esperanzas frustradas y sueños inútiles". Sin embargo, Aaronson sí que aclara una equivocación común: no todos los problemas NP son difíciles. De hecho, la clase NP contiene la clase P, porque los problemas con soluciones simples también son fáciles de comprobar.
+
+n
+Los problemas NP más desafiantes a menudo tienen aplicaciones prácticas trascendentales. Para estos problemas, una búsqueda exhaustiva de una solución mediante la fuerza bruta probablemente se prolongaría durante un periodo tiempo inviable (escala geológica) antes de alcanzar la respuesta. Si un algoritmo de búsqueda de fuerza bruta es el mejor algoritmo posible, entonces P no es igual a NP.
+
+n
+Entre los expertos, ese es aparentemente el consenso, que algunos comparan más con una creencia religiosa: P ≠ NP. La mayoría de ellos ofrece solo una pizca de esperanza de que lo contrario resulte cierto. Aaronson señala: "Le daría una probabilidad del 2 % al 3 % de que P sea igual a NP. Esa es la apuesta que haría yo".
+
+n
+El resultado publicado en julio ofreció una demostración de exactamente esa posibilidad tan remota. Pero fue solo la última de un largo historial de otras demonstraciones no aceptadas. En un giro digno de los Monty Python, un día después de la publicación, el artículo fue retirado, aunque luego apareció de nuevo brevemente antes de volver a desaparecer permanentemente.
+
+n
+Era la versión más reciente de un artículo que el autor había publicado más de 60 veces durante la última década en el servidor de preprint arXiv. El editor en jefe de la revista explicó en Twitter que el resultado había sido rechazado, pero, por error humano, de alguna manera, la decisión había cambiado de "rechazado" a "aceptado" y la demostración había encontrado su camino hacia la publicación.
+
+n
+3. A principios de agosto, cuando conocí a Steve Cook en su despacho del campus, él no había visto ni oído hablar del caos generado por la última demostración de P vs. NP. Con 81 años, se acababa de jubilar, porque le empezaba a fallar la memoria. "Por eso tenemos a James aquí", señaló Cook (su hijo, de 36 años, también científico informático, nos acompañó en la reunión). Steve estaba recogiendo su despacho. Una papelera de reciclaje gigante estaba en el medio de la oficina, llena de viejos números amarillentos del Jou al of Symbolic Logic.
+
+n
+A lo largo de los años, Cook ha visto muchas demostraciones que pretendían resolver el problema P vs. NP. En el año 2000, después de que el Instituto Clay de Matemáticas (CMI, EE. UU.) lo clasificara como uno de los siete "Problemas del Milenio" no resueltos (la solución de cada uno tiene un premio de un millón de dólares), Cook se vio inundado de mensajes de personas que pensaban que lo habían conseguido. Todos los resultados eran incorrectos, o simplemente falsos. Aproximadamente la mitad afirmaba haber demostrado que P es igual a NP; la otra mitad iba en la otra dirección. Hace poco, una persona afirmó haber demostrado ambas teorías.
+
+n
+En su artículo publicado en 1971, Cook sostenía que P no era igual a NP (lo expresó usando una terminología diferente, común en aquel momento). Desde entonces, ha invertido una cantidad importante, aunque indeterminada, de tiempo a trabajar para demostrar su postura. Y afirma: "No recuerdo haber trabajado duro", pero sus colegas recuerdan que cada vez tenían que ir al departamento en fin de semana, Steve estaba en su despacho.
+
+n
+Salvo en los barcos de regata, Cook no suele ir rápido; le gusta dar tiempo a las ideas. Sus antiguos alumnos también recuerdan que no es nada arrogante. La informática de la Universidad de Waterloo (Canadá) Anna Lubiw cuenta que, cuando Cook enseñaba el teorema de Cook (una parte de ese artículo pionero), nunca se refería a él como tal y ni siquiera daba pistas de que él fuera la persona que lo había ideado.
+
+n
+La matemática, informática y presidenta de la Universidad Harvey Mudd (EE. UU.), Maria Klawe, recuerda que solía corregir a Cook cuando se perdía enseñando demostraciones que sabía a la perfección: "Se atascaba y decía: 'Está bien. Decidme cómo va esta demostración". Cook también era famoso por su modestia en las solicitudes de subvenciones y en los informes relacionados con su investigación, ya que en ellos confesaba: "Sinceramente, he progresado poco..."
+
+n
+Sin embargo, sí logró avances al incluir a James para defender sus ideas. De pequeño, su hijo mostró interés en matemáticas y computación; a los nueve años, pidió a su padre que le enseñara el álgebra de Boole y lógica. Hace un par de años, después de acabar su doctorado en Berkeley y pasar un tiempo en Google, se lanzó como investigador independiente centrándose en diversos proyectos, algunos relacionados con el problema P vs. NP de forma indirecta. A pesar del historial, James, que se parece mucho a su padre, no se desanima por haber heredado una búsqueda tan aparentemente interminable. Lo considera como cualquier esfuerzo matemático: es un rompecabezas divertido. Opina: "Tiene que haber una respuesta a estas preguntas. Y, a ver, alguien tiene que resolverlo. Vamos a descubrirlo. Ha pasado tanto tiempo. Es vergonzoso que no sepamos la respuesta todavía".
+
+n
+La falta de progreso no ha impedido que esta comunidad de Sísifos felices celebre el 50 aniversario de la complejidad computacional. La conmemoración empezó en 2019, cuando muchos devotos de todo el mundo se reunieron en el Instituto Fields para la Investigación en Ciencias Matemáticas, en la Universidad de Toronto, para un simposio en honor a Cook. El científico informático de la Universidad de Columbia (EE. UU.) Christos Papadimitriou, que llevaba gran parte de su carrera trabajando en P vs. NP, inauguró el evento con una conferencia en la que repasó lo ocurrido, no medio siglo atrás, sino un milenio.
+
+n
+Comenzó describiendo las viejas búsquedas de soluciones, mediante herramientas algebraicas y la regla y el compás, que Papadimitriou considera formas rudimentarias de computación. Su repaso finalmente llegó al matemático británico Alan Turing, cuyo artículo de 1936 On Computable Numbers formalizó las nociones de "algoritmo" y "computación". Turing también demostró con su idea de "máquina de computación universal" que no existe una forma "mecánica" (es decir, realizada por una máquina) de demostrar la verdad o la falsedad de las afirmaciones matemáticas; no hay una forma sistemática de distinguir lo demostrable de lo indemostrable.
+
+n
+Papadimitriou opinaba que el artículo de Turing representaba el certificado del nacimiento de la informática, "y el certificado de nacimiento dice que la informática nació con una clara comprensión de sus propias limitaciones". Resaltó que la informática era el único campo conocido del mundo científico nacido con tal conciencia, "a diferencia de otras ciencias, que, como nosotros, comprende sus propias limitaciones al final de la mediana edad".
+
+n
+Poco tiempo después, las ideas de Turing (e ideas similares de otros) encontraron su forma física en los primeros ordenadores, cuando los científicos se enfrentaron a las preguntas sobre sus capacidades y limitaciones inherentes. A principios de la década de 1950, el pionero húngaro-estadounidense del ordenador mode o, John von Neumann, "se jactaba de un algoritmo suyo como polinómico, en comparación con el exponencial", recordaba Papadimitriou. Había desafiado un algoritmo lento con otro rápido. Este fue el inicio de una nueva teoría: la de la complejidad computacional. Lo esencial era que solo los algoritmos polinómicos resultaban buenos, prácticos o capaces de resolver un problema, mientras que un algoritmo exponencial, según Papadimitriou, "era el equivalente algorítmico de la muerte".
+
+n
+Cook comenzó a pensar en la complejidad computacional a mediados de la década de 1960. Mientras trabajaba en su doctorado en la Universidad de Harvard (EE. UU.), reflexionaba sobre la posibilidad de demostrar, con ciertos modelos computacionales, que multiplicar era más difícil que sumar (algo que sigue siendo un problema abierto).
+
+n
+En 1967, según el libro sobre Cook publicado por la Association for Computing Machinery (ACM), durante su postdoctorado en Berkeley, Cook escribió algunas observaciones que contenían la semilla de su gran resultado. Había elaborado una formulación de clases de complejidad que llegaron a conocerse como P y NP, y planteó la cuestión de si P era igual a NP. (Aproximadamente al mismo tiempo, otros colegas, incluido el científico informático Jack Edmonds, actualmente retirado de la Universidad de Waterloo, estaban dando vueltas en to o a las mismas ideas).
+
+n
+Pero el campo de las ciencias de la computación apenas se estaba formando, y para la mayoría de los científicos y matemáticos tales ideas eran algo desconocido, o totalmente extraño. Después de cuatro años en el Departamento de Matemáticas de Berkeley, Cook fue considerado para convertirse en profesor titular, pero al final no se le ofreció el puesto. Tenía simpatizantes en el nuevo Departamento de Informática de la universidad que presionaron para que se le concediera un puesto ahí, pero el decano no quería ofrecérselo a alguien que había sido rechazado por matemáticos ilustres.
+
+n
+La mayoría de los teóricos de la complejidad computacional tienen sueños un poco más modestos, eligiendo, en cambio, enfoques indirectos.
+
+n
+En 1970, Cook se fue a la Universidad de Toronto. Al año siguiente publicó su gran descubrimiento. Su artículo fue enviado a un simposio de la ACM que tuvo lugar en mayo de ese mismo año en Shaker Heights (EE. UU.), y en él se reforzó el concepto de la complejidad computacional definiendo la forma de describir los problemas más difíciles como NP. Cook demostró, en un destello de la alquimia algorítmica, que un problema, conocido como el de la satisfacibilidad (buscar una solución para una fórmula teniendo un conjunto de condicionantes), era el problema NP más difícil, y que todos los demás problemas NP se podían reducir a eso.
+
+n
+El teorema crucial era el siguiente: si hay un algoritmo de tiempo polinómico que resuelve el problema de la satisfacibilidad, entonces ese algoritmo servirá como llave maestra, creando soluciones a todos los problemas NP. Y si existe una solución de tiempo polinómico para todos los problemas NP, entonces P = NP.
+
+n
+Para los científicos informáticos, el teorema de Cook es icónico.  El informático teórico de la Universidad de Harvard Leslie Valiant recuerda la conferencia de 2019 y exactamente dónde y cuándo escuchó hablar de esto por primera vez. Después de terminar sus estudios universitarios en matemáticas, comenzó un doctorado en ciencias de la computación. Aunque había cursos y títulos en este campo incipiente, todos parecían efímeros, según él, sin un contenido intelectual profundo. "Era una gran preocupación para las personas que se dedicaban a la ciencia de la computación en ese momento", asegura Valiant. Se preguntaban: '¿Es esto un campo? ¿A dónde se dirige? Un día, encontró el artículo de Cook. Lo leyó entero esa misma noche, y recuerda: "Me transformó. En un instante, mis preocupaciones sobre la ciencia de la computación se redujeron y mucho. Para mí, ese artículo realmente dio lugar al campo. Creo que convirtió la ciencia de la computación en algo sustancial".
+
+n
+Luego, según cuenta la historia, después del teorema de Cook vino el diluvio.
+
+n
+En 1972, después de leer el artículo esotérico de Cook, el informático de Berkeley Dick Karp demostró que muchos de los problemas computacionales convencionales con los que estaba muy familiarizado (básicamente todos los problemas que no sabía cómo resolver: programación matemática, investigación de operaciones, teoría de grafos, combinatoria y lógica computacional), poseían la misma propiedad transformacional que Cook había encontrado con el problema de la satisfacibilidad. En total, Karp encontró 21 problemas, incluido el problema de la mochila (buscar la forma óptima de llenar un espacio reducido con los objetos más valiosos), el problema del viajante (encontrar la ruta más corta posible para visitar cada ciudad una vez y regresar a la ciudad de origen), y el problema del árbol de Steiner (conectar de manera óptima un conjunto de puntos con segmentos de línea de mínima longitud total).
+
+n
+Karp mostró que todos los problemas de este conjunto eran todos equivalentes, lo que a su vez demostró que el patrón identificado por Cook no era un fenómeno aislado, sino más bien una metodología de clasificación con un poder y alcance sorprendentes. Fue una especie de prueba decisiva, identificar la clase de lo que se conoció como los problemas "NP-completos": una solución a cualquiera los resolvería a todos.
+
+n
+Papadimitriou cree que NP-completitud es una herramienta versátil. "Si no puede resolver un problema, intente demostrar que es NP-completo, porque esto tal vez le ahorre mucho tiempo", indicó en aquella conferencia pública. Es posible renunciar a una solución exacta y pasar a resolver una aproximación o variación del problema.
+
+n
+En el gran recorrido por la historia, Papadimitriou ve el fenómeno de NP-completo y la búsqueda de P vs. NP como el destino de la ciencia de la computación. Porque el hecho de que el matemático soviético Leonid Levin convergiera en un resultado equivalente al de Cook más o menos al mismo tiempo, fue una casualidad científica. Levin, actualmente en la Universidad de Boston (EE. UU.), llevó a cabo su trabajo detrás del Telón de Acero. Después de recibir una mayor atención (emigró a Estados Unidos en 1978), el resultado se bautizó como el teorema de Cook-Levin.
+
+n
+Aproximadamente una década más tarde, se descubrió una "carta perdida" en los archivos de la Universidad de Princeton (EE. UU.) del experto en lógica austriaco Kurt Gödel. En 1956, le había escrito a Von Neumann preguntándole si un problema de lógica, que en el lenguaje mode o se llamaría NP-completo, se podría resolver en tiempo polinómico. Gödel creía que "esto tendría consecuencias de una magnitud enorme".
+
+n
+bolas de billarFoto: El problema del clan, del clique o de la camarilla: buscar grupos en un gráfico, como un determinado subconjunto de amigos en una red social. Créditos: Derek Brahney
+
+n
+4. Aunque en medio siglo de trabajo no se ha producido nada parecido a una solución, algunos resultados al menos atraen la atención: un artículo de 2004 afirmaba haber demostrado P = NP utilizando pompas de jabón como mecanismo de cálculo analógico (la película de jabón, alineándose naturalmente en la configuración de energía mínima, resuelve de alguna manera el problema NP-completo del árbol de Steiner).
+
+n
+Por ejemplo, el científico informático Ron Fagin de IBM, que se dedica a este problema, directamente se considera raro. En la década de 1970, ideó el teorema de Fagin, que describía la clase NP en términos de la lógica matemática. Fagin ha creído resolver el problema más de una vez, pero los resultados nunca se mantuvieron más de unos días antes de encontrar un error. Recientemente obtuvo fondos para un proyecto sobre P vs. NP del programa Exploratory Challenges de IBM que apoya investigaciones audaces. Al explicar por qué sigue con eso, le gusta citar a Theodore Roosevelt, quien dijo que era mucho mejor "atreverse a cosas poderosas" que estar entre los que "viven en un crepúsculo gris que no conoce ni la victoria ni la derrota".
+
+n
+Pero la mayoría de los teóricos de la complejidad computacional tienen sueños más modestos, eligiendo, en cambio, enfoques indirectos: dan la vuelta al problema, lo remodelan o reformulan, exploran ento os relacionados y reducen aún más el arsenal de herramientas que se podrían utilizar (ya se sabe que muchas son inútiles).
+
+n
+El informático del MIT Ryan Williams trata de aclarar el problema tanto desde arriba como desde abajo, investigando la naturaleza de los "límites superiores" y los "límites inferiores" en los principales problemas computacionales. El límite superior, en términos simples, es una afirmación matemática específica de que existe un algoritmo concreto que resuelve un problema en particular sin exceder una cierta cantidad de recursos (tiempo, memoria, energía). El límite inferior es el opuesto intangible: es una afirmación general de la imposibilidad, que muestra que no existe un algoritmo no universal de este tipo. Uno de los objetivos de la investigación de Williams es que los límites inferiores resulten constructivos y concretos: como unos objetos matemáticos con características descriptibles. Williams cree que los enfoques más constructivos para los límites inferiores son "precisamente lo que falta en los enfoques actuales en la teoría de la complejidad computacional".
+
+n
+Williams ha fijado la probabilidad de que P ≠ NP en un 80 % bastante moderado. Pero últimamente algunos investigadores del campo están expresando sus dudas incluso sobre ese nivel de certeza. "Cada vez más, empiezo a dudar de P = NP", admite la científica informática de la Universidad de Toronto y antigua doctoranda de Cook Toniann Pitassi. Su enfoque para dar vueltas alrededor del problema consiste en estudiar los análogos ampliados y reducidos, los modelos más difíciles y fáciles. "A veces, generalizando la pregunta la volvemos más clara", explica. Pero en total, Pitassi tampoco ha logrado la claridad: "La mayoría de la gente piensa que P no es igual a NP. Y yo ya no lo sé. Tal vez son cosas mías, pero creo que cada vez es menos claro que fuera esa la verdad".
+
+n
+Pitassi señala que, históricamente, en ocasiones, han aparecido resultados sorprendentes de la nada, y que los diseñadores de algoritmos han demostrado que algunas aparentes imposibilidades son posibles. Lo mismo podría pasar con P vs. NP, tal vez dentro de otros 50 años o en un siglo. Uno de los resultados más importantes en la teoría de la complejidad computacional, por ejemplo, fue logrado en 1989 por el profesor de la Universidad de Massachusetts en Amherst (EE. UU.) David Barrington. Su esencia es que ideó un algoritmo inteligente, que se propuso hacer algo que aparentemente debería haber requerido una cantidad ilimitada de memoria, pero de hecho utilizó una cantidad asombrosamente pequeña: solo cinco bits de información, suficiente para especificar un número entre uno y 32 (inclusive) o una palabra de dos letras.
+
+n
+Un resultado más reciente, de 2014, tomó por sorpresa a James Cook. A partir del teorema de Barrington, la memoria se utiliza de una manera maravillosamente extraña. Como se insinúa en el título del artículo, escrito por el profesor de la Universidad de Ámsterdam (Países Bajos) Harry Buhrman y sus colaboradores, se trata de "computar con la memoria llena". James puede recitar el párrafo introductorio del artículo prácticamente de memoria:
+
+n
+Imagine el siguiente escenario. Usted quiere realizar un cálculo que requiera más memoria de la que tiene actualmente disponible en su ordenador. Una forma de solucionar este problema es instalando un nuevo disco duro. Resulta que usted ya tiene un disco duro, pero está lleno de datos, imágenes, películas, archivos, etc. No necesita acceder a esos datos en este momento, pero tampoco quiere borrarlos. ¿Podría utilizar ese disco duro para su cálculo, posiblemente alterando su contenido de forma temporal, garantizando que cuando se complete el cálculo, el disco duro vuelva a su estado original con todos los datos intactos?
+
+n
+La respuesta, contradictoriamente, es sí.
+
+n
+James lo ve como una "memoria prestada". Después de recuperarse del impacto de este resultado, se empezó a divertir descubriendo cómo aplicarlo a un problema en particular, retomándolo donde lo había dejado su padre.
+
+n
+Hace un par de décadas, Steve Cook pasó a otros problemas relacionados con la teoría de la complejidad computacional. Con un problema, hizo una conjetura sobre la cantidad de memoria que necesitaría un algoritmo para resolver el problema, llevándolo al mínimo absoluto. En 2019, James, junto con el estudiante de doctorado de Pitassi Ian Mertz, utilizó la poética idea de tomar prestada la memoria y demostró que se necesitaba aún menos memoria. El resultado no llegó a refutar la conjetura de su padre, pero supone un pequeño progreso en la búsqueda de la gran complejidad computacional.
+
+n
+James ha detectado que los problemas en la teoría de la complejidad computacional a veces tienen un efecto dominó: si algo se demuestra en una esquina crítica, entonces todas las fichas de dominó caen. Los grandes resultados, los más importantes, provienen de una larga línea de trabajo, por muchas personas diferentes, progresando gradualmente y estableciendo conexiones entre distintas preguntas, hasta que finalmente surge un gran resultado.
+
+n
+También lanza una advertencia: si bien el algoritmo P = NP resultaría trascendental muy rápido, también hay un escenario en el que P = NP podría ser una decepción. Podría resultar que un algoritmo P capaz de resolver el problema NP-completo esté en una escala de tiempo de, por ejemplo, n100. James detalla: "Técnicamente, eso cae bajo la clase P: es un polinomio. Pero n100 sigue siendo muy poco práctico", y eso significaría que cualquier problema considerable aún estaría fuera del alcance en las escalas de tiempo humanas.
+
+n
+Y para eso, por supuesto, hay que asumir que podemos encontrar ese algoritmo en primer lugar. El especialista en algoritmos de la Universidad de Stanford (EE. UU.) Donald Knuth, en los últimos años cambió de opinión: "le dio la vuelta". Su intuición es que la P es igual a NP, pero que probablemente nunca seremos capaces de hacer uso de ese hecho, en la práctica, porque en realidad no sabremos ninguno de los algoritmos que funcionarían. Hay un número asombroso de algoritmos, explica Knuth, pero la mayoría de ellos están más allá de nuestro conocimiento. Entonces, mientras que algunos investigadores podrían insistir en que no existe ningún algoritmo de P=NP, Knuth sostiene que "es más probable que ningún algoritmo de tiempo polinómico sea definido jamás, es decir, escrito como un programa real, por parte de unos simples mortales".
+
+n
+Para Papadimitriou, cualquier respuesta calmaría esa obsesión de por vida. Él cree que el problema P vs. NP pertenece al ámbito de los enigmas científicos fundamentales como el origen de la vida y la unificación de los campos de las fuerzas de la naturaleza. Es el tipo de acertijo profundo y consecuente, "concreto, pero universal, que añade significado no solo a la ciencia, sino a la propia vida humana", afirma.
+
+n
+Papadimitriou concluye: "Imagínense qué pasaría si tuviéramos suerte y fuéramos capaces de exprimir otros 2.000 años de este planeta, contra todo pronóstico y a pesar de los bichos raros. Y no logramos resolver estos problemas. ¡¿Cuál es el sentido?!"

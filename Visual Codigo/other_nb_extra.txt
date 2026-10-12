@@ -1,0 +1,414 @@
+=== celda 20 [markdown] ===
+---
+
+## Paso 3 — Extender el algoritmo a 2D
+
+### 📌 Enunciado
+Extender el algoritmo a puntos del plano: `[(1122, 6175), (135, 4076), (7296, 2741), ...]`
+
+### 💡 Idea de la solución
+
+**¿Qué cambia respecto a 1D?**
+- Cada punto ahora es una tupla `(x, y)`
+- La distancia ya no es un valor absoluto, sino la **distancia euclídea**: $d = \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2}$
+
+**La fuerza bruta se extiende sin esfuerzo:** el doble bucle es idéntico, solo cambia la función de distancia. La programaremos de forma **genérica** (válida para 2D, 3D o cualquier dimensión) y nos servirá como "juez" para verificar que el Divide y Vencerás da el resultado correcto.
+
+**El Divide y Vencerás requiere más cuidado en el paso de COMBINAR:**
+
+1. Ordenamos los puntos por su coordenada **x** y dividimos con una **línea vertical** por el punto medio (en 1D el corte era un punto; en 2D es una línea)
+2. Resolvemos cada mitad recursivamente (idéntico a 1D)
+3. La **franja** ahora es una **banda vertical** del plano: los puntos con `|x - x_medio| < mejor_distancia`. Igual que en 1D, cualquier pareja que cruce la línea y mejore el resultado debe tener sus dos puntos dentro de esa banda
+4. **El problema nuevo de 2D:** dentro de la franja puede haber muchos puntos con x parecida pero y muy distinta (una "columna" de puntos). Compararlos todos contra todos podría volver a ser O(n²). **La solución:** ordenar la franja por **y** y comparar cada punto solo con los siguientes mientras su diferencia en y sea menor que `mejor_distancia`. Un argumento geométrico clásico (en un rectángulo de `2d × d` no caben más de 8 puntos separados entre sí al menos `d`) garantiza que cada punto se compara **como mucho con 7 vecinos** -> el paso de combinar sigue siendo lineal
+
+En el código, la comparación de la franja incluye un `break` que es exactamente esa poda: al estar ordenada por y, en cuanto un candidato queda demasiado lejos en y, todos los siguientes también lo estarán.
+
+=== celda 21 [code] ===
+# =====================================================================
+# PASO 3 - RESOLUCIÓN (parte 1): DISTANCIA EUCLÍDEA Y FUERZA BRUTA
+# =====================================================================
+
+def distancia_euclidea(p1, p2):
+    """
+    Distancia euclídea entre dos puntos de CUALQUIER dimensión.
+
+    zip(p1, p2) empareja coordenada a coordenada:
+      p1=(x1,y1), p2=(x2,y2)  ->  (x1,x2), (y1,y2)
+    y para cada pareja calculamos (a-b)^2. La suma de esos cuadrados,
+    con raíz final, es exactamente la fórmula de Pitágoras generalizada:
+      2D: sqrt((x1-x2)^2 + (y1-y2)^2)
+      3D: sqrt((x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2)
+    Al escribirla así, LA MISMA función sirve para 2D, 3D, 4D...
+    """
+    return math.sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
+
+
+def par_mas_cercano_nd_fuerza_bruta(puntos):
+    """
+    Fuerza bruta genérica: EXACTAMENTE la misma estructura de doble bucle
+    que en 1D, cambiando solo la función de distancia. Sigue siendo O(n^2).
+    La usaremos como referencia ("juez") para verificar que las versiones
+    de Divide y Vencerás dan el resultado correcto.
+    """
+    n = len(puntos)
+    mejor_distancia = float('inf')
+    mejor_par = None
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            d = distancia_euclidea(puntos[i], puntos[j])
+            if d < mejor_distancia:
+                mejor_distancia = d
+                mejor_par = (puntos[i], puntos[j])
+
+    return mejor_par, mejor_distancia
+
+
+# ---------------------------------------------------------------------
+# 🔍 COMPROBACIÓN con el ejemplo del enunciado
+# ---------------------------------------------------------------------
+LISTA_2D_EJEMPLO = [(1122, 6175), (135, 4076), (7296, 2741)]
+
+par, dist = par_mas_cercano_nd_fuerza_bruta(LISTA_2D_EJEMPLO)
+print(f"Puntos: {LISTA_2D_EJEMPLO}")
+print(f"Par más cercano (fuerza bruta 2D): {par}")
+print(f"Distancia euclídea: {dist:.4f}")
+
+=== celda 22 [code] ===
+# =====================================================================
+# PASO 3 - RESOLUCIÓN (parte 2): DIVIDE Y VENCERÁS EN 2D
+# (algoritmo clásico "Closest Pair of Points")
+# =====================================================================
+
+def _dyv_2d(puntos_por_x):
+    """
+    Recibe los puntos YA ORDENADOS por x. La estructura es un calco de
+    la versión 1D; los comentarios señalan lo que cambia.
+    """
+    n = len(puntos_por_x)
+
+    # CASO BASE: idéntico a 1D -> pocos puntos, fuerza bruta directa
+    if n <= 3:
+        return par_mas_cercano_nd_fuerza_bruta(puntos_por_x)
+
+    # DIVIDIR: ahora el corte es una LÍNEA VERTICAL x = x_medio.
+    # Como los puntos vienen ordenados por x, partir la lista por la
+    # mitad deja a un lado los de x pequeña y al otro los de x grande
+    medio = n // 2
+    x_medio = puntos_por_x[medio][0]   # [0] = coordenada x del punto medio
+    izquierda = puntos_por_x[:medio]
+    derecha = puntos_por_x[medio:]
+
+    # VENCER: recursión sobre cada mitad, igual que en 1D
+    par_izq, dist_izq = _dyv_2d(izquierda)
+    par_der, dist_der = _dyv_2d(derecha)
+
+    # Mejor resultado provisional = mejor de las dos mitades
+    if dist_izq <= dist_der:
+        mejor_par, mejor_distancia = par_izq, dist_izq
+    else:
+        mejor_par, mejor_distancia = par_der, dist_der
+
+    # COMBINAR (aquí está TODA la diferencia con 1D):
+    #
+    # (a) La franja es una BANDA VERTICAL: puntos a menos de
+    #     mejor_distancia de la línea de corte, a cualquiera de los dos lados
+    franja = [p for p in puntos_por_x if abs(p[0] - x_medio) < mejor_distancia]
+
+    # (b) Ordenamos la franja por y ([1] = coordenada y). Este es el truco
+    #     clave de 2D: permite recorrer los candidatos "de abajo a arriba"
+    franja.sort(key=lambda p: p[1])
+
+    # (c) Cada punto de la franja se compara solo con los SIGUIENTES en y.
+    #     El 'break' es la poda: si el siguiente punto ya está a más de
+    #     mejor_distancia en vertical, la distancia euclídea será aún mayor
+    #     (y lo mismo para todos los que vienen detrás, porque están
+    #     ordenados) -> no tiene sentido seguir comparando.
+    #     Gracias a esta poda, cada punto se compara con un puñado de
+    #     vecinos (máximo 7 en teoría), no con toda la franja
+    for i in range(len(franja)):
+        for j in range(i + 1, len(franja)):
+            if (franja[j][1] - franja[i][1]) >= mejor_distancia:
+                break  # poda: ya no puede haber más candidatos útiles
+            d = distancia_euclidea(franja[i], franja[j])
+            if d < mejor_distancia:
+                mejor_distancia = d
+                mejor_par = (franja[i], franja[j])
+
+    return mejor_par, mejor_distancia
+
+
+def par_mas_cercano_2d_dyv(puntos):
+    # Paso previo (como el sorted() de 1D): ordenar por la coordenada x.
+    # key=lambda p: p[0] significa "usa la x de cada punto como criterio"
+    puntos_por_x = sorted(puntos, key=lambda p: p[0])
+    return _dyv_2d(puntos_por_x)
+
+
+# ---------------------------------------------------------------------
+# 🔍 COMPROBACIÓN 1: ejemplo del enunciado -> debe coincidir con la
+# fuerza bruta de la celda anterior
+# ---------------------------------------------------------------------
+par, dist = par_mas_cercano_2d_dyv(LISTA_2D_EJEMPLO)
+print(f"Divide y Vencerás 2D: {par}, distancia = {dist:.4f}")
+
+# ---------------------------------------------------------------------
+# 🔍 COMPROBACIÓN 2: 1000 puntos aleatorios, midiendo tiempos.
+# La fuerza bruta hace de "juez": si ambas distancias coinciden,
+# el Divide y Vencerás es correcto
+# ---------------------------------------------------------------------
+random.seed(42)
+LISTA_2D = [(random.randrange(1, 10000), random.randrange(1, 10000)) for _ in range(1000)]
+
+t0 = time.time()
+par_fb, dist_fb = par_mas_cercano_nd_fuerza_bruta(LISTA_2D)
+t_fb = time.time() - t0
+
+t0 = time.time()
+par_dyv, dist_dyv = par_mas_cercano_2d_dyv(LISTA_2D)
+t_dyv = time.time() - t0
+
+print(f"\nCon {len(LISTA_2D)} puntos aleatorios en 2D:")
+print(f"  Fuerza bruta      -> d = {dist_fb:.4f}  (tiempo: {t_fb:.4f}s)")
+print(f"  Divide y Vencerás -> d = {dist_dyv:.4f}  (tiempo: {t_dyv:.4f}s)")
+print(f"\n¿Coinciden? {math.isclose(dist_fb, dist_dyv)}")
+print(f"El Divide y Vencerás fue ~{t_fb/max(t_dyv, 1e-9):.0f} veces más rápido")
+
+=== celda 23 [code] ===
+# =====================================================================
+# 📊 VISUALIZACIÓN 2D: los 1000 puntos y el par más cercano resaltado
+# =====================================================================
+# Dos vistas de lo mismo:
+#   - Izquierda: el plano completo. El par ganador está marcado en rojo
+#     (a esta escala los dos puntos se ven casi como uno solo: ¡están a
+#     distancia 9 en un plano de 10000 x 10000!)
+#   - Derecha: zoom sobre la zona del par, para ver los dos puntos
+#     claramente separados y su distancia
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 6))
+
+p1, p2 = par_dyv  # el par que encontró el Divide y Vencerás en la celda anterior
+
+# --- Vista completa ---
+xs = [p[0] for p in LISTA_2D]
+ys = [p[1] for p in LISTA_2D]
+ax1.scatter(xs, ys, s=10, color=COLOR_FONDO, alpha=0.45)
+ax1.scatter([p1[0], p2[0]], [p1[1], p2[1]], s=120, color=COLOR_ACENTO, zorder=3)
+# Un círculo alrededor del par para poder localizarlo a simple vista
+circulo = plt.Circle(((p1[0]+p2[0])/2, (p1[1]+p2[1])/2), 600,
+                     fill=False, color=COLOR_ACENTO, linewidth=1.5, linestyle='--')
+ax1.add_patch(circulo)
+ax1.set_title(f'Vista completa: {len(LISTA_2D)} puntos')
+ax1.set_xlabel('x'); ax1.set_ylabel('y')
+
+# --- Zoom sobre el par ganador ---
+cx, cy = (p1[0]+p2[0])/2, (p1[1]+p2[1])/2   # centro del par
+radio = 60                                    # media ventana del zoom
+# Puntos del entorno (para ver que no hay ningún otro más cerca)
+vecinos = [p for p in LISTA_2D if abs(p[0]-cx) < radio and abs(p[1]-cy) < radio]
+ax2.scatter([p[0] for p in vecinos], [p[1] for p in vecinos],
+            s=60, color=COLOR_FONDO, alpha=0.7)
+ax2.scatter([p1[0], p2[0]], [p1[1], p2[1]], s=160, color=COLOR_ACENTO, zorder=3)
+ax2.plot([p1[0], p2[0]], [p1[1], p2[1]], color=COLOR_ACENTO, linewidth=2)
+ax2.annotate(f'd = {dist_dyv:.1f}', xy=(cx, cy), xytext=(cx + 10, cy + 15),
+             color=COLOR_ACENTO, fontsize=12, fontweight='bold')
+ax2.set_xlim(cx - radio, cx + radio)
+ax2.set_ylim(cy - radio, cy + radio)
+ax2.set_title(f'Zoom: el par más cercano {p1} — {p2}')
+ax2.set_xlabel('x'); ax2.set_ylabel('y')
+
+for ax in (ax1, ax2):
+    ax.grid(True, alpha=0.2)
+    ax.spines[['top', 'right']].set_visible(False)
+
+plt.tight_layout()
+plt.show()
+
+=== celda 24 [markdown] ===
+### ⏱️ Complejidad en 2D
+
+En cada nivel de la recursión hacemos dos subproblemas de tamaño mitad, más el trabajo de combinar, que en esta versión incluye **ordenar la franja por y** (`O(n log n)`):
+
+$$T(n) = 2·T(n/2) + O(n \log n) \implies T(n) = O(n \log^2 n)$$
+
+**¿Se puede mejorar?** Sí: la versión "de libro de texto" mantiene una segunda copia de los puntos pre-ordenada por y y la va **fusionando** al estilo *merge sort* en vez de reordenar la franja en cada llamada. Con ello el paso de combinar baja a `O(n)` y el total a **O(n log n)**. Aquí mantenemos la versión con `sort` dentro porque es mucho más fácil de leer y la diferencia práctica con 1000 puntos es inapreciable — pero es importante saber que existe esa mejora.
+
+---
+
+## Paso 4 — Extender el algoritmo a 3D
+
+### 📌 Enunciado
+Extender el algoritmo anterior a tres dimensiones `(x, y, z)`.
+
+### 💡 Idea de la solución
+
+La estructura del algoritmo **no cambia en absoluto** — esa es la belleza de Divide y Vencerás:
+
+- Se sigue ordenando y dividiendo por la coordenada **x** (el corte ahora es un **plano vertical** en vez de una línea)
+- La franja sigue siendo "puntos con `|x - x_medio| < mejor_distancia`" (ahora es una **rebanada** del espacio 3D)
+- `distancia_euclidea` ya era genérica, así que sirve tal cual
+
+**Lo único que cambia es cómo revisar la franja.** En 2D bastaba con ordenar por y y mirar ~7 vecinos. En 3D los puntos de la franja "compiten" en dos coordenadas a la vez (y **y** z), así que la poda de una sola ordenación ya no basta por sí sola. La teoría dice que sigue existiendo una cota constante de vecinos (el mismo argumento de empaquetado, ahora con cajas 3D) y que O(n log n) es alcanzable, pero implementarlo es bastante más laborioso.
+
+**Decisión de diseño para esta actividad:** revisar la franja por fuerza bruta. Es una simplificación razonable porque:
+- La franja normalmente contiene **muchos menos puntos** que el conjunto total -> en la práctica sigue siendo mucho más rápido que la fuerza bruta global (lo comprobaremos midiendo tiempos)
+- Mantiene el código legible y centrado en la idea de Divide y Vencerás, que es el objetivo de la actividad
+- El precio: en el **peor caso teórico** (datos degenerados con casi todos los puntos apilados junto al plano de corte) no se garantiza el O(n log n) estricto
+
+Además, al escribir la función de forma genérica (`_dyv_nd`), la misma implementación resuelve 2D, 3D o cualquier dimensión.
+
+=== celda 25 [code] ===
+# =====================================================================
+# PASO 4 - RESOLUCIÓN: DIVIDE Y VENCERÁS EN 3D (Y CUALQUIER DIMENSIÓN)
+# =====================================================================
+
+def _dyv_nd(puntos_por_x):
+    """
+    Versión GENÉRICA del Divide y Vencerás: funciona con tuplas de
+    cualquier longitud (2D, 3D, 4D...) porque:
+      - solo usa explícitamente la coordenada [0] (la x) para dividir
+      - distancia_euclidea ya funciona en cualquier dimensión
+    Comparar con _dyv_2d: la ÚNICA diferencia es cómo se revisa la franja.
+    """
+    n = len(puntos_por_x)
+
+    # CASO BASE: idéntico a los anteriores
+    if n <= 3:
+        return par_mas_cercano_nd_fuerza_bruta(puntos_por_x)
+
+    # DIVIDIR: corte por un plano vertical x = x_medio
+    medio = n // 2
+    x_medio = puntos_por_x[medio][0]
+    izquierda = puntos_por_x[:medio]
+    derecha = puntos_por_x[medio:]
+
+    # VENCER: recursión sobre cada mitad
+    par_izq, dist_izq = _dyv_nd(izquierda)
+    par_der, dist_der = _dyv_nd(derecha)
+
+    if dist_izq <= dist_der:
+        mejor_par, mejor_distancia = par_izq, dist_izq
+    else:
+        mejor_par, mejor_distancia = par_der, dist_der
+
+    # COMBINAR: la franja es la "rebanada" del espacio pegada al plano
+    # de corte. Se revisa por fuerza bruta (ver justificación en la celda
+    # anterior): como la franja suele tener pocos puntos, en la práctica
+    # sigue siendo muy rápido
+    franja = [p for p in puntos_por_x if abs(p[0] - x_medio) < mejor_distancia]
+
+    for i in range(len(franja)):
+        for j in range(i + 1, len(franja)):
+            d = distancia_euclidea(franja[i], franja[j])
+            if d < mejor_distancia:
+                mejor_distancia = d
+                mejor_par = (franja[i], franja[j])
+
+    return mejor_par, mejor_distancia
+
+
+def par_mas_cercano_nd_dyv(puntos):
+    # Igual que siempre: ordenar por x antes de empezar
+    puntos_por_x = sorted(puntos, key=lambda p: p[0])
+    return _dyv_nd(puntos_por_x)
+
+
+# ---------------------------------------------------------------------
+# 🔍 COMPROBACIÓN 1: 1000 puntos aleatorios en 3D, con la fuerza bruta
+# genérica como juez y midiendo tiempos
+# ---------------------------------------------------------------------
+random.seed(42)
+LISTA_3D = [(random.randrange(1, 10000), random.randrange(1, 10000), random.randrange(1, 10000))
+            for _ in range(1000)]
+
+t0 = time.time()
+par_fb, dist_fb = par_mas_cercano_nd_fuerza_bruta(LISTA_3D)
+t_fb = time.time() - t0
+
+t0 = time.time()
+par_dyv, dist_dyv = par_mas_cercano_nd_dyv(LISTA_3D)
+t_dyv = time.time() - t0
+
+print(f"Con {len(LISTA_3D)} puntos aleatorios en 3D:")
+print(f"  Fuerza bruta      -> d = {dist_fb:.4f}  (tiempo: {t_fb:.4f}s)")
+print(f"    par: {par_fb}")
+print(f"  Divide y Vencerás -> d = {dist_dyv:.4f}  (tiempo: {t_dyv:.4f}s)")
+print(f"    par: {par_dyv}")
+print(f"\n¿Coinciden? {math.isclose(dist_fb, dist_dyv)}")
+
+# ---------------------------------------------------------------------
+# 🔍 COMPROBACIÓN 2: como _dyv_nd es genérica, la misma función resuelve
+# también el ejemplo 2D del enunciado (mismo resultado que antes)
+# ---------------------------------------------------------------------
+par_2d, dist_2d = par_mas_cercano_nd_dyv(LISTA_2D_EJEMPLO)
+print(f"\nLa misma función genérica aplicada al ejemplo 2D: {par_2d}, d = {dist_2d:.4f}")
+
+=== celda 26 [code] ===
+# =====================================================================
+# 📊 VISUALIZACIÓN 3D: los 1000 puntos y el par más cercano resaltado
+# =====================================================================
+# Cómo leer la gráfica:
+#   - Puntos grises pequeños y semitransparentes = el conjunto completo
+#     (apagados a propósito: son el "fondo", no el mensaje)
+#   - Puntos rojos grandes unidos por una línea = el par más cercano
+#     que encontró el algoritmo (el único mensaje de la gráfica)
+
+fig = plt.figure(figsize=(9, 7))
+ax = fig.add_subplot(111, projection='3d')
+
+# Separamos las coordenadas x, y, z de cada tupla para poder pintarlas.
+# zip(*LISTA_3D) "transpone" la lista: de [(x,y,z), ...] a ([x...], [y...], [z...])
+xs, ys, zs = zip(*LISTA_3D)
+ax.scatter(xs, ys, zs, s=8, color=COLOR_FONDO, alpha=0.25, depthshade=False)
+
+# El par más cercano calculado por el Divide y Vencerás en la celda anterior
+p1, p2 = par_dyv
+ax.scatter(*zip(p1, p2), s=90, color=COLOR_ACENTO, depthshade=False)
+ax.plot(*zip(p1, p2), color=COLOR_ACENTO, linewidth=2)
+
+# Etiqueta directa sobre el par (mejor que una leyenda: señala el dato exacto)
+ax.text(p1[0], p1[1], p1[2] + 500, f"  d = {dist_dyv:.1f}",
+        color=COLOR_ACENTO, fontsize=11, fontweight='bold')
+
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+ax.set_title(f'3D: par más cercano entre {len(LISTA_3D)} puntos\n{p1} — {p2}')
+plt.tight_layout()
+plt.show()
+
+# Nota: en 3D es difícil APRECIAR visualmente que ese par es el más cercano
+# (la perspectiva engaña), y justamente por eso el algoritmo importa:
+# a partir de 2-3 dimensiones ya no podemos fiarnos del ojo.
+
+=== celda 27 [markdown] ===
+---
+
+## ✅ Conclusiones de la actividad extra
+
+### ¿Se resolvió todo lo que pedía la guía?
+
+| Punto de la guía | Dónde se resuelve | Resultado |
+|---|---|---|
+| 1D — fuerza bruta | Paso 1 | O(n²), verificado con el ejemplo del enunciado |
+| 1D — calcular complejidad, ¿mejora? | Tras el Paso 1 | O(n²) -> sí se puede mejorar organizando los datos |
+| 1D — Divide y Vencerás | Paso 2 | O(n log n), con traza de la recursión visible |
+| 1D — complejidad, ¿mejora? | Tras el Paso 2 | Sí: en 1D basta ordenar + una pasada (vecinos consecutivos) |
+| Extender a 2D | Paso 3 | Franja ordenada por y + poda de vecinos; verificado contra fuerza bruta |
+| Extender a 3D | Paso 4 | Versión genérica n-dimensional; verificada contra fuerza bruta |
+| Visualización 1D / 2D / 3D | Gráficas de cada paso | El par más cercano resaltado sobre el conjunto de puntos |
+
+### Resumen de complejidades
+
+| Caso | Fuerza bruta | Divide y Vencerás |
+|---|---|---|
+| **1D** | O(n²) | O(n log n); y en 1D existe la mejora específica de comparar solo consecutivos tras ordenar (búsqueda O(n)) |
+| **2D** | O(n²) | **O(n log² n)** tal y como está implementado (se reordena la franja en cada llamada); O(n log n) en la versión de libro que fusiona al estilo *merge sort* |
+| **3D / n-D** | O(n²) | O(n log n) alcanzable en teoría; nuestra versión revisa la franja por fuerza bruta -> muy rápida en la práctica, sin garantía estricta en el peor caso |
+
+### Idea final
+
+La clave de Divide y Vencerás es la misma que en las Torres de Hanói: **reducir el problema a subproblemas más pequeños del mismo tipo** (la recursión hace el trabajo pesado) **y concentrar el ingenio en el paso de combinar**. Aquí, la franja central es el equivalente a "mover el disco grande" en Hanói: es el único momento en que hay que razonar sobre el problema completo; todo lo demás se resuelve solo.
+
+Y una lección práctica importante: al pasar de 1D a 2D y 3D, lo que se complica **no es dividir ni vencer, sino combinar** — la geometría de la franja es cada vez más delicada. Por eso la fuerza bruta, aunque lenta, sigue teniendo un papel: es el "juez" sencillo y seguro contra el que verificamos que el algoritmo rápido es correcto.
+

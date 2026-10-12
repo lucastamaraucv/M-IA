@@ -1,0 +1,3 @@
+Desarrollar algoritmos con la técnica de programación dinámica para resolver problemas
+Desarrollar algoritmos con la técnica de ramificación y poda para resolver problemas
+Desarrollar algoritmos con la técnica del descenso del gradiente

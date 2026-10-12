@@ -1,0 +1,172 @@
+# Resumen del Cuestionario — Razonamiento Aproximado
+
+---
+
+## Pregunta 1
+**La implicación lógica está asociada a la operación de conjuntos...**
+
+A. Inclusión.
+B. Intersección.
+C. Unión.
+D. Complemento.
+
+**Respuesta correcta: A. Inclusión.**
+
+**Justificación:** La implicación lógica (p → q) equivale a decir que el conjunto A (elementos que cumplen p) está contenido en el conjunto B (elementos que cumplen q), es decir, A ⊆ B. Esto se debe a que siempre que se cumple p, también se cumple q — no hay ningún elemento de A que quede fuera de B.
+
+- La intersección (∩) se asocia al conector "y" (∧).
+- La unión (∪) se asocia al conector "o" (∨).
+- El complemento se asocia a la negación (¬).
+
+**💡 En simple:** si siempre que pasa A también pasa B, es porque A está "metido dentro" de B. Ejemplo: todos los perros (A) son animales (B) → el grupo de los perros cabe entero dentro del grupo de los animales. Eso es justo lo que significa "A implica B".
+
+---
+
+## Pregunta 2
+**¿Qué modelo de control requiere 'desborrosificación' de la salida del controlador?**
+
+A. El de Mamdani.
+B. El de Takagi-Sugeno.
+C. Ninguno.
+D. Todos.
+
+**Respuesta correcta: A. El de Mamdani.**
+
+**Justificación:** En Mamdani, tanto las entradas como las salidas son conjuntos difusos, por lo que la salida final sigue siendo un conjunto difuso y requiere un paso de desborrosificación (por ejemplo, con el método del centroide) para obtener un valor numérico útil. En Takagi-Sugeno, el consecuente de cada regla ya es una función matemática (normalmente lineal) de las entradas, así que la salida se calcula directamente como un promedio ponderado de esas funciones y ya es numérica — no requiere desborrosificación.
+
+**💡 En simple:** Mamdani responde algo borroso tipo "la salida es más o menos alta" — hay que traducir eso a un número concreto (desborrosificar). Sugeno directamente calcula un número desde el principio, así que no le hace falta ese paso extra.
+
+---
+
+## Pregunta 3
+**Los operadores borrosos...**
+
+A. Mantienen las propiedades esenciales de los operadores clásicos.
+B. Están basados en los operadores probabilísticos.
+C. Parten de las definiciones de los factores de certeza.
+D. Todos devuelven resultados en el intervalo [0, 1] (salvo que trabajemos con conjuntos L-fuzzy).
+
+**Respuestas correctas: A y D.**
+
+**Justificación:**
+- **A:** Los operadores borrosos (t-normas, t-conormas, etc.) son generalizaciones de los operadores clásicos de conjuntos, por lo que conservan propiedades como conmutatividad, asociatividad y monotonía.
+- **D:** Por definición, los operadores borrosos estándar trabajan sobre el intervalo [0, 1], salvo en el caso de los conjuntos L-fuzzy, donde el rango de pertenencia puede ser un retículo (lattice) más general.
+- **B es falsa:** no se basan en probabilidad, sino en teoría de conjuntos difusos.
+- **C es falsa:** los factores de certeza son un mecanismo distinto usado en sistemas expertos (como MYCIN), no la base de los operadores borrosos.
+
+**💡 En simple:** los operadores borrosos son una versión "suavizada" del Y/O/NO clásico: se comportan igual de "ordenados" que siempre (A), pero en vez de dar solo 0 o 1 dan cualquier valor intermedio entre 0 y 1 (D) — no tienen nada que ver con probabilidad ni con factores de certeza.
+
+---
+
+## Pregunta 4
+**A es subconjunto borroso de B si...**
+
+A. Los grados de pertenencia de cada uno de los elementos al conjunto A son iguales o menores a los de pertenencia a B.
+B. A y B no son disjuntos.
+C. A y B tienen la misma cardinalidad.
+D. A y B tienen los mismos elementos.
+
+**Respuesta correcta: A.**
+
+**Justificación:** La definición formal es A ⊆ B ⟺ μ_A(x) ≤ μ_B(x) para todo x. Es decir, ningún elemento puede pertenecer más a A que a B.
+
+- **B** es una condición más débil (no disjunción no implica inclusión).
+- **C** (misma cardinalidad) no es criterio de inclusión.
+- **D** describe igualdad de conjuntos (A = B), no inclusión.
+
+**💡 En simple:** piensa en el grado de pertenencia como "cuánto perteneces" a un grupo. Si en CADA elemento perteneces menos o igual a A que a B, entonces A cabe entero dentro de B — igual que en conjuntos normales, pero con grados en vez de "sí/no".
+
+---
+
+## Pregunta 5
+**Habitualmente los buscadores Web (Google, Bing...) usan técnicas de indexación conceptual y no sólo en base a los términos que aparecen en los documentos (lexicográfica).**
+
+Verdadero / Falso
+
+**Respuesta correcta: Falso.**
+
+**Justificación:** Los motores de búsqueda tradicionales indexan fundamentalmente por técnicas lexicográficas (términos/palabras que aparecen literalmente en los documentos, mediante índices invertidos). La indexación puramente conceptual/semántica es un objetivo de investigación más complejo; aunque hay mejoras semánticas incorporadas, la base sigue siendo lexicográfica, no conceptual.
+
+**💡 En simple:** Google busca sobre todo por las PALABRAS exactas que escribes, no por lo que "quieres decir" — por eso a veces buscar con otras palabras (sinónimos) da resultados distintos, aunque signifiquen lo mismo.
+
+---
+
+## Pregunta 6
+**Habitualmente, los sistemas de Ayuda a la Decisión borrosos (por ejemplo en medicina) usan en su implementación...**
+
+A. El método de inferencia de Mamdani.
+B. El método de inferencia de Takagi-Sugeno.
+C. El Modus Ponens Generalizado.
+D. Un sistema probabilístico.
+
+**Respuestas correctas: A y C.**
+
+**Justificación:**
+- **A:** En medicina se usa Mamdani porque entradas y salidas se manejan como conjuntos difusos interpretables lingüísticamente ("fiebre alta", "dolor moderado"), acorde al razonamiento clínico basado en reglas.
+- **C:** El razonamiento con síntomas que no encajan exactamente en las reglas se hace mediante el Modus Ponens Generalizado (GMP): de "si X es A entonces Y es B" y "X es A'", se infiere "Y es B'".
+- **B es incorrecta:** Takagi-Sugeno es más propio de sistemas de control con salidas numéricas.
+- **D es incorrecta:** estos sistemas se basan en conjuntos difusos, no en probabilidad clásica.
+
+**💡 En simple:** en medicina las reglas se escriben con palabras ("fiebre alta", "dolor moderado"), así que se usa Mamdani, que trabaja con palabras. Y como un paciente casi nunca encaja EXACTO con la regla escrita, el Modus Ponens Generalizado permite razonar igual aunque el síntoma real sea "parecido" en vez de idéntico.
+
+---
+
+## Pregunta 7
+**El 'Computing With Words' y el 'Razonamiento Aproximado' son dos cosas totalmente distintas.**
+
+Verdadero / Falso
+
+**Respuesta correcta: Falso.**
+
+**Justificación:** Ambos comparten el mismo marco teórico (lógica difusa de Zadeh). El Razonamiento Aproximado es la metodología general para inferir con premisas imprecisas; el Computing With Words es una extensión que aplica ese mismo razonamiento pero operando directamente con etiquetas lingüísticas en vez de números. No son conceptos separados, sino complementarios.
+
+**💡 En simple:** son familia, no rivales. El Razonamiento Aproximado es la idea general de "razonar con cosas imprecisas"; el Computing With Words es aplicar esa misma idea pero usando palabras ("alto", "poco") en vez de números.
+
+---
+
+## Pregunta 8
+**Habitualmente un Term-set debe contener no más de 7 +/- 2 etiquetas lingüísticas.**
+
+Verdadero / Falso
+
+**Respuesta correcta: Verdadero.**
+
+**Justificación:** Se basa en el principio de Miller (1956), "The Magical Number Seven, Plus or Minus Two": la memoria a corto plazo humana procesa cómodamente entre 5 y 9 elementos. Por eso, en variables lingüísticas difusas, el Term-set (conjunto de etiquetas como "muy bajo", "bajo", "medio", "alto", "muy alto") se limita habitualmente a ese rango para mantener interpretabilidad.
+
+**💡 En simple:** nuestra cabeza solo distingue bien entre 5 y 9 cosas a la vez. Si defines demasiadas etiquetas ("bajísimo", "casi bajo", "medio-bajo"...) la gente ya no las diferencia bien — por eso se pone un límite razonable.
+
+---
+
+## Pregunta 9
+**Habitualmente se entiende por 'analizar datos' encontrar regularidades en los mismos y formalizarlas como 'patrones'.**
+
+Verdadero / Falso
+
+**Respuesta correcta: Verdadero.**
+
+**Justificación:** Es la definición estándar dentro de minería de datos / KDD (Knowledge Discovery in Databases): analizar datos consiste en encontrar regularidades, tendencias o relaciones recurrentes y expresarlas como patrones (reglas, modelos, clusters) reutilizables e interpretables.
+
+**💡 En simple:** analizar datos es básicamente buscar "eso que se repite" en ellos y ponerle un nombre o una regla — eso es un patrón.
+
+---
+
+## Pregunta 10
+**El éxito del control borroso se debe principalmente a...**
+
+A. La simplicidad de las soluciones.
+B. El bajo coste de las soluciones.
+C. El menor tiempo de desarrollo de las soluciones.
+D. Todas las anteriores respuestas.
+
+**Respuesta correcta: D. Todas las anteriores respuestas.**
+
+**Justificación:** El éxito comercial del control borroso se debe a la combinación de tres factores:
+- **A:** reglas lingüísticas simples, sin necesidad de un modelo matemático complejo.
+- **B:** bajo costo de implementación, especialmente en microcontroladores embebidos.
+- **C:** menor tiempo de desarrollo, al basarse en conocimiento experto expresado como reglas en vez de ecuaciones exactas.
+
+Ninguna razón por sí sola explica el éxito; es la suma de las tres.
+
+**💡 En simple:** el control borroso triunfó por combo, no por un solo motivo: es fácil de diseñar (reglas simples tipo "si hace mucho frío, sube la calefacción mucho"), barato de meter en un chip, y rápido de programar. Las tres cosas juntas lo hicieron popular.
+
+---

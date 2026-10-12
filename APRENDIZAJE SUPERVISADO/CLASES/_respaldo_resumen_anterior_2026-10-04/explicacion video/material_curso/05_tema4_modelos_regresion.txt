@@ -1,0 +1,549 @@
+RESUMEN CONSOLIDADO — CAPÍTULO 3 (REGRESIÓN) + TEMA 4 (NOTEBOOKS)
+Curso: Aprendizaje Supervisado
+Fuentes:
+  - PDF del manual del curso, páginas 53 a 73 (Capítulo 3: Regresión) -> citado como [PDF p.N]
+  - Notebook: aprendizaje_supervisado_tema4_modelo_regresion.ipynb -> citado como [NB1]
+  - Notebook: aprendizaje_supervisado_tema4_modelo_regresion_poli.ipynb -> citado como [NB2]
+================================================================================
+
+
+================================================================================
+1. REGRESIÓN LINEAL MÚLTIPLE (OLS)
+================================================================================
+
+--- Explicación teórica ---
+
+La regresión lineal es la primera aproximación estudiada para resolver problemas de
+regresión en aprendizaje supervisado. Todos los algoritmos de este paradigma se basan
+en encontrar relaciones lineales entre los atributos y la clase. Se distinguen dos tipos:
+regresión simple (un solo atributo de entrada) y regresión múltiple (varios atributos).
+El algoritmo clásico y más utilizado es ordinary least squares (OLS), válido tanto para
+regresión simple como múltiple [PDF p.53].
+
+El modelo que genera OLS es una combinación lineal de los atributos:
+
+    y_hat = w0 + w1·x1 + w2·x2 + ... + wp·xp
+
+donde y_hat es el valor predicho, x1,...,xp son los valores de los atributos,
+w1,...,wp ∈ R son los coeficientes del modelo y w0 es el término independiente
+(intercept) [PDF p.54].
+
+El entrenamiento mediante OLS parte del conjunto de entrenamiento (X: matriz de
+atributos, y: vector de clases) y busca, mediante un proceso iterativo, los valores
+óptimos de w0,...,wp. La función objetivo (función de coste) que OLS minimiza es la
+suma de errores al cuadrado (MSE, mean squared error):
+
+    f(w0,...,wp) = (1/n) · Σ_{i=1}^{n} ( y_i − (w0 + Σ_{j=1}^{p} wj·x_ij) )^2
+
+El valor de f depende únicamente de los coeficientes, ya que los atributos x_ij y las
+clases y_i del conjunto de entrenamiento son fijos. El factor 1/n normaliza la función
+objetivo respecto al volumen de datos. Cuanto menor es f, mejor es el ajuste del
+modelo [PDF p.54].
+
+El algoritmo de búsqueda más habitual para minimizar f es el descenso de gradiente
+(gradient descent), que en cada iteración encuentra la dirección y magnitud de cambio
+de cada coeficiente que llevan hacia la mayor reducción de la función objetivo,
+apoyándose en un parámetro externo llamado tasa de aprendizaje (learning rate)
+[PDF p.55].
+
+Interpretación geométrica de los coeficientes (caso de un único atributo): w1 es la
+pendiente de la recta de regresión (w1 = Δy/Δx) y w0 es la ordenada en el origen
+(x = 0) de dicha recta [PDF p.55].
+
+Predicción: una vez entrenado el modelo (w0,...,wp fijos), basta sustituir los valores
+de los atributos de la instancia de test en la ecuación del modelo y evaluarla para
+obtener y_hat. Este proceso es casi instantáneo [PDF p.56].
+
+Métrica R2 (coeficiente de determinación): mide la variabilidad de la clase que el
+modelo predice respecto a la variabilidad total:
+
+    R2 = 1 − [ Σ_{i=1}^{n} (y_i − y_hat_i)^2 ] / [ Σ_{i=1}^{n} (y_i − ȳ)^2 ]
+
+donde ȳ es la media aritmética de la clase. R2 = 1 implica predicción perfecta
+(y_i = y_hat_i para todo i). R2 = 0 implica la misma eficacia que un DummyRegressor
+(que siempre predice la media aritmética). Si R2 < 0, el modelo es peor que
+DummyRegressor [PDF p.56].
+
+--- Ejemplo del manual (Programa 12): OLS sobre el dataset "California" ---
+[PDF p.56-57, literal]
+
+    import numpy as np
+    from math import sqrt
+    from pprint import pprint
+    from sklearn import datasets
+    from sklearn.dummy import DummyRegressor
+    from sklearn.model_selection import cross_validate
+    from sklearn.model_selection import KFold
+    from sklearn.metrics import make_scorer
+    from sklearn.metrics import mean_squared_error
+
+    # Carga de datos.
+    datos = datasets.fetch_california_housing()
+
+    # Algoritmo de aprendizaje.
+    reg = linear_model.LinearRegression()
+
+    # Métricas de evaluación.
+    metricas = {
+      'MAE':  metrics.mean_absolute_error,
+      'RMSE': lambda y, y_pred:
+              sqrt(metrics.mean_squared_error(y, y_pred)),
+      'MAPE': lambda y, y_pred:
+              np.mean(np.abs((y - y_pred) / y)) * 100,
+      'R2':   metrics.r2_score}
+
+    # Validación y obtención de las predicciones del modelo.
+    seed = 1
+    y_pred = cross_val_predict(reg, datos.data, datos.target,
+             cv = KFold(n_splits=10, random_state=seed))
+
+    # Cálculo de las métricas de evaluación.
+    MAE = metricas['MAE'](datos.target, y_pred)
+    RMSE = metricas['RMSE'](datos.target, y_pred)
+    MAPE = metricas['MAPE'](datos.target, y_pred)
+    R2 = metricas['R2'](datos.target, y_pred)
+
+Qué hace: entrena LinearRegression (implementación de OLS en scikit-learn) sobre el
+dataset "California", validando con cross_val_predict y KFold(n_splits=10), y calcula
+MAE, RMSE, MAPE y R2 [PDF p.56-57].
+
+Resultado numérico reportado en el manual: R2 > 0 (mejor que DummyRegressor);
+MAE = 4,003; desviación típica de la clase = 9,188; por tanto
+1 − MAE/desviación = 1 − 4,003/9,188 ≈ 0,564 [PDF p.59].
+
+--- Código real de los notebooks ---
+
+[NB1] Regresión lineal simple (una variable, dataset FuelConsumptionCo2.csv):
+
+    algorithm = LinearRegression(fit_intercept=True)
+    ...
+    model = LinearRegression(fit_intercept=True)
+    model = model.fit(X_train, y_train)
+    ...
+    y_pred = model.predict(X_test)
+    mae = mean_absolute_error(y_test, y_pred)
+
+Qué hace: crea, entrena (fit) y evalúa (MAE) un modelo de regresión lineal simple con
+ENGINESIZE como predictor y CO2EMISSIONS como variable objetivo. Antes se estandarizan
+los datos con `preprocessing.StandardScaler()` (fit_transform en train, transform en
+test).
+
+[NB1] Regresión lineal MÚLTIPLE (dataset automobileEDA.csv, dos predictores):
+
+    archivo = 'https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DA0101EN/automobileEDA.csv'
+    df = pd.read_csv(archivo)
+
+    X = df[['engine-size','curb-weight']]
+    y = df['price']
+    ...
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    ...
+    std_scaling = preprocessing.StandardScaler()
+    X_train = std_scaling.fit_transform(X_train)
+    X_test = std_scaling.transform(X_test)
+    ...
+    model = LinearRegression(fit_intercept=True)
+    model = model.fit(X_train, y_train)
+    ...
+    y_pred = model.predict(X_test)
+    r2_metric = r2_score(y_test, y_pred)
+
+Qué hace: usa DOS atributos (engine-size, curb-weight) como predictores de 'price',
+demostrando la regresión múltiple (p=2 atributos en vez de 1). Se estandariza X antes
+de ajustar, y se evalúa con R2.
+
+[NB2] Interpretación de coeficientes con TODOS los atributos del dataset de autos
+(regresión múltiple con 18 predictores):
+
+    X = df[['symboling', 'normalized-losses', 'wheel-base', 'length',
+           'width', 'height', 'curb-weight',
+           'engine-size', 'bore', 'stroke', 'compression-ratio',
+           'horsepower', 'peak-rpm', 'city-mpg', 'highway-mpg',
+           'city-L/100km',  'diesel', 'gas']]
+    y = df['price']
+    ...
+    linearM  = LinearRegression()
+    linearM.fit(X_train,y_train)
+    print('R2 OLS Grupo Train =',linearM.score(X_train,y_train))
+    print('R2 OLS Grupo Test =',linearM.score(X_test,y_test))
+    print('wi OLS =',linearM.coef_)
+    print('w0 OLS =',linearM.intercept_)
+
+Qué hace: `linearM.coef_` da el vector de coeficientes w1..w18 (uno por atributo) y
+`linearM.intercept_` da w0. Esto es la aplicación directa de la interpretación
+geométrica/algebraica descrita en el manual [PDF p.55, p.60]: el signo de cada
+coeficiente indica relación directa (+) o inversa (−) con la clase, y su magnitud
+(en valor absoluto) indica la importancia del atributo — siempre que los datos estén
+estandarizados para que las escalas sean comparables (por eso se aplica
+StandardScaler antes del fit).
+
+--- Ventajas / inconvenientes y supuestos (teoría del manual) ---
+
+Ventajas de la regresión lineal [PDF p.59-60]:
+  - Simplicidad del modelo (una ecuación lineal).
+  - Fácil interpretabilidad: a mayor |coeficiente|, mayor importancia del atributo;
+    el signo indica relación directa (+) o inversa (−).
+  - Gran eficacia cuando la relación atributos-clase es de naturaleza lineal.
+  - Entrenamiento con tiempo de ejecución razonable (descenso de gradiente).
+  - Predicción casi instantánea (solo evaluar la función lineal).
+
+Supuestos que se asumen sobre los datos para que funcione bien [PDF p.60]:
+  - Independencia entre los atributos (baja correlación entre ellos).
+  - Distribución normal de los valores de los atributos (outliers afectan mucho).
+  - Relación lineal entre atributos y clase.
+  - Homocedasticidad: la varianza de los errores del modelo es constante,
+    independiente de los valores de los atributos.
+
+El manual menciona que existen variantes (Ridge y Lasso) que añaden términos de
+penalización a la función objetivo para evitar sobreajuste, especialmente con
+outliers [PDF p.60] — estas variantes también aparecen implementadas en ambos
+notebooks (Ridge, Lasso, ElasticNet) pero quedan fuera del alcance de las páginas
+53-73 del PDF (3.1 y 3.2), por lo que no se detallan en este resumen.
+
+
+================================================================================
+2. REGRESIÓN POLINÓMICA
+================================================================================
+
+Nota: el PDF (páginas 53-73, Capítulo 3) no dedica un apartado propio a regresión
+polinómica dentro de 3.1/3.2; este subtema proviene íntegramente del notebook
+aprendizaje_supervisado_tema4_modelo_regresion_poli.ipynb [NB2].
+
+--- Explicación teórica (del notebook) ---
+
+Hasta ahora los modelos vistos son lineales simples o multivariados, en los que la
+relación entre las variables predictoras y la variable objetivo es lineal. Sin
+embargo, en algunas ocasiones las tendencias de los datos presentan un comportamiento
+curvo, y en esos casos se usa la regresión polinómica. Según el grado del polinomio
+usado se distingue: cuadrática (grado 2), cúbica (grado 3), cuártica (grado 4), etc.
+La relación entre x e y se modela como un polinomio de grado n:
+
+    y_hat = w0·x^0 + w1·x^1 + w2·x^2 + ... + wn·x^n = Σ_{i=0}^{n} wi·x^i
+
+Existe un "truco" que permite convertir una regresión polinómica en una regresión
+lineal múltiple: definiendo x1=x, x2=x^2, x3=x^3, ..., xn=x^n, el problema se puede
+tratar como una regresión lineal múltiple de la forma
+y_hat = Σ_{i=0}^{n} wi·xi. Por tanto, la regresión polinómica es un caso especial de
+la regresión lineal múltiple y se resuelve con los mismos mecanismos [NB2, celda
+markdown "3. Regresión polinómica"].
+
+Dataset usado: FuelConsumptionCo2.csv (clasificaciones de consumo de combustible y
+emisiones de CO2 de vehículos nuevos en Canadá), con variable predictora
+FUELCONSUMPTION_COMB_MPG y variable objetivo CO2EMISSIONS.
+
+--- Código real (literal) ---
+
+    from sklearn.preprocessing import PolynomialFeatures
+    from sklearn.linear_model import LinearRegression
+
+    poly = PolynomialFeatures(degree=2)
+    train_x_poly = poly.fit_transform(x_train)
+    train_x_poly
+
+Qué hace: `PolynomialFeatures(degree=2)` genera, a partir del atributo original x, una
+matriz con todas las combinaciones polinomiales de grado ≤2: para cada valor x_i se
+generan las columnas [1, x_i, x_i^2] (potencias 0, 1 y 2).
+
+    clf = LinearRegression()
+    train_y_ = clf.fit(train_x_poly, y_train)
+    # The coefficients
+    print ('Coefficients: ', clf.coef_)
+    print ('Intercept: ',clf.intercept_)
+
+Qué hace: una vez expandidas las características con PolynomialFeatures, se ajusta un
+LinearRegression normal sobre esas nuevas columnas — exactamente el "truco" descrito
+arriba: coef_ contiene los 3 parámetros (w0 implícito en intercept_, w1, w2) del
+polinomio de grado 2.
+
+    plt.scatter(X, y,  color='blue')
+    XX = np.arange(0.0, 60.0, 0.1)
+    yy = clf.intercept_[0]+ clf.coef_[0][1]*XX+ clf.coef_[0][2]*XX*XX
+    plt.plot(XX, yy, '-r')
+    plt.xlabel("FUELCONSUMPTION_COMB_MPG")
+    plt.ylabel("Emission")
+
+Qué hace: reconstruye manualmente la curva ajustada y_hat = w0 + w1·XX + w2·XX²
+usando los coeficientes aprendidos, y la dibuja sobre los datos originales.
+
+    # con la regresión lineal (sin transformar)
+    linear = LinearRegression()
+    linear.fit(x_train,y_train)
+    y_pred = linear.predict(x_test)
+    print('MAE: %.3f '% metrics.mean_absolute_error(y_test, y_pred))
+    print('MSE: %.3f'% metrics.mean_squared_error(y_test, y_pred))
+    print('RMSE: %.3f'% np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+    print('R2: %.3f'% metrics.r2_score(y_test, y_pred))
+
+    # con la regresión polinómica
+    from sklearn import metrics
+    test_x_poly = poly.fit_transform(x_test)
+    test_y_ = clf.predict(test_x_poly)
+    print('MAE: %.3f' % metrics.mean_absolute_error(test_y_, y_test))
+    print('MSE: %.3f' % metrics.mean_squared_error(test_y_, y_test))
+    print('RMSE: %.3f' % np.sqrt(metrics.mean_squared_error(test_y_, y_test)))
+    print('R2: %.3f'% metrics.r2_score(test_y_, y_test))
+
+Qué hace: compara, con las mismas métricas (MAE, MSE, RMSE, R2), el modelo lineal
+simple (grado 1, sin PolynomialFeatures) contra el modelo polinómico de grado 2 sobre
+el mismo conjunto de test, para decidir si el grado 2 mejora el ajuste. El notebook no
+recorre explícitamente varios grados en un bucle/GridSearch en esta sección: el grado
+(degree) se fija manualmente en PolynomialFeatures(degree=2) y se elige comparando
+las métricas de evaluación entre modelos con distinto grado (aquí, grado 1 vs. 2).
+
+--- Fórmulas y datos concretos ---
+
+  - Ecuación general de grado n:  y_hat = Σ_{i=0}^{n} wi·x^i  [NB2]
+  - Caso cuadrático usado en el ejemplo:  y_hat = w0 + w1·x + w2·x²  [NB2]
+  - PolynomialFeatures(degree=2) sobre una sola variable produce 3 columnas: [x^0, x^1, x^2].
+  - El grado del polinomio (degree) es un hiperparámetro que se fija manualmente y se
+    valida comparando MAE/MSE/RMSE/R2 contra el modelo lineal (degree=1).
+
+
+================================================================================
+3. VECINOS MÁS CERCANOS (KNN) PARA REGRESIÓN
+================================================================================
+
+--- Explicación teórica ---
+
+KNN (k nearest neighbors) se basa en la premisa de que ejemplos similares en sus
+atributos presentan también un comportamiento similar en el valor de sus clases.
+Aunque el manual se centra en su uso para regresión, también puede aplicarse en
+clasificación y en problemas no supervisados [PDF p.61].
+
+La idea fundamental de KNN para regresión es producir como predicción el promedio de
+las clases de los ejemplos de entrenamiento más parecidos (vecinos) al ejemplo de
+test. El entrenamiento de KNN es trivial: consiste únicamente en almacenar el
+conjunto de datos de entrenamiento para consultarlo en la fase de predicción — KNN no
+elabora ningún modelo a partir de los datos, por lo que el entrenamiento apenas
+consume tiempo [PDF p.61].
+
+Para predecir, KNN se basa en dos elementos configurables: el número k de vecinos más
+cercanos, y una función de distancia d que mide la similitud entre ejemplos. El
+manual usa la distancia de Minkowski:
+
+    d_Minkowski(e_i, e_j) = ( Σ_{d=1}^{p} |x_id − x_jd|^q )^(1/q)
+
+Cuando q = 2, la distancia de Minkowski se llama distancia euclídea:
+
+    d_Euclídea(e_i, e_j) = ( Σ_{d=1}^{p} (x_id − x_jd)^2 )^(1/2)
+
+En la mayoría de los casos, la distancia más utilizada es la euclídea [PDF p.61-62].
+
+Toda función de distancia debe cumplir cuatro propiedades matemáticas [PDF p.62]:
+  - No negatividad: d(e_i,e_j) ≥ 0
+  - Identidad: d(e_i,e_j) = 0  ⟺  e_i = e_j
+  - Simetría: d(e_i,e_j) = d(e_j,e_i)
+  - Desigualdad triangular: d(e_i,e_j) ≤ d(e_i,e_r) + d(e_r,e_j)
+La distancia de Minkowski solo cumple las cuatro propiedades si q ≥ 1 [PDF p.62].
+
+Los k vecinos más cercanos v1,...,vk de un ejemplo e_i son los índices de los
+ejemplos del conjunto de entrenamiento con las menores distancias a e_i (es decir,
+d(e_i,v1) ≤ d(e_i,v2) ≤ ... ≤ d(e_i,vk) ≤ d(e_i,vj) para cualquier otro ejemplo j)
+[PDF p.62-63]. Alternativamente, en vez de un número fijo k, puede usarse un radio r:
+se toman como vecinos todos los ejemplos cuya distancia a e_i sea ≤ r [PDF p.63].
+
+La predicción de KNN para regresión es el promedio (media aritmética) de las clases
+de los k vecinos más cercanos:
+
+    y_hat_i = (1/k) · Σ_{j=1}^{k} y_vj
+
+[PDF p.63]
+
+--- Factores que afectan a la eficacia de KNN [PDF p.66-67] ---
+
+  1. La escala de valores de los atributos: los atributos con valores más altos
+     contribuyen más al cálculo de la distancia, por lo que es necesario normalizar o
+     estandarizar los datos antes de usar KNN. Ejemplo del manual: un atributo "peso"
+     en kg (promedio ~80) no debería pesar lo mismo que un atributo "altura" en
+     metros (promedio ~1,7) si no se igualan las escalas [PDF p.66].
+  2. La medida de similitud entre ejemplos: la función de distancia debe ser acorde
+     al tipo de datos; también puede ponderarse la importancia de cada atributo
+     dentro de la función de distancia (distancia de Minkowski ponderada):
+
+        d_Minkowski_pond(e_i,e_j) = ( Σ_{d=1}^{p} w_d · |x_id − x_jd|^q )^(1/q)
+
+     [PDF p.67]
+  3. La estrategia de selección de vecinos (k fijo vs. radio r).
+  4. El cálculo de la predicción a partir de los vecinos: función de resumen (media
+     aritmética, aunque podría ser otra) y ponderación de vecinos — no todos los
+     vecinos tienen por qué contribuir igual. La predicción ponderada (con pesos n
+     por vecino) es:
+
+        y_hat_i = Σ_{j=1}^{k} n_j · y_vj  /  Σ_{j=1}^{k} n_j
+
+     [PDF p.67]
+
+--- Ejemplo del manual (Programa 13): KNN sobre "California" con k=10 ---
+[PDF p.64, literal]
+
+    import numpy as np
+    from math import sqrt
+    from sklearn import datasets
+    import sklearn.metrics as metrics
+    from sklearn.model_selection import KFold
+    from sklearn.model_selection import cross_val_predict
+    from sklearn.neighbors import KNeighborsRegressor
+    from evaluacion_funciones import *
+
+    # Carga de datos.
+    datos = datasets.fetch_california_housing()
+
+    # Algoritmos de aprendizaje.
+    k = 10
+    reg = KNeighborsRegressor(n_neighbors = k)
+    ...
+    y_pred = cross_val_predict(reg, datos.data, datos.target,
+               cv = KFold(n_splits=10, random_state=seed))
+
+Resultado reportado (sin estandarizar): R2 = −0,075 (casi tan malo como
+DummyRegressor) y MAE = 6,841, mucho peor que OLS (MAE = 4,003) [PDF p.66].
+
+--- Programa 14: KNN con estandarización, selección de atributos y distancia Manhattan ---
+[PDF p.68-69, literal — usa Pipeline de sklearn]
+
+    from sklearn.pipeline import Pipeline
+    from sklearn.neighbors import KNeighborsRegressor
+    from sklearn.preprocessing import StandardScaler
+    from sklearn.feature_selection import f_regression
+    from sklearn.feature_selection import SelectPercentile
+
+    k = 10
+    base = 'KNN' + str(k)
+    algoritmos = {}
+
+    # Algoritmo 1: KNN
+    algoritmos[base] = KNeighborsRegressor(n_neighbors = k)
+
+    # Algoritmo 2: Estandarización + KNN
+    pasos = [('estandarizacion', StandardScaler()),
+             ('reg', algoritmos['KNN'+str(k)])]
+    algoritmos['Est+'+base] = Pipeline(pasos)
+
+    # Algoritmo 3: Estandarización + Selección atributos + KNN
+    pasos = [('estandarizacion', StandardScaler()),
+             ('selatr', SelectPercentile(score_func=f_regression,
+               percentile=10)),
+             ('reg', algoritmos['KNN'+str(k)])]
+    algoritmos['Est+SelAtr+'+base] = Pipeline(pasos)
+
+    # Algoritmo 4: Estandarización + Selecc. atributos + KNN(p=1)
+    pasos = [('estandarizacion', StandardScaler()),
+             ('selatr', SelectPercentile(score_func=f_regression,
+               percentile=10)),
+             ('reg', KNeighborsRegressor(n_neighbors = k, p=1))]
+    algoritmos['Est+SelAtr+'+base+'(p=1)'] = Pipeline(pasos)
+
+Resultados reportados [PDF p.69-70]:
+  - KNN(k=10) sin transformar: R2 = −0,075 (igual que Programa 13).
+  - Estandarización + KNN(k=10): R2 = 0,64 (dispara la eficacia frente a −0,075).
+  - Estandarización + selección de atributos (10% mejores, f_regression) + KNN(k=10):
+    R2 = 0,727.
+  - Estandarización + selección de atributos + KNN(k=10, p=1, distancia de Manhattan
+    en vez de euclídea): el manual indica que las métricas "mejoran un poco más",
+    con MAE = 3,27 (el valor de R2 impreso en el PDF extraído es "–0,727"; dado que
+    el texto dice explícitamente que el resultado "mejora un poco más" respecto al
+    0,727 anterior, es muy probable que el signo "–" sea un artefacto de la
+    extracción/OCR del PDF y el valor real sea positivo, en línea con 0,727 o
+    superior — se deja constancia literal de ambas lecturas por transparencia)
+    [PDF p.70].
+  - Comparación final citada en el manual: "Frente al R2 = 0,59 y al MAE = 4,003 que
+    obtuvimos con OLS, los resultados con KNN son significativamente mejores"
+    [PDF p.70] (nota: en la p.59 el MAE de OLS también se cita como 4,003).
+
+Conclusión del manual: la estandarización previa de los datos es crítica para KNN
+(algoritmo basado en distancias); sin ella la eficacia puede ser tan mala como la de
+un DummyRegressor [PDF p.69].
+
+--- Código real de los notebooks (hiperparámetros k, weights, distancia) ---
+
+[NB1] KNN básico con ponderación por distancia:
+
+    #KNN
+    # Definimos un algoritmo SVM de regresión
+    algorithm = KNeighborsRegressor(n_neighbors=10, weights='distance')
+    ...
+    # K-Vecinos
+    knn = KNeighborsRegressor(n_neighbors=2, weights='distance')
+    knn.fit(X_train, y_train)
+    ...
+    y_pred = knn.predict(X_test)
+    mae = mean_absolute_error(y_test, y_pred)
+
+Qué hace: entrena dos variantes de KNeighborsRegressor con distinto número de vecinos
+(10 y 2) y con weights='distance' (los vecinos más cercanos pesan más en el
+promedio que los más lejanos, en vez de pesar todos igual como con
+weights='uniform').
+
+[NB1] Selección de k (y de otros hiperparámetros) por GridSearchCV:
+
+    # GridSearch
+    # Parameters
+    parameters = {'n_neighbors':np.arange(1,15), 'weights':('uniform', 'distance'), 'metric':('euclidean', 'cosine', 'manhattan')}
+    reg = KNeighborsRegressor()
+
+    model = GridSearchCV(reg, parameters, scoring='r2')
+    model.fit(X_train, y_train)
+    ...
+    print(model.best_params_)
+    ...
+    means = model.cv_results_['mean_test_score']
+    stds = model.cv_results_['std_test_score']
+    for mean, std, params in zip(means, stds, model.cv_results_['params']):
+        print("%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params))
+
+Qué hace: prueba automáticamente k = 1..14, weights ∈ {uniform, distance} y
+metric ∈ {euclidean, cosine, manhattan}, evaluando cada combinación con la métrica R2
+(cross-validation interna de GridSearchCV) y devolviendo la mejor combinación en
+`model.best_params_`. Así es como el notebook elige el número de vecinos k: por
+búsqueda exhaustiva (grid search) comparando el R2 medio de cada valor de k, en vez
+de fijarlo a mano.
+
+[NB2] Igual que en NB1, con el hiperparámetro adicional `p` explicitado:
+
+    algorithm = KNeighborsRegressor(n_neighbors=10, weights='distance', p=2)
+
+Nota del propio notebook (celda markdown): "Muy importante: Son HIPERPARÁMETROS LOS
+SIGUIENTES VALORES: `n_neighbors`, `weights`, `p` (la potencia para definir la
+distancia)" — es decir, el propio material identifica explícitamente n_neighbors
+(=k), weights y p (el exponente q de la distancia de Minkowski, p=2 euclídea, p=1
+Manhattan) como los hiperparámetros a ajustar de KNN, coincidiendo con la teoría del
+PDF (k y función de distancia d) [NB2, celda 22].
+
+--- Ventajas / inconvenientes de KNN (teoría del manual) [PDF p.72] ---
+
+Ventajas:
+  - Simplicidad del modelo: no hay modelo propio, solo los datos de entrenamiento.
+  - Fácil interpretabilidad de las predicciones: se puede mostrar qué vecinos se
+    usaron. Ejemplo del manual: un KNN entrenado con históricos de cosechas de
+    sandías predice ~12,5 toneladas porque el clima reciente se parece al de las
+    campañas de 2002 y 2006 (con k=2) [PDF p.72].
+  - Entrenamiento prácticamente instantáneo (solo almacena los datos).
+
+Inconvenientes:
+  - Tiempo de predicción alto: hay que calcular la distancia a todos los ejemplos de
+    entrenamiento (problemático con millones de instancias).
+  - Falta de generalización: al no construir modelo, las anomalías afectan más,
+    especialmente con valores bajos de k.
+  - Necesita atributos relevantes y en la misma escala (de ahí la importancia de
+    estandarizar, ver resultados del Programa 14).
+
+Nota adicional del manual: existen estructuras de datos más eficientes que la
+búsqueda lineal para encontrar vecinos, como KDTree y BallTree (implementadas en
+sklearn.neighbors) [PDF p.73].
+
+--- Fórmulas y datos concretos (resumen) ---
+
+  - Distancia de Minkowski: d(e_i,e_j) = (Σ|x_id − x_jd|^q)^(1/q)  [PDF p.61]
+  - Distancia euclídea (q=2): d(e_i,e_j) = (Σ(x_id − x_jd)^2)^(1/2)  [PDF p.62]
+  - Predicción KNN (sin ponderar): y_hat = (1/k)·Σ y_vj  [PDF p.63]
+  - Predicción KNN ponderada: y_hat = Σ(n_j·y_vj) / Σ n_j  [PDF p.67]
+  - Resultados numéricos "California": KNN(k=10) sin escalar R2=−0,075, MAE=6,841;
+    con estandarización R2=0,64; + selección de atributos R2=0,727 [PDF p.66-70].
+  - Hiperparámetros de sklearn.neighbors.KNeighborsRegressor usados en los notebooks:
+    n_neighbors (k), weights ('uniform' | 'distance'), metric/p (función de
+    distancia).
+
+
+================================================================================
+Fin del resumen.
+================================================================================

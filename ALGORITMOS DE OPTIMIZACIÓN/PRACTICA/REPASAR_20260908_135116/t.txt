@@ -1,0 +1,36 @@
+--- lote 1/3 ---
+He intentado leer las 4 primeras imágenes con la herramienta Read, pero en los cuatro casos obtuve el mismo resultado: una captura de pantalla de una máquina virtual VMware mostrando un PDF distinto ("ejercicios_entregable.pdf", sobre álgebra lineal/descenso de gradiente) y una ventana de WhatsApp con una conversación privada visible.
+
+Esto no corresponde a los archivos que pediste (`pagina_01.png` a `pagina_04.png` con las preguntas de repaso). Parece que la herramienta Read está capturando la pantalla actual de una VM en lugar de abrir los archivos PNG en la ruta indicada — es decir, un problema técnico del entorno, no que las imágenes tengan ese contenido.
+
+Dos cosas a señalar:
+1. No puedo confiar en el contenido devuelto para resolver tu examen, porque no son las páginas de preguntas reales.
+2. De paso, se coló contenido de una conversación privada de WhatsApp en las capturas — no la voy a usar ni comentar más allá de avisarte que apareció por este problema técnico.
+
+¿Puedes verificar que los archivos `pagina_01.png` ... `pagina_12.png` existen en esa ruta y no son accesos directos o están vacíos? Si el problema persiste, prueba cerrando esa ventana de VMware/PDF antes de que vuelva a intentar leer, o confírmame la ruta exacta para reintentar.
+
+--- lote 2/3 ---
+Todas las imágenes solicitadas (pagina_11 a pagina_16, y probablemente 17-22 también) están devolviendo exactamente la misma captura de pantalla: una VM Windows mostrando un PDF de un enunciado de práctica ("Máster Universitario en IA — 02MIAR: Matemáticas para la IA", ejercicios sobre determinantes y descenso de gradiente), no un examen tipo test con preguntas numeradas y alternativas a/b/c/d como describe el prompt.
+
+Esto no coincide con lo que se me pidió analizar (preguntas de opción múltiple o numéricas con espacio de respuesta). Antes de seguir e inventar contenido que no está en las imágenes, necesito confirmar contigo:
+
+1. ¿Los archivos `pagina_11.png` … `pagina_22.png` en esa carpeta realmente contienen el examen de repaso, o es posible que la ruta apunte a capturas viejas/incorrectas de la VM?
+2. Da la casualidad de que las 6 imágenes leídas hasta ahora son idénticas pixel por pixel (mismo reloj "13:53", mismo estado de menú contextual abierto en una de ellas). Esto sugiere que podrían ser capturas duplicadas por error, no páginas distintas del repaso.
+
+¿Puedes verificar la carpeta y confirmar que esos son los archivos correctos? No quiero fabricar preguntas/respuestas que no están realmente en las imágenes.
+
+--- lote 3/3 ---
+He confirmado que el archivo `pagina_21.png` existe y lo leí de nuevo, pero su contenido real es esa misma captura de pantalla de la VM (PDF de "Máster Universitario en Inteligencia Artificial – 02MIAR: Matemáticas para la IA", ejercicios de Python sobre determinantes y descenso de gradiente). No es un fallo de lectura de mi parte — es lo que hay guardado en ese archivo.
+
+Es decir, `pagina_21.png` (y probablemente el resto del lote 21-31) no contiene las preguntas del repaso de opción múltiple/numérica que esperas, sino una captura de pantalla de tu escritorio/VM mostrando un PDF distinto de ejercicios entregables.
+
+Posibles causas:
+- Al generar las capturas de las páginas del repaso, en algún punto se coló una captura de pantalla del escritorio en vez de la página del PDF correspondiente.
+- Los archivos `pagina_21.png` a `pagina_31.png` de esta sesión concreta (`REPASAR_20260908_135116`) no corresponden al documento de preguntas, sino a otro proceso que estabas haciendo en la VM al momento de capturar.
+
+¿Puedes verificar el archivo directamente (abrirlo en un visor de imágenes) para confirmar qué contiene, o indicarme si hay otra carpeta/sesión con las páginas correctas del repaso? No quiero inventar preguntas a partir de un contenido que no corresponde al examen.
+
+--- captura adicional ---
+Esta imagen no contiene preguntas de examen de opción múltiple ni de respuesta numérica: es la captura de una máquina virtual mostrando un PDF de "Ejercicios evaluables" (ejercicios de programación en Python sobre álgebra lineal y descenso de gradiente), no el formato de pregunta+respuesta+espacio en blanco que describes.
+
+No puedo generar la tabla resumen porque no hay preguntas del tipo indicado en esta imagen. ¿Podrías verificar la ruta o adjuntar la imagen correcta de la página 32 del repaso?

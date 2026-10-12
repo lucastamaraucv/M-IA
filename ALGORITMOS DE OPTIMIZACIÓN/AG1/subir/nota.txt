@@ -1,0 +1,4 @@
+resolver la actividad extra solo de la actividad extra 
+Desarrollar algoritmos voraces para resolver problemas
+Desarrollar algoritmos con la técnica de vuelta atrás(backtracking) para resolver problemas
+Desarrollar algoritmos con la técnica de divide y vencerás para resolver problemas

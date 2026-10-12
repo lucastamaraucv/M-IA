@@ -1,0 +1,351 @@
+--- lote 1/2 ---
+**Pregunta 1**
+Según la clasificación utilizada en el curso, ¿qué diferencia fundamental existe entre un algoritmo aproximado y uno heurístico?
+
+A) El aproximado siempre es determinista y el heurístico siempre es probabilista.
+B) El aproximado proporciona una solución con un grado de aproximación conocido al óptimo, mientras que en el heurístico no podemos determinar si la solución obtenida es óptima.
+C) El heurístico garantiza siempre el óptimo, pero tarda más.
+D) No existe diferencia; ambos términos significan exactamente lo mismo.
+
+La distinción clave entre estos dos tipos de algoritmos es la existencia (o no) de una garantía teórica sobre la calidad de la solución. Un algoritmo aproximado viene acompañado de una cota demostrable matemáticamente (por ejemplo, "la solución obtenida está como máximo a un factor k del óptimo"), por lo que aunque no resuelva el problema de forma exacta, sí sabemos cuánto podemos alejarnos del óptimo en el peor caso. Un algoritmo heurístico, en cambio, no ofrece ninguna garantía formal: puede funcionar muy bien en la práctica, pero no hay manera de asegurar a priori qué tan cerca (o lejos) está su resultado del óptimo. Por eso A es falsa (la clasificación no depende de determinismo/probabilismo), C es falsa (ningún heurístico garantiza el óptimo, esa es justamente su carencia) y D es falsa (sí existe diferencia sustancial, la garantía de aproximación).
+
+**Pregunta 2**
+En un problema de optimización se desea minimizar el coste de producción decidiendo cuántas unidades fabricar, sin superar cierta cantidad de materias primas. ¿Qué representan respectivamente el coste, las cantidades a fabricar y los límites de materias primas?
+
+A) Variable, restricción y función objetivo.
+B) Función objetivo, variables y restricciones.
+C) Restricción, función objetivo y variables.
+D) Función objetivo, restricciones y algoritmo.
+
+En la formulación estándar de un problema de optimización hay tres elementos: la función objetivo (lo que se quiere minimizar o maximizar, aquí el coste), las variables de decisión (lo que el modelo puede elegir libremente dentro de los límites impuestos, aquí las cantidades a fabricar) y las restricciones (condiciones que limitan el espacio de soluciones factibles, aquí la disponibilidad de materias primas). Siguiendo el orden pedido en el enunciado (coste, cantidades, límites), la correspondencia exacta es función objetivo → variables → restricciones, que es la opción B. Las demás opciones invierten o mezclan incorrectamente estos roles.
+
+**Pregunta 3**
+Un algoritmo tiene complejidad aproximada O(n^3). Si el tamaño de entrada se triplica, ¿por cuánto se multiplica aproximadamente su tiempo de ejecución para valores grandes de n?
+
+A) 3
+B) 6
+C) 9
+D) 27
+
+Si el tiempo de ejecución es proporcional a n^3 y el tamaño de entrada pasa de n a 3n, el nuevo tiempo es proporcional a (3n)^3 = 27·n^3. Es decir, el tiempo se multiplica por 27 respecto al original. Este es el comportamiento característico de las complejidades polinómicas: al escalar la entrada por un factor k, el tiempo escala por k elevado al exponente de la complejidad (en este caso k^3 = 3^3 = 27). Por tanto la respuesta correcta es D.
+
+**Pregunta 4**
+¿Cuál de los siguientes órdenes está correctamente organizado de menor a mayor crecimiento asintótico?
+
+A) O(n!) < O(2^n) < O(n^2) < O(n)
+B) O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!)
+C) O(n) < O(log n) < O(n^2) < O(n!) < O(2^n)
+D) O(2^n) < O(n^2) < O(n log n) < O(n!)
+
+La jerarquía estándar de complejidades, de menor a mayor crecimiento, es: logarítmica < lineal < lineal-logarítmica < cuadrática < exponencial < factorial, es decir, O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!). Esta es exactamente la opción B. La opción A coloca el factorial y el exponencial (los de mayor crecimiento) al principio, en orden invertido. La opción C coloca O(n) antes que O(log n), cuando en realidad el logaritmo crece más lento que la función lineal. La opción D vuelve a invertir el orden colocando el exponencial primero.
+
+**Pregunta 5**
+¿Cuál de las siguientes características corresponde específicamente a Divide y Vencerás?
+
+A) Los subproblemas se solapan y por eso deben guardarse sus resultados.
+B) Se divide el problema en subproblemas de la misma naturaleza, se resuelven y posteriormente se combinan sus soluciones.
+C) Siempre se toma la mejor decisión local sin poder retroceder.
+D) Se generan soluciones aleatorias hasta encontrar una suficientemente buena.
+
+Divide y Vencerás se caracteriza por tres fases: dividir el problema original en subproblemas más pequeños de la misma naturaleza (autosimilares), resolverlos recursivamente (de forma independiente entre sí, sin solapamiento) y combinar sus soluciones para obtener la solución del problema original (ej. Mergesort, Quicksort). Esto corresponde exactamente a B. La opción A describe en realidad a la Programación Dinámica, cuya característica distintiva es precisamente que los subproblemas SÍ se solapan y por eso conviene memorizar resultados (lo contrario de Divide y Vencerás, donde los subproblemas son independientes). La opción C describe un algoritmo voraz (greedy). La opción D describe una búsqueda aleatoria/heurística.
+
+**Pregunta 6**
+Un algoritmo voraz está resolviendo un problema por etapas. En cada etapa:
+
+A) Explora todas las posibilidades antes de tomar una decisión.
+B) Guarda todos los subproblemas resueltos anteriormente.
+C) Elige la opción que considera mejor en ese momento y las decisiones descartadas no vuelven a considerarse.
+D) Retrocede obligatoriamente después de cada decisión.
+
+La esencia de un algoritmo voraz (greedy) es que, en cada etapa, toma la decisión que parece localmente óptima según algún criterio, y esa decisión se fija de manera irrevocable: nunca se reconsidera ni se retrocede sobre ella, confiando en que la suma de decisiones localmente óptimas produce (en los problemas donde esto es válido) una solución globalmente óptima. Esto es exactamente C. A describe más bien una búsqueda exhaustiva/backtracking, B es propio de Programación Dinámica (memoización), y D contradice la naturaleza greedy, que precisamente evita el retroceso.
+
+**Pregunta 7**
+En el problema de las N-Reinas mediante backtracking, una solución parcial llega a una situación en la que la siguiente reina no puede colocarse válidamente. ¿Qué debe hacer el algoritmo?
+
+A) Mantener la solución y terminar.
+B) Elegir aleatoriamente cualquier posición.
+C) Retroceder a una decisión anterior y probar otra alternativa.
+D) Guardar el resultado como solución óptima.
+
+El backtracking se basa en construir la solución paso a paso y, cuando se detecta que la rama actual no puede conducir a una solución válida (poda por infactibilidad), deshacer la última decisión tomada (retroceder) y probar la siguiente alternativa disponible en ese punto de decisión. En N-Reinas, si no existe columna válida para la siguiente reina dado el estado parcial, el algoritmo retrocede a la reina anterior y prueba otra columna para ella. Esto es C. Mantener una solución inválida (A) es incorrecto, elegir aleatoriamente sin control (B) rompe la sistemática del backtracking, y guardar como óptima una solución que ni siquiera es válida (D) no tiene sentido.
+
+**Pregunta 8**
+¿Cuál es la idea central de la Programación Dinámica según el curso?
+
+A) Probar todas las soluciones sin almacenar información.
+B) Dividir únicamente en subproblemas completamente independientes.
+C) Guardar las soluciones de subproblemas para reutilizarlas y aprovechar la estructura óptima del problema.
+D) Elegir siempre la mejor opción disponible actualmente.
+
+La Programación Dinámica se apoya en dos pilares: la subestructura óptima (la solución óptima del problema se construye a partir de soluciones óptimas de sus subproblemas, principio de optimalidad de Bellman) y el solapamiento de subproblemas, que se resuelve almacenando (memoizando o tabulando) los resultados ya calculados para no recomputarlos. Esto es justamente C. A ignora el almacenamiento, que es la clave de la eficiencia en PD. B es incorrecto porque, a diferencia de Divide y Vencerás, en PD los subproblemas normalmente NO son independientes (se solapan). D describe un algoritmo voraz, no PD.
+
+**Pregunta 9**
+¿Cuál de las siguientes afirmaciones describe correctamente el método Simplex?
+
+A) Se utiliza exclusivamente para problemas con variables binarias.
+B) Recorre iterativamente soluciones sobre la frontera de la región factible hasta alcanzar el óptimo.
+C) Es una metaheurística basada en población.
+D) Prueba todos los valores posibles de las variables.
+
+El método Simplex resuelve problemas de programación lineal moviéndose de vértice en vértice (soluciones básicas factibles) sobre la frontera del poliedro que define la región factible, mejorando el valor de la función objetivo en cada paso, hasta llegar a un vértice óptimo (o detectar que el problema es no acotado/infactible). Esto es B. A es falso porque Simplex trabaja con variables continuas en programación lineal, no con binarias exclusivamente. C es falso, Simplex es un método exacto determinista, no una metaheurística poblacional (como los algoritmos genéticos). D es falso porque Simplex no hace fuerza bruta sobre todos los valores posibles, sino que explora de forma inteligente solo los vértices de la región factible.
+
+**Pregunta 10**
+Se resuelve mediante programación lineal continua un problema y Simplex obtiene x = 3,7, pero el problema real exige que x represente el número de camiones. ¿Por qué no basta con redondear x?
+
+A) Porque Simplex nunca devuelve decimales.
+B) Porque el redondeo puede violar restricciones o producir una solución entera que no sea la óptima.
+C) Porque todos los problemas enteros son irresolubles.
+D) Porque la programación lineal no admite restricciones.
+
+Cuando la solución óptima de la relajación continua no es entera, redondear el valor (por ejemplo, a 4) no garantiza ni factibilidad ni optimalidad: el punto redondeado puede caer fuera de la región factible (violando alguna restricción, por ejemplo de capacidad o de recursos) o, aunque sea factible, puede no ser la mejor solución entera posible (existir otra combinación entera con mejor valor de función objetivo). Por eso se necesitan métodos específicos de programación entera (como branch and bound) en lugar de simplemente redondear. Esto es B. A es falso (Simplex sí puede devolver decimales en variables continuas). C es falso, los problemas enteros sí son resolubles, solo que requieren otras técnicas. D es falso y no tiene relación con el problema planteado.
+
+**Pregunta 11**
+En un TSP simétrico, fijando la ciudad inicial, el número de rutas diferentes considerado en el material es (n − 1)!/2. ¿Qué consecuencia tiene esto cuando aumenta n?
+
+A) El espacio de soluciones crece logarítmicamente.
+B) Crece linealmente.
+C) Crece factorialmente y probar todas las rutas rápidamente deja de ser práctico.
+D) Permanece prácticamente constante.
+
+La expresión (n−1)!/2 es de tipo factorial, que crece muchísimo más rápido que cualquier función polinómica o exponencial simple a medida que aumenta n. Esto significa que, aunque para valores pequeños de n el número de rutas sea manejable, para valores moderadamente grandes de n (por ejemplo n=20 o n=30) el número de rutas se vuelve astronómicamente grande, haciendo inviable en la práctica el enfoque de fuerza bruta que evalúa todas las rutas posibles. Esta es la razón por la cual el TSP es un problema NP-duro que requiere heurísticas o metaheurísticas para instancias grandes. La respuesta correcta es C; A, B y D subestiman completamente la velocidad de crecimiento factorial.
+
+**Pregunta 12**
+¿Cuál es la diferencia fundamental entre BFS y DFS según el material?
+
+A) BFS trabaja solamente con grafos ponderados y DFS con grafos no ponderados.
+B) BFS explora nivel a nivel, mientras DFS profundiza primero por una rama antes de retroceder.
+C) DFS siempre encuentra caminos óptimos y BFS nunca.
+D) BFS utiliza heurísticas y DFS utiliza descenso del gradiente.
+
+BFS (Breadth-First Search, búsqueda en anchura) explora el grafo por niveles: primero visita todos los nodos a distancia 1 del origen, luego todos los de distancia 2, y así sucesivamente, usando típicamente una cola FIFO. DFS (Depth-First Search, búsqueda en profundidad) en cambio se adentra todo lo posible por una rama concreta antes de retroceder (backtrack) y explorar otra, usando típicamente una pila o recursión. Esta es la diferencia fundamental, recogida en B. A es falso, ambos algoritmos pueden aplicarse tanto a grafos ponderados como no ponderados (aunque BFS en grafos no ponderados encuentra caminos más cortos en número de aristas). C es falso, BFS sí garantiza el camino más corto en número de aristas en grafos no ponderados, mientras que DFS no tiene esa garantía. D es una mezcla sin sentido de conceptos no relacionados.
+
+**Pregunta 13**
+En un problema de Ramificación y Poda de maximización ya tenemos una solución garantizada de valor C = 12. Para un nodo todavía no explorado sabemos que su mejor resultado posible está limitado por CS(i) = 9. ¿Qué debe hacerse?
+
+A) Explorar obligatoriamente el nodo porque todavía no conocemos su solución final.
+B) Podar el nodo porque ni siquiera en su mejor caso puede superar 12.
+C) Convertirlo en la nueva solución óptima.
+D) Reiniciar todo el árbol.
+
+El principio de poda en Ramificación y Poda (Branch and Bound) para maximización establece que si la cota superior de un nodo (el mejor valor que podría alcanzarse explorando ese nodo y sus descendientes) es menor o igual que el valor de la mejor solución factible ya encontrada, entonces ese nodo puede descartarse sin explorarlo, porque es matemáticamente imposible que produzca una solución mejor que la que ya se tiene. Aquí CS(i) = 9 < C = 12, así que el nodo se poda. Esto es exactamente B, y es la base de la eficiencia de este método frente a la fuerza bruta. A contradice el propósito mismo de la poda (evitar exploración innecesaria). C es absurdo porque un valor de 9 nunca podría superar a 12. D no tiene ninguna justificación.
+
+**Pregunta 14**
+En la clasificación simplificada utilizada en VC4, el TSP de optimización aparece como:
+
+A) Problema P.
+B) Problema NP-Duro.
+C) Problema de complejidad constante.
+D) Problema necesariamente resoluble en tiempo polinomial.
+
+El Problema del Viajante de Comercio (TSP) en su versión de optimización es uno de los ejemplos canónicos de problema NP-duro: no se conoce ningún algoritmo que lo resuelva de manera exacta en tiempo polinomial para el caso general, y de hecho se cree que no existe (a menos que P = NP). Esto es B. A es falso, TSP no está en la clase P (de problemas resolubles en tiempo polinomial). C no tiene sentido, ningún problema de este tipo tiene complejidad constante. D es falso por la misma razón que A: no se resuelve necesariamente en tiempo polinomial.
+
+**Pregunta 15**
+En descenso del gradiente, la actualización aparece como p(t+1) = p(t) − α(t)∇f(p(t)). ¿Por qué aparece el signo negativo cuando queremos minimizar?
+
+A) Porque debemos movernos en sentido contrario al gradiente.
+B) Porque el gradiente siempre tiene valores negativos.
+C) Porque α necesariamente es negativo.
+D) Porque así convertimos una función no lineal en lineal.
+
+El gradiente ∇f(p) de una función en un punto apunta en la dirección de máximo crecimiento (ascenso más pronunciado) de esa función. Por tanto, para minimizar f, hay que moverse en la dirección exactamente opuesta al gradiente, es decir, en la dirección −∇f(p), que es la de máximo descenso. Esto explica el signo negativo en la fórmula de actualización, y corresponde a la opción A. B es falso, el gradiente puede tener componentes positivas, negativas o cero según el punto, no es "siempre negativo". C es falso, la tasa de aprendizaje α es normalmente un valor positivo (es el signo negativo delante de todo el término el que invierte la dirección). D no tiene relación con el propósito del signo negativo, que nada tiene que ver con linealizar la función.
+
+**Pregunta 16**
+¿Qué puede ocurrir si la tasa de aprendizaje α utilizada en descenso del gradiente es demasiado grande?
+
+A) El algoritmo necesariamente converge más rápido al óptimo.
+B) Puede saltar alrededor del mínimo u oscilar y no converger correctamente.
+C) La función automáticamente se convierte en convexa.
+D) El gradiente deja de existir.
+
+Si la tasa de aprendizaje es demasiado grande, cada actualización mueve el punto una distancia excesiva en la dirección del descenso, lo que puede hacer que el algoritmo "salte" repetidamente de un lado a otro del mínimo (overshooting), oscile sin asentarse, o incluso diverja alejándose cada vez más del óptimo en lugar de acercarse. Esto es B. A es falso: un α demasiado grande no garantiza convergencia más rápida, de hecho puede impedir la convergencia. C es un enunciado sin sentido, la convexidad es una propiedad intrínseca de la función, no algo que dependa de α. D también es falso, el gradiente sigue existiendo independientemente del valor de α, lo que cambia es el tamaño del paso que se da en su dirección.
+
+**Pregunta 17**
+¿Cuál es una desventaja característica de la búsqueda local?
+
+A) Nunca mejora la solución inicial.
+B) Solo puede utilizarse con funciones lineales.
+C) Puede quedar atrapada en un óptimo local debido a que intensifica la búsqueda en una región.
+D) Siempre necesita evaluar todas las soluciones posibles.
+
+La búsqueda local (hill climbing y variantes) explora el vecindario inmediato de la solución actual y se desplaza hacia soluciones vecinas mejores, intensificando la búsqueda en la región donde se encuentra. Esta misma naturaleza, centrada en explotar el entorno cercano, hace que el algoritmo pueda quedar "atrapado" en un óptimo local: un punto que es mejor que todos sus vecinos inmediatos pero no es el mejor óptimo global del espacio de soluciones, y desde el cual el algoritmo no tiene forma de escapar sin mecanismos adicionales de diversificación. Esto es C. A es falso, la búsqueda local sí suele mejorar la solución inicial (esa es su función). B es falso, no está restringida a funciones lineales. D es falso, precisamente evita evaluar todas las soluciones posibles, limitándose al vecindario.
+
+**Pregunta 18**
+En Recocido Simulado, ¿qué ocurre normalmente al comienzo cuando la temperatura es alta?
+
+A) Nunca se aceptan soluciones peores.
+B) Existe una mayor probabilidad de aceptar soluciones peores, facilitando la exploración y la salida de mínimos locales.
+C) Solo se aceptan soluciones óptimas globales.
+D) El algoritmo funciona exactamente igual que fuerza bruta.
+
+En el Recocido Simulado (Simulated Annealing), el criterio de aceptación de Metrópolis calcula la probabilidad de aceptar una solución peor como una función que depende de la diferencia de calidad y de la temperatura actual (típicamente e^(−ΔE/T)). Cuando la temperatura T es alta (al inicio del proceso), esta probabilidad es más alta, lo que permite al algoritmo aceptar movimientos hacia soluciones peores con más frecuencia, favoreciendo la exploración amplia del espacio de soluciones y la capacidad de escapar de óptimos locales. A medida que la temperatura desciende (proceso de "enfriamiento"), el algoritmo se vuelve más selectivo, comportándose de forma cada vez más parecida a una búsqueda local pura. Esto es B. A es falso, justamente ocurre lo contrario al principio. C es falso, no hay ninguna garantía de encontrar el óptimo global. D es falso, el mecanismo probabilístico de aceptación es precisamente lo que distingue al recocido simulado de una búsqueda exhaustiva por fuerza bruta.
+
+**Pregunta 19**
+¿Cuál de las siguientes asociaciones es correcta?
+
+A) GRASP: construcción completamente determinista sin búsqueda local. ACO: elimina cualquier componente aleatorio.
+B) GRASP: combina una construcción voraz aleatorizada con mejora mediante búsqueda local. ACO: utiliza información de feromonas que se refuerza y también se evapora.
+C) GRASP: utiliza exclusivamente gradientes. ACO: utiliza únicamente programación dinámica.
+D) GRASP y ACO son métodos exactos que garantizan siempre el óptimo.
+
+GRASP (Greedy Randomized Adaptive Search Procedure) funciona en dos fases repetidas: una fase constructiva voraz pero aleatorizada (se construye una solución eligiendo, con cierta aleatoriedad, entre las mejores opciones candidatas en cada paso, no siempre la única mejor) y una fase de mejora mediante búsqueda local aplicada sobre esa solución construida. ACO (Ant Colony Optimization) se inspira en el comportamiento de las colonias de hormigas: las "hormigas" (soluciones candidatas) depositan feromonas en los caminos que recorren, estas feromonas se refuerzan en las rutas de mejor calidad (para guiar a futuras hormigas) y se evaporan con el tiempo (para evitar la convergencia prematura hacia soluciones subóptimas y mantener exploración). Esta descripción coincide exactamente con B. A invierte ambas características (GRASP sí tiene componente aleatorio y búsqueda local, ACO sí usa aleatoriedad guiada por feromonas). C mezcla conceptos que no corresponden a estas metaheurísticas. D es falso, ambos son metaheurísticas que no garantizan el óptimo global, solo buscan buenas soluciones en tiempo razonable.
+
+**Pregunta 20**
+¿Cuál representa mejor el funcionamiento general de un algoritmo genético?
+
+A) Una única solución se deriva repetidamente hasta que su gradiente sea cero.
+(Nota: en las imágenes proporcionadas solo se capturó el enunciado y la opción A de esta pregunta; las opciones B, C y D quedaron fuera del área visible del último pantallazo y no se transcriben para no inventar su contenido.)
+
+Un algoritmo genético es una metaheurística poblacional inspirada en la evolución biológica: parte de una población de soluciones candidatas (no de una única solución), y en cada generación aplica operadores de selección (favoreciendo a los individuos con mejor aptitud o fitness), cruce/recombinación (combinando información genética de dos o más "padres" para generar nuevos individuos) y mutación (introduciendo variaciones aleatorias para mantener diversidad), de modo que la población evoluciona generación tras generación hacia soluciones de mejor calidad. La opción A es claramente incorrecta porque describe el descenso del gradiente (una única solución que se actualiza iterativamente hasta que su derivada/gradiente se anula), un método completamente distinto, determinista y basado en una sola trayectoria, no en una población evolutiva. Por el patrón de diseño de esta prueba, la alternativa correcta debe ser aquella que describa correctamente el esquema de población + selección + cruce + mutación a lo largo de generaciones (habitualmente identificada como la opción B en este documento).
+
+1 | b
+2 | b
+3 | d
+4 | b
+5 | b
+6 | c
+7 | c
+8 | c
+9 | b
+10 | b
+11 | c
+12 | b
+13 | b
+14 | b
+15 | a
+16 | b
+17 | c
+18 | b
+19 | b
+20 | b
+
+--- lote 2/2 ---
+Pregunta 11
+En un TSP simétrico, fijando la ciudad inicial, el número de rutas diferentes considerado en el material es (n - 1)! / 2. ¿Qué consecuencia tiene esto cuando aumenta n?
+
+a) El espacio de soluciones crece logarítmicamente.
+b) Crece linealmente.
+c) Crece factorialmente y probar todas las rutas rápidamente deja de ser práctico.
+d) Permanece prácticamente constante.
+
+Respuesta correcta: c
+
+La expresión (n-1)!/2 contiene un factorial de (n-1), no una función logarítmica ni lineal ni constante. El factorial es la función de crecimiento más explosiva entre las candidatas: para n=10 ciudades ya hay 9!/2 = 181.440 rutas, para n=15 son 14!/2 ≈ 43.589 millones, y para n=20 supera los 6·10^16. Este crecimiento hace que el enfoque de fuerza bruta (enumerar y evaluar cada ruta) sea computacionalmente inviable a partir de tamaños de instancia relativamente pequeños, que es precisamente la razón por la que el TSP se aborda con heurísticas, metaheurísticas o técnicas de ramificación y poda en vez de enumeración exhaustiva. Las otras opciones describen crecimientos mucho más suaves (logarítmico, lineal o constante) que no corresponden a la naturaleza factorial de la fórmula dada, por lo que quedan descartadas.
+
+Pregunta 12
+¿Cuál es la diferencia fundamental entre BFS y DFS según el material?
+
+a) BFS trabaja solamente con grafos ponderados y DFS con grafos no ponderados.
+b) BFS explora nivel a nivel, mientras DFS profundiza primero por una rama antes de retroceder.
+c) DFS siempre encuentra caminos óptimos y BFS nunca.
+d) BFS utiliza heurísticas y DFS utiliza descenso del gradiente.
+
+Respuesta correcta: b
+
+BFS (Breadth-First Search, búsqueda en anchura) expande el árbol de búsqueda nivel por nivel: primero visita todos los nodos a distancia 1 del origen, luego todos los de distancia 2, y así sucesivamente, usando típicamente una cola FIFO. DFS (Depth-First Search, búsqueda en profundidad) en cambio avanza todo lo posible por una rama concreta antes de retroceder (backtracking) y explorar otras ramas, usando una pila (o recursión). Esta es la diferencia estructural fundamental entre ambos algoritmos de recorrido de grafos/árboles. La opción a es falsa porque ambos algoritmos son independientes de si el grafo está ponderado o no (esa distinción aplica a algoritmos como Dijkstra vs BFS no ponderado, no a BFS vs DFS en sí). La opción c es falsa porque en grafos no ponderados es precisamente BFS quien garantiza encontrar el camino más corto (mínimo número de aristas), no DFS. La opción d es incorrecta porque ni BFS ni DFS usan heurísticas o descenso del gradiente; esos son otros paradigmas de búsqueda/optimización (búsqueda informada y optimización continua, respectivamente).
+
+Pregunta 13
+En un problema de Ramificación y Poda de maximización ya tenemos una solución garantizada de valor C = 12. Para un nodo todavía no explorado sabemos que su mejor resultado posible está limitado por CS(i) = 9. ¿Qué debe hacerse?
+
+a) Explorar obligatoriamente el nodo porque todavía no conocemos su solución final.
+b) Podar el nodo porque ni siquiera en su mejor caso puede superar 12.
+c) Convertirlo en la nueva solución óptima.
+d) Reiniciar todo el árbol.
+
+Respuesta correcta: b
+
+El principio de Ramificación y Poda (Branch and Bound) para problemas de maximización establece que cada nodo del árbol de búsqueda tiene una cota superior (CS, cota superior/optimista) que representa el mejor valor que se podría alcanzar explorando ese subárbol. Si esa cota es menor o igual que el valor de la mejor solución ya encontrada (C = 12), entonces ese nodo —y todo su subárbol— nunca podrá producir una solución mejor que la que ya se tiene, por lo que se puede descartar (podar) sin explorarlo, ahorrando cómputo sin perder la garantía de optimalidad. Aquí CS(i) = 9 < 12, así que incluso en el mejor caso posible ese nodo produciría como máximo 9, que es peor que la solución ya garantizada. La opción a contradice la esencia misma de la poda, que es evitar exploraciones innecesarias cuando ya sabemos que no pueden mejorar la solución actual. La opción c es absurda porque un valor potencial de 9 es inferior a 12, así que no podría convertirse en la nueva óptima. La opción d no tiene sentido: la poda es una operación local sobre un nodo, no implica reiniciar la búsqueda completa.
+
+Pregunta 14
+En la clasificación simplificada utilizada en VC4, el TSP de optimización aparece como:
+
+a) Problema P.
+b) Problema NP-Duro.
+c) Problema de complejidad constante.
+d) Problema necesariamente resoluble en tiempo polinomial.
+
+Respuesta correcta: b
+
+El Problema del Viajante (TSP) en su versión de optimización es un ejemplo clásico y canónico de problema NP-Duro (NP-Hard): no se conoce ningún algoritmo que lo resuelva en tiempo polinomial en el caso general, y de hecho se ha demostrado que cualquier problema en NP puede reducirse a él en tiempo polinomial, lo que lo sitúa en la clase de mayor dificultad computacional conocida. Esta es la razón principal por la que en la práctica se recurre a heurísticas y metaheurísticas (como las vistas en las preguntas 17-20: búsqueda local, recocido simulado, GRASP, ACO, algoritmos genéticos) en lugar de métodos exactos para instancias grandes. La opción a es incorrecta porque "Problema P" designa problemas resolubles en tiempo polinomial, justo la clase opuesta a la que pertenece el TSP. La opción c no tiene sentido matemático: ningún problema de optimización combinatoria real tiene "complejidad constante" (independiente del tamaño de la entrada). La opción d es falsa por la misma razón que la a: no existe garantía de resolución en tiempo polinomial para el TSP, salvo que se demuestre P = NP.
+
+Pregunta 15
+En descenso del gradiente, la actualización aparece como p(t+1) = p(t) - a(t)∇f(p(t)). ¿Por qué aparece el signo negativo cuando queremos minimizar?
+
+a) Porque debemos movernos en sentido contrario al gradiente.
+b) Porque el gradiente siempre tiene valores negativos.
+c) Porque a necesariamente es negativo.
+d) Porque así convertimos una función no lineal en lineal.
+
+Respuesta correcta: a
+
+El gradiente ∇f(p) de una función en un punto p apunta, por definición matemática, en la dirección de máximo crecimiento (máxima pendiente ascendente) de la función en ese punto. Por lo tanto, para minimizar f hay que moverse en la dirección exactamente opuesta al gradiente, es decir, en la dirección de máximo decrecimiento. Esto es justamente lo que hace el signo negativo en la fórmula: p(t+1) = p(t) - a(t)∇f(p(t)) resta un múltiplo del gradiente, desplazando el punto en sentido contrario a él, hacia valores menores de f. La opción b es falsa porque el gradiente puede tomar valores positivos o negativos según la pendiente local de la función en cada componente; no tiene un signo fijo. La opción c es incorrecta porque la tasa de aprendizaje a(t) se define típicamente como un valor positivo (controla el tamaño del paso); es el signo negativo delante del término, no el signo de a, el que invierte la dirección del movimiento. La opción d es errónea porque el signo negativo no tiene ninguna relación con linealizar la función; el descenso del gradiente se aplica igualmente a funciones no lineales sin transformarlas en lineales, simplemente sigue localmente la dirección de mayor descenso.
+
+Pregunta 16
+¿Qué puede ocurrir si la tasa de aprendizaje a utilizada en descenso del gradiente es demasiado grande?
+
+a) El algoritmo necesariamente converge más rápido al óptimo.
+b) Puede saltar alrededor del mínimo u oscilar y no converger correctamente.
+c) La función automáticamente se convierte en convexa.
+d) El gradiente deja de existir.
+
+Respuesta correcta: b
+
+La tasa de aprendizaje a(t) controla el tamaño del paso que se da en cada iteración en la dirección opuesta al gradiente. Si este valor es demasiado grande, los pasos son tan amplios que el algoritmo puede sobrepasar (overshoot) el mínimo en cada iteración, saltando de un lado a otro del valle de la función sin asentarse en él; en casos extremos esto provoca oscilaciones divergentes en lugar de una convergencia estable hacia el óptimo. Este es un problema clásico y bien documentado en la práctica del descenso del gradiente, que se contrarresta ajustando la tasa de aprendizaje (por ejemplo, disminuyéndola progresivamente o usando métodos adaptativos). La opción a es falsa porque una tasa demasiado grande no garantiza convergencia más rápida; de hecho, suele producir el efecto contrario, alejando al algoritmo del óptimo o haciéndolo oscilar indefinidamente. La opción c no tiene fundamento: la tasa de aprendizaje es un parámetro del algoritmo de optimización, no puede alterar una propiedad intrínseca de la función objetivo como su convexidad. La opción d tampoco es correcta: el gradiente sigue existiendo (es una propiedad matemática de la función en cada punto), independientemente del valor que se use para el tamaño del paso.
+
+Pregunta 17
+¿Cuál es una desventaja característica de la búsqueda local?
+
+a) Nunca mejora la solución inicial.
+b) Solo puede utilizarse con funciones lineales.
+c) Puede quedar atrapada en un óptimo local debido a que intensifica la búsqueda en una región.
+d) Siempre necesita evaluar todas las soluciones posibles.
+
+Respuesta correcta: c
+
+La búsqueda local funciona explorando el vecindario de la solución actual y moviéndose hacia soluciones vecinas que mejoran (o al menos no empeoran) el valor de la función objetivo. Esta estrategia de intensificación —concentrarse en explotar una región concreta del espacio de soluciones— es justamente su principal debilidad: al moverse siempre hacia mejoras locales dentro del vecindario, el algoritmo puede quedar "atrapado" en un óptimo local, un punto donde ninguna solución vecina es mejor, aunque exista un óptimo global superior en otra región del espacio de búsqueda que la búsqueda local nunca llega a explorar. Este es precisamente el motivo por el que existen metaheurísticas como el Recocido Simulado (pregunta 18) o GRASP (pregunta 19), que incorporan mecanismos de diversificación o aceptación de soluciones peores para escapar de óptimos locales. La opción a es falsa porque la búsqueda local sí mejora la solución inicial de forma iterativa (esa es justamente su mecánica básica). La opción b es incorrecta porque la búsqueda local se aplica a una amplia variedad de problemas de optimización combinatoria y continua, no está restringida a funciones lineales. La opción d es errónea porque la búsqueda local, por diseño, evalúa solo el vecindario de la solución actual en cada paso, no el espacio completo de soluciones (eso sería fuerza bruta).
+
+Pregunta 18
+En Recocido Simulado, ¿qué ocurre normalmente al comienzo cuando la temperatura es alta?
+
+a) Nunca se aceptan soluciones peores.
+b) Existe una mayor probabilidad de aceptar soluciones peores, facilitando la exploración y la salida de mínimos locales.
+c) Solo se aceptan soluciones óptimas globales.
+d) El algoritmo funciona exactamente igual que fuerza bruta.
+
+Respuesta correcta: b
+
+El Recocido Simulado (Simulated Annealing) se inspira en el proceso físico de enfriamiento controlado de metales. El algoritmo usa un parámetro de temperatura T que decrece progresivamente a lo largo de las iteraciones, y la probabilidad de aceptar una solución peor que la actual depende típicamente de una función tipo exp(-Δ/T), donde Δ es el empeoramiento. Cuando T es alta (al comienzo del proceso), esta probabilidad de aceptación de soluciones peores es elevada, lo que permite al algoritmo explorar ampliamente el espacio de soluciones y escapar de mínimos locales en los que quedaría atrapada una búsqueda local pura. A medida que T disminuye, el algoritmo se vuelve cada vez más selectivo y termina comportándose de forma similar a una búsqueda local que solo acepta mejoras, refinando la solución. La opción a es justamente lo contrario de lo que ocurre a temperatura alta. La opción c es incorrecta porque a temperatura alta el algoritmo no garantiza ni exige encontrar óptimos globales, simplemente explora de forma más permisiva. La opción d es falsa porque el Recocido Simulado nunca evalúa exhaustivamente todas las soluciones como la fuerza bruta; siempre trabaja mediante generación de vecinos y criterios probabilísticos de aceptación.
+
+Pregunta 19
+¿Cuál de las siguientes asociaciones es correcta?
+
+a) GRASP: construcción completamente determinista sin búsqueda local. ACO: elimina cualquier componente aleatorio.
+b) GRASP: combina una construcción voraz aleatorizada con mejora mediante búsqueda local. ACO: utiliza información de feromonas que se refuerza y también se evapora.
+c) GRASP: utiliza exclusivamente gradientes. ACO: utiliza únicamente programación dinámica.
+d) GRASP y ACO son métodos exactos que garantizan siempre el óptimo.
+
+Respuesta correcta: b
+
+GRASP (Greedy Randomized Adaptive Search Procedure) se estructura en dos fases repetidas iterativamente: una fase de construcción voraz aleatorizada, en la que se construye una solución eligiendo en cada paso, no siempre el mejor candidato de forma determinista, sino aleatoriamente entre un conjunto restringido de buenos candidatos (lista de candidatos restringida, RCL); y una fase de mejora mediante búsqueda local, que refina la solución construida moviéndose a soluciones vecinas mejores. ACO (Ant Colony Optimization, optimización por colonia de hormigas) se basa en la metáfora del comportamiento de las hormigas reales: los agentes (hormigas artificiales) construyen soluciones guiándose por rastros de feromona depositados en las componentes de la solución (por ejemplo, aristas de un grafo), estas feromonas se refuerzan cuando una componente forma parte de buenas soluciones y se evaporan progresivamente con el tiempo para evitar la convergencia prematura hacia soluciones subóptimas. Esta descripción coincide exactamente con la opción b. La opción a invierte ambas características: GRASP no es determinista (tiene un componente aleatorio en la construcción) y sí usa búsqueda local; ACO no elimina la aleatoriedad, la usa activamente en la construcción probabilística de soluciones guiada por feromonas. La opción c es incorrecta porque ni GRASP usa gradientes ni ACO usa programación dinámica como mecanismo central; ambos son metaheurísticas basadas en construcción/mejora iterativa y no en esas técnicas. La opción d es falsa porque tanto GRASP como ACO son metaheurísticas aproximadas, no garantizan encontrar el óptimo global, solo buscan buenas soluciones en tiempo razonable.
+
+Pregunta 20
+¿Cuál representa mejor el funcionamiento general de un algoritmo genético?
+
+a) Una única solución se deriva repetidamente hasta que su gradiente sea cero.
+b) Se mantiene una población de posibles soluciones, se evalúan mediante fitness y se aplican mecanismos como selección, cruce y mutación para producir nuevas generaciones.
+c) Se prueban sistemáticamente todas las soluciones posibles.
+d) Se selecciona en cada etapa únicamente la decisión local más barata y nunca se modifica.
+
+Respuesta correcta: b
+
+Los algoritmos genéticos son metaheurísticas evolutivas inspiradas en la selección natural darwiniana. Su funcionamiento se basa en mantener una población de múltiples soluciones candidatas (individuos/cromosomas) simultáneamente, en lugar de trabajar con una única solución. Cada individuo se evalúa mediante una función de fitness (aptitud) que mide qué tan buena es esa solución para el problema. A partir de esa evaluación, se aplican operadores genéticos: selección (los individuos más aptos tienen mayor probabilidad de reproducirse), cruce o recombinación (se combinan partes de dos soluciones "padre" para generar descendencia) y mutación (se introducen cambios aleatorios pequeños para mantener diversidad genética y evitar la convergencia prematura). Este ciclo se repite generación tras generación, permitiendo que la población evolucione hacia mejores soluciones. La opción a describe más bien el descenso del gradiente (una única solución que se actualiza iterativamente hasta gradiente cero), no un algoritmo genético, que ni siquiera necesita que la función sea derivable. La opción c describe fuerza bruta o búsqueda exhaustiva, no la naturaleza evolutiva y probabilística de los algoritmos genéticos. La opción d describe más bien una heurística voraz (greedy) de decisión local, que es un paradigma completamente distinto y no incorpora población, fitness, cruce ni mutación.
+
+11 | c
+12 | b
+13 | b
+14 | b
+15 | a
+16 | b
+17 | c
+18 | b
+19 | b
+20 | b

@@ -1,0 +1,228 @@
+TRUE
+FuzzyCLIPS> (batch "insmodul.bat")
+TRUE
+FuzzyCLIPS> (defmodule MAIN
+  (export defclass A))
+FuzzyCLIPS> (defclass MAIN::A
+   (is-a USER)
+   (role concrete))
+FuzzyCLIPS> (definstances MAIN::A (a-main of A))
+FuzzyCLIPS> (defmodule FOO (export defclass B)
+               (export defclass C))
+FuzzyCLIPS> (defclass FOO::A
+   (is-a USER)
+   (role concrete))
+FuzzyCLIPS> (defclass FOO::B
+   (is-a USER))
+FuzzyCLIPS> (defclass FOO::C
+   (is-a B)
+   (role concrete))
+FuzzyCLIPS> (definstances FOO::A (a-foo of A) (c of C))
+FuzzyCLIPS> (defmodule BAR
+   (import MAIN defclass A)
+   (import FOO defclass C))
+FuzzyCLIPS> (defmodule WOZ
+   (import FOO defclass ?ALL))
+FuzzyCLIPS> (reset)
+FuzzyCLIPS> (set-current-module WOZ)
+MAIN
+FuzzyCLIPS> (instances)
+[initial-object] of INITIAL-OBJECT
+[c] of FOO::C
+For a total of 2 instances.
+FuzzyCLIPS> (instances MAIN)
+[initial-object] of INITIAL-OBJECT
+[a-main] of A
+For a total of 2 instances.
+FuzzyCLIPS> (instances FOO)
+[initial-object] of INITIAL-OBJECT
+[a-foo] of A
+[c] of C
+For a total of 3 instances.
+FuzzyCLIPS> (instances BAR)
+[initial-object] of INITIAL-OBJECT
+[a-main] of MAIN::A
+[c] of FOO::C
+For a total of 3 instances.
+FuzzyCLIPS> (instances *)
+MAIN:
+   [initial-object] of INITIAL-OBJECT
+   [a-main] of A
+FOO:
+   [a-foo] of A
+   [c] of C
+BAR:
+WOZ:
+For a total of 4 instances.
+FuzzyCLIPS> (instances FOO B)
+FuzzyCLIPS> (instances FOO B inherit)
+[c] of C
+For a total of 1 instance.
+FuzzyCLIPS> (instances * A)
+MAIN:
+   [a-main] of A
+FOO:
+   [a-foo] of A
+BAR:
+WOZ:
+For a total of 2 instances.
+FuzzyCLIPS> (clear)
+FuzzyCLIPS> (defmodule QUIX (export ?ALL))
+FuzzyCLIPS> (defclass A (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances A (of A) (of A))
+FuzzyCLIPS> (defmodule FOO (export ?ALL))
+FuzzyCLIPS> (defclass A (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances A (of A) (of A))
+FuzzyCLIPS> (defmodule BAR (import QUIX ?ALL) (export ?ALL))
+FuzzyCLIPS> (defmodule WOZ (import FOO ?ALL))
+FuzzyCLIPS> (defmodule FRIBBAN (import BAR ?ALL))
+FuzzyCLIPS> (set-current-module MAIN)
+FRIBBAN
+FuzzyCLIPS> (reset)
+FuzzyCLIPS> (instances *)
+MAIN:
+   [initial-object] of INITIAL-OBJECT
+QUIX:
+   [gen1] of A
+   [gen2] of A
+FOO:
+   [gen3] of A
+   [gen4] of A
+BAR:
+WOZ:
+FRIBBAN:
+For a total of 5 instances.
+FuzzyCLIPS> (instances MAIN)
+[initial-object] of INITIAL-OBJECT
+For a total of 1 instance.
+FuzzyCLIPS> (instances QUIX)
+[initial-object] of INITIAL-OBJECT
+[gen1] of A
+[gen2] of A
+For a total of 3 instances.
+FuzzyCLIPS> (instances FOO)
+[initial-object] of INITIAL-OBJECT
+[gen3] of A
+[gen4] of A
+For a total of 3 instances.
+FuzzyCLIPS> (instances BAR)
+[initial-object] of INITIAL-OBJECT
+[gen1] of QUIX::A
+[gen2] of QUIX::A
+For a total of 3 instances.
+FuzzyCLIPS> (instances WOZ)
+[initial-object] of INITIAL-OBJECT
+[gen3] of FOO::A
+[gen4] of FOO::A
+For a total of 3 instances.
+FuzzyCLIPS> (instances FRIBBAN)
+[initial-object] of INITIAL-OBJECT
+[gen1] of QUIX::A
+[gen2] of QUIX::A
+For a total of 3 instances.
+FuzzyCLIPS> (clear)
+FuzzyCLIPS> (defmodule FOO (export defclass FOO))
+FuzzyCLIPS> (defclass FOO (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances FOO (a of FOO))
+FuzzyCLIPS> (defmodule BAR (export defclass BAR))
+FuzzyCLIPS> (defclass BAR (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances BAR (b of BAR))
+FuzzyCLIPS> (defmodule WOZ (import FOO defclass FOO))
+FuzzyCLIPS> (defclass WOZ (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances WOZ (c of WOZ))
+FuzzyCLIPS> (defmodule FRIBBAN (import BAR defclass BAR))
+FuzzyCLIPS> (defclass FRIBBAN (is-a USER) (role concrete))
+FuzzyCLIPS> 
+(defmodule MAIN (import FOO ?ALL)
+                (import BAR ?ALL))
+FuzzyCLIPS> 
+(deffunction MAIN::testit()
+   (reset)
+   (progn$ (?field (get-defmodule-list))
+      (set-current-module ?field)
+      (printout t ?field ":" crlf)
+      (instances)
+      (printout t crlf)
+      (printout t (instance-existp [a]) " " 
+                  (instance-existp [::a]) " "
+                  (class (instance-address a)) crlf)
+      (printout t (instance-existp [b]) " " 
+                  (instance-existp [::b]) " "
+                  (class (instance-address b)) crlf)
+      (printout t (instance-existp [c]) " " 
+                  (instance-existp [::c]) " "
+                  (class (instance-address c)) crlf)
+   )
+)
+FuzzyCLIPS> (testit)
+MAIN:
+[initial-object] of INITIAL-OBJECT
+[a] of FOO::FOO
+[b] of BAR::BAR
+For a total of 3 instances.
+
+TRUE TRUE FOO
+TRUE TRUE BAR
+TRUE FALSE WOZ
+FOO:
+[initial-object] of INITIAL-OBJECT
+[a] of FOO
+For a total of 2 instances.
+
+TRUE TRUE FOO
+TRUE FALSE BAR
+TRUE FALSE WOZ
+BAR:
+[initial-object] of INITIAL-OBJECT
+[b] of BAR
+For a total of 2 instances.
+
+TRUE FALSE FOO
+TRUE TRUE BAR
+TRUE FALSE WOZ
+WOZ:
+[initial-object] of INITIAL-OBJECT
+[a] of FOO::FOO
+[c] of WOZ
+For a total of 3 instances.
+
+TRUE TRUE FOO
+TRUE FALSE BAR
+TRUE TRUE WOZ
+FRIBBAN:
+[initial-object] of INITIAL-OBJECT
+[b] of BAR::BAR
+For a total of 2 instances.
+
+TRUE FALSE FOO
+TRUE TRUE BAR
+TRUE FALSE WOZ
+FuzzyCLIPS> (clear)
+FuzzyCLIPS> (defmodule FOO (export defclass A))
+FuzzyCLIPS> (defclass A (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances A (a of A))
+FuzzyCLIPS> (defmodule BAR (export defclass B))
+FuzzyCLIPS> (defclass B (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances B (c of B))
+FuzzyCLIPS> (defmodule WOZ (import BAR defclass B))
+FuzzyCLIPS> (defclass A (is-a USER) (role concrete))
+FuzzyCLIPS> (definstances A (b of A))
+FuzzyCLIPS> 
+(deffunction testit ()
+  (reset)
+  (set-current-module WOZ)
+  (printout t "TRUE TRUE TRUE FALSE TRUE TRUE TRUE TRUE TRUE" crlf)
+  (printout t
+     (instance-existp [a]) " "
+     (instance-existp [b]) " "
+     (instance-existp [c]) " "
+     (instance-existp [::a]) " "
+     (instance-existp [::b]) " "
+     (instance-existp [::c]) " "
+     (instance-existp [FOO::a]) " "
+     (instance-existp [BAR::c]) " "
+     (instance-existp [WOZ::b]) crlf))
+FuzzyCLIPS> (testit)
+TRUE TRUE TRUE FALSE TRUE TRUE TRUE TRUE TRUE
+TRUE TRUE TRUE FALSE TRUE TRUE TRUE TRUE TRUE
+FuzzyCLIPS> (dribble-off)

@@ -1,0 +1,31 @@
+id_producto,nombre_producto,categoria,precio
+1,Auriculares BT,Electrónica,41.21
+2,Cargador USB-C,Electrónica,234.35
+3,Teclado mecánico,Electrónica,112.29
+4,Ratón inalámbrico,Electrónica,98.91
+5,Altavoz portátil,Electrónica,183.77
+6,Webcam HD,Electrónica,140.48
+7,Juego de sábanas,Hogar,234.35
+8,Lámpara LED,Hogar,196.17
+9,Set de sartenes,Hogar,122.45
+10,Robot aspirador,Hogar,97.21
+11,Cafetera,Hogar,246.72
+12,Organizador armario,Hogar,180.85
+13,Camiseta algodón,Ropa,238.04
+14,Sudadera capucha,Ropa,34.03
+15,Pantalón chino,Ropa,213.38
+16,Chaqueta impermeable,Ropa,161.08
+17,Zapatillas running,Ropa,34.87
+18,Gorra,Ropa,149.12
+19,Esterilla yoga,Deporte,173.09
+20,Mancuernas 5kg,Deporte,8.01
+21,Bicicleta estática,Deporte,116.31
+22,Balón fútbol,Deporte,207.22
+23,Cuerda de saltar,Deporte,77.36
+24,Botella térmica,Deporte,117.34
+25,Novela histórica,Libros,113.37
+26,Ensayo filosofía,Libros,78.97
+27,Libro cocina,Libros,230.02
+28,Manual Python,Libros,196.42
+29,Cómic,Libros,32.09
+30,Poesía contemporánea,Libros,249.27

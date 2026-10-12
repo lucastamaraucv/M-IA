@@ -1,0 +1,76 @@
+PREGUNTA 7
+===========
+
+¿Debería haber un código ético que impidiera (o regulara) la aplicación de la IA en asuntos
+políticos, o podría ayudar aportando racionalidad y una perspectiva objetiva?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Consenso amplísimo (Alfredo, Luisa, Edwin, Javier Ibarra, Maria del Carmen, Arrate, Alejandro, Juan
+Manuel, Edgar, Fernando, Raul, Daniela, Isaac, Anthony, Pau, Marcos, Luis Ignacio, Diego, Maria
+Jose, Pedro): SÍ debería existir un código ético o regulación específica, pero NO prohibición total.
+El argumento común es que la IA no puede ser realmente objetiva en política porque se entrena con
+datos que ya arrastran sesgos humanos, y el mayor peligro es que se presente como "neutral" cuando
+no lo es, lo cual le da más capacidad de manipular sin levantar sospechas que una opinión humana
+identificable.
+
+Argumentos y ejemplos citados:
+- Alejandro cita el AI Act europeo, que ya clasifica como "alto riesgo" los sistemas destinados a
+  influir en el resultado de una elección o el comportamiento de voto, y prohíbe la manipulación
+  subliminal — prueba de que no es un debate hipotético.
+- Sandra menciona un experimento citado en el vídeo de la UPM: se entrenó una IA con discursos de
+  líderes políticos en la ONU y, a partir de un simple titular, generó un discurso de odio completo.
+- Javier Ibarra y Daniela mencionan sesgos ya documentados: el reconocimiento facial que falla más
+  con mujeres y pieles oscuras, y el caso COMPAS (ProPublica) de un algoritmo judicial en EEUU que
+  discriminaba a acusados según su raza.
+- Lautaro es más radical: está en contra de cualquier uso de la IA para decisiones sociales,
+  citando el caso polémico del "gemelo digital" social de Argentina.
+- Javier Calleja es escéptico sobre la viabilidad real de un código: cree que, al estar la IA
+  desarrollada por empresas con ánimo de lucro compitiendo entre sí, cualquier marco ético global
+  es "una quimera" difícil de acordar y hacer cumplir a tiempo.
+- Edgar matiza que sería difícil estandarizar una regulación política universal, dado que la
+  política está ligada a ideologías o incluso a la religión según el país.
+- Anthony y Alejandro proponen distinguir tipos de uso: prohibir tajantemente el uso de IA para
+  perfilar/manipular emociones de votantes o generar propaganda encubierta, pero permitir (e incluso
+  fomentar) su uso en tareas técnicas neutrales como optimizar logística pública o analizar el
+  impacto de una reforma fiscal.
+- Pedro y Marcos añaden que la IA carece de empatía —un rasgo clave en decisiones que afectan a
+  personas—, y advierten del riesgo de que un gobierno "venda" una decisión algorítmica como
+  racional y objetiva cuando en realidad puede estar cargada de sesgos ocultos.
+
+Principios éticos mencionados (citados del vídeo de la UPM): transparencia, justicia e igualdad, no
+maleficencia, responsabilidad y privacidad como marco de referencia para regular el uso de IA en
+gobiernos.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Creo que la pregunta plantea una falsa dicotomía: no se trata de "prohibir el uso político de la
+IA" frente a "dejarla actuar libremente aportando objetividad", sino de decidir en qué tareas puede
+ayudar y en cuáles debe estar estrictamente limitada.
+
+Por un lado, sí veo margen real donde la IA puede aportar valor: analizar grandes volúmenes de
+datos socioeconómicos para diseñar políticas públicas basadas en evidencia, optimizar la logística
+de un servicio público, o detectar patrones de desinformación coordinada. En ese tipo de tareas
+funciona como una herramienta analítica de apoyo técnico —la decisión final, con toda su carga de
+valores, sigue siendo política y humana—.
+
+Por otro lado, creo que debe existir un código ético estricto —y en algunos casos regulación legal,
+no solo ética, como ya hace el AI Act europeo al clasificar como "alto riesgo" los sistemas que
+buscan influir en el resultado de una elección— en usos donde la IA deja de asesorar y pasa a
+manipular. La idea de que la IA aporta "objetividad" me parece, de hecho, la parte más peligrosa del
+argumento: un algoritmo entrenado con datos que arrastran sesgos humanos, ideológicos o culturales,
+presentado bajo una apariencia de neutralidad técnica, tiene mucha más capacidad de influir sin
+levantar sospechas que una opinión humana claramente identificable como tal. El experimento citado
+en el foro, donde una IA entrenada con discursos políticos generó un discurso de odio a partir de un
+simple titular, ilustra bien este riesgo.
+
+Entiendo también el escepticismo de quienes dudan de que un marco ético global sea realmente
+viable, dado que las empresas que desarrollan estos sistemas compiten entre sí con fines
+comerciales y los marcos regulatorios tardan años en acordarse. Pero creo que esa dificultad no es
+argumento para no intentarlo, sino para empezar por lo más urgente: prohibir de forma tajante el
+uso de IA para microsegmentar y manipular emocionalmente a votantes o generar propaganda encubierta
+(deepfakes, discursos falsos), exigiendo transparencia obligatoria siempre que se use IA en
+comunicación política, mientras se deja margen de acción para los usos puramente técnicos y
+administrativos donde el riesgo de manipulación es mínimo.

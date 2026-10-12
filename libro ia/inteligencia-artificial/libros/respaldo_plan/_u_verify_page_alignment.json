@@ -1,0 +1,535 @@
+[
+  {
+    "id": "U01",
+    "book": "mml-book.pdf",
+    "topic": "Algebra lineal estructural",
+    "ref": "Cap. 2, p.17",
+    "page": 2,
+    "nearest_title": "Mathematical Foundations",
+    "nearest_page": 9,
+    "delta": 7,
+    "status": "pagina_aproximada"
+  },
+  {
+    "id": "U02",
+    "book": "Hands-On Mathematics for Deep Learning _ Build a Solid.pdf",
+    "topic": "Calculo vectorial aplicado a gradientes",
+    "ref": "Chapter 2, p.43",
+    "page": 43,
+    "nearest_title": ": Vector Calculus",
+    "nearest_page": 43,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U03",
+    "book": "Data Science for Mathematicians.pdf",
+    "topic": "Programacion con datos para matematicos",
+    "ref": "Sec. 2, p.13",
+    "page": 13,
+    "nearest_title": "Programming with Data",
+    "nearest_page": 13,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U04",
+    "book": "Essential Math for Data Science (Thomas Nield) (Z-Library).pdf",
+    "topic": "Estadistica descriptiva e inferencial inicial",
+    "ref": "Ch. 3, p.102",
+    "page": 102,
+    "nearest_title": "Descriptive and Inferential Statistics",
+    "nearest_page": 102,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U05",
+    "book": "ESTADISTICA ELEMENTAL 11 Johnson.pdf",
+    "topic": "Muestreo y distribucion normal clasica",
+    "ref": "Cap. 6, p.268",
+    "page": 6,
+    "nearest_title": "Estadistica",
+    "nearest_page": 1,
+    "delta": 5,
+    "status": "pagina_aproximada"
+  },
+  {
+    "id": "U06",
+    "book": "ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf",
+    "topic": "Propagacion de errores en medicion",
+    "ref": "Cap. 3, p.157",
+    "page": 3,
+    "nearest_title": "Muestreo",
+    "nearest_page": 3,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U07",
+    "book": "Statistical Inference for Engineers and Data Scientists.pdf",
+    "topic": "Deteccion secuencial de cambios",
+    "ref": "Cap. 9, p.208",
+    "page": 9,
+    "nearest_title": "Statistical Inference",
+    "nearest_page": 4,
+    "delta": 5,
+    "status": "pagina_aproximada"
+  },
+  {
+    "id": "U08",
+    "book": "El arte de la estadística.pdf",
+    "topic": "Lectura critica de correlacion vs causalidad",
+    "ref": "indice interno, sec. 7.2 ref. p.50",
+    "page": 50,
+    "nearest_title": "Re-muestreos bootstrap a partir de una muestra original de",
+    "nearest_page": 50,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U09",
+    "book": "Ciencia-de-los-datos-con-python-1ra-edicion-contenido.pdf",
+    "topic": "Flujo base de trabajo en Python cientifico",
+    "ref": "Cap. 1, p.1",
+    "page": 1,
+    "nearest_title": "El lenguaje Python ...................................................................",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U10",
+    "book": "Ciencia de datos desde cero.pdf",
+    "topic": "Implementacion manual de algoritmos desde cero",
+    "ref": "indice p.5",
+    "page": 5,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U11",
+    "book": "Data Science _ Concepts and Practice.pdf",
+    "topic": "Pipeline end-to-end de ciencia de datos",
+    "ref": "Chapter 1, p.1",
+    "page": 1,
+    "nearest_title": "",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U12",
+    "book": "Web Scraping with Python, 2nd Edition.pdf",
+    "topic": "Crawling web robusto por etapas",
+    "ref": "Chapter 3, inicio Parte I",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U13",
+    "book": "WebScraping_Modulo1_WebScraping.pdf",
+    "topic": "Buenas practicas anti-bloqueo en scraping",
+    "ref": "Tema 6, p.49",
+    "page": 49,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U14",
+    "book": "Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf",
+    "topic": "Proyecto ML end-to-end con validacion",
+    "ref": "Cap. 2, p.63",
+    "page": 2,
+    "nearest_title": "",
+    "nearest_page": 2,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U15",
+    "book": "AI and Machine Learning for Coders A Programmers Guide to Artificial Intelligence.pdf",
+    "topic": "Enfoque practico de modelos para programadores",
+    "ref": "Chapter 1, p.1",
+    "page": 1,
+    "nearest_title": "",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U16",
+    "book": "Pattern recognition _ concepts, methods, and applications.pdf",
+    "topic": "Reduccion de dimensionalidad y estructura de patrones",
+    "ref": "Sec. 3, indice",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U17",
+    "book": "Machine learning with neural networks _ an introduction.pdf",
+    "topic": "Redes de Hopfield deterministas/estocasticas",
+    "ref": "Cap. 2, p.15",
+    "page": 2,
+    "nearest_title": "Introduction",
+    "nearest_page": 1,
+    "delta": 1,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U18",
+    "book": "Genetic Algorithms and Machine Learning for Programmers.pdf",
+    "topic": "Busqueda evolutiva de soluciones y arboles",
+    "ref": "Chapter 2, p.15",
+    "page": 15,
+    "nearest_title": "",
+    "nearest_page": 2,
+    "delta": 13,
+    "status": "pagina_lejana"
+  },
+  {
+    "id": "U19",
+    "book": "Mastering Machine Learning From Basics to Advanced.pdf",
+    "topic": "Panorama comparativo de familias de ML",
+    "ref": "Sec. 4, p.15",
+    "page": 15,
+    "nearest_title": "An Introduction to Machine Learning . . . . . . . . . . . . . . . . . . . . . . .",
+    "nearest_page": 15,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U20",
+    "book": "python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf",
+    "topic": "Evaluacion y ajuste de hiperparametros",
+    "ref": "Chapter 6, p.220",
+    "page": 220,
+    "nearest_title": "Model Evaluation and Hyperparameter Tuning",
+    "nearest_page": 220,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U21",
+    "book": "Aurélien-Géron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-O’Reilly-Media-2019.pdf",
+    "topic": "Control de consistencia de paginacion/edicion",
+    "ref": "solo referencia; no agrega tema nuevo",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U22",
+    "book": "The_MIT_Press_Probabilistic_Machine_Lear.pdf",
+    "topic": "Teoria de decision e informacion para ML probabilistico",
+    "ref": "Part I, indice",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U23",
+    "book": "Gradient Expectations.pdf",
+    "topic": "Perspectiva conceptual de aprendizaje por error y movimiento",
+    "ref": "Cap. 2, p.11",
+    "page": 2,
+    "nearest_title": "Datafrom Predictions",
+    "nearest_page": 2,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U24",
+    "book": "essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf",
+    "topic": "Logica matematica para sistemas de IA",
+    "ref": "Chapter 12, p.485",
+    "page": 485,
+    "nearest_title": "Probability",
+    "nearest_page": 445,
+    "delta": 40,
+    "status": "pagina_lejana"
+  },
+  {
+    "id": "U25",
+    "book": "d2l-en.pdf",
+    "topic": "Bloque canonico MLP -> CNN -> RNN",
+    "ref": "Secs. 3, 6 y 8; indice",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U26",
+    "book": "Deep Learning _ A Comprehensive Guide.pdf",
+    "topic": "Mapa de aplicaciones industriales de DL",
+    "ref": "Chapter 1, p.1",
+    "page": 1,
+    "nearest_title": "n Introduction to Deep Learning",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U27",
+    "book": "Learning Deep Learning _ Theory and Practice of Neural.pdf",
+    "topic": "Backpropagation profundo y atencion moderna",
+    "ref": "Secs. 3 y 15, p.59 y p.393",
+    "page": 59,
+    "nearest_title": "S IGMOID NEURONS AND BACKPROPAGATION",
+    "nearest_page": 59,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U28",
+    "book": "The Science of Deep Learning.pdf",
+    "topic": "Generalizacion y regularizacion con base cientifica",
+    "ref": "Part I, indice",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U29",
+    "book": "Deep Learning by Ian Goodfellow, Yoshua Bengio, Aaron Courville (z-lib.org).pdf",
+    "topic": "Formalismo unificado de redes profundas",
+    "ref": "Ch. 6, p.163",
+    "page": 163,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U30",
+    "book": "Deep Learning Architectures_ A Mathematical Approach.pdf",
+    "topic": "Derivacion matematica de arquitecturas avanzadas",
+    "ref": "Chapter 1, p.3",
+    "page": 3,
+    "nearest_title": "Introductory Problems ..............................",
+    "nearest_page": 3,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U31",
+    "book": "Neural networks and learning machines .pdf",
+    "topic": "Teorema de convergencia del perceptron y base clasica",
+    "ref": "Chapter 1, p.47",
+    "page": 47,
+    "nearest_title": "Rosenblatts Perceptron",
+    "nearest_page": 47,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U32",
+    "book": "2407.18384v4.pdf",
+    "topic": "Frontera teorica moderna: por que funciona DL",
+    "ref": "Sec. 1.3, p.10+",
+    "page": 10,
+    "nearest_title": "Introduction",
+    "nearest_page": 10,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U33",
+    "book": "Deep Learning With Pytorch_ Code.pdf",
+    "topic": "Ingenieria profesional de entrenamiento en PyTorch",
+    "ref": "Sec. 1, p.3",
+    "page": 3,
+    "nearest_title": "Introducing deep learning and the PyTorch Library",
+    "nearest_page": 3,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U34",
+    "book": "programming-with-tensorflow-2021.pdf",
+    "topic": "Arquitectura practica en TensorFlow modular",
+    "ref": "indice interno",
+    "page": null,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U35",
+    "book": "Applied artificial neural network methods for engineers and.pdf",
+    "topic": "ANN aplicada a problemas de ingenieria real",
+    "ref": "Chapter 1, p.1",
+    "page": 1,
+    "nearest_title": ": ANN Preliminaries .................................................................",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U36",
+    "book": "Neural Network Modeling and Identification of Dynamical.pdf",
+    "topic": "Identificacion neuronal de sistemas dinamicos",
+    "ref": "Sec. 1.1, p.9",
+    "page": 9,
+    "nearest_title": "THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY",
+    "nearest_page": 9,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U37",
+    "book": "Applied Time Series Analysis and Forecasting with Python.pdf",
+    "topic": "Modelos ARIMA/estado-espacio para pronostico",
+    "ref": "Ch. 4, p.107",
+    "page": 107,
+    "nearest_title": "ARMA and ARIMA Modeling and Forecasting",
+    "nearest_page": 107,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U38",
+    "book": "time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf",
+    "topic": "LSTM y automatizacion de forecasting con Prophet",
+    "ref": "Ch. 15, p.315; Ch. 19, p.389",
+    "page": 315,
+    "nearest_title": "Remembering the past with LSTM",
+    "nearest_page": 315,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U39",
+    "book": "Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf",
+    "topic": "Construccion de atencion y transformer desde cero",
+    "ref": "Cap. 10, p.66",
+    "page": 10,
+    "nearest_title": "ABirdsEyeViewofResearchonAttention. . . . . . . . . . . . . . . .",
+    "nearest_page": 7,
+    "delta": 3,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U40",
+    "book": "Mastering Transformers _ Build State-of-the-art Models From.pdf",
+    "topic": "Fine-tuning y benchmarking de modelos de lenguaje",
+    "ref": "tokenizers/datasets, p.48+",
+    "page": 48,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U41",
+    "book": "time-series-forecasting-using-foundation-models_compress.pdf",
+    "topic": "Foundation models temporales: TimeGPT, Chronos, TimesFM",
+    "ref": "Ch. 3, 5 y 7; p.55, p.108, p.161",
+    "page": 55,
+    "nearest_title": "Forecasting with TimeGPT",
+    "nearest_page": 55,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U42",
+    "book": "Mastering MLOps Architecture From Code to Deployment Manage the production cycle of continual learning ML models with MLOps.pdf",
+    "topic": "Ciclo de vida continuo de modelos en produccion",
+    "ref": "Cap. 1+, p.11+",
+    "page": 1,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U43",
+    "book": "Advancing Edge Artificial Intelligence System Contexts.pdf",
+    "topic": "Edge AI sobre mallas y restricciones de despliegue",
+    "ref": "Cap. 1, p.1",
+    "page": 1,
+    "nearest_title": "Edge AI LoRa Mesh Technologies",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U44",
+    "book": "Quantum Machine Learning A Modern Approach.pdf",
+    "topic": "Modelos cuanticos supervisados/no supervisados",
+    "ref": "Ch. 3 y 4, p.67 y p.97",
+    "page": 67,
+    "nearest_title": "Machine Learning with Supervised Quantum Models .......................",
+    "nearest_page": 67,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U45",
+    "book": "Quantum Artificial Intelligence with Qiskit.pdf",
+    "topic": "Implementacion de QAI con circuitos y Qiskit",
+    "ref": "Ch. 1+, p.1+",
+    "page": 1,
+    "nearest_title": "\u0004Artificial Intelligence",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U46",
+    "book": "Neural Engineering_ Computation, Representation.pdf",
+    "topic": "Principios de representacion y transformacion neural",
+    "ref": "Sec. 1.2 y 1.3, p.5 y p.13",
+    "page": 5,
+    "nearest_title": "Neural representation",
+    "nearest_page": 5,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U47",
+    "book": "From Neuron to Brain, Fifth Editio.pdf",
+    "topic": "Fisiologia de senalizacion neuronal para inspiracion de modelos",
+    "ref": "Ch. 7 y 8, p.113 y p.129",
+    "page": 113,
+    "nearest_title": "Ionic Basis of the Action Potential",
+    "nearest_page": 113,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U48",
+    "book": "Modeling Life.pdf",
+    "topic": "Dinamica, estabilidad y feedback en sistemas complejos",
+    "ref": "Sec. 1.1 y 1.4, p.1 y p.23",
+    "page": 1,
+    "nearest_title": ". 1 F e e d b a c k......................................",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U49",
+    "book": "Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf",
+    "topic": "Puente aplicado entre ML clasico y quantum ML",
+    "ref": "Sec. 1, p.1",
+    "page": 1,
+    "nearest_title": "Concepts, Libraries, and Essential Tools in Machine Learning and Deep Learning",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U50",
+    "book": "Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf",
+    "topic": "Flujo de desarrollo asistido con IA para productividad",
+    "ref": "Cap. 1, p.1",
+    "page": 1,
+    "nearest_title": "Introducing AI-assisted programming with Copilot",
+    "nearest_page": 1,
+    "delta": 0,
+    "status": "pagina_coherente"
+  },
+  {
+    "id": "U51",
+    "book": "Big Data, Big Design Why Designers Should Care about Artificial Intelligence.pdf",
+    "topic": "Criterio de producto y diseno orientado por IA",
+    "ref": "Chapter One, p.7",
+    "page": 7,
+    "status": "sin_referencia_de_pagina"
+  },
+  {
+    "id": "U52",
+    "book": "Artificial Intelligence in Forecasting Tools and Techniques.pdf",
+    "topic": "Casos sectoriales de forecasting con IA",
+    "ref": "Ch. 12, p.182; Ch. 20, p.325",
+    "page": 182,
+    "nearest_title": "AI-Based Approaches for Financial Market Trends",
+    "nearest_page": 182,
+    "delta": 0,
+    "status": "pagina_coherente"
+  }
+]

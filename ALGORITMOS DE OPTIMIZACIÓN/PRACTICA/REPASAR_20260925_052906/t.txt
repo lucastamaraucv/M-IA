@@ -1,0 +1,13 @@
+Pregunta 13: En la Teoría de la Evidencia... Bel(S) es menor o igual que m(S) para todo S.
+
+Alternativas:
+a) Verdadero
+b) Falso
+
+Respuesta: b) Falso.
+
+Por definición, Bel(S) = Σ_{X⊆S} m(X): suma la masa de S y la de todos sus subconjuntos. Esa suma siempre incluye el término m(S), y las masas no son negativas, así que Bel(S) ≥ m(S) para todo S. El enunciado afirma lo contrario.
+
+La igualdad solo se da cuando ningún subconjunto propio de S tiene masa, como ocurre con los conjuntos de un solo elemento. Con m(A)=0,3, m(B)=0,2 y m(A,B)=0,5 se tiene Bel(A,B) = 0,3+0,2+0,5 = 1, mayor que m(A,B) = 0,5. Como hay casos con desigualdad estricta, la afirmación es falsa en general.
+
+13 | b

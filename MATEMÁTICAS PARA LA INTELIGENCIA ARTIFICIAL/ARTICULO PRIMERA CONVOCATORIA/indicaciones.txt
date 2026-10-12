@@ -1,0 +1,17 @@
+y un mensaje anterior tengo esto:
+Debido a que el test 2 sobre artículos científicos incluye artículos que incluyen temas de  estadística bayesiana  y el teorema de Bayes lo veremos en el  Tema 4  cuyo contenido lo veremos  en la sesión 11 del 23 de junio,  del  hemos decidido reprogramar el Test 2 - Artículos científicos  en 1ª Convocatoria para el sábado 11/07/2026,( en lugar de la fecha anterior, sábado 20/06/2026 ). 
+
+
+
+
+tengo este mensaje del profesor:
+
+
+Deben tomar en consideración que será necesario indagar sobre el significado de los siguientes conceptos:
+
+Turing-computable, Turing-completo, PROLOG, PAC-learning, modelo mínimo de Herbrand, probabilidad condicional y probabilidad incondicional, función Lipschitz
+
+Estos conceptos son aludidos en los artículos, aunque no definidos en ellos, no obstante, entenderlos/conocerlos es imprescindible para entender la exposición de los artículos base del test
+
+
+lo que quiero saber es si el profesor me pido analizar estos 4 pdf de esta ruta es lo que que quiero saber por que como vez aquí me pide conocer esos conceptos y quiero saber si esos conceptos están para buscar en esos pdf que me dice el profesor

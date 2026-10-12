@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.log
+*.bak
+.claude/
+other_nb_extra.txt
+other_nb_structure.txt
+student_notes.db
+node_modules/
+test-results/
+playwright-report/

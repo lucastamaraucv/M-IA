@@ -1,0 +1,38 @@
+[2026-09-25 07:09:57] Vigilancia de atajos por sondeo iniciada: ctrl+alt+r / ctrl+alt+9 / ctrl+alt+n / ctrl+alt+b (+ doble clic en botones laterales del mouse)
+[2026-09-25 07:09:57] Manual N1: sin archivos .txt nuevos en MANUAL_DIR.
+[2026-09-25 07:09:57] Modo oscuro del menu de la bandeja habilitado (uxtheme, API no documentada de Windows).
+[2026-09-25 07:11:23] V: sesion nueva en C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\V_20260925_071123
+[2026-09-25 07:11:34] CAR V: conversacion nueva fe578ebf-0871-4b55-9ad1-d074d6340005 (sin base de conocimiento)
+[2026-09-25 07:11:34] V: detectadas ['1'], nuevas ['1']
+[2026-09-25 07:11:55] V: detectadas ['2'], nuevas ['2']
+[2026-09-25 07:12:16] V: detectadas ['3'], nuevas ['3']
+[2026-09-25 07:12:40] V: detectadas ['11'], nuevas ['11']
+[2026-09-25 07:13:27] V: detectadas ['15'], nuevas ['15']
+[2026-09-25 07:28:33] Vigilancia de atajos por sondeo iniciada: ctrl+alt+r / ctrl+alt+9 / ctrl+alt+n / ctrl+alt+b (+ doble clic en botones laterales del mouse)
+[2026-09-25 07:28:33] Manual N1: sin archivos .txt nuevos en MANUAL_DIR.
+[2026-09-25 07:28:33] Modo oscuro del menu de la bandeja habilitado (uxtheme, API no documentada de Windows).
+[2026-09-25 07:28:43] Iniciando sesion REPASAR en C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843
+[2026-09-25 07:28:53] Fin de la pagina detectado (sin cambios), se detiene.
+[2026-09-25 07:28:53] REPASAR analizando 5 imagen(es) nueva(s) en C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843 (modo BLOQUE)
+[2026-09-25 07:28:53] REPASAR: analizando N1: iniciando (5 imagen(es))
+[2026-09-25 07:28:53] Contexto del curso cargado desde C:\Users\Lucas Tamara\Desktop\M IA\REPASO 2\curso_algoritmos_optimizacion.md (37652 caracteres)
+[2026-09-25 07:28:53] Base de conocimiento RA embebida cargada (147524 caracteres)
+[2026-09-25 07:29:41] REPASAR: analizando N1: terminado (8841 caracteres)
+[2026-09-25 07:29:41] REPASAR: analizando N1: 13 respuesta(s) leidas de la tabla resumen: 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+[2026-09-25 07:29:41] REPASAR: 13 pregunta(s) nueva(s) (13 en total): C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843\t.txt
+[2026-09-25 07:31:16] REPASAR: captura adicional sobre la sesion C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843
+[2026-09-25 07:31:22] Fin de la pagina detectado (sin cambios), se detiene.
+[2026-09-25 07:31:22] REPASAR analizando 1 imagen(es) nueva(s) en C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843 (modo RAPIDO)
+[2026-09-25 07:31:42] CAR modo rapido: conversacion nueva 584e472e-77dc-4d3e-96dd-77d590480c7f (base de conocimiento enviada)
+[2026-09-25 07:31:42] REPASAR (rapido): detectadas ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], nuevas ['1', '2', '3', '4', '5', '6', '7']
+[2026-09-25 07:31:42] em023.dll.nup 1: Verdadero · em023.dll.nup 2: Falso · em023.dll.nup 3: Verdadero · em023.dll.nup 4: Verdadero · em023.dll.nup 5: Falso · em023.dll.nup 6: Verdadero · em023.dll.nup 7: Falso: C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843\t.txt
+[2026-09-25 07:33:48] REPASAR: captura adicional sobre la sesion C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843
+[2026-09-25 07:33:58] Fin de la pagina detectado (sin cambios), se detiene.
+[2026-09-25 07:33:58] REPASAR analizando 7 imagen(es) nueva(s) en C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843 (modo BLOQUE)
+[2026-09-25 07:33:58] REPASAR: analizando N1: iniciando (7 imagen(es))
+[2026-09-25 07:34:31] REPASAR: analizando N1: terminado (169 caracteres)
+[2026-09-25 07:34:31] REPASAR: analizando N1: 0 respuesta(s) leidas de la tabla resumen: (ninguna)
+[2026-09-25 07:34:31] REPASAR: sin preguntas nuevas en esta captura (20 en total): C:\Users\Lucas Tamara\Desktop\M IA\PRACTICA\REPASAR_20260925_072843\t.txt
+[2026-09-25 07:43:17] Vigilancia de atajos por sondeo iniciada: ctrl+alt+r / ctrl+alt+9 / ctrl+alt+n / ctrl+alt+b (+ doble clic en botones laterales del mouse)
+[2026-09-25 07:43:17] Manual N1: sin archivos .txt nuevos en MANUAL_DIR.
+[2026-09-25 07:43:17] Modo oscuro del menu de la bandeja habilitado (uxtheme, API no documentada de Windows).

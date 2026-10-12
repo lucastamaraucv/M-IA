@@ -1,0 +1,69 @@
+PREGUNTA 1
+===========
+
+¿Hasta qué punto creéis que la Inteligencia Artificial (IA) puede sustituir a los médicos?
+¿Qué ventajas e inconvenientes puede tener la inclusión de la IA en el sector médico?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Consenso amplio (mayoría absoluta de las respuestas: Luisa, Arrate, Javier I., Maria del Carmen,
+Lautaro, Sandra, Alejandro, Daniela, Juan Manuel, Edgar, Fernando, Raul, Javier C., Anthony,
+Isaac, Pau, Javier R., Evelyn, Marcos, Wiliam, Christian, Maria Jose, Luis Ignacio, Diego, Pedro,
+Paula, Silvia): la IA NO sustituirá por completo al médico, actuará como herramienta de apoyo
+("human in the loop" / "copiloto"), porque la medicina exige trato humano, empatía, responsabilidad
+legal y juicio clínico ante la incertidumbre.
+
+Solo dos voces discrepantes o matizadas:
+- Samuel Segundo Campozano: cree que sí podría sustituirlos en diagnóstico y monitoreo si se
+  integra con sensores avanzados (mucho más disponible, sin fatiga ni sesgos personales).
+- Nur Derly: distingue por especialidad — imagen/laboratorio sí podrían automatizarse casi del
+  todo, psicología/psiquiatría no.
+
+Ventajas mencionadas repetidamente:
+- Mayor precisión y velocidad en diagnóstico por imagen (dermatología, radiología, mamografías).
+- Disponibilidad 24/7, sin fatiga ni sesgo por cansancio.
+- Detección precoz de enfermedades (cáncer de piel, cáncer de mama).
+- Reducción de carga administrativa / tiempo liberado para el trato con el paciente.
+- Democratización del acceso en zonas con escasez de especialistas (telemedicina).
+
+Inconvenientes mencionados repetidamente:
+- Problema de la "caja negra": no se puede explicar por qué el modelo decide algo (afecta a la
+  rendición de cuentas cuando hay un error).
+- Sesgos en los datos de entrenamiento (peor rendimiento en poblaciones infrarrepresentadas).
+- Responsabilidad legal difusa: ¿quién responde si el modelo se equivoca?
+- Riesgo de dependencia excesiva / pérdida de criterio propio de los médicos.
+- Autodiagnóstico de pacientes con chatbots que retrasa la visita al médico real.
+- Deshumanización de la consulta y riesgo para la privacidad de datos clínicos sensibles.
+
+Referencias/citas que usaron compañeros y que puedes reutilizar:
+- Concepto "Human in the Loop" (HITL), citado del vídeo de Miguel Á. Luengo (UPM).
+- Vídeo CEDECOM "La ética de la Inteligencia Artificial": detección de cáncer de piel por foto.
+- Briganti & Le Moine (2020), Frontiers in Medicine: la IA como sistema de apoyo, no competidor.
+- Liu et al. (2019), The Lancet Digital Health: el deep learning iguala a profesionales sanitarios
+  en detección de enfermedades por imagen médica.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Creo que la IA no sustituirá al médico de forma integral, sino que transformará su rol hacia uno
+de supervisión: el modelo "human in the loop" que se menciona en el vídeo de la UPM (Miguel Á.
+Luengo) resume bien esta idea — la máquina no reemplaza al analista, le señala dónde mirar, y es
+la persona quien decide. En tareas muy concretas y con abundante volumen de datos —el análisis de
+imagen médica es el ejemplo más citado (dermatología, radiología, mamografías)— la IA ya iguala o
+supera el rendimiento humano, como muestra el metaanálisis de Liu et al. (2019, The Lancet Digital
+Health). Sin embargo, la medicina no es solo diagnóstico técnico: incluye interpretar el contexto
+del paciente, comunicar malas noticias con empatía y asumir una responsabilidad legal que hoy
+ningún algoritmo puede sostener.
+
+Como ventajas destacaría la rapidez y precisión en el análisis de datos, la detección precoz de
+enfermedades, la disponibilidad constante sin fatiga y la posibilidad de liberar tiempo del médico
+para dedicarlo al trato humano. Como inconvenientes, el problema de la "caja negra" (dificulta
+saber por qué el modelo llegó a esa conclusión y quién responde si falla), los sesgos heredados de
+los datos de entrenamiento, y el riesgo de que tanto médicos como pacientes deleguen en exceso su
+propio criterio en la máquina —el fenómeno del autodiagnóstico vía chatbot que varios compañeros
+mencionan es buen ejemplo de esto último—.
+
+En definitiva, el escenario más realista a medio plazo es de colaboración: la IA amplía la
+capacidad de detección y análisis, pero el criterio clínico, la empatía y la responsabilidad final
+siguen —y deben seguir— en manos humanas.

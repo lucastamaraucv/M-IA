@@ -1,0 +1,301 @@
+===== PAGINA 1 =====
+Lógica
+Máster Universitario
+en Inteligencia Artificial
+02MIAR|Matemáticas:
+Matemáticas para la Inteligencia Artificial
+Profesora:
+Zoraida Sivoli Barrios
+===== PAGINA 2 =====
+Lógica
+La lógica es la teoría del pensar, la ciencia de las reglas y los límites, del pensar justo y
+razonado, se puede definir brevemente como el estudio del razonamiento. En las
+construcciones de carácter lingüístico se establecen conexiones entre enunciados, de esta
+forma la lógica proposicional se hace presente en la cotidianidad. Nos centraremos en la
+teoría de la inferencia. Su estudio es importante porque ayuda a razonar de forma
+correcta y , con ello, a no incurrir en las llamadas falacias argumentativas.
+===== PAGINA 3 =====
+Lógica proposicional
+Definición
+Un enunciado lógico oproposición lógica consiste en una afirmación a la cual se le
+puede atribuir un valor de verdad , pudiendo ser este verdadero ( 1) o falso ( 0).
+Ejemplos
+1. La proposición “ 2+2=4” tiene valor de verdad 1.
+2. La proposición “ 4>5” tiene valor de verdad 0.
+3. La proposición “todo número par mayor que 2se puede escribir como la suma de
+dos números primos” (conjetura de Goldbach) tiene un valor de verdad....
+4. “La mesa de Antonio” no es una proposición lógica.
+===== PAGINA 4 =====
+Clasificación de las proposiciones
+De acuerdo a su valor de verdad pueden clasificarse en tres tipos:
+1. T autología : Siempre es cierta. Ejemplo: 5 es un número primo
+2. Contradicción : Siempre es falsa. Ejemplo: La cantidad de números enteros es finita
+3. Contingencia : Si puede ser verdadera ó falsa, dependiendo de la situación o
+contexto. Ejemplo: Ayer llovió
+===== PAGINA 5 =====
+Problema recreativo .Un explorador, prisionero por los caníbales va a ser sacrificado en
+el templo de la diosa ”Verdad” . El prisionero tiene el privilegio de decidir entre ser asado
+o ser hervido. Para esto, el explorador debe decir una proposición. Si la proposición es
+verdadera, él será hervido y si es falsa, será asado. El explorador escoge como su
+proposición a la siguiente: ”Y o seré asado” . ¿Qué harán los caníbales?
+===== PAGINA 6 =====
+Ejemplo
+Clasificación las siguientes proposiciones de acuerdo a su tipo:
+▶ Mañana salgo de casa ó tal vez no
+▶ T odos los estudiantes de bachillerato en España hablan Ruso
+▶ 4≥ 10
+▶ Hoy es Jueves
+▶πes un número irracional
+▶ Si lanzo una moneda saldrá cara
+===== PAGINA 7 =====
+Conectores Lógicos
+Son términos de enlace que unen dos proposiciones y dan origen a una nueva
+proposición, cuyo valor de verdad depende del valor de verdad de las proposiciones que la
+conforman y del conector usado. Los conectores son:
+▶ Conjunción:∧, ¨ y¨.
+▶ Disyunción:∨,¨ó ¨.
+▶ Disyunción Exclusiva: ∨, o...o
+▶ Negación :∼ ,¬. No
+▶ Condicional :⇒. Si .. entonces
+▶ Bicondicional:⇔Ṡi y solo si
+===== PAGINA 8 =====
+Lógica proposicional
+Definición
+Dados dos enunciados lógicos p y q, se define la conjunción entre p y q a un nuevo
+enunciado lógico, denotado por p ∧q y leído como “p y q”, cuyo valor de verdad es
+verdadero siempre y cuando ambos enunciados lo sean simultáneamente.
+Ejemplo
+Consideremos las siguientes proposiciones:
+p: La ciudad de Valencia pertenece a la Comunidad de Valencia. q: La ciudad de Alicante
+pertenece a la Comunidad de Valencia. r: La ciudad de Alicante pertenece a la provincia
+de Valencia Indique el valor de Verdad:
+▶ a) p∧q.... b) p∧r....
+===== PAGINA 9 =====
+La tabla de verdad correspondiente es, por tanto:
+p q p·q
+1 1 1
+1 0 0
+0 1 0
+0 0 0
+El conector∧se puede identificar con la operación “ ·”, producto.
+===== PAGINA 10 =====
+Lógica proposicional
+Definición
+Dados dos enunciados lógicos p y q, se define la disyunción entre p y q a un nuevo
+enunciado lógico, denotado por p ∨q y leído como “p o q”, cuyo valor de verdad es
+verdadero siempre y cuando alguno de los dos enunciados (o ambos) lo sean.
+Ejemplo
+Consideremos las siguientes proposiciones: p: La ciudad de Valencia pertenece a la
+Comunidad de Valencia. q: La ciudad de Alicante pertenece a la Comunidad de Valencia.
+r: La ciudad de Alicante pertenece a la provincia de Valencia Indique el valor de Verdad:
+▶ a) p∨q.... b) p∨r....
+===== PAGINA 11 =====
+p q p+q
+1 1 1
+1 0 1
+0 1 1
+0 0 0
+El conector∨se puede identificar con la operación “ +”, suma.
+===== PAGINA 12 =====
+Lógica proposicional
+Definición
+Dados dos enunciados lógicos p y q, se define la disyunción exclusiva entre p y q a un
+nuevo enunciado lógico, denotado por p ∨q y leído como “o p o q”, cuyo valor de verdad
+es verdadero siempre y cuando uno solo de los dos enunciados lo sean.
+Ejemplo
+Consideremos las siguientes proposiciones: p: La ciudad de Valencia pertenece a la
+Comunidad de Valencia. q: La ciudad de Alicante pertenece a la Comunidad de Valencia.
+r: La ciudad de Alicante pertenece a la provincia de Valencia Indique el valor de Verdad:
+▶ a) p∨q.... b) p∨r....
+===== PAGINA 13 =====
+La tabla de verdad correspondiente es, por tanto:
+p q p∨q
+1 1 0
+1 0 1
+0 1 1
+0 0 0
+===== PAGINA 14 =====
+Lógica proposicional
+Definición
+Dados dos enunciados lógicos p y q, se define la implicación lógica , leída como “p
+implica q” y denotada por p → q, cuyo valor de verdad está en consonancia con el hecho
+de que si se da p, entonces necesariamente ha de darse también q, estableciendo de ese
+modo una relación de causalidad entre ambos enunciados.
+Ejemplo
+Supongamos que un padre le hace la siguiente promesa a su hijo universitario:
+”Si apruebas el curso de Estructuras te llevo a Ibiza”
+¿Cuándo el padre rompe la promesa?
+===== PAGINA 15 =====
+La tabla de verdad correspondiente es, por tanto:
+p q p→ q
+1 1 1
+1 0 0
+0 1 1
+0 0 1
+===== PAGINA 16 =====
+En matemática las proposiciones condicionales toman la forma
+▶ Hipótesis→ tesis
+▶ Suficiente→ Necesario
+Ejemplos
+▶ Si una función es derivable entonces es continua
+▶ La figura es un cuadrado solo si es un rectángulo
+▶ Una condición necesaria para que la figura sea un rectángulo es que sea un cuadrilátero
+▶ Que la figura sea un cuadrado es una condición suficiente para que la figura sea un
+cuadrilatero
+===== PAGINA 17 =====
+Lógica proposicional
+Definición
+Dados dos enunciados lógicos p y q, se define la equivalencia ,bicondicional o
+implicación doble , leída como “p si y sólo si q” y denotada por p ↔ q, cuyo valor de
+verdad está en consonancia con el hecho de que si se da p, entonces necesariamente ha
+de darse también q y viceversa, si se da q, entonces también debe darse p.
+Ejemplo
+Si se consideran las proposiciones P : 4 es un número impar; Q : 1+1=3, es claro que
+tanto P como Q son proposiciones falsas; por lo tanto, se tiene que la proposición
+compuesta P↔ Q es verdadera.
+===== PAGINA 18 =====
+La proposición P↔ Q, es equivalente a (P→ Q)∧(Q→ P)
+La tabla de verdad correspondiente es, por tanto:
+p q p↔ q
+1 1 1
+1 0 0
+0 1 0
+0 0 1
+===== PAGINA 19 =====
+Lógica proposicional
+Definición
+Dado un enunciado lógico p, se define la negación lógica como el resultado de invertir el
+valor de verdad del enunciado original, denotándose por ¬p,∼ p, ó p (en todos lo casos
+leído como “no p”).
+p p
+1 0
+0 1
+La negación de un enunciado p, además de¬p, también puede denotarse por p.
+===== PAGINA 20 =====
+Lógica proposicional
+Definición
+Una fórmula lógica F(p1,p2, . . . , pk)consiste en una serie de enunciados lógicos
+conectados por diferentes conectores lógicos. Según su valor de verdad, puede ser de tres
+tipos:
+▶ T autológica: si F(p1,p2, . . . , pk)tiene valor de verdad 1independientemente de la
+combinación de valores de verdad de p 1,p2, . . . , pk.
+▶ Contradictoria: si F(p1,p2, . . . , pk)tiene valor de verdad 0independientemente de
+la combinación de valores de verdad de p 1,p2, . . . , pk.
+▶ Contingente: si F(p1,p2, . . . , pk)tiene valor de verdad 0para ciertas
+combinaciones de valores de verdad de p 1,p2, . . . , pk, mientras que vale 1para otras
+combinaciones.
+===== PAGINA 21 =====
+Ejemplos
+1. p+pes una tautología.
+2. p·pes una contradicción.
+3. pes contingente.
+4. p→ pes una tautología.
+5. p→ pes contingente.
+6. p·qes contingente.
+7. p↔ pes una contradicción.
+8.(p·q)→(p+q)es una tautología.
+9.(p+q)→(p·q)es contingente.
+10. p↔ pes una contradicción.
+===== PAGINA 22 =====
+Lógica proposicional
+Definición
+Dos fórmulas lógicas son equivalentes si su valor de verdad es coincidente para
+cualquier combinación de valores de las proposiciones lógicas que la integran.
+Por ejemplo, p→ qes equivalente a p+q,p∨q:
+p q p→ q p p+q
+1 1 1 0 1
+1 0 0 0 0
+0 1 1 1 1
+0 0 1 1 1
+===== PAGINA 23 =====
+Ejercicio
+Probar que p→ q no es equivalente a su recíproco , q→ p, pero sí que es equivalente a
+su contrarrecíproco ,q→ p.
+p q p→ q q p q→ p
+1 1 1 0 0 1
+1 0 0 1 0 0
+0 1 1 0 1 1
+0 0 1 1 1 1
+===== PAGINA 24 =====
+Lógica proposicional
+Propiedades
+▶ p·(q·r) = ( p·q)·r, p+ ( q+r) = ( p+q) + r.
+▶ p·q=q·p, p+q=q+p.
+▶ p·(q+r) = ( p·q) + ( p·r), p+ ( q·r) = ( p+q)·(p+r).
+▶ p·p=0, p+p=1. (completación)
+▶ p·0=0, p+1=1. (Absorción)
+▶ p·1=p, p+0=p. (Neutros)
+▶ p·p=p, p+p=p.
+===== PAGINA 25 =====
+Propiedades
+▶ p·(p+q) = p, p+ ( p·q) = p.
+▶ p=p.
+▶ p·q=p+q (ley de De Morgan).
+▶ p+q=p·q (ley de De Morgan).
+===== PAGINA 26 =====
+T eoría de conjuntos
+Definición
+Un conjunto es una colección de objetos físicos o abstractos. Cada uno de estos objetos
+recibe el nombre de elemento .
+Si A es un conjunto, denotamos a ∈A a la relación “a es un elemento de A” o,
+equivalentemente, “a pertenece a A” .
+Cada conjunto se denota entre llaves separando cada elemento con una coma.
+===== PAGINA 27 =====
+Ejemplos
+1. Conjunto de los planetas del sistema solar:
+{Mercurio ,Venus ,Tierra ,Marte ,Júpiter ,Saturno ,Urano ,Neptuno}.
+2. Conjunto de los números naturales impares:
+{1,3,5,7,9,11, . . .}={2n−1|n∈N}.
+3. Los pares de puntos sobre la parábola: A ={(x,x2) : x∈R}
+===== PAGINA 28 =====
+T eoría de conjuntos
+Definición
+El cardinal de un conjunto es el número de elementos que posee. Si A es un conjunto,
+su cardinal se denota por |A|.
+En caso de que un conjunto Atenga una infinidad de elementos, denotamos |A|=∞.
+Ejemplos
+1. Sea A el conjunto de los planetas del sistema solar. Entonces |A|=8.
+2. Sea B el conjunto dado por los números naturales impares. Entonces |B|=∞.
+===== PAGINA 29 =====
+T eoría de conjuntos
+▶ Cada uno de los elementos de un conjunto sólo debe aparecer una única vez.
+Ejemplo
+El conjunto{a,b,c,c,d,a}no está bien denotado, ya que hay elementos repetidos. Lo
+correcto sería denotarlo por {a,b,c,d}.
+▶ El conjunto que no tiene elementos recibe el nombre de conjunto vacío y se
+denota por∅.
+Ejemplo
+Sea A el conjunto de satélites de Venus. Entonces A =∅, ya que Venus no tiene ningún
+satélite.
+===== PAGINA 30 =====
+Algebra de Boole
+El álgebra de Boole es una herramienta de fundamental importancia en el mundo de la
+computación. Las propiedades que se verifican en ella sirven de base al diseño y la
+construcción de las computadoras que trabajan con objetos cuyos valores son discretos,
+es decir las computadoras digitales, en particular las binarias.
+Definición
+Un Algebra de Boole es una estructura algebraica formada por un conjunto B, con al
+menos dos elementos distintos, designados en forma general con los símbolos 0 y 1, dos
+operaciones binarias: ∨y∧, y una operación unitaria: ∼ (denominada complemento),
+con las siguientes propiedades para elementos cualesquiera p ,q,r∈B￿:
+===== PAGINA 31 =====
+1. p∧q=q∧p ,p∨q=q∨p. (Conmutatividad)
+2. p∧(q∧r) = ( p∧q)∧r, p∨(q∨r) = ( p∨q)∨r. (Asociatividad)
+3. p∧(q∨r) = ( p∧q)∨(p∧r),p∨(q∧r) = ( p∨q)∧(p∨r). (Distributividad)
+4. p∧1=p, p∨0=p. (Existencia Neutro para ∨,∧)
+5. p∧p=0, p∨p=1. (Existencia de Complementos)
+===== PAGINA 32 =====
+Ejemplo
+Pruebe que el Conjunto B ={0,1}, dotado de las operaciones ., y +.(B,+, .),
+definidas como:
++ 0 1
+0 0 1
+1 1 1,. 0 1
+0 0 0
+1 0 1
+es un álgebra de Boole.
+===== PAGINA 33 =====
+Ejemplo
+Considere el conjunto A ={1,2,3}, C A=N−{ 1,2,3}, Pruebe que el Conjunto
+B={P(A)}, dotado de las operaciones ∩, y∪.(B,+, .), es un álgebra de
+Boole. (+ =∪),(.=∩),

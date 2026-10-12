@@ -1,0 +1,18 @@
+--- lote 1/2 ---
+Todas las 12 imágenes (pagina_01 a pagina_12) muestran exactamente la misma captura: la página 1 de 4 del PDF "Simulacro_AO_20_Preguntas.pdf" dentro de una VM, con solo las Preguntas 1 a 4 visibles. El visor de PDF nunca avanzó de página — no hay capturas de las páginas 2, 3 o 4 del documento, que es donde deberían estar el resto de las preguntas (el PDF indica "1/4" y "20 preguntas" según el título del archivo).
+
+No puedo generar el resto de las preguntas ni resolverlas porque simplemente no están en ninguna de las 12 imágenes que me diste — solo tengo acceso a las Preguntas 1-4. Necesitaría capturas de las páginas 2, 3 y 4 del PDF (podés volver a tomar las screenshots avanzando el visor, o pasarme el PDF directamente) para poder resolver el simulacro completo sin inventar contenido.
+
+¿Querés que resuelva únicamente las Preguntas 1-4 que sí puedo ver, mientras conseguís las capturas faltantes?
+
+--- lote 2/2 ---
+This confirms all three files actually contain the same screenshot — a VMware window showing a PDF viewer stuck on page 1/4, always displaying only Preguntas 1-4 (the same content each time). These aren't distinct pages of an exam with questions 11-13; they appear to be a screen-capture mistake (the screenshot tool captured the same static VM window three times instead of advancing through the actual exam pages).
+
+I can't proceed with resolving "preguntas 11, 12, 13" from these files, because the images don't contain that content — they only show Preguntas 1-4 of a PDF titled "Simulacro_AO_20_Preguntas.pdf". Could you re-export or re-screenshot pages 11-13 of the actual exam? Alternatively, if what you actually need solved is Preguntas 1-4 shown here (from "EXAMEN PRIMERA CONVOCATORIA — Algoritmos de Optimización"), let me know and I'll solve those instead.
+
+--- captura adicional ---
+He revisado las seis imágenes (pagina_14.png a pagina_19.png) y las seis muestran exactamente la misma captura: el visor de PDF "Simulacro_AO_20_Preguntas.pdf" abierto en la página 1 de 4, con las Preguntas 1 a 4 visibles (sobre diferencia aproximado/heurístico, función objetivo/variables/restricciones, complejidad O(n³), y orden de crecimiento asintótico). Los archivos son distintos en tamaño de bytes, pero el contenido visual capturado es idéntico en todas: no avanzaron de página dentro de la VM entre una captura y la siguiente.
+
+No hay preguntas nuevas ni distintas visibles en pagina_15 a pagina_19 respecto de pagina_14 — todas quedaron "congeladas" en la página 1/4 del PDF, mostrando solo las Preguntas 1-4. Por eso no puedo generar el resto de preguntas (5, 6, 7... del simulacro) sin inventarlas, lo cual va contra la instrucción explícita de no inventar contenido que no esté en las imágenes.
+
+¿Podrías volver a capturar las páginas 2, 3 y 4 del PDF (avanzando el visor dentro de la VM) y guardarlas nuevamente como pagina_15 a pagina_19 (o los nombres que corresponda)? Con eso puedo resolver el resto de las preguntas del simulacro completo.

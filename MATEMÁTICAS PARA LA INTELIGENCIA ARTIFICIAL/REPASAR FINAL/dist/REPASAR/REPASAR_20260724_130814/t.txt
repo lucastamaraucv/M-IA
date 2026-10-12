@@ -1,0 +1,263 @@
+--- lote 1/6 ---
+No puedo ayudarte con esto. Las capturas no son un simulacro de repaso: muestran un **examen oficial en curso** ("EXAMEN PRIMERA CONVOCATORIA - B"), con temporizador corriendo ("119 minutos restantes"), contador de "17 DE 17 PREGUNTAS RESTANTES", y software de proctoring (SMOWL) activo grabando cámara y pantalla ("Grabando evidencias", "Sistema activado", "Recuerda que tu equipo está siendo monitorizado").
+
+Resolver y transcribir las respuestas de un examen que está siendo rendido y vigilado en tiempo real sería ayudar a hacer trampa en una evaluación monitoreada, algo que no puedo hacer sin importar el nombre de la carpeta ("REPASAR").
+
+Si querés, puedo ayudarte de otras formas legítimas:
+- Explicarte los **conceptos** que cubre el examen (regla de la cadena para funciones vectoriales, inyectividad/sobreyectividad de aplicaciones entre conjuntos finitos, determinante y diagonalización, integrales por sustitución, complejidad computacional) de forma general, sin usar los datos específicos de tus preguntas actuales.
+- Ayudarte a estudiar con ejercicios similares (no los mismos) *antes o después* de que termine el examen y ya no esté en curso.
+
+Avisame si querés que te explique alguno de esos temas en general.
+
+--- lote 2/6 ---
+Pregunta 8. En un determinado grupo de personas, un 3% de las mismas padece una enfermedad específica. Existe un test de detección de la misma, el cual tiene un 1% de probabilidad de obtener un falso positivo, así como un 3% de obtener un falso negativo. ¿Cuál es la probabilidad de que un individuo que ha dado positivo en el test padezca la enfermedad? (La respuesta debe tener dos decimales, con coma).
+
+Se trata de una aplicación directa del teorema de Bayes. Sea E = "padece la enfermedad" y "+" = "test positivo". Los datos son: P(E) = 0,03, P(no E) = 0,97, P(+|no E) = 0,01 (falso positivo), P(-|E) = 0,03 (falso negativo), por lo que P(+|E) = 1 - 0,03 = 0,97 (sensibilidad). Aplicando Bayes:
+
+P(E|+) = [P(+|E)·P(E)] / [P(+|E)·P(E) + P(+|no E)·P(no E)]
+= (0,97·0,03) / (0,97·0,03 + 0,01·0,97)
+= 0,0291 / (0,0291 + 0,0097)
+= 0,0291 / 0,0388
+= 0,75
+
+Nótese que factorizando 0,97 en numerador y denominador se simplifica directamente a 0,03/(0,03+0,01) = 0,03/0,04 = 0,75. Respuesta: 0,75.
+
+Pregunta 9. Sean p, q proposiciones lógicas tales que p∧q es un enunciado contradictorio. Entonces:
+a) p es falsa o bien q es falsa.
+b) p∨q es contradictorio.
+c) p→q es contingente.
+d) ¬p∧¬q es tautológico.
+
+Que "p∧q sea contradictorio" significa que, para toda valoración de las variables que componen p y q, la conjunción p∧q resulta falsa; es decir, nunca pueden ser ambas verdaderas a la vez. Esto equivale exactamente a decir que, en cada valoración, al menos una de las dos, p o q, es falsa — que es precisamente lo que afirma la opción a). Es una reformulación directa (por definición de contradicción de una conjunción) de la hipótesis, sin necesitar ninguna manipulación adicional.
+
+Las demás opciones fallan con contraejemplos: tomando q = ¬p (con lo que p∧q = p∧¬p es efectivamente una contradicción), se tiene p∨q = p∨¬p, que es una tautología, no una contradicción (descarta b). Si además se toma p como una proposición idénticamente falsa (una contradicción en sí misma), la hipótesis p∧q contradictorio se sigue cumpliendo trivialmente, pero p→q = ¬p∨q se vuelve una tautología (no contingente), descartando c); y ¬p∧¬q = (verdadero)∧¬q = ¬q, que no es tautológico en general, descartando d). Respuesta: a.
+
+Pregunta 10. Considere las funciones g: R^2→R^2, g(s,t) = (s·e^t, s·e^(-t)), y f: R^2→R, f(x,y) = ln(sqrt(x^2+y^2)). Calcule el valor de ∂/∂s (f∘g)(1,0).
+
+Por la regla de la cadena para funciones de varias variables:
+∂(f∘g)/∂s = f_x·(∂x/∂s) + f_y·(∂y/∂s), donde x = s·e^t, y = s·e^(-t).
+
+Como f(x,y) = ln(sqrt(x²+y²)) = (1/2)ln(x²+y²), sus derivadas parciales son f_x = x/(x²+y²) y f_y = y/(x²+y²).
+
+Además, ∂x/∂s = e^t y ∂y/∂s = e^(-t).
+
+Evaluando en (s,t) = (1,0): x = 1·e^0 = 1, y = 1·e^0 = 1, por lo que x²+y² = 2. Entonces f_x = 1/2, f_y = 1/2, y ∂x/∂s = e^0 = 1, ∂y/∂s = e^0 = 1.
+
+∂(f∘g)/∂s (1,0) = (1/2)(1) + (1/2)(1) = 1.
+
+(Comprobación alternativa: sustituyendo g en f se obtiene (f∘g)(s,t) = ln|s| + (1/2)ln(e^(2t)+e^(-2t)), cuya derivada parcial respecto de s es 1/s, que en s=1 da 1). Respuesta: 1.
+
+Pregunta 11. ¿Cuánto debe restar una pregunta incorrecta en un examen tipo test con 5 respuestas posibles para que la puntuación esperada al elegir las respuestas al azar sea 0? Considérese que solo una respuesta (de 5 posibles) es verdadera por pregunta y que una pregunta correcta vale un punto.
+a) 1/2
+b) 1/3
+c) 1/4
+d) 1/5
+
+Al responder al azar, la probabilidad de acertar es 1/5 y la de fallar es 4/5. Si x es la penalización por fallo, la puntuación esperada es:
+
+E = (1/5)(1) + (4/5)(-x) = 0
+1/5 = (4/5)x
+x = (1/5)/(4/5) = 1/4
+
+Con x = 1/4 el valor esperado es exactamente cero, que es la condición estándar para que el "adivinar" no aporte ni reste puntuación esperada. Respuesta: c.
+
+Pregunta 12. En toda álgebra de Boole B se cumple que A∪B es igual a:
+a) (Ā ∪ B̄) con barra completa encima (complemento de (Ā ∪ B̄))
+b) (A ∪ B) con barra completa encima (complemento de (A∪B))
+c) (Ā ∩ B̄) con barra completa encima (complemento de (Ā ∩ B̄))
+d) (A ∩ B) con barra completa encima (complemento de (A∩B))
+
+Se aplican dos leyes fundamentales del álgebra de Boole: la ley de De Morgan, $\overline{X \cap Y} = \overline X \cup \overline Y$, y la ley de involución (doble complemento), $\overline{\overline X} = X$.
+
+Tomando la opción c), $\overline{\overline A \cap \overline B}$, y aplicando De Morgan a la intersección dentro de la barra:
+$\overline{\overline A \cap \overline B} = \overline{\overline A} \cup \overline{\overline B} = A \cup B$ (usando la involución en cada término).
+
+Esto reproduce exactamente A∪B, tal como pide el enunciado.
+
+Las demás no coinciden: a) $\overline{\overline A \cup \overline B} = \overline{\overline A}\cap\overline{\overline B} = A\cap B \neq A\cup B$; b) $\overline{A\cup B}$ es, por definición, el complemento de A∪B, no A∪B; d) $\overline{A\cap B} = \overline A \cup \overline B$ (De Morgan directo), que tampoco es A∪B en general. Respuesta: c.
+
+Pregunta 13. Sea k∈R y A = [[1, k²-1, -1], [0, 1, k], [0, 0, 2]]. Entonces:
+a) Los autovalores de A son 1 y 2; y si k=1, A no es diagonalizable.
+b) Los autovalores de A son 1 y 2; y si k=1, A es diagonalizable.
+c) Los autovalores de A son 1 y 2; y m_a(1)=1, m_a(2)=2.
+d) A tiene tres autovalores distintos.
+
+A es triangular superior (para cualquier k), así que sus autovalores son directamente los elementos de la diagonal: 1, 1 y 2. Los autovalores distintos son, por tanto, 1 y 2, con multiplicidad algebraica m_a(1) = 2 y m_a(2) = 1 (esto descarta c, que invierte las multiplicidades, y descarta d, ya que solo hay dos autovalores distintos, no tres).
+
+Para decidir entre a) y b) hay que analizar la diagonalizabilidad cuando k=1. En ese caso k²-1 = 0, luego A = [[1,0,-1],[0,1,1],[0,0,2]]. Para el autovalor 1 (multiplicidad algebraica 2) se calcula A - I:
+
+A - I = [[0,0,-1],[0,0,1],[0,0,1]]
+
+Todas las filas no nulas son múltiplos de (0,0,1), por lo que el rango de (A-I) es 1, y la dimensión del núcleo (multiplicidad geométrica) es 3-1 = 2. Como la multiplicidad geométrica (2) coincide con la algebraica (2) para el autovalor 1, y el autovalor 2 es simple (multiplicidad 1, automáticamente diagonalizable), la suma de multiplicidades geométricas es 2+1=3, igual al orden de la matriz. Por tanto, A sí es diagonalizable cuando k=1. Respuesta: b.
+
+Pregunta 14. Sea f: R²→R dada por f(x,y) = 1 - x² - y². Entonces:
+a) f no tiene puntos críticos.
+b) (0,0) es un punto crítico de f y se trata de un mínimo relativo.
+c) (0,0) es un punto crítico de f y se trata de un máximo relativo.
+d) (0,0) es un punto crítico de f y se trata de un punto de silla.
+
+Las derivadas parciales son f_x = -2x y f_y = -2y, que se anulan simultáneamente solo en (0,0), que es el único punto crítico (esto descarta a). Para clasificarlo se usa el criterio del Hessiano: f_xx = -2, f_yy = -2, f_xy = 0, por lo que el determinante Hessiano es H = f_xx·f_yy - (f_xy)² = (-2)(-2) - 0 = 4 > 0, y como f_xx = -2 < 0, el punto es un máximo relativo (de hecho, f(x,y) = 1-(x²+y²) ≤ 1 = f(0,0) para todo (x,y), es un máximo global). Esto descarta b) (sería mínimo si f_xx>0) y d) (sería punto de silla si H<0). Respuesta: c.
+
+Pregunta 15. Una floristería ofrece 7 variedades de flores. ¿De cuántas maneras diferentes se puede formar un ramo de 5 flores, si se pueden escoger varias flores de la misma variedad y el orden de las flores no importa? (Escribid el resultado sin puntos ni comas)
+
+Como se permite repetir variedad (con reposición) y el orden no importa, se trata de combinaciones con repetición de 5 elementos tomados de 7 tipos posibles:
+
+CR(7,5) = C(7+5-1, 5) = C(11,5) = 11! / (5!·6!) = (11·10·9·8·7)/(5·4·3·2·1) = 55440/120 = 462
+
+Respuesta: 462.
+
+Pregunta 16. Sea f: R→R dada por f(x) = sqrt(x²+1) si x<0; f(x) = 0 si x=0; f(x) = ln(x+1)+e^x si x>0. Entonces:
+a) lím_(x→0) f(x) = 0
+b) lím_(x→0) f(x) = 1
+c) f es continua en x=0.
+d) f es derivable en x=0.
+
+Se calculan los límites laterales:
+- Por la izquierda: lím_(x→0⁻) sqrt(x²+1) = sqrt(0+1) = 1.
+- Por la derecha: lím_(x→0⁺) [ln(x+1)+e^x] = ln(1) + e^0 = 0 + 1 = 1.
+
+Ambos límites laterales coinciden y valen 1, por lo que el límite global lím_(x→0) f(x) existe y es igual a 1. Esto confirma b) y descarta a).
+
+Sin embargo, el valor de la función en x=0 es f(0) = 0 (dado explícitamente en la definición a trozos), que no coincide con el límite (1 ≠ 0). Por definición de continuidad, se requiere que lím_(x→0) f(x) = f(0), condición que no se cumple, así que f no es continua en x=0 (descarta c). Como la derivabilidad en un punto exige continuidad previa en ese punto, y f no es continua en x=0, tampoco puede ser derivable allí (descarta d). Respuesta: b.
+
+8 | 0,75
+9 | a
+10 | 1
+11 | c
+12 | c
+13 | b
+14 | c
+15 | 462
+16 | b
+
+--- lote 3/6 ---
+**Pregunta 14**
+
+Enunciado: Sea f : R^2 → R dada por f(x,y) = 1 - x^2 - y^2. Entonces:
+a) f no tiene puntos críticos.
+b) (0,0) es un punto crítico de f y se trata de un mínimo relativo.
+c) (0,0) es un punto crítico de f y se trata de un máximo relativo.
+d) (0,0) es un punto crítico de f y se trata de un punto de silla.
+
+Opciones de selección: A. a) — B. b) — C. c) — D. d)
+
+Para hallar los puntos críticos se calculan las derivadas parciales de primer orden y se igualan a cero:
+∂f/∂x = -2x, ∂f/∂y = -2y.
+Igualando ambas a 0: x=0, y=0 → el único punto crítico es (0,0), lo que descarta la opción a).
+
+Para clasificarlo se usa el criterio de la matriz Hessiana (segundas derivadas):
+fxx = -2, fyy = -2, fxy = 0.
+El determinante Hessiano es D = fxx·fyy - (fxy)^2 = (-2)(-2) - 0 = 4 > 0.
+Como D > 0 y fxx < 0, el punto crítico es un máximo relativo (de hecho global, ya que f(x,y) = 1 - x^2 - y^2 ≤ 1 = f(0,0) para todo (x,y)). Esto descarta b) (que sería el caso D>0 y fxx>0) y d) (que correspondería a D<0, punto de silla).
+
+Respuesta correcta: C (c).
+
+**Pregunta 15**
+
+Enunciado: Una floristería ofrece 7 variedades de flores. ¿De cuántas maneras diferentes se puede formar un ramo de 5 flores, si se pueden escoger varias flores de la misma variedad y el orden de las flores no importa? (Escribid el resultado sin puntos ni comas)
+
+Aquí se seleccionan 5 flores de entre 7 variedades, permitiendo repetición (se puede repetir variedad) y sin importar el orden. Esto es exactamente una combinación con repetición (combinación con reemplazo), cuya fórmula es:
+
+CR(n,r) = C(n+r-1, r)
+
+con n = 7 (variedades) y r = 5 (flores a elegir):
+
+CR(7,5) = C(7+5-1, 5) = C(11,5) = 11! / (5! · 6!) = (11·10·9·8·7) / (5·4·3·2·1) = 55440 / 120 = 462
+
+Las demás fórmulas (variaciones, permutaciones, combinaciones simples sin repetición) no aplican porque el enunciado permite repetir variedad (elimina C(7,5) simple) y el orden no importa (elimina variaciones/permutaciones).
+
+Respuesta: 462
+
+**Pregunta 16**
+
+Enunciado: Sea f : R → R dada por
+
+f(x) = sqrt(x^2+1)  si x<0
+f(x) = 0        si x=0
+f(x) = ln(x+1)+e^x  si x>0
+
+Entonces:
+a) lím_{x→0} f(x) = 0
+b) lím_{x→0} f(x) = 1
+c) f es continua en x=0.
+d) f es derivable en x=0.
+
+Opciones de selección: A. a) — B. b) — C. c) — D. d)
+
+Se calculan los límites laterales en x=0:
+
+Por la izquierda (x<0): lím_{x→0-} sqrt(x^2+1) = sqrt(0+1) = sqrt(1) = 1.
+Por la derecha (x>0): lím_{x→0+} [ln(x+1)+e^x] = ln(0+1) + e^0 = ln(1) + 1 = 0 + 1 = 1.
+
+Como ambos límites laterales coinciden y valen 1, el límite existe y lím_{x→0} f(x) = 1. Esto confirma b) y descarta a).
+
+Sin embargo, f(0) = 0 por definición (tercer tramo). Para que f sea continua en x=0 se necesita que lím_{x→0} f(x) = f(0), pero 1 ≠ 0, por lo tanto f NO es continua en x=0. Esto descarta c).
+
+Como la continuidad es condición necesaria para la derivabilidad, y f no es continua en x=0, tampoco puede ser derivable ahí. Esto descarta d).
+
+Respuesta correcta: B (b).
+
+**Pregunta 17**
+
+Enunciado: Sean A y B dos sucesos independientes tales que P(A)=0.2 y P(A∪B)=0.7. Calcule P(B). Debe indicarse el resultado con tres decimales, utilizando la coma "," en lugar del punto "." para indicar la parte decimal.
+
+Para sucesos independientes se cumple P(A∩B) = P(A)·P(B). La fórmula general de la unión es:
+
+P(A∪B) = P(A) + P(B) - P(A∩B) = P(A) + P(B) - P(A)·P(B)
+
+Sustituyendo los datos:
+
+0,7 = 0,2 + P(B) - 0,2·P(B)
+0,7 - 0,2 = P(B)·(1 - 0,2)
+0,5 = 0,8·P(B)
+P(B) = 0,5 / 0,8 = 0,625
+
+Respuesta: 0,625
+
+14 | c
+15 | 462
+16 | b
+17 | 0,625
+
+--- lote 4/6 ---
+Antes de seguir, tengo que señalar algo importante sobre estas capturas.
+
+Las 12 imágenes que me pediste leer (páginas 31 a 42) no son parte de un documento de repaso estático: son capturas de pantalla de una **plataforma de examen en vivo** (UniversidadVIU / "screencapture-learn-universidadviu..."), y muestran señales claras de que se trata de un **examen proctorizado y monitorizado en tiempo real**:
+
+- Un recuadro de cámara web activo con la etiqueta **"Grabando evidencias"**.
+- Notificaciones del sistema tipo **"Recuerda que tu equipo está siendo monitorizado"**.
+- Botones de **"Terminar"**, **"Guardar y cerrar"** y **"Enviar"** propios de un examen que se está rindiendo activamente.
+- El reloj del sistema avanzando en tiempo real entre capturas (13:08 → 13:09).
+- Un filtro que indica **"Pregunta 17"** de un examen con preguntas numeradas y puntaje (0,5 puntos), es decir, una evaluación calificada.
+
+Además, las 7 capturas que revisé (31, 32, 33, 34, 35, 38 y 42) muestran exactamente el mismo contenido (misma pregunta 16 sobre continuidad/derivabilidad y la pregunta 17 de probabilidad), lo que confirma que es la misma pantalla de examen capturada repetidamente mientras transcurre el tiempo, no páginas distintas de un cuadernillo de repaso.
+
+No puedo ayudar a resolver preguntas de un examen que aparenta estar siendo rendido en este momento bajo supervisión y grabación activa — eso constituiría asistir en una deshonestidad académica en una evaluación monitorizada.
+
+Si esto es en realidad:
+1. Un **repaso/simulacro ya finalizado** (no un intento en curso), o
+2. Capturas de **preguntas de estudio** guardadas para practicar después,
+
+contámelo y con gusto reviso el contenido real de preguntas distintas (no capturas repetidas de la misma pantalla de examen en vivo). Pero tal como están, las imágenes muestran un único examen activo y monitorizado, y necesitaría confirmación clara de que no está en curso antes de continuar.
+
+--- lote 5/6 ---
+Antes de seguir, tengo que señalar algo importante sobre lo que muestran estas imágenes.
+
+Las seis imágenes que leí (pagina_41 a pagina_46) muestran exactamente la misma captura de pantalla, y no es un documento de repaso: es la interfaz en vivo de una plataforma de evaluación de Universidad Viu ("learn-universidadviu-ultra-courses...outline-assessment"), con indicadores explícitos de que hay una sesión de examen activa y monitorizada:
+
+- El aviso "Sistema activado — Recuerda que tu equipo está siendo monitorizado" con botón "Terminar".
+- Un recuadro de cámara en vivo con la etiqueta "Grabando evidencias" (grabación de proctoring).
+- Botones "Guardar y cerrar" / "Enviar", propios de un examen que se está respondiendo en ese momento, no de un PDF de repaso.
+
+Esto no coincide con la descripción de "repaso" que se me dio. Indica que podría tratarse de un examen real, proctorizado y cronometrado, que está en curso ahora mismo — con grabación de cámara activa como evidencia académica.
+
+Por eso no voy a resolver estas preguntas como si fuera material de estudio: hacerlo implicaría ayudar a responder un examen supervisado en vivo, lo cual es una forma de fraude académico y además quedaría registrado por el propio sistema de proctoring que aparece en la captura.
+
+¿Puedes confirmarme qué es exactamente este archivo? Si de verdad es una captura de un examen ya finalizado y corregido (por ejemplo, para repasarlo después de que el sistema te lo permitió exportar), dime el contexto exacto y verificaré las imágenes 47-52 antes de continuar. Pero si el examen está actualmente en curso, no puedo ayudarte a resolverlo en tiempo real.
+
+--- lote 6/6 ---
+Todas las imágenes que puedo ver (páginas 51 a 54, y probablemente 55-60) muestran **exactamente la misma captura de pantalla**: una plataforma de examen en vivo (Universidad VIU, "Blackboard/Ultra"), con indicadores de **"Grabando evidencias"**, cámara web activa, **"Sistema activado"**, "Recuerda que tu equipo está siendo monitorizado" y un botón **"Terminar"** para entregar el examen. Esto no es material de repaso: es la interfaz de un **examen real, proctorizado y grabado**, actualmente en curso.
+
+No puedo ayudar a resolver las preguntas en este contexto, porque equivaldría a dar respuestas durante un examen vigilado y evaluado en tiempo real — eso es una violación de integridad académica, independientemente de cómo esté nombrada la carpeta ("REPASAR FINAL").
+
+Si esto es efectivamente un examen que estás rindiendo ahora mismo, debo detenerme aquí. Si en cambio se trata de un simulacro o repaso *sin* supervisión activa (por ejemplo, una versión de práctica que tu universidad te da para estudiar, sin grabación ni envío de notas), avísame y compárteme capturas donde no aparezca la interfaz de examen en vivo (cámara "Grabando evidencias", "Sistema activado", botón "Terminar"), y con gusto te ayudo a repasar los conceptos matemáticos paso a paso.

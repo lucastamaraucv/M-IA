@@ -1,0 +1,34 @@
+Hola a todos,
+
+
+
+Esta es la actividad asociada al PORTAFOLIO ARTICULO CIENTIFICO.
+
+
+
+La actividad consiste en escoger un artículo científico de los subidos a la plataforma (Contenido de la asignatura > Articulos cientificos). Solo un artículo.
+
+
+
+Se deberá realizar lo siguiente:
+
+un resumen del articulo donde se explique el problema, el metodo propuesto y las mejoras con respecto a metodos anteriores
+proporcionar vuestra opinión del método y una mejora de este (debe justificarse adecuadamente)
+
+
+
+
+IMPORTANTE!!! Está permitido el uso de la IA generativa en las actividades del porfolio. El alumnado debe presentar contenido original y criterio propio en las mismas, y aclarar, incluyendo los prompts del contenido generado por IA.
+
+
+
+A la hora de presentar el trabajo debera entregarse un archivo PDF de dos páginas como máximo:
+
+La primera página contendra el RRESUMEN+PROPUESTA DE MEJORA
+La segunda página contendra los prompts del contenido generado por IA.
+
+
+Saludos,
+
+Fecha de entrega de la evaluación:
+23/10/26 16:59 (UTC-5)

@@ -1,0 +1,111 @@
+RESPUESTA A "tarea 1.txt" — FORMULARIO DEL TFM (preparado el 2026-10-05; versión centrada en E20-A0C, el modelo que se sustentará)
+==========================================================================
+
+1) ATENCIÓN: ESTÁS VIENDO EL FORMULARIO EQUIVOCADO
+--------------------------------------------------
+El formulario que describes (campos "TFM – 1ra opción ... 5ta opción", "solo el número del TFM") es el de la
+OPCIÓN 1: "Formulario para Selección de Proyectos de la lista". Ese formulario sirve para ELEGIR un TFM propuesto
+por los profesores.
+
+Tú quieres hacer un TFM PROPIO (tu red E20 / TS-LIF para Bitcoin). Por eso debes usar el OTRO formulario:
+   OPCIÓN 2: "Formulario para proponer TFM propio".
+
+IMPORTANTE (lo dice la universidad): solo se puede enviar UN formulario por estudiante. Si envías el de
+selección de la lista, NO podrás enviar después el de TFM propio. NO rellenes el formulario de las 5 opciones.
+
+Fecha límite: 8/10/2026 a las 23:59 (hora de España peninsular) = 8/10/2026 a las 16:59 (hora de Lima).
+
+Qué hacer:
+  a) Busca en la plataforma (aula del TFM / anuncio de la profesora Ortega) el enlace "Formulario para proponer
+     TFM propio" (Opción 2).
+  b) Copia y pega en ese formulario los textos de la sección 2 de este archivo.
+  c) Si en la plataforma solo aparece el formulario de selección de la lista, escribe a la profesora preguntando
+     por el enlace del formulario de TFM propio ANTES de enviar nada.
+
+
+2) TEXTOS PARA EL FORMULARIO DE TFM PROPIO (OPCIÓN 2) — copiar y pegar
+----------------------------------------------------------------------
+
+Correo electrónico:
+   lucastamaraucv@gmail.com   (o el correo institucional que uses en la VIU; verifícalo)
+
+Apellidos, Nombres:
+   Tamara Trejo, Lucas Ivan
+
+Número de documento de identificación:
+   [ESCRIBE TU DNI / DOCUMENTO — no lo tengo, complétalo tú]
+
+Integrante #1:
+   Tamara Trejo, Lucas Ivan
+Integrantes #2, #3, #4:
+   (dejar en blanco: TFM individual)
+
+Título del proyecto propuesto:
+   Predicción de la Dirección de Bitcoin utilizando una Red Neuronal Espigante de Segmentos Temporales y
+   Aprendizaje Automático
+
+Contexto y motivación (texto breve):
+   Muchos modelos de aprendizaje automático para predecir Bitcoin pierden su ventaja cuando se comparan con
+   referentes simples o se evalúan con validación cronológica estricta. Las redes neuronales espigantes son una
+   alternativa de bajo coste computacional, pero apenas se han evaluado con ese rigor en criptomonedas. Este
+   trabajo, que formaliza y amplía una línea de investigación previa del propio autor, propone E20-A0C: una red de
+   reservorio de 1 000 neuronas de dos compartimentos TS-LIF (Feng et al., 2025) que recibe el precio de Bitcoin y
+   62 indicadores técnicos como canales de entrada y se lee con una regresión logística. Se estudia si esta red
+   aporta información real para predecir la dirección del precio de Bitcoin frente a modelos de aprendizaje
+   automático que reciben exactamente la misma información.
+
+Objetivos del TFM (texto breve):
+   Objetivo general: determinar, con un protocolo preregistrado y reproducible, si la red neuronal espigante E20-A0C
+   (reservorio TS-LIF con indicadores técnicos como entradas) aporta información predictiva sobre la dirección de
+   Bitcoin más allá de los modelos de aprendizaje automático con la misma información.
+   Objetivos específicos:
+   1. Validar el protocolo con placebos, señal nula y controles positivos sintéticos.
+   2. Desarrollar el modelo propuesto, E20-A0C, a partir de la red previa del autor (MDHS-SNN), identificando
+      mediante ablaciones qué componentes aportan (entrada, memoria, recurrencia, indicadores y lectura).
+   3. Compararlo con regresión logística, bosque aleatorio, gradient boosting, perceptrón multicapa, LSTM y TCN con
+      las mismas entradas y validación cronológica (AUC, acierto, pruebas pareadas por bootstrap de bloques).
+   4. Determinar en qué escala temporal (de 1 minuto a 1 mes) es predecible la dirección de Bitcoin.
+   5. Replicar los resultados en otros activos y periodos y dejar definida una prueba final con datos futuros.
+
+Posibles metodologías de IA (texto breve):
+   Modelo principal: E20-A0C, red neuronal espigante de reservorio (1 000 neuronas TS-LIF de dos compartimentos,
+   con recurrencia) con 62 indicadores técnicos como canales de entrada y lectura por regresión logística.
+   Variantes de comparación: E20-ALB (sin recurrencia, lectura de bosque aleatorio) y TIA-LIF (con atención). Referentes de aprendizaje
+   automático: regresión logística, bosque aleatorio, gradient boosting, perceptrón multicapa, LSTM, TCN y ROCKET.
+   Metodología: preregistro de hipótesis, validación cronológica, placebos, controles positivos sintéticos,
+   bootstrap de bloques emparejado e intervalos de confianza, y una prueba confirmatoria con datos futuros.
+
+Descripción del dataset:
+   Velas de BTC/USDT de Binance (API pública) desde 2018 a 2026 en escalas de 1 minuto a 1 mes, con énfasis en
+   barras de 1 y 2 horas (unas 37 000 barras de 2 horas); serie diaria BTC/USD desde 2016; indicadores técnicos
+   causales calculados a partir de las velas; activos de réplica: Ether (ETH) y oro tokenizado (PAXG), y series
+   sintéticas con señal conocida para validar el método. Datos públicos, sin datos personales.
+
+Tutor:
+   Todavía no he contactado a ningún tutor; agradecería la asignación de un tutor afín a series temporales,
+   aprendizaje automático o redes neuronales.
+
+Justificación para TFM individual / Comentarios:
+   Solicito realizar el TFM de forma individual por la alta limitación de tiempo derivada de compatibilizar mis
+   responsabilidades laborales con el ritmo del máster. Trabajar individualmente me da la autonomía y flexibilidad
+   necesarias para organizar mis horarios de investigación y desarrollo de código sin depender de la coordinación con
+   otros compañeros. Además, el proyecto continúa una línea de investigación propia que ya tengo en marcha.
+
+
+3) NOTAS
+--------
+- Todos los textos son breves, como pide el formulario. Si algún campo tiene límite de caracteres, recorta primero
+  los objetivos específicos (puedes dejar solo el objetivo general y los puntos 2 y 3).
+- Si por error solo pudieras usar el formulario de selección de la lista, NO lo envíes con números de TFM al azar:
+  pregunta antes a la profesora, porque un segundo formulario no se acepta.
+- El DNI y el correo debes verificarlos tú.
+
+4) SOBRE QUE E20-A0C SEA EL MODELO DE LA TESIS
+---------------------------------------------
+- El formulario ya presenta E20-A0C como modelo principal (título, contexto, objetivos y metodología).
+- En la memoria (MEMORIA_TFM.md) el modelo principal es hoy E20-ALB y E20-A0C aparece como variante. Si lo deseas,
+  se puede reordenar la memoria para que E20-A0C sea el modelo principal (cambia el resumen, la metodología y las
+  conclusiones). Pídelo y lo hago.
+- Defensa honesta ante el tribunal: E20-A0C es la E20 con mayor AUC en BTC 2 h reciente (0,5460), IGUALA a GBM con
+  las mismas entradas (0,5454) pero NO lo supera de forma demostrada; su confirmación está definida en la prueba con
+  datos futuros. El formulario no exige resultados, solo la propuesta, así que no hace falta mencionarlos allí.

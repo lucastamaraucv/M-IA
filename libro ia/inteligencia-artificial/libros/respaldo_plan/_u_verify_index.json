@@ -1,0 +1,761 @@
+[
+  {
+    "id": "U01",
+    "book": "mml-book.pdf",
+    "topic": "Algebra lineal estructural",
+    "status": "indice_ok_parcial",
+    "ratio": 0.333,
+    "hits": [
+      "algebra"
+    ],
+    "keywords": [
+      "algebra",
+      "lineal",
+      "estructural"
+    ]
+  },
+  {
+    "id": "U02",
+    "book": "Hands-On Mathematics for Deep Learning _ Build a Solid.pdf",
+    "topic": "Calculo vectorial aplicado a gradientes",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "calculo",
+      "vectorial",
+      "aplicado",
+      "gradientes"
+    ]
+  },
+  {
+    "id": "U03",
+    "book": "Data Science for Mathematicians.pdf",
+    "topic": "Programacion con datos para matematicos",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "programacion",
+      "datos",
+      "matematicos"
+    ]
+  },
+  {
+    "id": "U04",
+    "book": "Essential Math for Data Science (Thomas Nield) (Z-Library).pdf",
+    "topic": "Estadistica descriptiva e inferencial inicial",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "estadistica",
+      "descriptiva",
+      "inferencial",
+      "inicial"
+    ]
+  },
+  {
+    "id": "U05",
+    "book": "ESTADISTICA ELEMENTAL 11 Johnson.pdf",
+    "topic": "Muestreo y distribucion normal clasica",
+    "status": "indice_ok_fuerte",
+    "ratio": 0.5,
+    "hits": [
+      "distribucion",
+      "normal"
+    ],
+    "keywords": [
+      "muestreo",
+      "distribucion",
+      "normal",
+      "clasica"
+    ]
+  },
+  {
+    "id": "U06",
+    "book": "ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf",
+    "topic": "Propagacion de errores en medicion",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "propagacion",
+      "errores",
+      "medicion"
+    ]
+  },
+  {
+    "id": "U07",
+    "book": "Statistical Inference for Engineers and Data Scientists.pdf",
+    "topic": "Deteccion secuencial de cambios",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "deteccion",
+      "secuencial",
+      "cambios"
+    ]
+  },
+  {
+    "id": "U08",
+    "book": "El arte de la estadística.pdf",
+    "topic": "Lectura critica de correlacion vs causalidad",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "lectura",
+      "critica",
+      "correlacion",
+      "causalidad"
+    ]
+  },
+  {
+    "id": "U09",
+    "book": "Ciencia-de-los-datos-con-python-1ra-edicion-contenido.pdf",
+    "topic": "Flujo base de trabajo en Python cientifico",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "python"
+    ],
+    "keywords": [
+      "flujo",
+      "base",
+      "trabajo",
+      "python",
+      "cientifico"
+    ]
+  },
+  {
+    "id": "U10",
+    "book": "Ciencia de datos desde cero.pdf",
+    "topic": "Implementacion manual de algoritmos desde cero",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "cero"
+    ],
+    "keywords": [
+      "implementacion",
+      "manual",
+      "algoritmos",
+      "desde",
+      "cero"
+    ]
+  },
+  {
+    "id": "U11",
+    "book": "Data Science _ Concepts and Practice.pdf",
+    "topic": "Pipeline end-to-end de ciencia de datos",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "pipeline",
+      "ciencia",
+      "datos"
+    ]
+  },
+  {
+    "id": "U12",
+    "book": "Web Scraping with Python, 2nd Edition.pdf",
+    "topic": "Crawling web robusto por etapas",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "crawling",
+      "robusto",
+      "etapas"
+    ]
+  },
+  {
+    "id": "U13",
+    "book": "WebScraping_Modulo1_WebScraping.pdf",
+    "topic": "Buenas practicas anti-bloqueo en scraping",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "scraping"
+    ],
+    "keywords": [
+      "buenas",
+      "practicas",
+      "anti",
+      "bloqueo",
+      "scraping"
+    ]
+  },
+  {
+    "id": "U14",
+    "book": "Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf",
+    "topic": "Proyecto ML end-to-end con validacion",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "proyecto",
+      "validacion"
+    ]
+  },
+  {
+    "id": "U15",
+    "book": "AI and Machine Learning for Coders A Programmers Guide to Artificial Intelligence.pdf",
+    "topic": "Enfoque practico de modelos para programadores",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "enfoque",
+      "practico",
+      "modelos",
+      "programadores"
+    ]
+  },
+  {
+    "id": "U16",
+    "book": "Pattern recognition _ concepts, methods, and applications.pdf",
+    "topic": "Reduccion de dimensionalidad y estructura de patrones",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "reduccion",
+      "dimensionalidad",
+      "estructura",
+      "patrones"
+    ]
+  },
+  {
+    "id": "U17",
+    "book": "Machine learning with neural networks _ an introduction.pdf",
+    "topic": "Redes de Hopfield deterministas/estocasticas",
+    "status": "indice_ok_parcial",
+    "ratio": 0.25,
+    "hits": [
+      "hopfield"
+    ],
+    "keywords": [
+      "redes",
+      "hopfield",
+      "deterministas",
+      "estocasticas"
+    ]
+  },
+  {
+    "id": "U18",
+    "book": "Genetic Algorithms and Machine Learning for Programmers.pdf",
+    "topic": "Busqueda evolutiva de soluciones y arboles",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "busqueda",
+      "evolutiva",
+      "soluciones",
+      "arboles"
+    ]
+  },
+  {
+    "id": "U19",
+    "book": "Mastering Machine Learning From Basics to Advanced.pdf",
+    "topic": "Panorama comparativo de familias de ML",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "panorama",
+      "comparativo",
+      "familias"
+    ]
+  },
+  {
+    "id": "U20",
+    "book": "python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf",
+    "topic": "Evaluacion y ajuste de hiperparametros",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "evaluacion",
+      "ajuste",
+      "hiperparametros"
+    ]
+  },
+  {
+    "id": "U21",
+    "book": "Aurélien-Géron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-O’Reilly-Media-2019.pdf",
+    "topic": "Control de consistencia de paginacion/edicion",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "control",
+      "consistencia",
+      "paginacion",
+      "edicion"
+    ]
+  },
+  {
+    "id": "U22",
+    "book": "The_MIT_Press_Probabilistic_Machine_Lear.pdf",
+    "topic": "Teoria de decision e informacion para ML probabilistico",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "teoria",
+      "decision",
+      "informacion",
+      "probabilistico"
+    ]
+  },
+  {
+    "id": "U23",
+    "book": "Gradient Expectations.pdf",
+    "topic": "Perspectiva conceptual de aprendizaje por error y movimiento",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "conceptual"
+    ],
+    "keywords": [
+      "perspectiva",
+      "conceptual",
+      "aprendizaje",
+      "error",
+      "movimiento"
+    ]
+  },
+  {
+    "id": "U24",
+    "book": "essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf",
+    "topic": "Logica matematica para sistemas de IA",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "logica",
+      "matematica",
+      "sistemas"
+    ]
+  },
+  {
+    "id": "U25",
+    "book": "d2l-en.pdf",
+    "topic": "Bloque canonico MLP -> CNN -> RNN",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "bloque",
+      "canonico"
+    ]
+  },
+  {
+    "id": "U26",
+    "book": "Deep Learning _ A Comprehensive Guide.pdf",
+    "topic": "Mapa de aplicaciones industriales de DL",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "mapa",
+      "aplicaciones",
+      "industriales"
+    ]
+  },
+  {
+    "id": "U27",
+    "book": "Learning Deep Learning _ Theory and Practice of Neural.pdf",
+    "topic": "Backpropagation profundo y atencion moderna",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "backpropagation",
+      "profundo",
+      "atencion",
+      "moderna"
+    ]
+  },
+  {
+    "id": "U28",
+    "book": "The Science of Deep Learning.pdf",
+    "topic": "Generalizacion y regularizacion con base cientifica",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "generalizacion",
+      "regularizacion",
+      "base",
+      "cientifica"
+    ]
+  },
+  {
+    "id": "U29",
+    "book": "Deep Learning by Ian Goodfellow, Yoshua Bengio, Aaron Courville (z-lib.org).pdf",
+    "topic": "Formalismo unificado de redes profundas",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "formalismo",
+      "unificado",
+      "redes",
+      "profundas"
+    ]
+  },
+  {
+    "id": "U30",
+    "book": "Deep Learning Architectures_ A Mathematical Approach.pdf",
+    "topic": "Derivacion matematica de arquitecturas avanzadas",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "derivacion",
+      "matematica",
+      "arquitecturas",
+      "avanzadas"
+    ]
+  },
+  {
+    "id": "U31",
+    "book": "Neural networks and learning machines .pdf",
+    "topic": "Teorema de convergencia del perceptron y base clasica",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "perceptron"
+    ],
+    "keywords": [
+      "teorema",
+      "convergencia",
+      "perceptron",
+      "base",
+      "clasica"
+    ]
+  },
+  {
+    "id": "U32",
+    "book": "2407.18384v4.pdf",
+    "topic": "Frontera teorica moderna: por que funciona DL",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "frontera",
+      "teorica",
+      "moderna",
+      "funciona"
+    ]
+  },
+  {
+    "id": "U33",
+    "book": "Deep Learning With Pytorch_ Code.pdf",
+    "topic": "Ingenieria profesional de entrenamiento en PyTorch",
+    "status": "indice_ok_parcial",
+    "ratio": 0.25,
+    "hits": [
+      "pytorch"
+    ],
+    "keywords": [
+      "ingenieria",
+      "profesional",
+      "entrenamiento",
+      "pytorch"
+    ]
+  },
+  {
+    "id": "U34",
+    "book": "programming-with-tensorflow-2021.pdf",
+    "topic": "Arquitectura practica en TensorFlow modular",
+    "status": "indice_ok_parcial",
+    "ratio": 0.25,
+    "hits": [
+      "tensorflow"
+    ],
+    "keywords": [
+      "arquitectura",
+      "practica",
+      "tensorflow",
+      "modular"
+    ]
+  },
+  {
+    "id": "U35",
+    "book": "Applied artificial neural network methods for engineers and.pdf",
+    "topic": "ANN aplicada a problemas de ingenieria real",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "aplicada",
+      "problemas",
+      "ingenieria",
+      "real"
+    ]
+  },
+  {
+    "id": "U36",
+    "book": "Neural Network Modeling and Identification of Dynamical.pdf",
+    "topic": "Identificacion neuronal de sistemas dinamicos",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "identificacion",
+      "neuronal",
+      "sistemas",
+      "dinamicos"
+    ]
+  },
+  {
+    "id": "U37",
+    "book": "Applied Time Series Analysis and Forecasting with Python.pdf",
+    "topic": "Modelos ARIMA/estado-espacio para pronostico",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "modelos",
+      "arima",
+      "estado",
+      "espacio",
+      "pronostico"
+    ]
+  },
+  {
+    "id": "U38",
+    "book": "time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf",
+    "topic": "LSTM y automatizacion de forecasting con Prophet",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "lstm",
+      "automatizacion",
+      "forecasting",
+      "prophet"
+    ]
+  },
+  {
+    "id": "U39",
+    "book": "Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf",
+    "topic": "Construccion de atencion y transformer desde cero",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "construccion",
+      "atencion",
+      "transformer",
+      "desde",
+      "cero"
+    ]
+  },
+  {
+    "id": "U40",
+    "book": "Mastering Transformers _ Build State-of-the-art Models From.pdf",
+    "topic": "Fine-tuning y benchmarking de modelos de lenguaje",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "benchmarking"
+    ],
+    "keywords": [
+      "fine",
+      "tuning",
+      "benchmarking",
+      "modelos",
+      "lenguaje"
+    ]
+  },
+  {
+    "id": "U41",
+    "book": "time-series-forecasting-using-foundation-models_compress.pdf",
+    "topic": "Foundation models temporales: TimeGPT, Chronos, TimesFM",
+    "status": "indice_ok_fuerte",
+    "ratio": 0.5,
+    "hits": [
+      "timegpt",
+      "chronos",
+      "timesfm"
+    ],
+    "keywords": [
+      "foundation",
+      "models",
+      "temporales",
+      "timegpt",
+      "chronos",
+      "timesfm"
+    ]
+  },
+  {
+    "id": "U42",
+    "book": "Mastering MLOps Architecture From Code to Deployment Manage the production cycle of continual learning ML models with MLOps.pdf",
+    "topic": "Ciclo de vida continuo de modelos en produccion",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "continuo"
+    ],
+    "keywords": [
+      "ciclo",
+      "vida",
+      "continuo",
+      "modelos",
+      "produccion"
+    ]
+  },
+  {
+    "id": "U43",
+    "book": "Advancing Edge Artificial Intelligence System Contexts.pdf",
+    "topic": "Edge AI sobre mallas y restricciones de despliegue",
+    "status": "indice_debil",
+    "ratio": 0.2,
+    "hits": [
+      "edge"
+    ],
+    "keywords": [
+      "edge",
+      "sobre",
+      "mallas",
+      "restricciones",
+      "despliegue"
+    ]
+  },
+  {
+    "id": "U44",
+    "book": "Quantum Machine Learning A Modern Approach.pdf",
+    "topic": "Modelos cuanticos supervisados/no supervisados",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "modelos",
+      "cuanticos",
+      "supervisados"
+    ]
+  },
+  {
+    "id": "U45",
+    "book": "Quantum Artificial Intelligence with Qiskit.pdf",
+    "topic": "Implementacion de QAI con circuitos y Qiskit",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "implementacion",
+      "circuitos",
+      "qiskit"
+    ]
+  },
+  {
+    "id": "U46",
+    "book": "Neural Engineering_ Computation, Representation.pdf",
+    "topic": "Principios de representacion y transformacion neural",
+    "status": "indice_ok_parcial",
+    "ratio": 0.25,
+    "hits": [
+      "neural"
+    ],
+    "keywords": [
+      "principios",
+      "representacion",
+      "transformacion",
+      "neural"
+    ]
+  },
+  {
+    "id": "U47",
+    "book": "From Neuron to Brain, Fifth Editio.pdf",
+    "topic": "Fisiologia de senalizacion neuronal para inspiracion de modelos",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "fisiologia",
+      "senalizacion",
+      "neuronal",
+      "inspiracion",
+      "modelos"
+    ]
+  },
+  {
+    "id": "U48",
+    "book": "Modeling Life.pdf",
+    "topic": "Dinamica, estabilidad y feedback en sistemas complejos",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "dinamica",
+      "estabilidad",
+      "feedback",
+      "sistemas",
+      "complejos"
+    ]
+  },
+  {
+    "id": "U49",
+    "book": "Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf",
+    "topic": "Puente aplicado entre ML clasico y quantum ML",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "puente",
+      "aplicado",
+      "entre",
+      "clasico",
+      "quantum"
+    ]
+  },
+  {
+    "id": "U50",
+    "book": "Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf",
+    "topic": "Flujo de desarrollo asistido con IA para productividad",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "flujo",
+      "desarrollo",
+      "asistido",
+      "productividad"
+    ]
+  },
+  {
+    "id": "U51",
+    "book": "Big Data, Big Design Why Designers Should Care about Artificial Intelligence.pdf",
+    "topic": "Criterio de producto y diseno orientado por IA",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "criterio",
+      "producto",
+      "diseno",
+      "orientado"
+    ]
+  },
+  {
+    "id": "U52",
+    "book": "Artificial Intelligence in Forecasting Tools and Techniques.pdf",
+    "topic": "Casos sectoriales de forecasting con IA",
+    "status": "indice_debil",
+    "ratio": 0.0,
+    "hits": [],
+    "keywords": [
+      "casos",
+      "sectoriales",
+      "forecasting"
+    ]
+  }
+]

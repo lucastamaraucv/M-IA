@@ -1,0 +1,463 @@
+DEFINICIONES DE LOS 7 CONCEPTOS CLAVE - TEST 2 (Artículos científicos)
+Cada cita fue verificada contra la publicación académica original.
+Cada concepto incluye un ejemplo ejecutable en Python para entender su funcionamiento.
+=================================================================================
+
+1. TURING-COMPUTABLE (computabilidad Turing)
+---------------------------------------------
+CITA (verificada): A. M. Turing, "On Computable Numbers, with an
+Application to the Entscheidungsproblem", Proceedings of the London
+Mathematical Society, Series 2, Vol. 42 (1936-1937), pp. 230-265.
+[Archivo: TuringFullText.pdf]
+
+DEFINICIÓN EXACTA:
+Una función f: N^n -> N es Turing-computable si existe una máquina de
+Turing que, para cualquier entrada, se detiene (halts) tras un número
+finito de pasos y produce f(x) como salida escrita en la cinta. Turing
+lo formuló originalmente sobre números reales: "los números 'computables'
+pueden describirse brevemente como los números reales cuya expresión
+decimal es calculable por medios finitos" (Turing, 1936, p. 230).
+
+EXPLICACIÓN A PROFUNDIDAD:
+Antes de 1936, "calculable" era una idea intuitiva sin definición
+matemática rigurosa. Turing la formalizó mediante un modelo abstracto:
+una cinta infinita dividida en celdas, un cabezal que lee/escribe un
+símbolo por vez, y una tabla finita de reglas que dictan qué hacer según
+el símbolo leído y el "estado" interno de la máquina. Si ese proceso
+mecánico, siguiendo reglas finitas, siempre termina y produce el
+resultado correcto, la función es computable. Esta idea sustituyó la
+noción filosófica de "algoritmo" por un objeto matemático preciso,
+permitiendo demostrar (mediante el Halting Problem, introducido en el
+mismo paper) que existen funciones que NINGÚN algoritmo puede calcular.
+
+EJEMPLO EN PYTHON (simulador de máquina de Turing para f(n) = n+1 en
+unario, demostrando que el sucesor es Turing-computable):
+
+    def turing_machine_incremento(cinta):
+        # Representación unaria: "1"*n representa el numero n.
+        # Estados: 'mover_derecha' -> 'escribir_uno' -> 'halt'
+        cinta = list(cinta) + ['_']  # '_' = blanco (fin de cinta)
+        estado = 'mover_derecha'
+        pos = 0
+
+        while estado != 'halt':
+            simbolo = cinta[pos]
+
+            if estado == 'mover_derecha':
+                if simbolo == '1':
+                    pos += 1  # sigue moviendose a la derecha
+                elif simbolo == '_':
+                    estado = 'escribir_uno'
+
+            elif estado == 'escribir_uno':
+                cinta[pos] = '1'  # escribe un simbolo extra: n -> n+1
+                estado = 'halt'
+
+        return ''.join(cinta).rstrip('_')
+
+    # Prueba: representamos el numero 3 como "111"
+    resultado = turing_machine_incremento("111")
+    print(resultado)  # "1111"  (equivalente a f(3) = 4)
+
+    # Esto demuestra de forma concreta una funcion Turing-computable:
+    # una maquina con reglas finitas y mecanicas que SIEMPRE se detiene
+    # y produce el resultado correcto.
+
+
+2. TURING-COMPLETO (completitud Turing)
+-----------------------------------------
+CITA: Concepto de la teoría de la computabilidad que se deriva
+directamente de la construcción de la máquina universal de Turing
+(Turing, 1936, TuringFullText.pdf, sección 6 "Universal computing
+machines"). No existe un único "paper fundacional" que acuñe el
+término "Turing-complete" con ese nombre exacto; es un concepto
+estándar desarrollado en la teoría de la computabilidad posterior
+(p. ej. J. Hopcroft, R. Motwani, J. Ullman, "Introduction to Automata
+Theory, Languages, and Computation", Addison-Wesley). Se indica esto
+explícitamente para no atribuir una cita falsa a un concepto derivado.
+
+DEFINICIÓN EXACTA:
+Un sistema computacional (lenguaje de programación, autómata, modelo de
+cómputo) es Turing-completo si puede simular cualquier máquina de
+Turing, es decir, si es capaz de computar exactamente la misma clase de
+funciones que una máquina de Turing universal.
+
+EXPLICACIÓN A PROFUNDIDAD:
+"Turing-completo" no significa que el sistema SEA una máquina de
+Turing, sino que tiene el mismo poder expresivo: cualquier algoritmo
+computable en teoría también puede programarse en ese sistema (asumiendo
+memoria y tiempo ilimitados). Para que un sistema sea Turing-completo
+generalmente necesita: capacidad de repetición indefinida (bucles o
+recursión no acotada), condicionales, y acceso a memoria potencialmente
+ilimitada.
+
+EJEMPLO EN PYTHON (interprete minimo de Brainfuck, un lenguaje con solo
+8 instrucciones que es Turing-completo, para demostrar que la
+complejidad de un lenguaje no depende de tener muchas instrucciones
+sino de tener bucles + memoria ilimitada):
+
+    def ejecutar_brainfuck(codigo, entrada=""):
+        cinta = [0] * 1000
+        puntero = 0
+        salida = []
+        pc = 0
+        saltos = {}
+        pila = []
+
+        # Precalcular pares de saltos [ ]  (esto es lo que permite bucles,
+        # es decir, la capacidad de "repeticion indefinida")
+        for i, c in enumerate(codigo):
+            if c == '[':
+                pila.append(i)
+            elif c == ']':
+                inicio = pila.pop()
+                saltos[inicio] = i
+                saltos[i] = inicio
+
+        while pc < len(codigo):
+            c = codigo[pc]
+            if c == '+':
+                cinta[puntero] = (cinta[puntero] + 1) % 256
+            elif c == '-':
+                cinta[puntero] = (cinta[puntero] - 1) % 256
+            elif c == '>':
+                puntero += 1
+            elif c == '<':
+                puntero -= 1
+            elif c == '.':
+                salida.append(chr(cinta[puntero]))
+            elif c == '[' and cinta[puntero] == 0:
+                pc = saltos[pc]
+            elif c == ']' and cinta[puntero] != 0:
+                pc = saltos[pc]
+            pc += 1
+
+        return ''.join(salida)
+
+    # Programa Brainfuck que imprime "A" (codigo ASCII 65):
+    programa = "+" * 65 + "."
+    print(ejecutar_brainfuck(programa))  # "A"
+
+    # El "[" y "]" (bucle condicionado a memoria) son los que dan a este
+    # lenguaje, a pesar de solo 8 simbolos, capacidad Turing-completa.
+    # Contraste: un lenguaje SIN bucles (solo secuencias de instrucciones
+    # fijas) jamas podria ser Turing-completo, sin importar cuantos
+    # comandos tenga.
+
+
+3. PROLOG (como lenguaje de programación lógica)
+---------------------------------------------------
+CITA (verificada): A. Colmerauer, P. Roussel, "The Birth of Prolog",
+manuscrito de origen fechado 19 de noviembre de 1992; publicado
+formalmente en HOPL-II: The Second ACM SIGPLAN Conference on History
+of Programming Languages, ACM, 1993, pp. 37-52. DOI: 10.1145/154766.155362.
+[Archivo: 19november92.pdf]
+(Complementar con: R. Kowalski, "Predicate Logic as Programming
+Language", Proceedings IFIP Congress, Stockholm, North-Holland, 1974,
+pp. 569-574).
+
+DEFINICIÓN EXACTA:
+PROLOG ("PROgrammation en LOGique") es un lenguaje de programación
+basado en la lógica de predicados de primer orden, específicamente en
+cláusulas de Horn (hechos y reglas). Un programa PROLOG es un conjunto
+de cláusulas de la forma "Cabeza :- Cuerpo1, Cuerpo2, ..., CuerpoN."
+El motor de PROLOG responde a consultas mediante resolución SLD
+(Selective Linear Definite clause resolution).
+
+EXPLICACIÓN A PROFUNDIDAD:
+Fue desarrollado en 1972 por Alain Colmerauer y Philippe Roussel
+(implementación), a partir de la interpretación procedural de la lógica
+propuesta por Robert Kowalski. A diferencia de la programación
+imperativa, en PROLOG declaras hechos y reglas, y el intérprete deduce
+automáticamente las respuestas mediante búsqueda y unificación lógica.
+PROLOG es Turing-completo (ver concepto 2).
+
+EJEMPLO EN PYTHON (mini motor de inferencia declarativo que imita el
+estilo PROLOG: hechos + reglas + consulta por unificacion, replicando
+el ejemplo clasico "abuelo"):
+
+    hechos = {
+        ("padre", "juan", "maria"),
+        ("padre", "maria", "ana"),
+    }
+
+    def regla_abuelo(x, z, hechos):
+        # abuelo(X,Z) :- padre(X,Y), padre(Y,Z).
+        for (rel, a, b) in hechos:
+            if rel == "padre" and a == x:
+                y = b
+                if ("padre", y, z) in hechos:
+                    return True
+        return False
+
+    def consulta_abuelo(x, z):
+        return regla_abuelo(x, z, hechos)
+
+    # Consulta equivalente a "?- abuelo(juan, ana)." en PROLOG:
+    print(consulta_abuelo("juan", "ana"))  # True
+
+    # PROLOG deduce esto automaticamente mediante resolucion SLD;
+    # aqui lo replicamos "a mano" para ver el mecanismo de fondo:
+    # se busca un Y tal que padre(juan,Y) y padre(Y,ana) sean ambos
+    # hechos conocidos.
+
+
+4. PAC-LEARNING (Probably Approximately Correct learning)
+--------------------------------------------------------------
+CITA (verificada): L. G. Valiant, "A Theory of the Learnable",
+Communications of the ACM, Vol. 27, No. 11, 1984, pp. 1134-1142.
+(Version de conferencia: Proceedings of the Sixteenth Annual ACM
+Symposium on Theory of Computing, STOC '84, 1984, pp. 436-445.)
+DOI: 10.1145/1968.1972 (revista) / 10.1145/800057.808710 (conferencia).
+[Archivos: ValiantLearnable.pdf y 800057.808710.pdf - mismo paper,
+distintas versiones/copias]
+
+DEFINICIÓN EXACTA:
+Un concepto (o clase de conceptos) es PAC-aprendible si existe un
+algoritmo A y un polinomio p(.,.,.,.) tal que, para todo concepto
+objetivo c, toda distribución D sobre el espacio de instancias X, todo
+epsilon > 0 (error) y todo delta > 0 (confianza), el algoritmo A, usando
+un número de ejemplos y tiempo de cómputo acotados por
+p(1/epsilon, 1/delta, n, tamaño(c)), produce con probabilidad al menos
+(1 - delta) una hipótesis h tal que: P( error_D(h) <= epsilon ) >= 1-delta.
+
+EXPLICACIÓN A PROFUNDIDAD:
+La aportación clave de Valiant fue exigir que el aprendizaje sea
+EFICIENTE: la cantidad de ejemplos y de tiempo de cómputo debe crecer
+solo polinómicamente (no exponencialmente) respecto a la precisión
+deseada (1/epsilon), la confianza deseada (1/delta) y la complejidad
+del problema. Este marco dio origen a la Teoría del Aprendizaje
+Computacional.
+
+EJEMPLO EN PYTHON (aprendizaje PAC de un intervalo [a,b] en la recta
+real - el ejemplo clasico de PAC-learning - y verificacion empirica de
+que el error se mantiene por debajo de epsilon con probabilidad
+1-delta):
+
+    import random
+
+    def concepto_objetivo(x, a=3.0, b=7.0):
+        return a <= x <= b
+
+    def aprender_intervalo(muestras_positivas):
+        # Hipotesis PAC: el intervalo mas ajustado que cubre los
+        # ejemplos positivos observados.
+        if not muestras_positivas:
+            return (0, 0)
+        return (min(muestras_positivas), max(muestras_positivas))
+
+    def error_de_hipotesis(hipotesis, n_prueba=100000):
+        a_h, b_h = hipotesis
+        errores = 0
+        for _ in range(n_prueba):
+            x = random.uniform(0, 10)
+            real = concepto_objetivo(x)
+            predicho = a_h <= x <= b_h
+            if real != predicho:
+                errores += 1
+        return errores / n_prueba
+
+    # Simulamos el algoritmo de aprendizaje con distintos tamanos de
+    # muestra "m" para ver como el error decrece (esto es la garantia
+    # PAC: mas ejemplos -> el error baja de forma predecible).
+    for m in [5, 20, 100, 1000]:
+        muestras = [x for x in (random.uniform(0, 10) for _ in range(m))
+                    if concepto_objetivo(x)]
+        h = aprender_intervalo(muestras)
+        err = error_de_hipotesis(h)
+        print(f"m={m:5d} ejemplos -> hipotesis={h}, error={err:.4f}")
+
+    # A medida que m crece, el error tiende a 0: esto ilustra
+    # directamente la garantia "probablemente aproximadamente correcto".
+
+
+5. MODELO MÍNIMO DE HERBRAND (Herbrand minimal model)
+---------------------------------------------------------
+CITA (verificada): M. H. van Emden, R. A. Kowalski, "The Semantics of
+Predicate Logic as a Programming Language", Journal of the ACM,
+Vol. 23, No. 4, 1976, pp. 733-742. [Archivo: kowalski-van_emden.pdf]
+
+DEFINICIÓN EXACTA:
+Dado un programa lógico definido P (conjunto de cláusulas de Horn), una
+interpretación de Herbrand se identifica con el conjunto de todos los
+átomos ground (sin variables) que son verdaderos en ella. Van Emden y
+Kowalski (1976) demostraron que P tiene un único modelo mínimo de
+Herbrand M_P, y que este coincide exactamente con el mínimo punto fijo
+del operador de consecuencia inmediata T_P. Es decir: M_P = lfp(T_P).
+
+EXPLICACIÓN A PROFUNDIDAD:
+Existe una interpretación mínima que contiene únicamente los átomos
+estrictamente deducibles según el programa, sin añadir nada extra. El
+resultado central del paper es que teoría de modelos (el modelo
+mínimo), teoría de la prueba (resolución) y semántica de punto fijo
+(iterar T_P) son formalmente equivalentes para cláusulas de Horn.
+
+EJEMPLO EN PYTHON (calculo del punto fijo del operador T_P para
+obtener el modelo minimo de Herbrand del programa "abuelo"):
+
+    hechos = {("padre", "juan", "maria"), ("padre", "maria", "ana")}
+    reglas = [
+        # abuelo(X,Z) :- padre(X,Y), padre(Y,Z)
+        lambda I: {("abuelo", x, z)
+                   for (r1, x, y) in I if r1 == "padre"
+                   for (r2, y2, z) in I if r2 == "padre" and y2 == y}
+    ]
+
+    def operador_Tp(I, hechos, reglas):
+        nuevo = set(I) | set(hechos)
+        for regla in reglas:
+            nuevo |= regla(I)
+        return nuevo
+
+    def modelo_minimo_herbrand(hechos, reglas):
+        I = set()
+        while True:
+            siguiente = operador_Tp(I, hechos, reglas)
+            if siguiente == I:  # punto fijo alcanzado
+                return I
+            I = siguiente
+
+    modelo = modelo_minimo_herbrand(hechos, reglas)
+    for atomo in sorted(modelo):
+        print(atomo)
+    # Salida: ('abuelo','juan','ana'), ('padre','juan','maria'),
+    #         ('padre','maria','ana')
+    # Este conjunto ES el modelo minimo de Herbrand: contiene
+    # exactamente los atomos ground deducibles, ni uno mas.
+
+
+6. PROBABILIDAD CONDICIONAL Y PROBABILIDAD INCONDICIONAL
+---------------------------------------------------------
+CITA (verificada): A. N. Kolmogorov, "Foundations of the Theory of
+Probability" (traducción al inglés de Grundbegriffe der
+Wahrscheinlichkeitsrechnung, 1933), Chelsea Publishing Company, 1950.
+[Archivo: Kolmogorov - Foundations of the Theory of Probability.pdf]
+
+DEFINICIÓN EXACTA:
+Sobre un espacio de probabilidad (Omega, F, P) que satisface los
+axiomas de Kolmogorov, la probabilidad INCONDICIONAL de un evento A es
+P(A). La probabilidad CONDICIONAL de A dado B se define como:
+P(A|B) := P(A ∩ B) / P(B), válida siempre que P(B) > 0.
+
+EXPLICACIÓN A PROFUNDIDAD:
+La probabilidad incondicional representa el grado de creencia en un
+evento antes de incorporar información adicional. La condicional
+representa cómo se actualiza esa creencia al saber que otro evento (B)
+ya ha ocurrido. Esta relación es la base del Teorema de Bayes:
+P(A|B) = P(B|A)*P(A) / P(B).
+
+EJEMPLO EN PYTHON (simulacion Monte Carlo que estima P(A), P(B), P(A|B)
+por conteo de frecuencias y verifica el Teorema de Bayes):
+
+    import random
+
+    N = 1_000_000
+    lanzamientos = []
+    for _ in range(N):
+        dado = random.randint(1, 6)
+        # A = "sale par", B = "sale mayor que 3"
+        A = (dado % 2 == 0)
+        B = (dado > 3)
+        lanzamientos.append((A, B))
+
+    P_A = sum(1 for a, b in lanzamientos if a) / N
+    P_B = sum(1 for a, b in lanzamientos if b) / N
+    P_A_and_B = sum(1 for a, b in lanzamientos if a and b) / N
+    P_A_dado_B = P_A_and_B / P_B  # Probabilidad condicional
+
+    print(f"P(A) incondicional      = {P_A:.4f}")
+    print(f"P(B) incondicional      = {P_B:.4f}")
+    print(f"P(A|B) condicional      = {P_A_dado_B:.4f}")
+
+    # Verificacion del Teorema de Bayes: P(B|A) = P(A|B)*P(B)/P(A)
+    P_B_dado_A = P_A_and_B / P_A
+    P_B_dado_A_bayes = P_A_dado_B * P_B / P_A
+    print(f"P(B|A) directo   = {P_B_dado_A:.4f}")
+    print(f"P(B|A) via Bayes = {P_B_dado_A_bayes:.4f}")  # deben coincidir
+
+
+7. FUNCIÓN LIPSCHITZ (continuidad Lipschitz)
+------------------------------------------------
+CITA (verificada): S. Bubeck, "Convex Optimization: Algorithms and
+Complexity", Foundations and Trends in Machine Learning, Vol. 8,
+No. 3-4, 2015, pp. 231-357. arXiv:1405.4980.
+[Archivo: 1405.4980v2.pdf]
+
+DEFINICIÓN EXACTA:
+Una función f es L-Lipschitz (con constante L > 0) si para todo x, y
+en su dominio: |f(x) - f(y)| <= L * ||x - y||. Cuando esta condición se
+aplica al GRADIENTE de f, se dice que f tiene "gradiente L-Lipschitz" o
+que f es "L-smooth": ||∇f(x) - ∇f(y)|| <= L * ||x - y||.
+
+EXPLICACIÓN A PROFUNDIDAD:
+Una función Lipschitz no puede cambiar arbitrariamente rápido: su tasa
+de variación está acotada por L. Esto es fundamental en el análisis de
+convergencia del descenso de gradiente: si f es convexa y diferenciable
+con gradiente L-Lipschitz, y se ejecuta descenso de gradiente con
+tamaño de paso fijo t <= 1/L, el algoritmo converge. Sin esta cota, el
+algoritmo puede divergir.
+
+EJEMPLO EN PYTHON (descenso de gradiente sobre f(x) = x^2, cuya
+derivada f'(x)=2x es Lipschitz con constante L=2; se compara un paso
+correcto t <= 1/L contra uno demasiado grande para mostrar la
+diferencia entre convergencia y divergencia):
+
+    def f(x):
+        return x ** 2
+
+    def gradiente_f(x):
+        return 2 * x  # f'(x) = 2x  ->  L = 2 (constante de Lipschitz)
+
+    def descenso_gradiente(x0, tasa_aprendizaje, pasos=20):
+        x = x0
+        historial = [x]
+        for _ in range(pasos):
+            x = x - tasa_aprendizaje * gradiente_f(x)
+            historial.append(x)
+        return historial
+
+    L = 2.0
+
+    print("Con t = 1/L (0.5), respetando la cota de Lipschitz -> CONVERGE:")
+    print(descenso_gradiente(x0=10.0, tasa_aprendizaje=1/L, pasos=10))
+
+    print("\nCon t = 1.5 (bastante mayor que 1/L) -> DIVERGE:")
+    print(descenso_gradiente(x0=10.0, tasa_aprendizaje=1.5, pasos=10))
+
+    # Para f(x)=x^2 la actualizacion es x_nuevo = x*(1 - 2t). Con
+    # t=1/L=0.5 se obtiene x_nuevo=0 (convergencia inmediata al minimo).
+    # Con t=1.5, (1-2t)=-2, por lo que |x| se DUPLICA y cambia de signo
+    # en cada paso: crece sin control. Esto ilustra por que respetar la
+    # cota t <= 1/L que exige la constante de Lipschitz L es necesario
+    # para garantizar la convergencia, tal como formaliza Bubeck (2015).
+
+
+=================================================================================
+CONEXIONES ENTRE LOS 7 CONCEPTOS
+=================================================================================
+- Turing-computable / Turing-completo -> PROLOG: PROLOG es Turing-completo
+  porque su capacidad expresiva (recursión + memoria) equivale a la de una
+  máquina de Turing.
+- PROLOG -> Modelo mínimo de Herbrand: el modelo mínimo de Herbrand es la
+  base semántica formal que explica qué significa que una consulta PROLOG
+  sea verdadera.
+- Probabilidad condicional/incondicional -> Bayesian Logic Programming:
+  estos artículos combinan reglas lógicas (PROLOG/Herbrand) con
+  probabilidades condicionales para razonar bajo incertidumbre (conexión
+  directa con el Teorema de Bayes, Tema 4 del curso).
+- PAC-learning / Función Lipschitz -> Gradient Descent: ambos son
+  herramientas de la teoría del aprendizaje estadístico. PAC-learning
+  garantiza que un algoritmo aprende de forma eficiente; la continuidad
+  Lipschitz garantiza que el algoritmo de optimización (descenso de
+  gradiente) converge de forma estable.
+
+=================================================================================
+NOTA SOBRE VERIFICACIÓN
+=================================================================================
+Todas las citas anteriores fueron contrastadas contra fuentes académicas
+(ACM Digital Library, arXiv, Journal of the ACM, Communications of the
+ACM) antes de incluirse en este documento. El único concepto sin una
+cita de "paper original" único es "Turing-completo" (punto 2), porque
+es un término derivado de la teoría de la computabilidad y no proviene
+de un solo artículo fundacional; esto se indica explícitamente en su
+sección para no atribuir una fuente inexistente.

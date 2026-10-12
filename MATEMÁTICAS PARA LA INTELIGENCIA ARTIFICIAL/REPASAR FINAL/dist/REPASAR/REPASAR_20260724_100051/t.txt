@@ -1,0 +1,264 @@
+1. El enunciado p ∨ ¬q es equivalente a:
+a) ¬(¬p ∨ q).
+b) ¬(q ∧ ¬p).
+c) p ⟶ ¬q.
+d) q ⟶ p.
+
+Para resolverlo se construye la tabla de verdad de p ∨ ¬q y se compara con cada opción. Los valores de p ∨ ¬q para (p,q) = (V,V),(V,F),(F,V),(F,F) son: V, V, F, V (solo es falso cuando p=F y q=V).
+
+Aplicando la ley de De Morgan a la opción b): ¬(q ∧ ¬p) = ¬q ∨ ¬(¬p) = ¬q ∨ p = p ∨ ¬q, que es exactamente la expresión original reordenada por la conmutatividad de ∨. Su tabla de verdad da V, V, F, V, idéntica a la del enunciado, por lo que b) es una equivalencia lógica correcta.
+
+Revisando las demás:
+- a) ¬(¬p ∨ q) = p ∧ ¬q (De Morgan), cuya tabla es F, V, F, F: no coincide (difiere quando p=q=V y cuando p=q=F).
+- c) p → ¬q = ¬p ∨ ¬q, tabla F, V, V, V: no coincide (difiere en (F,V)).
+- d) Usando la definición de implicación, q → p ≡ ¬q ∨ p, que también coincide con p ∨ ¬q por conmutatividad del ∨.
+
+Nota importante: al desarrollar cuidadosamente, tanto b) como d) resultan lógicamente equivalentes al enunciado (ambas se reducen a ¬q ∨ p). Esto es una coincidencia poco habitual en el planteamiento del ejercicio. Se marca como respuesta la transformación más directa vía De Morgan, opción b), que es la manipulación algebraica que el ejercicio busca evaluar explícitamente (leyes de De Morgan sobre conjunción/negación), aunque conviene saber que d) también es una equivalencia válida por la definición de implicación material.
+
+2. Sea p(x) el predicado: ∀y ∈ A, ∃x ∈ A : y = x^3. Entonces:
+a) p(x) es cierto si A = ℕ.
+b) p(x) es cierto si A = ℤ.
+c) p(x) es cierto si A = ℚ.
+d) p(x) es cierto si A = ℝ
+
+El predicado exige que todo elemento y de A pueda escribirse como el cubo de algún elemento x también perteneciente a A; es decir, la función cubo debe ser sobreyectiva de A en A.
+
+- Si A = ℕ: tomando y = 2, no existe x ∈ ℕ tal que x^3 = 2 (la raíz cúbica de 2 no es natural). Falso.
+- Si A = ℤ: tomando y = 2, tampoco existe x entero con x^3 = 2. Falso.
+- Si A = ℚ: tomando y = 2, la raíz cúbica de 2 es irracional, no pertenece a ℚ. Falso.
+- Si A = ℝ: la función f(x) = x^3 es biyectiva de ℝ en ℝ (es estrictamente creciente y continua, con límites −∞ y +∞ en los extremos), por lo que para cualquier y ∈ ℝ siempre existe x = raíz cúbica real de y perteneciente a ℝ. Verdadero.
+
+Respuesta: d.
+
+3. Sean A, B conjuntos tales que |A| = 15, |B| = 30 y f : A → f(A) ⊂ B una función. Entonces:
+a) f puede ser inyectiva.
+b) f puede ser sobreyectiva.
+c) f puede tener inversa.
+d) Todas las anteriores.
+
+La clave está en que el codominio se define explícitamente como f(A), es decir, la propia imagen de f. Por definición de imagen, toda función f: A → f(A) es automáticamente sobreyectiva sobre ese codominio (todo elemento del codominio tiene una preimagen, porque el codominio son justamente los valores alcanzados). Por tanto b) siempre se cumple, en particular "puede ser sobreyectiva" es cierto.
+
+Como |A| = 15 ≤ |B| = 30, es posible construir una función inyectiva de A en B (por ejemplo, eligiendo 15 elementos distintos de B y asignándolos uno a uno a los 15 elementos de A). Entonces a) también es alcanzable.
+
+Si además esa f inyectiva se considera como f: A → f(A), entonces f es inyectiva y sobreyectiva sobre su imagen simultáneamente, es decir, biyectiva, por lo que admite función inversa. Luego c) también es alcanzable.
+
+Como las tres afirmaciones (a, b, c) pueden darse (de hecho b siempre se da, y a y c se dan si se elige f inyectiva), la respuesta correcta es d) Todas las anteriores.
+
+4. ¿Cuántas posibles contraseñas numéricas sin dígitos repetidos, de 4 dígitos del '0' al '9' existen para desbloquear un teléfono móvil? (Escribid el resultado sin puntos ni comas)
+
+Se trata de contar variaciones (permutaciones sin repetición) de 10 dígitos posibles (0-9) tomados de 4 en 4, ya que el orden importa (una contraseña "1234" es distinta de "4321") y no se pueden repetir dígitos. No hay restricción sobre que el primer dígito no sea 0 (a diferencia de un número, una contraseña de teléfono admite '0' como primer dígito).
+
+V(10,4) = 10 × 9 × 8 × 7 = 5040.
+
+Respuesta: 5040.
+
+5. Sea f : ℝ → ℝ dada por
+f(x) = sqrt(x^2) si x > 0; f(x) = x^2 si x ≤ 0
+
+¿Cuál de las siguientes opciones es falsa?
+a) lím_{x→0+} f(x) = 0
+b) lím_{x→0-} f(x) = 0
+c) f es continua en x = 0.
+d) f es derivable en x = 0.
+
+Para x > 0, sqrt(x^2) = |x| = x (porque x es positivo), así que en ese tramo f(x) = x. Para x ≤ 0, f(x) = x^2.
+
+a) lím_{x→0+} f(x) = lím_{x→0+} x = 0. Verdadero.
+b) lím_{x→0-} f(x) = lím_{x→0-} x^2 = 0. Verdadero.
+c) f(0) = 0^2 = 0 (por la rama x ≤ 0), y ambos límites laterales valen 0, coincidiendo con f(0); por tanto f es continua en 0. Verdadero.
+d) Para la derivabilidad se calculan las derivadas laterales:
+ - Derivada por la derecha: f(x) = x para x>0, entonces f'(x)=1, así que el límite del cociente incremental por la derecha es 1.
+ - Derivada por la izquierda: f(x) = x^2, f'(x) = 2x, el límite del cociente incremental por la izquierda en 0 es 2·0 = 0.
+Como la derivada lateral derecha (1) es distinta de la izquierda (0), f NO es derivable en x = 0.
+
+Respuesta: d (es la afirmación falsa).
+
+6. Si los sucesos A y B forman una partición del espacio muestral Ω (Ω = A ∪ B y A ∩ B = ∅). Calcule la probabilidad del suceso C si P(A) = 0.6, P(C|A) = 0.5, P(C|B) = 1/4. Indique el resultado exacto, escalado entre 0 y 1, usando coma decimal.
+
+Como A y B particionan Ω, se aplica el teorema de la probabilidad total:
+P(C) = P(C|A)·P(A) + P(C|B)·P(B)
+
+Como P(A) = 0,6 y A, B son complementarios (partición de dos sucesos), P(B) = 1 − 0,6 = 0,4.
+
+P(C) = 0,5 × 0,6 + 0,25 × 0,4 = 0,3 + 0,1 = 0,4
+
+Respuesta: 0,4
+
+7. ¿Cuál es la complejidad computacional del siguiente algoritmo que muestra por consola todas las posibles combinaciones de dos vectores?
+
+Algorithm Print all products "a·b", for a ∈ A and b ∈ B. |A| = m, |B| = n.
+for i ← 1 to length(A) do
+  for j ← 1 to length(B) do
+    print(Ai · Bj)
+  end for
+end for
+
+a) O(m^2).
+b) O(m·n).
+c) O(m^2+n^2).
+d) O(m^2·n^2).
+
+El bucle externo recorre los m elementos de A y, por cada uno de ellos, el bucle interno recorre los n elementos de B. El número total de ejecuciones de la instrucción print es m × n (no hay ninguna operación adicional cuyo coste dependa de m o n al cuadrado). Por tanto, la complejidad es lineal en el producto de los tamaños de ambos conjuntos.
+
+Respuesta: b) O(m·n).
+
+8. Sean A, B conjuntos tales que ∅ ≠ A ⊆ B. ¿Cuál de las siguientes afirmaciones es siempre falsa?
+a) A ∪ B ⊆ A.
+b) A ∩ B ⊆ A.
+c) B\A ⊆ A.
+d) A × B ⊆ A ∪ B.
+
+- a) Como A ⊆ B, se tiene A ∪ B = B, así que la afirmación equivale a B ⊆ A. Junto con A ⊆ B, esto forzaría A = B. Esto puede ser cierto (por ejemplo si A = B = {1}), así que no es "siempre falsa": puede ser verdadera en algunos casos.
+- b) Como A ⊆ B, se tiene A ∩ B = A, entonces la afirmación es A ⊆ A, que es trivialmente cierta siempre. No es falsa nunca.
+- c) B\A ⊆ A sólo se cumple si B\A = ∅, es decir, si A = B. Si A es un subconjunto propio de B, existen elementos de B que no están en A, y esos elementos tampoco pueden estar en A por definición de B\A; entonces la inclusión falla. Pero si A = B, la afirmación es trivialmente cierta (conjunto vacío incluido en cualquier conjunto). Por tanto no es "siempre" falsa, depende del caso.
+- d) A × B es un conjunto de pares ordenados (a,b), mientras que A ∪ B es un conjunto de elementos "simples" (los mismos tipos de elementos que había en A o B). Un par ordenado (a,b), por construcción conjuntista (p. ej. codificación de Kuratowski (a,b) = {{a},{a,b}}), no coincide en general con ningún elemento de A ∪ B, incluso en casos límite con conjuntos extraños. Es un problema de "tipos": los elementos de A × B son de una naturaleza distinta (pares) a los elementos de A ∪ B. Por ello, para cualesquiera A, B no vacíos con A ⊆ B, esta inclusión nunca se cumple: es siempre falsa.
+
+Respuesta: d.
+
+9. Sea v = (α, −2) un vector de ℝ^2. ¿Para cuántos valores no negativos de α se cumple ||v||_2^2 = 2||v||_1?
+
+||v||_2^2 = α^2 + (−2)^2 = α^2 + 4
+||v||_1 = |α| + |−2| = α + 2 (ya que α ≥ 0, |α| = α)
+
+Igualando: α^2 + 4 = 2(α + 2) = 2α + 4
+α^2 − 2α = 0
+α(α − 2) = 0
+α = 0 o α = 2
+
+Ambas soluciones son no negativas, por lo que hay exactamente 2 valores de α que cumplen la igualdad.
+
+Respuesta: b) 2
+
+10. Sea A = (a_ij) ∈ ℝ^{3×3} una matriz tal que a13 = a22 = a31 = 1 (y el resto de entradas nulas) y B ∈ ℝ^{3×3} una matriz diagonalizable cuyos autovalores son λ1 = −1, λ2 = 1, λ3 = 3. Calcule det(−2AB).
+
+Con a13 = a22 = a31 = 1 y el resto de entradas iguales a 0, la matriz A es:
+[0 0 1]
+[0 1 0]
+[1 0 0]
+
+Esta es la matriz "antidiagonal" (matriz de permutación que intercambia la primera y la tercera fila/columna, dejando fija la segunda). Su determinante se calcula por cofactores en la primera fila:
+det(A) = 0·(1·0−0·0) − 0·(0·0−0·1) + 1·(0·0−1·1) = 1·(0−1) = −1
+
+Como corresponde a una única trasposición (intercambiar posiciones 1 y 3), es una permutación impar, coherente con det(A) = −1.
+
+Como B es diagonalizable, su determinante es el producto de sus autovalores:
+det(B) = (−1)(1)(3) = −3
+
+Para una matriz n×n, det(c·M) = c^n·det(M). Aquí n = 3 y M = AB, con det(AB) = det(A)·det(B) = (−1)(−3) = 3. Entonces:
+det(−2AB) = (−2)^3 · det(AB) = −8 · 3 = −24
+
+Respuesta: −24
+
+11. Sea A ∈ ℝ^{2×2} una matriz simétrica con determinante det(A) = −1. Entonces:
+a) A no es diagonalizable.
+b) A es definida negativa.
+c) A^2 = Id.
+d) Las autovalores de A son λ y −1/λ, para algún λ ∈ ℝ\{0}.
+
+Por el teorema espectral, toda matriz simétrica real es siempre diagonalizable (mediante una matriz ortogonal), así que a) es falsa.
+
+El determinante de una matriz 2×2 es el producto de sus dos autovalores: λ1·λ2 = det(A) = −1. Como el producto es negativo, los autovalores tienen signos opuestos (uno positivo y otro negativo). Esto descarta que A sea definida negativa (para eso ambos autovalores deberían ser negativos), así que b) es falsa.
+
+c) A^2 = Id implicaría que los autovalores cumplen λ^2 = 1, es decir λ = ±1 exactamente. Pero solo sabemos que el producto de los autovalores es −1; podrían ser, por ejemplo, λ1 = 2 y λ2 = −1/2 (producto = −1, pero 2^2 = 4 ≠ 1). Por tanto c) no se deduce necesariamente de la hipótesis.
+
+d) Como λ1·λ2 = −1, despejando λ2 = −1/λ1. Llamando λ = λ1 (que es real por ser A simétrica, y no puede ser 0 porque el producto es −1 ≠ 0), los dos autovalores son exactamente λ y −1/λ. Esta afirmación es siempre cierta dado el dato del determinante.
+
+Respuesta: d.
+
+12. Encuentra el valor de la siguiente integral: ∫_{-1}^{1} (x^2 − x) dx
+
+Se separa la integral en dos partes:
+∫_{-1}^{1} x^2 dx = [x^3/3]_{-1}^{1} = 1/3 − (−1/3) = 2/3
+∫_{-1}^{1} x dx = [x^2/2]_{-1}^{1} = 1/2 − 1/2 = 0 (la función x es impar en un intervalo simétrico, su integral es 0)
+
+Resultado total = 2/3 − 0 = 2/3
+
+Respuesta: 2/3
+
+13. Un juego de apuestas consiste en lanzar un dado que toma valores {1,2,3,4,5,6} con las siguientes condiciones:
+- Si sale un número impar n, el jugador paga n euros.
+- Si sale un número par n, el jugador gana n euros.
+Si el dado está trucado de modo que la probabilidad de que salga un número impar es el doble de la probabilidad de que salga un número par, ¿cuál es el beneficio esperado del jugador por tirada? Indique el resultado exacto con coma decimal.
+
+Sea x = P(sale un número par en total) y por tanto P(sale impar en total) = 2x. Como ambos eventos cubren todos los casos: 2x + x = 1 → x = 1/3. Entonces P(par total) = 1/3 y P(impar total) = 2/3.
+
+Asumiendo que dentro de cada categoría (pares e impares) los tres valores son equiprobables entre sí (el truco solo afecta la proporción par/impar):
+P(cada impar) = (2/3)/3 = 2/9
+P(cada par) = (1/3)/3 = 1/9
+
+Beneficio esperado = Σ(pagos impares)·P + Σ(ganancias pares)·P
+= (−1−3−5)·(2/9) + (2+4+6)·(1/9)
+= (−9)(2/9) + (12)(1/9)
+= −2 + 12/9
+= −2 + 4/3
+= −2/3
+
+Respuesta: -2/3
+
+14. Sea f : ℝ^2 → ℝ dada por f(x,y) = 1 + x^2 − 3y^2. Entonces:
+a) f no tiene puntos críticos.
+b) (0,0) es un punto crítico de f y se trata de un mínimo relativo.
+c) (0,0) es un punto crítico de f y se trata de un máximo relativo.
+d) (0,0) es un punto crítico de f y se trata de un punto de silla.
+
+Se calculan las derivadas parciales: ∂f/∂x = 2x, ∂f/∂y = −6y. Igualando ambas a cero: x = 0, y = 0. Por tanto (0,0) sí es un punto crítico (descarta a).
+
+Para clasificarlo se usa el criterio de la matriz Hessiana:
+f_xx = 2, f_yy = −6, f_xy = 0
+Hessiano = f_xx·f_yy − (f_xy)^2 = (2)(−6) − 0 = −12 < 0
+
+Cuando el determinante Hessiano es negativo, el punto crítico es un punto de silla (la función crece en la dirección x y decrece en la dirección y alrededor de ese punto), independientemente del signo de f_xx.
+
+Respuesta: d.
+
+15. Sean f : ℝ^2 → ℝ y g : ℝ → ℝ^2 de la forma g(t) = (g1(t), g2(t)), tales que
+g(0) = (1,0), ∂f/∂x(1,0) = 1, ∂f/∂y(1,0) = 4, g1'(0) = −2, g2'(0) = 1.
+Obténgase el valor de [f∘g]'(0).
+
+Por la regla de la cadena para funciones compuestas de varias variables:
+[f∘g]'(t) = ∂f/∂x(g(t))·g1'(t) + ∂f/∂y(g(t))·g2'(t)
+
+Evaluando en t = 0, usando g(0) = (1,0):
+[f∘g]'(0) = ∂f/∂x(1,0)·g1'(0) + ∂f/∂y(1,0)·g2'(0)
+= (1)(−2) + (4)(1)
+= −2 + 4
+= 2
+
+Respuesta: 2
+
+16. ¿Cuánto restaría una pregunta incorrecta en un examen tipo test con 5 opciones posibles de respuesta para que la puntuación esperada al elegir las respuestas al azar sea −1/5? Suponemos que cada pregunta tiene sólo una respuesta correcta y que una pregunta correcta vale un punto.
+a) 1/2
+b) 1/3
+c) 1/4
+d) 1/5
+
+Sea x la penalización (puntos que se restan) por respuesta incorrecta. Al azar, con 5 opciones y una sola correcta:
+P(acierto) = 1/5, P(fallo) = 4/5
+
+La puntuación esperada es:
+E = (1/5)(1) + (4/5)(−x) = 1/5 − 4x/5
+
+Se plantea la ecuación para que esta esperanza sea −1/5:
+1/5 − 4x/5 = −1/5
+−4x/5 = −2/5
+4x = 2
+x = 1/2
+
+Respuesta: a) 1/2
+
+1 | b
+2 | d
+3 | d
+4 | 5040
+5 | d
+6 | 0,4
+7 | b
+8 | d
+9 | b
+10 | -24
+11 | d
+12 | 2/3
+13 | -2/3
+14 | d
+15 | 2
+16 | a

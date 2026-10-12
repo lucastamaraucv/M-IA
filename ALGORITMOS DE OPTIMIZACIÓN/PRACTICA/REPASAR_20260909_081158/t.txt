@@ -1,0 +1,57 @@
+**Nota:** Las dos imágenes que me diste (`pagina_01.png` y `pagina_02.png`) contienen capturas distintas (hashes diferentes) pero ambas muestran la misma página 1 de un PDF de 4 páginas ("1/4" en el visor), con las preguntas 1 a 5 completas y solo el título de la "Pregunta 6" cortado, sin su enunciado. No tengo las páginas 2, 3 y 4 del PDF, así que no puedo ver ni resolver la Pregunta 6 en adelante. Resuelvo únicamente las 5 preguntas completas que están disponibles; si me pasas capturas de las páginas restantes del PDF, completo el resto.
+
+**Pregunta 1**
+Según la clasificación utilizada en el curso, ¿qué diferencia fundamental existe entre un algoritmo aproximado y uno heurístico?
+a) El aproximado siempre es determinista y el heurístico siempre es probabilista.
+b) El aproximado proporciona una solución con un grado de aproximación conocido al óptimo, mientras que en el heurístico no podemos determinar si la solución obtenida es óptima.
+c) El heurístico garantiza siempre el óptimo, pero tarda más.
+d) No existe diferencia; ambos términos significan exactamente lo mismo.
+
+El curso distingue explícitamente tres tipos de algoritmos según la solución que producen: Exactos (obtienen el óptimo), Aproximados (obtienen una buena solución con una aproximación conocida al óptimo) y Heurísticos (obtienen una buena solución, pero sin poder garantizar ni cuantificar si es óptima). Esa es justamente la diferencia clave entre aproximado y heurístico: el primero viene acompañado de una garantía teórica sobre cuán lejos puede estar del óptimo, mientras que el segundo no ofrece ninguna garantía de ese tipo. La opción (a) es falsa porque el determinismo/probabilismo es un eje de clasificación distinto (cómo calculan), no del tipo de solución. La (c) invierte la definición: es el algoritmo exacto el que garantiza el óptimo, no el heurístico. La (d) es falsa porque el curso los trata como categorías diferentes dentro de la clasificación por tipo de solución.
+Respuesta correcta: **b**
+
+**Pregunta 2**
+En un problema de optimización se desea minimizar el coste de producción decidiendo cuántas unidades fabricar, sin superar cierta cantidad de materias primas. ¿Qué representan respectivamente el coste, las cantidades a fabricar y los límites de materias primas?
+a) Variable, restricción y función objetivo.
+b) Función objetivo, variables y restricciones.
+c) Restricción, función objetivo y variables.
+d) Función objetivo, restricciones y algoritmo.
+
+Un problema de optimización se compone de tres elementos: la función objetivo (la medida de bondad que se quiere maximizar o minimizar — aquí el coste, que se busca minimizar), las variables (las decisiones que se pueden tomar — aquí cuántas unidades fabricar) y las restricciones (las relaciones que deben cumplirse — aquí el límite de materias primas disponibles). Por tanto, en el orden pedido (coste, cantidades a fabricar, límites de materias primas) corresponde exactamente a (función objetivo, variables, restricciones). Las demás opciones mezclan los roles: (a) confunde el coste con una variable; (c) invierte función objetivo y restricción; (d) sustituye "restricciones" por "algoritmo", que no es un componente del modelo de optimización.
+Respuesta correcta: **b**
+
+**Pregunta 3**
+Un algoritmo tiene complejidad aproximada O(n^3). Si el tamaño de entrada se triplica, ¿por cuánto se multiplica aproximadamente su tiempo de ejecución para valores grandes de n?
+a) 3
+b) 6
+c) 9
+d) 27
+
+Si el tiempo de ejecución es proporcional a n^3, al triplicar la entrada (n → 3n), el nuevo tiempo es proporcional a (3n)^3 = 27·n^3. Es decir, el tiempo se multiplica por 27 respecto al original, ya que la constante 3^3 = 27 es el factor de escalado exacto para una complejidad cúbica. Las otras opciones corresponderían a otros órdenes: multiplicar por 3 sería propio de O(n), por 9 de O(n^2), y 6 no corresponde a ningún escalado естándar de una potencia simple al triplicar n.
+Respuesta correcta: **d**
+
+**Pregunta 4**
+¿Cuál de los siguientes órdenes está correctamente organizado de menor a mayor crecimiento asintótico?
+a) O(n!) < O(2^n) < O(n^2) < O(n)
+b) O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!)
+c) O(n) < O(log n) < O(n^2) < O(n!) < O(2^n)
+d) O(2^n) < O(n^2) < O(n log n) < O(n!)
+
+La jerarquía de órdenes de complejidad vista en el curso, de menor a mayor crecimiento, es: O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(n^3) < O(n^a) < O(2^n) < O(n!). La opción (b) reproduce exactamente ese orden (omitiendo los términos no listados en las alternativas): log n, luego n, luego n log n, luego n^2, luego 2^n, y finalmente n! como el de mayor crecimiento — coherente con la tabla de valores del curso donde, por ejemplo, para n=100, n! (≈9,3×10^177) supera ampliamente a 2^n (≈1,2×10^27). La opción (a) coloca n! y 2^n como los menores, invirtiendo completamente el orden. La (c) coloca log n después de n, lo cual es incorrecto porque log n crece más lento que n. La (d) coloca 2^n como el menor y n! junto a órdenes polinómicos de forma desordenada.
+Respuesta correcta: **b**
+
+**Pregunta 5**
+¿Cuál de las siguientes características corresponde específicamente a Divide y Vencerás?
+a) Los subproblemas se solapan y por eso deben guardarse sus resultados.
+b) Se divide el problema en subproblemas de la misma naturaleza, se resuelven y posteriormente se combinan sus soluciones.
+c) Siempre se toma la mejor decisión local sin poder retroceder.
+d) Se generan soluciones aleatorias hasta encontrar una suficientemente buena.
+
+Divide y Vencerás se define como la técnica que consiste en "dividir el problema recursivamente en subproblemas más pequeños similares al original o sencillos", resolverlos y luego combinar esas soluciones parciales para obtener la solución global; una condición clave (que la distingue de la Programación Dinámica) es que esos subproblemas deben ser disjuntos entre sí, es decir, no deben solaparse. Eso es exactamente lo que describe la opción (b). La opción (a) describe, en cambio, la característica definitoria de la Programación Dinámica (subproblemas que se solapan y cuyos resultados conviene memorizar para reutilizarlos), no de D&V. La opción (c) describe la Técnica Voraz (se toma en cada etapa la decisión localmente óptima, sin reconsiderar decisiones pasadas). La opción (d) describe la Búsqueda Aleatoria, una metaheurística de generación y evaluación de soluciones al azar.
+Respuesta correcta: **b**
+
+1 | b
+2 | b
+3 | d
+4 | b
+5 | b

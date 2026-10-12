@@ -1,0 +1,734 @@
+libro	tipo	numero	titulo	pagina
+capitulo-01\Data Science for Mathematicians.pdf	sec	1	Introduction	1
+capitulo-01\Data Science for Mathematicians.pdf	sec	1.1	Who should read this book? . . . . . . . . . . . . . . . . . .	1
+capitulo-01\Data Science for Mathematicians.pdf	sec	1.2	What is data science? . . . . . . . . . . . . . . . . . . . . . .	3
+capitulo-01\Data Science for Mathematicians.pdf	sec	1.3	Is data science new? . . . . . . . . . . . . . . . . . . . . . . .	6
+capitulo-01\Data Science for Mathematicians.pdf	sec	1.4	What can I expect from this book? . . . . . . . . . . . . . .	8
+capitulo-01\Data Science for Mathematicians.pdf	sec	1.5	What will this book expect from me? . . . . . . . . . . . . .	10
+capitulo-01\Data Science for Mathematicians.pdf	sec	2	Programming with Data	13
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.1	Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . .	14
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2	The computing environment . . . . . . . . . . . . . . . . . .	14
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2.1	Hardware . . . . . . . . . . . . . . . . . . . . . . . . .	14
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2.2	The command line . . . . . . . . . . . . . . . . . . . .	15
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2.3	Programming languages . . . . . . . . . . . . . . . . .	16
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2.4	Integrated development environments (IDEs) . . . . .	17
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2.5	Notebooks . . . . . . . . . . . . . . . . . . . . . . . . .	18
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.2.6	Version control . . . . . . . . . . . . . . . . . . . . . .	22
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.3	Best practices . . . . . . . . . . . . . . . . . . . . . . . . . .	23
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.3.1	Write readable code . . . . . . . . . . . . . . . . . . .	23
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.3.2	Don't repeat yourself . . . . . . . . . . . . . . . . . . .	26
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.3.3	Set seeds for random processes . . . . . . . . . . . . .	27
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.3.5	Test your code . . . . . . . . . . . . . . . . . . . . . .	28
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.3.6	Don't rely on black boxes . . . . . . . . . . . . . . . .	29
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.4	Data-centric coding . . . . . . . . . . . . . . . . . . . . . . .	30
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.4.1	Obtaining data . . . . . . . . . . . . . . . . . . . . . .	30
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.4.1.1	Files . . . . . . . . . . . . . . . . . . . . . . .	30
+capitulo-01\Data Science for Mathematicians.pdf	sec	2.4.1.2	The web . . . . . . . . . . . . . . . . . . . .	31
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	1	: Linear Algebra	7
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	2	: Vector Calculus	43
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Part	i	al derivatives	65
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	3	: Probability and Statistics	80
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	4	: Optimization	117
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Part	icl	e swarm optimization	140
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	5	: Graph Theory	141
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	6	: Linear Neural Networks	155
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	7	: Feedforward Neural Networks	162
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	8	: Regularization	197
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	9	: Convolutional Neural Networks	209
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	sec	1	1 convolutions	218
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	10	: Recurrent Neural Networks	239
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	11	: Attention Mechanisms	259
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	12	: Generative Models	272
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	13	: Transfer and Meta Learning	293
+capitulo-01\Hands-On Mathematics for Deep Learning _ Build a Solid.pdf	Chapter	14	: Geometric Deep Learning	308
+capitulo-01\mml-book.pdf	Part	I	Mathematical Foundations	9
+capitulo-01\mml-book.pdf	sec	1	Introduction and Motivation	11
+capitulo-01\mml-book.pdf	sec	1.1	Finding Words for Intuitions	12
+capitulo-01\mml-book.pdf	sec	1.2	Two Ways to Read This Book	13
+capitulo-01\mml-book.pdf	sec	1.3	Exercises and Feedback	16
+capitulo-01\mml-book.pdf	sec	2	Linear Algebra	17
+capitulo-01\mml-book.pdf	sec	2.1	Systems of Linear Equations	19
+capitulo-01\mml-book.pdf	sec	2.2	Matrices	22
+capitulo-01\mml-book.pdf	sec	2.3	Solving Systems of Linear Equations	27
+capitulo-01\mml-book.pdf	sec	2.4	Vector Spaces	35
+capitulo-01\mml-book.pdf	sec	2.5	Linear Independence	40
+capitulo-01\mml-book.pdf	sec	2.6	Basis and Rank	44
+capitulo-01\mml-book.pdf	sec	2.7	Linear Mappings	48
+capitulo-01\mml-book.pdf	sec	2.8	Affine Spaces	61
+capitulo-01\mml-book.pdf	sec	2.9	Further Reading	63
+capitulo-01\mml-book.pdf	sec	3	Analytic Geometry	70
+capitulo-01\mml-book.pdf	sec	3.1	Norms	71
+capitulo-01\mml-book.pdf	sec	3.2	Inner Products	72
+capitulo-01\mml-book.pdf	sec	3.3	Lengths and Distances	75
+capitulo-01\mml-book.pdf	sec	3.4	Angles and Orthogonality	76
+capitulo-01\mml-book.pdf	sec	3.5	Orthonormal Basis	78
+capitulo-01\mml-book.pdf	sec	3.6	Orthogonal Complement	79
+capitulo-01\mml-book.pdf	sec	3.7	Inner Product of Functions	80
+capitulo-01\mml-book.pdf	sec	3.8	Orthogonal Projections	81
+capitulo-01\mml-book.pdf	sec	3.9	Rotations	91
+capitulo-02\El arte de la estadística.pdf	sec	2.6	Coeficientes de correlacion de Pearson de	0
+capitulo-02\El arte de la estadística.pdf	sec	7.2	Re-muestreos bootstrap a partir de una muestra original de	50
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	2	Probabilidad	50
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	3	Propagacion de errores	157
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	5	Intervalos de confianza	300
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	10	Control estadistico de calidad	723
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	Capitulo			1
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	1.1	Muestreo	3
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	1.2	Resumen estadistico	13
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	1.3	Resumenes graficos	25
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	Capitulo			2
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	2.1	Ideas basicas	50
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	2.2	Metodos de conteo (opcional)	62
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	2.4	Variables aleatorias	88
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	Capitulo			3
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	3.1	Error de medicion	157
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	Capitulo			4
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.1	Distribucion de Bernoulli	192
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.2	La distribucion binomial	195
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.3	La distribucion de Poisson	206
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.5	Distribucion normal	231
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.6	Distribucion lognormal	244
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.7	La distribucion exponencial	250
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.9	Graficas de probabilidad	265
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.10	El teorema del limite central	270
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	sec	4.11	Simulacion	281
+capitulo-02\ESTADISITICA PARA INGENIEROS Y CIENTIFICOS Navidi.pdf	Capitulo			5
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	1	2 3 4 5 6 7 15 14 13	12
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	1	Estadistica	1
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	4	Probabilidad	172
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	5	Distribuciones de probabilidad (variables discretas)	230
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	6	Distribuciones de probabilidad normal	268
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	7	Variabilidad muestral	312
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	8	Introduccion a la inferencia estadistica	340
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	9	Inferencias que involucran una poblacion	412
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	10	Inferencias que involucran dos poblaciones	478
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	11	Aplicaciones de ji cuadrada	544
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	12	Analisis de varianza	578
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	13	Analisis de correlacion y de regresion lineales	612
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	14	Elementos de estadistica no parametrica	662
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	1.2	Mensurabilidad y variabilidad	14
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	1.3	Recoleccion de datos	15
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	1.4	Estadistica y tecnologia	24
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	2	Analisis descriptivo y presentacion de datos de una variable	32
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.1	Graficas, diagramas de Pareto y diagramas de tallo y hojas	32
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.2	Distribuciones de frecuencia e histogramas	47
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.3	Medidas de tendencia central	63
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.4	Medidas de dispersion	74
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.5	Medidas de posicion	82
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.6	Interpretacion y comprension de la desviacion estandar	95
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	sec	2.7	El arte del engano estadistico	102
+capitulo-02\ESTADISTICA ELEMENTAL 11 Johnson.pdf	Capitulo	3	Analisis descriptivo y presentacion de datos bivariados	120
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1	Introduction	1
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	Part	I	Hypothesis Testing	23
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	2	Binary Hypothesis Testing	25
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	3	Multiple Hypothesis Testing	54
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	4	Composite Hypothesis Testing	71
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	5	Signal Detection	105
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	6	Convex Statistical Distances	145
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	7	Performance Bounds for Hypothesis Testing	160
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	8	Large Deviations and Error Exponents for Hypothesis Testing	184
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	9	Sequential and Quickest Change Detection	208
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	10	Detection of Random Processes	231
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	Part	II	Estimation	257
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	11	Bayesian Parameter Estimation	259
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	12	Minimum Variance Unbiased Estimation	280
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	13	Information Inequality and CramerRao Lower Bound	297
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	14	Maximum Likelihood Estimation	319
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	15	Signal Estimation	358
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.1	Background	1
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.2	Notation	1
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.2.1	Probability Distributions	2
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.2.2	Conditional Probability Distributions	2
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.2.3	Expectations and Conditional Expectations	3
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.2.4	Unified Notation	3
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.2.5	General Random Variables	3
+capitulo-02\Statistical Inference for Engineers and Data Scientists.pdf	sec	1.3	Statistical Inference	4
+capitulo-03\Ciencia de datos desde cero.pdf	NO_INDEX_FOUND			
+capitulo-03\Ciencia-de-los-datos-con-python-1ra-edicion-contenido.pdf	Capitulo	1.	El lenguaje Python ...................................................................	1
+capitulo-03\Ciencia-de-los-datos-con-python-1ra-edicion-contenido.pdf	Capitulo	3.	Adquisicion y manipulacion de datos ..............................	121
+capitulo-03\Ciencia-de-los-datos-con-python-1ra-edicion-contenido.pdf	Capitulo	6.	Proyectos de las ciencias de datos ...................................	161
+capitulo-03\Data Science _ Concepts and Practice.pdf	CHAPTER			1
+capitulo-03\Data Science _ Concepts and Practice.pdf	CHAPTER			2
+capitulo-03\Web Scraping with Python, 2nd Edition.pdf	CHAPTER			1
+capitulo-03\Web Scraping with Python, 2nd Edition.pdf	CHAPTER			2
+capitulo-03\WebScraping_Modulo1_WebScraping.pdf	NO_INDEX_FOUND			
+capitulo-04\AI and Machine Learning for Coders A Programmers Guide to Artificial Intelligence.pdf	CHAPTER			1
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			1
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			2
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			4
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			7
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			14
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			15
+capitulo-04\Aurelien-Geron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-OReilly-Media-2019.pdf	Chapter			16
+capitulo-04\Genetic Algorithms and Machine Learning for Programmers.pdf	CHAPTER			1
+capitulo-04\Genetic Algorithms and Machine Learning for Programmers.pdf	CHAPTER			2
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1	Introduction	1
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1.1	Neural Networks	5
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1.2	McCulloch-Pitts Neurons	7
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1.3	Activation Functions	9
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1.4	Asynchronous Updates	11
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1.5	Summary	11
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	1.6	Further Reading	11
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2	Deterministic Hopfield Networks	15
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.1	Pattern Recognition	15
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.2	Hopfield Networks and Hebbs Rule	16
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.3	The Cross-Talk Term	22
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.4	One-Step Error Probability	23
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.5	Energy Function	27
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.6	Summary	30
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	2.7	Exercises	31
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3	Stochastic Hopfield Networks	34
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.1	Stochastic Dynamics	34
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.2	Order Parameters	35
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.3	Mean-Field Theory	37
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.4	Critical Storage Capacity	41
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.5	Beyond Mean-Field Theory	47
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.6	Correlated and Non-Random Patterns	49
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.7	Summary	50
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.8	Further Reading	50
+capitulo-04\Machine learning with neural networks _ an introduction.pdf	sec	3.9	Exercises	50
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	1	About the Book ...............................................	1
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	2	Introduction to AI .............................................	5
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	2.1	What Is Artificial Intelligence? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52.2 How Does the Machine Lea	6
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	2.3	History of Artificial Intelligence . . . . . . . . . . . . . . . . . . . . . . . . . . . .	6
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	2	. 4 T h eC h a t G P TE r a ........................................ 72 . 5 T h eT u r i n gT e s t ....................	8
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	3	Pattern Recognition ........................................... 1	1
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	3	. 1 I d e n t i f yt h eN e x tN u m b e ri nt h eS e r i e s ...................... 1	1
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	3.2	Answers and Explanation to the Multiple-Choice Questions . . . .	12
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	3.3	Pattern Recognition in Machine Learning . . . . . . . . . . . . . . . . . . . .	13
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4	Introduction to Machine Learning .............................. 1	5
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.1	An Introduction to Machine Learning . . . . . . . . . . . . . . . . . . . . . . .	15
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.1.1	The Example of Spam Filters . . . . . . . . . . . . . . . . . . . . . .	16
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.2	Working of ML Models/Algorithms . . . . . . . . . . . . . . . . . . . . . . . . .	17
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.2.2	Selecting an ML Model . . . . . . . . . . . . . . . . . . . . . . . . . . .	18
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.3	Different Types of Machine Learning . . . . . . . . . . . . . . . . . . . . . . .	18
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.3.1	Supervised Learning . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	18
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.3.2	Unsupervised Learning . . . . . . . . . . . . . . . . . . . . . . . . . . .	19
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.3.3	Semi-supervised Learning . . . . . . . . . . . . . . . . . . . . . . . . 194 . 3 . 4 R e i n f o r c e m e n tL e a r n 	0
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	4.4	Focus of This Book . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	21
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	5	Variables and Data Types ...................................... 2	3
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	5.1	Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	24
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	5.2	Independent and Dependent Variables . . . . . . . . . . . . . . . . . . . . . . . 245.3 Mathematical Understanding of Va	24
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	5.4	History of the Function y=f(X) ........................... 2	5
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	5.4.1	Functions in Modern-Day Mathematics . . . . . . . . . . . . .	26
+capitulo-04\Mastering Machine Learning From Basics to Advanced.pdf	sec	5.5	Variables in Machine Learning . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	27
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1	Basic Notions	1
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.1	Object Recognition	1
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.2	Pattern Similarity and PRTasks	2
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.2.1	Classification Tasks	3
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.2.2	Regression Tasks	6
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.2.3	DescriptionTasks	8
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.3	Classes, Patterns and Features	9
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.4	PR Approaches	13
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.4.1	DataClustering	14
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.4.2	Statistical Classification	14
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.4.3	Neural Networks	15
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.4.4	Structural PR	16
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.5	PR Project	16
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.5.1	ProjectTasks	16
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.5.2	Training andTesting	18
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	1.5.3	PR Software	18
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2	Pattern Discrimination	21
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.1	Decision Regions and Functions	21
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.1.1	Generalized Decision Functions	23
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.1.2	Hyperplane Separability	26
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.2	Feature Space Metrics	29
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.3	The Covariance Matrix	33
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.4	PrincipalComponents	39
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.5	FeatureAssessment	41
+capitulo-04\Pattern recognition _ concepts, methods, and applications.pdf	sec	2.5.1	GraphicInspection	42
+capitulo-05\Gradient Expectations.pdf	sec	1	Introduction	1
+capitulo-05\Gradient Expectations.pdf	sec	1.1	Datafrom Predictions	2
+capitulo-05\Gradient Expectations.pdf	sec	1.2	Movement and Prediction	3
+capitulo-05\Gradient Expectations.pdf	sec	1.3	Adaptation and Emergence	5
+capitulo-05\Gradient Expectations.pdf	sec	1.3.1	Gradients and Emergence in Neural Networks	7
+capitulo-05\Gradient Expectations.pdf	sec	1.4	Overflowing Expectations	9
+capitulo-05\Gradient Expectations.pdf	sec	2	Conceptual Foundations of Prediction	11
+capitulo-05\Gradient Expectations.pdf	sec	2.1	Compare and Err	12
+capitulo-05\Gradient Expectations.pdf	sec	2.2	Guesses and Goals	12
+capitulo-05\Gradient Expectations.pdf	sec	2.3	Gradients	14
+capitulo-05\Gradient Expectations.pdf	sec	2.3.1	Gradients Rising	16
+capitulo-05\Gradient Expectations.pdf	sec	2.4	Sequences	18
+capitulo-05\Gradient Expectations.pdf	sec	2.5	Abstracting by Averaging	20
+capitulo-05\Gradient Expectations.pdf	sec	2.6	Control and Prediction	21
+capitulo-05\Gradient Expectations.pdf	sec	2.7	Predictive Coding	24
+capitulo-05\Gradient Expectations.pdf	sec	2.8	Tracking MarrsTiers	25
+capitulo-05\Gradient Expectations.pdf	sec	3	Biological Foundations of Prediction	29
+capitulo-05\Gradient Expectations.pdf	sec	3.1	Gradient-Following Bacteria	29
+capitulo-05\Gradient Expectations.pdf	sec	3.2	Neural MotifsforGradient Calculation	30
+capitulo-05\Gradient Expectations.pdf	sec	3.3	Birthofa PID Controller	37
+capitulo-05\Gradient Expectations.pdf	sec	3.3.1	Adaptive Control in the Cerebellum	39
+capitulo-05\Gradient Expectations.pdf	sec	3.4	Detectors and Generators	43
+capitulo-05\Gradient Expectations.pdf	sec	3.4.1	The Hippocampus	48
+capitulo-05\Gradient Expectations.pdf	sec	3.4.2	Conceptual Embedding in the Hippocampus	51
+capitulo-05\Gradient Expectations.pdf	sec	3.5	Gradients of Predictions inthe Basal Ganglia	55
+capitulo-05\The_MIT_Press_Probabilistic_Machine_Lear.pdf	sec	10	9 8 7 6 5 4 3 2	1
+capitulo-06\d2l-en.pdf	sec	1	Introduction	1
+capitulo-06\d2l-en.pdf	sec	1.1	A Motivating Example	2
+capitulo-06\d2l-en.pdf	sec	1.2	Key Components	4
+capitulo-06\d2l-en.pdf	sec	1.3	Kinds of Machine Learning Problems	7
+capitulo-06\d2l-en.pdf	sec	1.4	Roots	20
+capitulo-06\d2l-en.pdf	sec	1.5	The Road to Deep Learning	22
+capitulo-06\d2l-en.pdf	sec	1.6	Success Stories	25
+capitulo-06\d2l-en.pdf	sec	1.7	The Essence of Deep Learning	27
+capitulo-06\d2l-en.pdf	sec	1.8	Summary	29
+capitulo-06\d2l-en.pdf	sec	1.9	Exercises	29
+capitulo-06\d2l-en.pdf	sec	2	Preliminaries	30
+capitulo-06\d2l-en.pdf	sec	2.1	Data Manipulation	30
+capitulo-06\d2l-en.pdf	sec	2.1.1	Getting Started	30
+capitulo-06\d2l-en.pdf	sec	2.1.2	Indexing and Slicing	33
+capitulo-06\d2l-en.pdf	sec	2.1.3	Operations	34
+capitulo-06\d2l-en.pdf	sec	2.1.4	Broadcasting	35
+capitulo-06\d2l-en.pdf	sec	2.1.5	Saving Memory	36
+capitulo-06\d2l-en.pdf	sec	2.1.6	Conversion to Other Python Objects	37
+capitulo-06\d2l-en.pdf	sec	2.1.7	Summary	37
+capitulo-06\d2l-en.pdf	sec	2.1.8	Exercises	38
+capitulo-06\d2l-en.pdf	sec	2.2	Data Preprocessing	38
+capitulo-06\d2l-en.pdf	sec	2.2.1	Reading the Dataset	38
+capitulo-06\d2l-en.pdf	sec	2.2.2	Data Preparation	39
+capitulo-06\d2l-en.pdf	sec	2.2.3	Conversion to the Tensor Format	40
+capitulo-06\d2l-en.pdf	sec	2.2.4	Discussion	40
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	Chapter	1	n Introduction to Deep Learning	1
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.1	INTRODUCTION	1
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.2	THE NEED: WHY DEEP LEARNING?	2
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.4	DEEP LEARNING APPLICATIONS	4
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.4.1	Self-Driving Cars	4
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.4.2	Emotion Detection	5
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.4.3	Natural Language Processing	5
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.4.4	Entertainment	7
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	1.4.5	Healthcare	8
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	Chapter	2	n The Tools and the Prerequisites	13
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	2.1	INTRODUCTION	13
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	2.2	THE TOOLS	14
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	2.2.1	Python Libraries Must Know	14
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	2.2.2	The Installation Phase	16
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	2.3	DATASETS A QUICK GLANCE	27
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	Chapter	3	n Machine Learning: The Fundamentals	29
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.1	INTRODUCTION	29
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.2	THE DEFINITIONS YET ANOTHER TIME	30
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.3	MACHINE LEARNING ALGORITHMS	31
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.3.1	Supervised Learning Algorithms	31
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.3.2	The Unsupervised Learning Algorithms	33
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.3.3	Reinforcement Learning	35
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.3.4	Evolutionary Approach	36
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.4	HOW/ WHY DO WE NEED ML?	36
+capitulo-06\Deep Learning _ A Comprehensive Guide.pdf	sec	3.5	THE ML FRAMEWORK	37
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	1	T HE ROSENBLATT PERCEPTRON	1
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	2	G RADIENT-BASED LEARNING	37
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	3	S IGMOID NEURONS AND BACKPROPAGATION	59
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	5	T OWARD DL: FRAMEWORKS AND NETWORK TWEAKS	117
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	8	DEEPER CNN s AND PRETRAINED MODELS	205
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	10	LO NG SHORT-TERM MEMORY	267
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	13	W ORD EMBEDDINGS FROM word 2vec AND G loVe	343
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	15	A TTENTION AND THE TRANSFORMER	393
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	16	O NE-TO-MANY NETWORK FOR IMAGE CAPTIONING	417
+capitulo-06\Learning Deep Learning _ Theory and Practice of Neural.pdf	sec	17	MEDL EY OF ADDITIONAL TOPICS	447
+capitulo-06\The Science of Deep Learning.pdf	sec	11.6.11	BellmanExpectationEquationforActionValueFunction	214
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 7 O p t i m a lP o l i c y...........................	214
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 7 . 1 O p t i m a lV a l u eF u n c t i o n.................	215
+capitulo-06\The Science of Deep Learning.pdf	sec	11.7.2	Bellman Optimality Equation for V..........	215
+capitulo-06\The Science of Deep Learning.pdf	sec	11.7.3	Bellman Optimality Equation for Q..........	216
+capitulo-06\The Science of Deep Learning.pdf	sec	11.8	Planning by Dynamic Programming with a Known MDP . . .	218
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 8 . 1 I t e r a t i v eP o l i c yE v a l u a t i o n................	218
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 8 . 2 P o l i c yI t e r a t i o n......................	218
+capitulo-06\The Science of Deep Learning.pdf	sec	11.8.3	Infinite Horizon Value Iteration . . . . . . . . . . . . .	219
+capitulo-06\The Science of Deep Learning.pdf	sec	11.9	Reinforcement Learning . . . . . . . . . . . . . . . . . . . . . .	219
+capitulo-06\The Science of Deep Learning.pdf	sec	11.9.1	Model-Based Reinforcement Learning . . . . . . . . . .	221
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 9 . 2 P o l i c yS e a r c h .......................	222
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 9 . 3 M o n t eC a r l oS a m p l i n g..................	222
+capitulo-06\The Science of Deep Learning.pdf	sec	11.9.4	Temporal Difference Sampling . . . . . . . . . . . . . .	222
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 9 . 6 S a r s a............................	226
+capitulo-06\The Science of Deep Learning.pdf	sec	11.9.7	On-Policy vs. Off-Policy Methods . . . . . . . . . . . .	227
+capitulo-06\The Science of Deep Learning.pdf	sec	11.9.8	Sarsa( )..........................	227
+capitulo-06\The Science of Deep Learning.pdf	sec	11.10	Maximum Entropy Reinforcement Learning . . . . . . . . . . .	227
+capitulo-06\The Science of Deep Learning.pdf	sec	1	1 . 1 1S u m m a r y..............................	228
+capitulo-06\The Science of Deep Learning.pdf	sec	12	Deep Reinforcement Learning	229
+capitulo-06\The Science of Deep Learning.pdf	sec	1	2 . 1 I n t r o d u c t i o n............................	229
+capitulo-06\The Science of Deep Learning.pdf	sec	1	2 . 2 F u n c t i o nA p p r o x i m a t i o n .....................	230
+capitulo-06\The Science of Deep Learning.pdf	sec	12.2.1	State Value Function Approximation . . . . . . . . . .	230
+capitulo-06\The Science of Deep Learning.pdf	sec	12.2.2	Action Value Function Approximation . . . . . . . . .	231
+capitulo-06\The Science of Deep Learning.pdf	sec	1	2 . 3 V a l u e - B a s e dM e t h o d s....................... 2 3	2
+capitulo-07\2407.18384v4.pdf	sec	1	Introduction	10
+capitulo-07\2407.18384v4.pdf	sec	1.1	Mathematics of deep learning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	10
+capitulo-07\2407.18384v4.pdf	sec	1.2	High-level overview of deep learning . . . . . . . . . . . . . . . . . . . . . . . . . . .	10
+capitulo-07\2407.18384v4.pdf	sec	1.3	Why does it work? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	13
+capitulo-07\2407.18384v4.pdf	sec	1.4	Outline and philosophy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	15
+capitulo-07\2407.18384v4.pdf	sec	1.5	Material not covered in this book . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	17
+capitulo-07\2407.18384v4.pdf	sec	2	Feedforward neural networks	19
+capitulo-07\2407.18384v4.pdf	sec	2.1	Formal definition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	19
+capitulo-07\2407.18384v4.pdf	sec	2.2	Notion of size . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	22
+capitulo-07\2407.18384v4.pdf	sec	2.3	Activation functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	23
+capitulo-07\2407.18384v4.pdf	sec	3	Universal approximation	26
+capitulo-07\2407.18384v4.pdf	sec	3.1	A universal approximation theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . .	26
+capitulo-07\2407.18384v4.pdf	sec	3.2	Superexpressive activations and Kolmogorovs superposition theorem . . . . . . . .	36
+capitulo-07\2407.18384v4.pdf	sec	4	Splines	42
+capitulo-07\2407.18384v4.pdf	sec	4.1	B-splines and smooth functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	42
+capitulo-07\2407.18384v4.pdf	sec	4.2	Reapproximation of B-splines with sigmoidal activations . . . . . . . . . . . . . . . .	43
+capitulo-07\2407.18384v4.pdf	sec	5	ReLU neural networks	50
+capitulo-07\2407.18384v4.pdf	sec	5.1	Basic ReLU calculus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	50
+capitulo-07\2407.18384v4.pdf	sec	5.2	Continuous piecewise linear functions . . . . . . . . . . . . . . . . . . . . . . . . . . .	55
+capitulo-07\2407.18384v4.pdf	sec	5.3	Simplicial pieces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	61
+capitulo-07\2407.18384v4.pdf	sec	5.4	Convergence rates for H older continuous functions . . . . . . . . . . . . . . . . . . .	67
+capitulo-07\2407.18384v4.pdf	sec	6	Affine pieces for ReLU neural networks	72
+capitulo-07\2407.18384v4.pdf	sec	6.1	Upper bounds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	73
+capitulo-07\2407.18384v4.pdf	sec	6.2	Tightness of upper bounds . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	75
+capitulo-07\2407.18384v4.pdf	sec	6.3	Number of pieces in practice . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .	76
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1	Introductory Problems ..............................	3
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.1	Water in a Sink ................................	3
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.2	An Electronic Circuit ............................	5
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.3	The Eight Rooks Problem ........................	7
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.4	Biological Neuron ...............................	9
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.5	Linear Regression ...............................	11
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.6	The Cocktail Factory Network .....................	14
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.7	An Electronic Network ...........................	15
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.8	Summary .....................................	17
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	1.9	Exercises .....................................	18
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	2	Activation Functions ................................	21
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	2.1	Examples of Activation Functions ..................	21
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	2.2	Sigmoidal Functions .............................	32
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	2.3	Squashing Functions ............................	36
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	2.4	Summary .....................................	37
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	2.5	Exercises .....................................	38
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3	Cost Functions .....................................	41
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.1	Input, Output, and Target ........................	41
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.2	The Supremum Error Function ....................	42
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.3	The L2-Error Function ...........................	42
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.4	Mean Square Error Function ......................	43
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.5	Cross-entropy .................................	46
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.6	Kullback-Leibler Divergence .......................	48
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.7	Jensen-Shannon Divergence .......................	51
+capitulo-07\Deep Learning Architectures_ A Mathematical Approach.pdf	sec	3.8	Maximum Mean Discrepancy ......................	51
+capitulo-07\Deep Learning by Ian Goodfellow, Yoshua Bengio, Aaron Courville (z-lib.org).pdf	NO_INDEX_FOUND			
+capitulo-07\Neural networks and learning machines .pdf	sec	10	9 8 7 6 5 4 3 2	1
+capitulo-07\Neural networks and learning machines .pdf	Chapter	1	Rosenblatts Perceptron	47
+capitulo-07\Neural networks and learning machines .pdf	sec	1.1	Introduction 471.2. Perceptron 481.3. The Perceptron Convergence Theorem 501.4. Relation Between the Perceptron and Baye	65
+capitulo-07\Neural networks and learning machines .pdf	Chapter	2	Model Building through Regression	68
+capitulo-07\Neural networks and learning machines .pdf	sec	2.5	Computer Experiment: Pattern Classification 772.6 The Minimum-Description-Length Principle 792.7 Finite Sample-Size Cons	86
+capitulo-07\Neural networks and learning machines .pdf	sec	2.9	Summary and Discussion	88
+capitulo-07\Neural networks and learning machines .pdf	Chapter	3	The Least-Mean-Square Algorithm	91
+capitulo-07\Neural networks and learning machines .pdf	sec	3.1	Introduction	91
+capitulo-07\Neural networks and learning machines .pdf	sec	3.7	The Langevin Equation: Characterization of Brownian Motion	106
+capitulo-07\Neural networks and learning machines .pdf	sec	3.8	Kushners Direct-Averaging Method	107
+capitulo-07\Neural networks and learning machines .pdf	sec	3.9	Statistical LMS Learning Theory for Small Learning-Rate Parameter 1083.10 Computer Experiment I: Linear Prediction 1103.	117
+capitulo-07\Neural networks and learning machines .pdf	Chapter	4	Multilayer Perceptrons	122
+capitulo-07\Neural networks and learning machines .pdf	sec	4.1	Introduction 1234.2 Some Preliminaries 1244.3 Batch Learning and On-Line Learning 1264.4 The Back-Propagation Algorithm 	157
+capitulo-07\Neural networks and learning machines .pdf	sec	4.11	Generalization 1644.12 Approximations of Functions	166
+capitulo-07\Neural networks and learning machines .pdf	sec	4.13	Cross-Validation 1714.14 Complexity Regularization and Network Pruning 1754.15 Virtues and Limitations of Back-Propagati	217
+capitulo-07\Neural networks and learning machines .pdf	Chapter	5	Kernel Methods and Radial-Basis Function Networks	230
+capitulo-07\Neural networks and learning machines .pdf	sec	5.1	Introduction 2305.2 Covers Theorem on the Separability of Patterns 2315.3 The Interpolation Problem 2365.4 Radial-Basis-	245
+capitulo-07\Neural networks and learning machines .pdf	sec	5.7	Hybrid Learning Procedure for RBF Networks 2495.8 Computer Experiment: Pattern Classification 2505.9 Interpretations of 	252
+capitulo-07\Neural networks and learning machines .pdf	sec	5.10	Kernel Regression and Its Relation to RBF Networks	255
+capitulo-07\Neural networks and learning machines .pdf	sec	5.11	Summary and Discussion	259
+capitulo-07\Neural networks and learning machines .pdf	Chapter	6	Support Vector Machines	268
+capitulo-07\Neural networks and learning machines .pdf	sec	6.1	Introduction 2686.2 Optimal Hyperplane for Linearly Separable Patterns 2696.3 Optimal Hyperplane for Nonseparable Patter	302
+capitulo-07\Neural networks and learning machines .pdf	Chapter	7	Regularization Theory	313
+capitulo-07\Neural networks and learning machines .pdf	sec	7.1	Introduction 3137.2 Hadamards Conditions for Well-Posedness 3147.3 Tikhonovs Regularization Theory 3157.4 Regularization	359
+capitulo-07\Neural networks and learning machines .pdf	Chapter	8	Principal-Components Analysis	367
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	Chapter	1	: ANN Preliminaries .................................................................	1
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	1.1	Introduction .................................................................................... 1 1.2 ANN Architecture	4
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	1.3.1	Backpropagation Algorithm or Delta Learning Rule ..............	5
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	1.4	Activation Function (or Transfer Function) ...................................	7
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	1.4.1	Sigmoid function ..................................................................... 8 1.4.2 Tanh function ...........	8
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	1.5	Conclusion ......................................................................................	9
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	Chapter	2	: Mathematical Preliminaries ..................................................	12
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	2.1	Introduction ..................................................................................	12
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	2.2	Polynomial Equations ................................................................... 12 2.3 Transcendental Equations	15
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	2.7	Eigenvalue Problems ....................................................................	15
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	2.8	Nonlinear Eigenvalue Problem (NEP) .........................................	16
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	3.1	Introduction ..................................................................................	19
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	3.2	General model of a polynomial equation .....................................	20
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	3.2.1	ANN procedure for solving polynomial equation .................	20
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	3.3	Numerical Examples .................................................................... 25 3.4 Bakery Problem ..........	45
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	4.1	Introduction ..................................................................................	47
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	4.2	General model of a tr anscendental equation .................................	48
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	4.3	Numerical Examples .................................................................... 49 4.4 Application Problem .....	67
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	Chapter	5	: Diophantine Equations in Pole placement ............................	69
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	5.1	Introduction ..................................................................................	69
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	5.2	General model of a Diophantine Equation ...................................	70
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	5.2.1	ANN Procedure for solving Diophantine equation ...............	70
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	5.3	Numerical Examples .................................................................... 75 5.4 Application Problem .....	84
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	6.1	Introduction .................................................................................. 87 6.2 ANN-based methodo	88
+capitulo-08\Applied artificial neural network methods for engineers and.pdf	sec	6.3	Numerical Examples ....................................................................	90
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1	Introducing deep learning and the PyTorch Library	3
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1.1	The deep learning revolution	4
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1.2	PyTorch for deep learning	6
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1.3	Why PyTorch?	7
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1.5	Hardware and software requirements	13
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1.6	Exercises	15
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	1.7	Summary	15
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2	Pretrained networks	16
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2.2	A pretrained model that fakes it until it makes it	27
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2.3	A pretrained network that describes scenes	33
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2.4	Torch Hub	35
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2.5	Conclusion	37
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2.6	Exercises	38
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	2.7	Summary	38
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3	It starts with a tensor	39
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.1	The world as floating-point numbers	40
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.2	Tensors: Multidimensional arrays	42
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.3	Indexing tensors	46
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.4	Named tensors	46
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.5	Tensor element types	50
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.6	The tensor API	52
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.7	Tensors: Scenic views of storage	53
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.8	Tensor metadata: Size, offset, and stride	55
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.9	Moving tensors to the GPU	62
+capitulo-08\Deep Learning With Pytorch_ Code.pdf	sec	3.10	NumPy interoperability	64
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.1	THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY	9
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.1	THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY	11
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.1	THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY	13
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.1	THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY	15
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.1	THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY	17
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.1	THE DYNAMICAL SYSTEM AS AN OBJECT OF STUDY	19
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.2	DYNAMICAL SYSTEMS AND THE PROBLEM OF ADAPTABILITY	21
+capitulo-08\Neural Network Modeling and Identification of Dynamical.pdf	sec	1.2	DYNAMICAL SYSTEMS AND THE PROBLEM OF ADAPTABILITY	23
+capitulo-08\programming-with-tensorflow-2021.pdf	sec	1	Springer Nature Switzerland AG	2021
+capitulo-08\programming-with-tensorflow-2021.pdf	sec	5	Springer Nature Switzerland AG	2021
+capitulo-08\programming-with-tensorflow-2021.pdf	sec	15	Springer Nature Switzerland AG	2021
+capitulo-08\programming-with-tensorflow-2021.pdf	sec	23	Springer Nature Switzerland AG	2021
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	1	WhatIsAttention?. . . . . . . . . . . . . . . . . . . . . . . . . . .	2
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	2	ABirdsEyeViewofResearchonAttention. . . . . . . . . . . . . . . .	7
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	3	ATourofAttention-BasedArchitectures . . . . . . . . . . . . . . . . .	15
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	4	TheBahdanauAttentionMechanism . . . . . . . . . . . . . . . . . . .	23
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	5	TheLuongAttentionMechanism. . . . . . . . . . . . . . . . . . . . .	28
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	6	AnIntroductiontoRecurrentNeuralNetworks. . . . . . . . . . . . . . .	34
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	7	UnderstandingSimpleRecurrentNeuralNetworksinKeras . . . . . . . . .	40
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	8	TheAttentionMechanismfromScratch. . . . . . . . . . . . . . . . . .	49
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	9	AddingaCustomAttentionLayertoRecurrentNeuralNetworkinKeras . . .	55
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	10	TheTransformerAttentionMechanism . . . . . . . . . . . . . . . . . .	66
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	11	TheTransformerModel. . . . . . . . . . . . . . . . . . . . . . . . .	72
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	12	TheVisionTransformerModel. . . . . . . . . . . . . . . . . . . . . .	79
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	13	PositionalEncodinginTransformerModels . . . . . . . . . . . . . . . .	87
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	14	TransformerPositionalEncodingLayerinKeras . . . . . . . . . . . . . .	94
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	15	ImplementingScaledDot-ProductAttentioninKeras. . . . . . . . . . . .	104
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	16	ImplementingMulti-HeadAttentioninKeras . . . . . . . . . . . . . . .	111
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	17	ImplementingtheTransformerEncoderinKeras. . . . . . . . . . . . . .	121
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	18	ImplementingtheTransformerDecoderinKeras. . . . . . . . . . . . . .	131
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	19	JoiningtheTransformerEncoderandDecoderwithMasking. . . . . . . . .	140
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	20	TrainingtheTransformerModel . . . . . . . . . . . . . . . . . . . . .	151
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	21	PlottingtheTrainingandValidationLossCurvesfortheTransformerModel. .	165
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	22	InferencewiththeTransformerModel. . . . . . . . . . . . . . . . . . .	176
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	23	ABriefIntroductiontoBERT. . . . . . . . . . . . . . . . . . . . . .	185
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	1	What Is Attention?	2
+capitulo-09\Building Transformer Models with Attention Implementing a Neural Machine Translator from Scratch in Keras.pdf	sec	2	A Birds Eye View of Research on Attention	7
+capitulo-09\Mastering Transformers _ Build State-of-the-art Models From.pdf	NO_INDEX_FOUND			
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1	Edge AI LoRa Mesh Technologies	1
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.1	Introduction . . . . . . . . . . . . . . . . . . . . . . . . . .	2
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.2	Overview of the State-of-the-Art Wireless Mesh Technologies	5
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.2.1	Mesh components and roles . . . . . . . . . . . . .	6
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.2.2	Wireless routing concepts . . . . . . . . . . . . . .	7
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3	Routing protocols . . . . . . . . . . . . . . . . . . . . . . .	8
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.1	Ad hoc on-demand distance vector (AODV) . . . . .	9
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.2	Optimized link state routing (OLSR) . . . . . . . . .	10
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.3	Dynamic source routing (DSR) . . . . . . . . . . .	11
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5	Wireless mesh protocols . . . . . . . . . . . . . . .	13
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.1	B.A.T.M.A.N . . . . . . . . . . . . . . .	13
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.2	Bluetooth Low Energy . . . . . . . . . . .	14
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.3	OpenThread and Thread . . . . . . . . . .	15
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.4	ZigBee . . . . . . . . . . . . . . . . . . .	15
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.5	Wi-Fi . . . . . . . . . . . . . . . . . . . .	16
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.6	Wi-SUN . . . . . . . . . . . . . . . . . .	18
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.7	WirelessHART . . . . . . . . . . . . . . .	18
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.8	Z-WA VE . . . . . . . . . . . . . . . . . .	20
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.3.5.9	6LoWPAN . . . . . . . . . . . . . . . . .	21
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.4	LoRa and LoRaWAN Technology . . . . . . . . . . . . . .	22
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.4.1	LoRa physical layer . . . . . . . . . . . . . . . . .	22
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.4.2	LoRaWAN protocol . . . . . . . . . . . . . . . . .	24
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.4.3	2.4 GHz LoRa . . . . . . . . . . . . . . . . . . . .	26
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.5	LoRa Mesh and Enabling AI Technologies . . . . . . . . . .	27
+capitulo-10\Advancing Edge Artificial Intelligence System Contexts.pdf	sec	1.6	Applications for LoRa Mesh . . . . . . . . . . . . . . . . .	28
+capitulo-10\Mastering MLOps Architecture From Code to Deployment Manage the production cycle of continual learning ML models with MLOps.pdf	NO_INDEX_FOUND			
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	2	Signaling in the Visual System	23
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	3	Functional Architecture of the Visual Cortex	43
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	4	Ion Channels and Signaling	63
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	5	Structure of Ion Channels	77
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	6	Ionic Basis of the Resting Potential	99
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	7	Ionic Basis of the Action Potential	113
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	8	Electrical Signaling in Neurons	129
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	10	Properties and Functions of Neuroglial Cells	159
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	12	Indirect Mechanisms of Synaptic Transmission	213
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	13	Release of Neurotransmitters	243
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	14	Neurotransmitters in the Central Nervous System 2	73
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	15	Transmitter Synthesis, Transport, Storage, and Inactivation	299
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	16	Synaptic Plasticity 317PART IV Integrative Mechanisms	335
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	17	Autonomic Nervous System	337
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	18	Cellular Mechanisms of Behavior in Ants, Bees, and Leeches	355
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	PART	V	Sensation and Movement	383
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	19	Sensory Transduction	385
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	20	Transduction and Transmission in the Retina	407
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	21	Touch, Pain, and Texture Sensation	433
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	22	Auditory and Vestibular Sensation	453
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	23	Constructing Perception	475
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER			24
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	26	Critical Periods in Sensory Systems	565
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	CHAPTER	27	Regeneration of Synaptic Connections after Injury	589
+capitulo-11\From Neuron to Brain, Fifth Editio.pdf	PART	VII	Conclusion	613
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1	Concepts, Libraries, and Essential Tools in Machine Learning and Deep Learning	1
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1	Learning Styles for Machine Learning	2
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.1	Supervised Learning	2
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.1.1	Overfitting and Underfitting	3
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.1.2	K-Folds Cross-Validation	4
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.1.3	Train/Test Split	4
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.1.4	Confusion Matrix	5
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.1.5	Loss Functions	7
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.2	Unsupervised Learning	9
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.3	Semi-Supervised Learning	9
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.1.4	Reinforcement Learning	9
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2	Essential Python Tools for Machine Learning	9
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.1	Data Manipulation with Python	10
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.2	Python Machine Learning Libraries	10
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.2.1	Scikit-learn	10
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.2.2	TensorFlow	10
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.2.3	Keras	12
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.2.4	PyTorch	12
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.2.3	Jupyter Notebook and JupyterLab	13
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.3	HephAIstos for Running Machine Learning on CPUs, GPUs, and QPUs	13
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.3.1	Installation	13
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.3.2	HephAIstos Function	15
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	1.4	Where to Find the Datasets and Code Examples	32
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	2	Feature Engineering Techniques in Machine Learning	35
+capitulo-11\Machine Learning Theory and Applications Hands-on Use Cases with Python on Classical and Quantum Machines.pdf	sec	2.1	Feature Rescaling: Structured Continuous Numeric Data	36
+capitulo-11\Modeling Life.pdf	sec	1	. 1 F e e d b a c k......................................	1
+capitulo-11\Modeling Life.pdf	sec	1	. 2 F u n c t i o n s ......................................	8
+capitulo-11\Modeling Life.pdf	sec	1	. 3 S t a t e s a n d S t a t e S p a c e s ............................ . 1	5
+capitulo-11\Modeling Life.pdf	sec	1	. 4 M o d e l i n g C h a n g e ................................. 2	3
+capitulo-11\Modeling Life.pdf	sec	1	. 5 S e e i n g C h a n g e G e o m e t r i c a l l y ....................... .... 4	8
+capitulo-11\Modeling Life.pdf	sec	1	. 6 T r a j e c t o r i e s .................................... 5	3
+capitulo-11\Modeling Life.pdf	sec	3	- D i m e n s i o n a l S y s t e m s ........................... 5	8
+capitulo-11\Modeling Life.pdf	sec	1	. 7 C h a n g e a n d B e h a v i o r ............................... 6	3
+capitulo-11\Modeling Life.pdf	sec	2.1	What IsX? .................................... 6	9
+capitulo-11\Modeling Life.pdf	sec	2	. 2 D e r i v a t i v e s : R a t e s o f C h a n g e ....................... .... 6	9
+capitulo-11\Modeling Life.pdf	sec	2	. 3 D e r i v a t i v e s : A G e o m e t r i c I n t e r p r e t a t i o n ............ ......... 8	0
+capitulo-11\Modeling Life.pdf	sec	2	. 4 D e r i v a t i v e s : L i n e a r a p p r o x i m a t i o n................. ........ 8	4
+capitulo-11\Modeling Life.pdf	sec	2	. 5 T h e D e r i v a t i v e o f a F u n c t i o n ........................ ... 9	0
+capitulo-11\Modeling Life.pdf	sec	2	. 6 I n t e g r a t i o n..................................... 9	9
+capitulo-11\Modeling Life.pdf	sec	2.7	Explicit Solutions to Differential Equations . . . . . . . . . . . . . . . . .... 1 0	9
+capitulo-11\Modeling Life.pdf	sec	3.1	WhenXI s Z e r o.................................. 1 1	5
+capitulo-11\Modeling Life.pdf	sec	3.2	Equilibrium Points in One Dimension . . . . . . . . . . . . . . . . . . . .... 1 1	6
+capitulo-11\Modeling Life.pdf	sec	3.3	Equilibrium Points in Higher Dimensions . . . . . . . . . . . . . . . . . .... 1 3	3
+capitulo-11\Modeling Life.pdf	sec	3.4	Multiple Equilibria in Two Dimensions . . . . . . . . . . . . . . . . . . .... 1 3	8
+capitulo-11\Modeling Life.pdf	sec	3	. 5 B a s i n s o f A t t r a c t i o n.............................. .. 1 4	8
+capitulo-11\Modeling Life.pdf	sec	3.6	Bifurcations of Equilibria . . . . . . . . . . . . . . . . . . . . . . . . . .... 1 5	6
+capitulo-11\Modeling Life.pdf	sec	4.1	Oscillations in Nature . . . . . . . . . . . . . . . . . . . . . . . . . . . .... 1 7	1
+capitulo-11\Modeling Life.pdf	sec	4.2	Mechanisms of Oscillation . . . . . . . . . . . . . . . . . . . . . . . . . .... 1 8	1
+capitulo-11\Modeling Life.pdf	sec	4.3	Bifurcation and the Onset of Oscillation . . . . . . . . . . . . . . . . . .... 1 9	7
+capitulo-11\Modeling Life.pdf	sec	4.4	The Neuron: Excitable and Oscillatory Systems . . . . . . . . . . . . . .... 2 0	6
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	Of neurons and engineers	1
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.1	Explaining neural systems	3
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.2	Neural representation	5
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 2 . 1 T h e s i n g l e n e u r o n .....................	9
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.2.2	Beyond the single neuron ................. 1	1
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.3	Neural transformation	13
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.4	Three principles of neural engineering	15
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 4 . 1 P r i n c i p l e 1 ........................ 1	6
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 4 . 2 P r i n c i p l e 2 ........................ 1	7
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 4 . 3 P r i n c i p l e 3 ........................ 1	8
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.4.4	Addendum . . . ..................... 1	8
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.5	Methodology	19
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 5 . 1 S y s t e m d e s c r i p t i o n .................... 1 91 . 5 . 2 D e s i g n s p e c i fi c a t i o n .......	1
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 5 . 3 I m p l e m e n t a t i o n ...................... 2	1
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1	. 5 . 4 D i s c u s s i o n ........................ 2	2
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	1.6	A possible theory of neurobiological systems	23
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2	Representation in populations of neurons	29
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2.1	Representing scalar magnitudes	30
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2	. 1 . 1 E n g i n e e r e d r e p r e s e n t a t i o n ................ 3	0
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2	. 1 . 2 B i o l o g i c a l r e p r e s e n t a t i o n ................. 3	3
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2.2	Noise and precision	40
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2	. 2 . 1 N o i s y n e u r o n s ...................... 4 02 . 2 . 2 B i o l o g i c a l r e p r e s e n t a t i o n a n 	2
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2.3	An example: Horizontal eye position	44
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2	. 3 . 1 S y s t e m d e s c r i p t i o n .................... 4	4
+capitulo-11\Neural Engineering_ Computation, Representation.pdf	sec	2	. 3 . 2 D e s i g n s p e c i fi c a t i o n ................... 4	6
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	Chapter	1	Artificial Intelligence	1
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.1	A SHORT HISTORY OF AI	1
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.1.1	Cybernetics	1
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.1.2	Symbolic Artificial Intelligence	2
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.1.3	Connectionist Movement	2
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.1.4	Deep Learning	3
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.1.5	Quantum Artificial Intelligence	3
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.2	SYMBOLICAL ARTIFICIAL INTELLIGENCE	4
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.2.1	Bits	4
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.2.2	Rules and Operators	5
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.2.3	Production Systems	8
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.2.4	Tree Search	9
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.2.5	Informed Tree Search	10
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3	MACHINE LEARNING	10
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.1	Vector Representation	11
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.2	Nearest Neighbor	12
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.3	Associative Memory	12
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.4	Artificial Neuron	13
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.5	Perceptron	15
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.6	Support Vector Machine	16
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.7	Support Vector Machine as a Kernel Machine	18
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	1.3.8	Deep Learning	21
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	Chapter	2	Quantum Physics and Quantum Computation	23
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	2.1	QUANTUM MEASUREMENT	23
+capitulo-11\Quantum Artificial Intelligence with Qiskit.pdf	sec	2.1.1	Interpretations of Quantum Mechanics	24
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	1	Fundamentals of Statistics ....................................................................	3
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	2	Fundamentals of Quantum Machines .................................................	31
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	3	Machine Learning with Supervised Quantum Models .......................	67
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	4	Machine Learning with Unsupervised Quantum Models ...................	97
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	5	Artificial Neural Networks ...............................................................	135
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	7	Quantum Machine Learning Approaches .........................................	170
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	8	Quantum Classification ....................................................................	185
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	9	Boosting in QML .............................................................................	194
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	10	Deep Quantum Learning ..................................................................	219
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	11	Ensembles and QBoost .....................................................................	247
+capitulo-11\Quantum Machine Learning A Modern Approach.pdf	Chapter	12	Quantum Process Tomography and Regression ...............................	262
+capitulo-12\Big Data, Big Design Why Designers Should Care about Artificial Intelligence.pdf	NO_INDEX_FOUND			
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1	Introducing AI-assisted programming with Copilot	1
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1.1	How we talk to computers	2
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1.2	About the technology	3
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1.3	How Copilot changes how we learn to program	6
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1.4	What else can Copilot do for us?	7
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1.5	Risks and challenges when using Copilot	8
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	1.6	The skills we need	10
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	2	Getting started with Copilot	13
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	2.1	Time to set up your computer to start learning	14
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	2.2	Getting your system set up	15
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	2.3	Working with Copilot in Visual Studio Code	16
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	2.4	Addressing common Copilot challenges	20
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	2.5	Our first programming problem	22
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3	Designing functions	33
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3.1	Functions	34
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3.2	Benefits of functions	38
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3.3	Roles of functions	40
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3.4	Whats a reasonable task for a function?	43
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3.5	The cycle of design of functions with Copilot	45
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	3.6	Examples of creating good functions with Copilot	46
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	4	Reading Python code: Part 1	60
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	4.1	Why we need to read code	61
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	4.2	Asking Copilot to explain code	63
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	Part	1		66
+capitulo-12\Learn AI-assisted Python Programming With GitHub Copilot and ChatGPT.pdf	sec	5	Reading Python code: Part 2	78
+capitulo-01\Essential Math for Data Science (Thomas Nield) (Z-Library).pdf	Chapter	1	Basic Math and Calculus Review	14
+capitulo-01\Essential Math for Data Science (Thomas Nield) (Z-Library).pdf	Chapter	2	Probability	73
+capitulo-01\Essential Math for Data Science (Thomas Nield) (Z-Library).pdf	Chapter	3	Descriptive and Inferential Statistics	102
+capitulo-01\Essential Math for Data Science (Thomas Nield) (Z-Library).pdf	Chapter	4	Linear Algebra	169
+capitulo-04\python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf	Chapter	1	Giving Computers the Ability to Learn from Data	30
+capitulo-04\python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf	Chapter	3	A Tour of ML Classifiers Using scikit-learn	82
+capitulo-04\python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf	Chapter	6	Model Evaluation and Hyperparameter Tuning	220
+capitulo-04\python-machine-learning-machine-learning-and-deep-learning-with-python-scikit-learn-and-tensorflow-2-3nbsped-1789955750-978-1789955750_compress.pdf	Chapter	11	Clustering Analysis	382
+capitulo-04\Aurélien-Géron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-O’Reilly-Media-2019.pdf	Part	I	The Fundamentals of Machine Learning	27
+capitulo-04\Aurélien-Géron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-O’Reilly-Media-2019.pdf	Chapter	1	The Machine Learning Landscape	29
+capitulo-04\Aurélien-Géron-Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow_-Concepts-Tools-and-Techniques-to-Build-Intelligent-Systems-O’Reilly-Media-2019.pdf	Chapter	2	End-to-End Machine Learning Project	63
+capitulo-05\essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf	Chapter	3	Fitting Functions to Data	85
+capitulo-05\essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf	Chapter	4	Optimization for Neural Networks	147
+capitulo-05\essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf	Chapter	8	Probabilistic Generative Models	297
+capitulo-05\essential-math-for-ai-next-level-mathematics-for-efficient-and-successful-ai-systems-1nbsped-1098107632-9781098107635_compress.pdf	Chapter	11	Probability	445
+capitulo-08\Applied Time Series Analysis and Forecasting with Python.pdf	Chapter	1	Time Series Concepts and Python	1
+capitulo-08\Applied Time Series Analysis and Forecasting with Python.pdf	Chapter	4	ARMA and ARIMA Modeling and Forecasting	107
+capitulo-08\Applied Time Series Analysis and Forecasting with Python.pdf	Chapter	10	Modern Machine Learning Methods for Time Series Analysis	341
+capitulo-08\time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf	Part	1	Time waits for no one	29
+capitulo-08\time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf	sec	1	Understanding time series forecasting	31
+capitulo-08\time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf	Part	3	Large-scale forecasting with deep learning	259
+capitulo-08\time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf	sec	15	Remembering the past with LSTM	315
+capitulo-08\time-series-forecasting-in-python-161729988x-9781617299889_compress.pdf	sec	19	Automating time series forecasting with Prophet	389
+capitulo-09\time-series-forecasting-using-foundation-models_compress.pdf	Part	1	The rise of foundation models	21
+capitulo-09\time-series-forecasting-using-foundation-models_compress.pdf	sec	3	Forecasting with TimeGPT	55
+capitulo-09\time-series-forecasting-using-foundation-models_compress.pdf	sec	5	Learning the language of time with Chronos	108
+capitulo-09\time-series-forecasting-using-foundation-models_compress.pdf	sec	7	Deterministic forecasting with TimesFM	161
+capitulo-12\Artificial Intelligence in Forecasting Tools and Techniques.pdf	sec	1	Pursuits of Forecasting	10
+capitulo-12\Artificial Intelligence in Forecasting Tools and Techniques.pdf	sec	5	Traditional versus Machine Learning Forecasting	82
+capitulo-12\Artificial Intelligence in Forecasting Tools and Techniques.pdf	sec	12	AI-Based Approaches for Financial Market Trends	182
+capitulo-12\Artificial Intelligence in Forecasting Tools and Techniques.pdf	sec	20	Demand Forecasting Methods	325
+capitulo-12\Artificial Intelligence in Forecasting Tools and Techniques.pdf	sec	21	Demand and Supply Forecasts for Retail	342

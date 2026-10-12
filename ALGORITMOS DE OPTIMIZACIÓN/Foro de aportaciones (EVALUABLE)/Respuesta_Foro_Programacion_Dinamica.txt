@@ -1,0 +1,287 @@
+PROGRAMACIÓN DINÁMICA — APORTACIÓN AL FORO + BASE TEÓRICA
+============================================================
+Asignatura: 03MIAR Algoritmos de Optimización
+Fuente: AG1 (Divide y Vencerás, Vuelta atrás, Programación Dinámica), VC3 (Problemas tipo)
+
+Este documento tiene dos partes:
+  PARTE A: un texto breve, en tono de foro, listo para publicar.
+  PARTE B: la base teórica completa y autocontenida. Está pensada para
+           que se pueda entender el tema sin haber visto las diapositivas
+           (útil para repasar, o para pedirle a otra IA que te lo explique
+           partiendo de este archivo).
+
+Todo lo que aparece en la PARTE B está etiquetado como:
+  [CLASE]      -> viene literalmente del material de la asignatura (con
+                   referencia a la sesión y página).
+  [ACLARACIÓN] -> contexto general para entender mejor lo anterior, NO es
+                   contenido literal de las diapositivas del profesor.
+
+
+============================================================
+PARTE A — TEXTO PARA EL FORO
+============================================================
+
+Repasando AG1 me quedé pensando en algo que también comentó Iván en su
+post: ¿cómo se nota, en la práctica, el momento exacto en que Divide y
+Vencerás deja de ser suficiente y hay que pasar a Programación Dinámica?
+
+Para mí el punto de quiebre está en la tabla T(i,j) del problema del
+"viaje por el río" que vimos en AG1. Si el barquero solo pudiera avanzar
+en línea recta (embarcadero 1 -> 2 -> 3...), el problema sería puro
+Divide y Vencerás: cada tramo es independiente y no hace falta guardar
+nada. Pero en cuanto aparecen rutas alternativas que pasan por los mismos
+embarcaderos intermedios (por ejemplo, para ir de 0 a 6 puede convenir
+pasar por 2 y 5, o por 1 y 4), el cálculo del mejor precio hasta el nodo
+2 se necesita una y otra vez desde distintas ramas. Ahí es donde guardar
+la tabla P(i,j) dejó de ser opcional.
+
+Haciendo el cálculo a mano con las tarifas del ejemplo de clase, la ruta
+más barata de 0 a 6 resulta ser 0->2->5->6, con coste 4+4+3 = 11 (mejor
+que 0->1->4->6 = 12 o 0->3->6 = 12). Lo interesante es que ese resultado
+solo se puede obtener de forma fiable si se cumple el principio de
+optimalidad de Bellman: la subruta óptima de 0 a 5 (que es 0->2->5, coste
+8) tiene que ser efectivamente la mejor forma de llegar a 5, porque se va
+a reutilizar tal cual dentro de la solución del problema completo.
+
+Pregunta para el foro: en el ejemplo de Manuel sobre el cambio de monedas
+no canónico, ¿alguien ha comprobado si el mismo razonamiento (guardar la
+subsolución óptima de una cantidad menor y reutilizarla) se puede aplicar
+directamente, o hay algo distinto respecto al problema del río que lo
+complique?
+
+
+============================================================
+PARTE B — BASE TEÓRICA COMPLETA
+============================================================
+
+--------------------------------------------------------
+B.1 Contexto: las 4 técnicas clásicas de diseño de algoritmos
+--------------------------------------------------------
+[CLASE - AG1, pág. 2]
+La asignatura presenta la Programación Dinámica como una de cuatro
+técnicas de diseño de algoritmos, trabajadas todas en la misma sesión
+(AG1), cada una con un problema guía:
+
+  1. Divide y Vencerás      -> Torres de Hanoi
+  2. Técnica Voraz (Greedy) -> Cambio de monedas
+  3. Vuelta atrás (Backtracking) -> N-Reinas
+  4. Programación Dinámica  -> Viaje por el río
+
+Entenderlas juntas, por contraste, es la forma en que el curso las
+introduce, así que se explican aquí las cuatro brevemente antes de entrar
+en profundidad en la Programación Dinámica.
+
+[CLASE - AG1, pág. 6] Divide y Vencerás — características:
+  - El problema se divide en subproblemas más pequeños de la misma
+    naturaleza.
+  - Los subproblemas se resuelven recursivamente (o de forma directa en
+    el caso base).
+  - Las soluciones de los subproblemas se combinan para formar la
+    solución completa.
+  - LOS SUBPROBLEMAS SON DISJUNTOS ENTRE SÍ: no hay solapamiento.
+  - El proceso recursivo debe terminar en algún momento.
+  Ejemplo (Torres de Hanoi): T(n) = 1 + 2·T(n-1) = 2^n - 1 -> O(2^n).
+
+[CLASE - AG1, pág. 9] Técnica Voraz — características:
+  - En cada etapa se elige la opción localmente más ventajosa, sin
+    reconsiderarla nunca ("elegir en cada etapa la decisión óptima").
+  - Requiere: conjunto de candidatos, solución parcial, función de
+    selección, función objetivo, función de factibilidad y criterio de
+    solución final.
+  - NO garantiza el óptimo global. Ejemplo de clase: con el sistema de
+    monedas [11, 5, 1] para dar cambio de 15, la técnica voraz elige
+    primero 11 y termina en una solución peor que usar tres monedas de 5.
+
+[CLASE - AG1, pág. 13] Vuelta atrás (Backtracking) — características:
+  - Construcción sistemática, por etapas, de todas las soluciones
+    posibles, representadas como una tupla (x1, x2, ..., xn) explorada
+    mediante un árbol de expansión.
+  - Se puede podar el árbol (descartar ramas no "prometedoras") para
+    evitar la fuerza bruta pura.
+  - Complejidad típica: exponencial (ejemplo N-Reinas).
+
+--------------------------------------------------------
+B.2 Programación Dinámica: definición formal
+--------------------------------------------------------
+[CLASE - AG1, pág. 19]
+"Es posible dividir el problema en subproblemas más pequeños, guardando
+las soluciones para ser utilizadas más adelante."
+
+Dos condiciones que debe cumplir el problema:
+
+  (1) Reutilización de subproblemas: debe ser posible almacenar las
+      soluciones de los subproblemas para no recalcularlas.
+
+  (2) Principio de optimalidad de Bellman: "en una secuencia óptima de
+      decisiones, toda sub-secuencia también es óptima".
+
+[CLASE - AG1, pág. 19, nota literal del profesor]
+"¡Ojo! No significa que si tenemos soluciones óptimas de los
+sub-problemas las podamos combinar [automáticamente] para el óptimo del
+problema principal." Es decir: el principio de Bellman es una condición
+NECESARIA que hay que verificar para cada problema (no una garantía
+automática); si se cumple, entonces sí es seguro construir el óptimo
+global combinando óptimos parciales, mediante la relación de recurrencia
+correcta.
+
+[CLASE - AG1, pág. 19] Consecuencia práctica: como hay que guardar
+información de soluciones parciales (además de la propia recursividad),
+en Programación Dinámica hay que vigilar también la complejidad espacial
+(memoria), no solo la temporal.
+
+[ACLARACIÓN] En términos más generales (fuera de las diapositivas), a la
+condición (1) se la suele llamar "subproblemas solapados" (el mismo
+subproblema aparece repetido en distintas ramas de la recursión) y a la
+condición (2) "subestructura óptima". Son los mismos dos requisitos que
+el material de clase describe, con otro nombre.
+
+--------------------------------------------------------
+B.3 El método en 3 pasos (según AG1)
+--------------------------------------------------------
+[CLASE - AG1, págs. 20-23] La sesión enseña la técnica con un
+procedimiento de tres pasos, sobre el problema "viaje por el río":
+
+  PASO 1 — Modelar el problema con una tabla de datos base.
+    Se define T(i,j) = tarifa directa entre el embarcadero i y el j.
+    Si no existe conexión directa, se usa un valor muy alto (o infinito)
+    para asegurar que esa opción nunca gane en la comparación de mínimos
+    (forma habitual de modelar restricciones).
+
+  PASO 2 — Definir la recurrencia y calcular la tabla de soluciones
+    óptimas de forma sistemática (iterativa, recorriendo todos los
+    subproblemas con bucles anidados):
+
+        P(i,j) = min { T(i,j) , P(i,k) + T(k,j)  para todo i < k <= j }
+
+    Es decir: el mejor precio de ir de i a j es, o bien el tramo directo
+    T(i,j), o bien pasar por algún embarcadero intermedio k cuyo tramo
+    anterior P(i,k) ya se calculó y guardó, sumado al tramo final T(k,j).
+
+  PASO 3 — Reconstruir la solución final (la ruta óptima) de forma
+    recursiva, a partir de una tabla auxiliar RUTA(i,j) que guarda, para
+    cada par (i,j), cuál fue el mejor punto intermedio k encontrado en el
+    paso 2.
+
+--------------------------------------------------------
+B.4 Ejemplo completo resuelto: viaje por el río
+--------------------------------------------------------
+[CLASE - AG1, pág. 21] Matriz de tarifas T(i,j) usada en clase (nodos 0
+a 6, "999" representa "sin conexión directa"):
+
+         j=0   j=1  j=2  j=3  j=4  j=5  j=6
+  i=0  [  0 ,   5 ,  4 ,  3 , inf, inf, inf ]
+  i=1  [ inf,   0 , inf,  2 ,  3 , inf,  11 ]
+  i=2  [ inf,  inf,  0 ,  1 , inf,  4 ,  10 ]
+  i=3  [ inf,  inf, inf,  0 ,  5 ,  6 ,   9 ]
+  i=4  [ inf,  inf, inf, inf,  0 , inf,   4 ]
+  i=5  [ inf,  inf, inf, inf, inf,  0 ,   3 ]
+  i=6  [ inf,  inf, inf, inf, inf, inf,   0 ]
+
+Cálculo manual de P(0,6) (coste mínimo de ir del embarcadero 0 al 6),
+aplicando la recurrencia paso a paso:
+
+  Rutas candidatas y su coste total (suma de tramos directos):
+    0 -> 1 -> 4 -> 6  :  5 + 3 + 4  = 12
+    0 -> 3 -> 6       :  3 + 9      = 12
+    0 -> 2 -> 3 -> 6  :  4 + 1 + 9  = 14
+    0 -> 2 -> 5 -> 6  :  4 + 4 + 3  = 11   <-- mínimo encontrado
+    0 -> 1 -> 3 -> 6  :  5 + 2 + 9  = 16
+
+  Resultado: P(0,6) = 11, con ruta óptima 0 -> 2 -> 5 -> 6.
+
+  Esto coincide con lo que muestra la tabla RUTA de la diapositiva 23
+  (RUTA[0][6] = 5, es decir, "para ir de 0 a 6 lo óptimo es pasar por el
+  nodo 5", y a su vez RUTA[0][5] = 2: "para ir de 0 a 5 lo óptimo es
+  pasar por el nodo 2").
+
+  Aquí se ve el principio de optimalidad en acción: la subruta 0->2->5
+  (coste 8) es, en sí misma, la MEJOR forma de llegar de 0 a 5 — y por
+  eso se puede reutilizar tal cual dentro de la ruta completa 0->2->5->6,
+  sin tener que volver a buscarla.
+
+--------------------------------------------------------
+B.5 Complejidad del algoritmo
+--------------------------------------------------------
+[CLASE - AG1, pág. 22]
+El cálculo de la tabla P(i,j) completa recorre:
+  - i desde 0 hasta n-1        -> n iteraciones
+  - j desde i+1 hasta n        -> n iteraciones
+  - k desde i hasta j          -> n iteraciones (peor caso)
+
+  Complejidad total: O(3·n³) = O(n³)
+
+Esto contrasta con la fuerza bruta de probar todas las rutas posibles,
+que crecería de forma exponencial con el número de embarcaderos.
+
+--------------------------------------------------------
+B.6 Segundo ejemplo de clase: el problema de la mochila
+--------------------------------------------------------
+[CLASE - VC3, pág. 36] En la sesión de "Problemas tipo" se presenta el
+problema de la mochila (knapsack) como otro caso de aplicación de
+Programación Dinámica. El material indica explícitamente:
+  - "Programación Dinámica y Vuelta atrás con O(2^n) de complejidad."
+  - "Técnica Voraz no funciona" para este problema.
+
+[ACLARACIÓN] La cita de complejidad O(2^n) corresponde al enfoque de
+fuerza bruta / backtracking (probar todos los subconjuntos posibles de
+objetos). En la literatura general sobre algoritmos, la versión de
+Programación Dinámica tabulada del problema de la mochila 0/1 se describe
+habitualmente con complejidad O(n·W) (siendo W la capacidad de la
+mochila) — más eficiente que la exponencial, aunque sigue sin ser
+polinómica en el tamaño de la entrada si W es grande ("pseudo-polinómica").
+Esta precisión no aparece en la diapositiva del curso, se añade aquí solo
+como contexto para no confundir "cómo de cara es probar todo" con "cómo
+de cara es la versión ya optimizada con programación dinámica".
+
+--------------------------------------------------------
+B.7 Comparación de las 4 técnicas (tabla resumen)
+--------------------------------------------------------
+[CLASE - síntesis de AG1]
+
+  Técnica            | Subproblemas        | ¿Garantiza óptimo? | Complejidad típica
+  --------------------|---------------------|---------------------|--------------------
+  Divide y Vencerás   | Disjuntos (sin      | Sí (si aplica)      | Depende de la
+                      | solapamiento)        |                     | recurrencia (ej. Hanoi: O(2^n))
+  Voraz               | No aplica            | No siempre          | Baja (una pasada)
+  Vuelta atrás         | Árbol de exploración | Sí (explora todo,   | Exponencial, mitigada
+  (Backtracking)       | completo, con poda   | con poda)           | con poda
+  Programación         | Se repiten/reutilizan| Sí, SI se cumple el | Polinómica en el
+  Dinámica              | (se guardan)         | principio de Bellman| nº de subproblemas
+                      |                     |                     | (ej. río: O(n³))
+
+--------------------------------------------------------
+B.8 Extensión de contexto (fuera de las diapositivas del curso)
+--------------------------------------------------------
+[ACLARACIÓN] Estos puntos NO aparecen tal cual en el material de la
+asignatura, pero ayudan a conectar la Programación Dinámica con otros
+algoritmos y vocabulario que se puede encontrar fuera de clase:
+
+  - Terminología común en otras fuentes: "top-down / memoización"
+    (versión recursiva que guarda resultados en una caché la primera vez
+    que los calcula) y "bottom-up / tabulación" (versión iterativa que
+    construye la tabla desde los casos más pequeños, como se hizo en el
+    ejemplo del río). El curso enseña, en la práctica, un enfoque
+    equivalente al "bottom-up" para calcular la tabla P(i,j), y un paso
+    final recursivo solo para RECONSTRUIR la ruta (no para calcularla).
+
+  - [CLASE - VC3, pág. 33] Se mencionan también los algoritmos
+    Floyd-Warshall (camino más corto entre todos los pares de vértices
+    de un grafo) y Bellman-Ford (válido con pesos negativos), presentados
+    como algoritmos de búsqueda de caminos mínimos en grafos. El curso no
+    los enlaza explícitamente al marco de "programación dinámica", pero
+    conceptualmente Floyd-Warshall usa exactamente la misma idea que el
+    problema del río: una tabla de costes que se va refinando probando
+    nodos intermedios, con una recurrencia muy parecida a P(i,j).
+
+--------------------------------------------------------
+B.9 Resumen para memorizar
+--------------------------------------------------------
+1. PD = dividir en subproblemas + GUARDAR sus soluciones para reutilizarlas.
+2. Solo funciona si se cumple el principio de optimalidad de Bellman.
+3. Método de 3 pasos: (a) tabla de datos base, (b) recurrencia + cálculo
+   sistemático de la tabla de óptimos, (c) reconstrucción de la solución.
+4. Se aplica cuando otras técnicas más simples fallan: la voraz no
+   garantiza el óptimo (mochila, monedas no canónicas) y Divide y
+   Vencerás no sirve porque aquí SÍ hay reutilización entre subproblemas.
+5. Ejemplo ancla del curso: viaje por el río, P(i,j) = min{T(i,j),
+   P(i,k)+T(k,j)}, complejidad O(n³).

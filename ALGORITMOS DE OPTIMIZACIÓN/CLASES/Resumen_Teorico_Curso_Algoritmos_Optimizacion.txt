@@ -1,0 +1,1945 @@
+RESUMEN TEÓRICO COMPLETO — 03MIAR ALGORITMOS DE OPTIMIZACIÓN
+============================================================
+Este documento resume, en el ORDEN REAL en que se imparte el curso, todo el
+contenido teórico de la carpeta CLASES. Cada dato está verificado
+directamente contra los PDF originales (se cita la página de origen) para
+poder estudiar sin tener que reabrir cada archivo, y para que cualquier IA
+(u otra persona) pueda explicarte cada tema partiendo de este archivo con
+garantías de que no se ha inventado nada.
+
+Etiquetas usadas:
+  [CLASE]      -> contenido literal o paráfrasis fiel del material del
+                   curso, con página de origen entre paréntesis.
+  [ACLARACIÓN] -> la MISMA idea de la diapositiva explicada con otras
+                   palabras, más despacio y con lenguaje sencillo, para
+                   facilitar la comprensión. No añade datos, fórmulas ni
+                   afirmaciones que no estén ya en el [CLASE] anterior.
+
+Orden real del curso (confirmado por la Tutoría Inicial y por el número de
+"Sesión" en el nombre de cada archivo):
+  Tutoría Inicial -> VC1(Ses.02) -> VC2(Ses.03) -> AG1(Ses.04) ->
+  VC3(Ses.05) -> VC4(Ses.06) -> AG2(Ses.07) -> VC5(Ses.08) -> AG3(Ses.09) ->
+  VC6(Ses.10) -> AG3 2ª parte(Ses.12)
+
+  VC1-VC6 = Videoconferencias teóricas (clases magistrales).
+  AG1-AG3 = Actividades Guiadas prácticas (aplican en Python, sobre Google
+            Colab, lo visto en la VC anterior).
+
+
+============================================================
+0. TUTORÍA INICIAL — Estructura del curso y evaluación
+============================================================
+[CLASE] Docente: Jesús Ortiz (p.2). Universidad: Universidad Internacional
+de Valencia (VIU), dentro del Máster Universitario en Inteligencia
+Artificial.
+
+0.1 Qué NO es esta asignatura (p.24)
+-------------------------------------
+[CLASE] Cita literal: "No es un curso de programación... No es una
+colección de 'recetas'."
+[ACLARACIÓN] Es decir, el objetivo no es memorizar código, sino entender
+POR QUÉ una técnica funciona (o falla) para un problema concreto, de forma
+que luego se pueda adaptar a problemas nuevos que no se hayan visto en
+clase.
+
+0.2 Objetivos generales (p.5) y criterios de evaluación (p.6)
+----------------------------------------------------------------
+[CLASE]
+- Adquirir, con clases magistrales, conocimientos teóricos de algoritmos de
+  optimización, análisis de coste (tiempo y memoria) y complejidad.
+- Familiarizarse, con actividades guiadas, con técnicas de diseño de
+  algoritmos mediante prácticas en Python.
+- Enfrentarse, con el trabajo práctico, a un problema real.
+- Criterios: conocer complejidad de problemas/algoritmos; desarrollar,
+  modelar y analizar algoritmos según diferentes técnicas; identificar
+  "problemas tipo"; conocer los algoritmos de búsqueda en grafos; conocer
+  la relación entre descenso del gradiente y redes neuronales; conocer las
+  técnicas metaheurísticas.
+
+0.3 Estructura de sesiones (p.8, 13-16)
+------------------------------------------
+[CLASE]
+Videoconferencias:
+  VC1 – Introducción a los algoritmos
+  VC2 – Diseño de algoritmos / Algoritmos de Ordenación
+  VC3 – Problemas tipo / Algoritmos de Búsqueda
+  VC4 – Descenso del gradiente
+  VC5 – Algoritmos heurísticos
+  VC6 – Algoritmos Evolutivos y Genéticos
+
+Actividades Guiadas:
+  AG1 – Ordenación en Python; algoritmos voraces; vuelta atrás
+        (backtracking); divide y vencerás; programación dinámica.
+  AG2 – Búsqueda en amplitud/profundidad; ramificación y poda; descenso
+        del gradiente.
+  AG3(I) – Búsqueda local; búsqueda tabú; recocido simulado; GRASP.
+  AG3(II) – Colonia de hormigas (ACO); algoritmos genéticos (GA).
+
+[ACLARACIÓN] Ojo: el listado oficial de la Tutoría Inicial dice que BFS/DFS
+y ramificación y poda se ven en AG2, pero al leer el PDF real de AG2 se
+comprueba que esa sesión NO desarrolla BFS ni DFS (solo ramificación y
+poda + descenso del gradiente). BFS y DFS aparecen desarrollados de verdad
+en VC3. Este documento sigue el contenido REAL de cada PDF, no solo el
+índice previsto.
+
+0.4 Sistema de evaluación (p.7)
+-----------------------------------
+[CLASE]
+  Portafolio (60%):
+    - Trabajo Práctico ...................... 30% (*)
+    - Actividades Guiadas .................... 10% (*)
+    - Estudio y análisis de artículo científico 10% (*)
+    - Participación en Foro .................. 10%
+  Prueba final ................................ 40% (*)
+  (*) Aprobar cada apartado marcado con (*) es obligatorio para aprobar la
+      asignatura.
+
+  Examen (p.20): 1 hora; 20 preguntas test (acierto +0.5, fallo -0.165,
+  en blanco 0) + 2 preguntas de desarrollo.
+
+  Foro (p.9): al menos 2 aportaciones — una proponiendo un reto encontrado
+  en la literatura/plataformas de competición de algoritmos, y otra
+  respondiendo a una entrada ajena.
+
+  Actividades Guiadas (p.12): entrega en PDF; subir a GitHub asegura 8/10
+  (mejorable con aportación personal).
+
+  Trabajo Práctico (p.19): resolver un problema real identificando los
+  aspectos teóricos usados (modelar, diseñar, analizar).
+
+[ACLARACIÓN] En términos simples: el curso pesa más la práctica continuada
+(60%, repartida en 4 piezas que hay que aprobar todas) que el examen final
+(40%). Por eso cada Actividad Guiada no es un simple ejercicio suelto: es
+la aplicación práctica obligatoria de la teoría de la VC inmediatamente
+anterior.
+
+0.5 Temas de repaso matemático mencionados (p.24-28)
+--------------------------------------------------------
+[CLASE] Se enumeran como epígrafes (sin desarrollarlos aún en este PDF):
+estructuras de datos (listas, pilas, colas, grafos, árboles, diccionarios,
+vectores/matrices), estadística básica (población/muestra, tipos de
+variable, frecuencias, medidas de posición/centralización/dispersión),
+combinatoria básica (variaciones, permutaciones, combinaciones), y
+"Diferenciación básica" con tres títulos: derivar funciones, 1ª y 2ª
+derivada, gradiente y matriz hessiana.
+[ACLARACIÓN] Estos tres últimos títulos son solo el "índice" de lo que se
+desarrollará matemáticamente más adelante, en VC4 (con fórmulas y
+ejemplos reales). La matriz Hessiana, en concreto, se anuncia aquí pero
+—como se aclara en la sección de VC4 de este documento— nunca llega a
+desarrollarse con fórmulas en ningún PDF del curso; solo se trabaja el
+gradiente (derivadas parciales primeras).
+
+
+============================================================
+1. VC1 — Introducción a los algoritmos (Sesión 02)
+============================================================
+
+1.1 ¿Qué es un algoritmo? (p.6)
+------------------------------------
+[CLASE] Definición literal: "Un algoritmo es un conjunto de reglas
+ordenadas y finitas para realizar una actividad mediante la sucesión de
+pasos claramente establecidos." Nota al pie: "Los algoritmos probabilistas
+no siempre proporcionan la misma solución pero eso no quiere decir que sus
+pasos no estén claramente establecidos."
+[ACLARACIÓN] La clave de la definición son dos palabras: "ordenadas" (hay
+una secuencia concreta de pasos, no vale hacerlos en cualquier orden) y
+"finitas" (el algoritmo tiene que terminar en algún momento, no puede
+quedarse dando vueltas para siempre). Que un algoritmo use aleatoriedad
+(probabilista) no rompe esta definición: los PASOS siguen estando bien
+definidos, aunque el resultado numérico final pueda variar de una
+ejecución a otra.
+
+1.2 Un poco de historia (p.8-11)
+-------------------------------------
+[CLASE]
+- La palabra "algoritmo" viene de al-Juarismi (780-850 d.C.), matemático
+  persa considerado el padre del Álgebra; introdujo métodos algebraicos
+  para resolver ecuaciones de 2º grado sin la notación moderna (p.8).
+- Algoritmo de Euclides (325 a.C.): calcula el máximo común divisor
+  aplicando iterativamente m.c.d(m,n) = m.c.d(n, resto(m,n)) hasta que el
+  resto sea 0. Ejemplo: m.c.d(60,24) = m.c.d(24,12) = m.c.d(12,0) = 12
+  (p.9). Pseudocódigo dado: "while n≠0 do: r←m mod n; m←n; n←r; return m"
+  (p.10).
+- Criba de Eratóstenes (siglo II a.C.): encuentra números primos hasta n
+  marcando todos los múltiplos de cada número no marcado, desde 2 hasta
+  √n (p.11).
+[ACLARACIÓN] Estos tres ejemplos históricos comparten algo importante: son
+"recetas" que funcionan para CUALQUIER par de números o CUALQUIER n, no
+solo para un caso concreto. Esa generalidad (funcionar para toda una
+familia de entradas, no solo para un ejemplo) es lo que distingue un
+algoritmo de una simple cuenta puntual, y es la idea que se repetirá en
+todo el curso: diseñar un procedimiento, no resolver un caso aislado.
+
+1.3 Tipos de algoritmos (p.14, marcada "importante")
+---------------------------------------------------------
+[CLASE]
+- Según cómo calculan la solución:
+  - Deterministas: misma solución siempre para la misma entrada.
+  - Probabilistas: pueden dar soluciones distintas para la misma entrada.
+- Según el tipo de solución que dan:
+  - Exactos: dan la solución óptima.
+  - Aproximados: dan buenas soluciones con un grado de aproximación
+    conocido al óptimo.
+  - Heurísticos: dan buenas soluciones, pero no se puede determinar si es
+    la óptima.
+[ACLARACIÓN] Esta clasificación es el mapa mental de todo el curso: la
+primera mitad (Divide y Vencerás, Voraz, Vuelta atrás, Programación
+Dinámica) trata técnicas EXACTAS y deterministas; la segunda mitad
+(metaheurísticas y algoritmos genéticos) trata técnicas HEURÍSTICAS,
+muchas de ellas probabilistas. Ningún tipo es "mejor" en general: los
+exactos garantizan el óptimo pero solo son viables si el problema es
+manejable en tiempo/memoria; los heurísticos renuncian a esa garantía a
+cambio de poder abordar problemas demasiado grandes para los métodos
+exactos.
+
+1.4 Propiedades y partes de un algoritmo (p.15-16)
+--------------------------------------------------------
+[CLASE]
+- Finitud: debe terminar tras un número finito de pasos.
+- Precisión: cada etapa debe estar claramente especificada, sin lugar a
+  ambigüedad.
+- Partes: Entrada (información/valores de partida) -> Proceso (cálculos
+  que transforman la entrada) -> Salida (resultado final).
+
+1.5 Algoritmos de optimización (p.17-19)
+----------------------------------------------
+[CLASE] Definición: "Optimización: Obtención del mejor valor para alguna
+función objetivo dentro de un dominio de soluciones posibles." Componentes
+(p.18):
+  - Función objetivo: medida cuantitativa de la bondad de un sistema.
+  - Variables: decisiones que afectan a la función objetivo.
+  - Restricciones: relaciones que las variables deben cumplir.
+  Resolución: encontrar el valor de las variables que optimiza
+  (maximiza/minimiza) la función objetivo cumpliendo las restricciones.
+[ACLARACIÓN] Piénsalo como una receta de tres ingredientes que reaparece en
+TODOS los problemas del curso, desde el cambio de monedas hasta el
+algoritmo genético: (1) ¿qué estoy decidiendo? (variables), (2) ¿qué
+cantidad quiero maximizar o minimizar? (función objetivo), y (3) ¿qué
+condiciones no puedo saltarme? (restricciones). Antes de programar
+cualquier algoritmo, el curso insiste en identificar primero estas tres
+piezas.
+
+[CLASE] Optimización multiobjetivo (p.19): cuando hay más de una función
+objetivo y suelen entrar en conflicto (mejorar una empeora la otra, p.ej.
+minimizar tiempo de trayecto y combustible gastado a la vez). No existe
+una única solución óptima sino un conjunto de soluciones donde ninguna
+domina a las demás en todos los objetivos a la vez: el Óptimo de Pareto.
+[ACLARACIÓN] Una solución está en el "frente de Pareto" si no existe otra
+solución que sea al menos igual de buena en todos los objetivos y
+estrictamente mejor en al menos uno. Por eso en optimización multiobjetivo
+no se busca "la" solución, sino un conjunto de soluciones igualmente
+válidas entre las que luego decide un criterio externo (p.ej. preferencia
+del usuario).
+
+1.6 Desarrollo e implementación de algoritmos: Modelar, Diseñar, Analizar
+      (p.20, marcada "importante")
+-------------------------------------------------------------------------
+[CLASE]
+- Modelar: determinar los supuestos y datos de partida, y la estructura
+  de datos que representa la información. "No siempre es posible
+  ajustarse al 100% de la realidad."
+- Diseñar: aplicar técnicas conocidas para resolver el problema.
+- Analizar: determinar cuántas operaciones realizará el diseño.
+
+[CLASE] Riesgos al modelar (p.22): por EXCESO de realismo -> el modelo es
+tan complejo que cuesta encontrar un algoritmo que lo resuelva; por
+DEFECTO de realismo -> las soluciones obtenidas no se corresponden con el
+problema real. "Objetivo: obtener un compromiso entre las dos opciones."
+
+[CLASE] Tipos de modelo (p.21, 24-26): icónico, analógico, simbólico,
+matemático. Según su función: predictivos (técnicas estadísticas),
+evaluativos (árboles de decisión, enumerar posibilidades), de optimización
+(identificar la mejor solución). Según los datos: deterministas (todos los
+datos se conocen) vs. estocásticos (hay datos desconocidos). Según cambia
+la realidad: estáticos (el tiempo no influye) vs. dinámicos (el tiempo sí
+influye). Según su tamaño y clase: lineal, entero (y/o binario), no lineal.
+
+[CLASE] Fases del proceso (p.27): Conceptualización (entender el problema
+sin contradicciones), Formalización (expresar matemáticamente las
+relaciones entre elementos), Evaluación (elegir el procedimiento para
+resolverlo).
+
+1.6.1 Ejemplo completo trabajado: autobuses urbanos (p.28-34)
+-------------------------------------------------------------------
+[CLASE] Problema: determinar el número mínimo de autobuses para cubrir la
+demanda de una ciudad, dividida en 6 tramos de 4 horas cada uno, sabiendo
+que cada autobús puede circular como máximo 8 horas SEGUIDAS por jornada
+de 24h. Demanda por tramo: 4, 8, 10, 7, 12, 4 autobuses respectivamente.
+
+Formalización matemática dada (p.32-33):
+  Variables: Xⱼ = nº de autobuses que EMPIEZAN turno en el tramo j (j=1..6;
+  j=1 → turno que empieza a las 0h, ..., j=6 → turno que empieza a las 20h).
+  Función objetivo: Min X1+X2+X3+X4+X5+X6
+  Restricciones (cada una obliga a que la suma de los 2 turnos que cubren
+  ese tramo sea suficiente para la demanda de ese tramo):
+    X1+X2 ≥ 8
+    X2+X3 ≥ 10
+    X3+X4 ≥ 7
+    X4+X5 ≥ 12
+    X5+X6 ≥ 4
+    X1+X6 ≥ 4
+    X1,...,X6 enteros y ≥ 0
+
+[ACLARACIÓN] Este ejemplo es la mejor ilustración de todo el apartado
+"Modelar": la diapositiva pregunta explícitamente "¿por qué 12 autobuses NO
+es la solución?" (p.30) — 12 autobuses cubrirían de sobra el tramo de mayor
+demanda si todos circularan a la vez, pero como cada autobús solo puede
+trabajar 8 horas SEGUIDAS de las 24, un mismo autobús cubre dos tramos de 4h
+consecutivos, y por eso las restricciones combinan siempre PARES de tramos
+consecutivos (X1+X2, X2+X3, etc.), no cada tramo por separado. Ese es el
+matiz de la restricción "8 horas seguidas" que hay que traducir a números.
+
+1.7 Análisis de la complejidad temporal (p.36-44)
+--------------------------------------------------------
+[CLASE] Clasificación histórica de problemas (p.36): años 30, problemas
+computables/no computables; años 50, complejidad de los computables
+(búsqueda de algoritmos más eficaces); años 70, clasificación P y NP.
+
+[CLASE] El tiempo de ejecución depende de (p.37): tamaño de entrada (n),
+calidad del código, procesador, y la complejidad del algoritmo.
+
+[CLASE] Operaciones elementales (OE) a contar (p.41): sumas, restas,
+multiplicaciones, divisiones; asignaciones; condiciones, llamadas a
+funciones externas y retornos; accesos a estructuras de datos.
+
+[CLASE] Definición de orden de complejidad (p.41): "Decimos que un
+algoritmo tiene orden de complejidad O(f) si su tiempo de ejecución en
+operaciones elementales está acotado, salvo por una constante, por f para
+todos los tamaños de entrada a partir de un cierto n₀."
+[ACLARACIÓN] En palabras simples: no se cuenta el número EXACTO de pasos
+(eso depende de detalles poco importantes), sino cómo CRECE ese número a
+medida que crece la entrada n, ignorando constantes multiplicativas y
+términos pequeños. Por eso "3n³+2n+7" y "n³" tienen el mismo orden de
+complejidad O(n³): lo que importa para entradas grandes es el término que
+crece más rápido.
+
+[CLASE] Tabla de órdenes de complejidad, de menor a mayor (p.42, marcada
+"importante"):
+  O(1) constante < O(log n) logarítmico < O(n) lineal <
+  O(n log n) cuasi-lineal < O(n²) cuadrático < O(n³) cúbico <
+  O(nᵃ) polinómico < O(2ⁿ) exponencial < O(n!) factorial
+
+  Tabla comparativa de crecimiento (p.42):
+    n=2:   log n=1,  n²=4,     2ⁿ=4,          n!=2
+    n=8:   log n=3,  n²=64,    2ⁿ=256,        n!=40.320
+    n=32:  log n=5,  n²=1.024, 2ⁿ=4,3×10⁹,    n!=2,6×10³⁵
+    n=100: log n=6,  n²=10⁴,   2ⁿ=1,2×10²⁷,   n!=9,3×10¹⁷⁷
+
+[ACLARACIÓN] Esta tabla es la justificación numérica de por qué el curso
+dedica tanto esfuerzo a evitar la fuerza bruta: para n=100, un algoritmo
+cuadrático hace 10.000 operaciones (nada, un ordenador lo hace en
+microsegundos), pero uno exponencial hace 1,2×10²⁷ operaciones — un número
+mayor que los átomos que caben en muchos objetos cotidianos. No es que el
+algoritmo exponencial sea "un poco más lento": a partir de cierto n deja de
+ser ejecutable en la práctica, por muy rápido que sea el ordenador.
+
+[CLASE] Ejemplo resuelto — intersección de dos listas A (tamaño n) y B
+(tamaño m) con doble bucle anidado (p.43): 2 asignaciones + n asignaciones
++ n·m asignaciones + n·m asignaciones = 2(m·n)+n+2 operaciones -> se
+queda en O(n²) (el término dominante).
+
+[CLASE] Otras consideraciones del análisis (p.44-45):
+- Comportamiento ante entradas del mismo tamaño pero distinta disposición
+  (ej. ordenar listas ya casi ordenadas): hay que analizar caso mejor,
+  peor y promedio.
+- Las constantes multiplicativas SÍ importan para tamaños de entrada
+  pequeños: un algoritmo O(n³) con constante 5 puede ser más rápido que
+  uno O(n²) con constante 10⁷ hasta un cierto tamaño de n, aunque
+  asintóticamente (n muy grande) el O(n²) siempre acabe ganando.
+- Ejemplo del Problema del Viajante (p.38-39): con 4 ciudades hay
+  3!=6 rutas posibles (fijando el punto de partida); con 532 ciudades hay
+  531! rutas posibles, un número tan gigantesco que la propia diapositiva
+  concluye: "¡Se necesita otra estrategia!" — es la motivación que
+  conecta esta sesión con todo el resto del curso.
+
+
+============================================================
+2. VC2 — Diseño de algoritmos y algoritmos de ordenación (Sesión 03)
+============================================================
+[CLASE] Agenda real de la sesión (p.2): 1. Algoritmos de ordenación,
+2. Técnicas voraces y grafos (Prim y Kruskal), 3. Vuelta atrás,
+4. Divide y Vencerás, 5. Programación Dinámica. Es decir, en esta VC se
+presentan ya, de forma introductoria, las 4 técnicas clásicas que luego se
+desarrollan con más detalle y en código en AG1.
+
+2.1 Algoritmos de ordenación (p.3-11)
+------------------------------------------
+[CLASE] Definición: "Ordenar una lista de valores numéricos" (p.4).
+Operaciones no elementales usadas de referencia: obtener el máximo/mínimo
+de una lista es O(n); intercambiar dos valores es O(1).
+
+  - Inserción (p.5): se recorre la lista completa construyendo, en cada
+    iteración, una sub-lista ya ordenada. "Es el método que usamos
+    manualmente." Complejidad: O(n) en el caso más favorable, O(n²) en el
+    más desfavorable. Aconsejable para listas pequeñas y parcialmente
+    ordenadas.
+  - Burbuja (p.6): se recorre la lista intercambiando cada elemento con
+    su adyacente si hace falta, reduciendo progresivamente el tramo a
+    revisar. "Se puede mejorar deteniendo el proceso si no hay
+    intercambios." (El PDF no da un valor Big-O explícito para burbuja).
+  - Selección (p.7): se recorre la lista para encontrar el máximo (o
+    mínimo) en cada iteración y colocarlo en su posición final. También es
+    un método manual. Complejidad O(n²) independientemente de la
+    disposición inicial (a diferencia de inserción, aquí no hay "caso
+    favorable").
+  - Mezcla / Merge Sort (p.8-9): divide recursivamente la lista en dos
+    mitades y combina los resultados ya ordenados. Basado en Divide y
+    Vencerás. Complejidad O(n·log n) SIEMPRE, en todos los casos (el
+    cálculo se justifica "por ecuaciones en recurrencia").
+  - Ordenación rápida / Quick Sort (p.10): (1) divide recursivamente la
+    lista en dos partes de forma que todos los elementos de la primera
+    sean menores que los de la segunda, (2) combina las dos listas.
+    También basado en Divide y Vencerás. Complejidad O(n²) en el peor
+    caso, O(n·log n) en el mejor caso o en promedio. "Los casos
+    favorables no dependen de los datos sino de la elección del pivote."
+
+[ACLARACIÓN] La diferencia clave entre Quick Sort y Merge Sort explica por
+qué ambos son O(n log n) "en general" pero se comportan distinto: Merge
+Sort divide siempre la lista en dos mitades EXACTAS (por eso su peor caso
+también es O(n log n)), mientras que Quick Sort divide según un pivote
+elegido, y si ese pivote resulta ser sistemáticamente el peor posible (el
+mínimo o el máximo de cada sub-lista), una de las dos partes queda vacía y
+la recursión degenera a O(n²) — de ahí que el PDF diga que el caso
+favorable "depende de la elección del pivote" y no de los datos en sí.
+
+[CLASE] Aplicaciones de los algoritmos de ordenación (p.11): ordenar
+resultados, realizar búsquedas, encontrar la mediana o el par más cercano,
+identificar anomalías (outliers), detectar duplicados, compresión de
+datos, planificación de tareas, simulaciones.
+
+2.2 Divide y Vencerás — introducción (p.12-17, marcada "importante")
+---------------------------------------------------------------------
+[CLASE] Definición: "Es posible dividir el problema principal
+recursivamente en sub-problemas más pequeños similares al original o
+sencillos de resolver." Aplicaciones citadas (p.14): mergesort, quicksort,
+multiplicación de matrices (algoritmo de Strassen), sub-secuencia de suma
+máxima, par de puntos más cercanos, eliminación de superficies ocultas en
+gráficos 3D, calendario de una liga.
+Se introduce el problema de las Torres de Hanoi como ejemplo guía (p.15-16)
+— desarrollado a fondo con código y recurrencia en AG1 (ver sección 3.1).
+
+2.3 Técnica Voraz — introducción (p.18-23, marcada "importante")
+---------------------------------------------------------------------
+[CLASE] Definición: "Basada en la división del problema por etapas,
+eligiendo en cada etapa una decisión para construir la solución que
+resulte la más adecuada o ambiciosa sin considerar las consecuencias. Las
+decisiones descartadas serán descartadas para siempre." Resumen: "elegir
+en cada etapa la decisión óptima."
+
+Esquema general en pseudocódigo (p.21):
+  S = Ø
+  while (S no sea una solución y C ≠ Ø) {
+        x = selección(C)
+        C = C - {x}
+        if (S∪{x} es factible)
+            S = S∪{x}
+  }
+  if (S es una solución) return S; else return "No se encontró solución";
+
+[CLASE] Problema guía: devolver cambio de monedas (p.22-23). Elementos:
+conjunto de candidatos (combinaciones posibles), función de selección
+(tomar tantas monedas como se pueda del mayor valor sin pasarse), función
+de factibilidad (valor acumulado hasta el momento), función objetivo
+(minimizar el nº total de monedas), criterio de solución final (el valor
+acumulado coincide con C).
+
+Condiciones para que la voracidad funcione bien (p.23): "Debe existir el
+valor unitario (1) en el conjunto de monedas... Disponemos una cantidad
+infinita de monedas... La 'voracidad' no es eficiente en todos los
+sistemas monetarios." Ejemplo literal dado para el foro: sistema (1,5,11)
+para conseguir C=15 (el desarrollo completo de este contraejemplo se hace
+en AG1, con el sistema [11,5,1] y N=15, ver sección 3.2).
+
+2.4 Grafos: árbol de recubrimiento mínimo, Prim y Kruskal (p.24-28,
+      marcada "importante")
+---------------------------------------------------------------------
+[CLASE] Definición de grafo: "Es una pareja de conjuntos V (vértices) y A
+(Aristas) donde cada arista se compone de un par de vértices." Dirigido si
+el par (u,v) se considera distinto de (v,u); no dirigido en caso
+contrario. Conexo si todos los vértices están conectados directa o
+indirectamente. Ponderado si las aristas tienen un valor numérico
+asociado. Árbol: subconjunto de aristas que conecta todos los nodos de
+forma única, sin ciclos.
+
+[CLASE] Árbol de recubrimiento mínimo (p.25): "árbol del grafo ponderado
+que contiene todos los vértices y cuyo peso es mínimo. El peso del árbol
+es la suma del valor de las aristas."
+
+[CLASE] Dos algoritmos para obtenerlo (p.26):
+  - Prim: "Para cada vértice elegimos la arista de menor coste que une el
+    subconjunto de vértices no seleccionados con el subconjunto de
+    vértices seleccionados. El vértice del subconjunto de los no
+    seleccionados pasa al conjunto de los seleccionados y se continúa con
+    uno nuevo."
+  - Kruskal: se ordenan las aristas (por su coste) y se van seleccionando
+    de forma que no se formen ciclos; las que formarían un ciclo se
+    descartan.
+
+[ACLARACIÓN] Ambos son algoritmos VORACES: en cada paso toman la decisión
+localmente más barata (la arista de menor coste disponible) sin volver
+nunca atrás, y aun así se puede demostrar que el resultado final es el
+árbol de coste mínimo global. Es uno de los pocos casos del curso donde la
+técnica voraz SÍ garantiza el óptimo — a diferencia del cambio de monedas
+con sistema [11,5,1], donde falla.
+
+[CLASE] Complejidad (p.27): Prim es siempre O(n²). Kruskal es
+O(a·log(n)), donde a=nº de aristas y n=nº de vértices. "La elección de uno
+u otro dependerá del número total de aristas": si hay muchas aristas
+(cercano a n·(n-1)) Kruskal se acerca a O(n²·log n), peor que Prim; si hay
+pocas aristas (cercano a n) Kruskal se acerca a O(n·log n), mejor que
+Prim.
+[CLASE] Aplicaciones (p.28): redes de comunicación/energía/transporte,
+diseño de rutas, estudios financieros, análisis de agrupamiento
+(clustering).
+
+2.5 Vuelta atrás / Backtracking — introducción (p.29-35, marcada
+      "importante")
+---------------------------------------------------------------------
+[CLASE] Definición: "Construcción sistemática y por etapas de todas las
+soluciones posibles que pueden representarse mediante una tupla
+(x1,x2,...,xn) en la que cada componente xi puede explorarse en la etapa
+i-ésima. A través de un árbol de expansión se modela todo el espacio de
+soluciones donde cada nodo es un valor diferente para cada elemento xi."
+Características: problemas discretos representables en árbol de
+expansión; es posible descartar ramas completas (ramificación y poda,
+"la veremos más adelante asociada a la técnica general de búsqueda en
+árboles") para evitar la fuerza bruta.
+
+[CLASE] Eficiencia (p.31): "en general no será buena (exponencial O(2ⁿ))
+a menos que podamos incorporar mejoras para evitar la exploración en toda
+la profundidad." La función de descarte debe ser tan barata como sea
+posible; el diseño mejora cuanto mejor se identifiquen las restricciones
+IMPLÍCITAS del problema (no solo las explícitas) para evitar explorar de
+más.
+
+[CLASE] Ejemplo guía: problema de las N-Reinas, simplificado a 4x4 en
+clase (p.32-35). Se muestra una tabla (fuente Kaggle) con el tamaño del
+espacio de soluciones (n!) frente al nº de soluciones reales para varios
+n, por ejemplo: n=4 -> 24 combinaciones posibles, 2 soluciones válidas;
+n=8 -> 40.320 combinaciones, 92 soluciones válidas; n=12 -> 479.001.600
+combinaciones, 14.200 soluciones válidas.
+[ACLARACIÓN] Esta tabla es una forma muy visual de entender por qué hace
+falta "podar": el número de soluciones VÁLIDAS es una fracción minúscula
+del número total de combinaciones posibles, y esa fracción se hace cada
+vez más pequeña según crece n. Explorar TODAS las combinaciones (fuerza
+bruta) es cada vez más desperdiciado; podar pronto las ramas que ya se
+sabe que no pueden llevar a una solución válida es lo que hace viable el
+backtracking en la práctica.
+
+Modelado de la solución (p.34): tupla (x1,x2,x3,x4) donde cada xi es la
+fila de la reina en la columna i-ésima. No puede haber dos reinas en la
+misma columna (queda garantizado por el propio modelo). Dos reinas están
+en la misma fila si hay dos valores iguales en la tupla parcial. Dos
+reinas están en la misma diagonal si |xi − xj| = |i − j|.
+
+2.6 Programación Dinámica — introducción (p.36-39, marcada "importante")
+---------------------------------------------------------------------
+[CLASE] Definición: "Es posible dividir el problema en subproblemas más
+pequeños, guardando las soluciones para ser utilizadas más adelante."
+Características: se pueden almacenar y reutilizar soluciones de
+subproblemas; debe cumplirse el principio de optimalidad de Bellman ("en
+una secuencia óptima de decisiones, toda sub-secuencia también es
+óptima"); guardar soluciones parciales obliga a vigilar la complejidad
+ESPACIAL, no solo la temporal. Nota (*): "¡Ojo! No significa que si
+tenemos soluciones óptimas de los sub-problemas las podamos combinar para
+obtener el óptimo del problema principal."
+
+[CLASE] Ejemplo guía: viaje por el río (p.38-39) — n embarcaderos, hay que
+ir río abajo (no se puede remontar), cada tramo directo i->j tiene una
+tarifa T(i,j), a veces es más barato hacer trasbordo por un embarcadero
+intermedio k. Fórmula de recurrencia dada aquí:
+    C(i,j) = min { T(i,j) , T(i,k) + C(k,j) para todo i<k≤j }
+[ACLARACIÓN] Esta misma recurrencia se retoma en AG1 con notación P(i,j) en
+vez de C(i,j) (P(i,j)=min{T(i,j), P(i,k)+T(k,j)}); son la misma idea
+matemática (el precio óptimo de ir de i a j es, o bien el precio directo,
+o bien el mejor precio pasando por algún punto intermedio k), solo cambia
+qué letra usa cada diapositiva para la tabla de "precios óptimos ya
+calculados". En AG1 esta fórmula se desarrolla con un ejemplo numérico
+completo y con código.
+
+
+============================================================
+3. AG1 — Las 4 técnicas clásicas de diseño de algoritmos, en profundidad
+   y con código (Sesión 04)
+============================================================
+[CLASE] Esta es la actividad guiada práctica que desarrolla en Python,
+sobre un cuaderno de Google Colab, las 4 técnicas ya introducidas en VC2.
+
+3.1 Divide y Vencerás — Torres de Hanoi (p.6-8)
+------------------------------------------------------
+[CLASE] Características para identificar si aplica (p.6, cita literal):
+  - El problema puede ser dividido en problemas más pequeños pero de la
+    misma naturaleza que el principal.
+  - Es posible resolver estos sub-problemas de manera recursiva o de otra
+    manera sencilla (caso simple).
+  - Es posible combinar las soluciones de los sub-problemas para componer
+    la solución al problema principal.
+  - LOS SUB-PROBLEMAS SON DISJUNTOS ENTRE SÍ. No hay solapamiento entre
+    los sub-problemas.
+  - Debemos asegurar que el proceso de divisiones recursivas finaliza en
+    algún momento.
+[ACLARACIÓN] La condición de "sub-problemas disjuntos, sin solapamiento"
+es la que distingue Divide y Vencerás de Programación Dinámica: en Divide
+y Vencerás cada sub-problema se resuelve una única vez porque no se repite
+en ningún otro lado del árbol de recursión (por eso no hace falta
+"recordar" soluciones anteriores); en Programación Dinámica, en cambio, el
+mismo sub-problema puede aparecer una y otra vez en distintas ramas, y por
+eso ahí sí compensa guardar (memoizar) los resultados ya calculados.
+
+Código Python del algoritmo (p.7):
+    def torres_hanoy(N, desde, hasta):
+      if N==1:
+        print("LLevar desde " + str(desde) + " hasta " + str(hasta))
+      else:
+        torres_hanoy(N-1, desde, 6-desde-hasta)
+        print("LLevar desde " + str(desde) + " hasta " + str(hasta))
+        torres_hanoy(N-1, 6-desde-hasta, hasta)
+    torres_hanoy(4,1,3)
+[ACLARACIÓN] El truco "6-desde-hasta" calcula la torre auxiliar sin
+necesidad de una variable extra: como las 3 torres están numeradas 1, 2 y
+3 (y 1+2+3=6), si ya sabemos el origen ("desde") y el destino ("hasta"),
+la tercera torre (la auxiliar) es sencillamente 6 menos esos dos números.
+
+Derivación de la recurrencia (p.8):
+    T(1) = 1
+    T(n) = 1 + 2·T(n-1) = 1 + 2·(1 + 2·T(n-2)) = 1+2+2²+...+2ⁿ = 2ⁿ - 1
+  Complejidad: O(2ⁿ).
+[ACLARACIÓN] Cada llamada con n discos hace 2 llamadas recursivas con
+n-1 discos (mover el bloque de arriba a la torre auxiliar, y luego de la
+auxiliar al destino) más 1 movimiento propio (el disco más grande). Esa
+"multiplicación por 2 en cada nivel de recursión" es la firma característica
+del crecimiento exponencial: con 4 discos son 2⁴-1=15 movimientos, con 10
+discos ya son 2¹⁰-1=1023, con 64 discos (la leyenda clásica de la Torre de
+Hanoi) serían más de 18 trillones de movimientos.
+
+3.2 Técnica Voraz — Cambio de monedas (p.9-12)
+------------------------------------------------------
+[CLASE] Definición (p.9): "Basada en la división del problema por etapas,
+eligiendo en cada etapa una decisión para construir la solución que
+resulte la más adecuada o ambiciosa sin considerar las consecuencias. Las
+decisiones descartadas serán descartadas para siempre. Resumen: elegir en
+cada etapa la decisión óptima." Elementos necesarios: conjunto de
+candidatos, solución parcial, función de selección, función objetivo,
+función de factibilidad, criterio de solución final.
+
+Código Python con comentarios sobre qué característica teórica representa
+cada línea (p.11):
+    def cambio_monedas(CANTIDAD,SISTEMA):
+      SOLUCION = [0 for i in range(len(SISTEMA))]   #Inicializa
+      VALOR_ACULULADO = 0                            #Inicializa
+      for i in range(len(SISTEMA)):                  #Conjunto candidatos
+        monedas = int((CANTIDAD-VALOR_ACULULADO)/SISTEMA[i])  #Selección
+        SOLUCION[i] = monedas
+        VALOR_ACULULADO += monedas * SISTEMA[i]       #Factibilidad
+        if VALOR_ACULULADO == CANTIDAD: return SOLUCION #Criterio final
+      return SOLUCION
+
+    SISTEMA = [25, 10, 5, 1]
+    cambio_monedas(27, SISTEMA)  # -> [1, 0, 0, 2]  (1 moneda de 25 + 2 de 1)
+
+[CLASE] Contraejemplo donde la voracidad falla (p.12): con sistema
+[11, 5, 1] y cantidad N=15, el algoritmo voraz devuelve [1, 0, 4] (1
+moneda de 11 + 4 de 1 = 5 monedas en total), cuando existe una solución
+mejor con solo 3 monedas de 5 (5+5+5=15).
+[ACLARACIÓN] El algoritmo voraz "se queda atrapado" en su primera decisión:
+en cuanto usa la moneda de 11 (la más grande posible), ya solo le quedan 4
+para completar con monedas de 5 o de 1, y como 4 no es múltiplo de 5,
+tiene que rellenar con cuatro monedas de 1. La lección de este ejemplo es
+que la técnica voraz nunca reconsidera una decisión ya tomada, así que si
+la mejor decisión LOCAL (coger la moneda más grande posible) no coincide
+con lo que conviene GLOBALMENTE, el algoritmo se queda con una solución
+peor sin darse cuenta.
+
+3.3 Vuelta atrás / Backtracking — N-Reinas (p.13-18)
+------------------------------------------------------
+[CLASE] Definición (p.13): igual que en VC2 (construcción por etapas de
+tuplas (x1,...,xn) modelando el espacio de soluciones como árbol de
+expansión). Modelo de representación (p.14): solución = tupla, cada xi es
+la fila de la reina en la columna i.
+
+Pseudocódigo de la función principal (p.15): en cada etapa se prueban
+todos los valores i=1..N para SOLUCION[etapa]; se comprueba si es
+prometedora con es_prometedora(solucion, etapa); si es prometedora y es
+la última etapa, es solución final; si no, se avanza a la siguiente etapa.
+
+Función es_prometedora (p.16-17), dos comprobaciones:
+  - Misma fila: SOLUCION.count(SOLUCION[i]) > 1 para algún i ya colocado.
+  - Misma diagonal: abs(i-j) == abs(SOLUCION[i]-SOLUCION[j]).
+
+Código Python completo (p.17):
+    def reinas(N, solucion=[], etapa=0):
+      if len(solucion) == 0:
+          solucion=[0 for i in range(N)]
+      for i in range(1, N+1):
+        solucion[etapa] = i
+        if es_prometedora(solucion, etapa):
+          if etapa == N-1:
+            print("La solución es:", solucion)
+          else:
+            reinas(N, solucion, etapa+1)
+        solucion[etapa] = 0
+
+    def es_prometedora(SOLUCION, etapa):
+      for i in range(etapa+1):
+        if SOLUCION.count(SOLUCION[i]) > 1:
+          return False
+        for j in range(i+1, etapa+1):
+          if abs(i-j) == abs(SOLUCION[i]-SOLUCION[j]): return False
+      return True
+
+[CLASE] Complejidad (p.17): "Cálculos complejos (con ecuaciones en
+recursividad) pero en general Vuelta atrás es Exponencial." La propia
+función es_prometedora (con su doble bucle) es O(n²).
+[ACLARACIÓN] Es importante distinguir dos complejidades distintas que
+conviven en este algoritmo: la comprobación es_prometedora que se ejecuta
+en CADA nodo del árbol es "solo" O(n²) (dos bucles anidados), pero el
+número TOTAL de nodos que se podrían llegar a visitar en el árbol completo
+de posibilidades es exponencial. La poda (descartar una rama en cuanto
+es_prometedora devuelve False) es lo que evita, en la práctica, tener que
+visitar todos esos nodos exponenciales.
+
+3.4 Programación Dinámica — Viaje por el río (p.19-23)
+------------------------------------------------------
+[CLASE] Definición y condiciones (p.19): igual que en VC2 (subproblemas
+reutilizables + principio de optimalidad de Bellman + vigilar complejidad
+espacial). Nota (*) reiterada: el principio de Bellman NO implica que
+combinar óptimos parciales cualesquiera dé el óptimo global; hay que
+definir bien la recurrencia de cada problema concreto.
+
+[CLASE] Planteamiento (p.20): tabla T(i,j) con las tarifas directas entre
+embarcaderos; si no hay conexión directa se usa un valor muy alto (o
+infinito) para que esa opción nunca se elija — "modelado habitual para
+restricciones". Tabla intermedia P(i,j) con las soluciones óptimas
+parciales. Recurrencia:
+    P(i,j) = min { T(i,j) , P(i,k) + T(k,j) para todo i < k ≤ j }
+
+Grafo de ejemplo con 7 embarcaderos (nodos 0 a 6) y tarifas (p.20-21):
+  0→1=5, 0→2=4, 0→3=3, 1→3=2, 1→4=3, 1→6=11, 2→3=1, 2→5=4, 2→6=10,
+  3→4=5, 3→5=6, 3→6=9, 4→6=4, 5→6=3
+
+Matriz TARIFAS en Python (p.21), con 999 (o float("inf")) donde no hay
+conexión directa:
+    TARIFAS = [
+    [0,5,4,3,999,999,999],
+    [999,0,999,2,3,999,11],
+    [999,999,0,1,999,4,10],
+    [999,999,999,0,5,6,9],
+    [999,999,999,999,0,999,4],
+    [999,999,999,999,999,0,3],
+    [999,999,999,999,999,999,0]]
+
+Función Precios (p.22), que calcula la tabla P (llamada PRECIOS en el
+código) y la tabla RUTA con 3 bucles anidados de tamaño n:
+    def Precios(TARIFAS):
+      N = len(TARIFAS[0])
+      PRECIOS = [ [9999]*N for i in [9999]*N ]
+      RUTA = [ [""]*N for i in [""]*N ]
+      for i in range(N-1):
+        for j in range(i+1, N):
+          MIN = TARIFAS[i][j]
+          RUTA[i][j] = i
+          for k in range(i, j):
+            if PRECIOS[i][k] + TARIFAS[k][j] < MIN:
+              MIN = min(MIN, PRECIOS[i][k] + TARIFAS[k][j])
+              RUTA[i][j] = k
+          PRECIOS[i][j] = MIN
+      return PRECIOS, RUTA
+
+[CLASE] Complejidad (p.22): 3 bucles de tamaño n cada uno -> 3·n³ ->
+O(n³).
+[ACLARACIÓN] Aquí está la diferencia práctica entre Programación Dinámica
+y fuerza bruta / backtracking: en vez de explorar TODAS las rutas
+posibles (que crecerían de forma exponencial con el nº de embarcaderos),
+la Programación Dinámica calcula la tabla P de una vez, de abajo hacia
+arriba (con bucles for, sin recursión), y cada casilla de la tabla se
+calcula en tiempo O(n) a partir de casillas ya calculadas — de ahí que el
+coste total baje de exponencial a "solo" cúbico O(n³).
+
+[CLASE] Reconstrucción de la ruta óptima (p.23): la tabla RUTA guarda, para
+cada par (i,j), el nodo intermedio k que dio el mejor precio; luego una
+función RECURSIVA reconstruye el camino completo a partir de esa tabla:
+    def calcular_ruta(RUTA, desde, hasta):
+      if desde == hasta:
+        return desde
+      else:
+        return str(calcular_ruta(RUTA, desde, RUTA[desde][hasta])) + ',' \
+               + str(RUTA[desde][hasta])
+[ACLARACIÓN] Aquí conviven las dos formas de resolver el problema: la
+tabla de precios óptimos P se calcula de forma ITERATIVA (con bucles for,
+"de abajo hacia arriba"), pero una vez calculada, reconstruir CUÁL es esa
+ruta óptima sí se hace de forma RECURSIVA, siguiendo hacia atrás los
+nodos intermedios guardados en la tabla RUTA. La recursividad, en este
+caso, no sirve para calcular el óptimo (eso ya está hecho), sino solo
+para "leer" el camino que llevó a él.
+
+3.5 Otro ejemplo práctico de Divide y Vencerás: el par de puntos más
+      cercanos (p.27-28)
+---------------------------------------------------------------------
+[CLASE] Ejercicio guiado adicional (en 1D/2D/3D) para comparar la solución
+por fuerza bruta frente a la solución por Divide y Vencerás y su
+complejidad respectiva.
+[ACLARACIÓN] Este es un segundo ejemplo (además de Hanoi) de que "dividir
+el problema en dos mitades, resolver cada mitad y combinar" no es una
+técnica exclusiva de Hanoi o de los algoritmos de ordenación: sirve para
+cualquier problema donde la solución del problema completo se pueda
+construir a partir de las soluciones de las dos mitades más, como mucho,
+una comprobación en la "frontera" entre ambas mitades.
+
+
+============================================================
+4. VC3 — Problemas tipo y algoritmos de búsqueda (Sesión 05)
+============================================================
+[CLASE] Agenda real (p.8): 1. Programación lineal, 2. Programación lineal
+entera, 3. Problema del agente viajero, 4. Problema de la mochila,
+5. Otros problemas, 6. Búsqueda en amplitud, 7. Búsqueda en profundidad,
+8. Ramificación y Poda.
+
+4.1 Programación lineal (p.10-17, marcada "importante")
+--------------------------------------------------------------
+[CLASE] Definición literal: "Son problemas de programación lineal aquellos
+para los que se necesita optimizar (maximizar o minimizar) una función
+objetivo que es lineal (y por tanto continua) y multivariable sobre unas
+restricciones que vienen expresadas en igualdades o desigualdades también
+lineales." Nota: "lineal" = expresión algebraica en la que todas las
+variables son de grado 1.
+[CLASE] Método del Simplex (Dantzig, 1949) (p.11-13): obtiene la solución
+recorriendo iterativamente la frontera (los vértices) de la región de
+soluciones factibles hasta llegar al óptimo, sin necesidad de revisar
+todos los puntos extremos. Está disponible como función en Excel
+(Solver).
+[CLASE] Problemas tipo de programación lineal mencionados (p.10, 15, 40):
+problema de la dieta (Stigler), problema del transporte (Koopmans, 1949),
+problema de producción, problemas de flujo, inventario, gestión de
+cartera, planificación, asignación de recursos.
+
+[CLASE] Programación lineal entera (p.18-20): "problemas de programación
+lineal en los que se exige que algunas o todas las variables sean
+enteras." Tipos: puros (todas enteras) y mixtos (solo algunas). "No existe
+un algoritmo específico que los resuelva. Cada problema requiere un
+diseño específico según la técnica más adecuada."
+[CLASE] Resolución: se puede resolver la versión "relajada" (sin la
+restricción de enteros, p.ej. con Simplex) y luego redondear, pero la
+propia diapositiva lo marca como "¡Mala opción!. ¡Descartable!" con un
+contraejemplo gráfico, porque el redondeo puede dar una solución no
+factible o lejos del óptimo entero real. Alternativas correctas:
+algoritmos de búsqueda con Ramificación y Poda, o algoritmos heurísticos.
+[ACLARACIÓN] La razón de que "redondear" sea mala idea es que la solución
+óptima continua (con decimales) puede caer en un punto donde el redondeo
+más cercano ya NO cumple alguna restricción, o esté lejos del punto entero
+verdaderamente óptimo — el espacio de soluciones enteras no es una simple
+versión "redondeada" del espacio continuo.
+
+Problemas de programación lineal entera mencionados: inversión de capital
+/ elección de cartera de valores, problema de coste fijo, cubrimiento de
+conjuntos (p.20).
+
+4.2 El problema del Agente Viajero (TSP) (p.25-31)
+--------------------------------------------------------
+[CLASE] Formulación de Dantzig, Fulkerson y Johnson (1954) (p.27):
+variables xᵢⱼ=1 si se visita la ciudad j justo después de la i; función
+objetivo min Σcᵢⱼxᵢⱼ; restricciones de grado (una entrada y una salida
+por ciudad) más una restricción de eliminación de sub-recorridos (evita
+que la solución se rompa en varios "mini-ciclos" en vez de un único
+recorrido que pase por todas las ciudades): Σᵢ∈SΣⱼ∈S xᵢⱼ ≤ |S|-1 para todo
+subconjunto S de ciudades — con la pega de que esto genera "≈2ⁿ
+restricciones".
+[CLASE] Formulación de Miller, Tucker y Zemlin (1960) (p.28): mejora el
+número de restricciones de eliminación de sub-recorridos a "≈n²
+restricciones" usando variables auxiliares uᵢ.
+
+[CLASE] El TSP es NP-difícil (p.29): "no existe algoritmo polinomial que
+lo resuelva." Número de rutas posibles: (n-1)!/2 (se divide entre 2 porque
+recorrer la ruta en un sentido u otro da la misma distancia total).
+Ejemplo dado: con 20 ciudades hay aproximadamente 60.000.000.000.000
+rutas posibles.
+[CLASE] Formas de resolución (p.30): fuerza bruta (inviable a partir de
+cierto tamaño), métodos exactos (ramificación y poda), métodos
+heurísticos.
+[CLASE] El VRP (Vehicle Routing Problem, p.38) es una variante del TSP con
+varios agentes/vehículos, resoluble con las mismas técnicas.
+
+4.3 El problema del camino más corto: Dijkstra, Bellman-Ford,
+      Floyd-Warshall (p.32-33)
+---------------------------------------------------------------------
+[CLASE] Aclaración explícita de la diapositiva: "No confundir con el TSP.
+Se trata de encontrar el camino más corto (o menor coste) entre dos nodos
+de un grafo dirigido, no dirigido o mixto." La elección de algoritmo
+depende de: si hay ponderaciones negativas, si el grafo es muy denso o
+poco denso, y de si se buscan todos los caminos mínimos desde/hasta un
+único vértice o entre TODOS los pares de vértices.
+
+[CLASE] Algoritmo de Dijkstra: "Explora todos los caminos más cortos desde
+un vértice origen a todos los demás vértices. No es válido con aristas
+con coste negativo."
+[CLASE] Algoritmo de Bellman-Ford: "Más lento que Dijkstra pero válido
+para ponderaciones negativas."
+[CLASE] Algoritmo de Floyd-Warshall: "Para obtener el camino más corto
+entre TODOS los pares de vértices."
+[ACLARACIÓN] El PDF no da pseudocódigo ni complejidad explícita de estos
+tres algoritmos (solo enlaces externos), pero comparten con el "viaje por
+el río" de AG1 la misma idea de fondo: mantener una tabla de costes que se
+va mejorando probando nodos intermedios. La diferencia práctica entre
+ellos es CUÁNDO conviene cada uno: Dijkstra es el más rápido pero exige
+pesos no negativos; Bellman-Ford es más lento pero admite pesos
+negativos; Floyd-Warshall no calcula un único origen, sino todas las
+distancias entre todos los pares a la vez.
+
+4.4 Búsqueda A* y heurísticas (p.33, 44-46)
+------------------------------------------------
+[CLASE] "Búsqueda A*: Uso de heurísticas." Es una variación de la
+búsqueda en amplitud que introduce un componente heurístico en la
+valoración de los nodos, para decidir si merece la pena seguir explorando
+por ahí. Fórmula: f(n) = g(n) + h(n), donde g(n) es el coste real ya
+recorrido desde la raíz hasta el nodo n, y h(n) es una estimación
+heurística del coste que falta desde n hasta la solución.
+[CLASE] Ejemplo del puzzle-8: dos heurísticas posibles — (1) número de
+fichas mal colocadas, (2) distancia Manhattan de todas las piezas
+respecto a su posición final (ejemplo mostrado con distancia total = 3).
+[CLASE] Definición de heurística citada literalmente (Feigenbaum y
+Feldman): "Una heurística es una regla para engañar, simplificar o para
+cualquier otra clase de ardid el cual limita drásticamente la búsqueda de
+soluciones en grandes espacios de estados."
+[ACLARACIÓN] La idea de fondo de A* es combinar "lo que ya me ha costado
+llegar hasta aquí" (g) con "lo que estimo que me falta" (h): así, entre
+dos nodos con el mismo coste recorrido, A* prioriza explorar primero el
+que la heurística considera más prometedor, en vez de explorar todos los
+nodos por igual como haría una búsqueda en amplitud pura.
+
+4.5 BFS y DFS (p.42-49)
+------------------------------
+[CLASE] Definición general de "Algoritmos de Búsqueda" (p.42): "Técnicas
+que persiguen la localización de uno o varios elementos con ciertas
+propiedades dentro de la estructura de datos."
+
+[CLASE] BFS — Búsqueda en amplitud/anchura (p.43): esquema en 4 pasos:
+  1. Formar una cola con el elemento raíz del árbol.
+  2. Probar si el primer elemento de la cola es la solución final. Si sí,
+     terminar; si no, seguir al paso 3.
+  3. Quitar el nodo explorado en el paso 2 y añadir al FINAL de la cola
+     todos sus nodos hijos.
+  4. Si la cola queda vacía, no hay solución; si no, repetir el paso 2.
+
+[CLASE] DFS — Búsqueda en profundidad (p.48): mismo esquema exacto que
+BFS, salvo que en el paso 3 los nodos hijos se añaden al PRINCIPIO de la
+cola, en vez de al final.
+[ACLARACIÓN] Este es el matiz más importante de todo el bloque de
+búsqueda: BFS y DFS son literalmente el MISMO algoritmo general, y la
+única diferencia está en si los hijos nuevos se procesan antes (DFS, como
+una pila) o después (BFS, como una cola) que los nodos ya pendientes. Esa
+única decisión de diseño cambia por completo el orden de exploración: BFS
+recorre el árbol "nivel a nivel" (encuentra el camino más corto en nº de
+pasos en grafos sin peso), mientras que DFS se hunde primero por una rama
+hasta el fondo antes de retroceder a probar otra.
+
+[CLASE] Ascenso de colina (hill climbing) (p.49): variación de la
+búsqueda en profundidad que introduce un componente heurístico para
+ordenar los nodos hijos según cuánto merezca la pena explorarlos primero,
+usando la misma fórmula f(n)=g(n)+h(n) de A*.
+
+[CLASE] Ejemplo aplicado: el 8-puzzle (p.59), con la advertencia: "¡Ojo!
+Hay disposiciones iniciales que no dan lugar a la solución final (la
+mitad)."
+
+4.6 Ramificación y Poda (Branch and Bound) (p.50-57)
+------------------------------------------------------------
+[CLASE] Implementación en 3 etapas (p.51): selección del nodo pendiente
+más prometedor, ramificación (generar sus nodos hijo), poda (descartar
+los hijos que no pueden mejorar la mejor solución ya encontrada).
+[CLASE] Notación de cotas (p.52): CI(s) = Cota Inferior, CS(s) = Cota
+Superior, BE(s) = Beneficio esperado, con la relación CI(s) ≤ Valor(M) ≤
+CS(s) para cualquier solución M que "cuelgue" del nodo s.
+[CLASE] Estrategia de poda (p.54): "Podar en nodo i si: CS(i) ≤ CI(j) para
+algún j ya generado." Es decir, se mantiene C = el máximo entre todas las
+cotas inferiores ya generadas y el valor de las soluciones finales ya
+encontradas; se poda el nodo i si su cota superior CS(i) ≤ C.
+[ACLARACIÓN] La lógica de la poda es: si el MEJOR caso posible de seguir
+explorando por el nodo i (su cota superior CS(i)) no consigue superar una
+solución que YA tenemos garantizada por otro lado (la cota C), entonces no
+tiene ningún sentido seguir invirtiendo tiempo en explorar el nodo i —
+por muy prometedor que pareciera al principio, ya sabemos que no puede
+ganar.
+[CLASE] Propiedades (p.56): se puede ver como una mejora de la técnica de
+Vuelta Atrás (ejemplo de las 4 reinas); no hace falta almacenar todo el
+árbol, solo una lista de "nodos vivos" (pendientes de explorar); se usa
+también en juegos completos con adversario (MinMax).
+[CLASE] MinMax (p.57): aplicación de algoritmos de búsqueda a juegos
+completos con adversario. Nota: "Minimizar la pérdida máxima: elegir el
+mejor movimiento para ti mismo suponiendo que tu contrincante escogerá el
+peor movimiento para ti." Se menciona también la poda alfa-beta: "se
+podan las ramas que se prevé no van a ser buenas soluciones para ambos
+jugadores."
+
+4.7 El problema de la mochila (Knapsack Problem) (p.34-37)
+------------------------------------------------------------------
+[CLASE] Definición literal: "El KP (knapsack problem) se enuncia como la
+manera óptima de seleccionar un subconjunto de objetos que tienen
+asociado un valor y un peso cada uno de tal manera que maximicen el valor
+pero cuyo peso no supere un cierto límite... También es un problema
+difícil de resolver para datos de entrada grandes."
+Formulación matemática (p.35):
+    Max: Σᵢ xᵢ·vᵢ    sujeto a: Σᵢ xᵢ·wᵢ ≤ M,   con xᵢ ∈ {0,1}
+  (vᵢ=valor del objeto i, wᵢ=peso del objeto i, M=capacidad de la mochila)
+
+[CLASE] Resolución (p.36): puede resolverse como programación lineal
+entera; Programación Dinámica y Vuelta atrás tienen complejidad O(2ⁿ);
+existen métodos heurísticos; y —destacado en rojo— "¡Técnica Voraz no
+funciona!"
+
+[CLASE] Ejemplo gráfico de por qué falla la voracidad (p.36): mochila de
+6 Kg de capacidad, con un objeto de 5 Kg/11€ y dos objetos de 3 Kg/6€ cada
+uno.
+[ACLARACIÓN] Si el algoritmo voraz elige primero el objeto de mayor
+valor unitario (el de 5 Kg y 11€), ya no cabe ningún otro objeto en los
+1 Kg restantes, y el resultado es 11€. Pero eligiendo en cambio los dos
+objetos de 3 Kg (6 Kg exactos, dentro del límite), el resultado es
+6+6=12€ — mejor que la opción voraz. La lección es la misma que con el
+cambio de monedas: la mejor decisión LOCAL (coger primero el objeto más
+valioso) no lleva necesariamente al mejor resultado GLOBAL.
+
+[CLASE] Problema similar: la suma de subconjuntos (p.37). Aplicaciones
+(p.37): finanzas (equilibrio capital/rendimiento), cargas en transporte
+de materiales, corte de materiales, robótica y fabricación.
+
+4.8 Otros problemas tipo mencionados (p.40)
+--------------------------------------------------
+[CLASE] Problema de satisfacibilidad booleana (SAT), problema de
+asignación (asignar tareas a agentes para maximizar producción —
+desarrollado en profundidad en AG2, ver sección 6.1), coloreado de grafos.
+
+
+============================================================
+5. VC4 — Descenso del gradiente y complejidad P/NP (Sesión 06)
+============================================================
+
+5.1 El gradiente (p.14-15)
+--------------------------------
+[CLASE] Diferenciable: "derivable en n variables (dimensiones)."
+Gradiente: "Es un vector (diferente para cada punto = campo vectorial)
+cuyas coordenadas son las derivadas parciales":
+    ∇f(r) = ( ∂f(r)/∂x₁ , ... , ∂f(r)/∂xₙ )
+Ejemplo dado (p.15): para f(x,y) = x² + 2x + y² + y³ + xy, el gradiente
+es ∇f = ( 2x+y+2 , 2y+3y²+x ).
+[ACLARACIÓN] El gradiente generaliza la idea de "pendiente" (derivada) a
+funciones de varias variables: en vez de un único número, en cada punto
+obtenemos un VECTOR que apunta en la dirección en la que la función crece
+más rápido. Ese vector es la base de todo el algoritmo de descenso del
+gradiente: para minimizar una función, basta con moverse en la dirección
+CONTRARIA a ese vector.
+[ACLARACIÓN] Nota importante: en ningún PDF del curso se desarrolla la
+matriz Hessiana (derivadas segundas) con fórmulas — solo se anuncia como
+título en la Tutoría Inicial (ver 0.5), pero el contenido matemático real
+desarrollado en el curso se queda en el gradiente (derivadas primeras).
+
+[CLASE] Convexidad (p.14, marcada "importante"): "Descenso del Gradiente
+(AGD): Es un algoritmo iterativo de optimización para encontrar valores
+mínimos para funciones multi-variables convexas y diferenciables (y por
+tanto continuas)." La convexidad permite asegurar que el óptimo
+encontrado es GLOBAL y no solo local. Pregunta guía: "¿El segmento que une
+dos puntos está siempre por encima de la función?" (si la función es
+cóncava y se buscan mínimos, se puede trabajar con −f(x) en su lugar).
+
+5.2 El algoritmo de descenso del gradiente (p.16-19)
+------------------------------------------------------------
+[CLASE] Fórmula de actualización (p.16): pₜ₊₁ = pₜ − αₜ·∇f(pₜ). "El
+procedimiento parte de un punto p como solución aproximada (inicial) y da
+pasos en el sentido opuesto (si minimizamos) al gradiente de la función
+en dicho punto." La elección de αₜ debe garantizar que pₜ₊₁ sea una
+solución factible y que mejore el valor de f respecto a pₜ.
+
+[CLASE] Tasa de aprendizaje / learning rate αₜ (p.17): "importante para
+hacer efectivo el proceso de acercamiento a la solución óptima." Un valor
+demasiado PEQUEÑO provoca exceso de iteraciones; un valor demasiado
+GRANDE provoca que el proceso no llegue a acercarse lo suficiente (puede
+oscilar sin converger).
+[ACLARACIÓN] Piensa en bajar una montaña con los ojos vendados dando
+pasos en la dirección de mayor pendiente: si los pasos son demasiado
+cortos, tardas una eternidad en llegar abajo; si son demasiado largos,
+puedes saltar de un lado a otro del valle sin converger nunca al punto
+más bajo. Encontrar el tamaño de paso adecuado (la tasa de aprendizaje)
+es uno de los mayores retos prácticos de este método.
+
+[CLASE] Estrategia de reducción dinámica (p.18): "En general es buena
+estrategia ir reduciendo el valor de αₜ dinámicamente a medida que nos
+aproximamos a la solución", usando como señal la magnitud del gradiente o
+el número de iteraciones ya realizadas.
+
+[CLASE] Diagrama del algoritmo completo (p.19): partir de un vector
+inicial x⁰; comprobar la condición de parada |∇f(xᵏ)| < ε; si no se
+cumple, calcular la dirección sᵏ = ∓∇f(xᵏ)/|∇f(xᵏ)|, optimizar f(xᵏ+λsᵏ)
+para hallar el mejor paso λᵏ, generar xᵏ⁺¹ = xᵏ+λᵏsᵏ y repetir; al
+cumplirse la condición de parada, evaluar la función objetivo en el
+vector óptimo final.
+
+5.3 Aplicación: clasificación y variantes del algoritmo (p.20-29)
+------------------------------------------------------------------------
+[CLASE] En problemas de clasificación se busca minimizar el error entre
+la predicción y el valor real. La función que acumula ese error se llama
+función de coste: en regresión lineal suele usarse el error cuadrático
+medio (por ser diferenciable, permite calcular su gradiente); también
+puede usarse la entropía cruzada (cross-entropy) para problemas binarios,
+definida como "número de bits diferentes... mide cómo de diferentes son
+dos elementos", usada por ejemplo en clasificación de imágenes (p.27).
+
+[CLASE] Búsqueda del hiperplano separador (p.21-26): se plantea cómo
+elegir la mejor recta/hiperplano que separa dos clases de puntos,
+prefiriendo la que quede a mayor distancia de ambos conjuntos; se discute
+el problema de valores atípicos (outliers), y se muestra que hay casos
+donde ninguna recta puede separar bien los datos, pero SÍ es posible con
+una función no lineal (ejemplo dado: f(x,y)=x²+y² separa un grupo central
+rodeado de otro grupo).
+
+[CLASE] Tres variantes según el volumen de datos usado en cada paso
+(p.28-29):
+  - Descenso del gradiente por lotes (batch): calcula la desviación de
+    TODOS los puntos en cada iteración. "Directo pero muy lento."
+  - Descenso del gradiente estocástico (stochastic): calcula la
+    desviación de UN solo punto en cada iteración. "Rápido pero muy
+    disperso."
+  - Descenso del gradiente por lotes reducido (mini-batch): mezcla de
+    ambos. "Equilibrio." Decisión clave: elección del tamaño del
+    mini-lote.
+[ACLARACIÓN] Hay un compromiso claro entre velocidad y estabilidad: usar
+TODOS los datos en cada paso (batch) da la dirección más fiable pero es
+lento de calcular; usar un solo dato (estocástico) es rapidísimo por
+iteración pero la dirección estimada es muy ruidosa y la trayectoria hacia
+el mínimo "zigzaguea" mucho más; mini-batch es la solución intermedia que
+se usa en la práctica.
+
+5.4 Clases de complejidad P, NP, NP-Completo, NP-Duro (p.5-7)
+------------------------------------------------------------------
+[CLASE] Tabla dada (p.5):
+    P:            verificable en tiempo polinómico = SÍ; solución en
+                  tiempo polinómico = SÍ.
+    NP:           verificable en tiempo polinómico = SÍ; solución en
+                  tiempo polinómico = Algunos.
+    NP-Completos: verificable = SÍ; solución en tiempo polinómico =
+                  Desconocido.
+    NP-Duros:     verificable = Algunos; solución en tiempo polinómico =
+                  Desconocido.
+
+[CLASE] Definiciones literales (p.5):
+  - NP: "no se conoce solución en tiempo polinomial" (pero sí se puede
+    VERIFICAR una solución propuesta en tiempo polinomial).
+  - NP-Completo: "si un problema NP-Completo se demuestra que es P
+    entonces P=NP! (El resto de NP se pueden transformar con complejidad
+    Polinomial)".
+  - NP-Duro: "Al menos tan complejo como cualquier NP pero puede que no
+    sea NP" (es decir, no necesariamente se puede ni siquiera VERIFICAR
+    una solución en tiempo polinomial).
+
+[CLASE] Ejemplos dados (p.6): NP-Completo -> Satisfacibilidad booleana
+(SAT, Stephen Cook, 1971) — "todos los NP-Completos se 'reducen' a SAT".
+NP-Duro -> el problema del Agente Viajero (TSP).
+
+[CLASE] Sobre P=NP (p.7): "Resolverlo supondría encontrar 'atajos' para
+resolver problemas NP a partir de problemas P... Todo indica que P no es
+igual a NP por lo que 'casi' asumimos que no podemos abordar estos
+problemas computacionalmente con algoritmos exactos. Es muy probable que
+solo podamos resolver estos problemas por métodos aproximados o usando
+heurísticas." (Nota al margen: "¿qué ocurrirá con la computación
+cuántica?").
+[ACLARACIÓN] Esta sección conecta directamente con el resto del curso: si
+el TSP es NP-duro y "casi seguro" no existe un algoritmo exacto rápido
+para resolverlo en general, eso justifica por qué a partir de VC5 el curso
+pasa a estudiar METAHEURÍSTICAS — técnicas que renuncian a la garantía de
+encontrar el óptimo a cambio de encontrar una MUY buena solución en un
+tiempo razonable.
+
+5.5 Fibonacci recursivo como ejemplo de recurrencia exponencial (p.10)
+------------------------------------------------------------------------------
+[CLASE] Código:
+    def Fibonacci(N:int):
+      if N < 2: return 1
+      else: return Fibonacci(N-1)+Fibonacci(N-2)
+Recurrencia: T(n) = T(n-1) + T(n-2), es decir T(n) − T(n-1) − T(n-2) = 0.
+Ecuación característica: x² − x − 1 = 0, con raíces x₁=(1+√5)/2,
+x₂=(1−√5)/2. Solución general: T(n) = A·x₁ⁿ + B·x₂ⁿ.
+[ACLARACIÓN] La raíz x₁=(1+√5)/2 ≈ 1,618 es el número áureo. Que el número
+de llamadas recursivas de Fibonacci crezca como una potencia de ese número
+(≈1,618ⁿ) significa que, aunque no sea EXACTAMENTE 2ⁿ, pertenece a la
+misma familia de crecimiento EXPONENCIAL de la tabla de complejidades de
+VC1 (recordar: para n=100, un crecimiento exponencial da números con
+decenas de cifras). Este ejemplo motiva por qué, más adelante, conviene
+resolver Fibonacci con Programación Dinámica (guardando resultados ya
+calculados) en vez de con recursión ingenua.
+
+[CLASE] Ecuación de recurrencia por división (tipo Divide y Vencerás,
+p.11), ejemplo Quick Sort: T(n) = 2·T(n/2) + n. Forma general del Teorema
+Maestro dada en la diapositiva:
+    T(n) = O(nᵏ)            si a < bᵏ
+    T(n) = O(nᵏ·log(n))     si a = bᵏ   (caso del ejemplo Quick Sort)
+    T(n) = O(n^(log_b(a)))  si a > bᵏ
+
+5.6 Trabajo Práctico de la asignatura (p.32-51)
+------------------------------------------------------
+[CLASE] Se presentan 3 problemas a elegir (uno de ellos, "Elección de
+grupos de población homogéneos", aparece tachado/descartado en la
+plantilla):
+  1. Organizar sesiones de doblaje de una película: coordinar actores y
+     tomas para minimizar el gasto en desplazamientos, con 10 actores, 30
+     tomas y un máximo de 6 tomas por día (p.33).
+  2. Organizar los horarios de partidos de La Liga para maximizar la
+     audiencia, con tablas de audiencia base, coeficientes de reducción
+     por horario y por coincidencia de partidos simultáneos (p.34-38).
+  3. Combinar las 9 cifras del 1 al 9 (sin el 0) y los 4 signos básicos
+     (+,−,*,/), sin repetir ninguno, para obtener una cantidad dada;
+     ejemplo dado: "4+2-6/3*1 = 4" (p.39-40).
+[CLASE] El entregable exige responder, entre otras, estas preguntas
+obligatorias (marcadas con *, p.48-50): ¿cuántas posibilidades hay sin
+restricciones? ¿cuál es la estructura de datos que mejor se adapta?
+¿cuál es la función objetivo? ¿es de maximización o minimización?
+¿complejidad del algoritmo por fuerza bruta? diseño de un algoritmo
+mejorado y su complejidad; generación de un juego de datos aleatorio y
+aplicación del algoritmo.
+[ACLARACIÓN] Este listado de preguntas es, en la práctica, el mismo
+esquema de "Modelar -> Diseñar -> Analizar" de VC1 aplicado paso a paso a
+un problema real y de principio a fin: primero entender el tamaño del
+problema, luego elegir la estructura de datos y la función objetivo,
+después diseñar (primero por fuerza bruta, luego una versión mejor) y
+finalmente medir la complejidad de cada versión.
+
+
+============================================================
+6. AG2 — Ramificación y poda (asignación de tareas) y práctica de
+   descenso del gradiente (Sesión 07)
+============================================================
+[ACLARACIÓN] Aviso importante: pese a que el índice de la Tutoría Inicial
+anuncia BFS y DFS como parte de esta sesión, el PDF real de AG2 NO
+desarrolla búsqueda en amplitud ni en profundidad (ese contenido está en
+VC3, sección 4.5 de este documento). AG2 desarrolla, en cambio, dos
+prácticas: ramificación y poda aplicada a un problema de asignación de
+tareas, y descenso del gradiente aplicado a una función concreta.
+
+6.1 Ramificación y Poda — problema de asignación de tareas (p.10-21, 36)
+---------------------------------------------------------------------------
+[CLASE] Enunciado (citado del libro "Fundamentos de algoritmia" de
+Brassard y Bratley, p.14): "Hay que asignar n tareas a n agentes, de forma
+que a cada agente le corresponda una tarea. Se dispone de una tabla de
+costes: el coste para el agente i al realizar la tarea j es cij≥0. Se
+busca la asignación que reduzca el coste total."
+
+Matriz de costes de ejemplo, n=4 (p.14):
+    COSTES = [[11,12,18,40],
+              [14,15,13,22],
+              [11,17,19,23],
+              [17,14,20,28]]
+Una solución se representa como una tupla, p.ej. (1,0,3,2) significa
+"agente 0 -> tarea 1, agente 1 -> tarea 0, agente 2 -> tarea 3, agente 3
+-> tarea 2" (p.14).
+
+Función objetivo (p.15):
+    def valor(S,COSTES):
+      VALOR = 0
+      for i in range(len(S)):
+        VALOR += COSTES[i][S[i]]
+      return VALOR
+
+[CLASE] Función de cota inferior (CI) para una solución parcial (p.17):
+suma el coste ya fijado en la parte de la solución construida, más —para
+cada agente aún sin asignar— el menor coste posible entre las tareas que
+quedan libres. Esto da una estimación optimista ("lo mínimo que podría
+llegar a costar completar esta rama").
+    def CI(S,COSTES):
+      VALOR = 0
+      for i in range(len(S)):
+        VALOR += COSTES[i][S[i]]
+      for i in range(len(S), len(COSTES)):
+        VALOR += min([COSTES[j][i] for j in range(len(S), len(COSTES))])
+      return VALOR
+
+Función para ramificar, generando los hijos de un nodo (p.18):
+    def crear_hijos(NODO, N):
+      HIJOS = []
+      for i in range(N):
+        if i not in NODO:
+          HIJOS.append({'s':NODO+(i,)})
+      return HIJOS
+
+Algoritmo completo de ramificación y poda (p.19-20), resumido en 6 pasos
+por la propia diapositiva: 1) de los nodos pendientes, elegir el más
+prometedor (menor cota inferior); 2) ramificar (generar sus hijos);
+3) si algún hijo es una solución completa, comprobar si mejora la mejor
+solución encontrada hasta ahora (cota superior); 4) podar los hijos cuya
+cota inferior ya no pueda mejorar esa cota superior; 5) añadir los hijos
+que sobreviven a la lista de nodos pendientes; 6) eliminar de esa lista el
+nodo que se acaba de ramificar.
+
+[CLASE] Complejidad (p.13): "es difícil calcular el número de operaciones
+exacto. Calcular el mejor caso y el peor caso. Peor caso = tengo que
+expandir todos los niveles. Mejor caso = puedo podar todos los nodos de un
+nivel menos uno. En general podemos asumir una complejidad exponencial."
+[ACLARACIÓN] Este ejercicio es la versión "con código real, ejecutable"
+del esquema teórico de Ramificación y Poda visto en VC3 (cotas CI/CS y
+regla de poda). Comparado con probar TODAS las asignaciones posibles por
+fuerza bruta (que crecen como n!, factorial), la poda por cota inferior
+permite descartar de golpe ramas enteras del árbol de posibilidades en
+cuanto se demuestra que, en el mejor de los casos, no pueden mejorar lo
+que ya se tiene garantizado — el propio material propone comparar
+experimentalmente ambos algoritmos con matrices cada vez más grandes para
+comprobar a partir de qué tamaño la fuerza bruta deja de ser viable
+(p.21, 36).
+
+6.2 Descenso del gradiente — práctica resuelta paso a paso (p.23-33, 37)
+---------------------------------------------------------------------------
+[CLASE] Repaso de la fórmula (p.23): pₜ₊₁ = pₜ − αₜ·∇f(pₜ), reduciendo αₜ
+dinámicamente según la magnitud del gradiente o el número de iteraciones
+(p.24). Tres variantes (p.25-26, idénticas a las vistas en VC4): batch
+(todos los puntos, "directo pero muy lento"), estocástico (un punto,
+"rápido pero muy disperso"), mini-batch (mezcla, "equilibrio").
+
+Función y gradiente usados en el ejercicio (p.28), sobre el paraboloide
+f(x,y)=x²+y²:
+    f  = lambda X: X[0]**2 + X[1]**2      # Función
+    df = lambda X: [2*X[0], 2*X[1]]       # Gradiente
+
+Bucle principal del algoritmo (p.31):
+    TA=.1   # Tasa de aprendizaje
+    for _ in range(500):
+      grad = df(P)
+      P[0],P[1] = P[0] - TA*grad[0], P[1] - TA*grad[1]
+
+[CLASE] Resultado numérico concreto obtenido (p.32): punto inicial
+aleatorio [0.7569..., 0.9223...]; tras 500 iteraciones, solución final
+[-0.005, -0.005] con f(P)≈5×10⁻⁵ — es decir, converge prácticamente al
+mínimo global real de la función, que está en el punto (0,0).
+[ACLARACIÓN] Este resultado numérico es la comprobación práctica de que la
+fórmula teórica funciona: al ser f(x,y)=x²+y² una función convexa con un
+único mínimo global en el origen, el algoritmo converge a él
+independientemente del punto de partida aleatorio, dando la razón a lo
+explicado en VC4 sobre la importancia de la convexidad para garantizar
+que el óptimo encontrado sea el global.
+
+[CLASE] Segunda función propuesta como reto de mejora de nota (p.33, 37),
+más compleja y NO resuelta numéricamente en el PDF (solo planteada):
+    f(x,y) = sin(1/2·x² − 1/4·y² + 3) · cos(2x + 1 − e^y)
+
+
+============================================================
+7. VC5 — Algoritmos heurísticos / metaheurísticas (Sesión 08)
+============================================================
+
+7.1 Heurística vs. Metaheurística, y por qué hacen falta (p.3-11)
+------------------------------------------------------------------------
+[CLASE] Distinción literal (p.3): "Metaheurísticas: se refiere a técnicas
+generales (directriz, estrategia,...) (Fred Glover, 1986). Heurístico: se
+refiere a un algoritmo concreto." Se usan cuando "no hay un método exacto
+o requiere mucho tiempo (o memoria)" o cuando "no es imprescindible la
+solución óptima pero se quiere una buena solución."
+
+[CLASE] Definición formal (p.4): "Técnicas de algoritmos aproximados, en
+general iterativos, que exploran el espacio de soluciones con una (o
+varias) estrategia(s) 'inteligente(s)' o de 'sentido común' adaptada al
+problema." Ventajas: propósito general, buenos resultados, fáciles de
+implementar, admiten paralelización. Inconvenientes: son aproximados (no
+exactos), en general no deterministas (probabilistas), sin base teórica
+matemática que los valide.
+
+[CLASE] Comparación Exactos vs. Heurísticos (p.5, marcada "importante"):
+Exactos/Deterministas -> óptimo garantizado, tiempo dependiente de la
+dimensión, apto para problemas "pequeños". Heurísticos -> soluciones de
+calidad, tiempo "controlable", apto para problemas "grandes" con
+soluciones "rápidas". Medidas de calidad de un heurístico: Eficacia
+(esfuerzo computacional necesario), Bondad (cercanía al óptimo, en
+promedio), Robustez (qué tan probable es que dé malas soluciones).
+
+[CLASE] Intensificación vs. Diversificación (p.9, marcada "importante"):
+"Intensificación: esfuerzo centrado en la búsqueda de la región actual.
+Diversificación: esfuerzo centrado en explorar otras regiones. Objetivo:
+equilibrio entre ambas — identificar rápidamente regiones con soluciones
+de buena calidad, sin emplear mucho esfuerzo en regiones ya exploradas o
+poco prometedoras."
+[ACLARACIÓN] Este par de conceptos (intensificar/diversificar) es la idea
+que organiza TODAS las metaheurísticas de esta sesión: cada técnica es,
+en el fondo, una forma distinta de repartir el esfuerzo entre "seguir
+explorando a fondo la zona buena que ya he encontrado" (intensificar) y
+"atreverme a mirar zonas completamente distintas por si hay algo mejor"
+(diversificar). Un exceso de intensificación te deja atrapado en un
+óptimo local; un exceso de diversificación te impide aprovechar las zonas
+buenas ya descubiertas.
+
+[CLASE] Teorema "No Free Lunch" (Wolpert y Macready, 1997) (p.11): "Por
+cada par de algoritmos de búsqueda, hay tantos problemas en el que el
+primer algoritmo es mejor que el segundo como problemas en el que el
+segundo algoritmo es mejor que el primero... no existe un algoritmo que
+sea universalmente mejor que los demás. Es necesario incorporar en el
+algoritmo cierto conocimiento específico del problema."
+
+7.2 Búsqueda aleatoria (p.13-16)
+----------------------------------------
+[CLASE] Definición: "Es un proceso por el que se van generando soluciones
+aleatorias en cada iteración y se devuelve la mejor."
+Pseudocódigo (p.13):
+    Inicio
+       GENERA(Solución Inicial)
+       Solución Actual <- Solución Inicial
+       Mejor Solución <- Solución Actual
+    Repetir
+       GENERA(Solución Actual)
+       Si Objetivo(Solución Actual) es mejor que Objetivo(Mejor Solución)
+           entonces Mejor Solución <- Solución Actual
+    Hasta (Criterio de parada)
+    DEVOLVER (Mejor Solución)
+
+[CLASE] Fundamento probabilístico (p.14): si hay m soluciones posibles, la
+probabilidad de acertar el óptimo (si es único) generando 1 solución al
+azar es 1/m; para conseguir una probabilidad p (fijada de antemano) de
+que el óptimo esté entre n soluciones generadas al azar:
+    n > log(1-p) / log(1-1/m)
+[ACLARACIÓN] Esta fórmula cuantifica lo "ingenuo" del método: cuantas más
+soluciones posibles haya (m grande), más soluciones aleatorias n hace
+falta generar para tener garantías razonables de encontrar el óptimo —
+por eso la búsqueda aleatoria sirve como punto de referencia mínimo
+("cualquier técnica decente debería superar a esto"), pero rara vez es la
+técnica final elegida para un problema real.
+
+7.3 Búsqueda local (p.18-31)
+------------------------------------
+[CLASE] Vecindad (p.18): "todas las soluciones incluidas en un entorno de
+la solución de referencia que está delimitado por un operador generador
+de soluciones (también llamado movimiento)."
+[CLASE] Definición de búsqueda local (p.19): "proceso por el que dada una
+solución inicial, se va seleccionando iterativamente una nueva solución
+en el entorno local componiendo una trayectoria (muy orientada a la
+intensificación y escaso componente diversificador)."
+[CLASE] Elementos básicos (p.20): solución inicial; codificación de las
+soluciones; operador de generación de vecino (estructura de entorno);
+criterio de parada.
+Pseudocódigo (p.22):
+    Inicio
+       GENERA(Solución Inicial)
+       Solución Actual <- Solución Inicial; Mejor Solución <- Solución Actual
+    Repetir
+       Solución Vecina <- GENERA_VECINO(Solución Actual)
+       Si Acepta(Solución Vecina) entonces Solución Actual <- Solución Vecina
+       Si Objetivo(Solución Actual) es mejor que Objetivo(Mejor Solución)
+           entonces Mejor Solución <- Solución Actual
+    Hasta (Criterio de parada)
+    DEVOLVER (Mejor Solución)
+
+[CLASE] Desventaja principal (p.23, 25): quedarse atrapado en un
+máximo/mínimo LOCAL. Tres formas de escapar: (1) modificar la estructura
+de entornos (búsqueda en entornos variables), (2) permitir movimientos a
+soluciones peores (búsqueda tabú, recocido simulado), (3) volver a
+empezar con otra solución inicial (multiarranque).
+
+[CLASE] Operadores de vecindad para el TSP, con ejemplo sobre la solución
+(1 2 4 3 8 5 7 6) (p.26-30):
+  - Insertar un elemento en otra posición.
+  - Intercambiar dos elementos (swap / 2-opt).
+  - Invertir el orden de una sub-lista.
+  - Barajar una sub-lista.
+
+7.4 Búsqueda Tabú (p.33-37)
+------------------------------------
+[CLASE] Definición: "Es un proceso de búsqueda por entornos con uso de
+memoria adaptativa. El término proviene de comportamientos socioculturales
+en los que se establecen prohibiciones que desaparecen con el tiempo."
+[CLASE] Fundamentos (p.34): permitir movimientos a soluciones peores para
+escapar de mínimos locales; evitar recorridos cíclicos prohibiendo
+(temporalmente) volver a generar soluciones ya visitadas (lista tabú);
+memoria a corto plazo (evitar ciclos) y memoria a largo plazo
+(intensificar y diversificar).
+[CLASE] Tres tipos de lista tabú (p.35): de SOLUCIONES (se marcan
+soluciones ya visitadas como prohibidas), de MOVIMIENTOS (se prohíbe
+repetir un tipo concreto de movimiento), de ATRIBUTOS (se prohíben
+vecinos que tengan un cierto atributo).
+
+[CLASE] Ejemplo numérico con lista tabú de soluciones para TSP (p.36):
+lista tabú LT = {(1,3,2,4), (3,1,2,4), (3,2,1,4)}; solución actual
+(1,2,3,4) con operador 2-opt; del vecindario completo se excluyen las
+soluciones que coinciden con la lista tabú, quedando un vecindario
+reducido.
+[CLASE] Ejemplo numérico con lista tabú de movimientos (p.37): lista tabú
+de movimientos LT = {(1,3), (2,4)} (es decir, se prohíbe intercambiar las
+posiciones 1↔3 y 2↔4); se descartan del vecindario los resultados de
+aplicar esos movimientos concretos, aunque el resultado en sí no
+coincidiera con ninguna solución de la lista de soluciones tabú.
+[ACLARACIÓN] La diferencia entre "lista de soluciones tabú" y "lista de
+movimientos tabú" es sutil pero importante: prohibir una SOLUCIÓN evita
+volver exactamente a ese mismo punto, pero prohibir un MOVIMIENTO es más
+estricto — evita repetir esa acción aunque llevase a una solución
+distinta de la anterior (por ejemplo, porque el resto de la solución haya
+cambiado por otros movimientos intermedios).
+
+7.5 Recocido simulado (Simulated Annealing) (p.39-43)
+------------------------------------------------------------
+[CLASE] Definición: "proceso de búsqueda por entornos basado en la
+aceptación probabilista de soluciones. El término proviene del
+tratamiento de metales y procesos termodinámicos... Propósito: diversificar
+al principio e intensificar al final." (Kirkpatrick, Gelatt y Vecchi,
+1983).
+[CLASE] Analogía con la termodinámica (p.40): estados del sistema <->
+soluciones factibles; energía <-> coste; temperatura <-> parámetro de
+control; estado congelado <-> solución heurística final.
+
+Esquema básico (p.41):
+    T <- T0                        [Temperatura inicial alta]
+    Generar una solución inicial x1; F* <- F(x1); x* <- x1
+    While no se cumpla condición de parada:
+       Generar aleatoriamente x en el entorno de xn
+       if F(x) ≤ F(xn): xn+1 <- x     [se acepta si es mejor]
+       if F(x) ≤ F*: F* <- F(x); x* <- x
+       else: generar p aleatorio en [0,1]
+       if p ≤ p(n): xn+1 <- x         [también se acepta con cierta
+                                        probabilidad aunque sea peor]
+       Disminuir la temperatura según el programa de enfriamiento
+    (Criterio de parada: T=0 o nº de iteraciones)
+
+[CLASE] Función de aceptación (criterio de Metropolis) (p.42):
+    P_aceptación = exp(−δ/T),   donde δ = C(s') − C(s)
+    (s = solución actual, s' = solución vecina)
+"A mayor temperatura, mayor probabilidad de aceptar peores soluciones. A
+menor diferencia de costes, mayor probabilidad de aceptar peores
+soluciones."
+[ACLARACIÓN] Esta fórmula es la que da nombre a la técnica: al principio,
+con temperatura alta, el algoritmo acepta casi cualquier solución vecina
+—incluso mucho peor que la actual— lo que le permite ESCAPAR fácilmente de
+mínimos locales y explorar el espacio de soluciones (diversificar). A
+medida que la temperatura baja, cada vez es menos probable aceptar
+soluciones peores, así que el algoritmo se vuelve progresivamente más
+parecido a una búsqueda local pura (intensificar), "congelándose"
+finalmente en la mejor zona encontrada. De ahí la frase resumen: "diversificar
+al principio, intensificar al final."
+
+[CLASE] Mecanismos de enfriamiento (p.43): descenso constante; descensos
+por tramos según la iteración; descenso exponencial T_(k+1)=α·T_k;
+criterio de Boltzmann T_k=T0/(1+log k); esquema de Cauchy T_k=T0/(1+k).
+
+7.6 Multiarranque (p.45)
+--------------------------------
+[CLASE] Definición: "proceso de búsqueda en el que se repiten los dos
+procesos principales de búsqueda, generación de solución inicial y
+búsqueda local, hasta satisfacer un criterio de parada." Las soluciones
+iniciales pueden ser aleatorias o "dirigidas" según las características
+del problema. Para la búsqueda local en cada repetición se puede usar
+cualquier método.
+
+7.7 GRASP (p.47-50)
+----------------------------
+[CLASE] Definición: "proceso multiarranque de búsqueda voraz, aleatorio y
+adaptativo (greedy randomized adaptative search procedures, Feo y
+Resende, 1995)." Voraz: construcción de soluciones iniciales por un
+método voraz. Aleatorio: en vez de elegir siempre el mejor candidato
+(100% voraz), se añade una probabilidad sobre un conjunto de candidatos.
+Adaptativo: los beneficios del nuevo elemento se re-evalúan para
+condicionar la elección de los siguientes.
+Esquema básico (p.48):
+    procedure GRASP(maxIt, seed)
+       ReadInput()
+       for i := 1 to maxIt do
+          Solution := GreedyRandomizeConstruction(seed)
+          Solution := LocalSearchSolution(Solution)
+          UpdateSolution(Solution)
+       return BestSolution
+
+[CLASE] Ejemplo numérico con TSP de 6 ciudades usando una Lista Restringida
+de Candidatos (LRC) (p.50): partiendo de la ciudad 1, LRC={4,2,6} ->
+elección uniforme=6 -> (1 6 - - - -); desde 6, LRC={3,5,2} -> elección=3
+-> (1 6 3 - - -); desde 3, LRC={2,5,4} -> elección=5 -> (1 6 3 5 - -);
+desde 5, LRC={4,2} -> elección=2 -> (1 6 3 5 2 -); desde 2, LRC={4} ->
+elección=4 -> solución completa (1 6 3 5 2 4).
+[ACLARACIÓN] Nótese la diferencia con la voracidad pura: en cada paso NO
+se elige directamente la ciudad más cercana, sino que se construye primero
+una lista restringida con las mejores candidatas (LRC) y se elige una de
+ellas al azar. Eso es justo lo que combina "voraz" (solo se consideran las
+mejores opciones) con "aleatorio" (no siempre se coge la mejor de todas) y
+permite que ejecuciones distintas de GRASP den soluciones iniciales
+distintas, cada una susceptible de mejorarse después con búsqueda local.
+
+7.8 Colonia de hormigas (ACO) (p.55-60)
+-------------------------------------------------
+[CLASE] Definición: "proceso multiagente de búsqueda en el que cada
+agente se encarga de construir probabilísticamente soluciones
+aprovechando información de otros agentes" (Ant Colony Optimization,
+Marco Dorigo, 1992).
+[CLASE] Fundamentos (p.56-57): comunidades de individuos que generan
+comportamientos complejos con reglas sencillas; un rastro de feromonas
+indica a otras hormigas que sigan ese camino; un componente aleatorio
+permite descubrir soluciones nuevas, que se refuerzan si son buenas
+porque su rastro dura más tiempo que el de otras. Se deposita feromona
+proporcional a la calidad de la solución (inversamente proporcional al
+coste, en problemas de minimización); la feromona se EVAPORA con el
+tiempo para evitar quedarse atrapado en mínimos locales.
+
+Esquema básico (p.59):
+    Depositar una cantidad de feromona inicial en todas las aristas
+    Crear m hormigas
+    Repetir:
+       Reiniciar hormigas
+       Cada hormiga: construir solución usando feromonas y coste de aristas
+       Cada hormiga: depositar feromona en aristas de su solución
+       Evaporar feromona de todas las aristas
+    Devolver: la mejor solución encontrada
+
+[ACLARACIÓN] La idea central de ACO es que ninguna hormiga individual
+"sabe" cuál es el mejor camino: la buena solución EMERGE de que muchas
+hormigas, actuando con reglas simples y locales (seguir más o menos las
+feromonas, con algo de aleatoriedad), refuerzan colectivamente los
+caminos cortos (por los que se pasa más veces por unidad de tiempo, y por
+tanto acumulan más feromona) mientras que los caminos largos pierden
+feromona por evaporación antes de que se vuelvan a usar.
+
+
+============================================================
+8. AG3 — Heurísticas aplicadas al problema del viajante (TSP) (Sesión 09)
+============================================================
+[CLASE] Actividad práctica que aplica sobre el TSP las técnicas de VC5:
+búsqueda aleatoria, búsqueda local, recocido simulado y colonia de
+hormigas (ACO, esta última marcada como "no evaluable").
+
+8.1 El problema y los datos usados (p.5-11)
+--------------------------------------------------
+[CLASE] Definición (TSPLIB, p.5): "Given a set of n nodes and distances
+for each pair of nodes, find a roundtrip of minimal total length visiting
+each node exactly once." Se usa la instancia real "swiss42.tsp" (42
+ciudades suizas), con su matriz completa de distancias 42x42, y se supone
+el grafo completo (todos los nodos conectados), comenzando y terminando
+siempre en el nodo 0 (p.6, 9). La mejor solución conocida para esta
+instancia (según TSPLIB) tiene una distancia total de 1273 (p.11).
+
+Representación de una solución y función objetivo en código (p.12):
+    def distancia_total(solucion, problem):
+      distancia_total = 0
+      for i in range(len(solucion)-1):
+        distancia_total += distancia(solucion[i], solucion[i+1], problem)
+      return distancia_total + distancia(solucion[-1], solucion[0], problem)
+[ACLARACIÓN] La solución se representa simplemente como una lista/orden de
+las ciudades a visitar, empezando en el nodo 0; la función objetivo suma
+la distancia entre cada par de ciudades consecutivas de la ruta MÁS la
+distancia de vuelta desde la última ciudad hasta la primera (para cerrar
+el ciclo, ya que el TSP exige volver al punto de partida).
+
+8.2 Resultados comparados de cada técnica sobre swiss42.tsp
+----------------------------------------------------------------------
+[CLASE] La misma instancia (swiss42, óptimo conocido = 1273) se resuelve
+con las 3 técnicas evaluables, obteniendo:
+  - Búsqueda aleatoria, 5.000 iteraciones (p.15): distancia = 3495.
+  - Búsqueda local con operador 2-opt, hasta óptimo local (p.18-19): de
+    una solución inicial de 3712 se mejora a 3255 en un solo paso de
+    vecindad, y tras 42 iteraciones converge a 1749.
+  - Recocido simulado, temperatura inicial 10.000.000, enfriamiento
+    T=T·0,999, parada en T<0,0001 (p.26-27): distancia final = 1906.
+[ACLARACIÓN] Sobre esta misma instancia, la búsqueda local (1749) queda
+más cerca del óptimo conocido (1273) que el recocido simulado (1906), y
+ambas muy por delante de la búsqueda puramente aleatoria (3495) — un
+ejemplo numérico real y verificable de por qué "explorar con cierta
+inteligencia" (aunque sea heurística, no exacta) supera claramente a
+explorar completamente al azar.
+
+8.3 Generador de vecina 2-opt para el TSP (p.18, 24)
+-------------------------------------------------------------
+[CLASE] "Generador de soluciones vecinas: 2-opt (intercambiar 2 nodos). Si
+hay N nodos se generan (N-1)x(N-2)/2 soluciones." Para el recocido
+simulado se usa una versión aleatoria del mismo operador: se eligen al
+azar dos posiciones de la ruta y se intercambian (p.24).
+
+8.4 Colonia de hormigas aplicada al TSP — fórmula de probabilidad (p.37)
+--------------------------------------------------------------------------------
+[CLASE] Fórmula formal de probabilidad de que la hormiga k elija ir del
+nodo i al nodo j:
+    p^k_ij(t) = [τ_ij(t)]^α · [ν_ij]^β / Σ_(l∈J^k_i) [τ_il(t)]^α · [ν_il]^β
+  (si j pertenece a J^k_i, el conjunto de nodos que la hormiga k aún no ha
+  visitado; si no, la probabilidad es 0)
+  Donde: τ_ij(t) = cantidad de feromona en la arista (i,j); ν_ij = inversa
+  de la distancia de i a j; α = peso relativo dado al rastro de feromona;
+  β = peso relativo dado a la distancia.
+[CLASE] Notas dadas: "Si α es igual a 0, se asemeja a una técnica voraz."
+"Si β es igual a 0, solo interviene la feromona, que puede no ser lo
+ideal."
+[ACLARACIÓN] Esta fórmula deja ver con precisión el equilibrio entre
+"experiencia colectiva" (τ, la feromona acumulada por hormigas
+anteriores) y "información local inmediata" (ν, lo cerca que está ese
+nodo). Los parámetros α y β son los "mandos" que permiten decidir cuánto
+pesa cada una de esas dos fuentes de información: si α=0, la hormiga
+ignora por completo la feromona y solo mira la distancia, comportándose
+como un algoritmo voraz puro; si β=0, ignora la distancia y solo sigue el
+rastro de feromona de las demás.
+
+
+============================================================
+9. VC6 — Computación evolutiva y algoritmos genéticos (Sesión 10)
+============================================================
+
+9.1 De dónde viene la idea: breve historia (p.4-9)
+----------------------------------------------------------
+[CLASE]
+- Charles Darwin (1809-1882), Darwinismo (p.5): "Los individuos son
+  ligeramente distintos entre sí y estas pequeñas variaciones hacen que
+  cada uno tenga distintas capacidades para adaptarse a su medio
+  ambiente... Con el paso del tiempo, los rasgos de los individuos que
+  mejor se adaptaron... se vuelven más comunes, haciendo que la
+  población, en su conjunto, evolucione."
+- Gregor Mendel (1822-1884), Leyes de Mendel (p.6): reglas básicas que
+  gobiernan la transmisión hereditaria de características de padres a
+  hijos.
+- Hans-Joachin Bremermann (1926-1996) (p.8): "Fue el primero en ver el
+  componente de optimización en los procesos evolutivos", con las
+  primeras simulaciones con cadenas binarias y operadores de
+  reproducción/selección/mutación (1962).
+- John Henry Holland (1929-2015), Universidad de Michigan (p.9): en su
+  obra "Adaptation in Natural and Artificial Systems" (1975), "presentó
+  el algoritmo genético como una abstracción de la evolución natural...
+  Introdujo los conceptos de población, cromosomas (cadenas binarias),
+  evolución a través de operadores de cruce + mutación y la selección."
+
+[CLASE] Fundamento general (p.11): "Se hace evolucionar una población de
+individuos (cada uno de los cuales puede representar una posible
+solución). La población se somete a acciones aleatorias semejantes a las
+de la evolución biológica (mutaciones y recombinaciones genéticas). Los
+individuos se seleccionan de acuerdo con una función de adaptación
+(fitness) en función de la cual se decide qué individuos sobreviven (los
+más adaptados) y cuáles son descartados (los menos aptos)."
+[ACLARACIÓN] La idea central es traducir el vocabulario de la evolución
+biológica a un vocabulario algorítmico: cada "individuo" es una posible
+solución al problema; la "población" es un conjunto de soluciones
+candidatas trabajando en paralelo; el "fitness" es, sencillamente, la
+función objetivo del problema de optimización (cuanto mejor resuelve el
+individuo el problema, mayor su fitness); y "evolucionar la población" es
+ir sustituyendo, generación tras generación, las peores soluciones por
+otras nuevas construidas combinando y modificando las mejores soluciones
+ya encontradas.
+
+9.2 Terminología y componentes de un Algoritmo Genético (p.21-28)
+------------------------------------------------------------------------
+[CLASE] Componentes de un AG (p.21): representación de las soluciones;
+función de evaluación (fitness); mecanismo de creación de la población
+inicial; operadores genéticos (cruce y mutación); mecanismo de selección
+(probabilística).
+[CLASE] Representación binaria (p.25): Cromosoma = cadena de bits que
+representa a un individuo; Gen = cada posición de la cadena; Alelo =
+valor de un gen concreto.
+[CLASE] Función de evaluación/fitness (p.26-27): "Es la función objetivo
+de nuestro problema. Asigna valores reales a cada fenotipo. Es la base
+del proceso de selección." Puede ser una función matemática, un
+simulador o incluso un robot; "un buen consejo es usar aproximaciones si
+la función es compleja"; las restricciones del problema se pueden
+modelar como penalizaciones aplicadas a la función de evaluación.
+[CLASE] Población inicial (p.28): "suele ser aleatoria... conviene
+asegurar que sea una población variada: que estén representados todos los
+posibles alelos para todos los genes." También pueden incorporarse
+individuos obtenidos por otras heurísticas si se sabe que tienen "buenos
+componentes genéticos".
+
+9.3 Operadores genéticos: mutación y cruce (p.29-38)
+------------------------------------------------------------
+[CLASE] Definición general (p.29): "mutación: modificación al azar sobre
+un individuo de la población. Cruce: combinación de dos (o más)
+individuos de la población para dar lugar a otros individuos."
+[CLASE] Mutación (p.30): actúa sobre el genotipo de un individuo; debe ser
+aleatoria; introduce diversidad genética; en algoritmos evolutivos "son
+los únicos operadores que producen variedad en la población."
+[CLASE] Cruce (p.31): combina los genotipos de los padres; la información
+que se combina se elige al azar; los descendientes pueden ser peores que
+los padres, "pero se espera que algunos descendientes mejoren la
+población".
+[CLASE] Cruce vs. mutación (p.38): "en general suele ser buena estrategia
+usar ambos. Si prescindimos del cruce, son algoritmos evolutivos. El
+operador cruce explora el espacio cercano a una solución
+(Intensificación)... El operador mutación permite explorar espacios de
+búsqueda muy diferentes de los padres (Diversificación)."
+
+Tipos de cruce (p.33-35):
+  - Cruce en un punto (1-point crossover): se elige un punto de corte al
+    azar en el cromosoma; se dividen los dos padres por ese punto; los
+    hijos se forman intercambiando las partes resultantes. Limitación:
+    "es más probable que sigan juntos genes próximos; no se juntan los
+    genes de los extremos."
+  - Cruce en n puntos (n-point crossover): igual pero con varios puntos
+    de corte.
+  - Cruce uniforme (uniform crossover): para cada gen se elige al azar de
+    qué padre se hereda; "se elimina el sesgo posicional del cruce de
+    n-puntos."
+
+[CLASE] Ejemplo de cruce de 2 puntos aplicado al TSP (permutaciones de
+ciudades) (p.36):
+    P1 = 5 6 4 | 3 7 9 | 1 2 8
+    P2 = 1 5 3 | 9 8 7 | 4 6 2
+    (tras el cruce, con la nota explícita "Asegurar la factibilidad")
+[ACLARACIÓN] Esta nota de "asegurar la factibilidad" es clave: en el TSP
+cada cromosoma tiene que seguir siendo una PERMUTACIÓN válida de las
+ciudades (cada ciudad aparece una única vez). Un cruce ingenuo de puntos
+de corte, como en cadenas binarias normales, puede generar hijos con
+ciudades repetidas y otras ausentes, así que hace falta un paso adicional
+de reparación (como se ve también en la sección 10, donde la función
+Factibilizar cumple exactamente ese papel).
+
+9.4 Selección de individuos (p.39-42)
+--------------------------------------------
+[CLASE] Selección de supervivientes (p.41): basada en el fitness (solo
+sobreviven los mejores); basada en la edad (los descendientes sustituyen a
+los padres); combinación = ELITISMO ("los mejores individuos siempre
+sobreviven, independientemente de la edad").
+[CLASE] Nota "importante" (p.41): "Günter Rudolph demostró que es
+necesario el elitismo para que un algoritmo genético pueda converger al
+óptimo global" (Rudolph, IEEE Transactions on Neural Networks, 1994).
+[ACLARACIÓN] Esto justifica por qué prácticamente todos los algoritmos
+genéticos prácticos (incluido el implementado en AG3 2ª parte de este
+curso, ver sección 10) incluyen un porcentaje de elitismo: sin él, no hay
+garantía teórica de que el proceso evolutivo mejore de forma sostenida —
+podría, en teoría, "perder" por casualidad a los mejores individuos
+encontrados hasta el momento.
+
+[CLASE] Selección por ruleta (p.40): a cada individuo se le asigna una
+porción de una ruleta proporcional a su fitness; los mejores individuos
+tienen más probabilidad de ser elegidos, pero los peores también pueden
+salir elegidos (con menor probabilidad) — "el proceso aleatorio ayuda a
+escapar de óptimos locales."
+[CLASE] Selección por ranking (p.42): se ordenan los individuos según su
+evaluación y se aplica una probabilidad según su posición en el ranking:
+ρ(i) = rank(i) / (n·(n-1)).
+[CLASE] Selección por torneo (p.42): se seleccionan k individuos al azar
+para un "torneo" y se elige al mejor de ellos.
+
+9.5 Esquema general del Algoritmo Genético (p.12-13)
+------------------------------------------------------------
+[CLASE] Diagrama de flujo (p.12): Población inicial -> Evaluar con
+función de fitness -> ¿Es satisfactoria? -> si SÍ, terminar y devolver
+los mejores individuos; si NO -> Selección -> Cruce -> Mutación -> generar
+nueva población -> volver a evaluar (bucle).
+
+9.6 El mapa conceptual final de cierre de TODO el curso (p.75)
+-----------------------------------------------------------------------
+[CLASE] Diapositiva "Resumen de lo aprendido", cita literal completa:
+  "- Conocer las técnicas clásicas deterministas:
+     – Voracidad, Divide y vencerás, Programación dinámica, Programación
+       lineal
+     – Búsquedas con grafos
+   - Conocer las implicaciones de la Complejidad computacional
+   - Conocer problemas tipo para clasificar (si se puede) nuestros
+     próximos problemas a resolver
+   - Tener destreza para modelizar:
+     – Espacio de soluciones, función objetivo, restricciones
+   - Conocer técnicas metaheurísticas:
+     – Trayectorias, constructivas, poblacionales,…
+   - Practicar -> Investigar -> Practicar -> Investigar -> Practicar ->
+     Investigar ..."
+[ACLARACIÓN] Este es, literalmente, el resumen que el propio curso hace de
+sí mismo: por un lado las técnicas EXACTAS deterministas (todo lo visto en
+VC2/AG1: voracidad, divide y vencerás, programación dinámica; más
+programación lineal y búsqueda en grafos de VC3); por otro, las técnicas
+METAHEURÍSTICAS (VC5/AG3), organizadas en 3 familias — trayectorias (
+búsqueda local, tabú, recocido simulado), constructivas (GRASP, colonia
+de hormigas) y poblacionales (algoritmos genéticos/evolutivos, esta misma
+sesión VC6) — todo ello enmarcado por saber clasificar problemas tipo, y
+por la destreza de modelizar bien (espacio de soluciones + función
+objetivo + restricciones) que se enseñó ya desde la primerísima sesión,
+VC1.
+
+
+============================================================
+10. AG3 (2ª parte) — Práctica en grupo: Algoritmo Genético para el TSP
+    (Sesión 12)
+============================================================
+[CLASE] Implementación práctica en grupo de un Algoritmo Genético para el
+TSP, más una sección final sobre la variante TSP-TW (Time Windows)
+basada en dos artículos académicos citados como referencia.
+
+10.1 Estructura del algoritmo genético implementado
+-----------------------------------------------------------
+[CLASE] Codificación: cada solución/individuo es una lista/permutación de
+índices de nodos (ciudades), igual que en AG3 (p.4, 8).
+[CLASE] Población inicial: se genera de forma ALEATORIA, reutilizando si
+existe la función crear_solucion(Nodos) ya vista en AG3 (p.5).
+[CLASE] Cruce: de 1 PUNTO de corte. La propia diapositiva advierte (p.5):
+"Para el operador de cruce 1-punto los hijos generados no son soluciones
+(algunos nodos se repiten y otros no están)" — por lo que existe una
+función separada Factibilizar(solucion, problem) que repara la solución
+resultante para que vuelva a ser una permutación válida.
+[CLASE] Mutación: por INTERCAMBIO (swap) de dos nodos elegidos al azar,
+aplicada con una probabilidad = parámetro `mutacion` (p.5).
+[CLASE] Selección: función Seleccionar(problem, poblacion, N, elitismo)
+que elimina los individuos "poco aptos" (en este problema, fitness alto =
+distancia alta = peor) para volver a un tamaño de población N, respetando
+el porcentaje de elitismo indicado; para el resto de individuos (los no
+élite) se sugiere una selección de ruleta proporcional al fitness (p.5).
+[CLASE] Criterio de parada: número fijo de generaciones (p.4).
+
+[ACLARACIÓN] La estructura completa de este algoritmo genético es, en la
+práctica, una aplicación directa de todos los conceptos de VC6: la
+"reparación" tras el cruce (Factibilizar) es la solución concreta al
+problema de factibilidad ya avisado en la sección 9.3 de este documento
+para el TSP; y la combinación de elitismo directo + ruleta para el resto
+es justo la "selección de supervivientes" descrita en la sección 9.4
+(fitness + edad combinados = elitismo).
+
+[CLASE] Ejecución de ejemplo real (p.8):
+    sol = algoritmo_genetico(problem=problem, N=500, mutacion=.3,
+                              elitismo=.40, generaciones=250)
+  Generación #0: mejor solución con distancia 3979.
+  Generación #1: mejor solución con distancia 3749.
+[ACLARACIÓN] Se observa mejora ya de la generación #0 a la #1 (de 3979 a
+3749): es la evidencia numérica directa de que el ciclo
+selección-cruce-mutación-elitismo, repetido generación tras generación,
+va reduciendo la distancia total de la mejor ruta encontrada.
+
+10.2 Variante TSP-TW (Time Windows): dos formulaciones citadas de papers
+--------------------------------------------------------------------------------
+[CLASE] Esta parte del PDF (p.13-18) no es código de la práctica, sino
+contenido de DOS artículos académicos distintos, citados como referencia
+sobre "Variaciones del Problema del agente viajero":
+
+a) Artículo "Genetic Algorithm for Optimizing TSP-TW" (p.14): si la
+   llegada a un destino incumple su ventana horaria, se calcula
+       Penalty = (Time close tour location − End time schedule) / 60
+   y la fórmula de fitness dada en su diagrama es:
+       Fitness = 1 / (ΣPenalty + ΣDistance)
+   (nótese que esta fórmula NO incluye un término de tiempo total, solo
+   penalización + distancia).
+
+b) Artículo "Implementation of GA to Solving TSP-TW... Malang City"
+   (p.17), ecuación (1), la fórmula de fitness realmente dada es:
+       Fitness Value = 1000 / (ΣD + ΣT + (ΣP × 60))
+   donde ΣD = distancia total recorrida, ΣT = tiempo total de viaje, ΣP =
+   penalización total (multiplicada por 60 para expresarla en minutos,
+   "proporcional al tiempo de viaje", según el propio artículo citado).
+
+[ACLARACIÓN] Es importante no confundir estas dos fórmulas ni mezclarlas:
+son dos propuestas de DOS artículos académicos distintos, presentadas en
+el PDF como referencias/ejemplos de cómo se podría extender el TSP básico
+para tener en cuenta ventanas horarias, no como una única fórmula oficial
+del curso ni como código que se implemente literalmente en la práctica en
+grupo. Si se necesita replicar alguna, hay que fijarse en cuál de las dos
+—con su numerador (1 o 1000) y su tratamiento de la penalización (con o
+sin ×60)— es la que corresponde citar.
+
+
+============================================================
+11. MAPA CONCEPTUAL FINAL — cómo elegir técnica según el problema
+============================================================
+[ACLARACIÓN] Esta guía de decisión es una síntesis, construida a partir de
+las características que cada técnica exige según sus propias diapositivas
+(secciones 3, 4 y 7 de este documento), no una diapositiva única y
+literal del curso — el cierre LITERAL del curso es el de la sección 9.6.
+
+  ¿El problema se puede dividir en sub-problemas DISJUNTOS (sin
+  solapamiento), que se combinan al final?
+    -> Divide y Vencerás (Hanoi, Merge Sort, Quick Sort, par de puntos
+       más cercanos).
+
+  ¿Basta con tomar, en cada etapa, la decisión localmente más ventajosa,
+  y se puede demostrar que eso lleva al óptimo global?
+    -> Técnica Voraz (cambio de monedas con sistema canónico, árbol de
+       recubrimiento mínimo con Prim/Kruskal).
+       ¡Ojo! No siempre funciona (cambio de monedas [11,5,1], mochila).
+
+  ¿Hay que explorar sistemáticamente TODO un espacio de soluciones
+  discreto, representable como árbol?
+    -> Vuelta atrás / Backtracking (N-Reinas), mejorable con
+       Ramificación y Poda si se pueden calcular cotas (asignación de
+       tareas, TSP exacto).
+
+  ¿Los sub-problemas se REPITEN (se solapan) y se cumple el principio de
+  optimalidad de Bellman?
+    -> Programación Dinámica (viaje por el río, mochila 0/1, y —por
+       analogía conceptual— Floyd-Warshall/Bellman-Ford).
+
+  ¿El problema es de optimización continua, con una función derivable
+  (idealmente convexa)?
+    -> Descenso del Gradiente.
+
+  ¿El problema es tan grande que ningún método exacto anterior es viable
+  en tiempo/memoria razonables (p.ej. TSP con muchas ciudades, NP-duro)?
+    -> Metaheurísticas: búsqueda aleatoria (referencia mínima), búsqueda
+       local / tabú / recocido simulado (basadas en trayectoria), GRASP /
+       colonia de hormigas (constructivas), algoritmos genéticos /
+       evolutivos (basadas en población).

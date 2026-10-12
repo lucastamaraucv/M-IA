@@ -1,0 +1,9 @@
+Los archivos que estoy leyendo no contienen el examen de repaso descrito. Cada "pagina_XX.png" es en realidad una captura de pantalla de una máquina virtual VMware mostrando un PDF distinto llamado **"ejercicios_entregable.pdf"** (un trabajo entregable de "Máster en IA — Matemáticas para la IA", con ejercicios de programación en Python sobre determinantes/álgebra lineal y descenso de gradiente).
+
+Esto no coincide con lo que pediste (preguntas de opción múltiple o de respuesta numérica con espacio en blanco para responder). Además, las páginas 1 y 3 muestran contenido idéntico (mismo scroll/zoom del PDF dentro de la VM), lo que sugiere que las capturas no avanzan como páginas distintas de un examen, sino que son screenshots repetidos o consecutivos de scroll de ese mismo PDF de ejercicios entregables.
+
+¿Podrías confirmar la ruta correcta de las imágenes del repaso/examen? Es posible que:
+1. La carpeta `REPASAR_20260908_135536` tenga las imágenes correctas pero el contenido capturado sea otro (revisaría con gusto si me confirmas).
+2. Se haya guardado por error la captura de un PDF distinto.
+
+No voy a inventar preguntas ni resolver el contenido del PDF de ejercicios entregable como si fuera el repaso, ya que no encaja con el formato solicitado. Avísame cómo proceder.

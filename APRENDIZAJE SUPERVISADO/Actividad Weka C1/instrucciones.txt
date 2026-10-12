@@ -1,0 +1,19 @@
+Pasos a seguir:
+
+     1) Revisar los videos de la herramienta weka ubicados en Videos de la Asignatura > Videos de la actividad weka: Video docente 1 y Video docente 2
+
+     2) Ver documento Actividad_Weka_Nombre_Apellidos.docx, y usar datasets adjuntos a la actividad.
+
+     3) Indicar nombres y apellidos dentro del documento Actividad_Weka_Nombre_Apellidos.docx.
+
+     4) Para la entrega, renombrar el archivo Actividad_Weka_Nombre_Apellidos.docx indicando los nombres y apellidos en Nombre_Apellidos. Ejemplo: Actividad_Weka_Sebastian_Sanchez_Goez.docx 
+
+
+
+Documentos a entregar:
+
+       - Actividad_Weka_Nombre_Apellidos.docx.
+
+
+
+Fecha límite: 11 de Septiembre de 2026, hasta las 23:59 (hora peninsular).

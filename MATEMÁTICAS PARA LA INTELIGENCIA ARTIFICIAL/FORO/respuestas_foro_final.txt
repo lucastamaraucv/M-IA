@@ -1,0 +1,280 @@
+================================================================================
+FORO EVALUABLE — CADENAS DE MARKOV
+02MIAR: Matemáticas para la Inteligencia Artificial
+Referencia: R. Weber, "Markov Chains" (Cambridge, 2011)
+================================================================================
+
+
+================================================================================
+(2 pts) IDEAS & CONCEPTOS
+================================================================================
+
+1. ¿Qué es un proceso estocástico, qué tipos hay y qué aplicaciones tienen?
+--------------------------------------------------------------------------------
+Un proceso estocástico es una colección de variables aleatorias {Xt, t ∈ T}
+indexadas por un parámetro t (generalmente el tiempo), donde cada Xt toma
+valores en un espacio de estados I y la evolución sigue reglas probabilísticas.
+
+Weber introduce directamente las cadenas de Markov como caso principal: una
+secuencia X0, X1,... cuya distribución conjunta queda determinada por una
+distribución inicial y una matriz de transición (§1.2).
+
+Tipos según el texto:
+  - Tiempo discreto, estados discretos: cadenas de Markov (foco del curso),
+    caminatas aleatorias (§6), cadenas de nacimiento y muerte (§4.1),
+    modelo de Ehrenfest (§12.1)
+  - Tiempo continuo: cola M/M/1 (§12.2), movimiento Browniano (§12.5)
+
+Aplicaciones mencionadas en el texto:
+  - PageRank: distribución estacionaria sobre el grafo web (§8.3)
+  - Teoría de colas y redes de comunicación (§1.1, §12.2)
+  - Seguros y finanzas: ruina del apostador como modelo de quiebra (§3, §12.5)
+  - Optimización y control con recompensas (§12.5)
+  - Mezcla de cartas, retorno de caballo en ajedrez (§1.1)
+
+
+2. ¿De qué tipo de proceso son las cadenas de Markov?
+--------------------------------------------------------------------------------
+Son procesos estocásticos de tiempo discreto con espacio de estados discreto
+que satisfacen la propiedad de Markov (Definición 1.2):
+
+  P(Xn+1 = j | X0 = i0,...,Xn = i) = P(Xn+1 = j | Xn = i) = pij
+
+El futuro depende solo del estado presente, no del historial. La distribución
+conjunta de toda la trayectoria queda (Teorema 1.3):
+  P(X0=i0,...,Xn=in) = λi0 · pi0i1 · ... · pin-1,in
+
+
+3. ¿Qué aplicaciones tienen en IA los MDP?
+--------------------------------------------------------------------------------
+El texto (§12.5) define los MDP como extensión de las cadenas de Markov donde
+un controlador elige entre distintas matrices de transición para minimizar
+costo o maximizar recompensa. No desarrolla aplicaciones específicas en IA.
+
+La estructura MDP (estados, acciones, transiciones, recompensas) es la base
+matemática del Reinforcement Learning. Aplicaciones concretas en IA:
+
+  - Reinforcement Learning (RL): algoritmos como Q-learning, DQN y PPO
+    modelan el entorno como un MDP. El agente observa el estado, elige una
+    acción, recibe una recompensa y el entorno transiciona al siguiente estado.
+    Objetivo: aprender la política óptima que maximice la recompensa acumulada.
+  - Robótica: navegación autónoma y control de manipuladores. El estado
+    es la posición y velocidad del robot, la acción es la señal de control.
+  - Juegos: AlphaGo y AlphaZero (DeepMind) combinan MDP con búsqueda
+    y redes neuronales para dominar ajedrez y Go.
+  - Sistemas de diálogo y recomendación: cada interacción usuario-sistema
+    se modela como transición de estado para optimizar la experiencia.
+
+
+4. ¿Qué es una matriz estocástica y qué aplicación tiene?
+--------------------------------------------------------------------------------
+De la §1.2: pij ≥ 0 para todo i,j, y Σj pij = 1 para toda fila i.
+La entrada pij = P(Xn+1 = j | Xn = i) es la probabilidad de ir del estado i
+al j en un paso.
+
+Aplicaciones:
+  - Distribución en n pasos: P(Xn = j) = (λPⁿ)j  (§1.5)
+  - Chapman-Kolmogorov: p(n+m)ij = Σk p(n)ik · p(m)kj
+  - Estado estacionario: resolver πP = π
+  - PageRank: distribución estacionaria de una matriz estocástica sobre la web
+
+
+5. ¿Qué es el vector de estado y qué representa?
+--------------------------------------------------------------------------------
+De la §1.2: vector fila λ = (λi: i ∈ I) con λi ≥ 0 y Σi λi = 1.
+Representa la distribución de probabilidad sobre los estados en un instante
+dado — no dice en qué estado está el sistema, sino con qué probabilidad
+está en cada uno.
+
+Evolución (§1.5): P(Xn = j) = (λPⁿ)j → vn = v0 · Pⁿ
+
+Convergencia (Teorema 9.8): si la cadena es irreducible, aperiódica y
+positivamente recurrente, entonces vn → π cuando n → ∞, para cualquier v0.
+
+
+6. ¿Qué es el estado estacionario? ¿Cómo se calcula? ¿Qué significa?
+--------------------------------------------------------------------------------
+De la §7.1: distribución invariante π con πP = π y Σi πi = 1. Los términos
+equilibrio, estacionario y steady state son sinónimos en el texto.
+
+Cálculo — LHEs (§7.4): escribir πP = π componente a componente,
+reemplazar una ecuación redundante por Σi πi = 1 y resolver el sistema.
+
+Significado (Teoremas 7.5, 9.1, 9.8, 10.2):
+  - Si el sistema empieza en π, permanece en π para siempre
+  - Para cadenas ergódicas: p(n)ij → πj cuando n → ∞ (convergencia al equilibrio)
+  - Tiempo medio de retorno al estado i: mi = 1/πi
+  - Proporción de tiempo en el estado i: Vi(n)/n → πi casi seguramente
+
+
+================================================================================
+(1 pt) MODELO DEL CLIMA — GENERALIDADES
+================================================================================
+Estados: (1) Soleado, (2) Nublado, (3) Lluvioso
+
+1. ¿Puede Q ser una matriz de transición?
+--------------------------------------------------------------------------------
+         | 0.2   0.5   0.4 |
+Q  =     | 0.1   0.5   0.3 |
+         | 0.7   0.5  -0.2 |
+
+No. Viola las dos condiciones de la Definición 1.2:
+  - q33 = -0.2 < 0  (no negatividad)
+  - Fila 1: 0.2+0.5+0.4 = 1.1 ≠ 1  y  Fila 2: 0.1+0.5+0.3 = 0.9 ≠ 1
+
+
+2. ¿Puede algún vector ser el vector de estado actual?
+--------------------------------------------------------------------------------
+Para ser distribución válida: λi ≥ 0 y Σi λi = 1.
+  - u0 = (0.3, 0.6, 0.7): suma = 1.6 ≠ 1  → NO VÁLIDO
+  - w0 = (0.2, 0.1, 0.5): suma = 0.8 ≠ 1  → NO VÁLIDO
+
+
+================================================================================
+(5 pts) MODELO DEL CLIMA — EJERCICIO
+================================================================================
+
+         | 0.2   0.5   0.3 |
+P  =     | 0.1   0.6   0.3 |     v0 = (0.75, 0.20, 0.05)
+         | 0.5   0.3   0.2 |
+
+Regla de evolución (§1.5): v_{n+1} = vn · P
+
+
+1. Vector de estado para mañana (v1)
+--------------------------------------------------------------------------------
+  P(S) = 0.75(0.2) + 0.20(0.1) + 0.05(0.5) = 0.150 + 0.020 + 0.025 = 0.195
+  P(N) = 0.75(0.5) + 0.20(0.6) + 0.05(0.3) = 0.375 + 0.120 + 0.015 = 0.510
+  P(L) = 0.75(0.3) + 0.20(0.3) + 0.05(0.2) = 0.225 + 0.060 + 0.010 = 0.295
+
+  v1 = (0.195, 0.510, 0.295)   [suma = 1.000 ✓]
+
+
+2. Vectores para pasado mañana (v2) y tres días (v3)
+--------------------------------------------------------------------------------
+  v2 = v1 · P:
+    P(S) = 0.195(0.2)+0.510(0.1)+0.295(0.5) = 0.039+0.051+0.1475 = 0.2375
+    P(N) = 0.195(0.5)+0.510(0.6)+0.295(0.3) = 0.0975+0.306+0.0885 = 0.4920
+    P(L) = 0.195(0.3)+0.510(0.3)+0.295(0.2) = 0.0585+0.153+0.059  = 0.2705
+    v2 = (0.2375, 0.4920, 0.2705)   [suma = 1.000 ✓]
+
+  v3 = v2 · P:
+    P(S) = 0.2375(0.2)+0.4920(0.1)+0.2705(0.5) = 0.0475+0.0492+0.1353 = 0.2320
+    P(N) = 0.2375(0.5)+0.4920(0.6)+0.2705(0.3) = 0.1188+0.2952+0.0812 = 0.4952
+    P(L) = 0.2375(0.3)+0.4920(0.3)+0.2705(0.2) = 0.0713+0.1476+0.0541 = 0.2730
+    v3 = (0.2320, 0.4952, 0.2730)   [suma ≈ 1.000 ✓]
+
+
+3. Estado estacionario de P
+--------------------------------------------------------------------------------
+LHEs (§7.4): πP = π y π1+π2+π3 = 1
+
+  -0.8π1 + 0.1π2 + 0.5π3 = 0   ...(I)
+   0.5π1 - 0.4π2 + 0.3π3 = 0   ...(II)
+   π1 + π2 + π3 = 1             ...(III)
+
+  De (I): π2 = 8π1 - 5π3
+  En (II): -2.7π1 + 2.3π3 = 0  →  π3 = (27/23)π1
+  →  π2 = (49/23)π1
+  En (III): π1(23+49+27)/23 = 1  →  π1 = 23/99
+
+  π = (23/99, 49/99, 27/99) ≈ (0.2323, 0.4949, 0.2727)
+
+  Verificación: (23·0.2+49·0.1+27·0.5)/99 = 23/99 ✓
+                (23·0.5+49·0.6+27·0.3)/99 = 49/99 ✓
+                (23·0.3+49·0.3+27·0.2)/99 = 27/99 ✓
+
+  Tiempos medios de retorno (Teorema 9.1, mi = 1/πi):
+    m_Soleado = 99/23 ≈ 4.3 días
+    m_Nublado = 99/49 ≈ 2.0 días
+    m_Lluvioso = 99/27 ≈ 3.7 días
+
+
+4. ¿Qué vector de estado produce v = (0.75, 0.20, 0.05) mañana?
+--------------------------------------------------------------------------------
+Busco x = (x1, x2, x3) con x·P = (0.75, 0.20, 0.05) y x1+x2+x3 = 1.
+
+  Con x3 = 1-x1-x2:
+    (A) -0.3x1 - 0.4x2 = 0.25
+    (B)  0.2x1 + 0.3x2 = -0.10  →  x1 = -0.5 - 1.5x2
+
+  Sustituyendo en (A): 0.05x2 = 0.10  →  x2 = 2.0
+    x1 = -3.5,   x3 = 2.5
+
+  Solución matemática: x = (-3.5, 2.0, 2.5)
+
+  NO VÁLIDO: x1 = -3.5 < 0 viola λi ≥ 0 (Definición 1.2).
+
+  La imposibilidad es estructural — dos columnas de P lo confirman:
+    Col. Soleado:  max{0.2, 0.1, 0.5} = 0.5 < 0.75 pedido  → imposible
+    Col. Lluvioso: min{0.3, 0.3, 0.2} = 0.2 > 0.05 pedido  → imposible
+
+  No existe ningún vector de estado válido que genere esa distribución mañana.
+
+
+5. Interpretación de pij
+--------------------------------------------------------------------------------
+a) De la Definición 1.2: pij = P(Xn+1 = j | Xn = i) — probabilidad de
+   transitar del estado i al estado j en un paso.
+
+b)             S(j=1)  N(j=2)  L(j=3)
+   S (i=1)  [   0.2     0.5     0.3  ]
+   N (i=2)  [   0.1     0.6     0.3  ]
+   L (i=3)  [   0.5     0.3     0.2  ]
+
+   i)   P(S|S0) = p11 = 0.2  → si hoy es soleado, 20% de prob. de sol mañana
+   ii)  P(N|L0) = p32 = 0.3  → si hoy llueve, 30% de prob. de nublado mañana
+   iii) P(L|N0) = p23 = 0.3  → si hoy está nublado, 30% de prob. de lluvia mañana
+
+
+================================================================================
+(2 pts) TENSORES — RESUMEN DEL ARTÍCULO
+================================================================================
+Referencia: Laue, Mitterreiter, Giesen — "A Simple and Efficient Tensor
+Calculus for Machine Learning", arXiv 2010.03313v1, Octubre 2020.
+
+PROBLEMA QUE RESUELVE
+  Calcular Jacobianos y Hessianos con TensorFlow, PyTorch, JAX y autograd
+  es varios órdenes de magnitud más lento que calcular gradientes escalares.
+  Un paper anterior (NeurIPS 2018) ya lo resolvía eficientemente pero usaba
+  notación de Ricci, incompatible con esos frameworks. Este artículo logra
+  la misma eficiencia usando notación de Einstein (compatible con einsum).
+
+OPERADOR UNIFICADO DE MULTIPLICACIÓN TENSORIAL
+  C[s3] = Σ_{(s1∪s2)\s3} A[s1]·B[s2]  →  notado: C = A*(s1,s2,s3)B
+
+  Según la elección de índices cubre: producto interno, producto externo y
+  producto de Hadamard. Se demuestran asociatividad, conmutatividad y
+  distributividad — base para derivar las reglas de autodiff.
+
+MODOS DE DIFERENCIACIÓN AUTOMÁTICA
+  - Forward (pushforward): recorre el DAG entrada→salida, una pasada por
+    variable de entrada.
+  - Reverse (pullback/backprop): recorre salida→entrada, una pasada por
+    salida. Más eficiente para funciones escalares (caso típico en ML).
+  - Cross-country: combina ambos modos, procesa tensores en orden creciente
+    de rango. Reduce ~30% el tiempo de cómputo en CPU para derivadas de 2do orden.
+
+COMPRESIÓN DE HESSIANOS
+  En cross-country mode, el primer tensor parcial siempre resulta ser la
+  identidad. Al moverlo al final se eliminan multiplicaciones triviales y
+  los Hessianos de 4to orden se comprimen a tensores de 2do o 3er orden.
+  Impacto: factorización matricial (n=1000, k=10) pasa de ~1 segundo a
+  ~10 microsegundos → mejora de 100,000x.
+
+RESULTADOS EXPERIMENTALES (CPU Intel Xeon E5-2643 / GPU NVIDIA Tesla V100)
+  - Para gradientes: todos los frameworks son equivalentes (backprop ya
+    es óptimo para funciones escalares).
+  - Para Hessianos y Jacobianos: el método supera a TF, PyTorch, JAX y
+    autograd en todos los experimentos.
+  - JAX se quedó sin memoria calculando Hessianos de redes neuronales.
+  - XLA (compilador de TF) empeoró el rendimiento en CPU por factor 2.
+  - La ventaja se mantiene en GPU.
+
+IMPLEMENTACIONES
+  - www.MatrixCalculus.org — herramienta web para derivadas de matrices/tensores
+  - GENO (www.geno-project.org) — genera solvers de optimización automáticamente
+
+================================================================================
+FIN DEL DOCUMENTO
+================================================================================

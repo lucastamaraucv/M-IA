@@ -1,0 +1,286 @@
+% DOCUMENTO PRINCIPAL
+
+% Este es el fichero principal de este repositorio. No se recomienda editarlo.
+% Modifica las plantillas incluidas en los directorios:
+% - secciones
+% - tablas
+% - algoritmos
+
+\documentclass[final,a4paper,11pt,twoside]{class_diss}
+
+\usepackage[full]{textcomp}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage[margin=3cm]{geometry}
+\usepackage[titles]{tocloft}
+\usepackage{latexsym}
+\usepackage{fancyhdr}
+\usepackage{emptypage}
+\usepackage[svgnames,dvipsnames,usenames,table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usepackage[toc,acronym,nonumberlist,xindy={language=spanish-traditional},sanitize=none]{glossaries}
+\usepackage[scaled]{helvet}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[explicit]{titlesec}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage[noend]{algorithmic}
+\usepackage{float}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{listings}
+\usepackage{placeins}
+\usepackage{flafter}
+\usepackage{pdfpages}
+\usepackage{threeparttable}
+\usepackage{tikz}
+
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\usepackage{tcolorbox}
+\tcbset {
+  base/.style={
+    arc=0mm, 
+    bottomtitle=0.5mm,
+    boxrule=0mm,
+    colbacktitle=black!10!white, 
+    coltitle=black, 
+    fonttitle=\bfseries, 
+    left=2.5mm,
+    leftrule=1mm,
+    right=3.5mm,
+    title={#1},
+    toptitle=0.75mm, 
+  }
+}
+
+\definecolor{brandblue}{rgb}{0.34, 0.7, 1}
+\newtcolorbox{mainbox}[1]{
+  colframe=brandblue, 
+  base={#1}
+}
+
+\newtcolorbox{subbox}[1]{
+  colframe=black!30!white,
+  base={#1}
+}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Teorema}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\definecolor{VIU}{RGB}{240, 90, 15}
+\definecolor{DESTACADO}{RGB}{130, 34, 145}
+\definecolor{CITA}{RGB}{0, 123, 194}
+
+\renewcommand{\algorithmcfname}{Algoritmo}
+\renewcommand{\acronymname}{Lista de Acr\'onimos}
+\addto\captionsspanish{
+    \renewcommand*{\acronymname}{Lista de Acr\'onimos}
+}
+\newcommand{\inhib}{\relbar\mapsfromchar}
+\newcommand{\destacado}[1]{\color{DESTACADO}\textbf{#1}\color{black}\xspace}
+
+\usetikzlibrary{shapes}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=diamond,fill=black!90,inner sep=1pt,minimum size=1cm] (char) {\textcolor{white}{\small\textbf{#1}}};}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{}
+\fancyhead[RE]{}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\circled{\thepage}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\colorlet{chapnumcolor}{VIU}
+
+\newcommand*{\chapnumfont}{%
+  \usefont{T1}{jkp}{b}{n}%
+  \fontsize{70}{90}%
+  \selectfont%
+}
+
+\newcommand*{\chaptitlefont}{%
+  \usefont{T1}{qhv}{b}{n}%
+  \fontsize{22}{26}%
+  \selectfont%
+}
+
+\newcommand{\imagen}[4]{
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=#4\textwidth]{#1}
+		\caption[#2]{\textbf{#3}}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
+\newcommand{\dosimagenes}[5]{
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=#5\textwidth]{#1}
+		\includegraphics[width=#5\textwidth]{#2}
+		\caption[#3]{\textbf{#4}}\label{fig:#1-#2}
+	\end{figure}
+	\FloatBarrier
+}
+
+\newcommand{\imagenconurl}[4]{
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=#4\textwidth]{#1}
+		\caption[#2]{#3}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
+\titleformat{name=\chapter}
+{\normalfont\huge\bfseries}
+{\rlap{\parbox{\textwidth}{\filleft\chapnumfont\color{chapnumcolor}\thechapter}}}
+{0pt}
+{\rlap{\parbox{0.7\textwidth}{\filright\chaptitlefont #1}}}
+
+\makeglossaries
+\input{secciones/glosario.tex}
+
+\bibliographystyle{apa}
+
+\usepackage[authoryear,sort&compress]{natbib}
+\usepackage{hypernat}
+\setcitestyle{authoryear}
+
+\usepackage{xurl}
+\usepackage[pdftex,plainpages=false,pdfpagelabels]{hyperref}
+
+\hypersetup{
+    linktocpage=true,
+    colorlinks=true,
+    bookmarks=true,
+    citecolor=CITA,
+    urlcolor=CITA,
+    linkcolor=CITA,
+    citebordercolor={1 0 0},
+    urlbordercolor={1 0 0},
+    linkbordercolor={.7 .8 .8},
+    breaklinks=true,
+    pdfpagelabels=true,
+    }
+
+\setcounter{secnumdepth}{3}
+\onehalfspacing
+\renewcommand\familydefault{\sfdefault}
+
+\begin{document}
+
+\includepdf{secciones/portada.pdf}
+\input{secciones/frase-favorita.tex}
+
+\pagenumbering{gobble}
+\input{secciones/agradecimientos.tex}
+
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\fancyfoot[C]{\circled{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\pdfbookmark[0]{\contentsname}{contents}
+
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapfont}{\mdseries}
+\renewcommand{\cftchappagefont}{\mdseries}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\renewcommand{\listalgorithmcfname}{Índice de algoritmos}
+\listofalgorithms
+\addcontentsline{toc}{chapter}{Índice de algoritmos}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{secciones/resumen.tex}
+\input{secciones/introduccion.tex}
+\input{secciones/estado-del-arte.tex}
+\input{secciones/marco-teorico.tex}
+\input{secciones/objetivos.tex}
+\input{secciones/metodologia.tex}
+\input{secciones/resultados-y-discusion.tex}
+\input{secciones/conclusiones.tex}
+\input{secciones/limitaciones-y-futuro.tex}
+
+\newpage
+\phantomsection
+
+\printglossary[type=\acronymtype]
+\printglossary
+
+\begin{singlespace}
+\begin{footnotesize}
+\begin{twocolumn}
+\bibdata{bibliografia}
+\renewcommand\bibname{Referencias Bibliográficas}
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Referencias Bibliográficas}
+\end{twocolumn}
+\end{footnotesize}
+\end{singlespace}
+
+\onecolumn
+\appendix
+\input{secciones/apendizes.tex}
+
+\newpage
+
+\chapter*{Universidad de Burgos}
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figuras/UBU.png}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.55\textwidth}
+        \raggedright
+        Proyecto parcialmente tutorizado por la \textbf{Universidad de Burgos}.\\
+        Tutores UBU: Álvar Arnaiz González y César Ignacio García Osorio.
+    \end{minipage}
+\end{figure}
+
+
+\end{document}

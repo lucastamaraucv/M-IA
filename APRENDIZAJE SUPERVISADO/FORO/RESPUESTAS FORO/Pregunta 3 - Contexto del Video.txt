@@ -1,0 +1,44 @@
+PREGUNTA 3
+===========
+
+¿Qué opináis sobre lo que dice el investigador Jürgen Schmidhuber sobre la capacidad de los
+sistemas de inteligencia artificial para tener emociones?
+
+
+CONTEXTO DEL VIDEO (según lo que comentan mis compañeros)
+-------------------------------------------------------------
+Jürgen Schmidhuber es uno de los pioneros del deep learning. Su planteamiento, tal como lo citan
+los compañeros que vieron el vídeo, es que las emociones no son algo místico exclusivo de los seres
+vivos, sino un mecanismo funcional. La idea concreta: si construyes un robot con "sensores de
+dolor" que generan una señal negativa cuando choca contra algo, y el robot ajusta su comportamiento
+para evitar esa señal (igual que el aprendizaje por refuerzo, que maximiza recompensa y evita
+castigo), ya estás ante algo funcionalmente parecido al miedo o al dolor. Para él, la curiosidad, el
+aburrimiento o el miedo se pueden reducir a mecanismos matemáticos de optimización que el sistema
+desarrolla solo, sin que nadie se lo programe explícitamente como "emoción".
+
+La pregunta de fondo que plantea el vídeo y que retoma el foro es: ¿eso significa que la IA ya
+siente, o solo actúa como si sintiera?
+
+Punto en el que casi todos los compañeros coinciden: hay que separar simular una emoción de
+sentirla de verdad. Usan la analogía del termostato — "quiere" mantener la temperatura, pero no
+siente frío, solo ejecuta una función. Argumentan que a la IA le pasa lo mismo: puede reconocer
+patrones de dolor/placer y reaccionar en consecuencia, pero eso no implica que haya una experiencia
+subjetiva consciente detrás (lo que en filosofía se llama qualia — el "cómo se siente" de verdad
+sentir algo).
+
+Matices que aparecen en las respuestas:
+- Algunos plantean que si el cerebro humano al final también es solo química y electricidad, no se
+  puede descartar del todo que una IA mucho más compleja algún día desarrolle algo parecido — pero
+  aclaran que hoy no hay forma de comprobar si eso sería real o solo una simulación perfecta.
+- Otros sospechan que Schmidhuber usa una definición conveniente para sí mismo, ya que él mismo
+  construye estos sistemas — casi una autopromoción de su propio trabajo.
+- Varios advierten un riesgo social: humanizar tanto a la IA nos hace proyectar psicología humana
+  sobre una herramienta estadística, y eso puede hacer que perdamos empatía real hacia personas de
+  carne y hueso.
+- Casi nadie está totalmente de acuerdo con Schmidhuber tal cual lo plantea. La mayoría respeta el
+  argumento técnico pero rechaza equiparar "simular emoción" con "sentir emoción".
+
+En resumen, el vídeo (y el debate que genera) gira en torno a una distinción central: comportarse
+como si se sintiera algo (funcional, medible, programable) frente a sentir de verdad (subjetivo,
+consciente, hoy no verificable en una máquina). Ese es el eje que hay que tener claro antes de dar
+una opinión propia sobre la pregunta.

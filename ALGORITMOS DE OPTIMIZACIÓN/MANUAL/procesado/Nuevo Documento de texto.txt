@@ -1,0 +1,8 @@
+Pregunta 1
+Según la clasificación utilizada en el curso, ¿qué diferencia fundamental existe entre un algoritmo aproximado 
+y uno heurístico?
+A) El aproximado siempre es determinista y el heurístico siempre es probabilista.
+B) El aproximado proporciona una solución con un grado de aproximación conocido al óptimo, mientras que 
+en el heurístico no podemos determinar si la solución obtenida es óptima.
+C) El heurístico garantiza siempre el óptimo, pero tarda más.
+D) No existe diferencia; ambos términos significan exactamente lo mismo.

@@ -1,0 +1,63 @@
+PREGUNTA 2
+===========
+
+¿Puede la inteligencia artificial suponer un peligro para la sociedad más allá de la componente
+ética? ¿Por qué?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Consenso total: SÍ, la IA puede suponer un peligro que va más allá del debate ético/moral. Nadie
+discrepa; varía el tipo de riesgo que cada uno prioriza. Se pueden agrupar en categorías:
+
+1. Riesgo laboral/económico: desplazamiento masivo de empleo, concentración de poder económico en
+   quien controla los modelos (Alejandro, Javier Calleja, Marcos, Juan Manuel).
+2. Riesgo geopolítico/social: creación de una "clase irrelevante" (cita a Yuval Noah Harari en el
+   vídeo de la UPM), vigilancia y control masivo de la población (Sandra, Javier Ibarra con el
+   ejemplo del QR chino en la pandemia, Lautaro con el caso Palantir).
+3. Riesgo de desinformación/deepfakes: erosión de la confianza social, manipulación electoral
+   (Alejandro, Isaac, Maria Jose, Pau).
+4. Riesgo de infraestructuras críticas / fallo sistémico: sistemas "caja negra" integrados en
+   redes eléctricas, sanidad o finanzas donde un error se propaga más rápido de lo que un humano
+   puede frenar (Fernando, Anthony, Pedro).
+5. Riesgo medioambiental: consumo energético e hídrico masivo de los centros de datos (Samuel,
+   Christian, Luis Ignacio).
+6. Riesgo económico/de mercado: burbuja financiera de la IA, encarecimiento de hardware (GPUs,
+   memorias) por la demanda desproporcionada (Samuel).
+7. Riesgo cognitivo: dependencia excesiva, pérdida de pensamiento crítico o "cognitive surrender"
+   (Lautaro, Juan Manuel, Pedro, Diego).
+8. Ciberseguridad: automatización de ataques, phishing más sofisticado (Alejandro, Luis Ignacio).
+
+Referencias que usaron y son reutilizables:
+- Yuval Noah Harari (citado en el vídeo "Diálogo (im)probable. Ética y Revolución digital" de la
+  UPM): paralelismo entre la revolución industrial creando la "clase trabajadora" y la revolución
+  digital creando una "clase irrelevante".
+- Caso Palantir Technologies (uso militar/controvertido de IA).
+- Caso del sistema de códigos QR de color en China durante la pandemia como ejemplo de vigilancia.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Sí, sin duda. Reducir los riesgos de la IA al plano ético (si su uso es "correcto" o "incorrecto")
+deja fuera peligros estructurales que ya se están materializando. En el vídeo "Diálogo (im)probable.
+Ética y Revolución digital" (UPM) se recoge la idea de Yuval Noah Harari de que, así como la
+revolución industrial creó la clase trabajadora, la revolución de la IA podría crear una "clase
+irrelevante": personas cuyo trabajo pierde valor económico y que, además, se vuelven más fáciles de
+monitorizar y controlar gracias a la propia tecnología que las desplaza.
+
+A ese riesgo social y de concentración de poder (quien controla los datos y el cómputo domina el
+mercado) yo añadiría tres frentes muy concretos:
+
+- Fragilidad sistémica: al integrar modelos "caja negra" en infraestructuras críticas (redes
+  eléctricas, banca, sanidad), un error o una "alucinación" del sistema puede desencadenar un fallo
+  en cascada a una velocidad que ningún equipo humano puede frenar a tiempo.
+- Erosión de la confianza informativa: los deepfakes y la desinformación masiva no son solo un
+  problema de "buen o mal uso"; a escala hacen que la sociedad deje de confiar incluso en pruebas
+  reales, lo que debilita procesos democráticos completos.
+- Coste físico y económico: el entrenamiento de grandes modelos exige un consumo energético e
+  hídrico enorme, y ya está generando tensiones de mercado (encarecimiento de GPUs y memoria,
+  posible burbuja de inversión) que afectan a sectores que ni siquiera usan IA directamente.
+
+En resumen, el peligro no es solo "qué está bien o mal hacer con la IA", sino que su propia escala,
+velocidad y opacidad puede generar daños estructurales (económicos, sociales, ambientales y de
+seguridad) que trascienden la intención de quien la usa.

@@ -1,0 +1,49 @@
+MOCKUP - Ventana flotante para RJ3C (solo para que veas la idea, no es codigo real)
+====================================================================================
+
+Como se ve HOY (tooltip de la bandeja, al pasar el mouse por el icono):
+------------------------------------------------------------------------
+  Aparece un instante, chiquito, con la letra fija del sistema:
+
+      Q1.2 (2/3): for i in range(len(lista)):
+                      if lista[i] % 2 == 0:
+                          pares.append(lista[i])
+
+  Se cierra solo cuando el mouse se va. No se puede tocar ni agrandar.
+
+
+Como se veria la ventana flotante (propuesta, NO implementada todavia):
+------------------------------------------------------------------------
+  Una ventanita real en la pantalla, chica, que se queda fija arriba de
+  todo (por ejemplo en una esquina) hasta que vos la cierres:
+
+   ┌───────────────────────────────────────────────┐
+   │  RJ3C - Ejercicio Q1.2  (pagina 2 de 3)    [x] │
+   ├───────────────────────────────────────────────┤
+   │                                                 │
+   │  for i in range(len(lista)):                   │
+   │      if lista[i] % 2 == 0:                      │
+   │          pares.append(lista[i])                │
+   │      else:                                      │
+   │          impares.append(lista[i])              │
+   │                                                 │
+   │  print(pares, impares)                         │
+   │                                                 │
+   ├───────────────────────────────────────────────┤
+   │        [ << Atras ]        [ Siguiente >> ]     │
+   └───────────────────────────────────────────────┘
+
+  Diferencias clave con el tooltip actual:
+  - La letra la elegis vos (mas chica que la del sistema si queres).
+  - No se cierra sola: queda ahi hasta que la cierres con la [x], o hasta
+    que la app la actualice/cierre por vos.
+  - Tiene botones reales ademas de Ctrl+Alt+N / Ctrl+Alt+B.
+  - Ocupa espacio visible en la pantalla todo el tiempo que este abierta
+    (a diferencia del tooltip, que no molesta nunca porque es momentaneo).
+  - Es una ventana de verdad: puede aparecer en la barra de tareas o no,
+    segun como se configure, y hay que decidir donde se posiciona.
+
+Esto es un cambio de diseno mas grande que todo lo que hicimos hasta
+ahora (nuevo codigo de ventana con tkinter o similar, logica de
+mostrar/ocultar, decidir posicion en pantalla, etc.). Fijate si te
+convence esta idea antes de que lo implemente.

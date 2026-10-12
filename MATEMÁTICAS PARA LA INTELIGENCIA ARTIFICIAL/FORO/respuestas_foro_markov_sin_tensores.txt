@@ -1,0 +1,104 @@
+FORO EVALUABLE – CADENAS DE MARKOV Respuestas basadas en el PDF “Markov
+Chains” de Richard Weber. (No incluye la sección “Tensores – Resumen”.)
+
+==================================================== (2 pts) IDEAS &
+CONCEPTOS ====================================================
+
+1.  ¿Qué es un proceso estocástico, qué tipos hay y qué aplicaciones
+    tienen?
+
+Un proceso de Markov es un proceso aleatorio formado por una secuencia
+de variables aleatorias X0, X1, … cuya distribución conjunta está
+determinada por una distribución inicial y una matriz de transición. El
+siguiente estado depende únicamente del estado actual y no de la
+historia previa (propiedad de Markov).
+
+Procesos tratados en el documento: - Cadenas de Markov en tiempo
+discreto. - Caminatas aleatorias (random walks). - Cadenas de nacimiento
+y muerte (birth-and-death chains). - Procesos de Markov en tiempo
+continuo. - Movimiento browniano.
+
+Aplicaciones mencionadas: - Popularidad de páginas web (PageRank). -
+Teoría de colas. - Difusión de gases (modelo de Ehrenfest). -
+Finanzas. - Ruina de compañías de seguros. - Propagación de epidemias. -
+Mezclado de cartas y caminatas aleatorias.
+
+2.  ¿De qué tipo de proceso estocástico son las cadenas de Markov?
+
+Son procesos de Markov en tiempo discreto. Se caracterizan porque el
+siguiente estado depende únicamente del estado actual y la evolución del
+proceso queda determinada por una distribución inicial y una matriz de
+transición.
+
+3.  ¿Qué aplicaciones tienen en IA los Procesos de Decisión de Markov
+    (MDP)?
+
+El documento presenta los MDP como una extensión de las cadenas de
+Markov donde un controlador puede elegir distintas matrices de
+transición para optimizar un coste o una recompensa. No desarrolla
+aplicaciones específicas en IA.
+
+4.  ¿Qué es una matriz estocástica y qué aplicación tiene?
+
+Es una matriz cuyas entradas son probabilidades, con pij ≥ 0 y cuya suma
+por filas es 1. Se utiliza para describir las probabilidades de
+transición entre estados, calcular distribuciones futuras,
+probabilidades de transición y distribuciones estacionarias.
+
+5.  ¿Qué es el vector de estado y qué representa?
+
+Es el vector de probabilidades de encontrarse en cada estado en un
+instante dado. Representa la distribución de probabilidad del sistema y
+evoluciona mediante la multiplicación por la matriz de transición.
+
+6.  ¿Qué es el estado estacionario? ¿Cómo se calcula? ¿Qué significado
+    tiene?
+
+Es una distribución invariante que satisface πP = π y Σπi = 1. Se
+obtiene resolviendo ese sistema de ecuaciones. Representa la
+distribución de equilibrio del proceso.
+
+==================================================== (1 pt) MODELO DEL
+CLIMA – GENERALIDADES
+====================================================
+
+1.  ¿Puede Q ser una matriz de transición?
+
+No. La primera fila suma 1.1, la segunda 0.9 y la tercera contiene una
+probabilidad negativa (-0.2). No cumple las condiciones de una matriz
+estocástica.
+
+2.  ¿Pueden u0 y w0 ser vectores de estado?
+
+No. u0=(0.3,0.6,0.7) suma 1.6. w0=(0.2,0.1,0.5) suma 0.8. Un vector de
+estado debe tener componentes no negativas y sumar 1.
+
+==================================================== (5 pts) MODELO DEL
+CLIMA – EJERCICIO ====================================================
+
+1.  Vector de estado para mañana: v1 = (0.195, 0.510, 0.295)
+
+2.  Vectores de estado: Pasado mañana: v2 = (0.2375, 0.4920, 0.2705)
+
+Tres días: v3 = (0.2320, 0.4952, 0.2730)
+
+3.  Estado estacionario: π = (23/99, 49/99, 27/99) ≈ (0.2323, 0.4949,
+    0.2727)
+
+4.  Vector actual para obtener (0.75,0.20,0.05) al día siguiente:
+
+La solución matemática es (-3.5, 2, 2.5), pero no es un vector de estado
+válido porque contiene una probabilidad negativa. Por tanto, no existe
+un vector de estado válido.
+
+5.  
+
+a)  p_ij representa la probabilidad de pasar del estado i al estado j en
+    un paso.
+
+b)  
+
+c)  P(S|S0)=p11=0.2
+
+ii) P(N|L0)=p32=0.3
+iii) P(L|N0)=p23=0.3

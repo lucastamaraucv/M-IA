@@ -1,0 +1,83 @@
+PREGUNTA 10
+===========
+
+¿Deberían los desarrolladores de IA preocuparse por el uso malintencionado que pueda darse a los
+algoritmos? ¿O esta responsabilidad recae por completo en los usuarios finales?
+
+
+RESUMEN DE LO QUE HAN DICHO LOS COMPAÑEROS
+-------------------------------------------
+Consenso mayoritario (Alfredo, Raul, Luisa, Edwin, Javier I., Maria del Carmen, Sandra, Edgar,
+Fernando, Marcos, Luis Ignacio, Diego, Maria Jose, Pau, Anthony): la responsabilidad es COMPARTIDA
+entre desarrolladores y usuarios. Los desarrolladores deben anticipar riesgos, incorporar
+salvaguardas/límites técnicos de diseño; los usuarios responden por el uso concreto que hacen de la
+herramienta.
+
+Analogías usadas para argumentar la postura compartida:
+- El automóvil (Javier I., Juan Manuel): los frenos y airbags se instalan de fábrica, pero el
+  conductor decide si conduce con responsabilidad; Juan Manuel matiza con el caso de coches que
+  superan los límites legales de velocidad en España, planteando dudas sobre hasta qué punto el
+  fabricante es responsable si el producto permite legalmente sobrepasar la norma.
+- El cuchillo (Isaac): no se responsabiliza al fabricante de un cuchillo si alguien lo usa para
+  agredir; defiende que la responsabilidad principal recae en quien la usa, aunque matiza que en
+  áreas de alto riesgo (armas, deepfakes) sí es razonable exigir límites de diseño.
+- Analogía de la bomba atómica (Alfredo): los creadores de tecnologías peligrosas deben poner
+  límites o "botones de apagado" desde el diseño.
+
+Postura que matiza hacia mayor responsabilidad del desarrollador:
+- Alejandro López: argumenta con detalle que el AI Act europeo ya se aleja de la responsabilidad
+  exclusiva del usuario, imponiendo auditorías y registros a los desarrolladores, e incluso plantea
+  la responsabilidad objetiva del software como producto defectuoso.
+- Anthony: rechaza la idea de "herramienta neutral", señala la asimetría de poder entre grandes
+  empresas de IA y usuarios individuales.
+- Javier Calleja: postura más crítica — considera que la responsabilidad debería recaer en la
+  legislación/regulación externa más que en el desarrollador individual, ya que las estructuras
+  empresariales actuales eliminan cualquier compromiso ético real.
+
+Postura que reparte con porcentajes concretos:
+- Luis Ignacio Kowalkowski: propone un reparto aproximado de 70% desarrollo/fabricación y 30%
+  aplicación/uso del usuario, trasladando una lógica de su área profesional.
+
+Postura que matiza hacia mayor responsabilidad del usuario final:
+- Juan Manuel Martin Fleitas: aunque no cierra su postura, concluye que probablemente el
+  responsable último del buen uso dentro de la legalidad es el usuario final, comparando con el
+  caso de los automóviles capaces de superar límites legales de velocidad.
+- Lautaro Medrano: destaca que cualquier control técnico es probablemente evadible por usuarios
+  ingeniosos (prefix injection, escenarios ficticios), y que la naturaleza abierta de muchos
+  modelos hace casi imposible una contención total.
+
+
+MI MEJOR RESPUESTA PROPUESTA
+-------------------------------------------
+Creo que trasladar toda la responsabilidad a una sola de las partes es simplista, así que me
+posiciono con la mayoría del foro: la responsabilidad es compartida, pero no a partes iguales en
+todos los casos, sino en función de qué tan previsible era el daño y de cuánto margen de decisión
+tenía cada actor.
+
+El desarrollador no puede desentenderse diciendo "yo solo hice el algoritmo" —como bien recoge el
+ejemplo del foro sobre ingenieros que se negaron a firmar cierta tecnología— porque toma decisiones
+de diseño que facilitan o dificultan activamente el mal uso: qué datos usar para entrenar, qué
+límites técnicos incorporar, qué capacidades restringir antes de publicar el modelo. Del mismo modo
+que un fabricante de coches instala frenos y airbags de fábrica, un desarrollador de IA tiene la
+obligación profesional de anticipar los vectores de abuso más previsibles y mitigarlos desde el
+diseño, sobre todo en aplicaciones de alto riesgo (armas, deepfakes, sistemas que afectan a
+derechos fundamentales). De hecho, la propia regulación europea (AI Act) ya recoge esta lógica,
+imponiendo auditorías y responsabilidades explícitas a quienes desarrollan estos sistemas, más allá
+de la buena fe con la que hayan actuado.
+
+Dicho esto, no creo que esto exima al usuario final de su responsabilidad. Ninguna medida de
+seguridad puede anticipar el ingenio humano al 100%: existen técnicas conocidas para "saltarse" las
+barreras de un modelo (prefix injection, recreación de escenarios ficticios), y en última instancia
+es la persona quien decide iniciar una acción dañina con la herramienta. Es la misma lógica que con
+el cuchillo: fabricarlo no te hace responsable de que alguien lo use para agredir a otro, pero eso
+no impide que existan cuchillos diseñados específicamente para minimizar cierto tipo de accidentes.
+
+Mi conclusión es que el peso de la responsabilidad debería repartirse según el riesgo: en usos de
+bajo impacto, el desarrollador cumple con incorporar buenas prácticas razonables y el usuario
+responde por su decisión; en usos de alto riesgo (armas, manipulación electoral, contenido sexual no
+consentido), el desarrollador tiene una obligación reforzada de limitar esas capacidades desde el
+diseño, precisamente porque el daño potencial es tan grave y tan previsible que no incorporar
+salvaguardas sería en sí mismo una forma de negligencia. Y en cualquier caso, ni el desarrollador ni
+el usuario deberían ser los únicos actores del sistema: hace falta un marco regulatorio claro
+(gobiernos) que fije los límites legales para que la responsabilidad no quede diluida entre "nadie
+la asume del todo".

@@ -1,0 +1,161 @@
+===== PAGINA 1 =====
+Álgebra
+Máster Universitario
+en Inteligencia Artificial
+02MIAR |Matemáticas:
+Matemáticas para la Inteligencia Artificial
+Profesor:
+Zoraida Sivoli Barrios
+===== PAGINA 2 =====
+Álgebra lineal
+Definición
+Un vector real v de dimensión n es una lista ordenada de n números reales:
+v= ( v1,v2, . . . , vn), vi∈R.
+Se denota por Rnel conjunto formado por todos los vectores de dimensión n. Por tanto,
+podemos escribir v ∈Rn.
+Ejemplos
+1. v= ( 1,−2
+3)∈R2.
+2. w= (√
+2,−1.2, π)∈R3.
+===== PAGINA 3 =====
+Álgebra lineal
+Los vectores en Rnse pueden interpretar de forma gráfica mediante un sistema de n
+coordenadas. En caso de tener una dimensión de n=3 o inferior, éstos se pueden dibujar.
+
+===== PAGINA 4 =====
+Álgebra lineal
+Definición
+Dados dos vectores v ,w∈Rn, v= ( v1,v2, . . . , vn), w= ( w1,w2, . . . , wn), podemos
+definir su suma como
+v+w= ( v1+w1,v2+w2, . . . , vn+wn).
+Definición
+Dado un valor real λ∈R(escalar) y un vector v ∈Rn, v= ( v1,v2, . . . , vn), podemos
+definir su producto como
+λ·v= (λv1, λv2, . . . , λ vn).
+===== PAGINA 5 =====
+Álgebra lineal
+La longitud de los vectores se puede medir a través de normas . Algunas normas
+vectoriales importantes son:
+▶ Norma euclídea:
+∥v∥2=vuutnX
+i=1v2
+i=q
+v2
+1+v2
+2+· · ·+v2
+n.
+▶ Norma 1:
+∥v∥1=nX
+i=1|vi|=|v1|+|v2|+· · ·+|vn|.
+▶ Norma del máximo:
+∥v∥∞= m´ ax
+1≤i≤n|vi|.
+===== PAGINA 6 =====
+Álgebra lineal
+Ejemplo
+Construimos un modelo de machine learning para predecir las temperaturas a partir de
+algunas variables de entrada (input). Supongamos que obtenemos un conjunto de n
+predicciones con el modelo considerado, almacenadas en un vector:
+ˆv= (ˆ v1,ˆv2, . . . , ˆvn)∈Rn.
+Comparamos ahora el vector de predicciones, ˆv, con el vector de respuestas reales
+(observaciones), v = ( v1, . . . , vn). Una forma de hacerlo es utilizar alguna norma sobre la
+diferencia de los dos vectores:
+E=1
+n∥ˆv−v∥.
+Objetivo: encontrar un algoritmo que minimice E.
+===== PAGINA 7 =====
+Álgebra lineal
+El producto escalar entre dos vectores v,w∈Rnse define como:
+v·w=nX
+i=1viwi.
+Ejemplo
+Sean v ,w∈R3, con v = ( 2,−1,0)y w= (−3,−2,1). Entonces
+v·w= ( 2,−1,0)·(−3,−2,1)
+=2·(−3)+ (−1)·(−2)+0·1=−6+2+0=−4.
+===== PAGINA 8 =====
+Definición
+Sean u ,v∈Rn. Definimos la
+proyección de u sobre v como
+Projv(u) =u·v
+v·vv.
+Definición
+Sean u ,v∈Rn. Definimos la ortogonal
+de u sobre v como
+Ort v(u) = u−Projv(u).
+
+===== PAGINA 9 =====
+Álgebra lineal
+Definición
+Diremos que dos vectores u ,v∈Rnson ortogonales si u·v=0.
+La definición de ortogonalidad entre dos vectores se corresponde con la noción
+geométrica de perpendicularidad.
+Más concretamente,
+u·v=∥u∥2∥v∥2cos(buv),
+dondebuv es el ángulo que forman los vectores uyv.
+===== PAGINA 10 =====
+Álgebra lineal
+Propiedades
+Para u ,v,w∈Rny a∈R:
+▶ u+v=v+u.
+▶ u·v=v·u.
+▶ u·(v+w) = u·v+u·w.
+▶(a·u)·v=a·(u·v).
+▶ v·v=∥v∥2
+2.
+▶ u·v=0si y sólo si u y v son ortogonales.
+▶ v·u=v·Projv(u).
+▶ Ort v(u)·v=0
+===== PAGINA 11 =====
+Definición
+Espacio Vectorial Sea K un cuerpo dado y V un conjunto no vacío, con reglas de suma
+y producto por un escalar que asignan a cada par u ,v∈V una suma u +v∈V y a
+cada par, u ∈V,k∈K un producto ku ∈V. V recibe el nombre de espacio vectorial
+sobre K (los elementos de V se llaman vectores y los elementos de K escalares) si
+satisfacen las siguientes condiciones:
+▶ Para todos par de vectores u,v∈V, u+v=v+u.
+▶ Para toda terna de vectores u,v,w∈V,(u+v) + w=u+ ( v+w).
+▶ Existe un vector cero (ó nulo) 0 ∈Vtal que u+0=u.
+▶ Para cada u∈V, existe un único vector −u∈Vtal que u+ ( u) = 0.
+===== PAGINA 12 =====
+...cont.
+▶ Para todo escalar c∈Ky todo par de vectores u,v∈V, c(u+v) = cu+cv.
+▶ Para todo par de escalares c,d∈Ky todo vector u∈V,(c+d)u=cu+du.
+▶ Para todo par de escalares c,d∈Ky todo vector u∈V,c(du) = ( cd)u.
+▶ El escalar unidad 1 ∈Kcumple 1 u=upara todo vector u∈V
+Ejemplos
+▶(Rn,+,R)
+▶(Am×n,+,R)
+▶(f:R→ R,+,R)
+▶ Considere el conjunto ={(x,y,z)∈R3:3x+4y+5z=0}, entonces (V,+, .), es
+un E.V sobre R
+===== PAGINA 13 =====
+Álgebra lineal
+Definición
+Dados v 1,v2, . . . , vk∈V, una combinación lineal de los k vectores anteriores es
+cualquier expresión de la forma
+a1v1+a2v2+. . .+akvk,
+con a 1,a2, . . . , ak∈K.
+===== PAGINA 14 =====
+Álgebra lineal
+Figura: Diagrama de vectores mostrando v= c1v1+c2v2
+===== PAGINA 15 =====
+Definición
+Sean v 1,v2, . . . , vk∈V. Diremos que los vectores anteriores son linealmente
+independientes si se cumple que la ecuación
+a1v1+a2v2+. . .+akvk=0
+tiene como única solución a 1=a2=· · ·=ak=0. En caso contrario, se dice que dichos
+vectores son linealmente dependientes .
+===== PAGINA 16 =====
+Ejemplo
+Considere U =⟨1,3,−2⟩, y V =⟨5,1,0⟩¿Cual (es) de los siguientes vectores es
+Combinación Lineal de U y V?
+▶ W 1=⟨14,0,2⟩
+▶ W 2=⟨1,1,1⟩
+▶ W 3=⟨13,11,−6⟩
+===== PAGINA 17 =====
+Ejemplo
+¿Son U =⟨1,3,−2⟩, y V =⟨5,1,0⟩y W 2=⟨1,1,1⟩, linealmente independientes?
+α+5β+γ= 0
+3α+β+γ= 0
+−2α+ +γ= 0(1)

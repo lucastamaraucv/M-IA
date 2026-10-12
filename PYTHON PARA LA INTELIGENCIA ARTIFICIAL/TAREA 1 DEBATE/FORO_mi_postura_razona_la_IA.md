@@ -1,0 +1,44 @@
+Hola a todos 
+
+Resepecto a la pregunta:  Ahora las aplicaciones cómo ChatGPT incluyen mensajes cómo "Thinking..." ¿Hasta que punto podemos considerar que la IA está razonando? ¿Entiende realmente algo la IA?
+
+Según el análisis que he realizado de estos trabajos de investigación, estos modelos de inteligencia artificial como ChatGPT sí “razonan”, pero en un sentido funcional, no que entienda de verdad como nosotros. Y para mi lo mas interesante no es el si o el no, sino que esto es una evolucion: los primeros modelos eran bastante tontos, pero generacion tras generacion fueron mejorando, y en cierto punto —cuando la red neuronal transformer se vuelve lo suficientemente compleja— empieza a tener habilidades que nadie programo a mano. Eso tiene nombre en la literatura: *emergent abilities*. Wei et al. (2022) lo definen como capacidades que "no estan presentes en modelos pequeños pero si aparecen en modelos grandes", o sea que no se pueden predecir solo escalando hacia arriba; aparecen de golpe pasado cierto tamaño. En simple: nadie le programo al modelo "sabe hacer X", sino que X emergio solo de la escala y la arquitectura de atencion. Eso ya me dice que aca pasa algo mas que copiar y pegar texto, verdad?
+
+Ahora, los papers escepticos tienen razon en sus criticas y no los voy a ignorar. En *The Illusion of Thinking*, Shojaee et al. (2025) probaron modelos de frontera (o3-mini, DeepSeek-R1, Claude-3.7-Thinking) en puzzles tipo Torre de Hanoi y encontraron algo interesante: pasado cierto umbral de complejidad la precision colapsa a casi cero, y lo mas raro es que el modelo "piensa menos" justo cuando el problema se pone mas dificil, aunque le sobren tokens. Y Mirzadeh et al. (2024) en *GSM-Symbolic* muestran que si solo le cambias un numero o le metes una frase irrelevante (el test GSM-NoOp), la precision cae hasta 65%. Eso es real y lo acepto: el modelo es fragil y depende mucho de la frecuencia de lo que vio en el entrenamiento, no de la pura logica del problema (McCoy et al., 2024). Hasta ahi, el esceptico marca punto.
+
+Pero ojo, no es tan blanco y negro. En *On the Biology of a Large Language Model*, Lindsey et al. (2025) de Anthropic abrieron la caja negra con interpretabilidad del modelo y vieron cosas que no calzan con la idea de que el modelo solo adivina la siguiente palabra al azar: el modelo planifica la rima de un verso *antes* de escribirlo y encadena pasos reales tipo Dallas → Texas → Austin sin tenerlo memorizado, verificado por intervencion causal. O sea hay maquinaria interna real. Por eso mi conclusion es que la IA razona funcionalmente (hay computo interno verificable, el "Thinking..." no es puro marketing) pero NO entiende en sentido robusto.
+
+Y aca viene una distincion clave que creo que mucha gente se salta: los modelos que conocemos en el dia a dia (ChatGPT y similares) son modelos entrenados para resolver problemas aplicando soluciones que ya encontraron en internet es decir, en el fondo reciclan y recombinan conocimiento que ya existe. Pero el conocimiento *nuevo* se crea en otro lado: en laboratorios donde, con millones de dolares de inversion, construyen otro tipo de red neuronal al que nosotros ni siquiera tenemos acceso, como AlphaFold2. Esos no son los modelos publicos que usamos para chatear; son arquitecturas especializadas y cerradas, diseñadas para generar conocimiento que antes no existia. Y ahi esta, para mi, el punto mas importante de todo el debate: el hito de la prediccion de la estructura de las proteinas. Cuando crearon AlphaFold (Jumper et al., 2021), nadie le dijo a la red neuronal "eres super inteligente, inventa tu mismo como se pliegan las proteinas". Lo que hicieron fue al reves: un equipo de investigadores canalizo el problema, le dio la metodologia exacta y la arquitectura correcta para que la red pudiera atacar algo que llevaba 50 años trabado en biologia. Y funciono: resolvio estructuras con precision casi experimental. Para mi eso es la prueba de que aparece un *nuevo tipo de inteligencia*. Y subrayo nuevo no digo que sea igual a la inteligencia humano. Es otro tipo de inteligencia, en el sentido de que nosotros como humanos no podemos analizar millones y millones de relaciones entre variables al mismo tiempo, y un transformer si lo hace con su mecanismo de atencion Q, K, V (Vaswani et al., 2017), pesando todas las relaciones entre tokens en paralelo. Esa es una capacidad que nosotros simplemente no tenemos.
+
+
+Y para mi el sello final es institucional: los Nobel 2024 reconocieron justo esta revolucion —Hopfield y Hinton (Fisica) por las redes neuronales, y Baker, Hassabis y Jumper (Quimica) por el diseño computacional de proteinas y AlphaFold (Li y Gilbert, 2024). Cuando el Nobel valida que una red neuronal esta generando conocimiento nuevo en una ciencia dura, para mi ya no estamos hablando de un modelo tonto que solo copia y mezcla texto que vio en internet. Por eso desde mi punto de vista: esto es otro tipo de inteligencia. No piensa como nosotros, pero en su capacidad de  explorar millones de relaciones entre variables con el mecanismo de atencion Q, K, V— supera lo que un humano puede hacer.
+
+Entonces creo que el escenario realista es este: cuando se conoce bien el problema y se le aplica una metodologia exacta a esta arquitectura transformer, la IA puede encontrar soluciones y conocimiento nuevo y en casos muy especificos hasta superar a la inteligencia humana, como ya pasa en el diseño de proteinas. Pero eso no la convierte en una persona que "entiende" todo por si solo: sigue siendo una herramienta poderosa para nosotros, los que desarrollamos este tipo de redes neuronales. La canalizamos, le damos el problema y la metodologia, y ella explora un espacio que nuestra mente biologica no alcanza. El "Thinking..." no es un fraude, pero tampoco es pensar como nosotros; es una inteligencia distinta y dependiente de quien la dirige. esto seria mi opinion respecto a esa pregunta.
+
+
+
+## Referencias
+
+Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A., Bridgland, A., Meyer, C., Kohl, S. A. A., Ballard, A. J., Cowie, A., Romera-Paredes, B., Nikolov, S., Jain, R., Adler, J., … Hassabis, D. (2021). Highly accurate protein structure prediction with AlphaFold. *Nature, 596*(7873), 583–589.
+
+Li, B., & Gilbert, S. (2024). Artificial intelligence awarded two Nobel Prizes for innovations that will shape the future of medicine. *npj Digital Medicine, 7*, Artículo 336. https://doi.org/10.1038/s41746-024-01345-9
+
+Lindsey, J., Gurnee, W., Ameisen, E., Chen, B., & Pearce, A. (2025). *On the biology of a large language model*. Anthropic. https://transformer-circuits.pub
+
+McCoy, R. T., Yao, S., Friedman, D., Hardy, M. D., & Griffiths, T. L. (2024). Embers of autoregression show how large language models are shaped by the problem they are trained to solve. *Proceedings of the National Academy of Sciences, 121*(41).
+
+Mirzadeh, I., Alizadeh, K., Shahrokhi, H., Tuzel, O., Bengio, S., & Farajtabar, M. (2024). *GSM-Symbolic: Understanding the limitations of mathematical reasoning in large language models* [Preprint]. arXiv.
+
+Pester, P. (2025, 28 de enero). *New glowing molecule, invented by AI, would have taken 500 million years to evolve in nature, scientists say*. Live Science. https://www.livescience.com/technology/artificial-intelligence/new-glowing-molecule-invented-by-ai-would-have-taken-500-million-years-to-evolve-in-nature-scientists-say
+
+Phys.org. (2025, 2 de octubre). *Generative AI can outperform nature at designing proteins to edit the genome*. https://phys.org/news/2025-10-generative-ai-outperform-nature-proteins.html
+
+Shojaee, P., Mirzadeh, I., Alizadeh, K., Horton, M., Bengio, S., & Farajtabar, M. (2025). *The illusion of thinking: Understanding the strengths and limitations of reasoning models via the lens of problem complexity* [Preprint]. Apple.
+
+Stefanova, Y. (2026, 8 de mayo). *De novo protein design: How AI creates new proteins*. BGO Software. https://www.bgosoftware.com/blog/de-novo-protein-design-how-ai-creates-new-proteins/
+
+Urquhart, J. (2025, 15 de diciembre). *AI designs muscle-inspired proteins stronger than natural counterparts*. Chemistry World. https://www.chemistryworld.com/news/ai-flexes-its-protein-design-muscles-for-harsh-environments/4022683.article
+
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). Attention is all you need. *Advances in Neural Information Processing Systems, 30*.
+
+Wei, J., Tay, Y., Bommasani, R., Raffel, C., Zoph, B., Borgeaud, S., Yogatama, D., Bosma, M., Zhou, D., Metzler, D., Chi, E. H., Hashimoto, T., Vinyals, O., Liang, P., Dean, J., & Fedus, W. (2022). Emergent abilities of large language models. *Transactions on Machine Learning Research*.

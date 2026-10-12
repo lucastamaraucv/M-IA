@@ -1,0 +1,339 @@
+RESUMEN TEMA 3 - EXTRACCIÓN DE CARACTERÍSTICAS (VARIABLES E IMÁGENES)
+Curso: Aprendizaje Supervisado (viu_aprendizaje_supervisado-main / tema3)
+Fuente: 6 notebooks Jupyter (contenido práctico sin capítulo propio en el manual).
+NOTA GENERAL: en todos estos notebooks las celdas "markdown" reales contienen, como mucho,
+títulos de sección (p. ej. "### TRANSFORMACIONES DE INTENSIDAD") o el enlace a Colab, pero
+NO desarrollan explicación teórica en prosa. Toda la explicación disponible está en forma de
+comentarios de código (#) dentro de las celdas de código. Donde no hay explicación de ningún
+tipo, se indica expresamente "sin explicación en el notebook" en vez de inventarla.
+
+
+================================================================================
+1) aprendizaje_supervisado_tema_3_var_cualitativas.ipynb
+================================================================================
+
+TEORÍA (markdown): No hay celdas markdown con explicación teórica (solo el badge de Colab).
+Todo el contenido es código con comentarios breves.
+
+CONTENIDO / CÓDIGO REAL:
+
+- Creación de una variable cualitativa (categórica) sintética "nivel_estudios" con 5 niveles
+  (Secundaria, Bachillerato, Grado, Master, Doctorado) repetidos con distinta frecuencia y
+  mezclados aleatoriamente:
+    nivel_estudios = []
+    nivel_estudios.extend(['Secundaria']*110)
+    ...
+    nivel_estudios = np.random.permutation(nivel_estudios)
+
+- Cálculo de frecuencias absolutas por categoría con numpy:
+    estudios, frecuencia = np.unique(nivel_estudios, return_counts=True)
+
+- Diagrama de barras de frecuencias (comentario en código: "# DIAGRAMA DE BARRAS"):
+    plt.bar(estudios, frecuencia)
+
+- Diagrama de sectores / pie chart (comentario en código: "# DIAGRAMA DE SECTORES"):
+    plt.pie(frecuencia, labels=estudios, colors=colores, autopct='%1.2f%%')
+
+Conclusión: el notebook trata las variables cualitativas mediante conteo de frecuencias y su
+visualización (barras y sectores), sin más desarrollo teórico explícito.
+
+
+================================================================================
+2) aprendizaje_supervisado_tema_3_var_cuantitativas.ipynb
+================================================================================
+
+TEORÍA (markdown): Tampoco hay celdas markdown explicativas; solo comentarios de código que
+agrupan el contenido en "Medidas de tendencia central", "Medidas de posición", "Medidas de
+dispersión" y "Medidas de distribución".
+
+CONTENIDO / CÓDIGO REAL:
+
+- Vector de datos cuantitativos de ejemplo:
+    X = np.array([0.5, 23, 0.3, 4.5, 0.3, 0.5, -28, -50, 60, -100, -10, -11, 13, 19, 1, 9])
+
+- Medidas de tendencia central (media, mediana, moda):
+    media = np.mean(X)
+    mediana = np.median(X)
+    moda, _ = stats.mode(X)
+
+- Medidas de posición: cuartiles, rango intercuartílico (RIC) y límites para detección de
+  outliers (regla de 1.5*RIC):
+    Q1 = np.percentile(X, 25)
+    Q3 = np.percentile(X, 75)
+    RIC = Q3 - Q1
+    lim_inf = Q1 - 1.5*RIC
+    lim_sup = Q3 + 1.5*RIC
+
+- Ejercicio propuesto (incompleto, marcado con "???" en el notebook): dibujar el diagrama de
+  cajas y bigotes (box and whiskers) y contar outliers visualmente. No se resuelve en el
+  notebook.
+
+- Medidas de dispersión (desviación típica y varianza):
+    desvest = np.std(X)
+    varianza = desvest**2
+
+- Medidas de distribución (asimetría y curtosis), con clasificación explícita del tipo de
+  distribución según el signo de la curtosis (código real, comentario del propio notebook):
+    asimetria = stats.skew(X)
+    curtosis = stats.kurtosis(X, fisher=True)
+    if curtosis>0:  print('Distribución Leptocúrtica')
+    elif curtosis<0: print('Distribución Platicúrtica')
+    else: print('Distribución Mesocúrtica')
+
+- Ejercicio final (incompleto) sobre el dataset Iris de sklearn: cargar iris, analizar
+  asimetría de "longitud del pétalo" y curtosis de "ancho del sépalo", y un ejercicio extra
+  de graficar media/desviación típica por clase con plt.errorbar. Ambos quedan sin resolver
+  en el notebook (marcados con "???").
+
+
+================================================================================
+3) aprendizaje_supervisado_tema_3_imagenes_transformaciones.ipynb
+================================================================================
+
+TEORÍA (markdown): Las únicas celdas markdown son títulos de sección sin desarrollo teórico:
+"### TRANSFORMACIONES DE INTENSIDAD", "### CONVERSIONES DEL ESPACIO DE COLOR",
+"### TRANSFORMACIONES GEOMÉTRICAS". La explicación real vuelve a estar en comentarios de
+código.
+
+CONTENIDO / CÓDIGO REAL:
+
+- Lectura de imagen y dimensiones con OpenCV:
+    img = cv2.imread('./Lena_RGB.png')
+    print('Image dimensions: ', np.shape(img))
+
+- Conversión de espacio de color BGR a RGB (OpenCV carga en BGR por defecto):
+    RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+- Ejercicio (incompleto): separar los canales R, G, B de la imagen por indexado.
+
+TRANSFORMACIONES DE INTENSIDAD:
+
+- Cambio de brillo sumando/restando una constante a la matriz de la imagen. El notebook
+  destaca explícitamente en un comentario la importancia de usar cv2.add() en vez del
+  operador "+" de Python (para evitar el desbordamiento/overflow del tipo uint8):
+    mas_brillo_img = cv2.add(img, 50)      # Importante el "cv2.add" en vez de "+"
+    menos_brillo_img = cv2.add(img, -100)
+
+- Cambio de contraste replicando la fórmula que usa el programa GIMP (comentario explícito
+  "de acuerdo con el programa GIMP"):
+    f = 131*(contraste + 127)/(127*(131-contraste))
+    alpha_c = f
+    gamma_c = 127*(1-f)
+    contrast_img = cv2.addWeighted(img, alpha_c, img, 0, gamma_c)
+
+CONVERSIONES DEL ESPACIO DE COLOR:
+
+- Conversión RGB a CMYK calculando K a partir del máximo de los tres canales; C, M, Y quedan
+  como ejercicio incompleto (el notebook remite a "la ecuación del power point", es decir, la
+  fórmula no está en el propio notebook):
+    K = 1 - np.max(rgb_p, axis=2)
+    C = ??   # no resuelto en el notebook
+    M = ??
+    Y = ??
+
+- Otras conversiones de espacio de color con cv2.cvtColor, cada una con un comentario que
+  identifica sus canales:
+    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                 # escala de grises
+    HSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)   # (H)ue, (S)aturation, (V)alue
+    Lab = cv2.cvtColor(img, cv2.COLOR_BGR2Lab)   # (L)uminosidad, a-b colores complementarios
+    YCrCb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb) # Y-Luma, Cr-Cb crominancia rojo y azul
+
+TRANSFORMACIONES GEOMÉTRICAS:
+
+- Traslación mediante matriz de transformación afín y cv2.warpAffine:
+    M = np.float32([[1,0,280],[0,1,-80]])
+    new_img = cv2.warpAffine(img, M, (cols,rows))
+
+- Recorte (cropping) por simple slicing de numpy:
+    new_img = img[90:290, 200:305]
+
+- Rotación (con escalado incluido) usando cv2.getRotationMatrix2D + cv2.warpAffine:
+    M = cv2.getRotationMatrix2D((cols/2,rows/2), angle=45, scale=2)
+    new_img = cv2.warpAffine(img, M, (cols,rows))
+
+- Transformación de perspectiva a partir de 4 puntos origen/destino, con
+  cv2.getPerspectiveTransform + cv2.warpPerspective:
+    pts1 = np.float32([[56,65],[368,52],[28,387],[389,390]])
+    pts2 = np.float32([[0,0],[300,0],[0,300],[300,300]])
+    M = cv2.getPerspectiveTransform(pts1,pts2)
+    pers = cv2.warpPerspective(img, M, (305,305))
+
+- Flipping (volteo horizontal/vertical/ambos): ejercicio incompleto que pide usar
+  cv2.flip(), sin resolver en el notebook (variables flipVertical, flipHorizontal,
+  flipBoth marcadas con "???").
+
+
+================================================================================
+4) aprendizaje_supervisado_tema_3_Image_segmentation.ipynb
+================================================================================
+
+TEORÍA (markdown): De nuevo, las celdas markdown son solo títulos de sección, sin prosa
+explicativa: "### SEGMENTACIÓN MEDIANTE THRESHOLDING", "### SEGMENTACIÓN MEDIANTE
+CONVERSIONES DE COLOR", "### SEGMENTACIÓN SEMÁNTICA CON DETECCIÓN DE BORDES",
+"### SEGMENTACIÓN POR CRECIMIENTO DE REGIONES (region growing)".
+
+SEGMENTACIÓN MEDIANTE THRESHOLDING:
+
+- Conversión a escala de grises y cálculo/visualización del histograma de intensidades:
+    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    hist = cv2.calcHist([gray_img], [0], None, [260], [0, 260])
+
+- Umbralización binaria manual fijando un umbral t leído del histograma:
+    _, mask = cv2.threshold(gray_img, t, 255, cv2.THRESH_BINARY)
+
+- Umbralización automática con el método de Otsu:
+    t, mask = cv2.threshold(gray_img, 0, 1, cv2.THRESH_OTSU)
+
+SEGMENTACIÓN MEDIANTE CONVERSIONES DE COLOR:
+
+- Segmentación de un objeto aislando su canal de color dominante (p. ej. canal rojo) y
+  umbralizando por el valor máximo de intensidad:
+    R = img[:,:,2]
+    t = np.max(R)
+    mask = R.copy()
+    mask[mask<t] = 0
+
+- Ejercicio (incompleto) para segmentar por espacio de color CMYK, reutilizando una función
+  ya definida en este mismo notebook:
+    def convert_to_CMYK(rgb_p):
+        K = 1 - np.max(rgb_p, axis=2)
+        C = (1-rgb_p[:,:,0] - K)/(1-K)
+        M = (1-rgb_p[:,:,1] - K)/(1-K)
+        Y = (1-rgb_p[:,:,2] - K)/(1-K)
+        CMYK = (np.dstack((C,M,Y,K))*255).astype('uint8')
+        return CMYK
+  (la extracción de canales y la máscara final del "rayo" quedan sin resolver, "???")
+
+SEGMENTACIÓN SEMÁNTICA CON DETECCIÓN DE BORDES:
+
+- Suavizado previo con filtro gaussiano para atenuar altas frecuencias/ruido:
+    img_gaus = cv2.GaussianBlur(img_rgb, (5,5), 0)
+
+- Detección de bordes de Canny, con comentario explícito sobre la relación recomendada entre
+  umbrales ("Canny recomienda que minValue sea 3 veces mayor que maxValue"; en el código el
+  minValue pasado es 255/3 frente a un maxValue de 255, es decir, guarda esa proporción 1:3):
+    canny = cv2.Canny(img_gaus, 255/3, 255)
+
+- Relleno de huecos de los objetos detectados por los bordes (el propio notebook aclara que
+  "solo rellena si no están en contacto con el límite de la imagen"):
+    from scipy.ndimage.morphology import binary_fill_holes as bfh
+    filled_bordes = bfh(bordes)
+
+SEGMENTACIÓN POR CRECIMIENTO DE REGIONES (region growing):
+
+- Uso de flood fill a partir de una semilla en la esquina (0,0) para propagar el relleno
+  desde ese punto (comentario del notebook: "Como nos interesa rellenar de negro, utilizamos
+  el 0 en la última posición"):
+    ref = np.zeros((h+2, w+2), np.uint8)
+    cv2.floodFill(mask, ref, (0,0), 0)
+
+
+================================================================================
+5) aprendizaje_supervisado_tema3_Descriptores_forma.ipynb
+================================================================================
+
+TEORÍA (markdown): No hay celdas markdown con teoría (solo el badge de Colab); todo el
+contenido está en comentarios de código.
+NOTA IMPORTANTE: este notebook NO menciona en ningún momento (ni en código ni en comentarios)
+los "momentos de Hu" — no se puede afirmar que se traten en este material; solo se usan los
+descriptores geométricos listados abajo.
+
+CONTENIDO / CÓDIGO REAL:
+
+- Obtención de la máscara binaria del objeto mediante umbralización de Otsu:
+    _, mask = cv2.threshold(img_gray, 0, 1, cv2.THRESH_OTSU)
+
+- Etiquetado de componentes conectados para poder acceder a cada objeto por separado
+  (comentario del notebook: el fondo también recibe una etiqueta, por lo que 'lab' tiene un
+  valor más que el número real de objetos 'num'):
+    from skimage.measure import label
+    lab, num = label(mask, return_num=True)
+    objeto = (lab == 1).astype('uint8')
+
+- Bounding box de un objeto con regionprops, dibujada con cv2.rectangle:
+    from skimage.measure import regionprops
+    prop = regionprops(objeto)
+    bbox = prop[0].bbox
+    window = cv2.rectangle(img.copy(), (bbox[1],bbox[0]), (bbox[3],bbox[2]), (0,255,0), 10)
+
+- Envolvente convexa (convex hull) del objeto, obteniendo luego sus contornos para dibujarla:
+    from skimage.morphology import convex_hull_image
+    convex_image = convex_hull_image(objeto).astype('uint8')
+    conts,_ = cv2.findContours(convex_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    imagen = cv2.drawContours(img.copy(), conts, -1, (255,0,0), 5)
+
+- Repetición del proceso (bbox + convex hull) para todos los objetos etiquetados de la
+  imagen mediante un bucle for sobre range(1, num+1).
+
+- Tabla consolidada de descriptores de forma extraídos con regionprops para cada objeto:
+  area, bbox_area, convex_area, eccentricity, equivalent_diameter, extent,
+  major_axis_length, minor_axis_length, orientation, perimeter, solidity, y dos descriptores
+  calculados manualmente a partir de los anteriores:
+    compactness = 4*math.pi*prop[0].area / prop[0].perimeter**2
+    rectangularity = prop[0].area / prop[0].bbox_area
+  (impresos con tabulate en una tabla por tipo de figura: Rayo, Círculo, Cuadrado,
+  Triángulo, Rombo, "Raro").
+
+
+================================================================================
+6) aprendizaje_supervisado_tema3__Descriptores_textura.ipynb
+================================================================================
+
+TEORÍA (markdown): Igual que los anteriores, las celdas markdown son solo títulos de sección
+sin explicación en prosa: "### MATRIZ DE COOCURRENCIA", "### Scale-Invariant Feature
+Transform", "### Histogram of Oriented Gradients", "### Local Binary Patterns".
+
+MATRIZ DE COOCURRENCIA (GLCM - Gray-Level Cooccurrence Matrix):
+
+- Selección de dos parches de una imagen (cielo y hierba) para comparar su textura, cálculo
+  de la GLCM y extracción de propiedades estadísticas de textura con skimage
+  (funciones greycomatrix/greycoprops, nombres de la versión de skimage usada en el curso):
+    from skimage.feature import greycomatrix, greycoprops
+    GLCM = greycomatrix(image, distances=[5], angles=[0], levels=np.max(image)+1,
+                         symmetric=True, normed=True)
+    contraste   = greycoprops(GLCM, 'contrast')[0,0]
+    disimilitud = greycoprops(GLCM, 'dissimilarity')[0,0]
+    homogeneidad= greycoprops(GLCM, 'homogeneity')[0,0]
+    ASM         = greycoprops(GLCM, 'ASM')[0,0]
+    energia     = greycoprops(GLCM, 'energy')[0,0]
+    correlacion = greycoprops(GLCM, 'correlation')[0,0]
+
+SIFT (Scale-Invariant Feature Transform):
+
+- Detección de puntos clave (keypoints) y extracción de su descriptor ("fingerprint"),
+  probado sobre la imagen original y una versión rotada 45° para mostrar invariancia:
+    sift = cv2.SIFT_create(nfeatures=0, nOctaveLayers=3)
+    kp = sift.detect(img, None)
+    _, des = sift.compute(img, kp)
+
+- Emparejamiento de características (feature matching) entre los descriptores de la imagen
+  original y la rotada, ordenados por distancia:
+    bf = cv2.BFMatcher.create(cv2.NORM_L1, crossCheck=True)
+    matches = bf.match(des, des_rot)
+    matches = sorted(matches, key=lambda x: x.distance)
+
+HISTOGRAM OF ORIENTED GRADIENTS (HOG):
+
+- Cálculo del gradiente de la imagen con el operador/kernel de Sobel, y su magnitud/ángulo:
+    gx = cv2.Sobel(crop, cv2.CV_32F, 1, 0, ksize=1)
+    gy = cv2.Sobel(crop, cv2.CV_32F, 0, 1, ksize=1)
+    mag, angle = cv2.cartToPolar(gx, gy, angleInDegrees=True)
+
+- Cálculo del descriptor HOG final con skimage:
+    from skimage.feature import hog
+    H = hog(crop, orientations=9, pixels_per_cell=(8,8), cells_per_block=(2,2),
+             transform_sqrt=True, block_norm="L1")
+
+LOCAL BINARY PATTERNS (LBP):
+
+- Cálculo de la imagen LBP con radio R y P=8*R vecinos, método 'uniform', y construcción de
+  un histograma normalizado como vector de características (comentario del propio notebook:
+  "Los P+2=10 bins del histograma serán los 10 atributos que nos permitirán caracterizar una
+  imagen"):
+    from skimage.feature import local_binary_pattern
+    R = 1
+    P = 8*R
+    lbp_image = local_binary_pattern(img_gray, P, R, method='uniform')
+    hist = cv2.calcHist([lbp_image.ravel()], [0], None, [P+2], [0, P+2])
+    hist = hist.astype("float")
+    hist /= (hist.sum() + epsilon)

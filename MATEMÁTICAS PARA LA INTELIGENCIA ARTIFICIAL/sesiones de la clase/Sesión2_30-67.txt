@@ -1,0 +1,336 @@
+===== PAGINA 1 =====
+Sesión 2
+===== PAGINA 2 =====
+Aspectos importantes
+▶ Proposiciones Vs No-Proposiciones
+Proposición No Proposición
+El agua se compone de hidrógeno y oxígeno ¿Cómo te llamas?
+T odo estudiante es universitario Ve a casa
+===== PAGINA 3 =====
+▶ Conectores lógicos.
+Ejemplo
+Exprese usando conectores lógicos, la siguiente afirmación: Si el dinero escasea, los
+intereses suben y la inflación baja.
+a: El dinero escasea. b: Los intereses suben . c: La inflación baja.
+Solución:
+a→(b∧c)
+===== PAGINA 4 =====
+▶ Proposiciones equivalentes.
+Ejemplo
+Pruebe que:
+(p∧q)→ r≡ p→(q→ r)
+.
+Solución:
+(p∧q)→ r≡∼ (p∧q)∨r≡(∼ p∨∼ q)∨r≡∼ p∨(∼ q∨r)
+≡ p→(∼ q∨r)≡ p→(q→ r)
+===== PAGINA 5 =====
+Algebra de Boole
+Definición
+Un álgebra de Boole es un conjunto no vacío Bprovisto de dos operaciones binarias
+⊕,⊙, que llamaremos suma yproducto respectivamente, y una operación unitaria′,
+que llamaremos complemento , las cuales satisfacen los siguientes axiomas:
+B 1. Leyes Conmutativas.
+a⊕b=b⊕a y a⊙b=b⊙a,∀a,b∈B.
+B 2. Leyes Asociativas.
+a⊕(b⊕c) = ( a⊕b)⊕c y a⊙(b⊙c) = ( a⊙b)⊙c,∀a,b,c∈B.
+===== PAGINA 6 =====
+(continúa)
+B 3. Leyes de Identidad.
+Existen enBdos elementos distintos, 0 y 1, tal que
+a⊕0=a y 1⊙a=a,∀a∈B.
+B 4. Leyes Distributivas.
+a⊙(b⊕c) = ( a⊙b)⊕(a⊙c) y a⊕(b⊙c) = ( a⊕b)⊙(a⊕c),∀a,b,c∈B.
+B 5. Leyes de Complementación.
+a⊕a′=1 y a⊙a′=0,∀a∈B.
+A esta álgebra de Boole la representaremos por la cuádrupla
+(B,⊕,⊙,′).
+===== PAGINA 7 =====
+Algebra de Boole
+El álgebra de Boole es una herramienta de fundamental importancia en el mundo de la
+computación. Las propiedades que se verifican en ella sirven de base al diseño y la
+construcción de las computadoras que trabajan con objetos cuyos valores son discretos,
+es decir las computadoras digitales, en particular las binarias.
+Definición
+Definición Un Algebra de Boole es una estructura algebraica formada por un conjunto
+B, con al menos dos elementos distintos, designados en forma general con los símbolos 0
+y 1, dos operaciones binarias: ∨y∧, y una operación unitaria: ∼ (denominada
+complemento), con las siguientes propiedades para elementos cualesquiera p ,q,r∈B￿:
+===== PAGINA 8 =====
+1. p∧q=q∧p ,p∨q=q∨p. (Conmutatividad)
+2. p∧(q∧r) = ( p∧q)∧r, p∨(q∨r) = ( p∨q)∨r. (Asociatividad)
+3. p∧(q∨r) = ( p∧q)∨(p∧r),p∨(q∧r) = ( p∨q)∧(p∨r). (Distributividad)
+4. p∨0=p p∧1=p,. (Existencia Neutro para ∨,∧)
+5. p∧∼ p=0, p∨∼ p=1. (Existencia de Complementos)
+===== PAGINA 9 =====
+Ejemplo
+Pruebe que el Conjunto B ={0,1}, dotado de las operaciones ., y +.(B,+, .),
+definidas como:
++ 0 1
+0 0 1
+1 1 1,. 0 1
+0 0 0
+1 0 1
+es un álgebra de Boole.
+===== PAGINA 10 =====
+Ejemplo
+Considere el conjunto A ={1,2,3}, Pruebe que el Conjunto B ={P(A)}, dotado de las
+operaciones∩, y∪.(B,+, .), es un álgebra de Boole. (+ =∪),(.=∩),
+Solución:
+Sea
+A={1,2,3}
+y consideremos el conjunto de todas sus partes, es decir, su conjunto potencia:
+P(A) ={∅,{1},{2},{3},{1,2},{1,3},{2,3},{1,2,3}}.
+===== PAGINA 11 =====
+El conjuntoP(A), junto con las operaciones de unión, intersección y complemento,
+forma un álgebra de Boole, donde:
+X⊕Y=X∪Y, X⊙Y=X∩Y.
+El elemento neutro de la suma es
+0=∅,
+y el elemento neutro del producto es
+1=A.
+===== PAGINA 12 =====
+Para cualquier subconjunto X⊆ A, el complemento de Xen esta álgebra de Boole está
+dado por
+X′=A\X.
+En particular:
+∅′={1,2,3},
+{1}′={2,3},
+{2}′={1,3},
+{3}′={1,2},
+{1,2}′={3},
+{1,3}′={2},
+{2,3}′={1},
+{1,2,3}′=∅.
+===== PAGINA 13 =====
+Además, para todo X⊆ A, se cumplen las leyes de complementación:
+X∪X′=A y X∩X′=∅.
+Por lo tanto, el álgebra de Boole queda representada como
+(P(A),∪,∩,′).
+===== PAGINA 14 =====
+Ejemplo
+Considere el conjunto B3={(x1,x2,x3),xi∈B},donde B ={0,1}. Pruebe que el
+Conjunto B3, dotado de las operaciones +, y.,(B3,+, .), es un álgebra de Boole, dotado
+de las siguientes operaciones:
+(x1,x2,x3) + ( y1,y2,y3) = ( x1+y1,x2+y2,x3+y3)
+(x1,x2,x3).(y1,y2,y3) = ( x1.y1,x2.y2,x3.y3)
+===== PAGINA 15 =====
+Propiedades del Algebra de Boole
+Sea (B,∨,∧)un álgebra de Boole y x,y,z∈B. Entonces se cumplen las siguientes
+propiedades:
+1. Idempotencia :
+x∨x=x
+x∧x=x
+2. Dominación :
+x∨1=1
+x∧0=0
+3. Absorción :
+x∨(x∧y) = x
+x∧(x∨y) = x
+===== PAGINA 16 =====
+4. Propiedad cancelativa :
+x∨y=x∨z
+x∧y=x∧z
+entonces y=z
+5. Doble complementario :
+x=x′′
+6. Leyes de Morgan :
+¬(x∨y) =¬x∧¬ y
+¬(x∧y) =¬x∨¬ y
+===== PAGINA 17 =====
+T eorema
+Sean (B1,∨1,∧1)y(B2,∨2,∧2)dos álgebras de Boole. Entonces, el conjunto dado por
+B=B1×B2tiene estructura de álgebra de Boole con las siguientes operaciones:
+(x,y)∨(x′,y′) = ( x∨1x′,y∨2y′)
+(x,y)∧(x′,y′) = ( x∧1x′,y∧2y′)
+El resultado anterior puede generalizarse fácilmente para nálgebras de Boole.
+===== PAGINA 18 =====
+Ejemplo
+Analice la estructura del Algebra de Boole formada por B =B1XB 2, donde B 1={0,1},
+B2={P(A)}
+===== PAGINA 19 =====
+Funciones Booleanas
+Una función booleana con nvariables es una aplicación f:Bn→ B. Donde Bes un
+álgebra de Boole. Se denota por Fnal conjunto formado por todas las funciones
+booleanas de nvariables, es decir:
+Fn={f:Bn→ B|fes una aplicación}
+Ejemplos:
+1. Sea la aplicación f:B→ Bdada por f(0) = 0 y f(1) = 1. Esta aplicación responde a
+la expresión f(x) = x, ya que lleva a todo a sí mismo, por lo que se trata de la aplicación
+identidad.
+2. Consideremos ahora la aplicación f:B→ Bdefinida por f(0) = 1 y f(1) = 0. En esta
+ocasión, la aplicación responde a la expresión f(x) = x′, es decir, es aquella que lleva un
+elemento de Ba su correspondiente elemento complementario.
+===== PAGINA 20 =====
+Ejemplos
+3. Sea f :B2→ B dada por f (x,y) = x+y. En este caso, f actúa como la operación ∨y
+se tienen, por tanto, las siguientes identidades:
+a. f(0,0) = 0∨0=0
+b. f(0,1) = 0∨1=1
+c. f(1,0) = 1∨0=1
+d. f(1,1) = 1∨1=1
+===== PAGINA 21 =====
+4. Sea f:B2→ Bdada por f(x,y) = x.y. Esta vez, factúa como la operación ∧,Indique
+las imágenes de la aplicación :
+▶ f(0,0) = 0∧0=0
+▶ f(0,1) = 0∧1=0
+▶ f(1,0) = 1∧0=0
+▶ f(1,1) = 1∧1=1
+===== PAGINA 22 =====
+Funciones Booleanas
+Las funciones booleanas representan una nueva estructura a la cual se le puede asignar
+un álgebra de Boole. En efecto, sean f,g:Bn→ Bfunciones booleanas; f,g∈Fny
+definamos las siguientes operaciones sobre Fn:
+a. La suma de funciones booleanas con nvariables, como una nueva función booleana,
+f+g∈Fn, dada por:
+(f+g)(x1,x2, . . . , xn) = f(x1,x2, . . . , xn) + g(x1,x2, . . . , xn)
+b. El producto de funciones booleanas con nvariables, f·g, como una nueva función
+booleana, f·g∈Fn, dada por:
+(f·g)(x1,x2, . . . , xn) = f(x1,x2, . . . , xn)·g(x1,x2, . . . , xn)
+Con estas operaciones definidas sobre Fn, se obtiene una estructura de álgebra de Boole.
+===== PAGINA 23 =====
+T eorema
+La terna (Fn,+,·), siendo + y·las operaciones definidas anteriormente, es un álgebra de
+Boole, siendo las funciones constantes cero y uno sus respectivos elementos neutros y el
+complementario de una función f ∈Fn, la función f′∈Fndada por:
+f′(x1,x2, . . . , xn) = ( f(x1,x2, . . . , xn))′.
+===== PAGINA 24 =====
+Ejemplo :
+(F1,+,·)es un álgebra de Boole que consta de cuatro elementos, desglosados a
+continuación:
+▶ Aplicación identidad : Id :B→ Bdada por Id (x) = x. Se tiene, por tanto:
+Id(0) = 0,
+Id(1) = 1.
+▶ Elemento cero :f:B→ Bdada por f(x) = 0. Se tiene, entonces:
+f(0) = 0,
+f(1) = 0.
+▶ Elemento uno :g:B→ Bdefinida por g(x) = 1. Por tanto, se tiene:
+g(0) = 1,
+g(1) = 1.
+===== PAGINA 25 =====
+Aplicación complementaria :h:B→ Bdada por h(x) = x′. Así pues, se tiene:
+1. h(0) = 1,
+2. h(1) = 0
+Ejemplo
+Complete las tablas de las operaciones para las funciones Id ,f,g,h
+===== PAGINA 26 =====
+Puertas Lógicas
+Las puertas lógicas consisten en una serie de operadores lógicos tales que, dados un par
+de valores binarios, es decir, x,y∈B￿, estos devuelven un valor binario, que será 0 o 1 en
+función del valor de xey. Las puertas lógicas son funciones Booleanas, de una ó dos
+variables.
+▶ Puerta OR:−→∨−→ A+B
+▶ Puerta AND:−→∧−→ A.B
+▶ Puerta XOR :−→∨−→ A∨B
+▶ Puerta NOT :−→¬−→¬ A
+▶ Puerta NOR:−→¬ (∨)−→¬ (A+B)
+▶ Puerta NAND:−→¬ (∧)−→¬ (A.B)
+▶ Puerta NXOR :−→¬∨−→ (A.B) + ( A.B)
+===== PAGINA 27 =====
+Puertas lógicas
+Puerta OR: se trata de la puerta lógica que combina un par de valores x,y∈Bsegún la
+tabla de operaciones siguiente:
+OR y=0 y=1
+x=0 0 1
+x=1 1 1
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 2:
+f:B2→B, f(x,y) = x+y.
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 28 =====
+Puertas lógicas
+14Lógica y Matemáticas Discretas      6ECTSviu.es   Por otra parte, el operador OR puede esquematizarse como un circuito eléctrico con dos interruptores dispuestos en paralelo, de forma que para lograr el paso de corriente basta con que uno de los interruptores esté encendido (o ambos simultáneamente) . 
+ Figura 1. Fragmento de circuito eléctrico en representación de la puerta lógica OR. Fuente: elaboración propia.    Por último, la puerta lógica OR se representa mediante el símbolo que se muestra a continuación:Figura 2. Símbolo de la puerta lógica OR. Fuente: elaboración propia.  tPuerta AND:     Esta puerta lógica envía un par de valores x, yא९ a otro valor de ९, siguiendo la tabla de operaciones siguiente: ANDyൌͲyൌͳxൌͲͲͲxൌͳͲͳ
+===== PAGINA 29 =====
+Puertas lógicas
+Puerta AND: se trata de la puerta lógica que combina un par de valores x,y∈Bsegún
+la tabla de operaciones siguiente:
+AND y=0 y=1
+x=0 0 0
+x=1 0 1
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 2:
+f:B2→B, f(x,y) = x·y.
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 30 =====
+Puertas lógicas
+15Grado en Ingeniería InformáticaMódulo de Formación Básicaviu.es   Obsérvese que esta puerta lógica coincide con el operador ڄ del álgebra de Boole sobre ९ con la que trabajamos en esta sección. Además, en este caso puede apreciarse que el resultado únicamente es ͳ cuando ambas variables lo son; es decir, la salida de corriente sólo está permitida cuando por ambos parámetros de entrada pasa corriente.    Por otra parte, este operador puede identificarse con la siguiente función booleana en , asociada con su relación con la operación producto, que anteriormente se ha mencionado:    Asimismo, el operador AND puede esquematizarse como un circuito eléctrico con dos interruptores dispuestos en serie, de forma que la única forma para la cual puede pasar la corriente es si ambos interruptores están encendidos. 
+Figura 3. Fragmento de circuito eléctrico en representación de la puerta lógica AND. Fuente: Elaboración propia.   Para terminar, la puerta lógica AND viene representada a través del símbolo siguiente:Figura 4. Símbolo de la puerta lógica AND. Fuente: elaboración propia.  tPuerta XOR:    Recibe comúnmente el nombre de exclusive OR o, lo que es lo mismo, de “o exclusivo” , la cual se diferencia de la puerta OR anteriormente expuesta por el hecho de que, como su propio 
+===== PAGINA 31 =====
+Puertas lógicas
+Puerta XOR: se trata de la puerta lógica que combina un par de valores x,y∈Bsegún
+la tabla de operaciones siguiente:
+XOR y=0 y=1
+x=0 0 1
+x=1 1 0
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 2:
+f:B2→B, f(x,y) = ( x+y)·(x+y).
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 32 =====
+Puertas lógicas
+Puerta NOT: se trata de la puerta lógica que invierte el estado de un valor binario
+x∈B:
+NOT
+x=0 1
+x=1 0
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 1:
+f:B→B, f(x) = x.
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 33 =====
+Puertas lógicas
+Puerta NOR: se trata de la puerta lógica que combina un par de valores x,y∈Bsegún
+la tabla de operaciones siguiente:
+NOR y=0 y=1
+x=0 1 0
+x=1 0 0
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 2:
+f:B2→B, f(x,y) = x·y.
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 34 =====
+Puertas lógicas
+Puerta NAND: se trata de la puerta lógica que combina un par de valores x,y∈B
+según la tabla de operaciones siguiente:
+NAND y=0 y=1
+x=0 1 1
+x=1 1 0
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 2:
+f:B2→B, f(x,y) = x+y.
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 35 =====
+Puertas lógicas
+Puerta NXOR: se trata de la puerta lógica que combina un par de valores x,y∈B
+según la tabla de operaciones siguiente:
+XNOR y=0 y=1
+x=0 1 0
+x=1 0 1
+Esta puerta lógica puede interpretarse como la siguiente función booleana de F 2:
+f:B2→B, f(x,y) = x·y+x·y.
+Se representa mediante el siguiente símbolo:
+
+===== PAGINA 36 =====
+Circuitos lógicos
+Las puertas lógicas pueden combinarse entre sí para formar circuitos lógicos , los cuales
+pueden interpretarse como elementos de F n.
+A
+B
+C
+D
+E
+F
+G
+===== PAGINA 37 =====
+Circuitos lógicos
+Ejemplo
+Consideremos el circuito lógico siguiente:
+x
+y
+zx
+y
+zA
+BC
+===== PAGINA 38 =====
+La función booleana asociada a este circuito es f∈F 3dada por
+f(x,y,z) = ( x+y)·z.

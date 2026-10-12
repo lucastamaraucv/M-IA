@@ -1,0 +1,838 @@
+================================================================================
+RESUMEN CONSOLIDADO — CAPÍTULO 2: VALIDACIÓN Y EVALUACIÓN
+Fuentes: as_pdf_text.txt (páginas 32-52) + notebooks tema2 (métricas y validación_modelos)
+================================================================================
+
+NOTA METODOLÓGICA: Todo el contenido teórico está citado con [PDF p.N]. El código
+está copiado literalmente de los notebooks indicados entre corchetes. No se ha
+añadido código de GridSearchCV ni de curva ROC/AUC porque NO aparecen en ninguna
+de las fuentes revisadas (ni en el PDF cap.2 ni en los 3 notebooks del tema2,
+incluida la versión "_version_clase").
+
+
+--------------------------------------------------------------------------------
+0. INTRODUCCIÓN AL CAPÍTULO: ENTRENAMIENTO, TEST, SOBREAJUSTE Y SUBAJUSTE
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA:
+
+A partir del Capítulo 2, la asignatura se centra únicamente en problemas de
+inferencia/predicción de una clase dentro del aprendizaje supervisado. Se
+estudian cuatro algoritmos: regresión lineal múltiple y vecinos más cercanos
+(regresión); regresión logística y árboles de decisión (clasificación) [PDF p.32].
+
+Se define el conjunto de entrenamiento (training) como el conjunto de datos que
+usa el algoritmo para aprender su modelo de conocimiento, y el conjunto de test
+como el conjunto usado para que el algoritmo prediga sobre ejemplos que NO ha
+visto en el entrenamiento. Esta separación es fundamental: el conjunto de test
+no debe contener ninguna instancia del entrenamiento [PDF p.33].
+
+Aprender "de memoria" los ejemplos de entrenamiento es el problema de
+sobreajuste (overfitting): el modelo obtiene errores de entrenamiento muy bajos
+pero errores de generalización (sobre datos de test) altos. El problema opuesto,
+aprender un concepto demasiado general, es el subajuste (underfitting), que se
+caracteriza por errores de entrenamiento y de generalización altos y similares
+entre sí [PDF p.33-34]. El objetivo es encontrar el punto óptimo de complejidad
+del modelo que minimiza el error de generalización [PDF p.34].
+
+El notebook de validación complementa esta idea con el compromiso sesgo-varianza
+(bias-variance tradeoff): un modelo de alto sesgo (underfitting) no logra
+ajustar ni siquiera los datos de entrenamiento; un modelo de alta varianza
+(overfitting) ajusta muy bien el entrenamiento pero falla en datos nuevos. El
+puntaje de entrenamiento siempre es más alto que el puntaje de test/validación;
+para complejidad muy baja ambos son malos (underfitting), para complejidad muy
+alta el de entrenamiento sigue subiendo pero el de validación cae (overfitting);
+existe un punto intermedio óptimo [notebook validacion_modelos, sección 1.3].
+
+Para poder evaluar la bondad de las predicciones se necesitan métricas. Se
+introducen aquí dos métricas básicas (que se detallan más adelante en 2.4 y 2.5):
+MAE para regresión y Exactitud (accuracy) para clasificación [PDF p.34-35].
+
+Se define "validación" (validation o resampling) como el proceso de dividir el
+conjunto de datos en subconjuntos de entrenamiento y test para evaluar
+adecuadamente los algoritmos [PDF p.35].
+
+FÓRMULAS EXACTAS [PDF p.34-35]:
+
+  MAE = (1/n) * Σ|y_i - ŷ_i|    (i=1..n)
+    n = número de ejemplos de test, y_i = clase real, ŷ_i = predicción del modelo
+
+  Exactitud (%) = 100 * (1/n) * Σ [y_i = ŷ_i]    (i=1..n)
+    donde el operador de igualdad (=) devuelve 1 si coinciden, 0 si no.
+
+
+--------------------------------------------------------------------------------
+1. VALIDACIÓN HOLD-OUT (apartado 2.1)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA:
+
+La validación hold-out ("mantener fuera") divide el conjunto de datos en dos
+partes: entrenamiento y test, usando un porcentaje de reparto habitual de
+66%-34% o 70%-30% [PDF p.35].
+
+Existen dos variantes según la aleatoriedad:
+- Hold-out NO aleatorio: se toma el primer X% de las muestras para
+  entrenamiento y el resto (manteniendo el orden original) para test. Es útil
+  cuando hay dependencias entre muestras, p. ej. series temporales [PDF p.35].
+- Hold-out aleatorio: primero se reordenan aleatoriamente las muestras y luego
+  se hace el corte. Es recomendable cuando no hay dependencias de orden a
+  respetar [PDF p.35-36].
+
+También puede darse el caso de que la partición train/test venga ya fijada por
+el propio problema (para comparar con resultados de otros trabajos); esto
+también se considera una forma de hold-out [PDF p.36].
+
+El notebook de métricas usa el dataset "California housing" con hold-out y
+además aplica una estandarización de los datos de entrenamiento/test (aunque
+las celdas de código concretas de esa parte están vacías como ejercicio guiado
+en el notebook, solo quedan los comentarios: "# Dividir 0.2 test y fijar
+semilla aleatoria" y "# Estandarización de los datos de entrenamiento y test").
+
+El notebook de validación_modelos usa el dataset "diabetes" (load_diabetes) con
+100 instancias y hace un split estándar con train_test_split.
+
+CÓDIGO REAL [PDF Programa 7, p.36 — clasificación "iris" con hold-out 70/30]:
+
+    from sklearn import datasets
+    from sklearn.dummy import DummyClassifier
+    from sklearn.model_selection import train_test_split
+
+    # Carga de datos.
+    iris = datasets.load_iris()
+
+    # Mostrar características de la tabla de datos.
+    print("Tabla de datos: %d instancias y %d atributos" % (iris.data.shape[0],
+    iris.data.shape[1]))
+    print("Valores de la clase:", set(iris.target))
+
+    # Validación: hold-out split 70-30%.
+    X_train, X_test, y_train, y_test = train_test_split(
+        iris.data, iris.target, test_size=0.3, random_state=0)
+
+    # Mostrar características de los conjuntos de training y test.
+    print("Training: %d instancias y %d atributos" % (X_train.data.shape[0], X_
+    train.data.shape[1]))
+    print("Test: %d instancias y %d atributos" % (X_test.data.shape[0], X_test.
+    data.shape[1]))
+
+    # Construcción del objeto que contiene el algoritmo de aprendizaje.
+    clf = DummyClassifier()
+
+    # Entrenamiento del algoritmo de aprendizaje.
+    clf.fit(X_train, y_train)
+
+    # Evaluación del algoritmo de aprendizaje.
+    evaluacion = clf.score(X_test, y_test)
+    print("Exactitud:", evaluacion)
+
+Salida real del programa [PDF p.37]:
+    Tabla de datos: 150 instancias y 4 atributos
+    Valores de la clase: {0, 1, 2}
+    Training: 105 instancias y 4 atributos
+    Test: 45 instancias y 4 atributos
+    Exactitud: 0.3111111111111111
+
+Qué hace: train_test_split() recibe la matriz de atributos, el vector de clase,
+test_size (proporción de test, aquí 0.3 = 30%) y random_state (semilla para la
+reordenación aleatoria previa al corte). Si no se quiere reordenar aleatoriamente
+hay que pasar shuffle=False. Devuelve 4 elementos: X_train, X_test, y_train,
+y_test [PDF p.37]. DummyClassifier es un clasificador "tonto" (aún no se han
+estudiado algoritmos reales, que llegan en capítulos 3-4): predice la clase de
+forma aleatoria con probabilidad proporcional a la frecuencia de cada clase en
+entrenamiento; con 3 clases balanceadas (50 ejemplos c/u en iris) predice con
+probabilidad ~0.333 cada una [PDF p.37-38]. clf.fit(X_train, y_train) entrena;
+clf.score(X_test, y_test) evalúa y por defecto devuelve la exactitud [PDF p.38].
+
+CÓDIGO REAL [notebook validacion_modelos, celda 11 — hold-out con "diabetes"]:
+
+    from sklearn.datasets import load_diabetes
+    from sklearn.model_selection import train_test_split
+    from sklearn.model_selection import KFold
+    import numpy as np
+
+    # Carga de datos
+    X, y = load_diabetes(return_X_y = True)
+    X_data, y_data = X[0:100], y[0:100]
+
+    # Partición para validación hold-out
+    X_train, X_test, y_train, y_test = train_test_split(X_data, y_data, random_state = 0)
+    print(f"X_train: {X_train.shape}, X_test: {X_test.shape}")
+
+Qué hace: carga las 100 primeras instancias del dataset "diabetes" y hace un
+split hold-out con semilla fija (random_state=0), sin especificar test_size
+(usa el valor por defecto de sklearn, 0.25).
+
+FÓRMULAS Y DATOS CONCRETOS:
+  - Proporciones típicas: 66%/34% o 70%/30% train/test [PDF p.35].
+  - train_test_split(X, y, test_size=0.3, random_state=0) → reparto 70/30.
+  - shuffle=False → conserva el orden original (útil en series temporales).
+
+
+--------------------------------------------------------------------------------
+2. VALIDACIÓN CRUZADA / K-FOLD (apartado 2.2)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA:
+
+El inconveniente del hold-out es la escasa representatividad: se evalúa con un
+único conjunto de test, y su elección puede hacer variar significativamente las
+métricas de bondad obtenidas [PDF p.38].
+
+La validación cruzada (CV, cross validation) consiste en partir el conjunto de
+datos original en K subconjuntos de igual tamaño, llamados "bolsas" (folds). Se
+realizan K validaciones tipo hold-out, usando en cada una una bolsa distinta
+como test y el resto como entrenamiento. Ejemplo: con 150 ejemplos (iris) y
+K=10, cada bolsa tiene 15 ejemplos [PDF p.38-39].
+
+Caso particular: cuando K = n (número de instancias), se llama validación
+leave-one-out ("dejar uno fuera"): se predice cada ejemplo usando como
+entrenamiento todos los demás. Ventaja: no hay aleatoriedad en la elección de
+bolsas (hay una única posible), por lo que no depende de qué bolsas se
+escogieron al azar. Desventaja: computacionalmente muy costosa, pues requiere
+n entrenamientos y n predicciones (frente a K entrenamientos y n predicciones
+de un CV con K<n). Para datasets muy grandes (millones de instancias) es
+impracticable y se recurre a K=10 o similar [PDF p.40-41].
+
+Se recomienda repetir la validación cruzada varias veces cuando K<n, porque los
+resultados pueden depender bastante de la elección aleatoria de las bolsas,
+sobre todo en datasets con alta diversidad [PDF p.41].
+
+Se menciona también la validación estratificada (enlace externo, sin detalle
+en el texto): los conjuntos de test mantienen aproximadamente la misma
+distribución de clases que el conjunto de entrenamiento, lo que evita el
+problema del desbalanceo de clases [PDF p.41].
+
+El notebook validacion_modelos ilustra el mismo concepto con una figura de
+n particiones, cada una usada una vez como test y las restantes como
+entrenamiento, combinando los n puntajes (p. ej. con la media) para obtener una
+medición global más robusta del rendimiento [notebook validacion_modelos,
+sección 1.1]. También menciona que sklearn implementa este y otros esquemas de
+CV como iteradores en el módulo model_selection.
+
+CÓDIGO REAL [PDF Programa 8, p.39-40 — visualización de índices de cada iteración con KFold]:
+
+    from sklearn.model_selection import KFold
+
+    # Carga de datos.
+    X = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+
+    # Validación cruzada.
+    kf = KFold(n_splits = 3)
+    bolsas = kf.split(X)
+
+    # Mostrar ejemplos de cada iteración.
+    k = 1
+    for train, test in bolsas:
+        print("Iteracion", k, ":")
+        print(" - Entrenamiento: %s" % (train))
+        print(" - Test: %s" % (test))
+        k = k + 1
+
+Salida real [PDF p.40]:
+    Iteracion 1 :
+     - Entrenamiento: [4 5 6 7 8 9]
+     - Test: [0 1 2 3]
+    Iteracion 2 :
+     - Entrenamiento: [0 1 2 3 7 8 9]
+     - Test: [4 5 6]
+    Iteracion 3 :
+     - Entrenamiento: [0 1 2 3 4 5 6]
+     - Test: [7 8 9]
+
+Qué hace: con 10 elementos y K=3, la primera bolsa de test tiene 4 elementos
+(el resto 3), porque 10 no es divisible exactamente entre 3 [PDF p.40].
+
+CÓDIGO REAL [PDF Programa 9, p.40-41 — cross_val_score en clasificación "iris"]:
+
+    from sklearn import datasets
+    from sklearn.dummy import DummyClassifier
+    from sklearn.model_selection import cross_val_score
+    from sklearn.model_selection import KFold
+
+    # Carga de datos.
+    iris = datasets.load_iris()
+
+    # Mostrar características de la tabla de datos.
+    print("Tabla de datos: %d instancias y %d atributos" % (iris.data.shape[0],
+    iris.data.shape[1]))
+    print("Valores de la clase:", set(iris.target))
+
+    # Construcción del objeto que contiene el algoritmo de aprendizaje.
+    clf = DummyClassifier()
+
+    # Validación, entrenamiento y evaluación del algoritmo de aprendizaje.
+    evaluacion = cross_val_score(clf, iris.data, iris.target, cv = KFold(n_
+    splits=10))
+    print("Exactitud de cada bolsa:", evaluacion)
+    print("Exactitud (media +/- desv.): %0.3f (+/- %0.3f)" % (evaluacion.mean(),
+    evaluacion.std()))
+
+Salida real [PDF p.41]:
+    Tabla de datos: 150 instancias y 4 atributos
+    Valores de la clase: {0, 1, 2}
+    Exactitud de cada bolsa: [0.2 0.26666667 0.33333333 0.33333333 0.53333333
+    0.13333333 0.53333333 0.33333333 0.33333333 0.06666667]
+    Exactitud (media +/- desv.): 0.307 (+/- 0.144)
+
+Qué hace: cross_val_score() recibe el estimador, X, y, y el objeto cv (aquí
+KFold con n_splits=10) y devuelve un array con K valores de exactitud (uno por
+bolsa), que se resumen con media (evaluacion.mean()) y desviación típica
+(evaluacion.std()) [PDF p.41].
+
+CÓDIGO REAL [notebook validacion_modelos, celda 12 — iteración manual con KFold sobre "diabetes"]:
+
+    # Partición para validación cruzada
+    kf = KFold(3, shuffle = True) # partición aleatoria
+    #kf = KFold(4, random_state = 2, shuffle = True) # partición no aleatoria
+    # enumerate splits
+    for i, (train_index, test_index) in enumerate(kf.split(X_data)):
+      print(f"Fold {i}:")
+      print(f"  Train: index={train_index} \n len {len(train_index)}\n")
+      print(f"  Test:  index={test_index} \n len {len(test_index)} \n")
+
+Qué hace: crea un KFold de 3 particiones con shuffle=True (aleatorio) y recorre
+cada fold mostrando los índices de entrenamiento y test y su longitud.
+
+FÓRMULAS Y DATOS CONCRETOS:
+  - K bolsas de tamaño igual (aprox. n/K instancias cada una).
+  - Leave-one-out: caso particular donde K = n.
+  - Coste: CV con K<n → K entrenamientos, n predicciones. Leave-one-out → n
+    entrenamientos, n predicciones [PDF p.41].
+  - K=10 es el valor recomendado como estándar práctico para datasets grandes
+    [PDF p.41].
+
+
+--------------------------------------------------------------------------------
+2-bis. BOOTSTRAPPING (complemento de los notebooks, no aparece en el PDF cap.2)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA (solo notebook, no PDF):
+
+Es una tercera forma de validación con re-muestreo (resampling) que permite
+calcular estadísticas con niveles de confianza. Procedimiento: se fija un
+tamaño de muestra; se seleccionan instancias iterativamente con reemplazo hasta
+alcanzar ese tamaño (una misma instancia puede repetirse en la muestra de
+entrenamiento); los datos NO elegidos para entrenamiento pasan a test y se
+llaman "out of bag" (OOB, fuera de la bolsa). Nunca hay instancias repetidas
+entre train y test [notebook validacion_modelos, sección 1.2].
+
+CÓDIGO REAL [notebook validacion_modelos, celda 18 — ejemplo básico de bootstrap]:
+
+    from sklearn.utils import resample #metodo de muestreo con remplazo
+
+    data = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+    #crear la muestra de bootstrap
+    boot = resample(data, replace=True, n_samples=5, random_state=3)
+    print('Bootstrap:',boot)
+    # out of bag
+    oob = [x for x in data if x not in boot]
+    print('OOB:',oob)
+
+CÓDIGO REAL [notebook validacion_modelos, celdas 20-22 — bootstrap repetido 40 veces con ElasticNet sobre dataset CO2/motor]:
+
+    import pandas as pd
+    import numpy as np
+    from sklearn.linear_model import ElasticNet
+    from sklearn import metrics
+
+    df=pd.read_csv('https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/ML0101ENv3/labs/FuelConsumptionCo2.csv')
+    df.dropna(inplace=True)
+    data= df[['ENGINESIZE','CO2EMISSIONS']].values
+
+    MAE = []
+    n_rep = 40
+
+    for i in range(n_rep):
+      boot = resample(data, replace=True, n_samples=int(len(data)/2))
+      oob = np.array([x for x in data if x.tolist() not in boot.tolist()])
+
+      X_train = boot[:,0].reshape(-1,1)
+      y_train = boot[:,1]
+      X_test = oob[:,0].reshape(-1,1)
+      y_test = oob[:,1]
+      #entrenamos el modelo
+      elastic = ElasticNet(alpha=0.01,l1_ratio=1)
+      elastic.fit(X_train,y_train)
+      y_pred = elastic.predict(X_test)
+      mae = metrics.mean_absolute_error(y_test, y_pred)
+      MAE.append(mae)
+
+    # ... y luego:
+    media = np.mean(MAE)
+    dstd = np.std(MAE)
+    print('Error MAE:',media,'+/-',dstd)
+
+Qué hace: repite 40 veces un muestreo bootstrap (mitad del dataset, con
+reemplazo) para entrenar un ElasticNet y calcula el MAE en el conjunto OOB en
+cada repetición, obteniendo así una distribución del error (media +/- desv.
+típica) en vez de un único valor puntual.
+
+
+--------------------------------------------------------------------------------
+3. AJUSTE DE PARÁMETROS Y VALIDACIÓN ANIDADA (apartado 2.3)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA:
+
+Los algoritmos de aprendizaje supervisado (estudiados en detalle en capítulos 3
+y 4) pueden tener uno o varios parámetros de configuración que regulan su
+funcionamiento y afectan a la bondad de los resultados. Encontrar la elección
+óptima de estos parámetros se llama ajuste de parámetros (hyperparameter
+tuning), y normalmente implica una búsqueda (exhaustiva o mediante heurísticas/
+metaheurísticas, tema tratado en la asignatura "Algoritmos de optimización")
+que maximice una métrica de evaluación (p. ej. exactitud en clasificación o MAE
+en regresión) [PDF p.42].
+
+Regla fundamental: el ajuste de parámetros NUNCA debe hacerse maximizando la
+bondad sobre el conjunto de test. El test debe permanecer aislado durante todo
+el entrenamiento y ajuste, para evitar el sobreajuste y poder evaluar
+correctamente la capacidad de generalización [PDF p.43].
+
+Para poder ajustar parámetros sin tocar el test, se usa un conjunto de test de
+validación (validation test), extraído como parte del conjunto de
+entrenamiento. Cada configuración de modelo se entrena con el conjunto de
+entrenamiento y se prueba con el test de validación; tras encontrar la mejor
+configuración, el modelo final se evalúa (una sola vez) con el test
+independiente [PDF p.43].
+
+Aun así, ajustar parámetros con un único test de validación también puede
+sobreajustar a las peculiaridades de ese test de validación concreto. Por eso
+se suelen usar varios tests de validación mediante una validación cruzada sobre
+el conjunto de entrenamiento: esto se llama validación anidada (nested
+validation o double validation), que combina dos niveles:
+  - Validación externa: la partición original en train/test.
+  - Validación interna: partición del conjunto de entrenamiento, a su vez, en
+    subconjuntos de entrenamiento/test, usada para el ajuste de parámetros
+    [PDF p.44].
+
+Con validación anidada, el ajuste de parámetros busca los valores que maximizan
+el promedio de bondad obtenido en todos los tests de validación internos. Una
+vez hallado el set óptimo, el modelo se reentrena con TODO el conjunto de
+entrenamiento usando esos parámetros, y se evalúa finalmente sobre el test
+independiente [PDF p.44].
+
+NOTA: el PDF (páginas 32-52) NO incluye código de ejemplo para este apartado
+(no aparece GridSearchCV ni ningún Programa/Salida numerados para 2.3). Tampoco
+aparece GridSearchCV en ninguno de los notebooks del tema2 revisados. La
+sección 1.4 del notebook validacion_modelos ("Curvas de validación") es
+conceptualmente afín (explora cómo varía el rendimiento train/validación al
+cambiar un hiperparámetro, el grado del polinomio) aunque usa validation_curve
+en vez de GridSearchCV:
+
+CÓDIGO REAL [notebook validacion_modelos, celda 40 — validation_curve para explorar el hiperparámetro "grado del polinomio"]:
+
+    from sklearn.model_selection import validation_curve
+    degree = np.arange(0, 21)
+    train_score, val_score = validation_curve(PolynomialRegression(), X, y, param_name = 'polynomialfeatures__degree', param_range = degree, cv=7)
+
+    plt.plot(degree, np.median(train_score, 1), color='blue', label='Puntaje de entrenamiento')
+    plt.plot(degree, np.median(val_score, 1), color='red', label='Puntaje de validación')
+    plt.legend(loc='best')
+    plt.ylim(0, 1)
+    plt.xlabel('Grado')
+    plt.ylabel('Puntaje');
+
+Qué hace: para cada valor del hiperparámetro "degree" (0 a 20) del pipeline
+PolynomialRegression, calcula con cv=7 (7-fold CV) el puntaje de entrenamiento
+y de validación, permitiendo elegir visualmente el grado óptimo (el que
+maximiza el puntaje de validación antes de que empiece a caer por overfitting).
+El notebook concluye que el equilibrio óptimo se da en grado 3 para ese dataset
+[notebook validacion_modelos, celda 41, texto].
+
+También se usa learning_curve para ver cómo cambia el rendimiento train/val al
+variar el TAMAÑO del conjunto de entrenamiento (con degree fijo):
+
+CÓDIGO REAL [notebook validacion_modelos, celda 49]:
+
+    from sklearn.model_selection import learning_curve
+
+    fig, ax = plt.subplots(1, 2, figsize=(16, 6))
+    fig.subplots_adjust(left=0.0625, right=0.95, wspace=0.1)
+
+    for i, degree in enumerate([2, 9]):
+        N, train_lc, val_lc = learning_curve(PolynomialRegression(degree),
+                                             X, y, cv=7,
+                                             train_sizes=np.linspace(0.3, 1, 25))
+
+        ax[i].plot(N, np.mean(train_lc, 1), color='blue', label='Puntaje de entrenamiento')
+        ax[i].plot(N, np.mean(val_lc, 1), color='red', label='Puntaje de validación')
+        ax[i].hlines(np.mean([train_lc[-1], val_lc[-1]]), N[0], N[-1],
+                     color='gray', linestyle='dashed')
+        ax[i].set_ylim(0, 1)
+        ax[i].set_xlim(N[0], N[-1])
+        ax[i].set_xlabel('Tamaño de los datos de entrenamiento')
+        ax[i].set_ylabel('Puntaje')
+        ax[i].set_title('Grado = {0}'.format(degree), size=14)
+        ax[i].legend(loc='best')
+
+FÓRMULAS Y DATOS CONCRETOS:
+  - No hay fórmula matemática específica para el ajuste de parámetros en el
+    PDF; es un proceso de búsqueda que maximiza una métrica ya definida (MAE,
+    exactitud, etc.) sobre validación interna.
+  - Validación anidada = validación externa (train/test) + validación interna
+    (CV dentro del train) [PDF p.44].
+
+
+--------------------------------------------------------------------------------
+4. EVALUACIÓN EN REGRESIÓN: MAE, MSE, RMSE, MAPE, R² (apartado 2.4)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA:
+
+Ya se introdujo MAE al inicio del capítulo [PDF p.34]. Aquí se añade RMSE, que
+se basa en las diferencias AL CUADRADO entre predicciones y valores reales.
+A diferencia de MAE, en RMSE los errores grandes pesan mucho más en el cómputo
+final, porque están elevados al cuadrado antes de promediar [PDF p.44-45].
+
+MAE y RMSE son métricas de evaluación ABSOLUTAS: las desviaciones tienen la
+misma unidad de magnitud que la variable de clase (p. ej., si se predice precio
+de vivienda en dólares, MAE y RMSE se expresan también en dólares) [PDF p.45].
+
+Cuando se necesita conocer la magnitud del error de forma RELATIVA al valor
+real (como porcentaje), se usan métricas relativas, siendo la más utilizada el
+MAPE (error porcentual absoluto medio) [PDF p.45-46].
+
+El notebook de métricas añade también el MSE (error cuadrático medio, la
+versión sin raíz de RMSE) como métrica intermedia, y contextualiza estas
+métricas dentro de la regresión lineal (simple: y = w0 + w1*x; múltiple:
+y = w0 + w1*x1 + w2*x2 + ... + wn*xn), explicando que estas métricas actúan
+como "función de costo": el entrenamiento del modelo consiste en encontrar los
+parámetros w_i que minimizan dicha función de costo (p. ej. mínimos cuadrados)
+[notebook métricas, sección 1.1].
+
+CÓDIGO REAL [PDF Programa 10, p.45-46 — métricas de regresión con validación cruzada sobre "California housing"]:
+
+    import numpy as np
+    from math import sqrt
+    from pprint import pprint
+    from sklearn import datasets
+    from sklearn.dummy import DummyRegressor
+    from sklearn.model_selection import cross_validate
+    from sklearn.model_selection import KFold
+    from sklearn.metrics import make_scorer
+    from sklearn.metrics import mean_squared_error
+    # Carga de datos.
+    datos = datasets.fetch_california_housing()
+    # Algoritmo de aprendizaje.
+    reg = DummyRegressor()
+
+    # Métricas de evaluación.
+    metricas = {
+      'MAE': 'neg_mean_absolute_error',
+      'RMSE': make_scorer(
+              lambda y, y_pred:
+                sqrt(mean_squared_error(y, y_pred)),
+                greater_is_better=False),
+      'MAPE': make_scorer(
+              lambda y, y_pred:
+                np.mean(np.abs((y - y_pred) / y)) * 100,
+                greater_is_better=False)}
+
+    # Validación y evaluación del modelo.
+    evaluacion = cross_validate(reg, datos.data, datos.target,
+                    cv = KFold(n_splits=10), scoring = metricas)
+
+    # Presentación de los resultados de la evaluación.
+    pprint(evaluacion)
+
+Salida real (resumida) [PDF p.46]:
+    'test_MAE': array([ -5.352,  -3.53 ,  -4.947, -10.762, -6.44, -10.048,
+      -3.174, -11.293, -10.234,  -4.638]),
+    'test_MAPE': array([-29.251, -12.906, -30.399, -30.346, -18.562, -27.268,
+      -14.909, -98.893, -90.94, -33.262]),
+    'test_RMSE': array([ -6.329,  -5.549,  -5.611, -13.845, -10.196, -13.139,
+      -4.072, -13.456, -10.809, -5.994]),
+    (más las versiones train_MAE, train_MAPE, train_RMSE, fit_time, score_time)
+
+Qué hace: DummyRegressor predice siempre la media aritmética de las clases del
+conjunto de entrenamiento (p. ej. si train tiene clases 3,4,5 → siempre predice
+4) [PDF p.45]. MAE ya viene definida en sklearn como 'neg_mean_absolute_error';
+RMSE y MAPE se implementan a mano con make_scorer(), que convierte cualquier
+función (que reciba y, y_pred y devuelva un número) en una métrica evaluable.
+Como sklearn asume por defecto que "mayor valor = mejor resultado", y estas 3
+métricas son errores (menor = mejor), se debe pasar greater_is_better=False
+[PDF p.46-47]. cross_validate() (a diferencia de cross_val_score) permite pasar
+VARIAS métricas a la vez vía el argumento scoring. El resultado es un diccionario
+con 8 entradas: fit_time, score_time, test_MAE, test_MAPE, test_RMSE, train_MAE,
+train_MAPE, train_RMSE — las de prefijo train_ se calculan evaluando el modelo
+sobre el propio conjunto de entrenamiento, y suelen ser mejores (menor error)
+que las de test_ [PDF p.47].
+
+CÓDIGO REAL [notebook métricas, celda 15 — mismo patrón de métricas combinadas MAE/MSE/RMSE/MAPE]:
+
+    # Métricas de evaluación.
+    metricas = {
+      'MAE': 'neg_mean_absolute_error',
+      'MSE': 'neg_mean_squared_error',
+      'RMSE': make_scorer(lambda y, y_pred:
+                          sqrt(mean_squared_error(y, y_pred)),
+                          greater_is_better=False),
+      'MAPE': make_scorer(lambda y, y_pred:
+                          np.mean(np.abs((y - y_pred) / y)) * 100,
+                          greater_is_better=False)}
+
+CÓDIGO REAL [notebook métricas, celda 21 — función auxiliar para graficar real vs. predicción]:
+
+    def grafica_real_vs_pred(y_true, y_pred, metricas, algoritmo):
+        fig, ax = plt.subplots()
+        ax.scatter(y_true, y_pred, edgecolors=(0, 0, 0))
+        ax.plot([y_true.min(), y_true.max()], [y_true.min(), y_true.max()], 'k--', lw=4)
+        ax.set_xlabel('Valor real de la clase')
+        ax.set_ylabel('Predicción')
+        plt.show()
+
+Qué hace: dibuja un scatter de valor real (eje X) contra predicción (eje Y),
+con una línea diagonal discontinua de referencia (predicción perfecta); cuanto
+más cerca estén los puntos de esa diagonal, mejor es el modelo. El algoritmo
+usado en el ejercicio guiado del notebook es SVR (Support Vector Regression):
+"algorithm = SVR(C=1, gamma='auto', kernel='rbf')" [notebook métricas, celda 16].
+
+NOTA sobre R²: la métrica R² (coeficiente de determinación) NO aparece definida
+explícitamente ni en el PDF (páginas 32-52) ni en el código de los notebooks
+revisados (no hay ninguna llamada a r2_score ni a .score() de un regresor en
+este material). No se incluye fórmula porque no está verificada en las fuentes.
+
+FÓRMULAS EXACTAS:
+
+  MAE = (1/n) * Σ |y_i - ŷ_i|                                   [PDF p.34-35]
+
+  RMSE = sqrt( (1/n) * Σ (y_i - ŷ_i)^2 )                        [PDF p.44-45]
+
+  MSE = (1/m) * Σ (ŷ_i - y_i)^2   (= RMSE al cuadrado, sin raíz) [notebook métricas]
+
+  MAPE (%) = 100 * (1/n) * Σ |y_i - ŷ_i| / y_i                  [PDF p.45-46]
+  (versión notebook, con protección de división por cero):
+  MAPE = (1/m) * Σ |ŷ_i - y_i| / max(ε, |y_i|)                  [notebook métricas]
+
+  greater_is_better=False → necesario en make_scorer() para métricas de error
+  como RMSE/MAPE, porque sklearn asume por defecto "mayor = mejor".
+
+
+--------------------------------------------------------------------------------
+5. EVALUACIÓN EN CLASIFICACIÓN: MATRIZ DE CONFUSIÓN, PRECISIÓN, SENSIBILIDAD,
+   F1, ACCURACY (apartado 2.5)
+--------------------------------------------------------------------------------
+
+EXPLICACIÓN TEÓRICA — matriz de confusión y caso multiclase:
+
+A diferencia de la regresión, en clasificación se evalúa si se acierta o no la
+clase (no un "grado" de acierto): p. ej. en regresión el error de predecir
+lluvia se mide en l/m² de diferencia, mientras que en clasificación ("¿Lloverá
+o no?") solo importa acierto/fallo [PDF p.47-48].
+
+La métrica principal en clasificación es la matriz de confusión: una matriz
+cuadrada de orden = número de clases (m), donde P_i,j es el número de
+predicciones cuya clase real es Ci y la clase predicha es Cj. El número total de
+aciertos es la suma de la diagonal principal (Σ P_i,i); los fallos son
+n - Σ P_i,i [PDF p.48]. Con esta notación, la exactitud puede reescribirse como
+100 * (Σ P_i,i) / n [PDF p.48-49].
+
+Caso binario (m=2, positivo/negativo): surgen 4 casos posibles, TP
+(verdadero positivo), TN (verdadero negativo), FP (falso positivo) y FN (falso
+negativo) [PDF p.49].
+
+Estos 4 conceptos (TP/TN/FP/FN) también se usan en problemas multiclase (m>2):
+se puede evaluar cada clase de forma "binaria" (esa clase vs. el resto),
+obteniendo m matrices de confusión, m tuplas <TP,TN,FP,FN> y m exactitudes
+distintas, una por clase [PDF p.49].
+
+El notebook de métricas ilustra con un ejemplo médico (test de cáncer) por qué
+importan estos 4 tipos de error: falso positivo = paciente sano marcado como
+enfermo (pruebas extra, molestia); falso negativo = paciente enfermo marcado
+como sano (riesgo grave de no recibir tratamiento) [notebook métricas, sección
+1.2.1].
+
+EXPLICACIÓN TEÓRICA — datos no balanceados (solo notebook, complementa el PDF):
+
+El notebook demuestra con el dataset "digits" (clasificar el dígito 9 contra el
+resto, ratio 9:1) que la exactitud puede ser engañosa en datos desbalanceados:
+un DummyClassifier que siempre predice "no es 9" obtiene >80% de exactitud sin
+haber aprendido nada útil, similar a lo que obtiene un SVM real, lo que hace
+imposible juzgar el rendimiento real solo con accuracy [notebook métricas,
+sección 1.2.2]. Esto motiva el uso de precisión, exhaustividad (recall) y F1.
+
+EXPLICACIÓN TEÓRICA — precisión, sensibilidad/recall y F1:
+
+Precisión: mide la tasa de aciertos positivos respecto al TOTAL de predicciones
+positivas realizadas. Mide "cuánto podemos confiar" en que, cuando el modelo
+dice "sí", acierta. Un modelo con 100% de precisión (FP=0) siempre acierta
+cuando predice positivo, pero eso no implica que acierte siempre que debería
+decir "sí" (puede tener FN>0) [PDF p.49-50].
+
+Sensibilidad / cobertura (recall/coverage): mide cuántos de los casos
+REALMENTE positivos son cubiertos por las predicciones positivas del modelo.
+Un modelo con 100% de sensibilidad (FN=0) predice correctamente TODOS los
+positivos reales, pero eso no impide que también dé muchos falsos positivos
+(p. ej., si predijera "sí" siempre) [PDF p.50].
+
+En la práctica, precisión y sensibilidad suelen estar reñidas: mejorar una
+empeora la otra. Por eso se combina ambas en una sola métrica: F1 (F-measure),
+la media armónica entre sensibilidad y precisión [PDF p.50].
+
+El notebook explica lo mismo con otra redacción: precisión se usa cuando
+importa limitar los falsos positivos; exhaustividad (recall) se usa cuando
+importa evitar falsos negativos; F1 es la media armónica de ambas y resulta
+mejor métrica que accuracy en datasets desbalanceados [notebook métricas,
+sección 1.2.4].
+
+CÓDIGO REAL [PDF Programa 11, p.50-51 — métricas completas de clasificación con CV sobre "iris"]:
+
+    from sklearn import datasets
+    from sklearn.dummy import DummyClassifier
+    from sklearn.model_selection import cross_val_predict
+    from sklearn.model_selection import KFold
+    import sklearn.metrics as metrics
+    # Carga de datos.
+    datos = datasets.load_iris()
+    # Algoritmo de aprendizaje.
+    clf = DummyClassifier()
+    # Validación y obtención de las predicciones del modelo.
+    y_pred = cross_val_predict(clf, datos.data, datos.target,
+                cv = KFold(n_splits=10))
+    # Presentación de los resultados de la evaluación.
+    print("Exactitud: %.3f\n" %
+       (metrics.accuracy_score(datos.target, y_pred)))
+    print("Precisión: %.3f\n" %
+       (metrics.precision_score(datos.target, y_pred, average="micro")))
+    print("Sensibilidad: %.3f\n" %
+       (metrics.recall_score(datos.target, y_pred,
+                             average="micro")))
+    print("F1: %.3f\n" %
+       (metrics.f1_score(datos.target, y_pred, average="micro")))
+    print("Matriz de confusión:\n",
+       metrics.confusion_matrix(datos.target, y_pred))
+    print("Tabla de métricas:\n",
+       metrics.classification_report(datos.target, y_pred))
+
+Salida real [PDF p.51-52]:
+    Exactitud: 0.287
+    Precisión: 0.287
+    Sensibilidad: 0.287
+    F1: 0.287
+    Matriz de confusión:
+     [[17 16 17]
+     [15 16 19]
+     [18 22 10]]
+    Tabla de métricas:
+                  precision    recall  f1-score   support
+              0       0.34      0.34      0.34        50
+              1       0.30      0.32      0.31        50
+              2       0.22      0.20      0.21        50
+    avg / total       0.28      0.29      0.29       150
+
+Qué hace: cross_val_predict() hace la validación cruzada pero, en vez de
+devolver puntajes por bolsa, devuelve UN ÚNICO vector con las predicciones de
+todos los ejemplos (cada uno predicho cuando su bolsa fue la de test); ese
+vector (y_pred) se compara con las clases reales (datos.target) usando
+accuracy_score, precision_score, recall_score y f1_score (con average="micro"
+para el caso multiclase), confusion_matrix (matriz NxN) y classification_report
+(tabla resumen con precisión/recall/f1/support por clase) [PDF p.51-52].
+
+CÓDIGO REAL [notebook métricas, celda 40 — matriz de confusión básica]:
+
+    from sklearn.metrics import confusion_matrix
+
+    confusion = confusion_matrix(y_test, pred_logreg)
+    print("Confusion matrix:\n{}".format(confusion))
+
+Qué hace: en la matriz 2x2 resultante, las filas son la clase verdadera y las
+columnas la clase predicha; cada celda cuenta cuántas muestras de la clase de
+esa fila fueron clasificadas como la clase de esa columna [notebook métricas,
+sección 1.2.3].
+
+CÓDIGO REAL [notebook métricas, celda 51 — F1 comparando varios modelos]:
+
+    from sklearn.metrics import f1_score
+
+    print("f most_frequent: {:.2f}".format(f1_score(y_test, pred_most_frequent)))
+    print("f dummy: {:.2f}".format(f1_score(y_test, pred_dummy)))
+    print("f svm: {:.2f}".format(f1_score(y_test, pred_svm)))
+    print("f LG: {:.2f}".format(f1_score(y_test, pred_logreg)))
+
+CÓDIGO REAL [notebook métricas, celda 53 — reporte completo por clase]:
+
+    from sklearn.metrics import classification_report
+    print(classification_report(y_test, pred_most_frequent,
+                                target_names=["not nine", "nine"]))
+
+Qué hace: classification_report imprime, por cada clase, su precisión, recall
+(exhaustividad), f1-score y support (número de muestras de esa clase), más un
+promedio global. Elegir qué clase se considera "positiva" cambia drásticamente
+los números de precisión/recall/f1 aunque la matriz de confusión sea la misma
+[notebook métricas, sección 1.2.4].
+
+CÓDIGO REAL — DummyClassifier con distintas estrategias, para contraste [notebook métricas, celdas 32, 34, 36]:
+
+    from sklearn.dummy import DummyClassifier
+
+    dummy_majority = DummyClassifier(strategy='most_frequent').fit(X_train, y_train)
+    pred_most_frequent = dummy_majority.predict(X_test)
+    print("Etiqueta predicha única: {}".format(np.unique(pred_most_frequent)))
+    print("Puntaje: {:.2f}".format(dummy_majority.score(X_test, y_test)))
+
+    # --- comparación con SVM real ---
+    from sklearn.svm import SVC
+    svm = SVC(gamma="auto").fit(X_train,y_train)
+    pred_svm = svm.predict(X_test)
+    print("Puntaje: {:.2f}".format(svm.score(X_test, y_test)))
+
+    # --- comparación con Dummy aleatorio y Regresión logística ---
+    from sklearn.linear_model import LogisticRegression
+
+    dummy = DummyClassifier().fit(X_train, y_train)
+    pred_dummy = dummy.predict(X_test)
+    print("Puntaje Dummy: {:.2f}".format(dummy.score(X_test, y_test)))
+
+    logreg = LogisticRegression(C=0.1, solver="liblinear").fit(X_train, y_train)
+    pred_logreg = logreg.predict(X_test)
+    print("Puntaje LogReg: {:.2f}".format(logreg.score(X_test, y_test)))
+
+FÓRMULAS EXACTAS:
+
+  Exactitud (accuracy) — caso general con m clases:
+    Exactitud = 100 * (Σ P_i,i) / n     (i=1..m; P_i,i = diagonal de la matriz
+    de confusión; n = total de predicciones)                    [PDF p.48-49]
+
+  Exactitud — caso binario:
+    Exactitud = 100 * (TP + TN) / (TP + TN + FP + FN)            [PDF p.49]
+    (equivalente en notación notebook: Accuracy = (TP+TN)/(P+N) )
+
+  Exactitud para una clase Ci específica (multiclase):
+    Exactitud(Ci) = 100 * P_i,i / Σ_j P_i,j                      [PDF p.49]
+
+  Precisión:
+    Precisión = 100 * TP / (TP + FP)                             [PDF p.50]
+    (notebook, en tanto por uno: Precisión = TP / (TP + FP))
+
+  Sensibilidad / Recall / Exhaustividad:
+    Sensibilidad = 100 * TP / (TP + FN)                          [PDF p.50]
+    (notebook: Exhaustividad = TP / (TP + FN))
+
+  F1 (media armónica de precisión y sensibilidad):
+    F1 = 100 * (2 * Sensibilidad * Precisión) / (Sensibilidad + Precisión)  [PDF p.50]
+    (notebook, en tanto por uno: f = 2 * (Precisión * Exhaustividad) / (Precisión + Exhaustividad))
+
+  Definiciones de TP/TN/FP/FN (caso binario, positivo/negativo) [PDF p.49]:
+    TP: el modelo dice "sí" y la realidad es "sí"
+    TN: el modelo dice "no" y la realidad es "no"
+    FP: el modelo dice "sí" y la realidad es "no"
+    FN: el modelo dice "no" y la realidad es "sí"
+
+  Matriz de confusión binaria (Tabla 6, PDF p.49):
+                     Predicha Positiva   Predicha Negativa
+    Real Positiva          TP                  FN
+    Real Negativa          FP                  TN
+
+NOTA sobre curva ROC/AUC: NO aparece en el PDF (páginas 32-52) ni en ningún
+notebook del tema2 (se verificó con búsqueda de "roc_curve", "roc_auc",
+"RocCurve" en los tres notebooks — cero resultados). El PDF solo remite a un
+enlace externo de la documentación de scikit-learn sobre precisión/recall
+[PDF p.52], sin cubrir ROC/AUC en este capítulo. No se incluye contenido de ROC
+para no inventar nada fuera de las fuentes.
+
+
+================================================================================
+FIN DEL RESUMEN — Capítulo 2 completo (2.1 a 2.5) + complementos de notebooks
+(bootstrapping, curvas de validación/aprendizaje, datos no balanceados)
+================================================================================
